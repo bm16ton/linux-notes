@@ -1,0 +1,102 @@
+sudo ip link set dev wlp3s0 up
+sudo hostapd /etc/hostapd/hostapd.conf
+
+sudo iw wlx000e3b07b563 set type master
+
+
+    ########### FIX!! #################
+    EDIT /etc/network/interfaces
+auto wlx000e3b07b563
+iface wlx000e3b07b563 inet static
+hostapd /etc/hostapd/hostapd.conf
+address 192.168.8.1
+netmask 255.255.255.0
+
+
+################ contents of /etc/hostapd/hostapd.conf #############################
+
+#1 1interface used by access point
+interface=wlx000e3b07b563
+
+# firmware driver
+driver=nl80211
+
+# access point SSID
+ssid=MadOx
+
+# operation mode (a = IEEE 802.11a, b = IEEE 802.11b, g = IEEE 802.11g)
+hw_mode=g
+
+# access point channel
+channel=6
+
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+
+# key management algorithm
+wpa_key_mgmt=WPA-PSK
+wpa_passphrase=password
+wpa=2
+
+# set ciphers
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+###########################################################################
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!             iptables -t nat -A POSTROUTING -s 192.168.8.0/24 ! -d 192.168.8.0/24  -j MASQUERADE
+
+############# AND THE REST THATS NEEDED (EZ STUFF) ######################3
+
+Then we need to have a DNS relay and DHCP server on our wlan0 interface so the clients actually get a working Internet connection, and this can be accomplished by configuring dnsmasq. Like hostapd it also has a very verbose configuration file /etc/dnsmasq.conf, but the relevant parts look like this:
+
+interface=lo,wlan0
+no-dhcp-interface=lo
+dhcp-range=192.168.8.20,192.168.8.254,255.255.255.0,12h
+
+Next we need to make sure that the Linux kernel forwards traffic from our wireless network onto other destination networks. For that you need to edit the file /etc/sysctl.conf and make sure it has lines like this:
+
+net.ipv4.ip_forward=1
+
+We need to activate NAT in the built-in firewall of Linux to make sure the traffic going out uses the external address as its source address and thus can be routed back. It can be done for example by appending the following line to the file /etc/rc.local:
+
+iptables -t nat -A POSTROUTING -s 192.168.8.0/24 ! -d 192.168.8.0/24  -j MASQUERADE
+
+Some WLAN card hardware might have a virtual on/off switch. If you have such hardware you might need to also run rfkill to enable the hardware using a command like rfkill unblock 0.
+
+The same computer also runs Network Manager (as for example Ubuntu does by default) you need to edit it’s settings so that if won’t interfere with the new wifi access point. Make sure file /etc/NetworkManager/NetworkManager.conf looks like this:
+
+[main]
+plugins=ifupdown,keyfile,ofono
+dns=dnsmasq
+ 
+[ifupdown]
+managed=false
+
+Now all configuration should be done. To be sure all changes take effect, finish by rebooting the computer.
+
+If everything is working, a new WLAN network should be detected by other devices.
+On the WLAN-server you’ll see similar output from these commands:
+
+$ iw wlan0 info
+Interface wlan0
+        ifindex 3
+        type AP
+        wiphy 0
+
+$ iwconfig 
+wlan0     IEEE 802.11bgn  Mode:Master  Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+
+$ ifconfig
+wlan0     Link encap:Ethernet  HWaddr f4:ec:38:de:c8:d2  
+          inet addr:192.168.8.1  Bcast:192.168.8.255  Mask:255.255.255.0
+          inet6 addr: fe80::f6ec:38ff:fede:c8d2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5463040 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8166528 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:861148382 (861.1 MB)  TX bytes:9489973056 (9.4 GB)
+

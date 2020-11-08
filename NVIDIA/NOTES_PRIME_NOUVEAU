@@ -1,0 +1,37 @@
+*** OFFLOAD 3D AND OTHER BASIC COMMANDS ***
+*** LIST PROVIDERS ***
+
+xrandr --listproviders 
+
+*** USE NOUVEAU FOR OFFLOADING INTEL CARD ***
+
+xrandr --setprovideroffloadsink nouveau Intel
+
+*** USE ENVIROMENT VARIABLE DRI_PRIME= TO DETERMINE GPU USED IE; ***
+
+$ DRI_PRIME=0 glxinfo | grep "OpenGL vendor string"
+OpenGL vendor string: Intel Open Source Technology Center
+$ DRI_PRIME=1 glxinfo | grep "OpenGL vendor string"
+OpenGL vendor string: nouveau
+
+*** USING OUTPUTS ON DISCRETE (NVIDIA) GPU ***
+
+xrandr --setprovideroutputsource nouveau Intel
+xrandr --output HDMI-1 --auto --above LVDS1
+
+*** DRI3 ***
+### requirments;
+### A Kernel version 3.17 or newer with Render-Nodes - 3.16 only works when booting with drm.rnodes=1
+### XServer 1.16 with DRI3 support.
+### Mesa 10.3 with DRI3 support.
+### KMS drivers for both GPUs loaded.
+### DDX drivers for the primary GPU loaded.
+*** TEST, IF ALL WENT WELL YOU SHOULD DO/SEE THE FOLLOWING ***
+
+$ DRI_PRIME=0 glxinfo | grep "OpenGL vendor string"
+OpenGL vendor string: Intel Open Source Technology Center
+$ DRI_PRIME=1 glxinfo | grep "OpenGL vendor string"
+OpenGL vendor string: nouveau
+
+
+

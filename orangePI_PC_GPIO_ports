@@ -1,0 +1,45 @@
+    echo 1 > /sys/bus/platform/devices/sunxi_usb_udc/otg_role
+    echo 2 > /sys/bus/platform/devices/sunxi_usb_udc/otg_role
+
+    echo 0 > /sys/class/android_usb/android0/enable
+    echo 1d6b > /sys/class/android_usb/android0/idVendor
+    echo 0001 > /sys/class/android_usb/android0/idProduct
+    echo mtp > /sys/class/android_usb/android0/functions
+    echo 1 > /sys/class/android_usb/android0/enable
+
+
+possible gadget devices;
+
+accessory		(no extra files for options in directory)
+acm       		(1 extra file "instances" has 0 by default)
+adb				(no extra files for options in directory)
+audio_source	(1 extra file "pcm" has -1 -1 by default)
+ffs				(1 extra file "aliases" is blank by default)
+mass_storage	(has 1 file "inquiry_string" has string "USB 2.0 USB Flash Driver0100" 3 directorys lun,lun1,lun2 each contain files,  "file, nofua, ro, zero_disk" will research)
+mtp				(no extra files for options in directory)
+ptp				(no extra files for options in directory)
+rndis			(has alotta files "ethaddr, manufacturer, vendorID, wceis"  will research them later"
+
+
+/sys entrys I found for GPIO
+
+/sys/class/gpio_sw/ lists;
+
+PA0/  PA10/ PA14/ PA21/ PA6/  PA8/  PC4/  PD14/ PG7/  PG9/  
+PA1/  PA13/ PA2/  PA3/  PA7/  PA9/  PC7/  PG6/  PG8/ 
+
+each folder seems to contain the following files
+
+cfg, data, drv, pull
+
+/sys/class/gpio/ lists 
+
+export gpiochip0/ unexport 
+
+export and unexport are not accessible but gpiochip0 directory contains;
+
+baso		(contains "0")
+label  		(contains "sunxi-pinctrl")
+ngpio		(contains "384")
+
+

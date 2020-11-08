@@ -1,0 +1,33 @@
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY unetbootin-linux64-655
+alias pkexec='pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'				#Possible PATH issues must check
+##################################################################################
+/usr/share/polkit-1/actions  		#technically no correct place for changes
+ /usr/share/polkit-1/rules.d		#the technically correct place for changes  BUT IN SUM SORTA JAVA!!
+/etc/polkit-1/rules.d				#the technically correct place for changes  BUT IN SUM SORTA JAVA!!
+
+<annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+##################################################################################
+
+How to tell it to not ask for a password after the first time applying it to a command?
+
+For these three setting tags: allow_any, allow_inactive and allow_active from the policy file, the following options are available:
+
+    no: The user is not authorized to carry out the action. There is therefore no need for authentication.
+    yes: The user is authorized to carry out the action without any authentication.
+    auth_self: Authentication is required but the user need not be an administrative user.
+    auth_admin: Authentication as an administrative user is require.
+    auth_self_keep: The same as auth_self but, like sudo, the authorization lasts a few minutes.
+    auth_admin_keep: The same as auth_admin but, like sudo, the authorization lasts a few minutes
+
+So, if you use auth_admin_keep option (or, as applicable, auth_self_keep), pkexec will not ask for a password again for some time (by default this time is set to 5 minutes as I checked). The disadvantage here is that this thing is applicable only for one - the same - command / application and valid for all users (unless if it is overruled in later configuration).
+Where to save the configuration file if not yet existing?
+
+Configuration files or polkit definitions can be divided into two kinds:
+
+    Actions are defined in XML .policy files located in /usr/share/polkit-1/actions. Each action has a set of default permissions attached to it (e.g. you need to identify as an administrator to use the GParted action). The defaults can be overruled but editing the actions files is NOT the correct way. The name of this policy file should have this format:
+
+    com.ubuntu.pkexec.app_name.policy
+
+    Authorization rules are defined in JavaScript .rules files. They are found in two places: 3rd party packages can use /usr/share/polkit-1/rules.d (though few if any do) and /etc/polkit-1/rules.d is for local configuration. The .rules files designate a subset of users, refer to one (or more) of the actions specified in the actions files and determine with what restrictions these actions can be taken by that/those user(s). As an example, a rules file could overrule the default requirement for all users to authenticate as an admin when using GParted, determining that some specific user doesn't need to. Or isn't allowed to use GParted at all.
+
+

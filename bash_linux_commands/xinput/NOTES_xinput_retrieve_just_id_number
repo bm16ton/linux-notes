@@ -1,0 +1,3 @@
+export TOUCHM=$(xinput --list|grep 'USBest Technology SiS HID Touch Controller'|perl -ne 'while (m/id=(\d+)/g){print "$1\n";}')
+xinput map-to-output $TOUCHM eDP-1
+

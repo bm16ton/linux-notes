@@ -1,0 +1,26 @@
+CLONE A SPECIFIC BRANCH/TAG
+SIMPLE WAY;;
+
+git clone -b <branch/tag> <remote_repo>
+
+EXAMPLES;
+git clone -b my-branch/tag git@github.com:user/myproject.git
+
+git clone -b my-branch/tag https://git@github.com/username/myproject.github
+
+Use --single-branch to prevent fetching of all branches. (might explain why i had an extra 1.3gb in a .git directory!!) EXAMPLE;
+git clone -b 2.4 --single-branch https://github.com/Itseez/opencv.git opencv-2.4
+
+
+COMPLICATED WAY;;
+
+git init
+git remote add -t refspec remotename host:/dir.git
+git fetch
+
+EXAMPLE OF BEST WAY;
+
+git clone -b v3.19 --single-branch git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+
+git clone -b v4.8 --single-branch git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+#################  SWITCHING FROM ALLREADY CLONED REPO TO DIFF BRANCH  #################

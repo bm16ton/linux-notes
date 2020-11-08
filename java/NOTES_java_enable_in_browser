@@ -1,0 +1,13 @@
+First off Firefox has removed npapi plugin support so use Firefox ESR  which is a shortlived fork allowing NPAPI for now
+
+create plugins directory
+	mkdir ~/.mozilla/plugins
+	cd ~/.mozilla/plugins
+Then symlink the java plugin "libnpjp2.so"
+	ln -s /opt/java/jre1.8.0_91/lib/amd64/libnpjp2.so
+Now if the site/device is local etc need to add to exception list
+	/opt/java/jre1.8.0_131/bin/ControlPanel
+Goto Security tab and exception for your local device/website (requires https:// or http:// at beginning)
+
+good to go.  will look for npapi compatible browsers later
+

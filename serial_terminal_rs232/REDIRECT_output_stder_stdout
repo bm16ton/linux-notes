@@ -1,0 +1,8 @@
+2>   redirects standard error
+>    redirects standard output
+2>&1 redirects standard error to standard output
+
+
+    Redirect stdout to one file and stderr to another file: command > out 2>error.
+    Redirect stderr to stdout ( &1 ), and then redirect stdout to a file: command >out 2>&1.
+    Redirect both to a file: command &> out.

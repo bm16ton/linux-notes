@@ -1,0 +1,943 @@
+From: <Saved by UnMHT Ver.8.0.0>
+Subject: =?utf-8?B?RC40LsKgSW5zdGFsbGluZyBVYnVudHUgZnJvbSBhIFVuaXgvTGludXggU3lzdGVt?=
+Date: Thu, 26 Nov 2015 21:27:29 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_F5582ECA_5AE26FD0.15146C45001";
+	type="text/html"
+
+------=_Part_F5582ECA_5AE26FD0.15146C45001
+Content-Location: https://help.ubuntu.com/lts/installation-guide/powerpc/apds04.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAA=
+AAQCAYAAAAf8/9hAAACSklEQVQ4jX1TXWhSYRj+ZMxRN7vpZuwiRrBREchgxS6CQXTn1EULyWiF=
+dIQQRCu6yI0Yg4KUJIOhNCSiusqLbmSMLroQ2WgRw5Oxc456NHeOOmPqMX/W4ekm/46uF76bl/d=
+53p/n+QhRRImLjWf9Djdvm9xmZ1UyO6uSedvkdtbvcJe42LiyvisKQZedMQzWWC1Bv8cYBmuFoM=
+veA6RpWv3z0aWNo4CslqDOx9BIMw1Wp5IzzsvrNE2rWwSi59arLoBOhZzHitLGW5Q/vYewNIc6t=
+4NGhgOrU4HVEmT9DjchhBBpd0vD6lRyE5yyTkNcMaGyuY5m1PkYhKU5JG+e6mwil5mvZ4jopXzN=
+ZPzaCVS/b6KeoBE3jiB5ewKJ66PIeayQpSL+HOTB3znXIskFHj4hSfMY10wUXi8DAPKrD3pukHV=
+RAAAp/LGVS1omYoTVEvx69xTybwl7Tj3qfAzx+eEeAu7KcRRDARwEX7ZV0Q80CKMfaBTWFiFLRa=
+TtMzjMpsAZ1H2VSNsugrdoOkiPVUh8YTTdWmFtEQCw59T3gu0zAIBiKNC9gvjM9KZ1xPlh1H58Q=
+TUaQdw4gsSNk+AMagjLRjQyHA73M11KCF7LKqlEw1OdncQVE7IuCuXPH9oycjsQHl9F0nxaIeO3=
+s4QQQoTnCwHlyPkXNhRDARRDAaTunkc1GkE1Gmk38lK+lhMZhhlK37sQ+Z+V/60ms1qC9P3pcJe=
+VmyT9JlE+0Uv5GIYZOvJHVqLhKdFL+ToNljSPcaKX8km7Wxpl/V9ZLTo82gQ36wAAAABJRU5Erk=
+Jggg=3D=3D" rel=3D"shortcut icon" type=3D"image/png">
+
+<title>D.4.&#xa0;Installing Ubuntu from a Unix/Linux System</title>
+<link href=3D"install.css" rel=3D"stylesheet" type=3D"text/css">
+<meta content=3D"DocBook XSL Stylesheets V1.76.1" name=3D"generator">
+<link href=3D"index.html" rel=3D"home" title=3D"Ubuntu Installation Guide">
+<link href=3D"apd.html" rel=3D"up" title=3D"Appendix&#xa0;D.&#xa0;Random Bi=
+ts">
+<link href=3D"apds03.html" rel=3D"prev" title=3D"D.3.&#xa0;Disk Space Neede=
+d">
+<link href=3D"apds05.html" rel=3D"next" title=3D"D.5.&#xa0;Installing Ubunt=
+u using PPP over Ethernet (PPPoE)">
+<base href=3D"https://help.ubuntu.com/lts/installation-guide/powerpc/"></he=
+ad>
+<body alink=3D"#0000FF" bgcolor=3D"white" link=3D"#0000FF" text=3D"black" v=
+link=3D"#840084">
+<div class=3D"navheader">
+<table summary=3D"Navigation header" width=3D"100%">
+<tbody><tr><th align=3D"center" colspan=3D"3">D.4.&#xa0;Installing Ubuntu f=
+rom a Unix/Linux System</th></tr>
+<tr>
+<td align=3D"left" width=3D"20%">
+<a accesskey=3D"p" href=3D"apds03.html">Prev</a>&#xa0;</td>
+<th align=3D"center" width=3D"60%">Appendix&#xa0;D.&#xa0;Random Bits</th>
+<td align=3D"right" width=3D"20%">&#xa0;<a accesskey=3D"n" href=3D"apds05.h=
+tml">Next</a>
+</td>
+</tr>
+</tbody></table>
+<hr>
+</div>
+<div class=3D"sect1" title=3D"D.4.&#xa0;Installing Ubuntu from a Unix/Linux=
+ System">
+<div class=3D"titlepage"><div><div><h2 class=3D"title" style=3D"clear: both=
+">
+<a name=3D"linux-upgrade"></a>D.4.&#xa0;Installing Ubuntu from a Unix/Linux=
+ System</h2></div></div></div>
+<p>
+
+This section explains how to install Ubuntu from an existing
+Unix or Linux system, without using the menu-driven installer as
+explained in the rest of the manual. This <span class=3D"quote">=E2=80=9C<s=
+pan class=3D"quote">cross-install</span>=E2=80=9D</span>
+HOWTO has been requested by users switching to Ubuntu from
+Debian GNU/Linux, Red Hat, Mandriva, and SUSE. In this section some familia=
+rity with
+entering *nix commands and navigating the file system is assumed. In
+this section, <code class=3D"prompt">$</code> symbolizes a command to be en=
+tered in
+the user&#x27;s current system, while <code class=3D"prompt">#</code> refer=
+s to a
+command entered in the Ubuntu chroot.
+
+</p>
+<p>
+
+Once you&#x27;ve got the new Ubuntu system configured to your preference,
+you can migrate your existing user data (if any) to it, and keep on
+rolling. This is therefore a <span class=3D"quote">=E2=80=9C<span class=3D"=
+quote">zero downtime</span>=E2=80=9D</span> Ubuntu
+install. It&#x27;s also a clever way for dealing with hardware that
+otherwise doesn&#x27;t play friendly with various boot or installation
+media.
+
+</p>
+<div class=3D"note" style=3D"margin-left: 0.5in; margin-right: 0.5in;" titl=
+e=3D"Note">
+<h3 class=3D"title">Note</h3>
+<p>
+
+As this is a mostly manual procedure, you should bear in mind that you
+will need to do a lot of basic configuration of the system yourself,
+which will also require more knowledge of Ubuntu and of Linux in general
+than performing a regular installation. You cannot expect this procedure
+to result in a system that is identical to a system from a regular
+installation. You should also keep in mind that this procedure only
+gives the basic steps to set up a system. Additional installation and/or
+configuration steps may be needed. In general, this method of installation =
+is <span class=3D"emphasis"><em>not</em></span> recommended for casual or f=
+irst time users.
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.1.&#xa0;Getting Started">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7256288"></a>D.4.1.&#xa0;Getting Started</h3></div></div></di=
+v>
+<p>
+
+With your current *nix partitioning tools, repartition the hard
+drive as needed, creating at least one filesystem plus swap. You
+need around 350MB of space available for a console only install,
+or about 1GB if you plan to install X (more if you intend to
+install desktop environments such as GNOME or KDE).
+
+</p>
+<p>
+
+Next, create file systems on the partitions. For example, to create an
+ext3 file system on partition <code class=3D"filename">/dev/hda6</code> (th=
+at&#x27;s
+our example root partition):
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mke2fs -j /dev/<em c=
+lass=3D"replaceable"><code>hda6</code></em>
+</pre></div>
+<p>
+
+To create an ext2 file system instead, omit <strong class=3D"userinput"><co=
+de>-j</code></strong>.
+
+</p>
+<p>
+
+Initialize and activate swap (substitute the partition number for
+your intended Ubuntu swap partition):
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mkswap /dev/<em clas=
+s=3D"replaceable"><code>hda5</code></em>
+# sync; sync; sync
+# swapon /dev/<em class=3D"replaceable"><code>hda5</code></em>
+</pre></div>
+<p>
+
+Mount one partition as <code class=3D"filename">/mnt/ubuntu</code> (the
+installation point, to be the root (<code class=3D"filename">/</code>) file=
+system
+on your new system). The mount point name is strictly arbitrary, it is
+referenced later below.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mkdir /mnt/ubuntu
+# mount /dev/<em class=3D"replaceable"><code>hda6</code></em> /mnt/ubuntu
+</pre></div>
+<p>
+
+</p>
+<div class=3D"note" style=3D"margin-left: 0.5in; margin-right: 0.5in;" titl=
+e=3D"Note">
+<h3 class=3D"title">Note</h3>
+<p>
+
+If you want to have parts of the filesystem (e.g. /usr) mounted on
+separate partitions, you will need to create and mount these directories
+manually before proceding with the next stage.
+
+</p>
+</div>
+</div>
+<div class=3D"sect2" title=3D"D.4.2.&#xa0;Install debootstrap">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7266560"></a>D.4.2.&#xa0;Install <span class=3D"command"><str=
+ong>debootstrap</strong></span>
+</h3></div></div></div>
+<p>
+
+The utility used by the Ubuntu installer, and recognized as the
+official way to install an Ubuntu base system, is
+<span class=3D"command"><strong>debootstrap</strong></span>. It uses <span =
+class=3D"command"><strong>wget</strong></span> and
+<span class=3D"command"><strong>ar</strong></span>, but otherwise depends o=
+nly on
+<code class=3D"classname">/bin/sh</code> and basic Unix/Linux tools<sup>[<a=
+ class=3D"footnote" href=3D"#ftn.idp7270784" name=3D"idp7270784">23</a>]</s=
+up>. Install <span class=3D"command"><strong>wget</strong></span> and
+<span class=3D"command"><strong>ar</strong></span> if they aren&#x27;t alre=
+ady on your current system,
+then download and install <span class=3D"command"><strong>debootstrap</stro=
+ng></span>.
+
+</p>
+<p>
+
+ If you have an RPM (Red Hat Package Manager) based system, you can use ali=
+en, which
+ is available in the Debian repositories, to convert the .deb file to a use=
+able .rpm
+ file.
+
+</p>
+<p>
+
+Or, you can use the following procedure to install it
+manually. Make a work folder for extracting the .deb into:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mkdir work
+# cd work
+</pre></div>
+<p>
+
+The <span class=3D"command"><strong>debootstrap</strong></span> binary is l=
+ocated in the Ubuntu
+archive (be sure to select the proper file for your
+architecture). Download the <span class=3D"command"><strong>debootstrap</st=
+rong></span> .deb from
+the <a class=3D"ulink" href=3D"http://archive.ubuntu.com/ubuntu/pool/main/d=
+/debootstrap/" target=3D"_top">
+pool</a>, copy the package to the work folder, and extract the
+files from it. You will need to have root privileges to install
+the files.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># ar -x debootstrap_0.=
+X.X_all.deb
+# cd /
+# zcat /full-path-to-work/work/data.tar.gz | tar xv
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.3.&#xa0;Run debootstrap">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7282160"></a>D.4.3.&#xa0;Run <span class=3D"command"><strong>=
+debootstrap</strong></span>
+</h3></div></div></div>
+<p>
+
+<span class=3D"command"><strong>debootstrap</strong></span> can download th=
+e needed files directly
+from the archive when you run it. You can substitute any Ubuntu
+archive mirror for <strong class=3D"userinput"><code>archive.ubuntu.com/ubu=
+ntu</code></strong> in
+the command example below, preferably a mirror close to you
+network-wise. Mirrors are listed at
+<a class=3D"ulink" href=3D"http://wiki.ubuntu.com/Archive" target=3D"_top">=
+http://wiki.ubuntu.com/Archive</a>.
+
+</p>
+<p>
+
+If you have an Ubuntu trusty CD mounted at
+<code class=3D"filename">/cdrom</code>, you could substitute a file URL ins=
+tead
+of the http URL: <strong class=3D"userinput"><code>file:/cdrom/ubuntu/</cod=
+e></strong>
+
+</p>
+<p>
+
+Substitute one of the following for <em class=3D"replaceable"><code>ARCH</c=
+ode></em>
+in the <span class=3D"command"><strong>debootstrap</strong></span> command:
+
+<strong class=3D"userinput"><code>amd64</code></strong>,
+<strong class=3D"userinput"><code>armhf</code></strong>,
+<strong class=3D"userinput"><code>i386</code></strong>, or
+<strong class=3D"userinput"><code>powerpc</code></strong>.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># /usr/sbin/debootstra=
+p --arch ARCH trusty /mnt/ubuntu
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.4.&#xa0;Configure The Base System">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7292992"></a>D.4.4.&#xa0;Configure The Base System</h3></div>=
+</div></div>
+<p>
+
+Now you&#x27;ve got a real Ubuntu system, though rather lean, on disk.
+<span class=3D"command"><strong>Chroot</strong></span> into it:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># LANG=3DC chroot /mnt=
+/ubuntu /bin/bash
+</pre></div>
+<p>
+
+After chrooting you may need to set the terminal definition to be
+compatible with the Ubuntu base system, for example:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># export TERM=3D<em cl=
+ass=3D"replaceable"><code>xterm-color</code></em>
+</pre></div>
+<p>
+
+</p>
+<div class=3D"sect3" title=3D"D.4.4.1.&#xa0;Create device files">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7297072"></a>D.4.4.1.&#xa0;Create device files</h4></div></di=
+v></div>
+<p>
+
+At this point <code class=3D"filename">/dev/</code> only contains very basi=
+c device
+files. For the next steps of the installation additional device files may
+be needed. There are different ways to go about this and which method you
+should use depends on the host system you are using for the installation,
+on whether you intend to use a modular kernel or not, and on whether you
+intend to use dynamic (e.g. using <code class=3D"classname">udev</code>) or=
+ static
+device files for the new system.
+
+</p>
+<p>
+
+A few of the available options are:
+
+</p>
+<div class=3D"itemizedlist"><ul class=3D"itemizedlist" type=3D"disc">
+<li class=3D"listitem">
+<p>
+
+create a default set of static device files using
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># cd /dev
+# MAKEDEV generic
+</pre></div>
+<p>
+
+</p>
+</li>
+<li class=3D"listitem"><p>
+
+manually create only specific device files using <span class=3D"command"><s=
+trong>MAKEDEV</strong></span>
+
+</p></li>
+<li class=3D"listitem"><p>
+
+bind mount /dev from your host system on top of /dev in the target system;
+note that the postinst scripts of some packages may try to create device
+files, so this option should only be used with care
+
+</p></li>
+</ul></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect3" title=3D"D.4.4.2.&#xa0;Mount Partitions">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7303936"></a>D.4.4.2.&#xa0;Mount Partitions</h4></div></div><=
+/div>
+<p>
+
+You need to create <code class=3D"filename">/etc/fstab</code>.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># editor /etc/fstab
+</pre></div>
+<p>
+
+Here is a sample you can modify to suit:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># /etc/fstab: static f=
+ile system information.
+#
+# file system    mount point   type    options                  dump pass
+/dev/XXX         /             ext3    defaults                 0    1
+/dev/XXX         /boot         ext3    ro,nosuid,nodev          0    2
+
+/dev/XXX         none          swap    sw                       0    0
+proc             /proc         proc    defaults                 0    0
+sys              /sys          sysfs   defaults                 0    0
+
+/dev/fd0         /media/floppy auto    noauto,rw,sync,user,exec 0    0
+/dev/cdrom       /media/cdrom  iso9660 noauto,ro,user,exec      0    0
+
+/dev/XXX         /tmp          ext3    rw,nosuid,nodev          0    2
+/dev/XXX         /var          ext3    rw,nosuid,nodev          0    2
+/dev/XXX         /usr          ext3    rw,nodev                 0    2
+/dev/XXX         /home         ext3    rw,nosuid,nodev          0    2
+</pre></div>
+<p>
+
+Use <strong class=3D"userinput"><code>mount -a</code></strong> to mount all=
+ the file systems you
+have specified in your <code class=3D"filename">/etc/fstab</code>, or, to m=
+ount
+file systems individually, use:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mount /path   # e.g.=
+: mount /usr
+</pre></div>
+<p>
+
+Current Ubuntu systems have mountpoints for removable media under
+<code class=3D"filename">/media</code>, but keep compatibility symlinks in
+<code class=3D"filename">/</code>. Create these as as needed, for example:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># cd /media
+# mkdir cdrom0
+# ln -s cdrom0 cdrom
+# cd /
+# ln -s media/cdrom
+</pre></div>
+<p>
+
+You can mount the proc and sysfs file systems multiple times and to arbitra=
+ry
+locations, though <code class=3D"filename">/proc</code> and <code class=3D"=
+filename">/sys</code> respectively are customary. If you didn&#x27;t use
+<strong class=3D"userinput"><code>mount -a</code></strong>, be sure to moun=
+t proc and sysfs before continuing:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mount -t proc proc /=
+proc
+# mount -t sysfs sysfs /sys
+</pre></div>
+<p>
+
+</p>
+<p>
+
+The command <strong class=3D"userinput"><code>ls /proc</code></strong> shou=
+ld now show a non-empty
+directory. Should this fail, you may be able to mount proc from outside
+the chroot:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># mount -t proc proc /=
+mnt/ubuntu/proc
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect3" title=3D"D.4.4.3.&#xa0;Setting Timezone">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7319264"></a>D.4.4.3.&#xa0;Setting Timezone</h4></div></div><=
+/div>
+<p>
+
+An option in the file <code class=3D"filename">/etc/default/rcS</code> dete=
+rmines
+whether the system will interpret the hardware clock as being set to UTC
+or local time. The following command allows you to set that and choose
+your timezone.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># editor /etc/default/=
+rcS
+# dpkg-reconfigure tzdata
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect3" title=3D"D.4.4.4.&#xa0;Configure Networking">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7322224"></a>D.4.4.4.&#xa0;Configure Networking</h4></div></d=
+iv></div>
+<p>
+
+To configure networking, edit
+<code class=3D"filename">/etc/network/interfaces</code>,
+<code class=3D"filename">/etc/resolv.conf</code>,
+<code class=3D"filename">/etc/hostname</code> and
+<code class=3D"filename">/etc/hosts</code>.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># editor /etc/network/=
+interfaces
+</pre></div>
+<p>
+
+Here are some simple examples from
+<code class=3D"filename">/usr/share/doc/ifupdown/examples</code>:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">######################=
+################################################
+# /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
+# See the interfaces(5) manpage for information on what options are
+# available.
+######################################################################
+
+# We always want the loopback interface.
+#
+auto lo
+iface lo inet loopback
+
+# To use dhcp:
+#
+# auto eth0
+# iface eth0 inet dhcp
+
+# An example static IP setup: (broadcast and gateway are optional)
+#
+# auto eth0
+# iface eth0 inet static
+#     address 192.168.0.42
+#     network 192.168.0.0
+#     netmask 255.255.255.0
+#     broadcast 192.168.0.255
+#     gateway 192.168.0.1
+</pre></div>
+<p>
+
+Enter your nameserver(s) and search directives in
+<code class=3D"filename">/etc/resolv.conf</code>:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># editor /etc/resolv.c=
+onf
+</pre></div>
+<p>
+
+A simple example <code class=3D"filename">/etc/resolv.conf</code>:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">search hqdom.local
+nameserver 10.1.1.36
+nameserver 192.168.9.100
+</pre></div>
+<p>
+
+Enter your system&#x27;s host name (2 to 63 characters):
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># echo UbuntuHostName =
+&gt; /etc/hostname
+</pre></div>
+<p>
+
+And a basic <code class=3D"filename">/etc/hosts</code> with IPv6 support:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">127.0.0.1 localhost
+127.0.1.1 UbuntuHostName
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+</pre></div>
+<p>
+
+If you have multiple network cards, you should arrange the names of
+driver modules in the <code class=3D"filename">/etc/modules</code> file int=
+o the
+desired order. Then during boot, each card will be associated with the
+interface name (eth0, eth1, etc.) that you expect.
+
+</p>
+</div>
+<div class=3D"sect3" title=3D"D.4.4.5.&#xa0;Configure Apt">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7336144"></a>D.4.4.5.&#xa0;Configure Apt</h4></div></div></di=
+v>
+<p>
+
+Debootstrap will have created a very basic
+<code class=3D"filename">/etc/apt/sources.list</code> that will allow insta=
+lling
+additional packages. However, it is suggested that you add some additonal s=
+ources,
+for example for source packages and security updates.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">deb-src http://archive=
+.ubuntu.com/ubuntu trusty main
+
+deb http://security.ubuntu.com/ubuntu trusty-security main
+deb-src http://security.ubuntu.com/ubuntu trusty-security main
+</pre></div>
+<p>
+
+Make sure to run <strong class=3D"userinput"><code>aptitude update</code></=
+strong> after you have
+made changes to the sources list.
+
+</p>
+</div>
+<div class=3D"sect3" title=3D"D.4.4.6.&#xa0;Configure Locales and Keyboard">
+<div class=3D"titlepage"><div><div><h4 class=3D"title">
+<a name=3D"idp7340016"></a>D.4.4.6.&#xa0;Configure Locales and Keyboard</h4=
+></div></div></div>
+<p>
+
+To configure your locale settings to use a language other than
+English, install the appropriate language packs and configure them.
+Currently the use of UTF-8 locales is recommended.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># aptitude install lan=
+guage-pack-de language-pack-gnome-de
+</pre></div>
+<p>
+
+To configure your keyboard (if needed):
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># aptitude install con=
+sole-setup
+# dpkg-reconfigure console-setup
+</pre></div>
+<p>
+
+</p>
+<p>
+
+Note that the keyboard cannot be set while in the chroot, but will be confi=
+gured for
+the next reboot.
+</p>
+</div>
+</div>
+<div class=3D"sect2" title=3D"D.4.5.&#xa0;Install a Kernel">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7343728"></a>D.4.5.&#xa0;Install a Kernel</h3></div></div></d=
+iv>
+<p>
+
+If you intend to boot this system, you probably want a Linux kernel
+and a boot loader. Identify available pre-packaged kernels with:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># apt-cache search lin=
+ux-image
+</pre></div>
+<p>
+
+</p>
+<p>
+
+If you intend to use a pre-packaged kernel, you may want to create the
+configuration file <code class=3D"filename">/etc/kernel-img.conf</code> bef=
+ore you
+do so. Here&#x27;s an example file:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># Kernel image managem=
+ent overrides
+# See kernel-img.conf(5) for details
+do_symlinks =3D yes
+relative_links =3D yes
+do_bootloader =3D yes
+do_bootfloppy =3D no
+do_initrd =3D yes
+link_in_boot =3D no
+</pre></div>
+<p>
+
+</p>
+<p>
+
+For detailed information about this file and the various options, consult
+its man page which will be available after installing the
+<code class=3D"classname">kernel-package</code> package. We recommend that =
+you check
+that the values are appropriate for your system.
+
+</p>
+<p>
+
+Then install the kernel package of your choice using its package name.
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># aptitude install lin=
+ux-image-<em class=3D"replaceable"><code>3.13-arch-etc</code></em>
+</pre></div>
+<p>
+
+If you did not create a <code class=3D"filename">/etc/kernel-img.conf</code=
+> before
+installing a pre-packaged kernel, you may be asked some questions during
+its installation that refer to it.
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.6.&#xa0;Set up the Boot Loader">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7351408"></a>D.4.6.&#xa0;Set up the Boot Loader</h3></div></d=
+iv></div>
+<p>
+
+To make your Ubuntu system bootable, set up your boot loader to load
+the installed kernel with your new root partition. Note that
+<span class=3D"command"><strong>debootstrap</strong></span> does not instal=
+l a boot loader, though you
+can use <span class=3D"command"><strong>aptitude</strong></span> inside you=
+r Ubuntu chroot to do so.
+
+</p>
+<p>
+
+Note that this assumes that a <code class=3D"filename">/dev/hda</code> devi=
+ce file has
+been created. There are alternative methods to install <span class=3D"comma=
+nd"><strong>grub</strong></span>,
+but those are outside the scope of this appendix.
+
+</p>
+<p>
+
+Check <strong class=3D"userinput"><code>man yaboot.conf</code></strong> for=
+ instructions on
+setting up the bootloader.  If you are keeping the system you used to
+install Ubuntu, just add an entry for the Ubuntu install to your
+existing <code class=3D"filename">yaboot.conf</code>.  You could also copy =
+it to
+the new system and
+edit it there. After you are done editing, call ybin (remember it will
+use <code class=3D"filename">yaboot.conf</code> relative to the system you =
+call it from).
+
+</p>
+<p>
+
+Here is a basic <code class=3D"filename">/etc/yaboot.conf</code> as an exam=
+ple:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">boot=3D/dev/hda2
+device=3Dhd:
+partition=3D6
+root=3D/dev/hda6
+magicboot=3D/usr/lib/yaboot/ofboot
+timeout=3D50
+image=3D/vmlinux
+label=3DUbuntu
+</pre></div>
+<p>
+
+On some machines, you may need to use <strong class=3D"userinput"><code>ide=
+0:</code></strong>
+instead of <strong class=3D"userinput"><code>hd:</code></strong>.
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.7.&#xa0;Finishing touches">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7362720"></a>D.4.7.&#xa0;Finishing touches</h3></div></div></=
+div>
+<p>
+
+As mentioned earlier, the installed system will be very basic. If you
+would like to make the system a bit more mature, there is an easy method
+to install all packages with <span class=3D"quote">=E2=80=9C<span class=3D"=
+quote">standard</span>=E2=80=9D</span> priority:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># tasksel install stan=
+dard
+</pre></div>
+<p>
+
+Of course, you can also just use <span class=3D"command"><strong>aptitude</=
+strong></span> to install
+packages individually.
+
+</p>
+<p>
+
+After the installation there will be a lot of downloaded packages in
+<code class=3D"filename">/var/cache/apt/archives/</code>. You can free up s=
+ome
+diskspace by running:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># aptitude clean
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.8.&#xa0;Create a User">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7368080"></a>D.4.8.&#xa0;Create a User</h3></div></div></div>
+<p>
+
+Use the <span class=3D"command"><strong>adduser</strong></span> command to =
+create a new user account:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># adduser myusername
+</pre></div>
+<p>
+
+You will be prompted for a full name and a password.
+
+</p>
+<p>
+
+The normal Ubuntu configuration is to allow this new user to administer the
+system using <span class=3D"command"><strong>sudo</strong></span>. To set t=
+his up, first create an
+<code class=3D"classname">admin</code> group and add your new user to it:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># addgroup --system ad=
+min
+# adduser myusername admin
+</pre></div>
+<p>
+
+You can now use the <span class=3D"command"><strong>visudo</strong></span> =
+command to add these lines to
+the end of <code class=3D"filename">/etc/sudoers</code>, so that any user i=
+n the
+<code class=3D"classname">admin</code> group can administer the system:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># Members of the admin=
+ group may gain root privileges
+%admin ALL=3D(ALL) ALL
+</pre></div>
+<p>
+
+</p>
+<p>
+
+If you don&#x27;t want to follow this configuration, then remember to set a=
+ root
+password:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen"># passwd root
+</pre></div>
+<p>
+
+</p>
+</div>
+<div class=3D"sect2" title=3D"D.4.9.&#xa0;Install the Ubuntu Desktop">
+<div class=3D"titlepage"><div><div><h3 class=3D"title">
+<a name=3D"idp7377664"></a>D.4.9.&#xa0;Install the Ubuntu Desktop</h3></div=
+></div></div>
+<p>
+
+At this point, you probably want to reboot into your new Ubuntu system to
+make sure it all works. Once you&#x27;ve done that, log in as the user you =
+just
+created, and run:
+
+</p>
+<div class=3D"informalexample"><pre class=3D"screen">
+ $ sudo tasksel install standard
+ $ sudo tasksel install ubuntu-desktop
+
+</pre></div>
+<p>
+
+You will need to enter your password to authorise <span class=3D"command"><=
+strong>sudo</strong></span> to
+run as root.
+
+</p>
+<p>
+
+<span class=3D"command"><strong>tasksel</strong></span> will now get on wit=
+h installing the packages
+that make up the Ubuntu desktop, which will take a while. When it&#x27;s
+finished, you should be presented with a graphical login prompt. The
+installation is now complete, so go ahead and log in.
+
+</p>
+</div>
+<div class=3D"footnotes">
+<br><hr align=3D"left" width=3D"100">
+<div class=3D"footnote"><p><sup>[<a class=3D"para" href=3D"#idp7270784" id=
+=3D"ftn.idp7270784">23</a>] </sup>
+
+These include the GNU core utilities and commands like <span class=3D"comma=
+nd"><strong>sed</strong></span>, <span class=3D"command"><strong>grep</stro=
+ng></span>, <span class=3D"command"><strong>tar</strong></span> and <span c=
+lass=3D"command"><strong>gzip</strong></span>.
+
+</p></div>
+</div>
+</div>
+<div class=3D"navfooter">
+<hr>
+<table summary=3D"Navigation footer" width=3D"100%">
+<tbody><tr>
+<td align=3D"left" width=3D"40%">
+<a accesskey=3D"p" href=3D"apds03.html">Prev</a>&#xa0;</td>
+<td align=3D"center" width=3D"20%"><a accesskey=3D"u" href=3D"apd.html">Up<=
+/a></td>
+<td align=3D"right" width=3D"40%">&#xa0;<a accesskey=3D"n" href=3D"apds05.h=
+tml">Next</a>
+</td>
+</tr>
+<tr>
+<td align=3D"left" valign=3D"top" width=3D"40%">D.3.&#xa0;Disk Space Needed=
+&#xa0;</td>
+<td align=3D"center" width=3D"20%"><a accesskey=3D"h" href=3D"index.html">H=
+ome</a></td>
+<td align=3D"right" valign=3D"top" width=3D"40%">&#xa0;D.5.&#xa0;Installing=
+ Ubuntu using PPP over Ethernet (PPPoE)</td>
+</tr>
+</tbody></table>
+</div>
+
+
+</body></html>
+------=_Part_F5582ECA_5AE26FD0.15146C45001
+Content-Location: https://help.ubuntu.com/lts/installation-guide/powerpc/install.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* Cascading stylesheet for the Debian Installer Installation Guide */
+
+/* Use grey background for examples */
+pre.screen {
+  background-color : #E0E0E0;
+}
+
+------=_Part_F5582ECA_5AE26FD0.15146C45001--

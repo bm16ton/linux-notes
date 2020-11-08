@@ -1,0 +1,16 @@
+cat /proc/mtd
+cat /proc/mounts
+cat /proc/partitions 
+cat /proc/emmc 
+
+busybox fdisk -l /dev/block/mmcblk0
+parted -l /dev/block/mmcblk0
+gdisk -l /dev/block/mmcblk0
+
+
+
+dmesg |grep "mmc"
+dmesg |grep "partition"
+cat /proc/kmesg >/path-to-your-writeable-area/kmesg.log
+
+

@@ -1,0 +1,9 @@
+You must do this steps in ODROID-XU3/4 board. You can compile kernel & dtb images in host PC using the cross compiler. But, you cannot create uInitrd ramdisk image in host PC. Because the binary files in ramdisk image refer to current root file system during the executing 'update-initramfs' command. 
+
+I figured it out... I was really, really close. My problem with uInitrd is that I didn't update initramfs.conf to not include so many modules, and the resulting file was too large. For anyone else running into this, here's the steps I used:
+
+[*] Modify /etc/initramfs-tools/initramfs.conf and change MODULES=most to MODULES=dep
+[*] Run: $ update-initramfs -c -k $(cat include/config/kernel.release)
+[*] Run: $ mkimage -A arm -O linux -T ramdisk -C gzip -a 0 -e 0 -n uInitrd -d /boot/initrd.img-$(cat include/config/kernel.release) /boot/uInitrd-$(cat include/config/kernel.release)
+
+Now it's just a matter of making sure the resulting file ends up in the right place and your boot.ini is right. I already mount my /dev/mmcblk0p1 as /boot, so all I had to do was make sure boot.ini is right (the one included in the latest experimental image is very nice and short, and well parameterized).

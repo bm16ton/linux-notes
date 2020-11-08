@@ -1,0 +1,5 @@
+USB DRIVE;
+    install the bootloader
+/usr/lib/SYSLINUX/gptmbr.bin
+dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/gptmbr.bin of=/dev/sdb
+parted /dev/sdX set 1 boot on

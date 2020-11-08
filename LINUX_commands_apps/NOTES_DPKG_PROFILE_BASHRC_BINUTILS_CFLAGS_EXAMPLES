@@ -1,0 +1,16 @@
+in /etc|~ profile|bashrc ;;
+export CFLAGS="-O2 -march=bdver2 -m64"
+
+if using out of distro binutils add ;;
+COMPILER_PATH=/opt/binutils-VERSION/bin
+
+if its not in default path also add  ;;
+PATH=$COMPILER_PATH:$PATH
+
+
+in /etc/dpkg/buildflags.conf    (create if doesnt exist);;
+#SET COMPILER_PATH /opt/binutils-2.24.51/bin 
+SET CFLAGS -O2 -march=bdver2 -m64
+#SET PATH $COMPILER_PATH:$PATH
+
+

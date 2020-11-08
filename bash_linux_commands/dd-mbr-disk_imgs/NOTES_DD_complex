@@ -1,0 +1,31 @@
+
+
+Use dd, with the count option.
+
+In your case you were using fdisk so I will take that approach. Your "sudo fdisk -l "produced:
+
+    Disk /dev/sda: 64.0 GB, 64023257088 bytes
+    255 heads, 63 sectors/track, 7783 cylinders
+    Units = cylinders of 16065 * 512 = 8225280 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x0000e4b5
+
+    Device Boot      Start         End      Blocks   Id  System
+    /dev/sda1   *           1          27      209920   83  Linux
+    Partition 1 does not end on cylinder boundary.
+    /dev/sda2              27         525     4000768    5  Extended
+    Partition 2 does not end on cylinder boundary.
+    /dev/sda5              27         353     2621440   83  Linux
+    /dev/sda6             353         405      416768   83  Linux
+    /dev/sda7             405         490      675840   83  Linux
+    /dev/sda8             490         525      282624   83  Linux
+
+The two things you should take note of are 1) the unit size, and 2) the "End" column. In your case you have cylinders that are equal to 8225280 Bytes. In the "End" column sda8 terminates at 525 (which is 525[units]*16065*512 = ~4.3GB)
+
+dd can do a lot of things, such as starting after an offset, or stopping after a specific number of blocks. We will do the latter using the count option in dd. The command would appear as follows:
+
+    sudo dd if=/dev/sda of=/your_directory/image_name.iso bs=8225280 count=526
+
+Where -bs is the block size (it is easiest to use the unit that fdisk uses, but any unit will do so long as the count option is declared in these units), and count is the number of units we want to copy (note that we increment the count by 1 to capture the last block).
+

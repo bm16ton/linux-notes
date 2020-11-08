@@ -1,0 +1,39 @@
+    GIVES BEST RESULT BUT STILL ERRORS THEN SEGFAULTS
+sudo usb_modeswitch -v 167b -p 3001 -u 0 -a 0 --cisco-mod
+    RESET THE USB DEVICE
+sudo usb_modeswitch -v 167b -p 3001 -u 0 -a 0 -R
+
+LD_LIBRARY_PATH=/opt/libusb-0.1-compat/lib/ sudo usb_modeswitch -v 167b -p 3001 -u 0 -a 0 --message-content 55534243d0b396890076000080000a28000005e75400003b00000000000000 -2 55534243e0addb880000000000000600000000000000000000000000000000
+
+    NOTES
+The storage doesnt mount maybe i formated or killed the mbr etc during previous attempts to long ago to remember
+
+In WIFI mode
+VendorID 167B  ProductID 4001
+
+############# BEST SO FAR MUST TRY WITH DIFFERENT/BETTER HEX NUMBERS? ALSO LD STUFF PROBLY NOT NEEDED #########################
+
+LD_LIBRARY_PATH=/opt/libusb-0.1-compat/lib/ sudo usb_modeswitch -v 167b -p 3001 -u 0 -a 0 -W -K --message-content 0200
+
+############# JUST RESET THE DEVICE NOTHING ELSE ###################
+
+sudo usb_modeswitch -v 167b -p 3001 -W -R
+
+############# RESET AND TRY AND SWITCH FROM SETTING #
+
+sudo usb_modeswitch -v 167b -p 3001 -u 0 -a 0 -W -R
+
+
+
+
+
+
+
+############## UNBIND THE USBHID DRIVER ###############################
+
+    su
+    echo -n "1-1:1.1" > /sys/bus/usb/drivers/usbhid/unbind 
+    exit
+
+############## UNBIND THE USBHID DRIVER ###############################
+

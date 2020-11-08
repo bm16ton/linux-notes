@@ -1,0 +1,10 @@
+/etc/default/grub																														NEEDED BY/FOR NVIDIA PRIME/BUMBLEBEE
+	usbcore.autosuspend=-1 						SUPPOSED TO DISABLE USB AUTOSUSPEND DONT BELIEVE IT DOES											
+	pcie_aspm=off 								STILL SEEMED TO HAVE ASPM ENABLED I DUNNO											
+	pcie_port_pm=off 							!! WAS NEEDED BY BUMBLEBEE ON 17.04 but then WORKED WITHOUT;										*  17.04 ONLY AND MAYBE NOT EVEN
+	uhci-hcd.ignore_oc=y    					IGNORE OVER CURRENT ISSUES
+	libata.force=3.0G libata.noacpi=1 			LIMIT TO 3GBS (1.5G WORKS TOO) AND DISABLE ACPI ON SATA RESPECTIVLY
+	i915.preliminary_hw_support=1 				ENABLE SUPPORT FOR NEW INTEL VGA CARDS																*
+	acpi_backlight=none  acpi_osi=				NEEDED FOR KEYBOARD AND LCD BACKLIGHT AND OR THERE CONTROL
+	intel_iommu=on 								NEEDED FOR BUMBLEBEE																				*
+	loglevel=8 									SET KERNEL LOG LEVEL SET ONE ABOVE DESIRED LEVEL

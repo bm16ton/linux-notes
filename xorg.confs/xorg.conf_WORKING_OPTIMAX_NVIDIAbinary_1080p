@@ -1,0 +1,47 @@
+Section "ServerLayout"
+    Identifier "layout"
+    Screen 0 "nvidia"
+    Inactive "intel"
+EndSection
+
+Section "Device"
+    Identifier "intel"
+    Driver "modesetting"
+    BusID "PCI:0@0:2:0"
+    Option "AccelMethod" "None"
+EndSection
+
+Section "Screen"
+    Identifier "intel"
+    Device "intel"
+EndSection
+
+Section "Device"
+    Identifier "nvidia"
+    Driver "nvidia"
+    BusID "PCI:1@0:0:0"
+    Option "ConstrainCursor" "off"
+    Option "ModeValidation" "NoVirtualSizeCheck"
+    Option "ConnectedMonitor" "eDP-1,eDP-1-0"
+#    Option "CustomEDID" "eDP-1:/sys/class/drm/card0-eDP-1/edid"
+    Option "CustomEDID" "eDP-1-0:/lib/firmware/lg1080p.edid"
+    Option "CustomEDID" "eDP-1:/lib/firmware/lg1080p.edid"
+    Option "IgnoreEDID" "false"
+    Option "UseEDID" "true"
+    Option "DPI" "96x96"
+EndSection
+
+Section "Screen"
+    Identifier "nvidia"
+    Device "nvidia"
+    Option "AllowEmptyInitialConfiguration" "on"
+    Option "IgnoreDisplayDevices" "CRT"
+#    Option "UseDisplayDevice" "None"
+    SubSection "Display"
+	Depth	24
+	Virtual	1920 1080
+	Modes   "1920x1080_60.00"
+#	Modes   "1920x1080"
+    EndSubSection
+EndSection
+

@@ -1,0 +1,4 @@
+command:
+dd if=/sys/kernel/debug/ieee80211/phy0/ath10k/mem_value count=1 bs=4 skip=$((0x100233))
+
+It will call to ath10k_sdio_hif_diag_read with address = 0x4008cc and buf_len = 4.

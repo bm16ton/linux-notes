@@ -1,0 +1,6 @@
+Limitation of DKMS
+
+1. DKMS may not work well after a large change of kernel ABI - Using DKMS on a stable release kernel will be a better idea.
+2. Make sure the we have toolchains and kernel header installed.
+3. Using DKMS on a netbook is not a smart idea - It takes too much time to build the kernel module after kernel upgrading.
+4. DKMS modules will not be loaded if there are another ones in initrd. 

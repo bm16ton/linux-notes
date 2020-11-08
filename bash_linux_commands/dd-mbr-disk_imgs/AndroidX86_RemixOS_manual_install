@@ -1,0 +1,70 @@
+    Head down to android-x86 website and download the latest version (iso version).
+    In my case it's Android-x86 4.4 r2
+    Hit the terminal (Crtl+Alt+T).
+    You can use the following bash commands to easily extract and copy the files.
+    Extract the contents of the iso
+    Code:
+
+    7z x android-x86-4.4-r2.iso -oandroid_installation && \
+    cd android_installation
+
+    Extract the contents of the system.sfs
+    Code:
+
+    sudo -s && \
+    unsquashfs -f -d . system.sfs && \
+    mkdir temp && \
+    mount -o loop system.img temp
+
+    Now let's copy initrd.img ramdisk.img kernel files to the Android partition. Create 2 folders on the Android partition called data and system, extract system.sfs (and eventually system.img) and copy its contents to the system folder we just created.
+    Code:
+
+    cp initrd.img ramdisk.img kernel /path/to/the/android/partition &&\
+    mkdir /path/to/the/android/partition/system && \
+    mkdir /path/to/the/android/partition/data && \
+    cp -avr temp/* /path/to/the/android/partition/system &&\
+    umount temp &&\
+    cd .. && \
+    rm -rf android_installation &&\
+    exit
+
+    Now after copying all the necessary files to the Andorid partition, all we need to do is modify grub to boot from that partition.
+
+    Code:
+
+    sudo gedit /etc/grub.d/40_custom
+
+    Quote:
+
+    menuentry "Android Kitkat" {
+    set root='(hd0,8)'
+    linux /kernel quiet root=/dev/ram0 androidboot.hardware=android_x86 acpi_sleep=s3_bios,s3_mode SRC=/ HWACCEL=
+    initrd /initrd.img}
+    You should change (hd0,8) entry based on your android partition location, the one that we wrote before.
+    (hdX,Y) for /dev/sdXY with a corresponding to 0, b to 1, c to 2 etc ..
+    In my case, my android partition is /dev/sda8 correspond to (hd0,8)
+    a -> X=0
+    8 -> Y=8
+    So '(hd0,8)'
+    Update Grub configuration by:
+    Code:
+
+    sudo update-grub
+
+Bonus. Installing Xposed Framework.
+As many probably faced the same problem, Xposed Framework presents an issue on intel devices, although there is a work around.
+Here are the steps:
+
+    Boot into Android.
+    Download Xposed Framework Installer from dl.xposed.info/latest.apk
+    Install it, but DO NOT RUN IT.
+    Now hit the terminal emulator. It should be already installed on your system. Type the following:
+    Code:
+
+    su
+    echo 148 > /data/data/de.robv.android.xposed.installer/conf/jit_reset_offset
+    chmod 664 /data/data/de.robv.android.xposed.installer/conf/jit_reset_offset
+
+    Run the installer, and install Xposed Framework.
+    Reboot and enjoy
+

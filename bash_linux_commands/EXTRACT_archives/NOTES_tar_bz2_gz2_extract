@@ -1,0 +1,16 @@
+tar
+-j, --bzip2
+          filter the archive through bzip2
+--overwrite-dir
+--no-overwrite-dir
+--overwrite
+-C /target/directory
+
+tar -xvjf enginsxt.tar.bz2       # its smart probly dont need -j
+
+or cd to destination folder and use unp
+	cd /extract/folder
+	unp /compressed/file
+
+
+tar --strip-components 1 -xvjf opt.tar.bz2 -C /opt

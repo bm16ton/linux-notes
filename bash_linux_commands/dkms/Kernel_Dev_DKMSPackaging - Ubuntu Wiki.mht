@@ -1,0 +1,3060 @@
+From: <Saved by UnMHT Ver.8.3.2>
+Subject: Kernel/Dev/DKMSPackaging - Ubuntu Wiki
+Date: Sun, 03 Dec 2017 16:29:02 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_B35CF2EC_1F7847E4.1601E484BFF";
+	type="text/html"
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/Kernel/Dev/DKMSPackaging#DKMS_commands
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link href=3D"data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFg=
+AAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD//=
+/8AyNj2NWaT6ZkiZODdAEzc/wBM3P8iZODdZpPpmc7c9zD///8A////AP///wD///8A////AP//=
+/wD2+PwHYI/onwBM3P8ATNz/AEzc/wBM3P8ATNz/AEzc/wBM3P8ATNz/ZpPpmfb4/Af///8A///=
+/AP///wD2+PwHOHTjxwBM3P8ATNz/AEzc/wBM3P8ATNz/AEzc/wBM3P/M2Pj/x9T3/QBM3P86de=
+PF+Pn9Bv///wD///8AYI/onwBM3P8ATNz/AEzc/wBM3P9vkuv/n7fx/5+38f82auL/x9T3/8fU9=
+/8ATNz/AEzc/2aT6Zn///8AyNj2NQBM3P8ATNz/AEzc/1uE6P9mjOn/rcHz////////////0t35=
+/1SA5/8pY+D/AEzc/wBM3P8CTtz90t/4K1yM6KMATNz/AEzc/w9V3v/M2Pj/x9T3/xlY3v8fXN/=
+/BlDd/1iC5//d5fr/5ez7/yNe4P8ATNz/AEzc/2iU6ZccYN/jAEzc/wBM3P99ne3//////0985v=
+8ATNz/AEzc/wBM3P8ATNz/QHHj//////+ft/H/AEzc/wBM3P8oaOHXBE/c+n2d7f/x9P3/QHHj/=
++Lp+/8GUN3/AEzc/wBM3P8ATNz/AEzc/wBM3P89b+P/MGfh/wBM3P8ATNz/ClPd9QBM3P+Ipu7/=
+9Pb9/0985v/X4fn/D1Xe/wBM3P8ATNz/AEzc/wBM3P8KUt3/n7fx/5Su8P8ATNz/AEzc/wRP3Po=
+iZODdAEzc/wBM3P+Coe3//////3WX6/8ATNz/AEzc/wBM3P8ATNz/Zozp//////+yxfT/AEzc/w=
+BM3P8oaOHXZpPpmQBM3P8ATNz/FFbe/8nW9//V3/n/GVje/ydh4P8bWt//bJDq//H0/f/r8Pz/L=
+WXh/wBM3P8ATNz/eKDsh87c9zACTtz9AEzc/wBM3P85bOL/W4To/7nJ9f///////////9fh+f9R=
+fuf/I17g/wBM3P8ATNz/Ak7c/dTg+Cr///8AYpDpnABM3P8ATNz/AEzc/wFO3P9skOr/pbvy/6e=
+98/9Rfuf/0t35/93l+v8BTtz/AEzc/3Kb643///8A////APj5/QZEfOW7AEzc/wBM3P8ATNz/AE=
+zc/wBM3P8ATNz/AEzc/9fh+f/c5Pr6Ak7c/UZ95bn4+f0G////AP///wD///8A////AIyu7nEGU=
+dz4AEzc/wBM3P8ATNz/AEzc/wBM3P8ATNz/BlHc+Iyu7nH///8A////AP///wD///8A////AP//=
+/wD///8A2OP4JnKb640yb+LNAk3c/QJN3P0yb+LNcpvrjdjj+Cb///8A////AP///wD///8A+B8=
+AAOAHAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADwDw=
+AA+B8AAA=3D=3D" rel=3D"shortcut icon" type=3D"image/x-icon">
+
+<meta content=3D"index,nofollow" name=3D"robots">
+
+<title>Kernel/Dev/DKMSPackaging - Ubuntu Wiki</title>
+<script async=3D"" src=3D"//www.google-analytics.com/analytics.js"></script=
+><script src=3D"/moin_static193/common/js/common.js" type=3D"text/javascrip=
+t"></script><style></style>
+
+<script type=3D"text/javascript">
+<!--
+var search_hint =3D "Search";
+//-->
+</script>
+
+
+<link charset=3D"utf-8" href=3D"/moin_static193/kubuntu-light/css/common.cs=
+s" media=3D"all" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/kubuntu-light/css/screen.cs=
+s" media=3D"screen" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/kubuntu-light/css/print.css=
+" media=3D"print" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/kubuntu-light/css/projectio=
+n.css" media=3D"projection" rel=3D"stylesheet" type=3D"text/css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel=3D"stylesheet" type=3D"text/css" charset=3D"utf-8" media=3D"al=
+l" href=3D"/moin_static193/kubuntu-light/css/msie.css">
+<![endif]-->
+
+
+
+
+
+<link href=3D"/Home" rel=3D"Start">
+<link href=3D"/Kernel/Dev/DKMSPackaging?action=3Draw" rel=3D"Alternate" tit=
+le=3D"Wiki Markup">
+<link href=3D"/Kernel/Dev/DKMSPackaging?action=3Dprint" media=3D"print" rel=
+=3D"Alternate" title=3D"Print View">
+<link href=3D"/Kernel/Dev" rel=3D"Up">
+<link href=3D"/Kernel/Dev/DKMSPackaging?action=3DAttachFile&amp;do=3Dview&a=
+mp;target=3Ddkms.png" rel=3D"Appendix" title=3D"dkms.png">
+<link href=3D"/FindPage" rel=3D"Search">
+<link href=3D"/TitleIndex" rel=3D"Index">
+<link href=3D"/WordIndex" rel=3D"Glossary">
+<link href=3D"/HelpOnFormatting" rel=3D"Help">
+<base href=3D"https://wiki.kubuntu.org/Kernel/Dev/"></head>
+
+<body dir=3D"ltr" lang=3D"en">
+
+<!-- BEGIN HEADER -->
+<div class=3D"hfeed" id=3D"wrapper">
+<div id=3D"header">
+    <ul id=3D"mothership">
+        <li> <a href=3D"http://www.kubuntu.org/news">News</a> </li>
+        <li> <a href=3D"http://www.kubuntu.org/getkubuntu">Get Kubuntu</a> =
+</li>
+        <li> <a href=3D"http://www.kubuntu.org/feature-tour">Feature Tour</=
+a> </li>
+        <li> <a href=3D"http://www.kubuntu.org/support">Support</a> </li>
+        <li> <a href=3D"http://www.kubuntu.org">Kubuntu.org</a> </li>
+    </ul>
+
+    <div id=3D"orangeHeader">
+        <h1> <a href=3D"/" title=3D"Kubuntu Wiki"><span>Kubuntu Wiki</span>=
+</a> </h1>
+            <div id=3D"search-box">
+
+<form action=3D"/Kernel/Dev/DKMSPackaging" id=3D"searchform" method=3D"get">
+<div>
+<input name=3D"action" type=3D"hidden" value=3D"fullsearch">
+<input name=3D"context" type=3D"hidden" value=3D"180">
+<label for=3D"searchinput" style=3D"display: none;">Search:</label>
+<input alt=3D"Search" class=3D"disabled" id=3D"searchinput" name=3D"value" =
+onblur=3D"searchBlur(this)" onchange=3D"searchChange(this)" onfocus=3D"sear=
+chFocus(this)" onkeyup=3D"searchChange(this)" size=3D"20" type=3D"text" val=
+ue=3D"Search">
+<input alt=3D"Search Titles" disabled=3D"" id=3D"titlesearch" name=3D"title=
+search" type=3D"submit" value=3D"Titles">
+<input alt=3D"Search Full Text" disabled=3D"" id=3D"fullsearch" name=3D"ful=
+lsearch" type=3D"submit" value=3D"Text">
+</div>
+</form>
+<script type=3D"text/javascript">
+<!--// Initialize search form
+var f =3D document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display =3D 'none';
+var e =3D document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+
+            </div>
+    </div>
+
+</div>
+    <div id=3D"wikinav">=20
+<ul class=3D"editbar"><li><span class=3D"disabled">Immutable Page</span></l=
+i><li><a class=3D"nbinfo" href=3D"/Kernel/Dev/DKMSPackaging?action=3Dinfo" =
+rel=3D"nofollow">Info</a></li><li><a class=3D"nbattachments" href=3D"/Kerne=
+l/Dev/DKMSPackaging?action=3DAttachFile" rel=3D"nofollow">Attachments</a></=
+li><li>
+<form action=3D"/Kernel/Dev/DKMSPackaging" class=3D"actionsmenu" method=3D"=
+GET">
+<div>
+   =20
+    <select name=3D"action" onchange=3D"if ((this.selectedIndex !=3D 0) &am=
+p;&amp;
+                      (this.options[this.selectedIndex].disabled =3D=3D fal=
+se)) {
+                this.form.submit();
+            }
+            this.selectedIndex =3D 0;">
+        <option selected=3D"selected" value=3D"show">More Actions:</option>=
+<option value=3D"raw">Raw Text</option>
+<option value=3D"print">Print View</option>
+<option value=3D"refresh">Delete Cache</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"SpellCheck">Check Spelling</option>
+<option value=3D"LikePages">Like Pages</option>
+<option value=3D"LocalSiteMap">Local Site Map</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"RenamePage">Rename Page</=
+option>
+<option value=3D"CopyPage">Copy Page</option>
+<option class=3D"disabled" disabled=3D"" value=3D"DeletePage">Delete Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Subscribe User</opt=
+ion>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Remove Spam</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Revert to this revi=
+sion</option>
+<option value=3D"PackagePages">Package Pages</option>
+<option value=3D"SyncPages">Sync Pages</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"Load">Load</option>
+<option value=3D"Save">Save</option>
+<option value=3D"SlideShow">SlideShow</option>
+    </select>
+   =20
+   =20
+</div>
+<script type=3D"text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id=3D"username">
+<li><a href=3D"/Home">Ubuntu Wiki</a></li>
+<li><a href=3D"?action=3Dlogin">Login</a></li>
+<li><a href=3D"/HelpContents">Help</a></li>
+</ul>
+
+        <hr class=3D"clearBoth">
+    </div>
+   =20
+	<div id=3D"main">=20
+		<div id=3D"container">
+			<div id=3D"content">
+		<h2 class=3D"entry-title">=20
+<span><a href=3D"/Kernel/Dev/DKMSPackaging">DKMSPackaging</a></span>
+</h2>
+	<div class=3D"hentry post">
+              =20
+
+<div dir=3D"ltr" id=3D"page" lang=3D"en">
+
+<!-- END HEADER --><div dir=3D"ltr" id=3D"content" lang=3D"en"><span class=
+=3D"anchor" id=3D"top"></span>
+<span class=3D"anchor" id=3D"line-1"></span><span class=3D"anchor" id=3D"li=
+ne-2"></span><p class=3D"line867"></p><div dir=3D"ltr" id=3D"KernelTeamHead=
+er.content" lang=3D"en"><span class=3D"anchor" id=3D"KernelTeamHeader.top">=
+</span>
+<span class=3D"anchor" id=3D"KernelTeamHeader.line-1"></span><p class=3D"li=
+ne867"></p><div dir=3D"ltr" id=3D"Kernel.2FMenuBar.content" lang=3D"en"><sp=
+an class=3D"anchor" id=3D"Kernel.2FMenuBar.top"></span>
+<span class=3D"anchor" id=3D"Kernel.2FMenuBar.line-1"></span><span class=3D=
+"anchor" id=3D"Kernel.2FMenuBar.line-2"></span><div><table style=3D"width:1=
+00%;"><tbody><tr>  <td style=3D"width: 40px;  border: none;  -moz-border-ra=
+dius-topleft: 15px ; -moz-border-radius-bottomleft: 15px;  background-color=
+: #F1F1DD;"><p class=3D"line891"><img alt=3D"IconsPage/iconCircle48.png" cl=
+ass=3D"attachment" src=3D"/IconsPage?action=3DAttachFile&amp;do=3Dget&amp;t=
+arget=3DiconCircle48.png" title=3D"IconsPage/iconCircle48.png"></p></td>
+  <td style=3D"width: 20%;  border: none;  -moz-border-radius-topright: 15p=
+x; -moz-border-radius-bottomright: 15px;  font-size: 0.90em;  background-co=
+lor: #F1F1DD;"><p class=3D"line891"><a href=3D"/Kernel">Ubuntu Kernel Main<=
+/a></p></td>
+  <td colspan=3D"2" style=3D"border:none; text-align: center"></td>
+  <td style=3D"width: 40px;  border: none;  -moz-border-radius-topleft: 15p=
+x ; -moz-border-radius-bottomleft: 15px;  background-color: #F1F1DD;"><p cl=
+ass=3D"line891"><img alt=3D"information.png" class=3D"attachment" src=3D"/K=
+ernel/MenuBar?action=3DAttachFile&amp;do=3Dget&amp;target=3Dinformation.png=
+" title=3D"information.png"></p></td>
+  <td style=3D"width: 20%;  border: none;  -moz-border-radius-topright: 15p=
+x; -moz-border-radius-bottomright: 15px;  font-size: 0.90em;  background-co=
+lor: #F1F1DD;"><p class=3D"line891"><a href=3D"/Kernel/Debugging">Kernel De=
+bugging</a></p></td>
+  <td colspan=3D"2" style=3D"border:none; text-align: center"></td>
+  <td style=3D"width: 40px;  border: none;  -moz-border-radius-topleft: 15p=
+x ; -moz-border-radius-bottomleft: 15px;  background-color: #F1F1DD;"><p cl=
+ass=3D"line891"><img alt=3D"IconsPage/IconBug.png" class=3D"attachment" src=
+=3D"/IconsPage?action=3DAttachFile&amp;do=3Dget&amp;target=3DIconBug.png" t=
+itle=3D"IconsPage/IconBug.png"></p></td>
+  <td style=3D"width: 20%;  border: none;  -moz-border-radius-topright: 15p=
+x; -moz-border-radius-bottomright: 15px;  font-size: 0.90em;  background-co=
+lor: #F1F1DD;"><p class=3D"line891"><a href=3D"/Kernel/BugTriage">Bug Triag=
+e</a></p></td>
+  <td colspan=3D"2" style=3D"border:none; text-align: center"></td>
+  <td style=3D"width: 40px;  border: none;  -moz-border-radius-topleft: 15p=
+x ; -moz-border-radius-bottomleft: 15px;  background-color: #F1F1DD;"><p cl=
+ass=3D"line891"><img alt=3D"testing.png" class=3D"attachment" src=3D"/Kerne=
+l/MenuBar?action=3DAttachFile&amp;do=3Dget&amp;target=3Dtesting.png" title=
+=3D"testing.png"></p></td>
+  <td style=3D"width: 20%;  border: none;  -moz-border-radius-topright: 15p=
+x; -moz-border-radius-bottomright: 15px;  font-size: 0.90em;  background-co=
+lor: #F1F1DD;"><p class=3D"line891"><a href=3D"/Kernel/Dev">Kernel Developm=
+ent</a></p></td>
+  <td colspan=3D"2" style=3D"border:none; text-align: center"></td>
+  <td style=3D"width: 40px;  border: none;  -moz-border-radius-topleft: 15p=
+x ; -moz-border-radius-bottomleft: 15px;  background-color: #F1F1DD;"><p cl=
+ass=3D"line891"><img alt=3D"todo.png" class=3D"attachment" src=3D"/Kernel/M=
+enuBar?action=3DAttachFile&amp;do=3Dget&amp;target=3Dtodo.png" title=3D"tod=
+o.png"></p></td>
+  <td style=3D"width: 20%;  border: none;  -moz-border-radius-topright: 15p=
+x; -moz-border-radius-bottomright: 15px;  font-size: 0.90em;  background-co=
+lor: #F1F1DD;"><p class=3D"line891"><a href=3D"/Kernel/FAQ">Frequently Aske=
+d Questions</a></p></td>
+</tr>
+</tbody></table></div><span class=3D"anchor" id=3D"Kernel.2FMenuBar.line-3"=
+></span><span class=3D"anchor" id=3D"Kernel.2FMenuBar.bottom"></span></div>=
+ <span class=3D"anchor" id=3D"KernelTeamHeader.line-2"></span><span class=
+=3D"anchor" id=3D"KernelTeamHeader.line-3"></span><p class=3D"line867"><spa=
+n class=3D"anchor" id=3D"KernelTeamHeader.line-4"></span><span class=3D"anc=
+hor" id=3D"KernelTeamHeader.bottom"></span></p></div> <span class=3D"anchor=
+" id=3D"line-3"></span><div><table style=3D"float:right;  font-size: 0.9em;=
+  width:40%;  background:#F1F1ED;  margin: 0 0 1em 1em;"><tbody><tr>  <td s=
+tyle=3D"padding:0.5em;"><p class=3D"line891"></p><div class=3D"table-of-con=
+tents"><p class=3D"table-of-contents-heading">Contents</p><ol><li>
+<a href=3D"#Summary">Summary</a></li><li>
+<a href=3D"#Prepare_source">Prepare source</a></li><li>
+<a href=3D"#dkms.conf">dkms.conf</a></li><li>
+<a href=3D"#DKMS_commands">DKMS commands</a></li><li>
+<a href=3D"#Debug_when_DKMS_build_failed">Debug when DKMS build failed</a><=
+/li><li>
+<a href=3D"#Generate_DKMS_deb">Generate DKMS deb</a></li><li>
+<a href=3D"#Limitation_of_DKMS">Limitation of DKMS</a></li></ol></div></td>
+</tr>
+</tbody></table></div><span class=3D"anchor" id=3D"line-4"></span><span cla=
+ss=3D"anchor" id=3D"line-5"></span><p class=3D"line867">
+</p><h2 id=3D"Summary">Summary</h2>
+<span class=3D"anchor" id=3D"line-6"></span><p class=3D"line874">dkms is a =
+framework which allows kernel modules to be dynamically built for each kern=
+el on your system in a simplified and organized fashion. <span class=3D"anc=
+hor" id=3D"line-7"></span><span class=3D"anchor" id=3D"line-8"></span></p><=
+p class=3D"line874">This page will show you how to build an DKMS deb packag=
+e. <span class=3D"anchor" id=3D"line-9"></span><span class=3D"anchor" id=3D=
+"line-10"></span></p><p class=3D"line867"><img alt=3D"dkms.png" class=3D"at=
+tachment" src=3D"/Kernel/Dev/DKMSPackaging?action=3DAttachFile&amp;do=3Dget=
+&amp;target=3Ddkms.png" title=3D"dkms.png"> <span class=3D"anchor" id=3D"li=
+ne-11"></span><span class=3D"anchor" id=3D"line-12"></span></p><p class=3D"=
+line867">
+</p><h2 id=3D"Prepare_source">Prepare source</h2>
+<span class=3D"anchor" id=3D"line-13"></span><p class=3D"line874">Prepare y=
+our kernel module source. It contains the C file and its Makefile at least.=
+ The following is an hello world kernel module as an example <span class=3D=
+"anchor" id=3D"line-14"></span><span class=3D"anchor" id=3D"line-15"></span=
+><span class=3D"anchor" id=3D"line-16"></span><span class=3D"anchor" id=3D"=
+line-17"></span><span class=3D"anchor" id=3D"line-18"></span><span class=3D=
+"anchor" id=3D"line-19"></span><span class=3D"anchor" id=3D"line-20"></span=
+><span class=3D"anchor" id=3D"line-21"></span><span class=3D"anchor" id=3D"=
+line-22"></span><span class=3D"anchor" id=3D"line-23"></span><span class=3D=
+"anchor" id=3D"line-24"></span><span class=3D"anchor" id=3D"line-25"></span=
+><span class=3D"anchor" id=3D"line-26"></span><span class=3D"anchor" id=3D"=
+line-27"></span><span class=3D"anchor" id=3D"line-28"></span><span class=3D=
+"anchor" id=3D"line-29"></span><span class=3D"anchor" id=3D"line-30"></span=
+><span class=3D"anchor" id=3D"line-31"></span></p><pre><span class=3D"ancho=
+r" id=3D"line-1"></span>#include &lt;linux/kernel.h&gt;
+<span class=3D"anchor" id=3D"line-2"></span>#include &lt;linux/module.h&gt;
+<span class=3D"anchor" id=3D"line-3"></span>
+<span class=3D"anchor" id=3D"line-4"></span>static int __init hello_init(vo=
+id)
+<span class=3D"anchor" id=3D"line-5"></span>{
+<span class=3D"anchor" id=3D"line-6"></span>        pr_info(&quot;Hello wor=
+ld.\n&quot;);
+<span class=3D"anchor" id=3D"line-7"></span>        return 0;
+<span class=3D"anchor" id=3D"line-8"></span>}
+<span class=3D"anchor" id=3D"line-9"></span>
+<span class=3D"anchor" id=3D"line-10"></span>static void __exit hello_exit(=
+void)
+<span class=3D"anchor" id=3D"line-11"></span>{
+<span class=3D"anchor" id=3D"line-12"></span>        pr_info(&quot;Goodbye =
+world.\n&quot;);
+<span class=3D"anchor" id=3D"line-13"></span>}
+<span class=3D"anchor" id=3D"line-14"></span>
+<span class=3D"anchor" id=3D"line-15"></span>module_init(hello_init);
+<span class=3D"anchor" id=3D"line-16"></span>module_exit(hello_exit);</pre>=
+<span class=3D"anchor" id=3D"line-32"></span><span class=3D"anchor" id=3D"l=
+ine-33"></span><p class=3D"line874">The following is its Makefile as exampl=
+e. <span class=3D"anchor" id=3D"line-34"></span><span class=3D"anchor" id=
+=3D"line-35"></span><span class=3D"anchor" id=3D"line-36"></span><span clas=
+s=3D"anchor" id=3D"line-37"></span><span class=3D"anchor" id=3D"line-38"></=
+span><span class=3D"anchor" id=3D"line-39"></span><span class=3D"anchor" id=
+=3D"line-40"></span><span class=3D"anchor" id=3D"line-41"></span><span clas=
+s=3D"anchor" id=3D"line-42"></span><span class=3D"anchor" id=3D"line-43"></=
+span></p><pre><span class=3D"anchor" id=3D"line-1-1"></span>obj-m :=3D hell=
+o.o
+<span class=3D"anchor" id=3D"line-2-1"></span>KVERSION :=3D $(shell uname -=
+r)
+<span class=3D"anchor" id=3D"line-3-1"></span>
+<span class=3D"anchor" id=3D"line-4-1"></span>all:
+<span class=3D"anchor" id=3D"line-5-1"></span>        $(MAKE) -C /lib/modul=
+es/$(KVERSION)/build M=3D$(PWD) modules
+<span class=3D"anchor" id=3D"line-6-1"></span>
+<span class=3D"anchor" id=3D"line-7-1"></span>clean:
+<span class=3D"anchor" id=3D"line-8-1"></span>        $(MAKE) -C /lib/modul=
+es/$(KVERSION)/build M=3D$(PWD) clean</pre><span class=3D"anchor" id=3D"lin=
+e-44"></span><p class=3D"line874">Please use a variable to keep the kernel =
+version we want to compile. In the above example, it is $(KVERSION). We usu=
+ally run dkms build under the various kernel version, and the DKMS will pas=
+s the target kernel version to Makefile. <span class=3D"anchor" id=3D"line-=
+45"></span><span class=3D"anchor" id=3D"line-46"></span></p><p class=3D"lin=
+e862">Please put your Makefile and source code at /usr/src/&lt;module&gt;-&=
+lt;module-version&gt;. For example, I put above two files at /usr/src/hello=
+-0.1 <span class=3D"anchor" id=3D"line-47"></span>
+</p><h2 id=3D"dkms.conf">dkms.conf</h2>
+<span class=3D"anchor" id=3D"line-48"></span><p class=3D"line874">Add dkms.=
+conf and put it with your Makefile <span class=3D"anchor" id=3D"line-49"></=
+span><span class=3D"anchor" id=3D"line-50"></span></p><p class=3D"line874">=
+Here is an example dkms.conf for hello-0.1 <span class=3D"anchor" id=3D"lin=
+e-51"></span><span class=3D"anchor" id=3D"line-52"></span><span class=3D"an=
+chor" id=3D"line-53"></span><span class=3D"anchor" id=3D"line-54"></span><s=
+pan class=3D"anchor" id=3D"line-55"></span><span class=3D"anchor" id=3D"lin=
+e-56"></span><span class=3D"anchor" id=3D"line-57"></span><span class=3D"an=
+chor" id=3D"line-58"></span><span class=3D"anchor" id=3D"line-59"></span></=
+p><pre><span class=3D"anchor" id=3D"line-1-2"></span>PACKAGE_NAME=3D&quot;h=
+ello&quot;
+<span class=3D"anchor" id=3D"line-2-2"></span>PACKAGE_VERSION=3D&quot;0.1&q=
+uot;
+<span class=3D"anchor" id=3D"line-3-2"></span>CLEAN=3D&quot;make clean&quot;
+<span class=3D"anchor" id=3D"line-4-2"></span>MAKE[0]=3D&quot;make all KVER=
+SION=3D$kernelver&quot;
+<span class=3D"anchor" id=3D"line-5-2"></span>BUILT_MODULE_NAME[0]=3D&quot;=
+hello&quot;
+<span class=3D"anchor" id=3D"line-6-2"></span>DEST_MODULE_LOCATION[0]=3D&qu=
+ot;/updates&quot;
+<span class=3D"anchor" id=3D"line-7-2"></span>AUTOINSTALL=3D&quot;yes&quot;=
+</pre><span class=3D"anchor" id=3D"line-60"></span><p class=3D"line862">PAC=
+KAGE_NAME, PACKAGE_VERSION is necessary information, it shall be the same w=
+ith the information or your folder name.<br>
+<br>
+ <span class=3D"anchor" id=3D"line-61"></span>CLEAN is the command to clean=
+ up the folder. Every time before build, it will be executed. If unset, it =
+is assumed to be &quot;make clean&quot;<br>
+<br>
+ <span class=3D"anchor" id=3D"line-62"></span>MAKE[0] is the first command =
+to build the kernel object. Since this is an example, this is the only comm=
+and we have. This field tells DKMS how to build the kernel object, and we c=
+an pass the target kernel version by using $kernelver that DKMS provides us=
+.<br>
+<br>
+ <span class=3D"anchor" id=3D"line-63"></span>DEST_MODULE_LOCATION[0] tells=
+ DKMS where to put the kernel object when installing. In this example, the =
+kernel object will be &quot;/lib/modules/$kernelver/updates&quot;. In Ubunt=
+u, this information will be overrade to &quot;/updates/dkms&quot;. It means=
+ our kernel objects will be put at /lib/modules/$kernelver/updates/dkms&quo=
+t;. Although this information will be overrade, it is still a necessary fie=
+ld.<br>
+<br>
+ <span class=3D"anchor" id=3D"line-64"></span>AUTOINSTALL set to yes means =
+DKMS will try to build and install the kernel object when booting and it wo=
+n&#x27;t be re-built nor re-installed if the kernel object has been install=
+ed. <span class=3D"anchor" id=3D"line-65"></span><span class=3D"anchor" id=
+=3D"line-66"></span></p><p class=3D"line867">
+</p><h2 id=3D"DKMS_commands">DKMS commands</h2>
+<span class=3D"anchor" id=3D"line-67"></span><p class=3D"line874">Now, use =
+&quot;dkms add&quot; to tell DKMS we have a module is ready. DKMS will crea=
+te symlink from /var/lib/dkms to /usr/src. <span class=3D"anchor" id=3D"lin=
+e-68"></span><span class=3D"anchor" id=3D"line-69"></span><span class=3D"an=
+chor" id=3D"line-70"></span><span class=3D"anchor" id=3D"line-71"></span><s=
+pan class=3D"anchor" id=3D"line-72"></span><span class=3D"anchor" id=3D"lin=
+e-73"></span><span class=3D"anchor" id=3D"line-74"></span><span class=3D"an=
+chor" id=3D"line-75"></span></p><pre><span class=3D"anchor" id=3D"line-1-3"=
+></span>user@here:~$ sudo dkms add -m hello -v 0.1
+<span class=3D"anchor" id=3D"line-2-3"></span>
+<span class=3D"anchor" id=3D"line-3-3"></span>Creating symlink /var/lib/dkm=
+s/hello/0.1/source -&gt;
+<span class=3D"anchor" id=3D"line-4-3"></span>                 /usr/src/hel=
+lo-0.1
+<span class=3D"anchor" id=3D"line-5-3"></span>
+<span class=3D"anchor" id=3D"line-6-3"></span>DKMS: add Completed.</pre><sp=
+an class=3D"anchor" id=3D"line-76"></span><p class=3D"line874">Then, you ca=
+n try to build this module with &quot;DKMS build&quot;. <span class=3D"anch=
+or" id=3D"line-77"></span><span class=3D"anchor" id=3D"line-78"></span><spa=
+n class=3D"anchor" id=3D"line-79"></span><span class=3D"anchor" id=3D"line-=
+80"></span><span class=3D"anchor" id=3D"line-81"></span><span class=3D"anch=
+or" id=3D"line-82"></span><span class=3D"anchor" id=3D"line-83"></span><spa=
+n class=3D"anchor" id=3D"line-84"></span><span class=3D"anchor" id=3D"line-=
+85"></span><span class=3D"anchor" id=3D"line-86"></span><span class=3D"anch=
+or" id=3D"line-87"></span><span class=3D"anchor" id=3D"line-88"></span></p>=
+<pre><span class=3D"anchor" id=3D"line-1-4"></span>user@here:~$ sudo dkms b=
+uild -m hello -v 0.1
+<span class=3D"anchor" id=3D"line-2-4"></span>
+<span class=3D"anchor" id=3D"line-3-4"></span>Kernel preparation unnecessar=
+y for this kernel.  Skipping...
+<span class=3D"anchor" id=3D"line-4-4"></span>
+<span class=3D"anchor" id=3D"line-5-4"></span>Building module:
+<span class=3D"anchor" id=3D"line-6-4"></span>cleaning build area....
+<span class=3D"anchor" id=3D"line-7-3"></span>su nobody -c &quot;make KERNE=
+LRELEASE=3D4.4.0-57-generic -C /lib/modules/4.4.0-57-generic/build M=3D/var=
+/lib/dkms/hello/0.1/build&quot;....
+<span class=3D"anchor" id=3D"line-8-2"></span>cleaning build area....
+<span class=3D"anchor" id=3D"line-9-1"></span>
+<span class=3D"anchor" id=3D"line-10-1"></span>DKMS: build Completed.</pre>=
+<span class=3D"anchor" id=3D"line-89"></span><p class=3D"line874">And, you =
+can install this module to the kernel module tree.  <span class=3D"anchor" =
+id=3D"line-90"></span><span class=3D"anchor" id=3D"line-91"></span><span cl=
+ass=3D"anchor" id=3D"line-92"></span><span class=3D"anchor" id=3D"line-93">=
+</span><span class=3D"anchor" id=3D"line-94"></span><span class=3D"anchor" =
+id=3D"line-95"></span><span class=3D"anchor" id=3D"line-96"></span><span cl=
+ass=3D"anchor" id=3D"line-97"></span><span class=3D"anchor" id=3D"line-98">=
+</span><span class=3D"anchor" id=3D"line-99"></span><span class=3D"anchor" =
+id=3D"line-100"></span><span class=3D"anchor" id=3D"line-101"></span><span =
+class=3D"anchor" id=3D"line-102"></span><span class=3D"anchor" id=3D"line-1=
+03"></span></p><pre><span class=3D"anchor" id=3D"line-1-5"></span>user@here=
+:~$ sudo dkms install -m hello -v 0.1
+<span class=3D"anchor" id=3D"line-2-5"></span>
+<span class=3D"anchor" id=3D"line-3-5"></span>hello.ko:
+<span class=3D"anchor" id=3D"line-4-5"></span>Running module version sanity=
+ check.
+<span class=3D"anchor" id=3D"line-5-5"></span> - Original module
+<span class=3D"anchor" id=3D"line-6-5"></span>   - No original module exist=
+s within this kernel
+<span class=3D"anchor" id=3D"line-7-4"></span> - Installation
+<span class=3D"anchor" id=3D"line-8-3"></span>   - Installing to /lib/modul=
+es/4.4.0-57-generic/updates/dkms/
+<span class=3D"anchor" id=3D"line-9-2"></span>
+<span class=3D"anchor" id=3D"line-10-2"></span>depmod......
+<span class=3D"anchor" id=3D"line-11-1"></span>
+<span class=3D"anchor" id=3D"line-12-1"></span>DKMS: install Completed.</pr=
+e><span class=3D"anchor" id=3D"line-104"></span><p class=3D"line874">Then, =
+you can see the kernel object has been add to your module tree <span class=
+=3D"anchor" id=3D"line-105"></span><span class=3D"anchor" id=3D"line-106"><=
+/span><span class=3D"anchor" id=3D"line-107"></span><span class=3D"anchor" =
+id=3D"line-108"></span></p><pre><span class=3D"anchor" id=3D"line-1-6"></sp=
+an>user@here:~$ ls -al /lib/modules/4.4.0-57-generic/updates/dkms/hello.ko
+<span class=3D"anchor" id=3D"line-2-6"></span>-rw-r--r-- 1 root root 3328 2=
+009-11-11 11:19 /lib/modules/4.4.0-57-generic/updates/dkms/hello.ko</pre><s=
+pan class=3D"anchor" id=3D"line-109"></span><p class=3D"line874">And you ca=
+n use it now. <span class=3D"anchor" id=3D"line-110"></span><span class=3D"=
+anchor" id=3D"line-111"></span><span class=3D"anchor" id=3D"line-112"></spa=
+n><span class=3D"anchor" id=3D"line-113"></span><span class=3D"anchor" id=
+=3D"line-114"></span></p><pre><span class=3D"anchor" id=3D"line-1-7"></span=
+>user@here:~$ sudo modprobe hello
+<span class=3D"anchor" id=3D"line-2-7"></span>user@here:~$ dmesg | tail -1
+<span class=3D"anchor" id=3D"line-3-6"></span>[ 7328.183867] Hello world.</=
+pre><span class=3D"anchor" id=3D"line-115"></span><p class=3D"line874">If t=
+he module is useless for you, you can remove the module from DKMS. All file=
+s related to this module under /var/lib/dkms and /lib/modules will be remov=
+ed. <span class=3D"anchor" id=3D"line-116"></span><span class=3D"anchor" id=
+=3D"line-117"></span><span class=3D"anchor" id=3D"line-118"></span></p><pre=
+><span class=3D"anchor" id=3D"line-1-8"></span>user@here:~$ sudo dkms remov=
+e -m hello -v 0.1 --all</pre><span class=3D"anchor" id=3D"line-119"></span>=
+<p class=3D"line874">You can also ask DKMS to build and install this module=
+ for another kernel version after &quot;dkms add&quot;. <span class=3D"anch=
+or" id=3D"line-120"></span><span class=3D"anchor" id=3D"line-121"></span><s=
+pan class=3D"anchor" id=3D"line-122"></span><span class=3D"anchor" id=3D"li=
+ne-123"></span><span class=3D"anchor" id=3D"line-124"></span><span class=3D=
+"anchor" id=3D"line-125"></span><span class=3D"anchor" id=3D"line-126"></sp=
+an><span class=3D"anchor" id=3D"line-127"></span><span class=3D"anchor" id=
+=3D"line-128"></span><span class=3D"anchor" id=3D"line-129"></span><span cl=
+ass=3D"anchor" id=3D"line-130"></span><span class=3D"anchor" id=3D"line-131=
+"></span><span class=3D"anchor" id=3D"line-132"></span><span class=3D"ancho=
+r" id=3D"line-133"></span><span class=3D"anchor" id=3D"line-134"></span><sp=
+an class=3D"anchor" id=3D"line-135"></span><span class=3D"anchor" id=3D"lin=
+e-136"></span><span class=3D"anchor" id=3D"line-137"></span><span class=3D"=
+anchor" id=3D"line-138"></span><span class=3D"anchor" id=3D"line-139"></spa=
+n><span class=3D"anchor" id=3D"line-140"></span><span class=3D"anchor" id=
+=3D"line-141"></span><span class=3D"anchor" id=3D"line-142"></span><span cl=
+ass=3D"anchor" id=3D"line-143"></span></p><pre><span class=3D"anchor" id=3D=
+"line-1-9"></span>user@here:~# sudo dkms build -m hello -v 0.1 -k 4.4.0-57-=
+generic
+<span class=3D"anchor" id=3D"line-2-8"></span>
+<span class=3D"anchor" id=3D"line-3-7"></span>Kernel preparation unnecessar=
+y for this kernel.  Skipping...
+<span class=3D"anchor" id=3D"line-4-6"></span>
+<span class=3D"anchor" id=3D"line-5-6"></span>Building module:
+<span class=3D"anchor" id=3D"line-6-6"></span>cleaning build area....
+<span class=3D"anchor" id=3D"line-7-5"></span>su nobody -c &quot;make KERNE=
+LRELEASE=3D4.4.0-57-generic all KVERSION=3D4.4.0-57-generic&quot;....
+<span class=3D"anchor" id=3D"line-8-4"></span>cleaning build area....
+<span class=3D"anchor" id=3D"line-9-3"></span>
+<span class=3D"anchor" id=3D"line-10-3"></span>DKMS: build Completed.
+<span class=3D"anchor" id=3D"line-11-2"></span>user@here:~# dkms install -m=
+ hello -v 0.1 -k 4.4.0-57-generic
+<span class=3D"anchor" id=3D"line-12-2"></span>
+<span class=3D"anchor" id=3D"line-13-1"></span>hello.ko:
+<span class=3D"anchor" id=3D"line-14-1"></span>Running module version sanit=
+y check.
+<span class=3D"anchor" id=3D"line-15-1"></span> - Original module
+<span class=3D"anchor" id=3D"line-16-1"></span>   - No original module exis=
+ts within this kernel
+<span class=3D"anchor" id=3D"line-17"></span> - Installation
+<span class=3D"anchor" id=3D"line-18"></span>   - Installing to /lib/module=
+s/4.4.0-57-generic/updates/dkms/
+<span class=3D"anchor" id=3D"line-19"></span>
+<span class=3D"anchor" id=3D"line-20"></span>depmod....
+<span class=3D"anchor" id=3D"line-21"></span>
+<span class=3D"anchor" id=3D"line-22"></span>DKMS: install Completed.</pre>=
+<span class=3D"anchor" id=3D"line-144"></span><span class=3D"anchor" id=3D"=
+line-145"></span><p class=3D"line874">It is also possible to build against =
+multiple kernel versions.  <span class=3D"anchor" id=3D"line-146"></span><s=
+pan class=3D"anchor" id=3D"line-147"></span><span class=3D"anchor" id=3D"li=
+ne-148"></span></p><pre><span class=3D"anchor" id=3D"line-1-10"></span>user=
+@here:~# sudo dkms build -m hello -v 0.1 -k 4.4.0-57-generic -k 4.4.0-58-ge=
+neric</pre><span class=3D"anchor" id=3D"line-149"></span><span class=3D"anc=
+hor" id=3D"line-150"></span><p class=3D"line874">The pre-built modules will=
+ be included in the DKMS deb made later. When the versions of the pre-built=
+ modules and the kernel on the target computer match, the pre-built modules=
+ will just be used rather than compiling on installation.  <span class=3D"a=
+nchor" id=3D"line-151"></span><span class=3D"anchor" id=3D"line-152"></span=
+></p><p class=3D"line867">
+</p><h2 id=3D"Debug_when_DKMS_build_failed">Debug when DKMS build failed</h=
+2>
+<span class=3D"anchor" id=3D"line-153"></span><p class=3D"line862">If DKMS =
+build kernel failed, it will leave the make.log for you to tell what happen=
+ed.<br>
+ <span class=3D"anchor" id=3D"line-154"></span>The log will be at /var/lib/=
+dkms/&lt;your_module_name&gt;/&lt;your_module_version&gt;/build/make.log<br>
+ <span class=3D"anchor" id=3D"line-155"></span>In this example, the log wil=
+l be /var/lib/dkms/hello/0.1/build/make.log <span class=3D"anchor" id=3D"li=
+ne-156"></span>
+</p><h2 id=3D"Generate_DKMS_deb">Generate DKMS deb</h2>
+<span class=3D"anchor" id=3D"line-157"></span><p class=3D"line874">Using &q=
+uot;dkms mkdeb&quot; to build deb package. You shall run &quot;dkms mkdeb&q=
+uot; after &quot;dkms add&quot; and &quot;dkms build&quot; <span class=3D"a=
+nchor" id=3D"line-158"></span><span class=3D"anchor" id=3D"line-159"></span=
+><span class=3D"anchor" id=3D"line-160"></span><span class=3D"anchor" id=3D=
+"line-161"></span><span class=3D"anchor" id=3D"line-162"></span><span class=
+=3D"anchor" id=3D"line-163"></span><span class=3D"anchor" id=3D"line-164"><=
+/span><span class=3D"anchor" id=3D"line-165"></span><span class=3D"anchor" =
+id=3D"line-166"></span><span class=3D"anchor" id=3D"line-167"></span><span =
+class=3D"anchor" id=3D"line-168"></span><span class=3D"anchor" id=3D"line-1=
+69"></span><span class=3D"anchor" id=3D"line-170"></span><span class=3D"anc=
+hor" id=3D"line-171"></span><span class=3D"anchor" id=3D"line-172"></span><=
+span class=3D"anchor" id=3D"line-173"></span><span class=3D"anchor" id=3D"l=
+ine-174"></span><span class=3D"anchor" id=3D"line-175"></span><span class=
+=3D"anchor" id=3D"line-176"></span><span class=3D"anchor" id=3D"line-177"><=
+/span><span class=3D"anchor" id=3D"line-178"></span><span class=3D"anchor" =
+id=3D"line-179"></span><span class=3D"anchor" id=3D"line-180"></span><span =
+class=3D"anchor" id=3D"line-181"></span><span class=3D"anchor" id=3D"line-1=
+82"></span><span class=3D"anchor" id=3D"line-183"></span><span class=3D"anc=
+hor" id=3D"line-184"></span><span class=3D"anchor" id=3D"line-185"></span><=
+span class=3D"anchor" id=3D"line-186"></span><span class=3D"anchor" id=3D"l=
+ine-187"></span><span class=3D"anchor" id=3D"line-188"></span><span class=
+=3D"anchor" id=3D"line-189"></span><span class=3D"anchor" id=3D"line-190"><=
+/span><span class=3D"anchor" id=3D"line-191"></span><span class=3D"anchor" =
+id=3D"line-192"></span><span class=3D"anchor" id=3D"line-193"></span><span =
+class=3D"anchor" id=3D"line-194"></span></p><pre><span class=3D"anchor" id=
+=3D"line-1-11"></span>user@here:~$ sudo dkms mkdeb -m hello -v 0.1
+<span class=3D"anchor" id=3D"line-2-9"></span>Using /etc/dkms/template-dkms=
+-mkdeb
+<span class=3D"anchor" id=3D"line-3-8"></span>copying template...
+<span class=3D"anchor" id=3D"line-4-7"></span>modifying debian/changelog...
+<span class=3D"anchor" id=3D"line-5-7"></span>modifying debian/compat...
+<span class=3D"anchor" id=3D"line-6-7"></span>modifying debian/control...
+<span class=3D"anchor" id=3D"line-7-6"></span>modifying debian/copyright...
+<span class=3D"anchor" id=3D"line-8-5"></span>modifying debian/dirs...
+<span class=3D"anchor" id=3D"line-9-4"></span>modifying debian/postinst...
+<span class=3D"anchor" id=3D"line-10-4"></span>modifying debian/prerm...
+<span class=3D"anchor" id=3D"line-11-3"></span>modifying debian/README.Debi=
+an...
+<span class=3D"anchor" id=3D"line-12-3"></span>modifying debian/rules...
+<span class=3D"anchor" id=3D"line-13-2"></span>copying legacy postinstall t=
+emplate...
+<span class=3D"anchor" id=3D"line-14-2"></span>Copying source tree...
+<span class=3D"anchor" id=3D"line-15-2"></span>Gathering binaries...Marking=
+ modules for 4.4.0-57-generic (x86_64) for archiving...
+<span class=3D"anchor" id=3D"line-16-2"></span>
+<span class=3D"anchor" id=3D"line-17-1"></span>Creating special tarball str=
+ucture to accomodate only binaries.
+<span class=3D"anchor" id=3D"line-18-1"></span>
+<span class=3D"anchor" id=3D"line-19-1"></span>
+<span class=3D"anchor" id=3D"line-20-1"></span>Tarball location: /var/lib/d=
+kms/hello/0.1/tarball/hello-0.1.dkms.tar.gz
+<span class=3D"anchor" id=3D"line-21-1"></span>
+<span class=3D"anchor" id=3D"line-22-1"></span>DKMS: mktarball Completed.
+<span class=3D"anchor" id=3D"line-23"></span>
+<span class=3D"anchor" id=3D"line-24"></span>Copying DKMS tarball into DKMS=
+ tree...
+<span class=3D"anchor" id=3D"line-25"></span>Building binary package...dpkg=
+-buildpackage: warning: using a gain-root-command while being root
+<span class=3D"anchor" id=3D"line-26"></span> fakeroot debian/rules clean
+<span class=3D"anchor" id=3D"line-27"></span> debian/rules build
+<span class=3D"anchor" id=3D"line-28"></span> fakeroot debian/rules binary
+<span class=3D"anchor" id=3D"line-29"></span> dpkg-genchanges -b &gt;../hel=
+lo-dkms_0.1_amd64.changes
+<span class=3D"anchor" id=3D"line-30"></span>dpkg-genchanges: binary-only u=
+pload - not including any source code
+<span class=3D"anchor" id=3D"line-31"></span>
+<span class=3D"anchor" id=3D"line-32"></span>
+<span class=3D"anchor" id=3D"line-33"></span>DKMS: mkdeb Completed.
+<span class=3D"anchor" id=3D"line-34"></span>Moving built files to /var/lib=
+/dkms/hello/0.1/deb...
+<span class=3D"anchor" id=3D"line-35"></span>Cleaning up temporary files...=
+</pre><span class=3D"anchor" id=3D"line-195"></span><p class=3D"line874">An=
+d you can have the deb package <span class=3D"anchor" id=3D"line-196"></spa=
+n><span class=3D"anchor" id=3D"line-197"></span><span class=3D"anchor" id=
+=3D"line-198"></span><span class=3D"anchor" id=3D"line-199"></span></p><pre=
+><span class=3D"anchor" id=3D"line-1-12"></span>user@here:~$ ls -al /var/li=
+b/dkms/hello/0.1/deb/hello-dkms_0.1_all.deb
+<span class=3D"anchor" id=3D"line-2-10"></span>-rw-r--r-- 1 root root 5336 =
+2009-11-11 13:50 /var/lib/dkms/hello/0.1/deb/hello-dkms_0.1_all.deb</pre><s=
+pan class=3D"anchor" id=3D"line-200"></span><p class=3D"line874">with AUTOI=
+NSTALL=3Dyes in dkms.conf, you can boot with various kernel and dkms will b=
+uild the kernel module automatically for you. <span class=3D"anchor" id=3D"=
+line-201"></span>
+</p><h2 id=3D"Limitation_of_DKMS">Limitation of DKMS</h2>
+<span class=3D"anchor" id=3D"line-202"></span><p class=3D"line862">1. DKMS =
+may not work well after a large change of kernel ABI - Using DKMS on a stab=
+le release kernel will be a better idea.<br>
+ <span class=3D"anchor" id=3D"line-203"></span>2. Make sure the we have too=
+lchains and kernel header installed.<br>
+ <span class=3D"anchor" id=3D"line-204"></span>3. Using DKMS on a netbook i=
+s not a smart idea - It takes too much time to build the kernel module afte=
+r kernel upgrading.<br>
+ <span class=3D"anchor" id=3D"line-205"></span>4. DKMS modules will not be =
+loaded if there are another ones in initrd. <span class=3D"anchor" id=3D"li=
+ne-206"></span><span class=3D"anchor" id=3D"bottom"></span></p></div> <!-- =
+BEGIN FOOTER -->
+<div id=3D"pagebottom"></div>
+</div>
+
+
+        <div class=3D"entry-utility">=20
+            <span class=3D"cat-links">
+<p class=3D"info" dir=3D"ltr" id=3D"pageinfo" lang=3D"en">Kernel/Dev/DKMSPa=
+ckaging  (last edited 2016-12-30 11:03:22 by <span title=3D"fourdollars @ l=
+ocalhost[127.0.0.1]"><a class=3D"interwiki" href=3D"https://launchpad.net/~=
+fourdollars" title=3D"fourdollars @ localhost[127.0.0.1]">fourdollars</a></=
+span>)</p>
+
+</span>=20
+        </div>=20
+    </div><!-- .post -->=20
+=20
+            </div><!-- #content -->=20
+        </div><!-- #container -->=20
+        <div class=3D"clearBoth"></div>=20
+    </div><!-- #main -->=20
+</div><!-- #wrapper .hfeed -->=20
+   =20
+<div id=3D"footer">=20
+    <div id=3D"siteinfo">       =20
+        <p> The material on this wiki is available under a free license, se=
+e=20
+	<a href=3D"https://help.ubuntu.com/community/License">Copyright / License<=
+/a> for details.
+        </p>=20
+    </div><!-- #siteinfo -->=20
+</div><!-- #footer -->=20
+<script> (function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=3Dr;i[r]=3Di[=
+r]||function(){(i[r].q=3Di[r].q||[]).push(arguments)},i[r].l=3D1*new Date()=
+;a=3Ds.createElement(o),m=3Ds.getElementsByTagName(o)[0];a.async=3D1;a.src=
+=3Dg;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.goog=
+le-analytics.com/analytics.js','ga'); ga('create', 'UA-1018242-7', 'auto');=
+ ga('send', 'pageview'); </script>
+
+
+</body></html>
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/css/common.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* standard rule ---- */
+hr {
+    height: 1pt;
+    background-color: #D9E8FD; /* ubuntu dark tan */
+    border: 0;
+}
+
+/* custom rules ----- to ---------- */
+.hr1 {height: 2pt;}
+.hr2 {height: 3pt;}
+.hr3 {height: 4pt;}
+.hr4 {height: 5pt;}
+.hr5 {height: 6pt;}
+.hr6 {height: 7pt;}
+
+/* Replacement for html 3 u tag */
+.u {text-decoration: underline;}
+
+/* eye catchers */
+.warning=20
+{
+	color: red;
+}
+
+.error=20
+{
+	color: red;
+}
+
+strong.highlight=20
+{
+	background-color: #0099FF; /* ubuntu pale orange */
+	padding: 1pt;
+}
+
+
+/* Recent changes */
+
+.rcrss {
+	float: right;
+	margin: 0;
+}
+
+.recentchanges[dir=3D"rtl"] .rcrss {
+	float: left;
+}
+
+.recentchanges table {
+	clear: both;
+}
+
+.recentchanges td {
+	vertical-align: top;
+	border: none;
+	border-bottom: 1pt solid #D9E8FD; /* ubuntu dark tan */
+	background: white;
+}
+
+.rcdaybreak td {
+	background: #EDD097; /* classic: deep yellow */
+	border: none;
+}
+
+.rcdaybreak td a {
+	font-size: 0.88em;
+}
+
+.rcicon1, .rcicon2 {
+	text-align: center;
+}
+
+.rcpagelink {
+	width: 33%;
+}
+
+.rctime {
+	font-size: 0.88em;
+	white-space: nowrap;
+}
+
+.rceditor {
+	white-space: nowrap;
+	font-size: 0.88em;
+}
+
+.rccomment {
+	width: 66%;
+	color: #D9E8FD; /* ubuntu dark tan */
+	font-size: 0.88em;
+	font-weight: bold;
+}
+
+
+/* User Preferences */
+
+.userpref table, .userpref td {
+	border: none;
+}
+
+/* CSS for new code_area markup used by Colorizer and ParserBase */
+
+div.codearea { /* the div makes the border */
+	margin: 4pt 0;
+	padding: 0;
+	border: 1pt solid #D9E8FD; /* ubuntu dark tan */
+/*	background-color: #F3F5F7;   * light grey */
+	background-color: #0099FF; /* ubuntu pale orange */
+	color: black;
+}
+
+div.codearea pre { /* the pre has no border and is inside the div */
+	margin: 0;
+	padding: 4pt;
+	border: none;
+}
+
+a.codenumbers { /* format of the line numbering link */
+	margin: 0 4pt;
+	font-size: 0.85em;
+	color: #063E73; /* ubuntu dark brown */
+}
+
+/* format of certain syntax spans */
+div.codearea pre span.LineNumber {color: gray;}
+div.codearea pre span.ID         {color: #000000;}
+div.codearea pre span.Operator   {color: #0000C0;}
+div.codearea pre span.Char       {color: #004080;}
+div.codearea pre span.Comment    {color: #008000;}
+div.codearea pre span.Number     {color: #0080C0;}
+div.codearea pre span.String     {color: #004080;}
+div.codearea pre span.SPChar     {color: #0000C0;}
+div.codearea pre span.ResWord    {color: #A00000;}
+div.codearea pre span.ConsWord   {color: #008080; font-weight: bold;}
+div.codearea pre span.Error      {color: #FF8080; border: solid 1.5pt #FF00=
+00;}
+div.codearea pre span.ResWord2   {color: #0080ff; font-weight: bold;}
+div.codearea pre span.Special    {color: #0000ff;}
+div.codearea pre span.Preprc     {color: #803999;}
+
+
+/* Search results */
+
+.searchresults dt {
+    margin-top: 1em;
+	font-weight: normal;
+}
+
+.searchresults dd {
+	font-size: 0.85em;
+}
+
+/* MonthCalendar css */
+
+/* days without and with pages linked to them */
+a.cal-emptyday {
+    color: #777777;
+    text-align: center;
+}
+a.cal-usedday {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+/* general stuff: workdays, weekend, today */
+td.cal-workday {
+    background-color: #E8EEFF; /* ubuntu near-white */
+    text-align: center;
+}
+td.cal-weekend {
+    background-color: #0099FF; /* ubuntu pale orange */
+    text-align: center;
+}
+td.cal-today {
+    background-color: #1050FF; /* ubuntu orange */
+    border-style: solid;
+    border-width: 2pt;
+    text-align: center;
+}
+/* invalid places on the monthly calendar sheet */
+td.cal-invalidday {
+    background-color: #CCCCCC;
+}
+/* links to prev/next month/year */
+a.cal-link {
+    color: #E8EEFF; /* ubuntu near-white */
+    text-decoration: none;
+}
+th.cal-header {
+    background-color: #063E73; /* ubuntu dark brown */
+    color: white;
+    text-align: center;
+}
+
+/* for MonthCalendar mouseover info boxes */
+TABLE.tip {
+    color: black;
+	border: 1px solid #D9E8FD; /* ubuntu dark tan */
+	background-color: #9EC6FF; /* ubuntu light salmon */
+    font-size: small;
+    font-weight: normal;
+}
+
+TH.tip {
+    background-color: #1050FF; /* ubuntu orange */
+    font-weight: bold;
+    text-align: center;
+}
+
+TD.tip {
+    text-align: left;
+}
+*[dir=3D"rtl"] TD.tip {
+    text-align: right;
+}
+
+/* end MonthCalendar stuff */
+
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/css/screen.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+@import url('typography.css');
+@import url('general.css');
+
+#wikinav {
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    margin: 0 16px 5px;
+    background-color: #ffffff;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+    height: 42px;
+}
+#wikinav ul {
+    display: inline;
+    margin-bottom: 0;
+}
+#wikinav li {
+    display: block;
+    font-size: 12px;
+    float: left;
+    height: 30px;
+    padding: 12px 10px 0;
+    margin-bottom: 0;
+    border-right: 1px solid #e9e9e9;
+    color: #333;
+}
+#wikinav li a {
+    color: #333;
+}
+
+#wikinav hr {
+    border: 0;
+    width: 100%;
+    color: #d9d9d9;
+    background-color: #d9d9d9;
+    margin: 0;
+    padding: 0;
+}
+#wikinav select {
+    width: 140px;
+    margin-top: 0;
+}
+
+/* header / title area */
+
+h2.entry-title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 24px 0 32px 0;
+    padding: 0 6px;
+}
+
+#pagebottom {
+    clear: both;
+}
+
+/* modal message box - should stand out */
+#message {
+    padding: 8px 16px;
+    margin: 8px 0;
+    border: 2px #F2F5FB solid;
+    font-size: 14px;
+    background-color: white;
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+}
+#message p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+#message p.status {
+    font-weight: 400;
+}
+
+/* editor page styles */
+
+textarea {
+    display: block;
+    width: 100%;
+    font-size: 100%;
+}
+
+/* quick links menu */
+#wikinav .quicklinks li ul {=20
+    font-size:.8em;
+    margin-bottom:1.875em;
+    line-height:1.875em;=20
+}
+
+#wikinav .quicklinks li ul li{
+    display: block;
+    border: 1px solid #F58539;
+    background-color: #fff;
+    padding: 3px;
+}
+#wikinav .quicklinks li ul li.current {
+    background-color: #efefef;
+}
+#wikinav .quicklinks li ul li a {
+    color: #4A2811;
+    text-decoration: none;
+    border-bottom-style: none;
+    margin-right: 0;
+}
+
+#wikinav .quicklinks li ul li:hover {
+    background-color: #f5d4bf;
+}
+
+#wikinav .quicklinks li ul li.current:hover {
+    background-color: #efefef;
+}
+
+#wikinav .quicklinks li ul li:hover a {
+    color: #000;
+}
+
+#wikinav .quicklinks li {
+    display: inline;
+    position: relative;
+}
+
+#wikinav .quicklinks li a {
+    margin-right: 10px;
+}
+#wikinav .quicklinks li ul {
+    display: none;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    max-height: 400px;
+    overflow: auto;
+    margin-right: 15px;
+}
+
+#wikinav .quicklinks:hover li ul {
+    display: block;
+}
+
+#wikinav .quicklinks li.wikilink {
+    display: none;
+}
+
+#content td {
+    padding: 0 8px;
+}
+
+#content td p {
+    margin-bottom: 4px;
+}
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/css/typography.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body
+{
+	margin: 0 auto;
+	width: 984px;
+	font-family: "Ubuntu Beta", UbuntuBeta, Ubuntu, "Bitstream Vera Sans", "De=
+jaVu Sans", Tahoma, sans-serif;
+	background: #ecebe9;
+	font-size: 13px;
+	background: url("../images/dotted-bg.png");
+	line-height: 1.5;
+	color: #333;
+}
+
+.clearBoth
+{
+	clear: both;
+}
+
+
+h1
+{
+	font-size: 28px;
+	line-height: 40px;
+	margin: 0 0 8px;
+	font-weight: normal;
+}
+
+h1.pagetitle
+{
+	margin: 64px 0 0 8px;
+	height: 138px;
+	color: #741546;
+}
+
+h2
+{
+	font-size: 24px;
+	line-height: 28px;
+	margin: 8px 0 8px 0;
+	font-weight: normal;
+}
+
+h3
+{
+	font-size: 16px;
+	line-height: 24px;
+	margin: 0 0 8px 0;
+	font-weight: normal;
+}
+
+h4
+{
+	font-size: 12px;
+	margin: 0;
+	font-weight: normal;
+}
+
+p
+{
+	font-size: 13px;
+	margin: 0 0 1em 0;
+}
+
+a
+{
+	color: #3B7CB1;
+	text-decoration: none;
+}
+
+a img
+{
+	border: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: #3B7CB1;
+}
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/css/general.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+#wrapper
+{
+	background: #F2F5FB;
+	-moz-box-shadow: 0 0 2px #bbb;
+	-webkit-box-shadow: 0 0 2px #bbb;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	z-index: 2;
+	position: relative;
+}
+
+#header #mothership
+{
+        background: #FFFFFF;
+}
+
+#header ul#mothership
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	height: 20px;
+}
+
+#header ul#mothership li
+{
+	float: right;
+	padding: 3px 0;
+	margin: 0 16px 0 0;
+	font-size: 10px;
+	line-height: 14px;
+}
+
+#header ul#mothership a
+{
+	color: #333;
+}
+
+#header #orangeHeader
+{
+	height: 72px;
+	background: #3F75CB url('../images/orangeheader-tile.png') repeat-x top le=
+ft;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-radius: 0 0 4px 4px;
+}
+
+#header #orangeHeader h1
+{
+	margin: 0;
+    width: 350px;
+    float: left;
+}
+
+#header #orangeHeader a
+{
+	display: block;
+	height: 72px;
+	width: 198px;
+	background: url('../images/kubuntu-wiki.png') no-repeat center center;
+	padding-left: 40px;
+}
+
+#header #orangeHeader span
+{
+	display: none;
+}
+/* search box in header */
+
+#search-box {
+    float: right;
+    margin-top: 24px;
+    margin-right: 20px;
+}
+#searchinput {
+    float: left;
+}
+#fullsearch {
+    display: none;
+}
+
+#search-box #titlesearch {
+    float: left;
+    background: url("../images/search_button_sprite.png") transparent;
+    width: 24px;
+    height: 24px;
+    margin: 1px 0 0 8px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    text-indent: 50px;
+    float: left;
+}
+
+
+#pageTitle
+{
+	margin: 10px 0;
+	color: #aea79f;
+}
+
+#main
+{
+	background: #F2F5FB;
+}
+#container
+{
+	margin: 0 0 0 20px;
+	width: 944px;
+	float: left;
+}
+
+#secondary
+{
+	margin: 40px 20px 0 0;
+	width: 224px;
+	float: right;
+}
+
+.post
+{
+	background: #fff;
+	margin: 0 0 16px 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 8px;
+	-moz-box-shadow: 0px 1px 2px #CCC;
+	-webkit-box-shadow: 0px 1px 2px #CCC;
+	box-shadow: 0px 1px 2px #CCC;
+}
+
+.post .postHeader
+{
+	border-bottom: 1px dotted #aea79f;
+	margin: 0 0 8px 0;
+}
+
+.post .postHeader h2
+{
+	width: 560px;
+	float: left;
+	margin-bottom: 4px;
+}
+
+.post .postHeader h3
+{
+	width: 560px;
+	float: left;
+	color: #aea79f;
+	margin-bottom: 16px;
+}
+
+.post .postHeader h2.entry-title,
+.post .postHeader h2.entry-title a
+{
+	color: #333333;
+}
+.post .postHeader img
+{
+	float: right;
+	max-height: 56px;
+	padding-top: 4px;
+}
+
+.post .entry-content
+{
+	border-bottom: 1px dotted #aea79f;
+	padding-bottom: 8px;
+}
+
+.post .entry-content p
+{
+	clear: both;
+}
+
+.post .entry-content img
+{
+	float: left;
+	margin: 0 8px 8px 0;
+}
+
+.post .entry-utility
+{
+	margin: 8px 0 0;
+	text-align: right;
+}
+
+.post .entry-utility .cat-links a
+{
+	color: #888;
+}
+
+.xoxo
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.widgetcontainer
+{
+	background: #fff;
+	margin: 0 0 16px 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 0 0 1em 0;
+	-moz-box-shadow: 0px 2px 2px #CCC;
+	-webkit-box-shadow: 0px 2px 3px #CCC;
+	box-shadow: 0px 2px 3px #CCC;
+}
+
+.widgetcontainer .widgettitle
+{
+	padding: 10px 8px;
+	background: url("../images/sidebox_stripes.png");
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-size: 18px;
+}
+
+.widgetcontainer p
+{
+	margin: 0 8px 1em 8px;
+}
+
+.widgetcontainer p:last-child
+{
+	margin: 0 8px;
+}
+
+.widgetcontainer a
+{
+	color: #333;
+}
+
+.widgetcontainer p a
+{
+	text-decoration: underline;
+}
+
+.widgetcontainer ul
+{
+	margin: 0 8px;
+	padding: 0;
+	list-style-type: none;
+}
+
+.widgetcontainer ul li
+{
+	padding: 6px 0;
+	border-bottom: 1px dotted #aea79f;
+}
+
+.widgetcontainer ul li:last-child
+{
+	border: 0;
+}
+
+#footer
+{
+	background: #F2F5FB;
+	z-index: 1;
+	position: relative;
+	color: #aea79f;
+	padding: 56px 16px 16px 16px;
+}
+
+#footer p
+{
+	margin: 0;
+	font-size: 10px;
+	line-height: 14px;
+}
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://www.google-analytics.com/analytics.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+(function(){var $c=3Dfunction(a){this.w=3Da||[]};$c.prototype.set=3Dfunctio=
+n(a){this.w[a]=3D!0};$c.prototype.encode=3Dfunction(){for(var a=3D[],b=3D0;=
+b<this.w.length;b++)this.w[b]&&(a[Math.floor(b/6)]^=3D1<<b%6);for(b=3D0;b<a=
+.length;b++)a[b]=3D"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012=
+3456789-_".charAt(a[b]||0);return a.join("")+"~"};var vd=3Dnew $c;function =
+J(a){vd.set(a)}var Td=3Dfunction(a){a=3DDd(a);a=3Dnew $c(a);for(var b=3Dvd.=
+w.slice(),c=3D0;c<a.w.length;c++)b[c]=3Db[c]||a.w[c];return(new $c(b)).enco=
+de()},Dd=3Dfunction(a){a=3Da.get(Gd);ka(a)||(a=3D[]);return a};var ea=3Dfun=
+ction(a){return"function"=3D=3Dtypeof a},ka=3Dfunction(a){return"[object Ar=
+ray]"=3D=3DObject.prototype.toString.call(Object(a))},qa=3Dfunction(a){retu=
+rn void 0!=3Da&&-1<(a.constructor+"").indexOf("String")},D=3Dfunction(a,b){=
+return 0=3D=3Da.indexOf(b)},sa=3Dfunction(a){return a?a.replace(/^[\s\xa0]+=
+|[\s\xa0]+$/g,""):""},ra=3Dfunction(){for(var a=3DO.navigator.userAgent+(M.=
+cookie?M.cookie:"")+(M.referrer?M.referrer:""),b=3Da.length,c=3DO.history.l=
+ength;0<c;)a+=3Dc--^b++;return[hd()^La(a)&2147483647,Math.round((new Date).=
+getTime()/
+1E3)].join(".")},ta=3Dfunction(a){var b=3DM.createElement("img");b.width=3D=
+1;b.height=3D1;b.src=3Da;return b},ua=3Dfunction(){},K=3Dfunction(a){if(enc=
+odeURIComponent instanceof Function)return encodeURIComponent(a);J(28);retu=
+rn a},L=3Dfunction(a,b,c,d){try{a.addEventListener?a.addEventListener(b,c,!=
+!d):a.attachEvent&&a.attachEvent("on"+b,c)}catch(e){J(27)}},f=3D/^[\w\-:/.?=
+=3D&%!]+$/,wa=3Dfunction(a,b,c,d){a&&(c?(d=3D"",b&&f.test(b)&&(d=3D' id=3D"=
+'+b+'"'),f.test(a)&&M.write("<script"+d+' src=3D"'+a+'">\x3c/script>')):(c=
+=3DM.createElement("script"),
+c.type=3D"text/javascript",c.async=3D!0,c.src=3Da,d&&(c.onload=3Dd),b&&(c.i=
+d=3Db),a=3DM.getElementsByTagName("script")[0],a.parentNode.insertBefore(c,=
+a)))},Ud=3Dfunction(){return"https:"=3D=3DM.location.protocol},be=3Dfunctio=
+n(a,b){return E(M.location[b?"href":"search"],a)},E=3Dfunction(a,b){return(=
+a=3Da.match("(?:&|#|\\?)"+K(b).replace(/([.*+?^=3D!:${}()|\[\]\/\\])/g,"\\$=
+1")+"=3D([^&#]*)"))&&2=3D=3Da.length?a[1]:""},xa=3Dfunction(){var a=3D""+M.=
+location.hostname;return 0=3D=3Da.indexOf("www.")?a.substring(4):a},de=3Dfu=
+nction(a,b){var c=3D
+a.indexOf(b);if(5=3D=3Dc||6=3D=3Dc)if(a=3Da.charAt(c+b.length),"/"=3D=3Da||=
+"?"=3D=3Da||""=3D=3Da||":"=3D=3Da)return!0;return!1},ya=3Dfunction(a,b){var=
+ c=3DM.referrer;if(/^(https?|android-app):\/\//i.test(c)){if(a)return c;a=
+=3D"//"+M.location.hostname;if(!de(c,a))return b&&(b=3Da.replace(/\./g,"-")=
++".cdn.ampproject.org",de(c,b))?void 0:c}},za=3Dfunction(a,b){if(1=3D=3Db.l=
+ength&&null!=3Db[0]&&"object"=3D=3D=3Dtypeof b[0])return b[0];for(var c=3D{=
+},d=3DMath.min(a.length+1,b.length),e=3D0;e<d;e++)if("object"=3D=3D=3Dtypeo=
+f b[e]){for(var g in b[e])b[e].hasOwnProperty(g)&&
+(c[g]=3Db[e][g]);break}else e<a.length&&(c[a[e]]=3Db[e]);return c};var ee=
+=3Dfunction(){this.keys=3D[];this.values=3D{};this.m=3D{}};ee.prototype.set=
+=3Dfunction(a,b,c){this.keys.push(a);c?this.m[":"+a]=3Db:this.values[":"+a]=
+=3Db};ee.prototype.get=3Dfunction(a){return this.m.hasOwnProperty(":"+a)?th=
+is.m[":"+a]:this.values[":"+a]};ee.prototype.map=3Dfunction(a){for(var b=3D=
+0;b<this.keys.length;b++){var c=3Dthis.keys[b],d=3Dthis.get(c);d&&a(c,d)}};=
+var O=3Dwindow,M=3Ddocument,va=3Dfunction(a,b){return setTimeout(a,b)};var =
+F=3Dwindow,Ea=3Ddocument,G=3Dfunction(a){var b=3DF._gaUserPrefs;if(b&&b.ioo=
+&&b.ioo()||a&&!0=3D=3D=3DF["ga-disable-"+a])return!0;try{var c=3DF.external=
+;if(c&&c._gaUserPrefs&&"oo"=3D=3Dc._gaUserPrefs)return!0}catch(g){}a=3D[];b=
+=3DEa.cookie.split(";");c=3D/^\s*AMP_TOKEN=3D\s*(.*?)\s*$/;for(var d=3D0;d<=
+b.length;d++){var e=3Db[d].match(c);e&&a.push(e[1])}for(b=3D0;b<a.length;b+=
++)if("$OPT_OUT"=3D=3DdecodeURIComponent(a[b]))return!0;return!1};var Ca=3Df=
+unction(a){var b=3D[],c=3DM.cookie.split(";");a=3Dnew RegExp("^\\s*"+a+"=3D=
+\\s*(.*?)\\s*$");for(var d=3D0;d<c.length;d++){var e=3Dc[d].match(a);e&&b.p=
+ush(e[1])}return b},zc=3Dfunction(a,b,c,d,e,g){e=3DG(e)?!1:eb.test(M.locati=
+on.hostname)||"/"=3D=3Dc&&vc.test(d)?!1:!0;if(!e)return!1;b&&1200<b.length&=
+&(b=3Db.substring(0,1200));c=3Da+"=3D"+b+"; path=3D"+c+"; ";g&&(c+=3D"expir=
+es=3D"+(new Date((new Date).getTime()+g)).toGMTString()+"; ");d&&"none"!=3D=
+d&&(c+=3D"domain=3D"+d+";");d=3DM.cookie;M.cookie=3Dc;if(!(d=3Dd!=3DM.cooki=
+e))a:{a=3DCa(a);
+for(d=3D0;d<a.length;d++)if(b=3D=3Da[d]){d=3D!0;break a}d=3D!1}return d},Cc=
+=3Dfunction(a){return encodeURIComponent?encodeURIComponent(a).replace(/\(/=
+g,"%28").replace(/\)/g,"%29"):a},vc=3D/^(www\.)?google(\.com?)?(\.[a-z]{2})=
+?$/,eb=3D/(^|\.)doubleclick\.net$/i;var oc,Id=3D/^.*Version\/?(\d+)[^\d].*$=
+/i,ne=3Dfunction(){if(void 0!=3D=3DO.__ga4__)return O.__ga4__;if(void 0=3D=
+=3D=3Doc){var a=3DO.navigator.userAgent;if(a){var b=3Da;try{b=3DdecodeURICo=
+mponent(a)}catch(c){}if(a=3D!(0<=3Db.indexOf("Chrome"))&&!(0<=3Db.indexOf("=
+CriOS"))&&(0<=3Db.indexOf("Safari/")||0<=3Db.indexOf("Safari,")))b=3DId.exe=
+c(b),a=3D11<=3D(b?Number(b[1]):-1);oc=3Da}else oc=3D!1}return oc};var Fa,Ga=
+,fb,Ab,ja=3D/^https?:\/\/[^/]*cdn\.ampproject\.org\//,Ub=3D[],ic=3Dfunction=
+(){Z.D([ua])},tc=3Dfunction(a,b){var c=3DCa("AMP_TOKEN");if(1<c.length)retu=
+rn J(55),!1;c=3DdecodeURIComponent(c[0]||"");if("$OPT_OUT"=3D=3Dc||"$ERROR"=
+=3D=3Dc||G(b))return J(62),!1;if(!ja.test(M.referrer)&&"$NOT_FOUND"=3D=3Dc)=
+return J(68),!1;if(void 0!=3D=3DAb)return J(56),va(function(){a(Ab)},0),!0;=
+if(Fa)return Ub.push(a),!0;if("$RETRIEVING"=3D=3Dc)return J(57),va(function=
+(){tc(a,b)},1E4),!0;Fa=3D!0;c&&"$"!=3Dc[0]||(xc("$RETRIEVING",3E4),setTimeo=
+ut(Mc,
+3E4),c=3D"");return Pc(c,b)?(Ub.push(a),!0):!1},Pc=3Dfunction(a,b,c){if(!wi=
+ndow.JSON)return J(58),!1;var d=3DO.XMLHttpRequest;if(!d)return J(59),!1;va=
+r e=3Dnew d;if(!("withCredentials"in e))return J(60),!1;e.open("POST",(c||"=
+https://ampcid.google.com/v1/publisher:getClientId")+"?key=3DAIzaSyA65lEHUE=
+izIsNtlbNo-l2K18dT680nsaM",!0);e.withCredentials=3D!0;e.setRequestHeader("C=
+ontent-Type","text/plain");e.onload=3Dfunction(){Fa=3D!1;if(4=3D=3De.readyS=
+tate){try{200!=3De.status&&(J(61),Qc("","$ERROR",3E4));var d=3DJSON.parse(e=
+.responseText);
+d.optOut?(J(63),Qc("","$OPT_OUT",31536E6)):d.clientId?Qc(d.clientId,d.secur=
+ityToken,31536E6):!c&&d.alternateUrl?(Ga&&clearTimeout(Ga),Fa=3D!0,Pc(a,b,d=
+.alternateUrl)):(J(64),Qc("","$NOT_FOUND",36E5))}catch(ca){J(65),Qc("","$ER=
+ROR",3E4)}e=3Dnull}};d=3D{originScope:"AMP_ECID_GOOGLE"};a&&(d.securityToke=
+n=3Da);e.send(JSON.stringify(d));Ga=3Dva(function(){J(66);Qc("","$ERROR",3E=
+4)},1E4);return!0},Mc=3Dfunction(){Fa=3D!1},xc=3Dfunction(a,b){if(void 0=3D=
+=3D=3Dfb){fb=3D"";for(var c=3Did(),d=3D0;d<c.length;d++){var e=3Dc[d];if(zc=
+("AMP_TOKEN",
+encodeURIComponent(a),"/",e,"",b)){fb=3De;return}}}zc("AMP_TOKEN",encodeURI=
+Component(a),"/",fb,"",b)},Qc=3Dfunction(a,b,c){Ga&&clearTimeout(Ga);b&&xc(=
+b,c);Ab=3Da;b=3DUb;Ub=3D[];for(c=3D0;c<b.length;c++)b[c](a)};var oe=3Dfunct=
+ion(){return(Ba||Ud()?"https:":"http:")+"//www.google-analytics.com"},Da=3D=
+function(a){this.name=3D"len";this.message=3Da+"-8192"},ba=3Dfunction(a,b,c=
+){c=3Dc||ua;if(2036>=3Db.length)wc(a,b,c);else if(8192>=3Db.length)x(a,b,c)=
+||wd(a,b,c)||wc(a,b,c);else throw ge("len",b.length),new Da(b.length);},pe=
+=3Dfunction(a,b,c,d){d=3Dd||ua;wd(a+"?"+b,"",d,c)},wc=3Dfunction(a,b,c){var=
+ d=3Dta(a+"?"+b);d.onload=3Dd.onerror=3Dfunction(){d.onload=3Dnull;d.onerro=
+r=3Dnull;c()}},wd=3Dfunction(a,b,c,d){var e=3DO.XMLHttpRequest;if(!e)return=
+!1;
+var g=3Dnew e;if(!("withCredentials"in g))return!1;a=3Da.replace(/^http:/,"=
+https:");g.open("POST",a,!0);g.withCredentials=3D!0;g.setRequestHeader("Con=
+tent-Type","text/plain");g.onreadystatechange=3Dfunction(){if(4=3D=3Dg.read=
+yState){if(d)try{var a=3Dg.responseText;if(1>a.length)ge("xhr","ver","0"),c=
+();else if("1"!=3Da.charAt(0))ge("xhr","ver",String(a.length)),c();else if(=
+3<d.count++)ge("xhr","tmr",""+d.count),c();else if(1=3D=3Da.length)c();else=
+{var b=3Da.charAt(1);if("d"=3D=3Db)pe("https://stats.g.doubleclick.net/j/co=
+llect",
+d.U,d,c);else if("g"=3D=3Db){var e=3D"https://www.google.%/ads/ga-audiences=
+".replace("%","com");wc(e,d.google,c);var w=3Da.substring(2);if(w)if(/^[a-z=
+.]{1,6}$/.test(w)){var ha=3D"https://www.google.%/ads/ga-audiences".replace=
+("%",w);wc(ha,d.google,ua)}else ge("tld","bcc",w)}else ge("xhr","brc",b),c(=
+)}}catch(ue){ge("xhr","rsp"),c()}else c();g=3Dnull}};g.send(b);return!0},x=
+=3Dfunction(a,b,c){return O.navigator.sendBeacon?O.navigator.sendBeacon(a,b=
+)?(c(),!0):!1:!1},ge=3Dfunction(a,b,c){1<=3D100*Math.random()||G("?")||
+(a=3D["t=3Derror","_e=3D"+a,"_v=3Dj66","sr=3D1"],b&&a.push("_f=3D"+b),c&&a.=
+push("_m=3D"+K(c.substring(0,100))),a.push("aip=3D1"),a.push("z=3D"+hd()),w=
+c(oe()+"/collect",a.join("&"),ua))};var h=3Dfunction(a){var b=3DO.gaData=3D=
+O.gaData||{};return b[a]=3Db[a]||{}};var Ha=3Dfunction(){this.M=3D[]};Ha.pr=
+ototype.add=3Dfunction(a){this.M.push(a)};Ha.prototype.D=3Dfunction(a){try{=
+for(var b=3D0;b<this.M.length;b++){var c=3Da.get(this.M[b]);c&&ea(c)&&c.cal=
+l(O,a)}}catch(d){}b=3Da.get(Ia);b!=3Dua&&ea(b)&&(a.set(Ia,ua,!0),setTimeout=
+(b,10))};function Ja(a){if(100!=3Da.get(Ka)&&La(P(a,Q))%1E4>=3D100*R(a,Ka))=
+throw"abort";}function Ma(a){if(G(P(a,Na)))throw"abort";}function Oa(){var =
+a=3DM.location.protocol;if("http:"!=3Da&&"https:"!=3Da)throw"abort";}
+function Pa(a){try{O.navigator.sendBeacon?J(42):O.XMLHttpRequest&&"withCred=
+entials"in new O.XMLHttpRequest&&J(40)}catch(c){}a.set(ld,Td(a),!0);a.set(A=
+c,R(a,Ac)+1);var b=3D[];Qa.map(function(c,d){d.F&&(c=3Da.get(c),void 0!=3Dc=
+&&c!=3Dd.defaultValue&&("boolean"=3D=3Dtypeof c&&(c*=3D1),b.push(d.F+"=3D"+=
+K(""+c))))});b.push("z=3D"+Bd());a.set(Ra,b.join("&"),!0)}
+function Sa(a){var b=3DP(a,gd)||oe()+"/collect",c=3Da.get(qe),d=3DP(a,fa);!=
+d&&a.get(Vd)&&(d=3D"beacon");if(c)pe(b,P(a,Ra),c,a.get(Ia));else if(d){c=3D=
+d;d=3DP(a,Ra);var e=3Da.get(Ia);e=3De||ua;"image"=3D=3Dc?wc(b,d,e):"xhr"=3D=
+=3Dc&&wd(b,d,e)||"beacon"=3D=3Dc&&x(b,d,e)||ba(b,d,e)}else ba(b,P(a,Ra),a.g=
+et(Ia));b=3Da.get(Na);b=3Dh(b);c=3Db.hitcount;b.hitcount=3Dc?c+1:1;b=3Da.ge=
+t(Na);delete h(b).pending_experiments;a.set(Ia,ua,!0)}
+function Hc(a){(O.gaData=3DO.gaData||{}).expId&&a.set(Nc,(O.gaData=3DO.gaDa=
+ta||{}).expId);(O.gaData=3DO.gaData||{}).expVar&&a.set(Oc,(O.gaData=3DO.gaD=
+ata||{}).expVar);var b=3Da.get(Na);if(b=3Dh(b).pending_experiments){var c=
+=3D[];for(d in b)b.hasOwnProperty(d)&&b[d]&&c.push(encodeURIComponent(d)+".=
+"+encodeURIComponent(b[d]));var d=3Dc.join("!")}else d=3Dvoid 0;d&&a.set(m,=
+d,!0)}function cd(){if(O.navigator&&"preview"=3D=3DO.navigator.loadPurpose)=
+throw"abort";}
+function yd(a){var b=3DO.gaDevIds;ka(b)&&0!=3Db.length&&a.set("&did",b.join=
+(","),!0)}function vb(a){if(!a.get(Na))throw"abort";};var hd=3Dfunction(){r=
+eturn Math.round(2147483647*Math.random())},Bd=3Dfunction(){try{var a=3Dnew=
+ Uint32Array(1);O.crypto.getRandomValues(a);return a[0]&2147483647}catch(b)=
+{return hd()}};function Ta(a){var b=3DR(a,Ua);500<=3Db&&J(15);var c=3DP(a,V=
+a);if("transaction"!=3Dc&&"item"!=3Dc){c=3DR(a,Wa);var d=3D(new Date).getTi=
+me(),e=3DR(a,Xa);0=3D=3De&&a.set(Xa,d);e=3DMath.round(2*(d-e)/1E3);0<e&&(c=
+=3DMath.min(c+e,20),a.set(Xa,d));if(0>=3Dc)throw"abort";a.set(Wa,--c)}a.set=
+(Ua,++b)};var Ya=3Dfunction(){this.data=3Dnew ee},Qa=3Dnew ee,Za=3D[];Ya.pr=
+ototype.get=3Dfunction(a){var b=3D$a(a),c=3Dthis.data.get(a);b&&void 0=3D=
+=3Dc&&(c=3Dea(b.defaultValue)?b.defaultValue():b.defaultValue);return b&&b.=
+Z?b.Z(this,a,c):c};var P=3Dfunction(a,b){a=3Da.get(b);return void 0=3D=3Da?=
+"":""+a},R=3Dfunction(a,b){a=3Da.get(b);return void 0=3D=3Da||""=3D=3D=3Da?=
+0:1*a};Ya.prototype.set=3Dfunction(a,b,c){if(a)if("object"=3D=3Dtypeof a)fo=
+r(var d in a)a.hasOwnProperty(d)&&ab(this,d,a[d],c);else ab(this,a,b,c)};
+var ab=3Dfunction(a,b,c,d){if(void 0!=3Dc)switch(b){case Na:wb.test(c)}var =
+e=3D$a(b);e&&e.o?e.o(a,b,c,d):a.data.set(b,c,d)},bb=3Dfunction(a,b,c,d,e){t=
+his.name=3Da;this.F=3Db;this.Z=3Dd;this.o=3De;this.defaultValue=3Dc},$a=3Df=
+unction(a){var b=3DQa.get(a);if(!b)for(var c=3D0;c<Za.length;c++){var d=3DZ=
+a[c],e=3Dd[0].exec(a);if(e){b=3Dd[1](e);Qa.set(b.name,b);break}}return b},y=
+c=3Dfunction(a){var b;Qa.map(function(c,d){d.F=3D=3Da&&(b=3Dd)});return b&&=
+b.name},S=3Dfunction(a,b,c,d,e){a=3Dnew bb(a,b,c,d,e);Qa.set(a.name,a);retu=
+rn a.name},cb=3Dfunction(a,
+b){Za.push([new RegExp("^"+a+"$"),b])},T=3Dfunction(a,b,c){return S(a,b,c,v=
+oid 0,db)},db=3Dfunction(){};var gb=3Dqa(window.GoogleAnalyticsObject)&&sa(=
+window.GoogleAnalyticsObject)||"ga",jd=3D/^(?:utma\.)?\d+\.\d+$/,kd=3D/^amp=
+-[\w.-]{22,64}$/,Ba=3D!1,hb=3DT("apiVersion","v"),ib=3DT("clientVersion","_=
+v");S("anonymizeIp","aip");var jb=3DS("adSenseId","a"),Va=3DS("hitType","t"=
+),Ia=3DS("hitCallback"),Ra=3DS("hitPayload");S("nonInteraction","ni");S("cu=
+rrencyCode","cu");S("dataSource","ds");var Vd=3DS("useBeacon",void 0,!1),fa=
+=3DS("transport");S("sessionControl","sc","");S("sessionGroup","sg");S("que=
+ueTime","qt");var Ac=3DS("_s","_s");
+S("screenName","cd");var kb=3DS("location","dl",""),lb=3DS("referrer","dr")=
+,mb=3DS("page","dp","");S("hostname","dh");var nb=3DS("language","ul"),ob=
+=3DS("encoding","de");S("title","dt",function(){return M.title||void 0});cb=
+("contentGroup([0-9]+)",function(a){return new bb(a[0],"cg"+a[1])});var pb=
+=3DS("screenColors","sd"),qb=3DS("screenResolution","sr"),rb=3DS("viewportS=
+ize","vp"),sb=3DS("javaEnabled","je"),tb=3DS("flashVersion","fl");S("campai=
+gnId","ci");S("campaignName","cn");S("campaignSource","cs");
+S("campaignMedium","cm");S("campaignKeyword","ck");S("campaignContent","cc"=
+);var ub=3DS("eventCategory","ec"),xb=3DS("eventAction","ea"),yb=3DS("event=
+Label","el"),zb=3DS("eventValue","ev"),Bb=3DS("socialNetwork","sn"),Cb=3DS(=
+"socialAction","sa"),Db=3DS("socialTarget","st"),Eb=3DS("l1","plt"),Fb=3DS(=
+"l2","pdt"),Gb=3DS("l3","dns"),Hb=3DS("l4","rrt"),Ib=3DS("l5","srt"),Jb=3DS=
+("l6","tcp"),Kb=3DS("l7","dit"),Lb=3DS("l8","clt"),Mb=3DS("timingCategory",=
+"utc"),Nb=3DS("timingVar","utv"),Ob=3DS("timingLabel","utl"),Pb=3DS("timing=
+Value","utt");
+S("appName","an");S("appVersion","av","");S("appId","aid","");S("appInstall=
+erId","aiid","");S("exDescription","exd");S("exFatal","exf");var Nc=3DS("ex=
+pId","xid"),Oc=3DS("expVar","xvar"),m=3DS("exp","exp"),Rc=3DS("_utma","_utm=
+a"),Sc=3DS("_utmz","_utmz"),Tc=3DS("_utmht","_utmht"),Ua=3DS("_hc",void 0,0=
+),Xa=3DS("_ti",void 0,0),Wa=3DS("_to",void 0,20);cb("dimension([0-9]+)",fun=
+ction(a){return new bb(a[0],"cd"+a[1])});cb("metric([0-9]+)",function(a){re=
+turn new bb(a[0],"cm"+a[1])});S("linkerParam",void 0,void 0,Bc,db);
+var ld=3DS("usage","_u"),Gd=3DS("_um");S("forceSSL",void 0,void 0,function(=
+){return Ba},function(a,b,c){J(34);Ba=3D!!c});var ed=3DS("_j1","jid"),ia=3D=
+S("_j2","gjid");cb("\\&(.*)",function(a){var b=3Dnew bb(a[0],a[1]),c=3Dyc(a=
+[0].substring(1));c&&(b.Z=3Dfunction(a){return a.get(c)},b.o=3Dfunction(a,b=
+,g,ca){a.set(c,g,ca)},b.F=3Dvoid 0);return b});
+var Qb=3DT("_oot"),dd=3DS("previewTask"),Rb=3DS("checkProtocolTask"),md=3DS=
+("validationTask"),Sb=3DS("checkStorageTask"),Uc=3DS("historyImportTask"),T=
+b=3DS("samplerTask"),Vb=3DS("_rlt"),Wb=3DS("buildHitTask"),Xb=3DS("sendHitT=
+ask"),Vc=3DS("ceTask"),zd=3DS("devIdTask"),Cd=3DS("timingTask"),Ld=3DS("dis=
+playFeaturesTask"),oa=3DS("customTask"),V=3DT("name"),Q=3DT("clientId","cid=
+"),n=3DT("clientIdTime"),xd=3DT("storedClientId"),Ad=3DS("userId","uid"),Na=
+=3DT("trackingId","tid"),U=3DT("cookieName",void 0,"_ga"),W=3DT("cookieDoma=
+in"),Yb=3DT("cookiePath",
+void 0,"/"),Zb=3DT("cookieExpires",void 0,63072E3),Hd=3DT("cookieUpdate",vo=
+id 0,!0),$b=3DT("legacyCookieDomain"),Wc=3DT("legacyHistoryImport",void 0,!=
+0),ac=3DT("storage",void 0,"cookie"),bc=3DT("allowLinker",void 0,!1),cc=3DT=
+("allowAnchor",void 0,!0),Ka=3DT("sampleRate","sf",100),dc=3DT("siteSpeedSa=
+mpleRate",void 0,1),ec=3DT("alwaysSendReferrer",void 0,!1),I=3DT("_gid","_g=
+id"),la=3DT("_gcn"),Kd=3DT("useAmpClientId"),ce=3DT("_gclid"),fe=3DT("_gt")=
+,he=3DT("_ge",void 0,7776E6),ie=3DT("_gclsrc"),je=3DT("storeGac",void 0,!0)=
+,gd=3DS("transportUrl"),
+Md=3DS("_r","_r"),qe=3DS("_dp");function X(a,b,c,d){b[a]=3Dfunction(){try{r=
+eturn d&&J(d),c.apply(this,arguments)}catch(e){throw ge("exc",a,e&&e.name),=
+e;}}};var Od=3Dfunction(a,b){this.V=3D1E4;this.fa=3Da;this.$=3D!1;this.oa=
+=3Db;this.ea=3D1},Ed=3Dfunction(a,b){var c;if(a.fa&&a.$)return 0;a.$=3D!0;i=
+f(b){if(a.oa&&R(b,a.oa))return R(b,a.oa);if(0=3D=3Db.get(dc))return 0}if(0=
+=3D=3Da.V)return 0;void 0=3D=3D=3Dc&&(c=3DBd());return 0=3D=3Dc%a.V?Math.fl=
+oor(c/a.V)%a.ea+1:0};function fc(){var a,b;if((b=3D(b=3DO.navigator)?b.plug=
+ins:null)&&b.length)for(var c=3D0;c<b.length&&!a;c++){var d=3Db[c];-1<d.nam=
+e.indexOf("Shockwave Flash")&&(a=3Dd.description)}if(!a)try{var e=3Dnew Act=
+iveXObject("ShockwaveFlash.ShockwaveFlash.7");a=3De.GetVariable("$version")=
+}catch(g){}if(!a)try{e=3Dnew ActiveXObject("ShockwaveFlash.ShockwaveFlash.6=
+"),a=3D"WIN 6,0,21,0",e.AllowScriptAccess=3D"always",a=3De.GetVariable("$ve=
+rsion")}catch(g){}if(!a)try{e=3Dnew ActiveXObject("ShockwaveFlash.Shockwave=
+Flash"),a=3De.GetVariable("$version")}catch(g){}a&&
+(e=3Da.match(/[\d]+/g))&&3<=3De.length&&(a=3De[0]+"."+e[1]+" r"+e[2]);retur=
+n a||void 0};var aa=3Dfunction(a){var b=3DMath.min(R(a,dc),100);return La(P=
+(a,Q))%100>=3Db?!1:!0},gc=3Dfunction(a){var b=3D{};if(Ec(b)||Fc(b)){var c=
+=3Db[Eb];void 0=3D=3Dc||Infinity=3D=3Dc||isNaN(c)||(0<c?(Y(b,Gb),Y(b,Jb),Y(=
+b,Ib),Y(b,Fb),Y(b,Hb),Y(b,Kb),Y(b,Lb),va(function(){a(b)},10)):L(O,"load",f=
+unction(){gc(a)},!1))}},Ec=3Dfunction(a){var b=3DO.performance||O.webkitPer=
+formance;b=3Db&&b.timing;if(!b)return!1;var c=3Db.navigationStart;if(0=3D=
+=3Dc)return!1;a[Eb]=3Db.loadEventStart-c;a[Gb]=3Db.domainLookupEnd-b.domain=
+LookupStart;a[Jb]=3Db.connectEnd-
+b.connectStart;a[Ib]=3Db.responseStart-b.requestStart;a[Fb]=3Db.responseEnd=
+-b.responseStart;a[Hb]=3Db.fetchStart-c;a[Kb]=3Db.domInteractive-c;a[Lb]=3D=
+b.domContentLoadedEventStart-c;return!0},Fc=3Dfunction(a){if(O.top!=3DO)ret=
+urn!1;var b=3DO.external,c=3Db&&b.onloadT;b&&!b.isValidLoadTime&&(c=3Dvoid =
+0);2147483648<c&&(c=3Dvoid 0);0<c&&b.setPageReadyTime();if(void 0=3D=3Dc)re=
+turn!1;a[Eb]=3Dc;return!0},Y=3Dfunction(a,b){var c=3Da[b];if(isNaN(c)||Infi=
+nity=3D=3Dc||0>c)a[b]=3Dvoid 0},Fd=3Dfunction(a){return function(b){if("pag=
+eview"=3D=3Db.get(Va)&&
+!a.I){a.I=3D!0;var c=3Daa(b),d=3D0<E(b.get(kb),"gclid").length;(c||d)&&gc(f=
+unction(b){c&&a.send("timing",b);d&&a.send("adtiming",b)})}}};var hc=3D!1,m=
+c=3Dfunction(a){if("cookie"=3D=3DP(a,ac)){if(a.get(Hd)||P(a,xd)!=3DP(a,Q)){=
+var b=3D1E3*R(a,Zb);ma(a,Q,U,b)}ma(a,I,la,864E5);if(a.get(je)){var c=3Da.ge=
+t(ce);if(c){var d=3DMath.min(R(a,he),1E3*R(a,Zb));d=3DMath.min(d,1E3*R(a,fe=
+)+d-(new Date).getTime());a.data.set(he,d);var e=3Da.get(fe),g=3Da.get(ie);=
+b=3Dkc(P(a,Yb));var ca=3Dlc(P(a,W));a=3DP(a,Na);g&&"aw.ds"!=3Dg||(c=3D["1",=
+e,Cc(c)].join("."),0<d&&zc("_gac_"+Cc(a),c,b,ca,a,d));le({})}}else J(75)}},=
+ma=3Dfunction(a,b,c,d){var e=3Dnd(a,b);if(e){c=3DP(a,c);var g=3Dkc(P(a,Yb))=
+,ca=3D
+lc(P(a,W)),l=3DP(a,Na);if("auto"!=3Dca)zc(c,e,g,ca,l,d)&&(hc=3D!0);else{J(3=
+2);for(var k=3Did(),w=3D0;w<k.length;w++)if(ca=3Dk[w],a.data.set(W,ca),e=3D=
+nd(a,b),zc(c,e,g,ca,l,d)){hc=3D!0;return}a.data.set(W,"auto")}}},nc=3Dfunct=
+ion(a){if("cookie"=3D=3DP(a,ac)&&!hc&&(mc(a),!hc))throw"abort";},Yc=3Dfunct=
+ion(a){if(a.get(Wc)){var b=3DP(a,W),c=3DP(a,$b)||xa(),d=3DXc("__utma",c,b);=
+d&&(J(19),a.set(Tc,(new Date).getTime(),!0),a.set(Rc,d.R),(b=3DXc("__utmz",=
+c,b))&&d.hash=3D=3Db.hash&&a.set(Sc,b.R))}},nd=3Dfunction(a,b){b=3DCc(P(a,b=
+));var c=3Dlc(P(a,
+W)).split(".").length;a=3Djc(P(a,Yb));1<a&&(c+=3D"-"+a);return b?["GA1",c,b=
+].join("."):""},Xd=3Dfunction(a,b){return na(b,P(a,W),P(a,Yb))},na=3Dfuncti=
+on(a,b,c){if(!a||1>a.length)J(12);else{for(var d=3D[],e=3D0;e<a.length;e++)=
+{var g=3Da[e];var ca=3Dg.split(".");var l=3Dca.shift();("GA1"=3D=3Dl||"1"=
+=3D=3Dl)&&1<ca.length?(g=3Dca.shift().split("-"),1=3D=3Dg.length&&(g[1]=3D"=
+1"),g[0]*=3D1,g[1]*=3D1,ca=3D{H:g,s:ca.join(".")}):ca=3Dkd.test(g)?{H:[0,0]=
+,s:g}:void 0;ca&&d.push(ca)}if(1=3D=3Dd.length)return J(13),d[0].s;if(0=3D=
+=3Dd.length)J(12);else{J(14);
+d=3DGc(d,lc(b).split(".").length,0);if(1=3D=3Dd.length)return d[0].s;d=3DGc=
+(d,jc(c),1);1<d.length&&J(41);return d[0]&&d[0].s}}},Gc=3Dfunction(a,b,c){f=
+or(var d=3D[],e=3D[],g,ca=3D0;ca<a.length;ca++){var l=3Da[ca];l.H[c]=3D=3Db=
+?d.push(l):void 0=3D=3Dg||l.H[c]<g?(e=3D[l],g=3Dl.H[c]):l.H[c]=3D=3Dg&&e.pu=
+sh(l)}return 0<d.length?d:e},lc=3Dfunction(a){return 0=3D=3Da.indexOf(".")?=
+a.substr(1):a},id=3Dfunction(){var a=3D[],b=3Dxa().split(".");if(4=3D=3Db.l=
+ength){var c=3Db[b.length-1];if(parseInt(c,10)=3D=3Dc)return["none"]}for(c=
+=3Db.length-2;0<=3Dc;c--)a.push(b.slice(c).join("."));
+a.push("none");return a},kc=3Dfunction(a){if(!a)return"/";1<a.length&&a.las=
+tIndexOf("/")=3D=3Da.length-1&&(a=3Da.substr(0,a.length-1));0!=3Da.indexOf(=
+"/")&&(a=3D"/"+a);return a},jc=3Dfunction(a){a=3Dkc(a);return"/"=3D=3Da?1:a=
+.split("/").length},le=3Dfunction(a){a.ta&&J(77);a.na&&J(74);a.pa&&J(73);a.=
+ua&&J(69)};function Xc(a,b,c){"none"=3D=3Db&&(b=3D"");var d=3D[],e=3DCa(a);=
+a=3D"__utma"=3D=3Da?6:2;for(var g=3D0;g<e.length;g++){var ca=3D(""+e[g]).sp=
+lit(".");ca.length>=3Da&&d.push({hash:ca[0],R:e[g],O:ca})}if(0!=3Dd.length)=
+return 1=3D=3Dd.length?d[0]:Zc(b,d)||Zc(c,d)||Zc(null,d)||d[0]}function Zc(=
+a,b){if(null=3D=3Da)var c=3Da=3D1;else c=3DLa(a),a=3DLa(D(a,".")?a.substrin=
+g(1):"."+a);for(var d=3D0;d<b.length;d++)if(b[d].hash=3D=3Dc||b[d].hash=3D=
+=3Da)return b[d]};var od=3Dnew RegExp(/^https?:\/\/([^\/:]+)/),pd=3D/(.*)([=
+?&#])(?:_ga=3D[^&#]*)(?:&?)(.*)/,me=3D/(.*)([?&#])(?:_gac=3D[^&#]*)(?:&?)(.=
+*)/;function Bc(a){var b=3Da.get(Q),c=3Da.get(I)||"";b=3D"_ga=3D2."+K(pa(c+=
+b,0)+"."+c+"-"+b);if((c=3Da.get(ce))&&a.get(je)){var d=3DR(a,fe);1E3*d+R(a,=
+he)<=3D(new Date).getTime()?(J(76),a=3D""):(J(44),a=3D"&_gac=3D1."+K([pa(c,=
+0),d,c].join(".")))}else a=3D"";return b+a}
+function Ic(a,b){var c=3Dnew Date,d=3DO.navigator,e=3Dd.plugins||[];a=3D[a,=
+d.userAgent,c.getTimezoneOffset(),c.getYear(),c.getDate(),c.getHours(),c.ge=
+tMinutes()+b];for(b=3D0;b<e.length;++b)a.push(e[b].description);return La(a=
+.join("."))}function pa(a,b){var c=3Dnew Date,d=3DO.navigator,e=3Dc.getHour=
+s()+Math.floor((c.getMinutes()+b)/60);return La([a,d.userAgent,d.language||=
+"",c.getTimezoneOffset(),c.getYear(),c.getDate()+Math.floor(e/24),(24+e)%24=
+,(60+c.getMinutes()+b)%60].join("."))}
+var Dc=3Dfunction(a){J(48);this.target=3Da;this.T=3D!1};Dc.prototype.ca=3Df=
+unction(a,b){if(a.tagName){if("a"=3D=3Da.tagName.toLowerCase()){a.href&&(a.=
+href=3Dqd(this,a.href,b));return}if("form"=3D=3Da.tagName.toLowerCase())ret=
+urn rd(this,a)}if("string"=3D=3Dtypeof a)return qd(this,a,b)};
+var qd=3Dfunction(a,b,c){var d=3Dpd.exec(b);d&&3<=3Dd.length&&(b=3Dd[1]+(d[=
+3]?d[2]+d[3]:""));(d=3Dme.exec(b))&&3<=3Dd.length&&(b=3Dd[1]+(d[3]?d[2]+d[3=
+]:""));a=3Da.target.get("linkerParam");var e=3Db.indexOf("?");d=3Db.indexOf=
+("#");c?b+=3D(-1=3D=3Dd?"#":"&")+a:(c=3D-1=3D=3De?"?":"&",b=3D-1=3D=3Dd?b+(=
+c+a):b.substring(0,d)+c+a+b.substring(d));b=3Db.replace(/&+_ga=3D/,"&_ga=3D=
+");return b=3Db.replace(/&+_gac=3D/,"&_gac=3D")},rd=3Dfunction(a,b){if(b&&b=
+.action)if("get"=3D=3Db.method.toLowerCase()){a=3Da.target.get("linkerParam=
+").split("&");for(var c=3D0;c<a.length;c++){var d=3D
+a[c].split("=3D"),e=3Dd[1];d=3Dd[0];for(var g=3Db.childNodes||[],ca=3D!1,l=
+=3D0;l<g.length;l++)if(g[l].name=3D=3Dd){g[l].setAttribute("value",e);ca=3D=
+!0;break}ca||(g=3DM.createElement("input"),g.setAttribute("type","hidden"),=
+g.setAttribute("name",d),g.setAttribute("value",e),b.appendChild(g))}}else"=
+post"=3D=3Db.method.toLowerCase()&&(b.action=3Dqd(a,b.action))};
+Dc.prototype.S=3Dfunction(a,b,c){function d(c){try{c=3Dc||O.event;a:{var d=
+=3Dc.target||c.srcElement;for(c=3D100;d&&0<c;){if(d.href&&d.nodeName.match(=
+/^a(?:rea)?$/i)){var g=3Dd;break a}d=3Dd.parentNode;c--}g=3D{}}("http:"=3D=
+=3Dg.protocol||"https:"=3D=3Dg.protocol)&&sd(a,g.hostname||"")&&g.href&&(g.=
+href=3Dqd(e,g.href,b))}catch(k){J(26)}}var e=3Dthis;this.T||(this.T=3D!0,L(=
+M,"mousedown",d,!1),L(M,"keyup",d,!1));c&&L(M,"submit",function(b){b=3Db||O=
+.event;if((b=3Db.target||b.srcElement)&&b.action){var c=3Db.action.match(od=
+);c&&sd(a,c[1])&&
+rd(e,b)}})};function sd(a,b){if(b=3D=3DM.location.hostname)return!1;for(var=
+ c=3D0;c<a.length;c++)if(a[c]instanceof RegExp){if(a[c].test(b))return!0}el=
+se if(0<=3Db.indexOf(a[c]))return!0;return!1}function ke(a,b){return b!=3DI=
+c(a,0)&&b!=3DIc(a,-1)&&b!=3DIc(a,-2)&&b!=3Dpa(a,0)&&b!=3Dpa(a,-1)&&b!=3Dpa(=
+a,-2)};var p=3D/^(GTM|OPT)-[A-Z0-9]+$/,q=3D/;_gaexp=3D[^;]*/g,r=3D/;((__utm=
+a=3D)|([^;=3D]+=3DGAX?\d+\.))[^;]*/g,Aa=3D/^https?:\/\/[\w\-.]+\.google.com=
+(:\d+)?\/optimize\/opt-launch\.html\?.*$/,t=3Dfunction(a){function b(a,b){b=
+&&(c+=3D"&"+a+"=3D"+K(b))}var c=3D"https://www.google-analytics.com/gtm/js?=
+id=3D"+K(a.id);"dataLayer"!=3Da.B&&b("l",a.B);b("t",a.target);b("cid",a.cli=
+entId);b("cidt",a.ka);b("gac",a.la);b("aip",a.ia);a.sync&&b("m","sync");b("=
+cycle",a.G);a.qa&&b("gclid",a.qa);Aa.test(M.referrer)&&b("cb",String(hd()))=
+;return c};var Jd=3Dfunction(a,b,c){this.aa=3Db;(b=3Dc)||(b=3D(b=3DP(a,V))&=
+&"t0"!=3Db?Wd.test(b)?"_gat_"+Cc(P(a,Na)):"_gat_"+Cc(b):"_gat");this.Y=3Db}=
+,Rd=3Dfunction(a,b){var c=3Db.get(Wb);b.set(Wb,function(b){Pd(a,b,ed);Pd(a,=
+b,ia);var d=3Dc(b);Qd(a,b);return d});var d=3Db.get(Xb);b.set(Xb,function(b=
+){var c=3Dd(b);if(b.get(ed)){if(ne()){J(80);var e=3D{U:re(a,b,1),google:re(=
+a,b,2),count:0};pe("https://stats.g.doubleclick.net/j/collect",e.U,e)}else =
+ta(re(a,b,0));b.set(ed,"",!0)}return c})},Pd=3Dfunction(a,b,c){b.get(c)||("=
+1"=3D=3DCa(a.Y)[0]?
+b.set(c,"",!0):b.set(c,""+hd(),!0))},Qd=3Dfunction(a,b){b.get(ed)&&zc(a.Y,"=
+1",b.get(Yb),b.get(W),b.get(Na),6E4)},re=3Dfunction(a,b,c){var d=3Dnew ee,e=
+=3Dfunction(a){$a(a).F&&d.set($a(a).F,b.get(a))};e(hb);e(ib);e(Na);e(Q);e(e=
+d);if(0=3D=3Dc||1=3D=3Dc)e(Ad),e(ia),e(I);d.set($a(ld).F,Td(b));var g=3D"";=
+d.map(function(a,b){g+=3DK(a)+"=3D";g+=3DK(""+b)+"&"});g+=3D"z=3D"+hd();0=
+=3D=3Dc?g=3Da.aa+g:1=3D=3Dc?g=3D"t=3Ddc&aip=3D1&_r=3D3&"+g:2=3D=3Dc&&(g=3D"=
+t=3Dsr&aip=3D1&_r=3D4&slf_rd=3D1&"+g);return g},Wd=3D/^gtm\d+$/;var fd=3Dfu=
+nction(a,b){a=3Da.b;if(!a.get("dcLoaded")){var c=3Dnew $c(Dd(a));c.set(29);=
+a.set(Gd,c.w);b=3Db||{};var d;b[U]&&(d=3DCc(b[U]));b=3Dnew Jd(a,"https://st=
+ats.g.doubleclick.net/r/collect?t=3Ddc&aip=3D1&_r=3D3&",d);Rd(b,a);a.set("d=
+cLoaded",!0)}};var Sd=3Dfunction(a){if(!a.get("dcLoaded")&&"cookie"=3D=3Da.=
+get(ac)){var b=3Dnew Jd(a);Pd(b,a,ed);Pd(b,a,ia);Qd(b,a);a.get(ed)&&(a.set(=
+Md,1,!0),ne()?(J(79),a.set(gd,oe()+"/j/collect",!0),a.set(qe,{U:re(b,a,1),g=
+oogle:re(b,a,2),count:0},!0)):a.set(gd,oe()+"/r/collect",!0))}};var Lc=3Dfu=
+nction(){var a=3DO.gaGlobal=3DO.gaGlobal||{};return a.hid=3Da.hid||hd()};va=
+r ad,bd=3Dfunction(a,b,c){if(!ad){var d=3DM.location.hash;var e=3DO.name,g=
+=3D/^#?gaso=3D([^&]*)/;if(e=3D(d=3D(d=3Dd&&d.match(g)||e&&e.match(g))?d[1]:=
+Ca("GASO")[0]||"")&&d.match(/^(?:!([-0-9a-z.]{1,40})!)?([-.\w]{10,1200})$/i=
+))zc("GASO",""+d,c,b,a,0),window._udo||(window._udo=3Db),window._utcp||(win=
+dow._utcp=3Dc),a=3De[1],wa("https://www.google.com/analytics/web/inpage/pub=
+/inpage.js?"+(a?"prefix=3D"+a+"&":"")+hd(),"_gasojs");ad=3D!0}};var H=3Dfun=
+ction(a){return a?(1*a).toFixed(3):"0"},da=3Dfunction(a){var b=3DO.performa=
+nce;if(b&&b.getEntriesByName){J(35);var c=3D"https://www.google-analytics.c=
+om/analytics.js?wpid=3D"+a;wa(c,void 0,void 0,function(){try{var d=3D1,e=3D=
+b.getEntriesByName("https://www.google-analytics.com/analytics.js");e&&0!=
+=3De.length||(e=3Db.getEntriesByName("http://www.google-analytics.com/analy=
+tics.js"),d=3D0);var g=3Db.getEntriesByName(c);if(e&&1=3D=3De.length&&g&&1=
+=3D=3Dg.length){J(37);var ca=3De[0],l=3Dg[0],k=3D{tid:a,ad:H(ca.duration),b=
+d:H(l.duration),
+ar:H(ca.responseEnd-ca.requestStart),br:H(l.responseEnd-l.requestStart),an:=
+H(ca.domainLookupEnd-ca.domainLookupStart),bn:H(l.domainLookupEnd-l.domainL=
+ookupStart),ac:H(ca.connectEnd-ca.connectStart),bc:H(l.connectEnd-l.connect=
+Start),as:d};d=3D[];d.push("_v=3Dj66");d.push("id=3D10");for(var w in k)k.h=
+asOwnProperty(w)&&d.push(w+"=3D"+K(k[w]));d.push("z=3D"+hd());wc("https://w=
+ww.google-analytics.com/u/d",d.join("&"),ua)}}catch(ha){}})}};var wb=3D/^(U=
+A|YT|MO|GP)-(\d+)-(\d+)$/,pc=3Dfunction(a){function b(a,b){d.b.data.set(a,b=
+)}function c(a,c){b(a,c);d.filters.add(a)}var d=3Dthis;this.b=3Dnew Ya;this=
+.filters=3Dnew Ha;b(V,a[V]);b(Na,sa(a[Na]));b(U,a[U]);b(W,a[W]||xa());b(Yb,=
+a[Yb]);b(Zb,a[Zb]);b(Hd,a[Hd]);b($b,a[$b]);b(Wc,a[Wc]);b(bc,a[bc]);b(cc,a[c=
+c]);b(Ka,a[Ka]);b(dc,a[dc]);b(ec,a[ec]);b(ac,a[ac]);b(Ad,a[Ad]);b(n,a[n]);b=
+(Kd,a[Kd]);b(je,a[je]);b(hb,1);b(ib,"j66");c(Qb,Ma);c(oa,ua);c(dd,cd);c(Rb,=
+Oa);c(md,vb);c(Sb,nc);c(Uc,Yc);c(Tb,Ja);c(Vb,Ta);
+c(Vc,Hc);c(zd,yd);c(Ld,Sd);c(Wb,Pa);c(Xb,Sa);c(Cd,Fd(this));Kc(this.b);Jc(t=
+his.b,a[Q]);this.b.set(jb,Lc());bd(this.b.get(Na),this.b.get(W),this.b.get(=
+Yb));this.ra=3Dnew Od(!0,"gaexp10")},Jc=3Dfunction(a,b){var c=3DP(a,U);a.da=
+ta.set(la,"_ga"=3D=3Dc?"_gid":c+"_gid");if("cookie"=3D=3DP(a,ac)){hc=3D!1;c=
+=3DCa(P(a,U));c=3DXd(a,c);if(!c){c=3DP(a,W);var d=3DP(a,$b)||xa();c=3DXc("_=
+_utma",d,c);void 0!=3Dc?(J(10),c=3Dc.O[1]+"."+c.O[2]):c=3Dvoid 0}c&&(hc=3D!=
+0);if(d=3Dc&&!a.get(Hd))if(d=3Dc.split("."),2!=3Dd.length)d=3D!1;else if(d=
+=3DNumber(d[1])){var e=3D
+R(a,Zb);d=3Dd+e<(new Date).getTime()/1E3}else d=3D!1;d&&(c=3Dvoid 0);c&&(a.=
+data.set(xd,c),a.data.set(Q,c),c=3DCa(P(a,la)),(c=3DXd(a,c))&&a.data.set(I,=
+c));if(a.get(je)&&(c=3Da.get(ce),d=3Da.get(ie),!c||d&&"aw.ds"!=3Dd)){c=3D{}=
+;if(M){d=3D[];e=3DM.cookie.split(";");for(var g=3D/^\s*_gac_(UA-\d+-\d+)=3D=
+\s*(.+?)\s*$/,ca=3D0;ca<e.length;ca++){var l=3De[ca].match(g);l&&d.push({ja=
+:l[1],value:l[2]})}e=3D{};if(d&&d.length)for(g=3D0;g<d.length;g++)(ca=3Dd[g=
+].value.split("."),"1"!=3Dca[0]||3!=3Dca.length)?c&&(c.na=3D!0):ca[1]&&(e[d=
+[g].ja]?c&&(c.pa=3D!0):
+e[d[g].ja]=3D[],e[d[g].ja].push({timestamp:ca[1],qa:ca[2]}));d=3De}else d=
+=3D{};d=3Dd[P(a,Na)];le(c);d&&0!=3Dd.length&&(c=3Dd[0],a.data.set(fe,c.time=
+stamp),a.data.set(ce,c.qa))}}if(a.get(Hd))a:if(d=3Dbe("_ga",a.get(cc)))if(a=
+.get(bc))if(c=3Dd.indexOf("."),-1=3D=3Dc)J(22);else{e=3Dd.substring(0,c);g=
+=3Dd.substring(c+1);c=3Dg.indexOf(".");d=3Dg.substring(0,c);g=3Dg.substring=
+(c+1);if("1"=3D=3De){if(c=3Dg,ke(c,d)){J(23);break a}}else if("2"=3D=3De){c=
+=3Dg.indexOf("-");e=3D"";0<c?(e=3Dg.substring(0,c),c=3Dg.substring(c+1)):c=
+=3Dg.substring(1);if(ke(e+c,d)){J(53);
+break a}e&&(J(2),a.data.set(I,e))}else{J(22);break a}J(11);a.data.set(Q,c);=
+if(c=3Dbe("_gac",a.get(cc)))c=3Dc.split("."),"1"!=3Dc[0]||4!=3Dc.length?J(7=
+2):ke(c[3],c[1])?J(71):(a.data.set(ce,c[3]),a.data.set(fe,c[2]),J(70))}else=
+ J(21);b&&(J(9),a.data.set(Q,K(b)));a.get(Q)||((b=3D(b=3DO.gaGlobal&&O.gaGl=
+obal.vid)&&-1!=3Db.search(jd)?b:void 0)?(J(17),a.data.set(Q,b)):(J(8),a.dat=
+a.set(Q,ra())));a.get(I)||(J(3),a.data.set(I,ra()));mc(a)},Kc=3Dfunction(a)=
+{var b=3DO.navigator,c=3DO.screen,d=3DM.location;a.set(lb,ya(a.get(ec),a.ge=
+t(Kd)));
+if(d){var e=3Dd.pathname||"";"/"!=3De.charAt(0)&&(J(31),e=3D"/"+e);a.set(kb=
+,d.protocol+"//"+d.hostname+e+d.search)}c&&a.set(qb,c.width+"x"+c.height);c=
+&&a.set(pb,c.colorDepth+"-bit");c=3DM.documentElement;var g=3D(e=3DM.body)&=
+&e.clientWidth&&e.clientHeight,ca=3D[];c&&c.clientWidth&&c.clientHeight&&("=
+CSS1Compat"=3D=3D=3DM.compatMode||!g)?ca=3D[c.clientWidth,c.clientHeight]:g=
+&&(ca=3D[e.clientWidth,e.clientHeight]);c=3D0>=3Dca[0]||0>=3Dca[1]?"":ca.jo=
+in("x");a.set(rb,c);a.set(tb,fc());a.set(ob,M.characterSet||M.charset);a.se=
+t(sb,b&&
+"function"=3D=3D=3Dtypeof b.javaEnabled&&b.javaEnabled()||!1);a.set(nb,(b&&=
+(b.language||b.browserLanguage)||"").toLowerCase());a.data.set(ce,be("gclid=
+",!0));a.data.set(ie,be("gclsrc",!0));a.data.set(fe,Math.round((new Date).g=
+etTime()/1E3));if(d&&a.get(cc)&&(b=3DM.location.hash)){b=3Db.split(/[?&#]+/=
+);d=3D[];for(c=3D0;c<b.length;++c)(D(b[c],"utm_id")||D(b[c],"utm_campaign")=
+||D(b[c],"utm_source")||D(b[c],"utm_medium")||D(b[c],"utm_term")||D(b[c],"u=
+tm_content")||D(b[c],"gclid")||D(b[c],"dclid")||D(b[c],"gclsrc"))&&
+d.push(b[c]);0<d.length&&(b=3D"#"+d.join("&"),a.set(kb,a.get(kb)+b))}};pc.p=
+rototype.get=3Dfunction(a){return this.b.get(a)};pc.prototype.set=3Dfunctio=
+n(a,b){this.b.set(a,b)};var qc=3D{pageview:[mb],event:[ub,xb,yb,zb],social:=
+[Bb,Cb,Db],timing:[Mb,Nb,Pb,Ob]};
+pc.prototype.send=3Dfunction(a){if(!(1>arguments.length)){if("string"=3D=3D=
+=3Dtypeof arguments[0]){var b=3Darguments[0];var c=3D[].slice.call(argument=
+s,1)}else b=3Darguments[0]&&arguments[0][Va],c=3Darguments;b&&(c=3Dza(qc[b]=
+||[],c),c[Va]=3Db,this.b.set(c,void 0,!0),this.filters.D(this.b),this.b.dat=
+a.m=3D{},Ed(this.ra,this.b)&&da(this.b.get(Na)))}};pc.prototype.ma=3Dfuncti=
+on(a,b){var c=3Dthis;u(a,c,b)||(v(a,function(){u(a,c,b)}),y(String(c.get(V)=
+),a,void 0,b,!0))};var rc=3Dfunction(a){if("prerender"=3D=3DM.visibilitySta=
+te)return!1;a();return!0},z=3Dfunction(a){if(!rc(a)){J(16);var b=3D!1,c=3Df=
+unction(){if(!b&&rc(a)){b=3D!0;var d=3Dc,e=3DM;e.removeEventListener?e.remo=
+veEventListener("visibilitychange",d,!1):e.detachEvent&&e.detachEvent("onvi=
+sibilitychange",d)}};L(M,"visibilitychange",c)}};var td=3D/^(?:(\w+)\.)?(?:=
+(\w+):)?(\w+)$/,sc=3Dfunction(a){if(ea(a[0]))this.u=3Da[0];else{var b=3Dtd.=
+exec(a[0]);null!=3Db&&4=3D=3Db.length&&(this.c=3Db[1]||"t0",this.K=3Db[2]||=
+"",this.C=3Db[3],this.a=3D[].slice.call(a,1),this.K||(this.A=3D"create"=3D=
+=3Dthis.C,this.i=3D"require"=3D=3Dthis.C,this.g=3D"provide"=3D=3Dthis.C,thi=
+s.ba=3D"remove"=3D=3Dthis.C),this.i&&(3<=3Dthis.a.length?(this.X=3Dthis.a[1=
+],this.W=3Dthis.a[2]):this.a[1]&&(qa(this.a[1])?this.X=3Dthis.a[1]:this.W=
+=3Dthis.a[1])));b=3Da[1];a=3Da[2];if(!this.C)throw"abort";if(this.i&&(!qa(b=
+)||""=3D=3Db))throw"abort";
+if(this.g&&(!qa(b)||""=3D=3Db||!ea(a)))throw"abort";if(ud(this.c)||ud(this.=
+K))throw"abort";if(this.g&&"t0"!=3Dthis.c)throw"abort";}};function ud(a){re=
+turn 0<=3Da.indexOf(".")||0<=3Da.indexOf(":")};var Yd,Zd,$d,A;Yd=3Dnew ee;$=
+d=3Dnew ee;A=3Dnew ee;Zd=3D{ec:45,ecommerce:46,linkid:47};
+var u=3Dfunction(a,b,c){b=3D=3DN||b.get(V);var d=3DYd.get(a);if(!ea(d))retu=
+rn!1;b.plugins_=3Db.plugins_||new ee;if(b.plugins_.get(a))return!0;b.plugin=
+s_.set(a,new d(b,c||{}));return!0},y=3Dfunction(a,b,c,d,e){if(!ea(Yd.get(b)=
+)&&!$d.get(b)){Zd.hasOwnProperty(b)&&J(Zd[b]);if(p.test(b)){J(52);a=3DN.j(a=
+);if(!a)return!0;c=3Dd||{};d=3D{id:b,B:c.dataLayer||"dataLayer",ia:!!a.get(=
+"anonymizeIp"),sync:e,G:!1};a.get("&gtm")=3D=3Db&&(d.G=3D!0);var g=3DString=
+(a.get("name"));"t0"!=3Dg&&(d.target=3Dg);G(String(a.get("trackingId")))||(=
+d.clientId=3D
+String(a.get(Q)),d.ka=3DNumber(a.get(n)),c=3Dc.palindrome?r:q,c=3D(c=3DM.co=
+okie.replace(/^|(; +)/g,";").match(c))?c.sort().join("").substring(1):void =
+0,d.la=3Dc,d.qa=3DE(a.b.get(kb)||"","gclid"));a=3Dd.B;c=3D(new Date).getTim=
+e();O[a]=3DO[a]||[];c=3D{"gtm.start":c};e||(c.event=3D"gtm.js");O[a].push(c=
+);c=3Dt(d)}!c&&Zd.hasOwnProperty(b)?(J(39),c=3Db+".js"):J(43);c&&(c&&0<=3Dc=
+.indexOf("/")||(c=3D(Ba||Ud()?"https:":"http:")+"//www.google-analytics.com=
+/plugins/ua/"+c),d=3Dae(c),a=3Dd.protocol,c=3DM.location.protocol,("https:"=
+=3D=3Da||a=3D=3Dc||("http:"!=3D
+a?0:"http:"=3D=3Dc))&&B(d)&&(wa(d.url,void 0,e),$d.set(b,!0)))}},v=3Dfuncti=
+on(a,b){var c=3DA.get(a)||[];c.push(b);A.set(a,c)},C=3Dfunction(a,b){Yd.set=
+(a,b);b=3DA.get(a)||[];for(var c=3D0;c<b.length;c++)b[c]();A.set(a,[])},B=
+=3Dfunction(a){var b=3Dae(M.location.href);if(D(a.url,"https://www.google-a=
+nalytics.com/gtm/js?id=3D"))return!0;if(a.query||0<=3Da.url.indexOf("?")||0=
+<=3Da.path.indexOf("://"))return!1;if(a.host=3D=3Db.host&&a.port=3D=3Db.por=
+t)return!0;b=3D"http:"=3D=3Da.protocol?80:443;return"www.google-analytics.c=
+om"=3D=3Da.host&&(a.port||
+b)=3D=3Db&&D(a.path,"/plugins/")?!0:!1},ae=3Dfunction(a){function b(a){var =
+b=3D(a.hostname||"").split(":")[0].toLowerCase(),c=3D(a.protocol||"").toLow=
+erCase();c=3D1*a.port||("http:"=3D=3Dc?80:"https:"=3D=3Dc?443:"");a=3Da.pat=
+hname||"";D(a,"/")||(a=3D"/"+a);return[b,""+c,a]}var c=3DM.createElement("a=
+");c.href=3DM.location.href;var d=3D(c.protocol||"").toLowerCase(),e=3Db(c)=
+,g=3Dc.search||"",ca=3Dd+"//"+e[0]+(e[1]?":"+e[1]:"");D(a,"//")?a=3Dd+a:D(a=
+,"/")?a=3Dca+a:!a||D(a,"?")?a=3Dca+e[2]+(a||g):0>a.split("/")[0].indexOf(":=
+")&&(a=3Dca+e[2].substring(0,
+e[2].lastIndexOf("/"))+"/"+a);c.href=3Da;d=3Db(c);return{protocol:(c.protoc=
+ol||"").toLowerCase(),host:d[0],port:d[1],path:d[2],query:c.search||"",url:=
+a||""}};var Z=3D{ga:function(){Z.f=3D[]}};Z.ga();Z.D=3Dfunction(a){var b=3D=
+Z.J.apply(Z,arguments);b=3DZ.f.concat(b);for(Z.f=3D[];0<b.length&&!Z.v(b[0]=
+)&&!(b.shift(),0<Z.f.length););Z.f=3DZ.f.concat(b)};Z.J=3Dfunction(a){for(v=
+ar b=3D[],c=3D0;c<arguments.length;c++)try{var d=3Dnew sc(arguments[c]);d.g=
+?C(d.a[0],d.a[1]):(d.i&&(d.ha=3Dy(d.c,d.a[0],d.X,d.W)),b.push(d))}catch(e){=
+}return b};
+Z.v=3Dfunction(a){try{if(a.u)a.u.call(O,N.j("t0"));else{var b=3Da.c=3D=3Dgb=
+?N:N.j(a.c);if(a.A){if("t0"=3D=3Da.c&&(b=3DN.create.apply(N,a.a),null=3D=3D=
+=3Db))return!0}else if(a.ba)N.remove(a.c);else if(b)if(a.i){if(a.ha&&(a.ha=
+=3Dy(a.c,a.a[0],a.X,a.W)),!u(a.a[0],b,a.W))return!0}else if(a.K){var c=3Da.=
+C,d=3Da.a,e=3Db.plugins_.get(a.K);e[c].apply(e,d)}else b[a.C].apply(b,a.a)}=
+}catch(g){}};var N=3Dfunction(a){J(1);Z.D.apply(Z,[arguments])};N.h=3D{};N.=
+P=3D[];N.L=3D0;N.answer=3D42;var uc=3D[Na,W,V];
+N.create=3Dfunction(a){var b=3Dza(uc,[].slice.call(arguments));b[V]||(b[V]=
+=3D"t0");var c=3D""+b[V];if(N.h[c])return N.h[c];a:{if(b[Kd]){J(67);if(b[ac=
+]&&"cookie"!=3Db[ac]){var d=3D!1;break a}if(void 0!=3D=3DAb)b[Q]||(b[Q]=3DA=
+b);else{b:{d=3DString(b[W]||xa());var e=3DString(b[Yb]||"/"),g=3DCa(String(=
+b[U]||"_ga"));d=3Dna(g,d,e);if(!d||jd.test(d))d=3D!0;else if(d=3DCa("AMP_TO=
+KEN"),0=3D=3Dd.length)d=3D!0;else{if(1=3D=3Dd.length&&(d=3DdecodeURICompone=
+nt(d[0]),"$RETRIEVING"=3D=3Dd||"$OPT_OUT"=3D=3Dd||"$ERROR"=3D=3Dd||"$NOT_FO=
+UND"=3D=3Dd)){d=3D!0;break b}d=3D!1}}if(d&&
+tc(ic,String(b[Na]))){d=3D!0;break a}}}d=3D!1}if(d)return null;b=3Dnew pc(b=
+);N.h[c]=3Db;N.P.push(b);return b};N.remove=3Dfunction(a){for(var b=3D0;b<N=
+.P.length;b++)if(N.P[b].get(V)=3D=3Da){N.P.splice(b,1);N.h[a]=3Dnull;break}=
+};N.j=3Dfunction(a){return N.h[a]};N.getAll=3Dfunction(){return N.P.slice(0=
+)};
+N.N=3Dfunction(){"ga"!=3Dgb&&J(49);var a=3DO[gb];if(!a||42!=3Da.answer){N.L=
+=3Da&&a.l;N.loaded=3D!0;var b=3DO[gb]=3DN;X("create",b,b.create);X("remove"=
+,b,b.remove);X("getByName",b,b.j,5);X("getAll",b,b.getAll,6);b=3Dpc.prototy=
+pe;X("get",b,b.get,7);X("set",b,b.set,4);X("send",b,b.send);X("requireSync"=
+,b,b.ma);b=3DYa.prototype;X("get",b,b.get);X("set",b,b.set);if(!Ud()&&!Ba){=
+a:{b=3DM.getElementsByTagName("script");for(var c=3D0;c<b.length&&100>c;c++=
+){var d=3Db[c].src;if(d&&0=3D=3Dd.indexOf("https://www.google-analytics.com=
+/analytics")){b=3D
+!0;break a}}b=3D!1}b&&(Ba=3D!0)}Ud()||Ba||!Ed(new Od)||(Ba=3D!0);(O.gaplugi=
+ns=3DO.gaplugins||{}).Linker=3DDc;b=3DDc.prototype;C("linker",Dc);X("decora=
+te",b,b.ca,20);X("autoLink",b,b.S,25);C("displayfeatures",fd);C("adfeatures=
+",fd);a=3Da&&a.q;ka(a)?Z.D.apply(N,a):J(50)}};N.da=3Dfunction(){for(var a=
+=3DN.getAll(),b=3D0;b<a.length;b++)a[b].get(V)};var Nd=3DN.N,se=3DO[gb];se&=
+&se.r?Nd():z(Nd);z(function(){Z.D(["provide","render",ua])});function La(a)=
+{var b=3D1,c;if(a)for(b=3D0,c=3Da.length-1;0<=3Dc;c--){var d=3Da.charCodeAt=
+(c);b=3D(b<<6&268435455)+d+(d<<14);d=3Db&266338304;b=3D0!=3Dd?b^d>>21:b}ret=
+urn b};})(window);
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/common/js/common.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+//
+// MoinMoin commonly used JavaScript functions
+//
+
+// We keep here the state of the search box
+searchIsDisabled =3D false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value =3D e.value.replace(/\s+/, '');
+    if (value =3D=3D '' || searchIsDisabled) {=20
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled =3D flag;
+    document.getElementById('titlesearch').disabled =3D flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value =3D=3D search_hint) {
+        e.value =3D '';
+        e.className =3D '';
+        searchIsDisabled =3D false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value =3D=3D '') {
+        e.value =3D search_hint;
+        e.className =3D 'disabled';
+        searchIsDisabled =3D true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i =3D 0; i < document.forms.length; i++) {
+        var form =3D document.forms[i];
+        if (form.className =3D=3D 'actionsmenu') {
+            // Check if this form needs update
+            var div =3D form.getElementsByTagName('div')[0];
+            var label =3D div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton =3D div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select =3D div.getElementsByTagName('select')[0];
+                var item =3D document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value =3D 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex =3D 0;
+            }
+        }
+    }
+}
+
+// use this instead of assigning to window.onload directly:
+function addLoadEvent(func) {
+    // alert("addLoadEvent " + func)
+    var oldonload =3D window.onload;
+    if (typeof window.onload !=3D 'function') {
+        window.onload =3D func;
+    } else {
+        window.onload =3D function() {
+            oldonload();
+            func();
+        }
+    }
+}
+
+// copy from fckeditor browser check code (fckeditor.js:298, function : FCK=
+editor_IsCompatibleBrowser)
+function can_use_gui_editor() {
+    var sAgent =3D navigator.userAgent.toLowerCase() ;
+
+    // Internet Explorer 5.5+
+    if ( /*@cc_on!@*/false && sAgent.indexOf("mac") =3D=3D -1 )
+    {
+        var sBrowserVersion =3D navigator.appVersion.match(/MSIE (.\..)/)[1=
+] ;
+        return ( sBrowserVersion >=3D 5.5 ) ;
+    }
+
+    // Gecko (Opera 9 tries to behave like Gecko at this point).
+    if ( navigator.product =3D=3D "Gecko" && navigator.productSub >=3D 2003=
+0210 && !( typeof(opera) =3D=3D 'object' && opera.postError ) )
+        return true ;
+
+    // Opera 9.50+
+    if ( window.opera && window.opera.version && parseFloat( window.opera.v=
+ersion() ) >=3D 9.5 )
+        return true ;
+
+/*
+  // disable safari : until fck devteam fix http://dev.fckeditor.net/ticket=
+/2333
+ =20
+    // Adobe AIR
+    // Checked before Safari because AIR have the WebKit rich text editor
+    // features from Safari 3.0.4, but the version reported is 420.
+    if ( sAgent.indexOf( ' adobeair/' ) !=3D -1 )
+        return ( sAgent.match( / adobeair\/(\d+)/ )[1] >=3D 1 ) ; // Build =
+must be at least v1
+
+    // Safari 3+
+    if ( sAgent.indexOf( ' applewebkit/' ) !=3D -1 )
+        return ( sAgent.match( / applewebkit\/(\d+)/ )[1] >=3D 522 ) ;    /=
+/ Build must be at least 522 (v3)
+*/
+    return false ;
+
+}
+
+
+function update_edit_links() {
+    // Update editlink according if if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("update_edit_links: can't use gui editor");
+        return;
+    }
+    var editlinks =3D document.getElementsByName("editlink");
+    for (i =3D 0; i < editlinks.length; i++) {
+        var link =3D editlinks[i];
+        href =3D link.href.replace('editor=3Dtextonly','editor=3Dguipossibl=
+e');
+        link.href =3D href;
+        //alert("update_edit_links: modified to guipossible");
+    }
+}
+
+
+function add_gui_editor_links() {
+    // Add gui editor link after the text editor link
+   =20
+    // If the variable is not set or browser is not compatible, exit
+    try {gui_editor_link_href}
+    catch (e) {
+        //alert("add_gui_editor_links: gui_editor_link_href not here");
+        return
+    }
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("add_gui_editor_links: can't use gui_editor");
+        return;
+    }
+    var all =3D document.getElementsByName('texteditlink');
+    for (i =3D 0; i < all.length; i++) {
+        var textEditorLink =3D all[i];
+        // Create a list item with a link
+        var guiEditorLink =3D document.createElement('a');
+        guiEditorLink.href =3D gui_editor_link_href;
+        var text =3D document.createTextNode(gui_editor_link_text);
+        guiEditorLink.appendChild(text);
+        var listItem =3D document.createElement('li')
+        listItem.appendChild(guiEditorLink);
+        // Insert in the editbar
+        var editbar =3D textEditorLink.parentNode.parentNode
+        var nextListItem =3D textEditorLink.parentNode.nextSibling;
+        editbar.insertBefore(listItem, nextListItem);
+        //alert("add_gui_editor_links: added gui editor link");
+    }
+}
+=20
+
+function show_switch2gui() {
+    // Show switch to gui editor link if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false) return;
+   =20
+    var switch2gui =3D document.getElementById('switch2gui')
+    if (switch2gui) {
+        switch2gui.style.display =3D 'inline';
+    }
+}
+
+// for long documents with many comments this is expensive to calculate,
+// thus we keep it here:
+comments =3D null;
+
+function toggleComments() {
+    // Toggle visibility of every tag with class "comment"
+    for (i =3D 0; i < comments.length; i++){
+        el =3D comments[i];
+        if ( el.style.display !=3D 'none' ) {
+            el.style.display =3D 'none';
+        } else {
+            el.style.display =3D '';
+        }
+    }
+}
+
+function show_toggleComments() {
+    // Show edit bar item for toggling inline comments on/off only if inlin=
+e comments exist on the page
+    comments =3D getElementsByClassName('comment', null, document);
+    if (comments.length > 0) {
+        var buttons =3D getElementsByClassName('toggleCommentsButton', null=
+, document);
+        for (i =3D 0; i < buttons.length; i++){
+            el =3D buttons[i];
+            el.style.display =3D '';
+        }
+    }
+}
+
+
+function load() {
+    // Do not name this "onload", it does not work with IE :-)
+    // TODO: create separate onload for each type of view and set the
+    // correct function name in the html.=20
+    // e.g <body onlod=3D'editor_onload()'>
+
+    // login focus
+    if (document.forms['loginform']) {
+        document.forms['loginform'].elements['name'].focus();
+    }
+   =20
+    // Page view stuff
+    update_edit_links();
+    add_gui_editor_links();
+   =20
+    // Editor stuff
+    show_switch2gui();
+
+    // Enable menu item "ToggleComments" if inline comments exist
+    show_toggleComments();
+=20
+    // data browser widget
+    dbw_hide_buttons();
+}
+
+
+function before_unload(evt) {
+    // TODO: Better to set this in the editor html, as it does not make
+    // sense elsehwere.
+    // confirmleaving is available when editing
+    try {return confirmleaving();}
+    catch (e) {}
+}
+
+// Initialize after loading the page
+addLoadEvent(load)
+
+// Catch before unloading the page
+window.onbeforeunload =3D before_unload
+
+function dbw_update_search(dbw_id)
+{
+    var table =3D document.getElementById(dbw_id+'table');
+    var cell;
+    var shown;
+    var i
+    var cols =3D table.rows[0].cells.length;
+    var filter =3D new Array();
+    var dofilter =3D new Array();
+    var form =3D document.forms[dbw_id+'form'];
+
+    for (i =3D 0; i < cols; i++) {
+        dofilter[i] =3D false;
+        if (form[dbw_id+'filter'+i]) {
+            dofilter[i] =3D true;
+            filter[i] =3D form[dbw_id+'filter'+i].value;
+            if (filter[i] =3D=3D '[all]')
+                dofilter[i] =3D false;
+            if (filter[i] =3D=3D '[empty]')
+                filter[i] =3D '';
+        }
+    }
+
+    for (i =3D 1; i < table.rows.length; i++) {
+        var show =3D true;
+        for (col =3D 0; col < cols; col++) {
+            if (!dofilter[col])
+                continue;
+
+            cell =3D table.rows[i].cells[col];
+
+            if (filter[col] =3D=3D '[notempty]') {
+                if (cell.abbr =3D=3D '') {
+                    show =3D false;
+                    break;
+                }
+            } else if (filter[col] !=3D cell.abbr) {
+                show =3D false;
+                break;
+            }
+        }
+        if (show)
+            table.rows[i].style.display =3D '';
+        else
+            table.rows[i].style.display =3D 'none';
+    }
+}
+
+function dbw_hide_buttons() {
+    var form;
+    var elem;
+    var name;
+
+    for (var fidx =3D 0; fidx < document.forms.length; fidx++) {
+        form =3D document.forms[fidx];
+        for (var eidx =3D 0; eidx < form.elements.length; eidx++) {
+            elem =3D form.elements[eidx];
+            name =3D elem.name;
+            if (name) {
+                if (name.indexOf('dbw.') >=3D 0 && name.substr(-7) =3D=3D '=
+.submit')
+                    elem.style.display =3D 'none';
+            }
+        }
+    }
+}
+
+/*  getElementsByClassName
+    Developed by Robert Nyman, http://www.robertnyman.com
+    Code/licensing: http://code.google.com/p/getelementsbyclassname/ (MIT l=
+icense)
+    Version: 1.0.1
+*/ =20
+var getElementsByClassName =3D function (className, tag, elm){
+    if (document.getElementsByClassName) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            elm =3D elm || document;
+            var elements =3D elm.getElementsByClassName(className),
+                nodeName =3D (tag)? new RegExp("\\b" + tag + "\\b", "i") : =
+null,
+                returnElements =3D [],
+                current;
+            for(var i=3D0, il=3Delements.length; i<il; i+=3D1){
+                current =3D elements[i];
+                if(!nodeName || nodeName.test(current.nodeName)) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    else if (document.evaluate) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D "",
+                xhtmlNamespace =3D "http://www.w3.org/1999/xhtml",
+                namespaceResolver =3D (document.documentElement.namespaceUR=
+I =3D=3D=3D xhtmlNamespace)? xhtmlNamespace : null,
+                returnElements =3D [],
+                elements,
+                node;
+            for(var j=3D0, jl=3Dclasses.length; j<jl; j+=3D1){
+                classesToCheck +=3D "[contains(concat(' ', @class, ' '), ' =
+" + classes[j] + " ')]";
+            }
+            try {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, namespaceResolver, 0, null);
+            }
+            catch (e) {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, null, 0, null);
+            }
+            while ((node =3D elements.iterateNext())) {
+                returnElements.push(node);
+            }
+            return returnElements;
+        };
+    }
+    else {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D [],
+                elements =3D (tag =3D=3D=3D "*" && elm.all)? elm.all : elm.=
+getElementsByTagName(tag),
+                current,
+                returnElements =3D [],
+                match;
+            for(var k=3D0, kl=3Dclasses.length; k<kl; k+=3D1){
+                classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\=
+\s|$)"));
+            }
+            for(var l=3D0, ll=3Delements.length; l<ll; l+=3D1){
+                current =3D elements[l];
+                match =3D false;
+                for(var m=3D0, ml=3DclassesToCheck.length; m<ml; m+=3D1){
+                    match =3D classesToCheck[m].test(current.className);
+                    if (!match) {
+                        break;
+                    }
+                }
+                if (match) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    return getElementsByClassName(className, tag, elm);
+};
+
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/images/dotted-bg.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJBAEgLJDBkRwAAAAcSURBVAjX
+Y5h06//ff1DE+PfffwYYYGJAAigcAHBCDlkqup2TAAAAAElFTkSuQmCC
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/images/orangeheader-tile.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAADAAAABACAYAAABcIPRGAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJBAEVDAmec2IAAAAZdEVYdENv
+bW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAABmklEQVRo3u2WW0sCURzEZ/+IpdtFxEzMG0G0
+37bvEfZ5MoIoLbELYhe1Ijo97OrZB1d21YUG/ufpxzBnzwzOg457Ycy42wEAuA0PbCzM4d2GB2EO
+P+52IMzhdUI6IZ2QTkgnpBPSCemE1mQn1zZm2vPFXN0DGwtz+Fw9mBBr+GmvAyfbNuY7ELN1D2ws
+zOGzswllalZkY8nUPPzcW5GNhTl8phaaEGsRR86N+X0Ifo4jD3Q8A4REJhYAQPUUmIlkLKieAv0r
+K5KxzMXKCRjZn9DhMTC49sVyK13e1FvBdwTlFvB4Yw1Pt+nypt4KviOpB06Z/QmVmlYkY0GpCbzc
+WZGMHZxdGgBAsQoM+2BjYQ6PYR8SaShUknHSu1H+OHqIJfKh0SAZJ70b5Y+jh1hWDvxPWLB3YEVC
+Frw9++JOEYzsT8gtAB9DMLLALQDjkRXJWOZift8atnexUI/iOP51PEvuytwwebXmz3cs1KM4jn8d
+z5K7gq28NRCy4GtiRUK2f+ZIj4D8aAEtoAW0gBbQAlpAC2gBLaAFVj5//mqKbtlQB7oAAAAASUVO
+RK5CYII=
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/images/kubuntu-wiki.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAL0AAAAdCAYAAAD/y23eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAACXAAAAlwBEzwJNwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAApKSURB
+VHic7ZxrdBXVFYC/uQmvWCRAEIqokCCIyEPlIaCAAqIGaSy+lssHRa0W2oLLqkWkFTUSlFpB6II+
+MIpKxbaiSQuWqhAfaExAQQEtEFDARAmGZ0JIcvpjn1n33MncJ7mZi8231ll39pkzM3vO3ffMPvvs
+uZZS6jfAebos1CURGANMQPRKBi7yVp0mvi8kA7MMuZlXirgwAbhLb3/upSJN+LFmrWvH0bqWas6w
+vV7rEivJXivQROJjTS84H581HaUGAN1IAuvBglIUxVi+Rerxi/O91jEamow+sbCAsxCXrg74l6fK
+zFqTTJVvBhYzUKrZZRmpjD27LQ+sKgHolJRkZdbW1WVa09fmoo5PUzmjD3ipb6T4vFagiQDWACVA
+HnCrt6oAx3wLsHjYZ4nb2zMthfuHn8HI9FRSmvl46/a+LJnQAyxrIr7mK61ZJ4c9nRRK/h/RwmsF
+bKzpBZcDdz086ixev/U8Upr5eG/XAXbsr2L+1d3Z+cBghndrw5HqOvuQIVS/c6+HKkdMk9E34Y7F
+YoD9lTVk9mzH7LHpbCw9QsbcQvrOK6LP08Xkb91PRVWN/xilHrVmvNnRK5Ujpcnom6iHNbOgG9AV
+YHHh15Qequaxt3cFtCk7XM2EFz/j6l7tKZ85lPfu7g/QAtVscKMrHCUns9FbXivwvaWGQck+i6lD
+T+flG3uRt7Wcb48cr9esulYxc/VO3t91kPyt5brWurBxlY2eaKI3PYF7DLkEmGPIz+CP8y8H3gpz
+vqeAFL39KvBGmPbtgLuBYUAPZCTaCRQBHwH5wBchjj8VeMKQ/6yPDUYr4PeG/BywzkWnAcCFQB+g
+g65rqz/3A5t1WQ+8DKgQ1zQZACwKsu8A8IAhm32Zr0so5gBt9PYqYEXAXktlpDRL4ulxGQB2tMaV
+vC3l5G0pN6u6hbm250Rq9B2BlfhvaB9ifCZ34p+IbSW80U/C3/E7CW30ZwJfAqc46rvrciPwGDAF
+eDbIOVLwL3aBREpCGX0LR/sPqG/0LwFjQ5yjDdJnmVr+CXAz8G2IY2wydHGjjECjN/uylPBGfxvy
+nQJU4DR6H5sOHqulS86HXNcnjUFdWgc90YTeaWSe046CkgPkri8DpT4Lc23PicS9aY3Ei22DPwxc
+RehRtaFpRX2Dd2uzBDH6RFpZNrkc+Bj5EScuqqYQYM/BYzy/voysc9M4o039wFK7Vsk8lZlOZs/2
+3NT/NF1bV9yYqsZCuJG+JfA6cIGWq4EfI+5EY3MMedy/DWxERqgBwCXA/fifMhOBDwnuGsSLT4Gp
+wC6gHKhFXLBewKOISwbQGbhXtw3FWiAnyL5jJ6hrSFT2qDLrwYKPgIFzr0on2WfRrV0rSg9X47Ms
+lFJc0rUNC8Z3Z/obO3npk2/kQIt9tGhVGE/dGoJQRp+M+KAjtVwH3AKsjrNObpQBQ5B5hMlqXVYB
+rwFpun4m4oNXNpaCwB7qu3SbdFkJ/Bt/0tztSM7T/hDnK0XuyxusukkoX/GaHQear95WQUFJBZMv
+6sz8cRl8UV5J25bJdGrdnFplTFHq1GT128EH46iVD7FDkznACGA04oWEPT6Ye+MDXgDGa1khfuPy
+mFQ9cSqob/Am7wO/MOTOwM/jqlF0HCJwEn0KcI1HukSEyh75KRYPPr+hjGV6JL80PZV9R48zaOEG
+hi3+mF0VVTRP0iak1Atq9ohX4qhSB2Re9x6BkbssYDDhXfV+yFxqqVtDH/AX4AYtKyRq8twJKNwY
+/A3YbcjjgzX0iDzkx2uT2H49oLKH/446Kwt50jJn7Vdcv2wLh6tr2bG/ivQnC1m6oawSi2nkjIh3
+2sQZwOlAf/yRqmjogUTUhjmN3oeE8iYaddOAP8ZwkcamBgl92nT3SpEg1ABfG/LpXikSDSrnktfg
+eG8UDxXtPpRXUHKgFAmZvlmHmk0S/VT28HlKRRyKjZX1SBRsBHAkhuNXANcCVzp9+vuAToY8A5gf
+i4YeYY70nRA3IpYOihdmQPukMHoA9fiociDbli0LqxGM3I0TyTo9Dvwd6vtBnRzyybZi63yxIVic
+2yu+M7ZbeabFCRKDwacCubgPoKP1vj6O+ta6/kktN9fyE4QnBViAhK9tG+iij/+V06g/IXDF8FF9
+cLTGnxRl+4bCGZ+vDdHWCx2dkYd44FXfh6ICGI4EG7o49t2KLJZd7agfSuAiWrKWJ4S5lh11nAJs
+1wXEn78NGOM05lwkDm+GfqYAfwpzIQh0I04L2iq+mCN7LfBfQ3a6Oe3jr06jYd5bot7XP/XncEf9
+ZfpzhKPelqNxaXzAUmAcMBdZpXdt5GQFEps3H8WTkFE/FF8Z2043qbEwjX4HsphmcwiZgNl0aBSN
+osNcV4jG/TH73qsBJxy28Y426nogc5tjwMWIC2MzChm4wuVk2fiAxUhKygJkfhq0oRvFyJK5aSQP
+IaHLYJgdf3ZEajYsHYArDXmrSxtTx0SL7oAODWqiyUs37yvR5jE2byM/6lFG3Rj9aSfMDdFyKpLE
+t47AwTcUi4E7kHD7L0M1DOWrFwFXAFVG3TPIsr8b5uLREKB3WDUblkfwJ10B/MOljaljFonnCpQa
+212JfC5l3ld//GkjiUQVsmJ9JrJQBOKGbMX/tzO2X5+JzE2icW2u1Z/FhMlkDdepHyCujU0y8Ffc
+H6G5DvlxJHcn3viQjMM7jbp3cV9MMzMwWyI+XyJFqHYY2x2RH2YkPEvgJDmb2BZw4o09EF2DRGcu
+RXz9PUgQxV5QzHK0j4QsZMX1D0guVlAi+cKXYcRokSX+ZS7HrifQ/xqPPJ5uBs5HRlV7RW08gf5b
+OFKBHyE+YEekw/ohuUBvIYlZdtSiBvgZ7r/2FcAWQ74byd25HvkHgvbIyt8F1I8mNAYvAkcNeQkw
+GUla64JMAu9A+tl8qm0h0ECuQJLubkHupT3yvfVD7surH8RyZNJ9ndajBf406HzELR6KZPG+T3T/
+d7QWmYt+i9jDTUFbqkCmKaVwKT6l1DuOtlNd2g1USn2noufXLudaFMN5DimlJrqcyyzjlFKVMZzb
+7byrjP2rwlwXpdQKo/2aIG0WRqhPluO4c5VS30R/WyonAr0bsizR192slNqtxLZQSvUy6pVS6nbH
+cSm6fruj/nNdf6qWByj5fiuVUv2Ndn11uzcifbTXIakJZmgsm/pvyXyEjOQfRHjehuQ/yGidG6Zd
+PpKglKj/mnYfkYWIRzrkzUjfFzS0Qg3MEv3ZC3kJx3bLtgCFuv4IEmuPhSLkSd8Sycf6gbNBMjDP
+kDeEONl25HFpxlMHUj/7cRfyGL4e+RL66NICeeNqH7IcvxdxiYqR9Fsn9yCZnhch7tEPkQhNGvI6
+3pdIDvsm/K8LRspGJBf/Bq1bX/wT73JDz91axyIC3SKbV/FHidz2O8lD3hID2BakzVHgp8j9XAWc
+g7yqeRz5DrYh7o3b/e5F4t523/dF7q+l476+Rl5mKcK97+PJu8j6ydnA8459ucAg4BXCpwmHIhfp
+u+uQeH1A1PF/8uv/uWUtbVYAAAAASUVORK5CYII=
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/moin_static193/kubuntu-light/images/search_button_sprite.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/IconsPage?action=AttachFile&do=get&target=iconCircle48.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+QmCC
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/Kernel/MenuBar?action=AttachFile&do=get&target=information.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+1vYHHf8B+Wgb25UL4aUAAAAASUVORK5CYII=
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/IconsPage?action=AttachFile&do=get&target=IconBug.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/Kernel/MenuBar?action=AttachFile&do=get&target=testing.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+HDYTTnn9HxObMuF25+N6AAAAAElFTkSuQmCC
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/Kernel/MenuBar?action=AttachFile&do=get&target=todo.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF
+Content-Location: https://wiki.kubuntu.org/Kernel/Dev/DKMSPackaging?action=AttachFile&do=get&target=dkms.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+AGrU/wOD5N+DyKSXsAAAAABJRU5ErkJggg==
+
+------=_Part_B35CF2EC_1F7847E4.1601E484BFF--

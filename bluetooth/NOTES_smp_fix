@@ -1,0 +1,16 @@
+possible bluetooth power on/off commands other then hciconfig to bypass smp errors/issues
+    > bluemoon --reset
+
+    > sudo btmgmt power off
+    > sudo btmgmt power on
+
+    > sudo bt-adapter --set Powered off
+    > sudo bt-adapter --set Powered on
+
+def fix
+
+    > sudo bluetoothctl
+        power off
+        power on
+        quit
+

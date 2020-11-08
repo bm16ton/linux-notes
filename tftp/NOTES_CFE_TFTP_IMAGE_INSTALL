@@ -1,0 +1,19 @@
+	PC
+atftp --option "mode octet" --option "timeout  60" --verbose --trace -p -l openwrt-ddwrt-etc-image.bin 192.168.1.1
+	ROUTER (via serial) HIT ctrl-c over and over directly at boot
+		If you have a linksyse router, at the cfe prompt:
+
+flash -ctheader : flash1.trx
+
+		For other routers try:
+
+flash -noheader : flash1.trx
+
+	CONVERT .bin TO .trx
+
+dd if=openwrt-10.03.1-brcm47xx-wrt150n-squashfs.bin bs=32 skip=1 of=openwrt-10.03.1-brcm47xx-wrt150n-squashfs.trx
+
+		(IMPORTANT: Verify that the output file is only 32 bytes smaller than the input file and that the .trx file begins with HDR0: )
+
+hd /tmp/openwrt-10.03.1-brcm47xx-wrt150n-squashfs.trx | head
+

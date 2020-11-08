@@ -1,0 +1,10 @@
+Creating the shared library
+
+$ g++ -shared -fPIC -c test.cpp -o test.out && ld -o libtest.so test.out
+ld: warning: cannot find entry symbol _start; defaulting to 0000000000400078
+
+Creating the static library
+
+$ g++ -fPIC -c test.cpp -o test.out && ar rcs libtest.a test.out
+
+

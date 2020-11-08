@@ -1,0 +1,45 @@
+
+############################## UNBIND #####################################################################
+
+echo -n "1-1:1.0" > /sys/bus/usb/drivers/ub/unbind
+
+############################### BIND ######################################################################
+
+ To bind a device to a driver, the device must first not be controlled by any other driver. To ensure this, look for the "driver" symlink in the device directory:
+
+    $ tree /sys/bus/usb/devices/1-1:1.0
+    /sys/bus/usb/devices/1-1:1.0
+    |-- bAlternateSetting
+    |-- bInterfaceClass
+    |-- bInterfaceNumber
+    |-- bInterfaceProtocol
+    |-- bInterfaceSubClass
+    |-- bNumEndpoints
+    |-- bus -> ../../../../../../bus/usb
+    |-- modalias
+    `-- power
+        `-- state
+
+Then, simply write the bus id of the device you wish to bind, into the bind file for that driver:
+
+    echo -n "1-1:1.0" > /sys/bus/usb/drivers/usb-storage/bind
+
+And check that the binding was successful:
+
+    $ tree /sys/bus/usb/devices/1-1:1.0
+    /sys/bus/usb/devices/1-1:1.0
+    |-- bAlternateSetting
+    |-- bInterfaceClass
+    |-- bInterfaceNumber
+    |-- bInterfaceProtocol
+    |-- bInterfaceSubClass
+    |-- bNumEndpoints
+    |-- bus -> ../../../../../../bus/usb
+    |-- driver -> ../../../../../../bus/usb/drivers/usb-storage
+    |-- host2
+    |   `-- power
+    |       `-- state
+    |-- modalias
+    `-- power
+        `-- state
+

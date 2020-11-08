@@ -1,0 +1,24 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Note that the parameters for "dd" are appropriate in the first half (the input part of the pipe): dd if=/dev/zero bs=1M count=35000 | pv | dd of=VirtualDisk.raw
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+dd if=/dev/urandom | pv | dd of=/dev/null
+
+sudo dd if=/dev/sdb of=DriveCopy1.dd bs=4096
+
+sudo dd if=/dev/sdb | pv -s 2G | dd of=DriveCopy1.dd bs=4096
+
+pv /home/user/bigfile.iso | md5sum
+
+pv -n /dev/urandom | dd of=/dev/null
+pv -tpreb source.iso | dd of=/dev/BLABLA bs=4096 conv=notrunc,noerror
+
+!!!!!!!!!!!!!!!!!!! PV EXAMPLE THAT CREATES A GUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+(pv -n /dev/sda | dd of=/dev/sdb bs=128M conv=notrunc,noerror) 2>&1 | dialog --gauge "Running dd command (cloning), please wait..." 10 70 0
+
+

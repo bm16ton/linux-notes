@@ -1,0 +1,18 @@
+sudo nano /etc/default/grub   cmdline nvidia.modeset=1
+sudo update-grub
+ls -l /sys/kernel/debug/vgaswitcheroo/switch
+
+after reboot
+sudo cat /sys/kernel/debug/vgaswitcheroo/switch
+turn on disconnected gpu but dont switch
+sudo echo ON > /sys/kernel/debug/vgaswitcheroo/switch
+connect integrated with outputs
+sudo echo IGD > /sys/kernel/debug/vgaswitcheroo/switch
+connect nvidia with outputs
+sudo echo DIS > /sys/kernel/debug/vgaswitcheroo/switch
+turn off currently disconnected gpu
+sudo echo OFF > /sys/kernel/debug/vgaswitcheroo/switch
+INSIDE X switch to integrated after next X restart
+sudo echo DIGD > /sys/kernel/debug/vgaswitcheroo/switch
+INSIDE X switch to discrete after next X restart
+

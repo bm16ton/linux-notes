@@ -1,0 +1,18 @@
+##vCurrent Boot command;
+
+GRUB_CMDLINE_LINUX_DEFAULT="i915.preliminary_hw_support=1 acpi_backlight=none acpi_osi="
+GRUB_CMDLINE_LINUX="HT=on prcutree.rcu_idle_gp_delay=1  i915.preliminary_hw_support=1 i915.semaphores=1 intel_iommu=on acpi_backlight=none acpi_osi="
+
+## I believe both "acpi_backlight=none acpi_osi="  where required to get keyboard and possibly screen backlight working (I DONT BELIEVE THIS WAS REQUIRED IN PREVIOUS KERNEL/UBUNTU VERSIONS"
+
+acpi_osi=		# disable all strings
+acpi_osi=!      # disable all built-in OS vendor strings      *will try this now
+
+## Might try;
+pci=nocrs		[X86] Ignore PCI host bridge windows from ACPI. If you need to use this, please report a bug.
+pcie_aspm=	[PCIE] Forcibly enable or disable PCIe Active State Power Management.
+        off	        Disable ASPM.
+		force	    Enable ASPM even on devices that claim not to support it. WARNING: Forcing ASPM on may cause system lockups.		        
+
+acpi.power_nocheck=1 OR                 Disable the check of power state. Option two modifies the list of supported OS interface strings (changes the 
+acpi_osi=Linux                          OS compatibility reported to the BIOS). Necessary on some broken BIOSes to make temperature/fan control work. 

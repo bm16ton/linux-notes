@@ -1,0 +1,31 @@
+First install the module:
+
+sudo apt-get install sshfs
+
+Load it to kernel
+
+sudo modprobe fuse
+
+Setting permissions
+
+sudo adduser $USER fuse
+
+sudo chown root:fuse /dev/fuse
+
+sudo chmod +x /dev/fusermount
+
+Now we’ll create a directory to mount the remote folder in.
+
+I chose to create it in my home directory and call it remoteDir.
+
+mkdir ~/remoteDir
+
+Now I ran the command to mount it(mount on home).
+
+sshfs maythux@192.168.xx.xx:/home/maythuxServ/Mounted ~/remoteDir
+
+Now it should be mounted
+
+cd ~/remoteDir
+ls -l 
+

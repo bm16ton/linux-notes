@@ -1,0 +1,92 @@
+The tftp client for Linux and OS X is very similar. When invoked, it gives the user a prompt and takes commands from the standard input.
+Binary mode can be set with command-line flags - in OS X, the "-e" flag sets binary mode (among other things which are less important), and in Linux "-m binary". Binary can be set from the prompt in either (this is done below for consistency).
+
+Typical usage looks like:
+
+ tftp 192.168.x.x
+ > binary
+ > put dd-wrt.vXX_XXX.XXX
+
+Because the transfer must be initiated in a narrow time window during the router's bootup, tftp's retransmit option is useful. In the following sequence of commands, tftp will retry to send the file every second for one minute. This can be issued just before the router is booted, so that it will retry to send every second while the router boots.
+
+ tftp 192.168.x.x
+ > binary
+ > rexmt 1
+ > timeout 60
+ > put dd-wrt.vXX_XXX.XXX
+
+If it worked, it will say something like "Sent 1769472 bytes in 9.0 seconds"
+
+If it didn't work, it will say "Transfer timed out." This is often because it cannot connect to the IP address. Make sure you have manually set your computer's IP address to one in the router's subnet.
+
+You can quit tftp with the 'quit' command or hitting ctrl+D.
+
+Many Linksys routers require a special version of tftp that has a simple form of authentication. You can download and compile a special version of tftp that works on these routers from: http://redsand.net/projects/linksys-tftp/linksys-tftp.php (you will need to unpack the tarball and compile the program)
+[edit] Using atftp on Linux
+
+Another way of doing this is using atftp. You can install aftp by search it in your package manager.
+
+On Ubuntu:
+
+sudo aptitude install atftp
+
+On Debian (as root):
+
+aptitude install atftp
+
+On Fedora (as root):
+
+yum install atftp
+
+On Suse (as root):
+
+smart install atftp 
+
+Then you go to the folder where you downloaded the official Linksys firmware, for instance if you downloaded it in your desktop:
+
+cd ~Desktop
+
+Unrar the file, for instance if the file is WRT54GL_v4.30.11_012_ETSI_EN_code.rar
+
+unrar x WRT54GL_v4.30.11_012_ETSI_EN_code.rar
+
+Rename the firmware to code.bin.
+
+cp WRT54GL_v4.30.11_012_ETSI_EN_code.bin code.bin
+
+Then you prepare this command (do not press enter yet):
+
+atftp --option "mode octet" --option "timeout  60" --verbose --trace -p -l code.bin 192.168.1.1
+
+Disconnect all your network cables from your router, only leaving one from the computer to the router. Then open another terminal and ping to 192.168.1.1
+
+ping 192.168.1.1
+
+Then unplug and plug back the energy supply and when you see the first ping response from the router you must hit enter in the atftp terminal. Good luck! If everything is alright, you should see a lot of output, from all the transference. At the end you should see the orange/yellow light up. Then you should wait a couple more minutes (you never know what's happening there :D) and then try the Hard reset aka 30/30/30
+
+About the atftp command: we are putting (-p) a local file (-l) called code.bin to the IP address 192.168.1.1 asking for fully information (verbose) and showing all packages (trace), also that it must be trying for one minute (timeout 60) and in octet mode. Remember, if you get "code pattern error", try with the official Linksys firmware. More information:
+
+man atftp 
+atftp --help
+
+Important: you should always try atftp with the official firmware and then flashing to DD-WRT with the HTTP webpage on Administration, "Upgrade Firmware"; specially if you get "code pattern error".
+
+Note: if you use Gnome or KDE you can get problems while trying to put your static IP address. Most of the times, applications like NetworkManager (aka nm-applet) or knetworkmanager will try to get a dynamic IP address, so you should first kill them. For example:
+
+sudo killall NetworkManager
+
+or
+
+sudo killall nm-applet
+
+
+################################################################################
+
+Belkin F5D7230-4
+
+The Belkin F5D7230-4 can NOT be bricked unless you do "mtd -r erase pmon".
+
+Case 1: You uploaded a firmware file and unplugged the router in the process of the upgrade. The power button now blinks at a steady pace and the WLAN light does not come on.
+
+Fix: Somehow the IP address is now 192.168.2.1. Just TFTP to it on boot or use the Linksys tool as stated above. Assign your computer a static IP address of 192.168.2.101 and plug your network cable in. Unplug the power from the router, start TFTP or the Linksys tool, and then plug the power back into the router. It should flash. Wait 3 minutes for it to finish flashing, then power cycle it and do a 30/30/30 hard reset. Be sure to use DD-WRT build 10068 or later. 
+

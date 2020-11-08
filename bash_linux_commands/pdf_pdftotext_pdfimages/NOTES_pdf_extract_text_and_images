@@ -1,0 +1,31 @@
+Convert pdf to txt use;
+	pdftotext
+
+Extract Images from pdf use;
+	pdfimages
+
+EXAMPLE;  (defaults to PPM image format)
+	pdfimages /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+
+EXAMPLE with JPEG as image format; (use -j to save images as JPEG)
+	pdfimages -j /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+
+FILE FORMATS CAN ALSO BE PNG using -png or TIFF using -tiff
+EXAMPLES;
+	pdfimages -png /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+	pdfimages -tiff /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+
+If you only want to convert images on and after a certain page, use the “-f” option with a number to indicate the first page to convert
+EXAMPLE;
+	pdfimages -f 2 -j /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+
+To convert all images before and on a certain page, use the “-l” (a lowercase “L”, not the number “1”) option with a number to indicate the last page to convert
+EXAMPLE;
+	pdfimages -l 1 -j /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+
+If there is an owner password on the PDF file, use the “-opw” option and the password in single quotes
+EXAMPLE;
+	pdfimages -opw ‘password’ -j /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+		IF user password use "-upw" like;
+		pdfimages -upw ‘password’ -j /home/maddocks/SampleWithImages.pdf /home/maddocks/Pictures/PDF-Exctracted/from-pdf
+

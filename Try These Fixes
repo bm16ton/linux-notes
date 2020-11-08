@@ -1,0 +1,62 @@
+????????????????  intel_idle.max_cstate=1   ???????????????
+
+xset dpms force off
+xset dpms force on
+
+?????????? (by passing either "gpumanager_sna" or "gpumanager_sna" on boot)  ??????????
+#####################################################
+
+
+What happens in an ubuntu session is -
+After logging in, no display. If the session is left inactive until display is put to sleep, then awakining it thru keyboard or mouse brings back a visible display. (default is 5 min. of inactivity
+
+A simple startup script via startup applications demonstrates -
+script in ~/bin
+
+#!/bin/bash
+xset dpms force off
+xset dpms force on
+
+~/.config/autostart/unblank.desktop
+
+[Desktop Entry]
+Type=Application
+Exec=unblank1
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=unblank
+X-GNOME-Autostart-Delay=3
+
+So with above in place after the blind login > 3 secs > visible display is returned
+
+It's been suggested that xorg.conf needs some serverflags, ie.
+
+Section "ServerFlags"
+        Option "BlankTime" "0"
+        Option "OffTime" "0"
+EndSection
+
+Though not effective here as a standalone section & if there is an xorg.conf solution then it needs to be patched into ubuntu-drivers-common
+#####################################################
+
+
+Demonstration 2
+If the autostart script was in place then disable
+
+Alter the sleep time of unity-greeter from 300 to 6 (sec) in /usr/share/glib-2.0/schemas/com.canonical.unity-greeter.gschema.xml
+(at bottom of file, assumes 6 sec is enough time to enter password, if not increase 6 to something suitable
+
+sudo -H gedit /usr/share/glib-2.0/schemas/com.canonical.unity-greeter.gschema.xml
+
+recompile schemas
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
+Log out or restart, at black greeter screen wait at least 6 sec., then press a key. (or wait for value set above in the .xml
+The greeter screen will become visible - Quickly enter password & press enter while the screen is still visible
+
+Login session will have a visible display as expected
+#########################################################
+
+
+

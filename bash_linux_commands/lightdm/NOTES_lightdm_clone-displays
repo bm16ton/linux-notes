@@ -1,0 +1,18 @@
+create /etc/lightdm/lightdm.conf.d/20-clone-displays.conf  clone-displays.conf
+
+add 
+
+[SeatDefaults]
+display-setup-script=/usr/local/bin/clone-displays.sh
+session-setup-script=/usr/local/bin/clone-displays.sh
+
+
+create /usr/local/bin/clone-displays.sh
+
+add
+
+#!/bin/bash
+xrandr --output eDP-1 --same-as HDMI-1
+
+
+chmod 755 /usr/local/bin/clone-displays.sh

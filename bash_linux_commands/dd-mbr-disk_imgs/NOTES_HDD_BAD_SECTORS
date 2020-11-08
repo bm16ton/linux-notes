@@ -1,0 +1,32 @@
+ Bad Blocks
+
+A bad sector is a sector on a computer’s disk drive that cannot be used due to permanent damage (or an OS inability to successfully access it), such as physical damage to the disk surface.
+
+There are two ways to detect bad sectors in Linux: you can use the Disk Utility GUI, or if you are a command line geek like us, you can use the badblocks command to check your hard disk for bad sectors:
+
+    sudo badblocks -v /dev/sdb1
+
+Badblock will give us the number of bad sectors in our hard disk.
+
+
+    zainul@zainul-laptop:~$ sudo badblocks -v /dev/sdb1
+    Checking blocks 0 to 97683200
+    Checking for bad blocks (read-only test): 3134528 done, 3:27 elapsed
+    3134560 done, 8:33 elapsed
+    3134561 done, 10:15 elapsed
+    3134562 done, 11:57 elapsed
+    3134563 done, 13:39 elapsed
+    done
+    Pass completed, 5 bad blocks found.
+
+You have two options when you see bad blocks. You can either look for a new hard disk, or mark these bad blocks as unusable hard disk sectors. This involves two steps:
+
+First we have to write the location of the bad sectors into a flat file.
+
+    sudo badblocks /dev/sdb > /home/zainul/bad-blocks
+
+After that, we need to feed the flat file into the FSCK command to mark these bad sectors as ‘unusable’ sectors.
+
+    sudo fsck -l bad-blocks /dev/sdb
+
+FSCK, Badblocks, and Disk Utility are some of the disk utilities that we often use to scan our hard disks. Do share with the other fellow readers if you know other Linux disk utilities to scan hard disks.

@@ -1,0 +1,61 @@
+-mtune=cpu-type
+Tune to cpu-type everything applicable about the generated code, except for the ABI and the set of available instructions. The choices for cpu-type are:
+generic
+Produce code optimized for the most common IA32/AMD64/EM64T processors. If you know the CPU on which your code will run, then you should use the corresponding -mtune option instead of -mtune=generic. But, if you do not know exactly what CPU users of your application will have, then you should use this option.
+As new processors are deployed in the marketplace, the behavior of this option will change. Therefore, if you upgrade to a newer version of GCC, the code generated option will change to reflect the processors that were most common when that version of GCC was released.
+
+There is no -march=generic option because -march indicates the instruction set the compiler can use, and there is no generic instruction set applicable to all processors. In contrast, -mtune indicates the processor (or, in this case, collection of processors) for which the code is optimized. 
+
+native
+This selects the CPU to tune for at compilation time by determining the processor type of the compiling machine. Using -mtune=native will produce code optimized for the local machine under the constraints of the selected instruction set. Using -march=native will enable all instruction subsets supported by the local machine (hence the result might not run on different machines). 
+i386
+Original Intel's i386 CPU. 
+i486
+Intel's i486 CPU. (No scheduling is implemented for this chip.) 
+i586, pentium
+Intel Pentium CPU with no MMX support. 
+pentium-mmx
+Intel PentiumMMX CPU based on Pentium core with MMX instruction set support. 
+pentiumpro
+Intel PentiumPro CPU. 
+i686
+Same as generic, but when used as march option, PentiumPro instruction set will be used, so the code will run on all i686 family chips. 
+pentium2
+Intel Pentium2 CPU based on PentiumPro core with MMX instruction set support. 
+pentium3, pentium3m
+Intel Pentium3 CPU based on PentiumPro core with MMX and SSE instruction set support. 
+pentium-m
+Low power version of Intel Pentium3 CPU with MMX, SSE and SSE2 instruction set support. Used by Centrino notebooks. 
+pentium4, pentium4m
+Intel Pentium4 CPU with MMX, SSE and SSE2 instruction set support. 
+prescott
+Improved version of Intel Pentium4 CPU with MMX, SSE, SSE2 and SSE3 instruction set support. 
+nocona
+Improved version of Intel Pentium4 CPU with 64-bit extensions, MMX, SSE, SSE2 and SSE3 instruction set support. 
+core2
+Intel Core2 CPU with 64-bit extensions, MMX, SSE, SSE2, SSE3 and SSSE3 instruction set support. 
+k6
+AMD K6 CPU with MMX instruction set support. 
+k6-2, k6-3
+Improved versions of AMD K6 CPU with MMX and 3dNOW! instruction set support. 
+athlon, athlon-tbird
+AMD Athlon CPU with MMX, 3dNOW!, enhanced 3dNOW! and SSE prefetch instructions support. 
+athlon-4, athlon-xp, athlon-mp
+Improved AMD Athlon CPU with MMX, 3dNOW!, enhanced 3dNOW! and full SSE instruction set support. 
+k8, opteron, athlon64, athlon-fx
+AMD K8 core based CPUs with x86-64 instruction set support. (This supersets MMX, SSE, SSE2, 3dNOW!, enhanced 3dNOW! and 64-bit instruction set extensions.) 
+k8-sse3, opteron-sse3, athlon64-sse3
+Improved versions of k8, opteron and athlon64 with SSE3 instruction set support. 
+amdfam10, barcelona
+AMD Family 10h core based CPUs with x86-64 instruction set support. (This supersets MMX, SSE, SSE2, SSE3, SSE4A, 3dNOW!, enhanced 3dNOW!, ABM and 64-bit instruction set extensions.) 
+winchip-c6
+IDT Winchip C6 CPU, dealt in same way as i486 with additional MMX instruction set support. 
+winchip2
+IDT Winchip2 CPU, dealt in same way as i486 with additional MMX and 3dNOW! instruction set support. 
+c3
+Via C3 CPU with MMX and 3dNOW! instruction set support. (No scheduling is implemented for this chip.) 
+c3-2
+Via C3-2 CPU with MMX and SSE instruction set support. (No scheduling is implemented for this chip.) 
+geode
+Embedded AMD CPU with MMX and 3dNOW! instruction set support.
+While picking a specific cpu-type will schedule things appropriately for that particular chip, the compiler will not generate any code that does not run on the i386 without the -march=cpu-type option being used. 

@@ -1,0 +1,7 @@
+
+
+	df . -B MB | tail -1 | awk {'print $4'} | cut -d'%' -f1
+
+	df . -B MB | tail -1 | awk {'print substr($5, 1, length($5)-1)'}
+
+

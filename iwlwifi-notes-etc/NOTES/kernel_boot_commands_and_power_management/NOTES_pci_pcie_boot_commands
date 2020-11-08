@@ -1,0 +1,242 @@
+pci=option[,option...]	[PCI] various PCI subsystem options:
+		earlydump	[X86] dump PCI config space before the kernel
+			        changes anything
+		off		[X86] don't probe for the PCI bus
+		bios		[X86-32] force use of PCI BIOS, don't access
+				the hardware directly. Use this if your machine
+				has a non-standard PCI host bridge.
+		nobios		[X86-32] disallow use of PCI BIOS, only direct
+				hardware access methods are allowed. Use this
+				if you experience crashes upon bootup and you
+				suspect they are caused by the BIOS.
+		conf1		[X86] Force use of PCI Configuration Access
+				Mechanism 1 (config address in IO port 0xCF8,
+				data in IO port 0xCFC, both 32-bit).
+		conf2		[X86] Force use of PCI Configuration Access
+				Mechanism 2 (IO port 0xCF8 is an 8-bit port for
+				the function, IO port 0xCFA, also 8-bit, sets
+				bus number. The config space is then accessed
+				through ports 0xC000-0xCFFF).
+				See http://wiki.osdev.org/PCI for more info
+				on the configuration access mechanisms.
+		noaer		[PCIE] If the PCIEAER kernel config parameter is
+				enabled, this kernel boot option can be used to
+				disable the use of PCIE advanced error reporting.
+		nodomains	[PCI] Disable support for multiple PCI
+				root domains (aka PCI segments, in ACPI-speak).
+		nommconf	[X86] Disable use of MMCONFIG for PCI
+				Configuration
+		check_enable_amd_mmconf [X86] check for and enable
+				properly configured MMIO access to PCI
+				config space on AMD family 10h CPU
+		nomsi		[MSI] If the PCI_MSI kernel config parameter is
+				enabled, this kernel boot option can be used to
+				disable the use of MSI interrupts system-wide.
+		noioapicquirk	[APIC] Disable all boot interrupt quirks.
+				Safety option to keep boot IRQs enabled. This
+				should never be necessary.
+		ioapicreroute	[APIC] Enable rerouting of boot IRQs to the
+				primary IO-APIC for bridges that cannot disable
+				boot IRQs. This fixes a source of spurious IRQs
+				when the system masks IRQs.
+		noioapicreroute	[APIC] Disable workaround that uses the
+				boot IRQ equivalent of an IRQ that connects to
+				a chipset where boot IRQs cannot be disabled.
+				The opposite of ioapicreroute.
+		biosirq		[X86-32] Use PCI BIOS calls to get the interrupt
+				routing table. These calls are known to be buggy
+				on several machines and they hang the machine
+				when used, but on other computers it's the only
+				way to get the interrupt routing table. Try
+				this option if the kernel is unable to allocate
+				IRQs or discover secondary PCI buses on your
+				motherboard.
+		rom		[X86] Assign address space to expansion ROMs.
+				Use with caution as certain devices share
+				address decoders between ROMs and other
+				resources.
+		norom		[X86] Do not assign address space to
+				expansion ROMs that do not already have
+				BIOS assigned address ranges.
+		nobar		[X86] Do not assign address space to the
+				BARs that weren't assigned by the BIOS.
+		irqmask=0xMMMM	[X86] Set a bit mask of IRQs allowed to be
+				assigned automatically to PCI devices. You can
+				make the kernel exclude IRQs of your ISA cards
+				this way.
+		pirqaddr=0xAAAAA	[X86] Specify the physical address
+				of the PIRQ table (normally generated
+				by the BIOS) if it is outside the
+				F0000h-100000h range.
+		lastbus=N	[X86] Scan all buses thru bus #N. Can be
+				useful if the kernel is unable to find your
+				secondary buses and you want to tell it
+				explicitly which ones they are.
+		assign-busses	[X86] Always assign all PCI bus
+				numbers ourselves, overriding
+				whatever the firmware may have done.
+		usepirqmask	[X86] Honor the possible IRQ mask stored
+				in the BIOS $PIR table. This is needed on
+				some systems with broken BIOSes, notably
+				some HP Pavilion N5400 and Omnibook XE3
+				notebooks. This will have no effect if ACPI
+				IRQ routing is enabled.
+		noacpi		[X86] Do not use ACPI for IRQ routing
+				or for PCI scanning.
+		use_crs		[X86] Use PCI host bridge window information
+				from ACPI.  On BIOSes from 2008 or later, this
+				is enabled by default.  If you need to use this,
+				please report a bug.
+		nocrs		[X86] Ignore PCI host bridge windows from ACPI.
+			        If you need to use this, please report a bug.
+		routeirq	Do IRQ routing for all PCI devices.
+				This is normally done in pci_enable_device(),
+				so this option is a temporary workaround
+				for broken drivers that don't call it.
+		skip_isa_align	[X86] do not align io start addr, so can
+				handle more pci cards
+		noearly		[X86] Don't do any early type 1 scanning.
+				This might help on some broken boards which
+				machine check when some devices' config space
+				is read. But various workarounds are disabled
+				and some IOMMU drivers will not work.
+		bfsort		Sort PCI devices into breadth-first order.
+				This sorting is done to get a device
+				order compatible with older (<= 2.4) kernels.
+		nobfsort	Don't sort PCI devices into breadth-first order.
+		pcie_bus_tune_off	Disable PCIe MPS (Max Payload Size)
+				tuning and use the BIOS-configured MPS defaults.
+		pcie_bus_safe	Set every device's MPS to the largest value
+				supported by all devices below the root complex.
+		pcie_bus_perf	Set device MPS to the largest allowable MPS
+				based on its parent bus. Also set MRRS (Max
+				Read Request Size) to the largest supported
+				value (no larger than the MPS that the device
+				or bus can support) for best performance.
+		pcie_bus_peer2peer	Set every device's MPS to 128B, which
+				every device is guaranteed to support. This
+				configuration allows peer-to-peer DMA between
+				any pair of devices, possibly at the cost of
+				reduced performance.  This also guarantees
+				that hot-added devices will work.
+		cbiosize=nn[KMG]	The fixed amount of bus space which is
+				reserved for the CardBus bridge's IO window.
+				The default value is 256 bytes.
+		cbmemsize=nn[KMG]	The fixed amount of bus space which is
+				reserved for the CardBus bridge's memory
+				window. The default value is 64 megabytes.
+		resource_alignment=
+				Format:
+				[<order of align>@][<domain>:]<bus>:<slot>.<func>[; ...]
+				Specifies alignment and device to reassign
+				aligned memory resources.
+				If <order of align> is not specified,
+				PAGE_SIZE is used as alignment.
+				PCI-PCI bridge can be specified, if resource
+				windows need to be expanded.
+		ecrc=		Enable/disable PCIe ECRC (transaction layer
+				end-to-end CRC checking).
+				bios: Use BIOS/firmware settings. This is the
+				the default.
+				off: Turn ECRC off
+				on: Turn ECRC on.
+		hpiosize=nn[KMG]	The fixed amount of bus space which is
+				reserved for hotplug bridge's IO window.
+				Default size is 256 bytes.
+		hpmemsize=nn[KMG]	The fixed amount of bus space which is
+				reserved for hotplug bridge's memory window.
+				Default size is 2 megabytes.
+		realloc=	Enable/disable reallocating PCI bridge resources
+				if allocations done by BIOS are too small to
+				accommodate resources required by all child
+				devices.
+				off: Turn realloc off
+				on: Turn realloc on
+		realloc		same as realloc=on
+		noari		do not use PCIe ARI.
+		pcie_scan_all	Scan all possible PCIe devices.  Otherwise we
+				only look for one device below a PCIe downstream
+				port.
+
+	pcie_aspm=	[PCIE] Forcibly enable or disable PCIe Active State Power
+			Management.
+		off	Disable ASPM.
+		force	Enable ASPM even on devices that claim not to support it.
+			WARNING: Forcing ASPM on may cause system lockups.
+
+	pcie_hp=	[PCIE] PCI Express Hotplug driver options:
+		nomsi	Do not use MSI for PCI Express Native Hotplug (this
+			makes all PCIe ports use INTx for hotplug services).
+
+	pcie_ports=	[PCIE] PCIe ports handling:
+		auto	Ask the BIOS whether or not to use native PCIe services
+			associated with PCIe ports (PME, hot-plug, AER).  Use
+			them only if that is allowed by the BIOS.
+		native	Use native PCIe services associated with PCIe ports
+			unconditionally.
+		compat	Treat PCIe ports as PCI-to-PCI bridges, disable the PCIe
+			ports driver.
+
+	pcie_pme=	[PCIE,PM] Native PCIe PME signaling options:
+		nomsi	Do not use MSI for native PCIe PME signaling (this makes
+			all PCIe root ports use INTx for all services).
+
+	pcmv=		[HW,PCMCIA] BadgePAD 4
+
+	pd_ignore_unused
+			[PM]
+			Keep all power-domains already enabled by bootloader on,
+			even if no driver has claimed them. This is useful
+			for debug and development, but should not be
+			needed on a platform with proper driver support.
+
+	pd.		[PARIDE]
+			See Documentation/blockdev/paride.txt.
+
+	pdcchassis=	[PARISC,HW] Disable/Enable PDC Chassis Status codes at
+			boot time.
+			Format: { 0 | 1 }
+			See arch/parisc/kernel/pdc_chassis.c
+
+	percpu_alloc=	Select which percpu first chunk allocator to use.
+			Currently supported values are "embed" and "page".
+			Archs may support subset or none of the	selections.
+			See comments in mm/percpu.c for details on each
+			allocator.  This parameter is primarily	for debugging
+			and performance comparison.
+
+	pf.		[PARIDE]
+			See Documentation/blockdev/paride.txt.
+
+	pg.		[PARIDE]
+			See Documentation/blockdev/paride.txt.
+
+	pirq=		[SMP,APIC] Manual mp-table setup
+			See Documentation/x86/i386/IO-APIC.txt.
+
+	plip=		[PPT,NET] Parallel port network link
+			Format: { parport<nr> | timid | 0 }
+			See also Documentation/parport.txt.
+
+	pmtmr=		[X86] Manual setup of pmtmr I/O Port.
+			Override pmtimer IOPort with a hex value.
+			e.g. pmtmr=0x508
+
+	pnp.debug=1	[PNP]
+			Enable PNP debug messages (depends on the
+			CONFIG_PNP_DEBUG_MESSAGES option).  Change at run-time
+			via /sys/module/pnp/parameters/debug.  We always show
+			current resource usage; turning this on also shows
+			possible settings and some assignment information.
+
+	pnpacpi=	[ACPI]
+			{ off }
+
+	pnpbios=	[ISAPNP]
+			{ on | off | curr | res | no-curr | no-res }
+
+	pnp_reserve_irq=
+			[ISAPNP] Exclude IRQs for the autoconfiguration
+
+	pnp_reserve_dma=
+			[ISAPNP] Exclude DMAs for the autoconfiguration

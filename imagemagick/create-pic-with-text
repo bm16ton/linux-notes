@@ -1,0 +1,6 @@
+convert -background lightblue -fill blue -font Times-Roman -pointsize 30 -size 480x320 label:'Ben Rocks' -draw "text 0,254 'Bottom of Display'" test.png 
+
+convert -background lightblue -fill blue -font Times-Roman -pointsize 30 -size 120x120 -gravity center label:'WORKS' works.png
+
+sudo fbi -noverbose -T 7 -t 2 -1 /usr/share/pixmaps/works.png -d /dev/fb1
+

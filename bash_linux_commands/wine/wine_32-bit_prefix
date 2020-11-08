@@ -1,0 +1,10 @@
+Currently installed;
+        WINEPREFIX="$HOME/prefix32" WINEARCH=win32 wine WINDOWS_APP
+
+Install a new one;
+        WINEPREFIX="$HOME/newprefix32" WINEARCH=win32 wine wineboot
+
+echo -n "0003:167B:3001.0004" > /sys/bus/hid/drivers/hid-generic/unbind
+
+
+CHECKOUT libopenusb

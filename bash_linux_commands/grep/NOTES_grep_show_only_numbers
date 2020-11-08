@@ -1,0 +1,15 @@
+GREP -o (or --only-matching flag)
+
+	echo "99%" |grep -o '[0-9]*'
+
+	echo 'Here is a line mentioning 99% somewhere' | grep -o '[0-9]+'
+
+df . -B MB | tail -1 | awk {'print $4'} | cut -d'%' -f1
+
+df . -B MB | tail -1 | awk {'print substr($5, 1, length($5)-1)'}
+
+
+function getPercentUsed() {
+    $sys = system("df -h /dev/sda6 --output=pcent | grep -o '[0-9]*'", $val);
+    return $val[0];
+}

@@ -1,0 +1,44 @@
+Syslinux distribution comes with several versions of mbr code. These are mbr.bin, altmbr.bin and gptmbr.bin, each in 3 different flavours, -- regular, and with suffixes _c and _f. 
+
+mbr.bin is a regular boot code for msdos-like partition table.
+altmbr.bin is also for msdos-style partition table, but it boots from a partition with fixed number, see below.
+gptmbr.bin is a boot code that can be used on a drive with GPT partition table.
+
+/usr/lib/EXTLINUX/altmbr.bin
+/usr/lib/EXTLINUX/gptmbr.bin
+/usr/lib/EXTLINUX/mbr.bin
+/usr/lib/SYSLINUX/altmbr.bin
+/usr/lib/SYSLINUX/gptmbr.bin
+/usr/lib/SYSLINUX/mbr.bin
+/usr/lib/syslinux/mbr/altmbr.bin
+/usr/lib/syslinux/mbr/gptmbr.bin
+/usr/lib/syslinux/mbr/mbr.bin
+/usr/lib/syslinux-legacy/mbr.bin
+/usr/share/partclone/fail-mbr.bin
+
+The different flavours differs in the way how they determine boot drive. The regular code uses information about boot drive from the BIOS (passed in DL register). In some cases, this information may be somehow broken or incorrect, and for this case there's _c version, which checks if Ctrl key is held during boot and if it is, the code boots from BIOS drive 0x80, or else it uses regular way. And the _f version which always boots from BIOS drive 0x80.
+    In all cases the mbr code is 440 bytes long and can be written into start of a drive (with appropriate partition table) to make it bootable. MS-DOS style partition table is located in the first sector of the drive as well, right _after_ the mbr code (starting with 440 byte).
+    The altmbr.bin (all 3 variants) is only 439 bytes long, -- one extra byte should be set to the number of partition to boot from. 
+
+                HOW TO WRITE MBR
+
+1: Some people may recommend redirecting cat's output directly to the disk however this method carries a lot of danger and potentially dire consequences (data loss). A safe approach is:
+
+    dd bs=440 count=1 conv=notrunc if=mbr/mbr.bin of=/dev/sda
+                Ive always used;    
+                    dd if=/usr/lib/extlinux/mbr.bin of=/dev/sda bs=440 count=1
+                But using conv=notrunc allows the command to be usable with disk images as output. 
+This sets the input and output transfer block to 440 bytes, 1 block, and prevents the output from truncating the file (if the output is not a block device, like an image file).
+An easy way to set the desired boot partition to 1 with altmbr.bin is:
+
+    printf '\1' | cat altmbr.bin - | dd bs=440 count=1 iflag=fullblock conv=notrunc of=/dev/sda
+
+Setting it to 23 (17h, 27o) is as simple as these substitutions:
+
+    printf '\027'
+    printf '\x17'
+
+2: Using install-mbr from package mbr
+
+    sudo install-mbr /dev/sdb             (installs mbr that is built into the binary?)
+    sudo install-mbr -I /usr/lib/SYSLINUX/mbr.bin -v /dev/sdb   (using sys/ext/isolinux mbr file but complains unexpected EOF,,,also theres a -r reset options option not sure it purpose)

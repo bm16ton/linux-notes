@@ -1,0 +1,16 @@
+
+***?? not sure exactly what it does, i believe it keeps deb-pkg from building debug image tho***
+scripts/config --disable DEBUG_INFO
+
+***LTO required settings***
+scripts/config --disable function_tracer \
+	       --disable function_graph_tracer \
+	       --disable stack_tracer --enable lto_menu \
+               --disable lto_disable \
+	       --disable gcov \
+	       --disable kallsyms_all \
+	       --disable modversions
+
+or all in one
+scripts/config --disable function_tracer --disable function_graph_tracer --disable stack_tracer --enable lto_menu --disable lto_disable --disable gcov --disable kallsyms_all --disable modversions  
+

@@ -1,0 +1,30 @@
+Module command line options (To permenantly save add to /etc/modprobe.d/iwlwifi.conf or /etc/modprobe.conf and put "options iwlwifi $options" in either/both);
+
+wd_disable=1        turn watchdog off with =1 on with =0
+11n_disable=1       this option turns off with =1 and on with =0 802.11n support plus a view other things
+11n_disable=8       this re-enables transmission antenna aggregation
+bt_coex_active=0    turn on with =1 off with =0 bluetooth coexistence
+swcrypto=1          turn on software decrypt with =1 turn on hardware decrypt with =0
+power_level=1thru5  1 is normal i believe 5 in max power all the time
+
+FROM MODINFO;
+
+parm:           swcrypto:using crypto in software (default 0 [hardware]) (int)
+parm:           11n_disable:disable 11n functionality, bitmap: 1: full, 2: disable agg TX, 4: disable agg RX, 8 enable agg TX (uint)
+parm:           amsdu_size_8K:enable 8K amsdu size (default 0) (int)
+parm:           fw_restart:restart firmware in case of error (default true) (bool)
+parm:           antenna_coupling:specify antenna coupling in dB (default: 0 dB) (int)
+parm:           nvm_file:NVM file name (charp)
+parm:           d0i3_disable:disable d0i3 functionality (default: Y) (bool)
+parm:           uapsd_disable:disable U-APSD functionality (default: Y) (bool)
+parm:           bt_coex_active:enable wifi/bt co-exist (default: enable) (bool)
+parm:           led_mode:0=system default, 1=On(RF On)/Off(RF Off), 2=blinking, 3=Off (default: 0) (int)
+parm:           power_save:enable WiFi power management (default: disable) (bool)
+parm:           power_level:default power save level (range from 1 - 5, default: 1) (int)
+parm:           fw_monitor:firmware monitor - to debug FW (default: false - needs lots of memory) (bool)
+
+The iwlwifi driver in newer kernels also uses 'iwldvm' or 'iwlmvm' driver as a dependency. If it happens to be "iwlmvm" driver, it has a parameter called "power_scheme" that offers three power saving modes - 1: Always Active, 2: Balanced, 3: low-power. Default is '2' (balanced). I personally believe that the default 'balanced' mode is one of the major causes that keep turning power-management "on". A solution that I have tested successfully many times with this driver, is to set the "power_scheme" mode to '1' (Active). This can be applied permanently by creating a conf file in /etc/modprobe.d directory -
+
+
+    sudo tee /etc/modprobe.d/iwlmvm.conf <<< "options iwlmvm power_scheme=1"
+

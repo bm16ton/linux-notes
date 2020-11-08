@@ -1,0 +1,14 @@
+	Assuming you're using bash/sh/zsh etc...
+
+cd /path/to/source
+for i in /path/to/patches/*.patch; do patch -p1 < $i; done
+
+	This actually works (in Bash):
+
+shopt -s globstar
+for file in /path/to/patches/**/*.patch
+do
+    patch -p1 < "$file"
+done
+
+

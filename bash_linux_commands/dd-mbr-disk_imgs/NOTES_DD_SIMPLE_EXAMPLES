@@ -1,0 +1,12 @@
+			BASIC DD
+sudo dd if=ubuntu-14.04lts-server-odroid-xu3-20150725.img of=/dev/sdc bs=1M conv=fsync
+
+sync     #why doesnt conv=fsync negate the need to run sync
+
+			BASIC DD zero's TO FILL EMPTY WITH ZERO FOR GREAT COMPRESSION PLUS conv=sparse
+dd if=/dev/zero of=/srcfs/tmpzero.txt
+	(wait for it to fill the file system completely then rm /srcfs/tmpzero.txt)
+dd conv=sparse if=/dev/sdxn of=/tgtfs/image.raw
+
+			IF USING COMPRESSION ZERO BLOCKS ARE HIGHLY COMPRESSABLE SO NO NEED conv=sparse INSTEAD;
+dd if=/dev/sdxn | gz -c | dd of=/tgtfs/image.raw

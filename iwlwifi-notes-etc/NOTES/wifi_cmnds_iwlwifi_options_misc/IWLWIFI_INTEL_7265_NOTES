@@ -1,0 +1,48 @@
+disable usb 3
+
+iwlmvm paramter 'power_scheme=1'  prevents pcie from going to power save mode
+disable 40mhz in 802.11n usen module paramter 'cfg80211_disable_40mhz_24ghz'
+5ghz has less noise
+
+disable bt coex bt_coex_active=0
+
+Force the disabled power management with following parameters
+
+iwlwifi.power_save=Y iwldvm.force_cam=N
+
+Tracing
+
+Another (more powerful) way to debug iwlwifi is to use tracing:
+
+sudo trace-cmd record -e iwlwifi
+
+We will typically ask for more switches:
+
+sudo trace-cmd record -e iwlwifi -e mac80211 -e cfg80211 -e iwlwifi_msg
+
+This records all the data that goes from and to the firmware. The output is a file: trace.dat which you can compress prior to sending. To enable tracing, CONFIG_IWLWIFI_TRACING must be set. 
+
+Firmware Debugging
+
+When the firmware crashes, you'll see a message like this:
+
+iwlwifi 0000:01:00.0: Microcode SW error detected.  Restarting 0x82000000.
+[snip]
+iwlwifi 0000:01:00.0: Loaded firmware version: XX.XX.XX.XX
+iwlwifi 0000:01:00.0: 0x0000090A | ADVANCED_SYSASSERT
+
+In this case, please copy the whole dmesg output since there may be data before and after this message that can be helpful. starting from kernel 3.15, iwlwifi will record data when the firwmare crashes so that it can be retrieved later. The data can be fetched by a simple:
+
+cat /sys/kernel/debug/iwlwifi/*/iwlmvm/fw_error_dump > iwl.bin
+
+This assumes that CONFIG_IWLWIFI_DEBUGFS is set.
+
+A udev event is sent each time the firmware crashes, so that you can automate the process by writing a rule:
+
+DRIVER=="iwlwifi", ACTION=="change", RUN+="/bin/dump_iwl_data.sh"
+
+Then /bin/dump_iwl_data.sh can simply cat the debugfs hook to a file.
+
+Starting from kernel 3.17, iwlwifi supports firmware monitor. To enable it, load iwlwifi with fw_monitor=1 as a module parameter. The firmware monitor requires a very big chunk of contiguous memory to write its data - it tries to allocate 64MB and scales down if the allocation fails. This is why it is not enabled by default. Note that you will need a customized firmware to use the firmware monitor.
+
+

@@ -1,0 +1,2174 @@
+From: <Saved by UnMHT Ver.8.3.2>
+Subject: Ubuntu Manpage: parprouted - Proxy ARP IP bridging daemon
+Date: Tue, 01 Aug 2017 15:20:14 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8";
+	type="text/html"
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/manpages/precise/man8/parprouted.8.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" dir=3D"ltr" lang=3D"en" xml:la=
+ng=3D"en"><head profile=3D"http://a9.com/-/spec/opensearch/1.1/"><meta http=
+-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" />
+       =20
+        <link href=3D"/ubuntu-manpage-search.xml" rel=3D"search" title=3D"U=
+buntu Manpage Search" type=3D"application/opensearchdescription+xml" />
+        <title>Ubuntu Manpage:
+
+       parprouted - Proxy ARP IP bridging daemon
+</title>
+        <link href=3D"/assets/light/css/reset.css" rel=3D"stylesheet" type=
+=3D"text/css" />
+        <link href=3D"/assets/light/css/styles.css" rel=3D"stylesheet" type=
+=3D"text/css" />
+        <link href=3D"/manpages.css" rel=3D"stylesheet" type=3D"text/css" />
+        <link href=3D"/assets/light/images/favicon.ico" rel=3D"shortcut ico=
+n" type=3D"image/x-icon" />
+        <script language=3D"JavaScript" src=3D"/functions.js"></script><scr=
+ipt src=3D"http://www.google-analytics.com/ga.js" type=3D"text/javascript">=
+</script>
+    <base href=3D"http://manpages.ubuntu.com/manpages/precise/man8/" /></he=
+ad>
+    <body>
+        <div id=3D"container">
+            <div id=3D"container-inner">
+                <div id=3D"header">
+                    <h1 id=3D"ubuntu-header"><a href=3D"/">Ubuntu manuals</=
+a></h1>
+                </div>
+                <div id=3D"subheader">
+                    <div id=3D"subheader-search">
+                        <form action=3D"/cgi-bin/search.py" id=3D"cse-searc=
+h-box" method=3D"get">
+                            <input id=3D"search-box-input" name=3D"q" place=
+holder=3D"Custom Search" style=3D"background: rgb(255, 255, 255) url(&quot;=
+https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.pn=
+g&quot;) no-repeat scroll left center; text-indent: 48px;" tabindex=3D"1" t=
+ype=3D"text" value=3D"" />
+                            <button id=3D"search-box-button" name=3D"op" ty=
+pe=3D"submit"><span>go</span></button>
+                            <input name=3D"cx" type=3D"hidden" value=3D"003=
+883529982892832976:5zl6o8w6f0s" />
+                            <input name=3D"cof" type=3D"hidden" value=3D"FO=
+RID:9" />
+                            <input name=3D"ie" type=3D"hidden" value=3D"UTF=
+-8" />
+                            <script src=3D"http://www.google.com/coop/cse/b=
+rand?form=3Dcse-search-box&amp;lang=3Den" type=3D"text/javascript"></script=
+><input name=3D"siteurl" type=3D"hidden" value=3D"manpages.ubuntu.com/manpa=
+ges/precise/man8/parprouted.8.html" /><input name=3D"ref" type=3D"hidden" v=
+alue=3D"www.google.com/" /><input name=3D"ss" type=3D"hidden" value=3D"" />
+                        </form>
+                    </div>
+                    <div class=3D"subheader-menu">
+                        <script>navbar();</script><ul><li class=3D"active" =
+id=3D"current"><a href=3D"http://manpages.ubuntu.com/manpages/precise/man8/=
+parprouted.8.html">12.04 LTS</a></li><li class=3D"active" id=3D"plain"><a h=
+ref=3D"http://manpages.ubuntu.com/manpages/trusty/man8/parprouted.8.html">1=
+4.04 LTS</a></li><li class=3D"active" id=3D"plain"><a href=3D"http://manpag=
+es.ubuntu.com/manpages/wily/man8/parprouted.8.html">15.10</a></li><li class=
+=3D"active" id=3D"plain"><a href=3D"http://manpages.ubuntu.com/manpages/xen=
+ial/man8/parprouted.8.html">16.04 LTS</a></li><li class=3D"active" id=3D"pl=
+ain"><a href=3D"http://manpages.ubuntu.com/manpages/yakkety/man8/parprouted=
+.8.html">16.10</a></li><li class=3D"active" id=3D"plain"><a href=3D"http://=
+manpages.ubuntu.com/manpages/zesty/man8/parprouted.8.html">17.04</a></li><l=
+i><a href=3D"javascript:printManpage()"><img src=3D"/img/printer.png" /></a=
+></li></ul>
+                    </div>
+                </div>
+                <div class=3D"clearfix content-area" id=3D"content">
+                    <div class=3D"level-4-nav" id=3D"toc"><ul><ul><li><a hr=
+ef=3D"#contenttoc0"><b>name</b></a></li><li><a href=3D"#contenttoc1"><b>syn=
+opsis</b></a></li><li><a href=3D"#contenttoc2"><b>description</b></a></li><=
+li><a href=3D"#contenttoc3"><b>requirements</b></a></li><li><a href=3D"#con=
+tenttoc4"><b>options</b></a></li><li><a href=3D"#contenttoc5"><b>example</b=
+></a></li><li><a href=3D"#contenttoc6"><b>author</b></a></li></ul></ul></di=
+v>
+                    <script>distroAndSection();</script><a href=3D"../">pre=
+cise</a> (<a href=3D"../man8">8</a>) <a href=3D"http://manpages.ubuntu.com/=
+manpages.gz/precise/man8/parprouted.8.gz">parprouted.8.gz</a><br />
+
+Provided by: <a href=3D"https://launchpad.net/ubuntu/precise/+package/parpr=
+outed">parprouted_0.70-1_i386</a> <a href=3D"https://bugs.launchpad.net/ubu=
+ntu/+source/parprouted/+filebug-advanced" title=3D"Report a bug in the cont=
+ent of this documentation"><img alt=3D"bug" border=3D"0" src=3D"/img/bug.pn=
+g" /></a><br /><br /><pre></pre><h4 id=3D"contenttoc0"><b>NAME</b></h4><pre=
+>       <b>parprouted</b> - Proxy ARP IP bridging daemon
+
+</pre><h4 id=3D"contenttoc1"><b>SYNOPSIS</b></h4><pre>       <b>parprouted<=
+/b> [<b>-d</b>] [<b>-p</b>] <b>interface</b> [<b>interface</b>]
+
+</pre><h4 id=3D"contenttoc2"><b>DESCRIPTION</b></h4><pre>       parprouted =
+is a daemon for transparent IP (Layer 3) proxy ARP bridging.
+       Unlike standard bridging, proxy ARP bridging allows to bridge Ethern=
+et
+       networks behind wireless nodes. Normal L2 bridging does not work
+       between wireless nodes because wireless does not know about MAC
+       addresses used in the wired Ethernet networks. Also this daemon is
+       useful for making transparent firewalls.
+
+       The daemon listens for incoming ARP requests, and in case the locati=
+on
+       of the requested IP address is unknown, forwards them to other
+       interfaces, as well as updates kernel ARP table with the received
+       replies. When necessary, the daemon generates an ARP reply itself,
+       which causes the stations to send traffic to the host daemon is runn=
+ing
+       on. By automatically adding appropriate /32 routes to Linux kernel IP
+       routing table for the hosts learned via ARP, daemon ensures that the
+       Linux kernel will be able to route the packets to the destination ho=
+st
+       when it receives them without any need routing/subnetting manually.
+
+       All routes entered by the daemon have a metric of 50.
+
+       Unless you use <b>-p</b> switch, all entries in the ARP table will be
+       refreshed (rechecked by sending ARP requests) every 50 seconds. This
+       keeps them from being expired by kernel.
+
+       Normally it takes about 60 ms for a bridge to update all its tables =
+and
+       start sending packets to the destination.
+
+</pre><h4 id=3D"contenttoc3"><b>REQUIREMENTS</b></h4><pre>       This daemo=
+n can be used for unicast traffic only. I.e., DHCP is not
+       supported.  Use software such as dhcrelay to &quot;bridge&quot; DHCP.
+
+       You should have an IP address assigned on all of your interfaces that
+       you do bridging on. There is no need for this address to be from the
+       same networks as the bridged networks. Any dummy address will do.
+
+       The system should have correct default route.
+
+       parprouted requires &quot;ip&quot; program from iproute2 tools to be=
+ installed in
+       /sbin. If it is installed in another location, please replace
+       &quot;<a href=3D"file:///usr/lib/w3m/cgi-bin/w3mman2html.cgi?ip">/sb=
+in/ip</a>&quot; occurances in the source with the correct path. As well you
+       should have proc filesystem mounted in <a href=3D"file:/proc">/proc<=
+/a> because the daemon uses
+       /proc/net/arp.
+
+       parprouted is designed for and tested only with Linux 2.4.x kernels.
+
+</pre><h4 id=3D"contenttoc4"><b>OPTIONS</b></h4><pre>       The list of int=
+erfaces to do bridging on should be given via the
+       command line.
+
+       The daemon accepts the following switches:
+
+       <b>-d</b>, which stands for debugging. If you run it in debugging mo=
+de the
+       daemon will not go to background and will print additional debugging
+       information to stdout/stderr.
+
+       <b>-p</b>, which makes all ARP entries to be permanent. This will al=
+so result
+       in that ARP tables will not be refreshed by ARP pings.
+
+</pre><h4 id=3D"contenttoc5"><b>EXAMPLE</b></h4><pre>       To bridge betwe=
+en wlan0 and eth0: <b>parprouted</b> <b>eth0</b> <b>wlan0</b>
+
+</pre><h4 id=3D"contenttoc6"><b>AUTHOR</b></h4><pre>        (C) 2004, Vladi=
+mir Ivaschenko &lt;<a href=3D"mailto:vi@maks.net">vi@maks.net</a>&gt;
+        <a href=3D"http://www.hazard.maks.net">http://www.hazard.maks.net</=
+a>
+</pre>
+
+                </div>
+            </div>
+            <div id=3D"copyright">
+                <p>
+                Powered by the <a href=3D"https://launchpad.net/ubuntu-manp=
+age-repository">Ubuntu Manpage Repository</a> generator
+                maintained by <a href=3D"http://blog.dustinkirkland.com/">D=
+ustin Kirkland</a><br />
+                =C2=A9 2010 Canonical Ltd. Ubuntu and Canonical are registe=
+red trademarks of Canonical Ltd.
+                </p>
+            </div>
+        </div>
+   =20
+
+
+</body></html>
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/css/reset.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* Don't forget to set a foreground and background color
+ on the 'html' or 'body' element! */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, b=
+lockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, f=
+ont, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, d=
+d, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody=
+, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+    text-align: left;
+    vertical-align: baseline;
+}
+
+a img, :link img, :visited img {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+}
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/css/styles.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body {
+    font-family: "Ubuntu", "Bitstream Vera Sans", DejaVu Sans, Tahoma, sans=
+-serif;
+    color: #333;
+    background: white url(/assets/light/images/body_bg.png);
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+#container {
+    background: #f7f6f5;
+    margin: 0px auto 20px;
+    padding: 0px;
+    width: 976px;
+}
+#container-inner {
+    background-color: #fff;
+}
+#header, #container-inner {
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-box-shadow: #bbb 0px 0px 5px;
+    -webkit-box-shadow: #bbb 0px 0px 5px;
+}
+#header {
+    background: #dd4814 url(/assets/light/images/header_bg.png) top left re=
+peat-x;
+    height: 64px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+#menu-search {
+    height: 40px;
+    margin: 0 16px;
+}
+#search-box {
+    margin-left: 720px;
+    -moz-border-radius: 0px 0px 4px 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-box-shadow: #bbb 0px 0px 2px;
+    -webkit-box-shadow: #bbb 0px 0px 2px;
+    background-color: #f2f2f2;
+    width: 224px;
+    height: 40px;
+}
+#search-box-input {
+    float: left;
+    width: 172px;
+    height: 20px;
+    border-color: #d1d1d1;
+    border-style: solid none none solid;
+    border-width: 1px medium medium 1px;
+    margin: 8px 0 0 8px;
+    padding: 1px;
+    font-size: 12px;
+}
+#search-box-button {
+    float: left;
+    background: url(/assets/light/images/search_submit_bg_2.png) transparen=
+t;
+    width: 24px;
+    height: 24px;
+    margin: 8px 0 0 8px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+#search-box-button:hover {
+    background-position: 0 -23px;
+}
+#search-box-button:active {
+    background-position: 0 -46px;
+}
+
+#search-box-button span,
+.subheader-search button span
+{
+    position: absolute;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+#title {
+    padding: 28px 24px;
+}
+
+#content {
+    padding: 24px 240px 32px 160px;
+    margin: 0 16px 64px;
+    width: 544px;
+    background-color: #f7f7f7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#end-content {
+    clear: both;
+}
+
+.box-944 {
+    background: #ffffff;
+    width: 944px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.box-304 {
+    background: #ffffff;
+    width: 304px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.box-624 {
+    background: #ffffff;
+    width: 304px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.content-box {
+    width: 912px;
+    padding: 16px;
+}
+
+#copyright {
+    background-image: url(/assets/light/images/footer_logo.png);
+    background-position: 827px 28px;
+    background-repeat: no-repeat;
+    margin: 0 16px;
+    padding: 40px 0 0 0;
+    height: 32px;
+}
+#copyright p {
+    color: #aea79f;
+    font-size: 10px;
+    line-height: 16px;
+    margin: 2px 0;
+}
+#ubuntu-header {
+    background-image: url(/assets/light/images/header_logo.png);
+    background-repeat: no-repeat;
+    height: 32px;
+    left: 841px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 16px;
+    width: 117px;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+#ubuntu-header a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#footer {
+    padding-top: 16px;
+}
+#footer * {
+    font-size: 10px;
+    line-height: 16px;
+}
+#footer p {
+    margin: 0;
+    padding-bottom: 3px;
+    border-bottom: 1px dotted #aea79f;
+}
+#footer p.footer-title {
+    font-weight: bold;
+}
+#footer .footer-div {
+    height: 152px;
+    width: 144px;
+    float: left;
+    margin-left: 16px;
+}
+#footer .last-div {
+    margin-right: 16px;
+}
+#footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#footer li {
+    margin: 0;
+    padding: 2px 0;
+    border-bottom: 1px dotted #aea79f;
+}
+
+#main-menu {
+    list-style: none;
+    margin: 0;
+    margin-left: 16px;
+    padding: 0;
+    height: 100%;
+    background: url(/assets/light/images/topnav_divider.png) no-repeat scro=
+ll left top transparent !important;
+}
+#main-menu li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 64px;
+    font-size: 14px;
+    line-height: 16px;
+    background: url(/assets/light/images/topnav_divider.png) no-repeat scro=
+ll right top transparent !important;
+}
+#main-menu a {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 24px 8px;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: #000 0px 1px;
+}
+#main-menu a:hover {
+    background: url(/assets/light/images/topnav_active_bg.png) no-repeat ri=
+ght top transparent !important;
+}
+
+div#subheader {
+    margin: 0 16px 8px 0;
+    height: 40px;
+}
+div#subheader div {
+    float:right;
+    height: 40px;
+    background: #F2F2F2;
+    font-size: 12px;
+    line-height: 16px;
+    color: #333333;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-box-shadow: #bbb 0 0 2px;
+    -webkit-box-shadow: #bbb 0 0 2px;
+}
+div.subheader-search {
+    padding: 0 8px;
+    width: 226px;
+}
+div.subheader-menu {
+    width: 702px;
+}
+div.subheader-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+div.subheader-menu li {
+    float: left;
+    background: transparent url("/assets/light/images/subnav_divider.png") =
+no-repeat right top;
+}
+#subheader ul li a:hover, #subheader ul li span.active {
+    background: transparent url("/assets/light/images/subnav_active_bg.png"=
+) repeat-x;
+    text-decoration:none;
+}
+#subheader ul li a:hover {
+    color: #772953;
+}
+#subheader ul li a, #subheader ul li span, #subheader ul li input {
+    padding: 12px 8px 0;
+    display: block;
+    height: 28px;
+    text-decoration: none;
+    color: #333333;
+}
+#subheader p {
+    font-size: 12px;
+    line-height: 24px;
+    color: #333333;
+    margin: 8px 0 8px 8px;
+}
+
+.level-3-nav {
+    -moz-border-radius: 4px 4px 0px 0px;
+    -khtml-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    float: left;
+    position: relative;
+    left: -176px;
+    top: -24px;
+    width: 944px;
+    clear: both;
+    overflow: visible;
+    background: #fcfcfc;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 16px;
+    margin-bottom: 0px;
+    height: 38px;
+    padding: 1px 0px 0px 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.level-3-nav ul {
+    list-style: none;
+    margin: 0;
+    margin-left: 16px;
+    padding: 0;
+    height: 100%;
+}
+
+.level-3-nav li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 64px;
+    font-size: 14px;
+    line-height: 16px;
+    background: url(/assets/light/images/third_nav_divider.png) no-repeat s=
+croll right top transparent;
+}
+
+.level-3-nav li.first {
+    margin-left: -16px;
+}
+
+.level-3-nav li a {
+    display: block;
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+    float: left;
+    clear: none;
+    width: auto;
+    background: transparent;
+    color: #333333;
+    height: 30px;
+    font-size: 12px;
+}
+
+.level-3-nav li a:hover,
+.level-3-nav li a.active,
+.level-3-nav li.active a.active,
+.level-3-nav li.active a,
+.level-3-nav li.here a
+{
+    color: #772953;
+    text-decoration: none;
+    background: transparent url(/assets/light/images/third_nav_active_bg.pn=
+g) 0px 0px !important;
+    border: none;
+    height: 27px !important;
+    padding: 10px 10px 0px 10px !important;
+    margin: 0px;
+}
+
+.level-4-nav ul,
+.level-4-nav li,
+.level-4-nav li a,
+.level-4-nav li a span
+{
+    background: none !important;
+    border: 0px;
+    display: block;
+    margin: 0px;
+    padding: 0px !important;
+}
+
+.level-4-nav ul {
+    float: left;
+    margin-left: -75px;
+    width: 75px;
+}
+
+.level-4-nav li {
+    border-bottom: 1px dotted #333333;
+    line-height: 1.2em;
+    list-style: none outside none;
+    margin: 2px 0 3px 4px;
+    padding-bottom: 2px !important;
+    padding-top: 1px !important;
+    width: 127px;
+}
+
+.level-4-nav li {
+    min-height: 16px;
+}
+
+.level-4-nav li a {
+    font-size: 10px;
+    line-height: 16px;
+    color: #333333;
+    text-decoration: none;
+}
+
+.level-4-nav li a:hover {
+    color: #772953;
+    text-decoration: underline;
+}
+
+.level-4-nav li.selected {
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 8px;
+    padding-top: 8px;
+}
+h3 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 8px;
+    padding-top: 8px;
+}
+h3.link-other {
+    color: #333;
+}
+h3.link-services {
+    color: #fff;
+}
+h4 {
+    font-size: 12px;
+    line-height: 16px;
+}
+h4.link-news {
+    color: #ef5a29;
+}
+h4.link-ubuntu {
+    color: #dd4814;
+}
+h4.partners {
+    color: #333;
+    font-size: 16px;
+    line-height: 20px;
+}
+h5 {
+    color: #333;
+    font-size: 10px;
+    line-height: 14px;
+}
+p {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+}
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: #dd4814;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.anchor-button {
+    -moz-background-inline-policy: continous;
+    -moz-border-radius: 4px;
+    background: url(/assets/light/images/button_background.png) no-repeat c=
+enter;
+    display: block;
+    font-size: 20px;
+    color: #FFFFFF;
+    height: 27px;
+    line-height: 27px;
+    width: 220px;
+    margin: 0 auto;
+    padding: 13px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+a.anchor-button:visited {
+    color: #FFFFFF;
+}
+a.anchor-button:hover {
+    background: url(/assets/light/images/button_background_hover.png) no-re=
+peat center;
+    text-decoration: none;
+}
+div.footer-div a {
+    color: #333;
+}
+
+ul {
+    margin-bottom: 16px;
+    list-style-image: url(/assets/light/images/bullet.png);
+}
+ul li {
+    margin-bottom: 8px;
+    line-height: 16px;
+}
+ul li:last-child {
+    margin-bottom: 0px;
+}
+
+p.call-to-action {
+    color: #333;
+}
+p.case-study {
+    color: #333;
+}
+p.highlight {
+    font-size: 16px;
+    line-height: 20px;
+}
+p.introduction {
+    color: #333;
+    font-size: 16px;
+    line-height: 20px;
+}
+p.services {
+    color: #fff;
+}
+p.small-text {
+    color: #333;
+    font-size: 10px;
+}
+
+.newsfeed {
+    background: url(/assets/light/images/news_feed_bg.png) no-repeat scroll=
+ right top transparent;
+    padding: 0 20px 0 0;
+}
+
+/* Clearing floats without extra markup
+Based on How To Clear Floats Without Structural Markup by PiE
+[http://www.positioniseverything.net/easyclearing.html] */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}  /* for IE/Mac */
+
+/* Tabular guidelines */
+#content table {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+h3.tableheader, #content th {
+    background: #aea79e;
+    color: white;
+    margin: 0;
+    padding: 8px;
+}
+
+#content th {
+    font-weight: bold;
+}
+
+#content td.subheader {
+    background: #dfdcd9;
+    color: black;
+    margin: 0;
+    padding: 8px;
+    border: 0;
+}
+
+#content td {
+    padding: 8px;
+    line-height: 16px;
+    border-bottom: 1px dotted #cccccc;
+}
+
+#content td.fixedtd {
+    width: 80px;
+}
+/* End tabular guidelines */
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/manpages.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+
+#ubuntu-header {
+    background-image: url(/img/header_logo.png);
+    left: 16px;
+    top: 16px;
+    width: 196px;
+}
+
+#subheader-search {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#copyright {
+    background-position: 827px 38px;
+    padding-bottom: 10px;
+}
+
+#content pre {
+    line-height: 16px;
+}
+
+.level-4-nav li a b {
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px dotted #333;
+}
+
+pre img {
+    margin: 4px;
+    vertical-align: middle;
+}
+
+table {
+    background: white;
+    border: none;
+    width: 100%;
+}
+
+#content td {
+    border: none;
+}
+
+#content table table td {
+    border-bottom: 1px dotted #CCC;
+}
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/favicon.ico
+Content-Transfer-Encoding: base64
+Content-Type: image/vnd.microsoft.icon
+
+AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAA
+AAAAAAD///8A////AP///wD///8AyNj2NWaT6ZkiZODdAEzc/wBM3P8iZODdZpPpmc7c9zD///8A
+////AP///wD///8A////AP///wD2+PwHYI/onwBM3P8ATNz/AEzc/wBM3P8ATNz/AEzc/wBM3P8A
+TNz/ZpPpmfb4/Af///8A////AP///wD2+PwHOHTjxwBM3P8ATNz/AEzc/wBM3P8ATNz/AEzc/wBM
+3P/M2Pj/x9T3/QBM3P86dePF+Pn9Bv///wD///8AYI/onwBM3P8ATNz/AEzc/wBM3P9vkuv/n7fx
+/5+38f82auL/x9T3/8fU9/8ATNz/AEzc/2aT6Zn///8AyNj2NQBM3P8ATNz/AEzc/1uE6P9mjOn/
+rcHz////////////0t35/1SA5/8pY+D/AEzc/wBM3P8CTtz90t/4K1yM6KMATNz/AEzc/w9V3v/M
+2Pj/x9T3/xlY3v8fXN//BlDd/1iC5//d5fr/5ez7/yNe4P8ATNz/AEzc/2iU6ZccYN/jAEzc/wBM
+3P99ne3//////0985v8ATNz/AEzc/wBM3P8ATNz/QHHj//////+ft/H/AEzc/wBM3P8oaOHXBE/c
++n2d7f/x9P3/QHHj/+Lp+/8GUN3/AEzc/wBM3P8ATNz/AEzc/wBM3P89b+P/MGfh/wBM3P8ATNz/
+ClPd9QBM3P+Ipu7/9Pb9/0985v/X4fn/D1Xe/wBM3P8ATNz/AEzc/wBM3P8KUt3/n7fx/5Su8P8A
+TNz/AEzc/wRP3PoiZODdAEzc/wBM3P+Coe3//////3WX6/8ATNz/AEzc/wBM3P8ATNz/Zozp////
+//+yxfT/AEzc/wBM3P8oaOHXZpPpmQBM3P8ATNz/FFbe/8nW9//V3/n/GVje/ydh4P8bWt//bJDq
+//H0/f/r8Pz/LWXh/wBM3P8ATNz/eKDsh87c9zACTtz9AEzc/wBM3P85bOL/W4To/7nJ9f//////
+/////9fh+f9Rfuf/I17g/wBM3P8ATNz/Ak7c/dTg+Cr///8AYpDpnABM3P8ATNz/AEzc/wFO3P9s
+kOr/pbvy/6e98/9Rfuf/0t35/93l+v8BTtz/AEzc/3Kb643///8A////APj5/QZEfOW7AEzc/wBM
+3P8ATNz/AEzc/wBM3P8ATNz/AEzc/9fh+f/c5Pr6Ak7c/UZ95bn4+f0G////AP///wD///8A////
+AIyu7nEGUdz4AEzc/wBM3P8ATNz/AEzc/wBM3P8ATNz/BlHc+Iyu7nH///8A////AP///wD///8A
+////AP///wD///8A2OP4JnKb640yb+LNAk3c/QJN3P0yb+LNcpvrjdjj+Cb///8A////AP///wD/
+//8A+B8AAOAHAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMAD
+AADwDwAA+B8AAA==
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/functions.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+// This is the Ubuntu manpage repository generator and interface.
+//
+// Copyright (C) 2008 Canonical Ltd.
+//
+// This code was originally written by Dustin Kirkland <kirkland@ubuntu.com=
+>,
+// based on a framework by Kees Cook <kees@ubuntu.com>.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// On Debian-based systems, the complete text of the GNU General Public
+// License can be found in /usr/share/common-licenses/GPL-3
+
+function langSelect() {
+    var regexS =3D "[\\?&]lr=3D([^&#]*)";
+    var regex =3D new RegExp( regexS );
+    var lang_val =3D regex.exec( window.location.href );
+    document.write("<select name=3Dlr>");
+    lang =3D new Array();
+    val =3D new Array();
+    i =3D 0;
+    lang[i] =3D "en"; val[i++] =3D "en";
+    lang[i] =3D "cn"; val[i++] =3D "zh-CN";
+    lang[i] =3D "cs"; val[i++] =3D "cs";
+    lang[i] =3D "de"; val[i++] =3D "de";
+    lang[i] =3D "es"; val[i++] =3D "es";
+    lang[i] =3D "fr"; val[i++] =3D "fr";
+    lang[i] =3D "hu"; val[i++] =3D "hu";
+    lang[i] =3D "it"; val[i++] =3D "it";
+    lang[i] =3D "ja"; val[i++] =3D "ja";
+    lang[i] =3D "ko"; val[i++] =3D "ko";
+    lang[i] =3D "nl"; val[i++] =3D "nl";
+    lang[i] =3D "pl"; val[i++] =3D "pl";
+    lang[i] =3D "pt"; val[i++] =3D "pt";
+    lang[i] =3D "ru"; val[i++] =3D "ru";
+    lang[i] =3D "sv"; val[i++] =3D "sv";
+    lang[i] =3D "tr"; val[i++] =3D "tr";
+    lang[i] =3D "tw"; val[i++] =3D "zh-TW";
+    var selected =3D 0;
+    for (j=3D0; j<i; j++) {
+        if (lang_val !=3D null && lang_val[1] =3D=3D 'lang_' + val[j]) {
+            selected =3D j;
+        }
+        document.write("<option value=3D'lang_" + val[j] + "'>" + lang[j] +=
+ "</option>");
+    }
+    document.write("</select>");
+    document.forms[0].lr.selectedIndex =3D selected;
+}
+
+function distroAndSection() {
+    var parts =3D location.href.split("/");
+    if (parts.length < 5) {
+        return;
+    }
+    var distro =3D parts[4];
+    var section =3D parts[5];
+    section =3D section.replace(/^man/, "");
+    if (!(section >=3D 1 && section <=3D 9)) {
+        section =3D parts[6];
+        section =3D section.replace(/^man/, "");
+        var lang =3D parts[5];
+    }
+    if (distro.length > 0) {
+        document.write("<a href=3D\"../\">" + distro + "</a> ");
+        if (section.length > 0) {
+            document.write("(<a href=3D\"../man" + section + "\">" + sectio=
+n + "</a>) ");
+        }
+    }
+    var gz_href =3D location.href.replace(/\/manpages\//, "\/manpages.gz\/"=
+);
+    gz_href =3D gz_href.replace(/\/en\//, "\/");
+    gz_href =3D gz_href.replace(/\.html$/, "\.gz");
+    var gz =3D gz_href.replace(/^.*\//, "");
+    document.write("<a href=3D\"" + gz_href + "\">" + gz + "</a><br>");
+}
+
+function highlight(word) {
+        if (location.href.match("/" + word)) {
+                return("current");
+        } else {
+                return("plain");
+        }
+}
+function navbar() {
+        document.write("<ul>");
+        versions =3D new Array();
+        versions.push({"name":"precise", "number":"12.04 LTS"});
+        versions.push({"name":"trusty", "number":"14.04 LTS"});
+        versions.push({"name":"wily", "number":"15.10"});
+        versions.push({"name":"xenial", "number":"16.04 LTS"});
+        versions.push({"name":"yakkety", "number":"16.10"});
+        versions.push({"name":"zesty", "number":"17.04"});
+        for (var i=3D0; i<versions.length; i++) {
+            if (location.href.match("\.html$")) {
+            href =3D location.href;
+            href =3D href.replace(/\/manpages\/[^\/]*/, "/manpages/" + vers=
+ions[i]["name"]);
+                document.write("<li class=3D\"active\" id=3D\"" + highlight=
+(versions[i]["name"]) + "\"><a href=3D\"" + href + "\">" + versions[i]["num=
+ber"] + "</a></li>");
+        } else {
+                    document.write("<li id=3D\"" + highlight(versions[i]["n=
+ame"]) + "\"><a href=3D\"/manpages/" + versions[i]["name"] + "\">" + versio=
+ns[i]["number"] + "</a></li>");
+        }
+        }
+        document.write("<li><a href=3D\"javascript:printManpage()\"><img sr=
+c=3D/img/printer.png></a></li>");
+        document.write("</ul>");
+}
+
+// See: http://developer.mozilla.org/en/docs/Adding_search_engines_from_web=
+_pages
+function installSearchEngine() {
+    if (window.external && ("AddSearchProvider" in window.external)) {
+        // Firefox 2 and IE 7, OpenSearch
+        window.external.AddSearchProvider("http://manpages.ubuntu.com/ubunt=
+u-manpage-search.xml");
+    } else if (window.sidebar && ("addSearchEngine" in window.sidebar)) {
+        // Firefox <=3D 1.5, Sherlock
+        window.sidebar.addSearchEngine("http://http://manpages.ubuntu.com/u=
+buntu-manpage-search.src",
+        "http://manpages.ubuntu.com/ubuntu-manpage-search.png",
+        "Ubuntu Manpages", "");
+    } else {
+        // No search engine support (IE 6, Opera, etc).
+        alert("No search engine plugin support is available for this browse=
+r");
+    }
+}
+
+function getWidth() {
+    width =3D 0;
+    if (parseInt(navigator.appVersion)>3) {
+        if (navigator.appName=3D=3D"Netscape") {
+            width =3D window.innerWidth;
+        } else if (navigator.appName.indexOf("Microsoft")!=3D-1) {
+            width =3D document.body.offsetWidth;
+        }
+    }
+    return width;
+}
+
+function printManpage() {
+    var disp_setting=3D"toolbar=3Dno,location=3Dno,directories=3Dno,menubar=
+=3Dno,status=3Dno,scrollbars=3Dyes,width=3D600,height=3D400";
+    var content =3D document.getElementById("content").innerHTML;
+    var docprint =3D window.open("","",disp_setting);
+    docprint.document.open();
+    docprint.document.write('<html><head><title>Ubuntu Manpage Repository</=
+title></head><body onLoad=3D"self.print()">');
+    docprint.document.write(content);
+    docprint.document.write('<body></html>');
+    docprint.document.close();
+    docprint.focus();
+}
+
+
+
+//////////////////////////////////
+// Google Analytics Code
+var gaJsHost =3D (("https:" =3D=3D document.location.protocol) ? "https://s=
+sl." : "http://www.");
+document.write(unescape("%3Cscript src=3D'" + gaJsHost + "google-analytics.=
+com/ga.js' type=3D'text/javascript'%3E%3C/script%3E"));
+try {
+    var pageTracker =3D _gat._getTracker("UA-6958128-3");
+    pageTracker._trackPageview();
+} catch(err) {}
+//////////////////////////////////
+
+
+//////////////////////////////////
+// This script was written By Brady Mulhollem - WebTech101.com
+// http://www.webtech101.com/Javascript/toc-generator
+
+window.onload =3D function(){if (getWidth() > 790) { new tocGen('content','=
+toc')}};
+
+function tocGen(id,writeTo){
+    this.id =3D id;
+    this.num =3D 0;
+    this.opened =3D 0;
+    this.writeOut =3D '';
+    this.previous =3D 0;
+    if(document.getElementById){
+        //current requirements;
+        this.parentOb =3D document.getElementById(id);
+        var headers =3D this.getHeaders(this.parentOb);
+        if(headers.length > 0){
+            this.writeOut +=3D '<ul>';
+            var num;
+            for(var i=3D0;i<headers.length;i++){
+                num =3D headers[i].nodeName.substr(1);
+                if(num > this.previous){
+                    this.writeOut +=3D '<ul>';
+                    this.opened++;
+                    this.addLink(headers[i]);
+                }
+                else if(num < this.previous){
+                    for(var j=3D0;j<this.opened;j++){
+                        this.writeOut +=3D '<\/li><\/ul>';
+                        this.opened--;
+                    }
+                    this.addLink(headers[i]);
+                }
+                else{
+                    this.writeout +=3D '<\/li>';
+                    this.addLink(headers[i]);
+                }
+                this.previous =3D num;
+            }
+            for(var j=3D0;j<=3Dthis.opened;j++){
+                this.writeOut +=3D '<\/li><\/ul>';
+            }
+            document.getElementById(writeTo).innerHTML =3D this.writeOut;
+        }
+    }
+}
+tocGen.prototype.addLink =3D function(ob){
+    var id =3D this.getId(ob);
+    var link =3D '<li><a href=3D"#'+id+'">'+ob.innerHTML.toLowerCase()+'<\/=
+a>';
+    this.writeOut +=3D link;
+}
+tocGen.prototype.getId =3D function(ob){
+    if(!ob.id){
+        ob.id =3D this.id+'toc'+this.num;
+        this.num++;
+    }
+    return ob.id;
+}
+tocGen.prototype.getHeaders =3D function(parent){
+    var return_array =3D new Array();
+    var pat =3D new RegExp("H[3-6]");
+    for(var i=3D0;i<parent.childNodes.length;i++){
+        if(pat.test(parent.childNodes[i].nodeName)){
+            return_array[return_array.length] =3D parent.childNodes[i];
+        }
+    }
+    return return_array;
+}
+///////////////////////////////////////////////////////////////////////////=
+//////////
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://www.google-analytics.com/ga.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+(function(){var E;function Aa(a,b){switch(b){case 0:return""+a;case 1:retur=
+n 1*a;case 2:return!!a;case 3:return 1E3*a}return a}function Ba(a){return"f=
+unction"=3D=3Dtypeof a}function Ca(a){return void 0!=3Da&&-1<(a.constructor=
++"").indexOf("String")}function F(a,b){return void 0=3D=3Da||"-"=3D=3Da&&!b=
+||""=3D=3Da}function Da(a){if(!a||""=3D=3Da)return"";for(;a&&-1<" \n\r\t".i=
+ndexOf(a.charAt(0));)a=3Da.substring(1);for(;a&&-1<" \n\r\t".indexOf(a.char=
+At(a.length-1));)a=3Da.substring(0,a.length-1);return a}
+function Ea(){return Math.round(2147483647*Math.random())}function Fa(){}fu=
+nction G(a,b){if(encodeURIComponent instanceof Function)return b?encodeURI(=
+a):encodeURIComponent(a);H(68);return escape(a)}function I(a){a=3Da.split("=
++").join(" ");if(decodeURIComponent instanceof Function)try{return decodeUR=
+IComponent(a)}catch(b){H(17)}else H(68);return unescape(a)}var Ga=3Dfunctio=
+n(a,b,c,d){a.addEventListener?a.addEventListener(b,c,!!d):a.attachEvent&&a.=
+attachEvent("on"+b,c)};
+function Ia(a,b){if(a){var c=3DJ.createElement("script");c.type=3D"text/jav=
+ascript";c.async=3D!0;c.src=3Da;c.id=3Db;var d=3DJ.getElementsByTagName("sc=
+ript")[0];d.parentNode.insertBefore(c,d);return c}}function K(a){return a&&=
+0<a.length?a[0]:""}function L(a){var b=3Da?a.length:0;return 0<b?a[b-1]:""}=
+var nf=3Dfunction(){this.prefix=3D"ga.";this.values=3D{}};nf.prototype.set=
+=3Dfunction(a,b){this.values[this.prefix+a]=3Db};nf.prototype.get=3Dfunctio=
+n(a){return this.values[this.prefix+a]};
+nf.prototype.contains=3Dfunction(a){return void 0!=3D=3Dthis.get(a)};functi=
+on Ka(a){0=3D=3Da.indexOf("www.")&&(a=3Da.substring(4));return a.toLowerCas=
+e()}
+function La(a,b){var c,d=3D{url:a,protocol:"http",host:"",path:"",R:new nf,=
+anchor:""};if(!a)return d;c=3Da.indexOf("://");0<=3Dc&&(d.protocol=3Da.subs=
+tring(0,c),a=3Da.substring(c+3));c=3Da.search("/|\\?|#");if(0<=3Dc)d.host=
+=3Da.substring(0,c).toLowerCase(),a=3Da.substring(c);else return d.host=3Da=
+.toLowerCase(),d;c=3Da.indexOf("#");0<=3Dc&&(d.anchor=3Da.substring(c+1),a=
+=3Da.substring(0,c));c=3Da.indexOf("?");0<=3Dc&&(Na(d.R,a.substring(c+1)),a=
+=3Da.substring(0,c));d.anchor&&b&&Na(d.R,d.anchor);a&&"/"=3D=3Da.charAt(0)&=
+&(a=3Da.substring(1));
+d.path=3Da;return d}
+function Oa(a,b){function c(a){var b=3D(a.hostname||"").split(":")[0].toLow=
+erCase(),c=3D(a.protocol||"").toLowerCase(),c=3D1*a.port||("http:"=3D=3Dc?8=
+0:"https:"=3D=3Dc?443:"");a=3Da.pathname||"";0=3D=3Da.indexOf("/")||(a=3D"/=
+"+a);return[b,""+c,a]}var d=3Db||J.createElement("a");d.href=3DJ.location.h=
+ref;var e=3D(d.protocol||"").toLowerCase(),f=3Dc(d),Be=3Dd.search||"",k=3De=
++"//"+f[0]+(f[1]?":"+f[1]:"");0=3D=3Da.indexOf("//")?a=3De+a:0=3D=3Da.index=
+Of("/")?a=3Dk+a:a&&0!=3Da.indexOf("?")?0>a.split("/")[0].indexOf(":")&&(a=
+=3Dk+f[2].substring(0,f[2].lastIndexOf("/"))+
+"/"+a):a=3Dk+f[2]+(a||Be);d.href=3Da;e=3Dc(d);return{protocol:(d.protocol||=
+"").toLowerCase(),host:e[0],port:e[1],path:e[2],Oa:d.search||"",url:a||""}}=
+function Na(a,b){function c(b,c){a.contains(b)||a.set(b,[]);a.get(b).push(c=
+)}for(var d=3DDa(b).split("&"),e=3D0;e<d.length;e++)if(d[e]){var f=3Dd[e].i=
+ndexOf("=3D");0>f?c(d[e],"1"):c(d[e].substring(0,f),d[e].substring(f+1))}}
+function Pa(a,b){if(F(a)||"["=3D=3Da.charAt(0)&&"]"=3D=3Da.charAt(a.length-=
+1))return"-";var c=3DJ.domain;return a.indexOf(c+(b&&"/"!=3Db?b:""))=3D=3D(=
+0=3D=3Da.indexOf("http://")?7:0=3D=3Da.indexOf("https://")?8:0)?"0":a};var =
+Qa=3D0;function Ra(a,b,c){1<=3DQa||1<=3D100*Math.random()||ld()||(a=3D["utm=
+t=3Derror","utmerr=3D"+a,"utmwv=3D5.6.7","utmn=3D"+Ea(),"utmsp=3D1"],b&&a.p=
+ush("api=3D"+b),c&&a.push("msg=3D"+G(c.substring(0,100))),M.w&&a.push("aip=
+=3D1"),Sa(a.join("&")),Qa++)};var Ta=3D0,Ua=3D{};function N(a){return Va("x=
+"+Ta++,a)}function Va(a,b){Ua[a]=3D!!b;return a}
+var Wa=3DN(),Xa=3DVa("anonymizeIp"),Ya=3DN(),$a=3DN(),ab=3DN(),bb=3DN(),O=
+=3DN(),P=3DN(),cb=3DN(),db=3DN(),eb=3DN(),fb=3DN(),gb=3DN(),hb=3DN(),ib=3DN=
+(),jb=3DN(),kb=3DN(),lb=3DN(),nb=3DN(),ob=3DN(),pb=3DN(),qb=3DN(),rb=3DN(),=
+sb=3DN(),tb=3DN(),ub=3DN(),vb=3DN(),wb=3DN(),xb=3DN(),yb=3DN(),zb=3DN(),Ab=
+=3DN(),Bb=3DN(),Cb=3DN(),Db=3DN(),Eb=3DN(),Fb=3DN(!0),Gb=3DVa("currencyCode=
+"),Hb=3DVa("page"),Ib=3DVa("title"),Jb=3DN(),Kb=3DN(),Lb=3DN(),Mb=3DN(),Nb=
+=3DN(),Ob=3DN(),Pb=3DN(),Qb=3DN(),Rb=3DN(),Q=3DN(!0),Sb=3DN(!0),Tb=3DN(!0),=
+Ub=3DN(!0),Vb=3DN(!0),Wb=3DN(!0),Zb=3DN(!0),$b=3DN(!0),ac=3DN(!0),bc=3DN(!0=
+),cc=3DN(!0),R=3DN(!0),dc=3DN(!0),
+ec=3DN(!0),fc=3DN(!0),gc=3DN(!0),hc=3DN(!0),ic=3DN(!0),jc=3DN(!0),S=3DN(!0)=
+,kc=3DN(!0),lc=3DN(!0),mc=3DN(!0),nc=3DN(!0),oc=3DN(!0),pc=3DN(!0),qc=3DN(!=
+0),rc=3DVa("campaignParams"),sc=3DN(),tc=3DVa("hitCallback"),uc=3DN();N();v=
+ar vc=3DN(),wc=3DN(),xc=3DN(),yc=3DN(),zc=3DN(),Ac=3DN(),Bc=3DN(),Cc=3DN(),=
+Dc=3DN(),Ec=3DN(),Fc=3DN(),Gc=3DN(),Hc=3DN(),Ic=3DN();N();var Mc=3DN(),Nc=
+=3DN(),Yb=3DN(),Jc=3DN(),Kc=3DN(),Lc=3DVa("utmtCookieName"),Cd=3DVa("displa=
+yFeatures"),Oc=3DN(),of=3DVa("gtmid"),Oe=3DVa("uaName"),Pe=3DVa("uaDomain")=
+,Qe=3DVa("uaPath"),pf=3DVa("linkid");var Re=3Dfunction(){function a(a,c,d){=
+T(qf.prototype,a,c,d)}a("_createTracker",qf.prototype.hb,55);a("_getTracker=
+",qf.prototype.oa,0);a("_getTrackerByName",qf.prototype.u,51);a("_getTracke=
+rs",qf.prototype.pa,130);a("_anonymizeIp",qf.prototype.aa,16);a("_forceSSL"=
+,qf.prototype.la,125);a("_getPlugin",Pc,120)},Se=3Dfunction(){function a(a,=
+c,d){T(U.prototype,a,c,d)}Qc("_getName",$a,58);Qc("_getAccount",Wa,64);Qc("=
+_visitCode",Q,54);Qc("_getClientInfo",ib,53,1);Qc("_getDetectTitle",lb,56,1=
+);Qc("_getDetectFlash",
+jb,65,1);Qc("_getLocalGifPath",wb,57);Qc("_getServiceMode",xb,59);V("_setCl=
+ientInfo",ib,66,2);V("_setAccount",Wa,3);V("_setNamespace",Ya,48);V("_setAl=
+lowLinker",fb,11,2);V("_setDetectFlash",jb,61,2);V("_setDetectTitle",lb,62,=
+2);V("_setLocalGifPath",wb,46,0);V("_setLocalServerMode",xb,92,void 0,0);V(=
+"_setRemoteServerMode",xb,63,void 0,1);V("_setLocalRemoteServerMode",xb,47,=
+void 0,2);V("_setSampleRate",vb,45,1);V("_setCampaignTrack",kb,36,2);V("_se=
+tAllowAnchor",gb,7,2);V("_setCampNameKey",ob,41);V("_setCampContentKey",
+tb,38);V("_setCampIdKey",nb,39);V("_setCampMediumKey",rb,40);V("_setCampNOK=
+ey",ub,42);V("_setCampSourceKey",qb,43);V("_setCampTermKey",sb,44);V("_setC=
+ampCIdKey",pb,37);V("_setCookiePath",P,9,0);V("_setMaxCustomVariables",yb,0=
+,1);V("_setVisitorCookieTimeout",cb,28,1);V("_setSessionCookieTimeout",db,2=
+6,1);V("_setCampaignCookieTimeout",eb,29,1);V("_setReferrerOverride",Jb,49)=
+;V("_setSiteSpeedSampleRate",Dc,132);a("_trackPageview",U.prototype.Fa,1);a=
+("_trackEvent",U.prototype.F,4);a("_trackPageLoadTime",
+U.prototype.Ea,100);a("_trackSocial",U.prototype.Ga,104);a("_trackTrans",U.=
+prototype.Ia,18);a("_sendXEvent",U.prototype.ib,78);a("_createEventTracker"=
+,U.prototype.ia,74);a("_getVersion",U.prototype.qa,60);a("_setDomainName",U=
+.prototype.B,6);a("_setAllowHash",U.prototype.va,8);a("_getLinkerUrl",U.pro=
+totype.na,52);a("_link",U.prototype.link,101);a("_linkByPost",U.prototype.u=
+a,102);a("_setTrans",U.prototype.za,20);a("_addTrans",U.prototype.$,21);a("=
+_addItem",U.prototype.Y,19);a("_clearTrans",U.prototype.ea,
+105);a("_setTransactionDelim",U.prototype.Aa,82);a("_setCustomVar",U.protot=
+ype.wa,10);a("_deleteCustomVar",U.prototype.ka,35);a("_getVisitorCustomVar"=
+,U.prototype.ra,50);a("_setXKey",U.prototype.Ca,83);a("_setXValue",U.protot=
+ype.Da,84);a("_getXKey",U.prototype.sa,76);a("_getXValue",U.prototype.ta,77=
+);a("_clearXKey",U.prototype.fa,72);a("_clearXValue",U.prototype.ga,73);a("=
+_createXObj",U.prototype.ja,75);a("_addIgnoredOrganic",U.prototype.W,15);a(=
+"_clearIgnoredOrganic",U.prototype.ba,97);a("_addIgnoredRef",
+U.prototype.X,31);a("_clearIgnoredRef",U.prototype.ca,32);a("_addOrganic",U=
+.prototype.Z,14);a("_clearOrganic",U.prototype.da,70);a("_cookiePathCopy",U=
+.prototype.ha,30);a("_get",U.prototype.ma,106);a("_set",U.prototype.xa,107)=
+;a("_addEventListener",U.prototype.addEventListener,108);a("_removeEventLis=
+tener",U.prototype.removeEventListener,109);a("_addDevId",U.prototype.V);a(=
+"_getPlugin",Pc,122);a("_setPageGroup",U.prototype.ya,126);a("_trackTiming"=
+,U.prototype.Ha,124);a("_initData",U.prototype.initData,
+2);a("_setVar",U.prototype.Ba,22);V("_setSessionTimeout",db,27,3);V("_setCo=
+okieTimeout",eb,25,3);V("_setCookiePersistence",cb,24,1);a("_setAutoTrackOu=
+tbound",Fa,79);a("_setTrackOutboundSubdomains",Fa,81);a("_setHrefExamineLim=
+it",Fa,80)};function Pc(a){var b=3Dthis.plugins_;if(b)return b.get(a)}
+var T=3Dfunction(a,b,c,d){a[b]=3Dfunction(){try{return void 0!=3Dd&&H(d),c.=
+apply(this,arguments)}catch(a){throw Ra("exc",b,a&&a.name),a;}}},Qc=3Dfunct=
+ion(a,b,c,d){U.prototype[a]=3Dfunction(){try{return H(c),Aa(this.a.get(b),d=
+)}catch(e){throw Ra("exc",a,e&&e.name),e;}}},V=3Dfunction(a,b,c,d,e){U.prot=
+otype[a]=3Dfunction(f){try{H(c),void 0=3D=3De?this.a.set(b,Aa(f,d)):this.a.=
+set(b,e)}catch(Be){throw Ra("exc",a,Be&&Be.name),Be;}}},Te=3Dfunction(a,b){=
+return{type:b,target:a,stopPropagation:function(){throw"aborted";}}};var Rc=
+=3Dnew RegExp(/(^|\.)doubleclick\.net$/i),Sc=3Dfunction(a,b){return Rc.test=
+(J.location.hostname)?!0:"/"!=3D=3Db?!1:0!=3Da.indexOf("www.google.")&&0!=
+=3Da.indexOf(".google.")&&0!=3Da.indexOf("google.")||-1<a.indexOf("google.o=
+rg")?!1:!0},Tc=3Dfunction(a){var b=3Da.get(bb),c=3Da.c(P,"/");Sc(b,c)&&a.st=
+opPropagation()};var Zc=3Dfunction(){var a=3D{},b=3D{},c=3Dnew Uc;this.g=3D=
+function(a,b){c.add(a,b)};var d=3Dnew Uc;this.v=3Dfunction(a,b){d.add(a,b)}=
+;var e=3D!1,f=3D!1,Be=3D!0;this.T=3Dfunction(){e=3D!0};this.j=3Dfunction(a)=
+{this.load();this.set(sc,a,!0);a=3Dnew Vc(this);e=3D!1;d.cb(this);e=3D!0;b=
+=3D{};this.gb();a.Ja()};this.load=3Dfunction(){e&&(e=3D!1,this.Ka(),Wc(this=
+),f||(f=3D!0,c.cb(this),Xc(this),Wc(this)),e=3D!0)};this.gb=3Dfunction(){e&=
+&(f?(e=3D!1,Xc(this),e=3D!0):this.load())};this.get=3Dfunction(c){Ua[c]&&th=
+is.load();return void 0!=3D=3Db[c]?b[c]:a[c]};this.set=3D
+function(c,d,e){Ua[c]&&this.load();e?b[c]=3Dd:a[c]=3Dd;Ua[c]&&this.gb()};th=
+is.Za=3Dfunction(b){a[b]=3Dthis.b(b,0)+1};this.b=3Dfunction(a,b){var c=3Dth=
+is.get(a);return void 0=3D=3Dc||""=3D=3D=3Dc?b:1*c};this.c=3Dfunction(a,b){=
+var c=3Dthis.get(a);return void 0=3D=3Dc?b:c+""};this.Ka=3Dfunction(){if(Be=
+){var b=3Dthis.c(bb,""),c=3Dthis.c(P,"/");Sc(b,c)||(a[O]=3Da[hb]&&""!=3Db?Y=
+c(b):1,Be=3D!1)}}};Zc.prototype.stopPropagation=3Dfunction(){throw"aborted"=
+;};
+var Vc=3Dfunction(a){var b=3Dthis;this.fb=3D0;var c=3Da.get(tc);this.Ua=3Df=
+unction(){0<b.fb&&c&&(b.fb--,b.fb||c())};this.Ja=3Dfunction(){!b.fb&&c&&set=
+Timeout(c,10)};a.set(uc,b,!0)};function $c(a,b){b=3Db||[];for(var c=3D0;c<b=
+.length;c++){var d=3Db[c];if(""+a=3D=3Dd||0=3D=3Dd.indexOf(a+"."))return d}=
+return"-"}
+var bd=3Dfunction(a,b,c){c=3Dc?"":a.c(O,"1");b=3Db.split(".");if(6!=3D=3Db.=
+length||ad(b[0],c))return!1;c=3D1*b[1];var d=3D1*b[2],e=3D1*b[3],f=3D1*b[4]=
+;b=3D1*b[5];if(!(0<=3Dc&&0<d&&0<e&&0<f&&0<=3Db))return!1;a.set(Q,c);a.set(V=
+b,d);a.set(Wb,e);a.set(Zb,f);a.set($b,b);return!0},cd=3Dfunction(a){var b=
+=3Da.get(Q),c=3Da.get(Vb),d=3Da.get(Wb),e=3Da.get(Zb),f=3Da.b($b,1);return[=
+a.b(O,1),void 0!=3Db?b:"-",c||"-",d||"-",e||"-",f].join(".")},dd=3Dfunction=
+(a){return[a.b(O,1),a.b(cc,0),a.b(R,1),a.b(dc,0)].join(".")},ed=3Dfunction(=
+a,b,c){c=3Dc?"":a.c(O,
+"1");var d=3Db.split(".");if(4!=3D=3Dd.length||ad(d[0],c))d=3Dnull;a.set(cc=
+,d?1*d[1]:0);a.set(R,d?1*d[2]:10);a.set(dc,d?1*d[3]:a.get(ab));return null!=
+=3Dd||!ad(b,c)},fd=3Dfunction(a,b){var c=3DG(a.c(Tb,"")),d=3D[],e=3Da.get(F=
+b);if(!b&&e){for(var f=3D0;f<e.length;f++){var Be=3De[f];Be&&1=3D=3DBe.scop=
+e&&d.push(f+"=3D"+G(Be.name)+"=3D"+G(Be.value)+"=3D1")}0<d.length&&(c+=3D"|=
+"+d.join("^"))}return c?a.b(O,1)+"."+c:null},gd=3Dfunction(a,b,c){c=3Dc?"":=
+a.c(O,"1");b=3Db.split(".");if(2>b.length||ad(b[0],c))return!1;b=3Db.slice(=
+1).join(".").split("|");
+0<b.length&&a.set(Tb,I(b[0]));if(1>=3Db.length)return!0;b=3Db[1].split(-1=
+=3D=3Db[1].indexOf(",")?"^":",");for(c=3D0;c<b.length;c++){var d=3Db[c].spl=
+it("=3D");if(4=3D=3Dd.length){var e=3D{};e.name=3DI(d[1]);e.value=3DI(d[2])=
+;e.scope=3D1;a.get(Fb)[d[0]]=3De}}return!0},hd=3Dfunction(a,b){var c=3DUe(a=
+,b);return c?[a.b(O,1),a.b(ec,0),a.b(fc,1),a.b(gc,1),c].join("."):""},Ue=3D=
+function(a){function b(b,e){if(!F(a.get(b))){var f=3Da.c(b,""),f=3Df.split(=
+" ").join("%20"),f=3Df.split("+").join("%20");c.push(e+"=3D"+f)}}var c=3D[]=
+;b(ic,"utmcid");b(nc,"utmcsr");
+b(S,"utmgclid");b(kc,"utmgclsrc");b(lc,"utmdclid");b(mc,"utmdsid");b(jc,"ut=
+mccn");b(oc,"utmcmd");b(pc,"utmctr");b(qc,"utmcct");return c.join("|")},id=
+=3Dfunction(a,b,c){c=3Dc?"":a.c(O,"1");b=3Db.split(".");if(5>b.length||ad(b=
+[0],c))return a.set(ec,void 0),a.set(fc,void 0),a.set(gc,void 0),a.set(ic,v=
+oid 0),a.set(jc,void 0),a.set(nc,void 0),a.set(oc,void 0),a.set(pc,void 0),=
+a.set(qc,void 0),a.set(S,void 0),a.set(kc,void 0),a.set(lc,void 0),a.set(mc=
+,void 0),!1;a.set(ec,1*b[1]);a.set(fc,1*b[2]);a.set(gc,1*b[3]);
+Ve(a,b.slice(4).join("."));return!0},Ve=3Dfunction(a,b){function c(a){retur=
+n(a=3Db.match(a+"=3D(.*?)(?:\\|utm|$)"))&&2=3D=3Da.length?a[1]:void 0}funct=
+ion d(b,c){c?(c=3De?I(c):c.split("%20").join(" "),a.set(b,c)):a.set(b,void =
+0)}-1=3D=3Db.indexOf("=3D")&&(b=3DI(b));var e=3D"2"=3D=3Dc("utmcvr");d(ic,c=
+("utmcid"));d(jc,c("utmccn"));d(nc,c("utmcsr"));d(oc,c("utmcmd"));d(pc,c("u=
+tmctr"));d(qc,c("utmcct"));d(S,c("utmgclid"));d(kc,c("utmgclsrc"));d(lc,c("=
+utmdclid"));d(mc,c("utmdsid"))},ad=3Dfunction(a,b){return b?a!=3Db:!/^\d+$/=
+.test(a)};var Uc=3Dfunction(){this.filters=3D[]};Uc.prototype.add=3Dfunctio=
+n(a,b){this.filters.push({name:a,s:b})};Uc.prototype.cb=3Dfunction(a){try{f=
+or(var b=3D0;b<this.filters.length;b++)this.filters[b].s.call(W,a)}catch(c)=
+{}};function jd(a){100!=3Da.get(vb)&&a.get(Q)%1E4>=3D100*a.get(vb)&&a.stopP=
+ropagation()}function kd(a){ld(a.get(Wa))&&a.stopPropagation()}function md(=
+a){"file:"=3D=3DJ.location.protocol&&a.stopPropagation()}function Ge(a){He(=
+)&&a.stopPropagation()}
+function nd(a){a.get(Ib)||a.set(Ib,J.title,!0);a.get(Hb)||a.set(Hb,J.locati=
+on.pathname+J.location.search,!0)}function lf(a){a.get(Wa)&&"UA-XXXXX-X"!=
+=3Da.get(Wa)||a.stopPropagation()};var od=3Dnew function(){var a=3D[];this.=
+set=3Dfunction(b){a[b]=3D!0};this.encode=3Dfunction(){for(var b=3D[],c=3D0;=
+c<a.length;c++)a[c]&&(b[Math.floor(c/6)]^=3D1<<c%6);for(c=3D0;c<b.length;c+=
++)b[c]=3D"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"=
+.charAt(b[c]||0);return b.join("")+"~"}};function H(a){od.set(a)};var W=3Dw=
+indow,J=3Ddocument,ld=3Dfunction(a){var b=3DW._gaUserPrefs;if(b&&b.ioo&&b.i=
+oo()||a&&!0=3D=3D=3DW["ga-disable-"+a])return!0;try{var c=3DW.external;if(c=
+&&c._gaUserPrefs&&"oo"=3D=3Dc._gaUserPrefs)return!0}catch(d){}return!1},He=
+=3Dfunction(){return W.navigator&&"preview"=3D=3DW.navigator.loadPurpose},W=
+e=3Dfunction(a,b){setTimeout(a,b)},pd=3Dfunction(a){var b=3D[],c=3DJ.cookie=
+.split(";");a=3Dnew RegExp("^\\s*"+a+"=3D\\s*(.*?)\\s*$");for(var d=3D0;d<c=
+.length;d++){var e=3Dc[d].match(a);e&&b.push(e[1])}return b},X=3Dfunction(a=
+,b,c,d,e,f){e=3D
+ld(e)?!1:Sc(d,c)?!1:He()?!1:!0;e&&((b=3Dmf(b))&&2E3<b.length&&(b=3Db.substr=
+ing(0,2E3),H(69)),a=3Da+"=3D"+b+"; path=3D"+c+"; ",f&&(a+=3D"expires=3D"+(n=
+ew Date((new Date).getTime()+f)).toGMTString()+"; "),d&&(a+=3D"domain=3D"+d=
++";"),J.cookie=3Da)},mf=3Dfunction(a){if(!a)return a;var b=3Da.indexOf(";")=
+;-1!=3Db&&(a=3Da.substring(0,b),H(141));if(!(0<=3DW.navigator.userAgent.ind=
+exOf("Firefox")))return a;a=3Da.replace(/\n|\r/g," ");for(var b=3D0,c=3Da.l=
+ength;b<c;++b){var d=3Da.charCodeAt(b)&255;if(10=3D=3Dd||13=3D=3Dd)a=3Da.su=
+bstring(0,b)+"?"+a.substring(b+
+1)}return a};var qd,rd,sd=3Dfunction(){if(!qd){var a=3D{},b=3DW.navigator,c=
+=3DW.screen;a.jb=3Dc?c.width+"x"+c.height:"-";a.P=3Dc?c.colorDepth+"-bit":"=
+-";a.language=3D(b&&(b.language||b.browserLanguage)||"-").toLowerCase();a.j=
+avaEnabled=3Db&&b.javaEnabled()?1:0;a.characterSet=3DJ.characterSet||J.char=
+set||"-";try{var d;var e=3DJ.documentElement,f=3DJ.body,Be=3Df&&f.clientWid=
+th&&f.clientHeight,b=3D[];e&&e.clientWidth&&e.clientHeight&&("CSS1Compat"=
+=3D=3D=3DJ.compatMode||!Be)?b=3D[e.clientWidth,e.clientHeight]:Be&&(b=3D[f.=
+clientWidth,f.clientHeight]);
+d=3D0>=3Db[0]||0>=3Db[1]?"":b.join("x");a.Wa=3Dd}catch(k){H(135)}qd=3Da}},t=
+d=3Dfunction(){sd();for(var a=3Dqd,b=3DW.navigator,a=3Db.appName+b.version+=
+a.language+b.platform+b.userAgent+a.javaEnabled+a.jb+a.P+(J.cookie?J.cookie=
+:"")+(J.referrer?J.referrer:""),b=3Da.length,c=3DW.history.length;0<c;)a+=
+=3Dc--^b++;return Yc(a)},ud=3Dfunction(a){sd();var b=3Dqd;a.set(Lb,b.jb);a.=
+set(Mb,b.P);a.set(Pb,b.language);a.set(Qb,b.characterSet);a.set(Nb,b.javaEn=
+abled);a.set(Rb,b.Wa);if(a.get(ib)&&a.get(jb)){if(!(b=3Drd)){var c,d,e;d=3D=
+"ShockwaveFlash";
+if((b=3D(b=3DW.navigator)?b.plugins:void 0)&&0<b.length)for(c=3D0;c<b.lengt=
+h&&!e;c++)d=3Db[c],-1<d.name.indexOf("Shockwave Flash")&&(e=3Dd.description=
+.split("Shockwave Flash ")[1]);else{d=3Dd+"."+d;try{c=3Dnew ActiveXObject(d=
++".7"),e=3Dc.GetVariable("$version")}catch(f){}if(!e)try{c=3Dnew ActiveXObj=
+ect(d+".6"),e=3D"WIN 6,0,21,0",c.AllowScriptAccess=3D"always",e=3Dc.GetVari=
+able("$version")}catch(Be){}if(!e)try{c=3Dnew ActiveXObject(d),e=3Dc.GetVar=
+iable("$version")}catch(k){}e&&(e=3De.split(" ")[1].split(","),e=3De[0]+"."=
++e[1]+" r"+
+e[2])}b=3De?e:"-"}rd=3Db;a.set(Ob,rd)}else a.set(Ob,"-")};var vd=3Dfunction=
+(a){if(Ba(a))this.s=3Da;else{var b=3Da[0],c=3Db.lastIndexOf(":"),d=3Db.last=
+IndexOf(".");this.h=3Dthis.i=3Dthis.l=3D"";-1=3D=3Dc&&-1=3D=3Dd?this.h=3Db:=
+-1=3D=3Dc&&-1!=3Dd?(this.i=3Db.substring(0,d),this.h=3Db.substring(d+1)):-1=
+!=3Dc&&-1=3D=3Dd?(this.l=3Db.substring(0,c),this.h=3Db.substring(c+1)):c>d?=
+(this.i=3Db.substring(0,d),this.l=3Db.substring(d+1,c),this.h=3Db.substring=
+(c+1)):(this.i=3Db.substring(0,d),this.h=3Db.substring(d+1));this.Xa=3Da.sl=
+ice(1);this.Ma=3D!this.l&&"_require"=3D=3Dthis.h;this.J=3D!this.i&&!this.l&=
+&"_provide"=3D=3Dthis.h}},Y=3Dfunction(){T(Y.prototype,
+"push",Y.prototype.push,5);T(Y.prototype,"_getPlugin",Pc,121);T(Y.prototype=
+,"_createAsyncTracker",Y.prototype.Sa,33);T(Y.prototype,"_getAsyncTracker",=
+Y.prototype.Ta,34);this.I=3Dnew nf;this.eb=3D[]};E=3DY.prototype;E.Na=3Dfun=
+ction(a,b,c){var d=3Dthis.I.get(a);if(!Ba(d))return!1;b.plugins_=3Db.plugin=
+s_||new nf;b.plugins_.set(a,new d(b,c||{}));return!0};E.push=3Dfunction(a){=
+var b=3DZ.Va.apply(this,arguments),b=3DZ.eb.concat(b);for(Z.eb=3D[];0<b.len=
+gth&&!Z.O(b[0])&&!(b.shift(),0<Z.eb.length););Z.eb=3DZ.eb.concat(b);return =
+0};
+E.Va=3Dfunction(a){for(var b=3D[],c=3D0;c<arguments.length;c++)try{var d=3D=
+new vd(arguments[c]);d.J?this.O(d):b.push(d)}catch(e){}return b};
+E.O=3Dfunction(a){try{if(a.s)a.s.apply(W);else if(a.J)this.I.set(a.Xa[0],a.=
+Xa[1]);else{var b=3D"_gat"=3D=3Da.i?M:"_gaq"=3D=3Da.i?Z:M.u(a.i);if(a.Ma){i=
+f(!this.Na(a.Xa[0],b,a.Xa[2])){if(!a.Pa){var c=3DOa(""+a.Xa[1]);var d=3Dc.p=
+rotocol,e=3DJ.location.protocol;var f;if(f=3D"https:"=3D=3Dd||d=3D=3De?!0:"=
+http:"!=3Dd?!1:"http:"=3D=3De)a:{var Be=3DOa(J.location.href);if(!(c.Oa||0<=
+=3Dc.url.indexOf("?")||0<=3Dc.path.indexOf("://")||c.host=3D=3DBe.host&&c.p=
+ort=3D=3DBe.port))for(var k=3D"http:"=3D=3Dc.protocol?80:443,Ja=3DM.S,b=3D0=
+;b<Ja.length;b++)if(c.host=3D=3DJa[b][0]&&
+(c.port||k)=3D=3D(Ja[b][1]||k)&&0=3D=3Dc.path.indexOf(Ja[b][2])){f=3D!0;bre=
+ak a}f=3D!1}f&&!ld()&&(a.Pa=3DIa(c.url))}return!0}}else a.l&&(b=3Db.plugins=
+_.get(a.l)),b[a.h].apply(b,a.Xa)}}catch(t){}};E.Sa=3Dfunction(a,b){return M=
+.hb(a,b||"")};E.Ta=3Dfunction(a){return M.u(a)};var yd=3Dfunction(){functio=
+n a(a,b,c,d){void 0=3D=3Df[a]&&(f[a]=3D{});void 0=3D=3Df[a][b]&&(f[a][b]=3D=
+[]);f[a][b][c]=3Dd}function b(a,b,c){if(void 0!=3Df[a]&&void 0!=3Df[a][b])r=
+eturn f[a][b][c]}function c(a,b){if(void 0!=3Df[a]&&void 0!=3Df[a][b]){f[a]=
+[b]=3Dvoid 0;var c=3D!0,d;for(d=3D0;d<Be.length;d++)if(void 0!=3Df[a][Be[d]=
+]){c=3D!1;break}c&&(f[a]=3Dvoid 0)}}function d(a){var b=3D"",c=3D!1,d,e;for=
+(d=3D0;d<Be.length;d++)if(e=3Da[Be[d]],void 0!=3De){c&&(b+=3DBe[d]);for(var=
+ c=3D[],f=3Dvoid 0,Bd=3Dvoid 0,Bd=3D0;Bd<e.length;Bd++)if(void 0!=3De[Bd]){=
+f=3D"";1!=3D
+Bd&&void 0=3D=3De[Bd-1]&&(f+=3DBd.toString()+"!");for(var fa=3De[Bd],Ke=3D"=
+",Le=3Dvoid 0,Me=3Dvoid 0,ga=3Dvoid 0,Le=3D0;Le<fa.length;Le++)Me=3Dfa.char=
+At(Le),ga=3Dk[Me],Ke+=3Dvoid 0!=3Dga?ga:Me;f+=3DKe;c.push(f)}b+=3D"("+c.joi=
+n("*")+")";c=3D!1}else c=3D!0;return b}var e=3Dthis,f=3D[],Be=3D["k","v"],k=
+=3D{"'":"'0",")":"'1","*":"'2","!":"'3"};e.Ra=3Dfunction(a){return void 0!=
+=3Df[a]};e.A=3Dfunction(){for(var a=3D"",b=3D0;b<f.length;b++)void 0!=3Df[b=
+]&&(a+=3Db.toString()+d(f[b]));return a};e.Qa=3Dfunction(a){if(void 0=3D=3D=
+a)return e.A();for(var b=3Da.A(),c=3D0;c<f.length;c++)void 0=3D=3D
+f[c]||a.Ra(c)||(b+=3Dc.toString()+d(f[c]));return b};e.f=3Dfunction(b,c,d){=
+if(!wd(d))return!1;a(b,"k",c,d);return!0};e.o=3Dfunction(b,c,d){if(!xd(d))r=
+eturn!1;a(b,"v",c,d.toString());return!0};e.getKey=3Dfunction(a,c){return b=
+(a,"k",c)};e.N=3Dfunction(a,c){return b(a,"v",c)};e.L=3Dfunction(a){c(a,"k"=
+)};e.M=3Dfunction(a){c(a,"v")};T(e,"_setKey",e.f,89);T(e,"_setValue",e.o,90=
+);T(e,"_getKey",e.getKey,87);T(e,"_getValue",e.N,88);T(e,"_clearKey",e.L,85=
+);T(e,"_clearValue",e.M,86)};
+function wd(a){return"string"=3D=3Dtypeof a}function xd(a){return!("number"=
+=3D=3Dtypeof a||void 0!=3DNumber&&a instanceof Number)||Math.round(a)!=3Da|=
+|isNaN(a)||Infinity=3D=3Da?!1:!0};var zd=3Dfunction(a){var b=3DW.gaGlobal;a=
+&&!b&&(W.gaGlobal=3Db=3D{});return b},Ad=3Dfunction(){var a=3Dzd(!0).hid;nu=
+ll=3D=3Da&&(a=3DEa(),zd(!0).hid=3Da);return a},Dd=3Dfunction(a){a.set(Kb,Ad=
+());var b=3Dzd();if(b&&b.dh=3D=3Da.get(O)){var c=3Db.sid;c&&(a.get(ac)?H(11=
+2):H(132),a.set(Zb,c),a.get(Sb)&&a.set(Wb,c));b=3Db.vid;a.get(Sb)&&b&&(b=3D=
+b.split("."),a.set(Q,1*b[0]),a.set(Vb,1*b[1]))}};var Ed,Fd=3Dfunction(a,b,c=
+,d){var e=3Da.c(bb,""),f=3Da.c(P,"/");d=3Dvoid 0!=3Dd?d:a.b(cb,0);a=3Da.c(W=
+a,"");X(b,c,f,e,a,d)},Xc=3Dfunction(a){var b=3Da.c(bb,"");a.b(O,1);var c=3D=
+a.c(P,"/"),d=3Da.c(Wa,"");X("__utma",cd(a),c,b,d,a.get(cb));X("__utmb",dd(a=
+),c,b,d,a.get(db));X("__utmc",""+a.b(O,1),c,b,d);var e=3Dhd(a,!0);e?X("__ut=
+mz",e,c,b,d,a.get(eb)):X("__utmz","",c,b,"",-1);(e=3Dfd(a,!1))?X("__utmv",e=
+,c,b,d,a.get(cb)):X("__utmv","",c,b,"",-1)},Wc=3Dfunction(a){var b=3Da.b(O,=
+1);if(!bd(a,$c(b,pd("__utma"))))return a.set(Ub,!0),!1;
+var c=3D!ed(a,$c(b,pd("__utmb")));a.set(bc,c);id(a,$c(b,pd("__utmz")));gd(a=
+,$c(b,pd("__utmv")));Ed=3D!c;return!0},Gd=3Dfunction(a){Ed||0<pd("__utmb").=
+length||(X("__utmd","1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),1E4),0=3D=3Dpd("__=
+utmd").length&&a.stopPropagation())};var h=3D0,Jd=3Dfunction(a){void 0=3D=
+=3Da.get(Q)?Hd(a):a.get(Ub)&&!a.get(Mc)?Hd(a):a.get(bc)&&Id(a)},Kd=3Dfuncti=
+on(a){a.get(hc)&&!a.get(ac)&&(Id(a),a.set(fc,a.get($b)))},Hd=3Dfunction(a){=
+h++;1<h&&H(137);var b=3Da.get(ab);a.set(Sb,!0);a.set(Q,Ea()^td(a)&214748364=
+7);a.set(Tb,"");a.set(Vb,b);a.set(Wb,b);a.set(Zb,b);a.set($b,1);a.set(ac,!0=
+);a.set(cc,0);a.set(R,10);a.set(dc,b);a.set(Fb,[]);a.set(Ub,!1);a.set(bc,!1=
+)},Id=3Dfunction(a){h++;1<h&&H(137);a.set(Wb,a.get(Zb));a.set(Zb,a.get(ab))=
+;a.Za($b);a.set(ac,!0);a.set(cc,
+0);a.set(R,10);a.set(dc,a.get(ab));a.set(bc,!1)};var Ld=3D"daum:q eniro:sea=
+rch_word naver:query pchome:q images.google:q google:q yahoo:p yahoo:q msn:=
+q bing:q aol:query aol:q lycos:q lycos:query ask:q cnn:query virgilio:qs ba=
+idu:wd baidu:word alice:qs yandex:text najdi:q seznam:q rakuten:qt biglobe:=
+q goo.ne:MT search.smt.docomo:MT onet:qt onet:q kvasir:q terra:query ramble=
+r:query conduit:q babylon:q search-results:q avg:q comcast:q incredimail:q =
+startsiden:q go.mail.ru:q centrum.cz:q 360.cn:q sogou:query tut.by:query gl=
+obo:q ukr:q so.com:q haosou.com:q auone:q".split(" "),
+Sd=3Dfunction(a){if(a.get(kb)&&!a.get(Mc)){var b;b=3D!F(a.get(ic))||!F(a.ge=
+t(nc))||!F(a.get(S))||!F(a.get(lc));for(var c=3D{},d=3D0;d<Md.length;d++){v=
+ar e=3DMd[d];c[e]=3Da.get(e)}(d=3Da.get(rc))?(H(149),e=3Dnew nf,Na(e,d),d=
+=3De):d=3DLa(J.location.href,a.get(gb)).R;if("1"!=3DL(d.get(a.get(ub)))||!b=
+)if(d=3DXe(a,d)||Qd(a),d||b||!a.get(ac)||(Pd(a,void 0,"(direct)",void 0,voi=
+d 0,void 0,"(direct)","(none)",void 0,void 0),d=3D!0),d&&(a.set(hc,Rd(a,c))=
+,b=3D"(direct)"=3D=3Da.get(nc)&&"(direct)"=3D=3Da.get(jc)&&"(none)"=3D=3Da.=
+get(oc),a.get(hc)||
+a.get(ac)&&!b))a.set(ec,a.get(ab)),a.set(fc,a.get($b)),a.Za(gc)}},Xe=3Dfunc=
+tion(a,b){function c(c,d){d=3Dd||"-";var e=3DL(b.get(a.get(c)));return e&&"=
+-"!=3De?I(e):d}var d=3DL(b.get(a.get(nb)))||"-",e=3DL(b.get(a.get(qb)))||"-=
+",f=3DL(b.get(a.get(pb)))||"-",Be=3DL(b.get("gclsrc"))||"-",k=3DL(b.get("dc=
+lid"))||"-",Ja=3Dc(ob,"(not set)"),t=3Dc(rb,"(not set)"),Za=3Dc(sb),Ma=3Dc(=
+tb);if(F(d)&&F(f)&&F(k)&&F(e))return!1;var mb=3D!F(f)&&!F(Be),mb=3DF(e)&&(!=
+F(k)||mb),Xb=3DF(Za);if(mb||Xb){var Bd=3DNd(a),Bd=3DLa(Bd,!0);(Bd=3DOd(a,Bd=
+))&&!F(Bd[1]&&
+!Bd[2])&&(mb&&(e=3DBd[0]),Xb&&(Za=3DBd[1]))}Pd(a,d,e,f,Be,k,Ja,t,Za,Ma);ret=
+urn!0},Qd=3Dfunction(a){var b=3DNd(a),c=3DLa(b,!0);(b=3D!(void 0!=3Db&&null=
+!=3Db&&""!=3Db&&"0"!=3Db&&"-"!=3Db&&0<=3Db.indexOf("://")))||(b=3Dc&&-1<c.h=
+ost.indexOf("google")&&c.R.contains("q")&&"cse"=3D=3Dc.path);if(b)return!1;=
+if((b=3DOd(a,c))&&!b[2])return Pd(a,void 0,b[0],void 0,void 0,void 0,"(orga=
+nic)","organic",b[1],void 0),!0;if(b||!a.get(ac))return!1;a:{for(var b=3Da.=
+get(Bb),d=3DKa(c.host),e=3D0;e<b.length;++e)if(-1<d.indexOf(b[e])){a=3D!1;b=
+reak a}Pd(a,void 0,
+d,void 0,void 0,void 0,"(referral)","referral",void 0,"/"+c.path);a=3D!0}re=
+turn a},Od=3Dfunction(a,b){for(var c=3Da.get(zb),d=3D0;d<c.length;++d){var =
+e=3Dc[d].split(":");if(-1<b.host.indexOf(e[0].toLowerCase())){var f=3Db.R.g=
+et(e[1]);if(f&&(f=3DK(f),!f&&-1<b.host.indexOf("google.")&&(f=3D"(not provi=
+ded)"),!e[3]||-1<b.url.indexOf(e[3]))){f||H(151);a:{for(var c=3Df,d=3Da.get=
+(Ab),c=3DI(c).toLowerCase(),Be=3D0;Be<d.length;++Be)if(c=3D=3Dd[Be]){c=3D!0=
+;break a}c=3D!1}return[e[2]||e[0],f,c]}}}return null},Pd=3Dfunction(a,b,c,d=
+,e,f,Be,k,
+Ja,t){a.set(ic,b);a.set(nc,c);a.set(S,d);a.set(kc,e);a.set(lc,f);a.set(jc,B=
+e);a.set(oc,k);a.set(pc,Ja);a.set(qc,t)},Md=3D[jc,ic,S,lc,nc,oc,pc,qc],Rd=
+=3Dfunction(a,b){function c(a){a=3D(""+a).split("+").join("%20");return a=
+=3Da.split(" ").join("%20")}function d(c){var d=3D""+(a.get(c)||"");c=3D""+=
+(b[c]||"");return 0<d.length&&d=3D=3Dc}if(d(S)||d(lc))return H(131),!1;for(=
+var e=3D0;e<Md.length;e++){var f=3DMd[e],Be=3Db[f]||"-",f=3Da.get(f)||"-";i=
+f(c(Be)!=3Dc(f))return!0}return!1},Td=3Dnew RegExp(/^https?:\/\/(www\.)?goo=
+gle(\.com?)?(\.[a-z]{2}t?)?\/?$/i),
+jf=3D/^https?:\/\/(r\.)?search\.yahoo\.com?(\.jp)?\/?[^?]*$/i,rf=3D/^https?=
+:\/\/(www\.)?bing\.com\/?$/i,Nd=3Dfunction(a){a=3DPa(a.get(Jb),a.get(P));tr=
+y{if(Td.test(a))return H(136),a+"?q=3D";if(jf.test(a))return H(150),a+"?p=
+=3D(not provided)";if(rf.test(a))return a+"?q=3D(not provided)"}catch(b){H(=
+145)}return a};var Ud,Vd,Wd=3Dfunction(a){Ud=3Da.c(S,"");Vd=3Da.c(kc,"")},X=
+d=3Dfunction(a){var b=3Da.c(S,""),c=3Da.c(kc,"");b!=3DUd&&(-1<c.indexOf("ds=
+")?a.set(mc,void 0):!F(Ud)&&-1<Vd.indexOf("ds")&&a.set(mc,Ud))};var Zd=3Dfu=
+nction(a){Yd(a,J.location.href)?(a.set(Mc,!0),H(12)):a.set(Mc,!1)},Yd=3Dfun=
+ction(a,b){if(!a.get(fb))return!1;var c=3DLa(b,a.get(gb)),d=3DK(c.R.get("__=
+utma")),e=3DK(c.R.get("__utmb")),f=3DK(c.R.get("__utmc")),Be=3DK(c.R.get("_=
+_utmx")),k=3DK(c.R.get("__utmz")),Ja=3DK(c.R.get("__utmv")),c=3DK(c.R.get("=
+__utmk"));if(Yc(""+d+e+f+Be+k+Ja)!=3Dc){d=3DI(d);e=3DI(e);f=3DI(f);Be=3DI(B=
+e);f=3D$d(d+e+f+Be,k,Ja,c);if(!f)return!1;k=3Df[0];Ja=3Df[1]}if(!bd(a,d,!0)=
+)return!1;ed(a,e,!0);id(a,k,!0);gd(a,Ja,!0);ae(a,Be,!0);return!0},ce=3Dfunc=
+tion(a,
+b,c){var d;d=3Dcd(a)||"-";var e=3Ddd(a)||"-",f=3D""+a.b(O,1)||"-",Be=3Dbe(a=
+)||"-",k=3Dhd(a,!1)||"-";a=3Dfd(a,!1)||"-";var Ja=3DYc(""+d+e+f+Be+k+a),t=
+=3D[];t.push("__utma=3D"+d);t.push("__utmb=3D"+e);t.push("__utmc=3D"+f);t.p=
+ush("__utmx=3D"+Be);t.push("__utmz=3D"+k);t.push("__utmv=3D"+a);t.push("__u=
+tmk=3D"+Ja);d=3Dt.join("&");if(!d)return b;e=3Db.indexOf("#");if(c)return 0=
+>e?b+"#"+d:b+"&"+d;c=3D"";f=3Db.indexOf("?");0<e&&(c=3Db.substring(e),b=3Db=
+.substring(0,e));return 0>f?b+"?"+d+c:b+"&"+d+c},$d=3Dfunction(a,b,c,d){for=
+(var e=3D0;3>e;e++){for(var f=3D
+0;3>f;f++){if(d=3D=3DYc(a+b+c))return H(127),[b,c];var Be=3Db.replace(/ /g,=
+"%20"),k=3Dc.replace(/ /g,"%20");if(d=3D=3DYc(a+Be+k))return H(128),[Be,k];=
+Be=3DBe.replace(/\+/g,"%20");k=3Dk.replace(/\+/g,"%20");if(d=3D=3DYc(a+Be+k=
+))return H(129),[Be,k];try{var Ja=3Db.match("utmctr=3D(.*?)(?:\\|utm|$)");i=
+f(Ja&&2=3D=3DJa.length&&(Be=3Db.replace(Ja[1],G(I(Ja[1]))),d=3D=3DYc(a+Be+c=
+)))return H(139),[Be,c]}catch(t){}b=3DI(b)}c=3DI(c)}};var de=3D"|",fe=3Dfun=
+ction(a,b,c,d,e,f,Be,k,Ja){var t=3Dee(a,b);t||(t=3D{},a.get(Cb).push(t));t.=
+id_=3Db;t.affiliation_=3Dc;t.total_=3Dd;t.tax_=3De;t.shipping_=3Df;t.city_=
+=3DBe;t.state_=3Dk;t.country_=3DJa;t.items_=3Dt.items_||[];return t},ge=3Df=
+unction(a,b,c,d,e,f,Be){a=3Dee(a,b)||fe(a,b,"",0,0,0,"","","");var k;a:{if(=
+a&&a.items_){k=3Da.items_;for(var Ja=3D0;Ja<k.length;Ja++)if(k[Ja].sku_=3D=
+=3Dc){k=3Dk[Ja];break a}}k=3Dnull}Ja=3Dk||{};Ja.transId_=3Db;Ja.sku_=3Dc;Ja=
+.name_=3Dd;Ja.category_=3De;Ja.price_=3Df;Ja.quantity_=3DBe;k||a.items_.pus=
+h(Ja);return Ja},
+ee=3Dfunction(a,b){for(var c=3Da.get(Cb),d=3D0;d<c.length;d++)if(c[d].id_=
+=3D=3Db)return c[d];return null};var he,ie=3Dfunction(a){if(!he){var b;b=3D=
+J.location.hash;var c=3DW.name,d=3D/^#?gaso=3D([^&]*)/;if(c=3D(b=3D(b=3Db&&=
+b.match(d)||c&&c.match(d))?b[1]:K(pd("GASO")))&&b.match(/^(?:!([-0-9a-z.]{1=
+,40})!)?([-.\w]{10,1200})$/i))Fd(a,"GASO",""+b,0),M._gasoDomain=3Da.get(bb)=
+,M._gasoCPath=3Da.get(P),a=3Dc[1],Ia("https://www.google.com/analytics/web/=
+inpage/pub/inpage.js?"+(a?"prefix=3D"+a+"&":"")+Ea(),"_gasojs");he=3D!0}};v=
+ar ae=3Dfunction(a,b,c){c&&(b=3DI(b));c=3Da.b(O,1);b=3Db.split(".");2>b.len=
+gth||!/^\d+$/.test(b[0])||(b[0]=3D""+c,Fd(a,"__utmx",b.join("."),void 0))},=
+be=3Dfunction(a,b){var c=3D$c(a.get(O),pd("__utmx"));"-"=3D=3Dc&&(c=3D"");r=
+eturn b?G(c):c},Ye=3Dfunction(a){try{var b=3DLa(J.location.href,!1),c=3Ddec=
+odeURIComponent(L(b.R.get("utm_referrer")))||"";c&&a.set(Jb,c);var d=3Ddeco=
+deURIComponent(K(b.R.get("utm_expid")))||"";d&&(d=3Dd.split(".")[0],a.set(O=
+c,""+d))}catch(e){H(146)}},l=3Dfunction(a){var b=3DW.gaData&&W.gaData.expId=
+;b&&a.set(Oc,
+""+b)};var ke=3Dfunction(a,b){var c=3DMath.min(a.b(Dc,0),100);if(a.b(Q,0)%1=
+00>=3Dc)return!1;c=3DZe()||$e();if(void 0=3D=3Dc)return!1;var d=3Dc[0];if(v=
+oid 0=3D=3Dd||Infinity=3D=3Dd||isNaN(d))return!1;0<d?af(c)?b(je(c)):b(je(c.=
+slice(0,1))):Ga(W,"load",function(){ke(a,b)},!1);return!0},me=3Dfunction(a,=
+b,c,d){var e=3Dnew yd;e.f(14,90,b.substring(0,500));e.f(14,91,a.substring(0=
+,150));e.f(14,92,""+le(c));void 0!=3Dd&&e.f(14,93,d.substring(0,500));e.o(1=
+4,90,c);return e},af=3Dfunction(a){for(var b=3D1;b<a.length;b++)if(isNaN(a[=
+b])||Infinity=3D=3D
+a[b]||0>a[b])return!1;return!0},le=3Dfunction(a){return isNaN(a)||0>a?0:5E3=
+>a?10*Math.floor(a/10):5E4>a?100*Math.floor(a/100):41E5>a?1E3*Math.floor(a/=
+1E3):41E5},je=3Dfunction(a){for(var b=3Dnew yd,c=3D0;c<a.length;c++)b.f(14,=
+c+1,""+le(a[c])),b.o(14,c+1,a[c]);return b},Ze=3Dfunction(){var a=3DW.perfo=
+rmance||W.webkitPerformance;if(a=3Da&&a.timing){var b=3Da.navigationStart;i=
+f(0=3D=3Db)H(133);else return[a.loadEventStart-b,a.domainLookupEnd-a.domain=
+LookupStart,a.connectEnd-a.connectStart,a.responseStart-a.requestStart,
+a.responseEnd-a.responseStart,a.fetchStart-b,a.domInteractive-b,a.domConten=
+tLoadedEventStart-b]}},$e=3Dfunction(){if(W.top=3D=3DW){var a=3DW.external,=
+b=3Da&&a.onloadT;a&&!a.isValidLoadTime&&(b=3Dvoid 0);2147483648<b&&(b=3Dvoi=
+d 0);0<b&&a.setPageReadyTime();return void 0=3D=3Db?void 0:[b]}};var cf=3Df=
+unction(a){if(a.get(Sb))try{var b;a:{var c=3Dpd(a.get(Oe)||"_ga");if(c&&!(1=
+>c.length)){for(var d=3D[],e=3D0;e<c.length;e++){var f;var Be=3Dc[e].split(=
+"."),k=3DBe.shift();if(("GA1"=3D=3Dk||"1"=3D=3Dk)&&1<Be.length){var Ja=3DBe=
+.shift().split("-");1=3D=3DJa.length&&(Ja[1]=3D"1");Ja[0]*=3D1;Ja[1]*=3D1;f=
+=3D{Ya:Ja,$a:Be.join(".")}}else f=3Dvoid 0;f&&d.push(f)}if(1=3D=3Dd.length)=
+{b=3Dd[0].$a;break a}if(0!=3Dd.length){var t=3Da.get(Pe)||a.get(bb),d=3Dbf(=
+d,(0=3D=3Dt.indexOf(".")?t.substr(1):t).split(".").length,0);if(1=3D=3Dd.le=
+ngth){b=3Dd[0].$a;break a}var Za=3D
+a.get(Qe)||a.get(P);(c=3DZa)?(1<c.length&&"/"=3D=3Dc.charAt(c.length-1)&&(c=
+=3Dc.substr(0,c.length-1)),0!=3Dc.indexOf("/")&&(c=3D"/"+c),Za=3Dc):Za=3D"/=
+";d=3Dbf(d,"/"=3D=3DZa?1:Za.split("/").length,1);b=3Dd[0].$a;break a}}b=3Dv=
+oid 0}if(b){var Ma=3D(""+b).split(".");2=3D=3DMa.length&&/[0-9.]/.test(Ma)&=
+&(H(114),a.set(Q,Ma[0]),a.set(Vb,Ma[1]),a.set(Sb,!1))}}catch(mb){H(115)}},b=
+f=3Dfunction(a,b,c){for(var d=3D[],e=3D[],f=3D128,Be=3D0;Be<a.length;Be++){=
+var k=3Da[Be];k.Ya[c]=3D=3Db?d.push(k):k.Ya[c]=3D=3Df?e.push(k):k.Ya[c]<f&&=
+(e=3D[k],f=3Dk.Ya[c])}return 0<d.length?
+d:e};var kf=3D/^gtm\d+$/,hf=3Dfunction(a){var b;b=3D!!a.b(Cd,1);b&&(H(140),=
+"page"!=3Da.get(sc)?a.set(Kc,"",!0):(b=3Da.c(Lc,""),b||(b=3D(b=3Da.c($a,"")=
+)&&"~0"!=3Db?kf.test(b)?"__utmt_"+G(a.c(Wa,"")):"__utmt_"+G(b):"__utmt"),0<=
+pd(b).length?a.set(Kc,"",!0):(X(b,"1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),6E5)=
+,0<pd(b).length&&(a.set(Kc,Ea(),!0),a.set(Yb,1,!0),a.set(Jc,Ne()+"/r/__utm.=
+gif?",!0)))))};var U=3Dfunction(a,b,c){function d(a){return function(b){if(=
+(b=3Db.get(Nc)[a])&&b.length)for(var c=3DTe(e,a),d=3D0;d<b.length;d++)b[d].=
+call(e,c)}}var e=3Dthis;this.a=3Dnew Zc;this.get=3Dfunction(a){return this.=
+a.get(a)};this.set=3Dfunction(a,b,c){this.a.set(a,b,c)};this.set(Wa,b||"UA-=
+XXXXX-X");this.set($a,a||"");this.set(Ya,c||"");this.set(ab,Math.round((new=
+ Date).getTime()/1E3));this.set(P,"/");this.set(cb,63072E6);this.set(eb,157=
+68E6);this.set(db,18E5);this.set(fb,!1);this.set(yb,50);this.set(gb,!1);thi=
+s.set(hb,
+!0);this.set(ib,!0);this.set(jb,!0);this.set(kb,!0);this.set(lb,!0);this.se=
+t(ob,"utm_campaign");this.set(nb,"utm_id");this.set(pb,"gclid");this.set(qb=
+,"utm_source");this.set(rb,"utm_medium");this.set(sb,"utm_term");this.set(t=
+b,"utm_content");this.set(ub,"utm_nooverride");this.set(vb,100);this.set(Dc=
+,1);this.set(Ec,!1);this.set(wb,"/__utm.gif");this.set(xb,1);this.set(Cb,[]=
+);this.set(Fb,[]);this.set(zb,Ld.slice(0));this.set(Ab,[]);this.set(Bb,[]);=
+this.B("auto");this.set(Jb,J.referrer);Ye(this.a);this.set(Nc,
+{hit:[],load:[]});this.a.g("0",Zd);this.a.g("1",Wd);this.a.g("2",Jd);this.a=
+.g("3",cf);this.a.g("4",Sd);this.a.g("5",Xd);this.a.g("6",Kd);this.a.g("7",=
+d("load"));this.a.g("8",ie);this.a.v("A",kd);this.a.v("B",md);this.a.v("C",=
+Ge);this.a.v("D",Jd);this.a.v("E",jd);this.a.v("F",Tc);this.a.v("G",ne);thi=
+s.a.v("H",lf);this.a.v("I",Gd);this.a.v("J",nd);this.a.v("K",ud);this.a.v("=
+L",Dd);this.a.v("M",l);this.a.v("N",hf);this.a.v("O",d("hit"));this.a.v("P"=
+,oe);this.a.v("Q",pe);0=3D=3D=3Dthis.get(ab)&&H(111);this.a.T();
+this.H=3Dvoid 0};E=3DU.prototype;E.m=3Dfunction(){var a=3Dthis.get(Db);a||(=
+a=3Dnew yd,this.set(Db,a));return a};E.La=3Dfunction(a){for(var b in a){var=
+ c=3Da[b];a.hasOwnProperty(b)&&this.set(b,c,!0)}};E.K=3Dfunction(a){if(this=
+.get(Ec))return!1;var b=3Dthis,c=3Dke(this.a,function(c){b.set(Hb,a,!0);b.i=
+b(c)});this.set(Ec,c);return c};E.Fa=3Dfunction(a){a&&Ca(a)?(H(13),this.set=
+(Hb,a,!0)):"object"=3D=3D=3Dtypeof a&&null!=3D=3Da&&this.La(a);this.H=3Da=
+=3Dthis.get(Hb);this.a.j("page");this.K(a)};
+E.F=3Dfunction(a,b,c,d,e){if(""=3D=3Da||!wd(a)||""=3D=3Db||!wd(b)||void 0!=
+=3Dc&&!wd(c)||void 0!=3Dd&&!xd(d))return!1;this.set(wc,a,!0);this.set(xc,b,=
+!0);this.set(yc,c,!0);this.set(zc,d,!0);this.set(vc,!!e,!0);this.a.j("event=
+");return!0};E.Ha=3Dfunction(a,b,c,d,e){var f=3Dthis.a.b(Dc,0);1*e=3D=3D=3D=
+e&&(f=3De);if(this.a.b(Q,0)%100>=3Df)return!1;c=3D1*(""+c);if(""=3D=3Da||!w=
+d(a)||""=3D=3Db||!wd(b)||!xd(c)||isNaN(c)||0>c||0>f||100<f||void 0!=3Dd&&("=
+"=3D=3Dd||!wd(d)))return!1;this.ib(me(a,b,c,d));return!0};
+E.Ga=3Dfunction(a,b,c,d){if(!a||!b)return!1;this.set(Ac,a,!0);this.set(Bc,b=
+,!0);this.set(Cc,c||J.location.href,!0);d&&this.set(Hb,d,!0);this.a.j("soci=
+al");return!0};E.Ea=3Dfunction(){this.set(Dc,10);this.K(this.H)};E.Ia=3Dfun=
+ction(){this.a.j("trans")};E.ib=3Dfunction(a){this.set(Eb,a,!0);this.a.j("e=
+vent")};E.ia=3Dfunction(a){this.initData();var b=3Dthis;return{_trackEvent:=
+function(c,d,e){H(91);b.F(a,c,d,e)}}};E.ma=3Dfunction(a){return this.get(a)=
+};
+E.xa=3Dfunction(a,b){if(a)if(Ca(a))this.set(a,b);else if("object"=3D=3Dtype=
+of a)for(var c in a)a.hasOwnProperty(c)&&this.set(c,a[c])};E.addEventListen=
+er=3Dfunction(a,b){var c=3Dthis.get(Nc)[a];c&&c.push(b)};E.removeEventListe=
+ner=3Dfunction(a,b){for(var c=3Dthis.get(Nc)[a],d=3D0;c&&d<c.length;d++)if(=
+c[d]=3D=3Db){c.splice(d,1);break}};E.qa=3Dfunction(){return"5.6.7"};E.B=3Df=
+unction(a){this.get(hb);a=3D"auto"=3D=3Da?Ka(J.domain):a&&"-"!=3Da&&"none"!=
+=3Da?a.toLowerCase():"";this.set(bb,a)};E.va=3Dfunction(a){this.set(hb,!!a)=
+};
+E.na=3Dfunction(a,b){return ce(this.a,a,b)};E.link=3Dfunction(a,b){if(this.=
+a.get(fb)&&a){var c=3Dce(this.a,a,b);J.location.href=3Dc}};E.ua=3Dfunction(=
+a,b){this.a.get(fb)&&a&&a.action&&(a.action=3Dce(this.a,a.action,b))};
+E.za=3Dfunction(){this.initData();var a=3Dthis.a,b=3DJ.getElementById?J.get=
+ElementById("utmtrans"):J.utmform&&J.utmform.utmtrans?J.utmform.utmtrans:nu=
+ll;if(b&&b.value){a.set(Cb,[]);for(var b=3Db.value.split("UTM:"),c=3D0;c<b.=
+length;c++){b[c]=3DDa(b[c]);for(var d=3Db[c].split(de),e=3D0;e<d.length;e++=
+)d[e]=3DDa(d[e]);"T"=3D=3Dd[0]?fe(a,d[1],d[2],d[3],d[4],d[5],d[6],d[7],d[8]=
+):"I"=3D=3Dd[0]&&ge(a,d[1],d[2],d[3],d[4],d[5],d[6])}}};E.$=3Dfunction(a,b,=
+c,d,e,f,Be,k){return fe(this.a,a,b,c,d,e,f,Be,k)};
+E.Y=3Dfunction(a,b,c,d,e,f){return ge(this.a,a,b,c,d,e,f)};E.Aa=3Dfunction(=
+a){de=3Da||"|"};E.ea=3Dfunction(){this.set(Cb,[])};E.wa=3Dfunction(a,b,c,d)=
+{var e=3Dthis.a;if(0>=3Da||a>e.get(yb))a=3D!1;else if(!b||!c||128<b.length+=
+c.length)a=3D!1;else{1!=3Dd&&2!=3Dd&&(d=3D3);var f=3D{};f.name=3Db;f.value=
+=3Dc;f.scope=3Dd;e.get(Fb)[a]=3Df;a=3D!0}a&&this.a.gb();return a};E.ka=3Dfu=
+nction(a){this.a.get(Fb)[a]=3Dvoid 0;this.a.gb()};E.ra=3Dfunction(a){return=
+(a=3Dthis.a.get(Fb)[a])&&1=3D=3Da.scope?a.value:void 0};
+E.Ca=3Dfunction(a,b,c){12=3D=3Da&&1=3D=3Db?this.set(pf,c):this.m().f(a,b,c)=
+};E.Da=3Dfunction(a,b,c){this.m().o(a,b,c)};E.sa=3Dfunction(a,b){return thi=
+s.m().getKey(a,b)};E.ta=3Dfunction(a,b){return this.m().N(a,b)};E.fa=3Dfunc=
+tion(a){this.m().L(a)};E.ga=3Dfunction(a){this.m().M(a)};E.ja=3Dfunction(){=
+return new yd};E.W=3Dfunction(a){a&&this.get(Ab).push(a.toLowerCase())};E.b=
+a=3Dfunction(){this.set(Ab,[])};E.X=3Dfunction(a){a&&this.get(Bb).push(a.to=
+LowerCase())};E.ca=3Dfunction(){this.set(Bb,[])};
+E.Z=3Dfunction(a,b,c,d,e){if(a&&b){a=3D[a,b.toLowerCase()].join(":");if(d||=
+e)a=3D[a,d,e].join(":");d=3Dthis.get(zb);d.splice(c?0:d.length,0,a)}};E.da=
+=3Dfunction(){this.set(zb,[])};E.ha=3Dfunction(a){this.a.load();var b=3Dthi=
+s.get(P),c=3Dbe(this.a);this.set(P,a);this.a.gb();ae(this.a,c);this.set(P,b=
+)};E.ya=3Dfunction(a,b){if(0<a&&5>=3Da&&Ca(b)&&""!=3Db){var c=3Dthis.get(Fc=
+)||[];c[a]=3Db;this.set(Fc,c)}};E.V=3Dfunction(a){a=3D""+a;if(a.match(/^[A-=
+Za-z0-9]{1,5}$/)){var b=3Dthis.get(Ic)||[];b.push(a);this.set(Ic,b)}};E.ini=
+tData=3Dfunction(){this.a.load()};
+E.Ba=3Dfunction(a){a&&""!=3Da&&(this.set(Tb,a),this.a.j("var"))};var ne=3Df=
+unction(a){"trans"!=3D=3Da.get(sc)&&500<=3Da.b(cc,0)&&a.stopPropagation();i=
+f("event"=3D=3D=3Da.get(sc)){var b=3D(new Date).getTime(),c=3Da.b(dc,0),d=
+=3Da.b(Zb,0),c=3DMath.floor((b-(c!=3Dd?c:1E3*c))/1E3*1);0<c&&(a.set(dc,b),a=
+.set(R,Math.min(10,a.b(R,0)+c)));0>=3Da.b(R,0)&&a.stopPropagation()}},pe=3D=
+function(a){"event"=3D=3D=3Da.get(sc)&&a.set(R,Math.max(0,a.b(R,10)-1))};va=
+r qe=3Dfunction(){var a=3D[];this.add=3Dfunction(b,c,d){d&&(c=3DG(""+c));a.=
+push(b+"=3D"+c)};this.toString=3Dfunction(){return a.join("&")}},re=3Dfunct=
+ion(a,b){(b||2!=3Da.get(xb))&&a.Za(cc)},se=3Dfunction(a,b){b.add("utmwv","5=
+.6.7");b.add("utms",a.get(cc));b.add("utmn",Ea());var c=3DJ.location.hostna=
+me;F(c)||b.add("utmhn",c,!0);c=3Da.get(vb);100!=3Dc&&b.add("utmsp",c,!0)},t=
+e=3Dfunction(a,b){b.add("utmht",(new Date).getTime());b.add("utmac",Da(a.ge=
+t(Wa)));a.get(Oc)&&b.add("utmxkey",a.get(Oc),!0);a.get(vc)&&b.add("utmni",1=
+);
+a.get(of)&&b.add("utmgtm",a.get(of),!0);var c=3Da.get(Ic);c&&0<c.length&&b.=
+add("utmdid",c.join("."));ff(a,b);!1!=3D=3Da.get(Xa)&&(a.get(Xa)||M.w)&&b.a=
+dd("aip",1);void 0!=3D=3Da.get(Kc)&&b.add("utmjid",a.c(Kc,""),!0);a.b(Yb,0)=
+&&b.add("utmredir",a.b(Yb,0),!0);M.bb||(M.bb=3Da.get(Wa));(1<M.ab()||M.bb!=
+=3Da.get(Wa))&&b.add("utmmt",1);b.add("utmu",od.encode())},ue=3Dfunction(a,=
+b){for(var c=3Da.get(Fc)||[],d=3D[],e=3D1;e<c.length;e++)c[e]&&d.push(e+":"=
++G(c[e].replace(/%/g,"%25").replace(/:/g,"%3A").replace(/,/g,"%2C")));d.len=
+gth&&
+b.add("utmpg",d.join(","))},ff=3Dfunction(a,b){function c(a,b){b&&d.push(a+=
+"=3D"+b+";")}var d=3D[];c("__utma",cd(a));c("__utmz",hd(a,!1));c("__utmv",f=
+d(a,!0));c("__utmx",be(a));b.add("utmcc",d.join("+"),!0)},ve=3Dfunction(a,b=
+){a.get(ib)&&(b.add("utmcs",a.get(Qb),!0),b.add("utmsr",a.get(Lb)),a.get(Rb=
+)&&b.add("utmvp",a.get(Rb)),b.add("utmsc",a.get(Mb)),b.add("utmul",a.get(Pb=
+)),b.add("utmje",a.get(Nb)),b.add("utmfl",a.get(Ob),!0))},we=3Dfunction(a,b=
+){a.get(lb)&&a.get(Ib)&&b.add("utmdt",a.get(Ib),!0);b.add("utmhid",
+a.get(Kb));b.add("utmr",Pa(a.get(Jb),a.get(P)),!0);b.add("utmp",G(a.get(Hb)=
+,!0),!0)},xe=3Dfunction(a,b){for(var c=3Da.get(Db),d=3Da.get(Eb),e=3Da.get(=
+Fb)||[],f=3D0;f<e.length;f++){var Be=3De[f];Be&&(c||(c=3Dnew yd),c.f(8,f,Be=
+.name),c.f(9,f,Be.value),3!=3DBe.scope&&c.f(11,f,""+Be.scope))}F(a.get(wc))=
+||F(a.get(xc),!0)||(c||(c=3Dnew yd),c.f(5,1,a.get(wc)),c.f(5,2,a.get(xc)),e=
+=3Da.get(yc),void 0!=3De&&c.f(5,3,e),e=3Da.get(zc),void 0!=3De&&c.o(5,1,e))=
+;F(a.get(pf))||(c||(c=3Dnew yd),c.f(12,1,a.get(pf)));c?b.add("utme",c.Qa(d)=
+,!0):
+d&&b.add("utme",d.A(),!0)},ye=3Dfunction(a,b,c){var d=3Dnew qe;re(a,c);se(a=
+,d);d.add("utmt","tran");d.add("utmtid",b.id_,!0);d.add("utmtst",b.affiliat=
+ion_,!0);d.add("utmtto",b.total_,!0);d.add("utmttx",b.tax_,!0);d.add("utmts=
+p",b.shipping_,!0);d.add("utmtci",b.city_,!0);d.add("utmtrg",b.state_,!0);d=
+.add("utmtco",b.country_,!0);xe(a,d);ve(a,d);we(a,d);(b=3Da.get(Gb))&&d.add=
+("utmcu",b,!0);c||(ue(a,d),te(a,d));return d.toString()},ze=3Dfunction(a,b,=
+c){var d=3Dnew qe;re(a,c);se(a,d);d.add("utmt","item");d.add("utmtid",
+b.transId_,!0);d.add("utmipc",b.sku_,!0);d.add("utmipn",b.name_,!0);d.add("=
+utmiva",b.category_,!0);d.add("utmipr",b.price_,!0);d.add("utmiqt",b.quanti=
+ty_,!0);xe(a,d);ve(a,d);we(a,d);(b=3Da.get(Gb))&&d.add("utmcu",b,!0);c||(ue=
+(a,d),te(a,d));return d.toString()},Ae=3Dfunction(a,b){var c=3Da.get(sc);if=
+("page"=3D=3Dc)c=3Dnew qe,re(a,b),se(a,c),xe(a,c),ve(a,c),we(a,c),b||(ue(a,=
+c),te(a,c)),c=3D[c.toString()];else if("event"=3D=3Dc)c=3Dnew qe,re(a,b),se=
+(a,c),c.add("utmt","event"),xe(a,c),ve(a,c),we(a,c),b||(ue(a,c),te(a,c)),
+c=3D[c.toString()];else if("var"=3D=3Dc)c=3Dnew qe,re(a,b),se(a,c),c.add("u=
+tmt","var"),!b&&te(a,c),c=3D[c.toString()];else if("trans"=3D=3Dc)for(var c=
+=3D[],d=3Da.get(Cb),e=3D0;e<d.length;++e){c.push(ye(a,d[e],b));for(var f=3D=
+d[e].items_,Be=3D0;Be<f.length;++Be)c.push(ze(a,f[Be],b))}else"social"=3D=
+=3Dc?b?c=3D[]:(c=3Dnew qe,re(a,b),se(a,c),c.add("utmt","social"),c.add("utm=
+sn",a.get(Ac),!0),c.add("utmsa",a.get(Bc),!0),c.add("utmsid",a.get(Cc),!0),=
+xe(a,c),ve(a,c),we(a,c),ue(a,c),te(a,c),c=3D[c.toString()]):"feedback"=3D=
+=3Dc?b?c=3D[]:(c=3Dnew qe,
+re(a,b),se(a,c),c.add("utmt","feedback"),c.add("utmfbid",a.get(Gc),!0),c.ad=
+d("utmfbpr",a.get(Hc),!0),xe(a,c),ve(a,c),we(a,c),ue(a,c),te(a,c),c=3D[c.to=
+String()]):c=3D[];return c},oe=3Dfunction(a){var b,c=3Da.get(xb),d=3Da.get(=
+uc),e=3Dd&&d.Ua,f=3D0;if(0=3D=3Dc||2=3D=3Dc){var Be=3Da.get(wb)+"?";b=3DAe(=
+a,!0);for(var k=3D0,Ja=3Db.length;k<Ja;k++)Sa(b[k],e,Be,!0),f++}if(1=3D=3Dc=
+||2=3D=3Dc)for(b=3DAe(a),a=3Da.c(Jc,""),k=3D0,Ja=3Db.length;k<Ja;k++)try{Sa=
+(b[k],e,a),f++}catch(t){t&&Ra(t.name,void 0,t.message)}d&&(d.fb=3Df)};var N=
+e=3Dfunction(){return"https:"=3D=3DJ.location.protocol||M.G?"https://ssl.go=
+ogle-analytics.com":"http://www.google-analytics.com"},Ce=3Dfunction(a){thi=
+s.name=3D"len";this.message=3Da+"-8192"},De=3Dfunction(a){this.name=3D"ff2p=
+ost";this.message=3Da+"-2036"},Sa=3Dfunction(a,b,c,d){b=3Db||Fa;if(d||2036>=
+=3Da.length)gf(a,b,c);else if(8192>=3Da.length){if(0<=3DW.navigator.userAge=
+nt.indexOf("Firefox")&&![].reduce)throw new De(a.length);df(a,b)||ef(a,b)||=
+Ee(a,b)||b()}else throw new Ce(a.length);},gf=3Dfunction(a,b,c){c=3Dc||Ne()=
++"/__utm.gif?";
+var d=3Dnew Image(1,1);d.src=3Dc+a;d.onload=3Dfunction(){d.onload=3Dnull;d.=
+onerror=3Dnull;b()};d.onerror=3Dfunction(){d.onload=3Dnull;d.onerror=3Dnull=
+;b()}},ef=3Dfunction(a,b){if(0!=3DNe().indexOf(J.location.protocol))return!=
+1;var c;c=3DW.XDomainRequest;if(!c)return!1;c=3Dnew c;c.open("POST",Ne()+"/=
+p/__utm.gif");c.onerror=3Dfunction(){b()};c.onload=3Db;c.send(a);return!0},=
+df=3Dfunction(a,b){var c=3DW.XMLHttpRequest;if(!c)return!1;var d=3Dnew c;if=
+(!("withCredentials"in d))return!1;d.open("POST",Ne()+"/p/__utm.gif",!0);d.=
+withCredentials=3D
+!0;d.setRequestHeader("Content-Type","text/plain");d.onreadystatechange=3Df=
+unction(){4=3D=3Dd.readyState&&(b(),d=3Dnull)};d.send(a);return!0},Ee=3Dfun=
+ction(a,b){if(!J.body)return We(function(){Ee(a,b)},100),!0;a=3DencodeURICo=
+mponent(a);try{var c=3DJ.createElement('<iframe name=3D"'+a+'"></iframe>')}=
+catch(d){c=3DJ.createElement("iframe"),c.name=3Da}c.height=3D"0";c.width=3D=
+"0";c.style.display=3D"none";c.style.visibility=3D"hidden";var e=3DNe()+"/u=
+/post_iframe.html";Ga(W,"beforeunload",function(){c.src=3D"";c.parentNode&&=
+c.parentNode.removeChild(c)});
+setTimeout(b,1E3);J.body.appendChild(c);c.src=3De;return!0};var qf=3Dfuncti=
+on(){this.G=3Dthis.w=3D!1;0=3D=3DEa()%1E4&&(H(142),this.G=3D!0);this.C=3D{}=
+;this.D=3D[];this.U=3D0;this.S=3D[["www.google-analytics.com","","/plugins/=
+"]];this._gasoCPath=3Dthis._gasoDomain=3Dthis.bb=3Dvoid 0;Re();Se()};E=3Dqf=
+.prototype;E.oa=3Dfunction(a,b){return this.hb(a,void 0,b)};E.hb=3Dfunction=
+(a,b,c){b&&H(23);c&&H(67);void 0=3D=3Db&&(b=3D"~"+M.U++);a=3Dnew U(b,a,c);M=
+.C[b]=3Da;M.D.push(a);return a};E.u=3Dfunction(a){a=3Da||"";return M.C[a]||=
+M.hb(void 0,a)};E.pa=3Dfunction(){return M.D.slice(0)};E.ab=3Dfunction(){re=
+turn M.D.length};
+E.aa=3Dfunction(){this.w=3D!0};E.la=3Dfunction(){this.G=3D!0};var Fe=3Dfunc=
+tion(a){if("prerender"=3D=3DJ.visibilityState)return!1;a();return!0};var M=
+=3Dnew qf;var Ha=3DW._gat;Ha&&Ba(Ha._getTracker)?M=3DHa:W._gat=3DM;var Z=3D=
+new Y;(function(a){if(!Fe(a)){H(123);var b=3D!1,c=3Dfunction(){if(!b&&Fe(a)=
+){b=3D!0;var d=3DJ,e=3Dc;d.removeEventListener?d.removeEventListener("visib=
+ilitychange",e,!1):d.detachEvent&&d.detachEvent("onvisibilitychange",e)}};G=
+a(J,"visibilitychange",c)}})(function(){var a=3DW._gaq,b=3D!1;if(a&&Ba(a.pu=
+sh)&&(b=3D"[object Array]"=3D=3DObject.prototype.toString.call(Object(a)),!=
+b)){Z=3Da;return}W._gaq=3DZ;b&&Z.push.apply(Z,a)});function Yc(a){var b=3D1=
+,c=3D0,d;if(a)for(b=3D0,d=3Da.length-1;0<=3Dd;d--)c=3Da.charCodeAt(d),b=3D(=
+b<<6&268435455)+c+(c<<14),c=3Db&266338304,b=3D0!=3Dc?b^c>>21:b;return b};})=
+();
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/body_bg.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAMAAACeL25MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAAZQTFRF////zsrFFOhhzwAAAA9JREFUeNpiYGTAAAABBgAAJwAC/Bns
+gQAAAABJRU5ErkJggg==
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/header_bg.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAC0AAAAvCAYAAAB30kORAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAOpJREFUeNrs0lkKwkAQRVEX4IyiRlGccZ72v7ZIgQX3J9IQ0HrQH5LD
+pSNNeI2yLBuf30vFche2p9yF/dJ5HnkeeR55HnkeeR55Hnke/5jHU8VyF/Yv/UCUMOdxV7Hjhhje
+hiuihDmPi4odZ8TwNpwQJcx5HFXsOCCGt2GPKGHOY6dixxYxvA1rxCpvEs787H84j5WKHUvE8DYs
+ECXMecxV7JghhrdhiihhzmOS4KJGLxLOJ93BMUYMb8MIUcKcx1DFjgFieBv6iBLmPHoqdnQR6U5F
+TzlT592v5w1tRAlzHi0VO5qI4f0WYAAt6Rt1N4JiVwAAAABJRU5ErkJggg==
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/img/header_logo.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAC4AAAAQCAQAAADDwIVhAAAB7klEQVR4AdWUA7BWURSF+5Ft27Zt
+27ZtW4Ns29aX7Rpl1yDbrrvbc6Zn+73LhXvWPY4U8Q9i0pQtnGUTdYgZwLIOSlEYu092Hm7wgwOs
+4RACAQyPwWm2EdV7MxaPuEZBoimORlHKBTA8OodY51N4L/5QxlvHqQVtrsymzOnOjUI0j+HYiInN
+Y8QJzhPHoITkIbc5YxGXRYieL2lhvBaKBEvVuMoycxzhK6d4TwHQcAcNzRdf6Ok+/BqHcZr/9kPM
++ZXK7OIvrSnBfISaeoqiEqr8VScG57lDdapwGaEo+1hJcSxWkJ3ZCB3cwjdyi1QGxSMLmSiM0J8v
+TP/vv2CDni/+s+nqdEIjDauHUETDF7FM9Roc4A/nKO0WXgahh9tUYhAvacY3Rv3n99ip573/bJQ6
+/REyGFYBy4QvZD3CDzaQ0dM8VUuYQFFT63EIU01nPSE/SeiI0E1PUZRElSdcJQ2P2ElGfW/6X/Pl
+1EGYSQwyM4MCHmfqEP7yg1f8QhhoRj4zd7B4gjAPh57zEGWWqpnUrc4P3vKaFwhFOckOojAC4Skf
+eU4ur+usPO2oSBQPK681qVx5KmWlcPxn0WhIOdogZCSRnjbVUtKSykHfLLaxgmQkZzevgn8vqs9r
+PvCe51QK/nAb8SlEERL6/M0/SoB55gUBIU8AAAAASUVORK5CYII=
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/search_submit_bg_2.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+3pIAAAAASUVORK5CYII=
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+
+(function() {
+var f =3D document.getElementById('cse-search-box');
+if (!f) {
+f =3D document.getElementById('searchbox_demo');
+}
+if (f && f['q']) {
+var q =3D f['q'];
+var n =3D navigator;
+var l =3D location;
+var du =3D function(n, v) {
+var u =3D document.createElement('input');
+u.name =3D n;
+u.value =3D v;
+u.type =3D 'hidden';
+f.appendChild(u);
+return u;
+};
+var su =3D function (n, t, v, l) {
+if (!encodeURIComponent || !decodeURIComponent) {
+return;
+}
+var regexp =3D new RegExp('(?:[?&]' + n + '=3D)([^&#]*)');
+var existing =3D regexp.exec(t);
+if (existing) {
+v =3D decodeURIComponent(existing[1]);
+}
+var delimIndex =3D v.indexOf('://');
+if (delimIndex >=3D 0) {
+v =3D v.substring(delimIndex + '://'.length, v.length);
+}
+var v_sub =3D v.substring(0, l);
+while (encodeURIComponent(v_sub).length > l) {
+v_sub =3D v_sub.substring(0, v_sub.length - 1);
+}
+du(n, v_sub);
+};
+var pl =3D function(he) {
+var ti =3D 0, tsi =3D 0, tk =3D 0, pt;
+return function() {
+var ct =3D (new Date).getTime();
+if (pt) {
+var i =3D ct - pt;
+ti +=3D i;
+tsi +=3D i*i;
+}
+tk++;
+pt =3D ct;
+he.value =3D [ti, tsi, tk].join('j');
+};
+};
+var append =3D false;
+if (n.appName =3D=3D 'Microsoft Internet Explorer') {
+var s =3D f.parentNode.childNodes;
+for (var i =3D 0; i < s.length; i++) {
+        if (s[i].nodeName =3D=3D 'SCRIPT' &&
+            s[i].attributes['src'] &&
+            s[i].attributes['src'].nodeValue =3D=3D unescape('\x2F\x2Fcse.g=
+oogle.com\x2Fcoop\x2Fcse\x2Fbrand?form=3Dcse-search-box\x26lang=3Den')) {
+          append =3D true;
+          break;
+        }
+      }
+    } else {
+      append =3D true;
+    }
+    if (append) {
+     =20
+      var loc =3D document.location.toString(); var ref =3D document.referr=
+er;
+      su('siteurl', loc, loc, 250);
+      su('ref', loc, ref, 750);
+
+     =20
+     =20
+      if (q.addEventListener) {
+        q.addEventListener('keyup', pl(du('ss', '')), false);
+      } else if (q.attachEvent) {
+        q.attachEvent('onkeyup', pl(du('ss', '')));
+      }
+    }
+
+   =20
+    if (n.platform =3D=3D 'Win32') {
+      q.style.cssText =3D 'border: 1px solid #7e9db9; padding: 2px;';
+    }
+
+   =20
+    if (window.history.navigationMode) {
+      window.history.navigationMode =3D 'compatible';
+    }
+
+    var b =3D function() {
+      if (q.value =3D=3D '') {
+        q.style.background =3D '#FFFFFF url(https:\x2F\x2Fwww.google.com\x2=
+Fcse\x2Fstatic\x2Fimages\x2F1x\x2Fgooglelogo_lightgrey_46x16dp.png) left no=
+-repeat';
+        q.style.textIndent =3D '48px';
+        q.placeholder =3D 'Custom Search';
+      }
+    };
+
+    var f =3D function() {
+      q.style.background =3D '#ffffff';
+      q.style.textIndent =3D '0';
+      q.placeholder =3D '';
+    };
+
+    q.onfocus =3D f;
+    q.onblur =3D b;
+
+   =20
+    if (!/[&?]q=3D[^&]/.test(l.search)) {
+      b();
+    }
+  }
+})();
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/subnav_divider.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAIAAAAoCAMAAADjX9tGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAC1QTFRF8/Pz9PT0+/v78vLy/f39/Pz89vb29/f3+Pj4+fn58fHx/v7+
+8PDw////////ezufBAAAAA90Uk5T//////////////////8A1NyYoQAAADNJREFUeNqUzTcOwCAA
+wEBTElrM/5+LYM2EdPsxJ3/DLcsjUZpUKfJKECRJP757p1gCDADbfAOzNf+x7wAAAABJRU5ErkJg
+gg==
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/img/printer.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAbtJREFU
+OI2VUs9rE0EYfd/s7mwVi2Cit5gEQSjW2BTioSc9Kngo4sF/yCC96D/hQcRbS4VKFVRKC8VKyKk2
+2hI9mLg0RZqdyXyfhyVLhO3WPhiY4Xvvfb+GMIHtz5vrArmDHBDo3fzc7buZwdW1ZTkNq2vLMqnx
+Jx/9Xz0AwP7Bt8wEV0uVlJNp0OslQa31iS2MOZkGx8fDxCAITzQYc1KDZrNZCc8Fr601t0SS9oKc
+CgDg6dKTkQ7CnXhoF+nZ86WN+/ceNI7+DFT/dy9XOEbhUhEXzk/zypuVj35sbKNavUbvP7xFbXbO
+hTqUPHFsYmq1v3i12TpZYxZ8EVFEJMXCZW61dzzmXD2UIhQLV5iIiJm9dIjlUoXLpQr/Vw8JPGBi
+C92fXfV9v6Occ6dUoFAuV3lm+iL+MWi3W+rRw8dgZogwRIBkK5LeiQhaa7x89ULNXL8hAOATEYsI
+HR4OwMyIoj6MiWGthbEWdmRgrYW1FsyM2s06BoMjiAiUUs4PdbDV6XxtRFFEcTyE1iE834d2DlNu
+BOdcepgduj8OEEUR9vZ2JdD6E40/kjFx/QwDRKintuOhXTyLJhN/AWM4+OR4b3vwAAAAAElFTkSu
+QmCC
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/bullet.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oEDg0jANxfoCgAAAAZdEVYdENv
+bW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAE0lEQVQY02NgGEaAkYD8/6HkGQCuugEBtlfJ
+FwAAAABJRU5ErkJggg==
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/img/bug.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJ
+TUUH1gsPFSMTB/oj8QAAAi9JREFUKJFdkc9Lk3Ecx1/f53k2tW3qM9eyTU3CMCsUyTCyH3brEB7q
+mEWBkRT2R0QdRchDRV2D6B5kt+zgJZkUUZE5t5w6nbln2zOf7fnx7bIR+D594P158T68VP4nDIwA
+V4DvwCmgF8gBQ0A34AEF9mUW6AIGhRCmrutuW1vEFUJUgNu1bnY/BDB+4giDfZ3il6ZpUgghhRBS
+VVUZj4jNvm7OAuP1Z1E/oiFGbCnmj58cVK6OXScajVKtVkmlUnx4/46lL984qHNxe5dPAFodnLnH
+6WC0zw30Tihff5skEgkMwyAej3PnxjU4V7b1QHLo1vQ+0JPcv3T+jC8USXJ5IMTCokUmleVCT5KN
+tSZ2ewZ8G5nkBDADoNS4AwLijUEdZBnhb6C1WeVQS5VwUwF3L4fPH0QoxOtDCtAOPJHQpHkl2MtC
+aRWlmkP1ilimRblUwq7aAAHgEdCuAJPAK8AzshtgppD5H2hWmgZ3i+0tC7NgYeYNJLjANDCpAf3A
+C9eluPbHCLuNy7S0KihFBTPnUCy65HPgj5ZAsgMYQL8GTAF5wySTSW+FzYZWtOUkeROyORAVcHxH
+wcpiOqzUFE4pQAa4ufCTtzuFtFl0ulj/G2NzXaNsaFgyRiDShaemC4srvAbuAhkF0IHhN/M8thzr
+Yy6/tGf7YwQ7RokcG6X5cIyKlyhLUZl7OcdzYBjQNSAEOAAtWcbKHcZD2/78QJN01vyuKhpPVwI8
+q5lwgNA/x9LiWWv6GkAAAAAASUVORK5CYII=
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8
+Content-Location: http://manpages.ubuntu.com/assets/light/images/footer_logo.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+QmCC
+
+------=_Part_6DD0E8BE_8BE90FCE.15D9F3DCED8--

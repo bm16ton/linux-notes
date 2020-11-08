@@ -1,0 +1,45 @@
+grep
+	-x , --line-regexp
+			  Select  only  those  matches  that exactly match the whole line.
+              For a regular expression pattern, this  is  like  parenthesizing
+              the pattern and then surrounding it with ^ and $.
+
+    -c , --count
+              Suppress  normal output; instead print a count of matching lines
+              for each input file.  With the -v,  --invert-match  option  (see
+              below), count non-matching lines.
+
+       -L, --files-without-match
+              Suppress normal output; instead print the  name  of  each  input
+              file from which no output would normally have been printed.  The
+              scanning will stop on the first match.
+
+       -l, --files-with-matches
+              Suppress normal output; instead print the  name  of  each  input
+              file  from  which  output would normally have been printed.  The
+              scanning will stop on the first match.
+
+       -m NUM, --max-count=NUM
+              Stop reading a file after NUM matching lines.  If the  input  is
+              standard  input  from a regular file, and NUM matching lines are
+              output, grep ensures that the standard input  is  positioned  to
+              just  after the last matching line before exiting, regardless of
+              the presence of trailing context lines.  This enables a  calling
+              process  to resume a search.  When grep stops after NUM matching
+              lines, it outputs any trailing context lines.  When  the  -c  or
+              --count  option  is  also  used,  grep  does  not output a count
+              greater than NUM.  When the -v or --invert-match option is  also
+              used, grep stops after outputting NUM non-matching lines.
+
+       -H, --with-filename
+              Print the file name for each match.  This is  the  default  when
+              there is more than one file to search.
+
+       -n, --line-number
+              Prefix each line of output with the 1-based line  number  within
+              its input file.
+
+		-A NUM  number of lines to display after found items
+		-B NUM  number of lines to display before found items
+
+

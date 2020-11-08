@@ -1,0 +1,30 @@
+first get binutils source
+
+http://www.kernel.org/pub/linux/devel/binutils/
+or
+git://sourceware.org/git/binutils-gdb.git
+
+configure for seperate directory (keeping stock binutils unharmed)
+
+./configure --prefix=/opt/binutils-VERSION --enable-plugins
+make -j $(getconf _NPROCESSORS_ONLN) && sudo make install
+
+Fix up the kernel configuration to allow LTO:
+
+<start with a suitable kernel configuration>
+./source/scripts/config --disable function_tracer \
+			--disable function_graph_tracer \
+			--disable stack_tracer --enable lto_menu \
+                        --disable lto_disable \
+			--disable gcov \
+			--disable kallsyms_all \
+			--disable modversions
+make oldconfig
+
+COMPILER_PATH=/opt/binutils-VERSION/bin PATH=$COMPILER_PATH:$PATH \
+make -j$(getconf _NPROCESSORS_ONLN) AR=gcc-ar NM=gcc-nm
+
+
+all this and more in kernel source directory;
+
+Documentation/lto-build 

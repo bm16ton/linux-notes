@@ -1,0 +1,2984 @@
+From: <Saved by UnMHT Ver.8.3.0>
+Subject: CaptureSetup/USB - The Wireshark Wiki
+Date: Sun, 04 Dec 2016 03:12:27 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_39B196E4_C4ED6BF7.158C8E42DF9";
+	type="text/html"
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/CaptureSetup/USB#Linux
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAA=
+AAQCAYAAAAf8/9hAAADEklEQVQ4jZXSaUiTcRwH8H/teP4PREJRShRBFL3oAIVEUxejObTDq2Ie=
+uebVNG1lZkl3VmBlktpGlp2QraUmmIYd1kTs0Dx72nTatEetzT1Lkogo+PZiIURS9Hv/+X6/L36=
+E/Me9G/208FmvO/xmizuz8KFwpNH6OfKfSBCEmWbLuDa72v10RYFjwivvA8TZoyDbh5FhdFX9FZ=
+st7nhd5ae+JScdEOl4iLOGwOwchHiHHbNz7F973rlXTgk5jpOWNAoXFXoX5uYNQ5JpB90xADbDB=
+lbbB6K2Irn8/b0psc1mYw7XuqpXFzkxK2cI0vR+sNo+sKkWsMkcqKYH0+O7UNkyEjdlQH6964pS=
+Pwaf3CFI0n7BpDeg6i7Qre0Qq9owW9P+jet3Lv4DV7wcS1VcGMPyYzwkqb2eRnUXaMJr0NhXoFu=
+eY1pEM1ZkvuKdTueM36cPC/PD9Q5X0JlRUG0faBIHmtgJGtsGuuU5aHQzaKQZRPkYwbtfdJtMJt=
+FvASfqnBeCCj/CO3sA0kncCrqpBTTSDLrhCZjwBhBZLWRZ5g5CyLRJ3D8iLFCUOib8TvKQplhAt=
+3WDxrVNYmbdIzDKOjBra0AC72BV8gMrx3HSyQBDo+tA4NmP8MkegFTzBjSh3TM7qsmDQ++DkVdB=
+KjOC+N/Aoog7YzzPzyKEEGIymUQJ1xwdfqdGwKZZwai7wKhawUQ3e2Yr6yGVV0MSUgFxwDUQvzL=
+MDL78o8fKe56o0yYsCylyfF+wbxBEzYFN7ACregk2qgmSsAaI5DUQBd+GJPA6ZgSVw1tejnnyMt=
+Q0vlUTQggxto5rlx4fwdKDg1CetiOhxA5NsQ3xpzmsP9AKuc4MmbYBivQ6hGgqEZp6F1FZVaio7=
+b5OCCEk/arFpLr1HYfrvmF/1RfsNY7joFHAMaMTh27wyC2z4Uh5L3JLO6E78wK6gmZk5D9FvqFl=
+wtfXdw7xD0tMSTt66ZwsLu98wOacEtnmvfo1MXsM/ht3GhSbdhnCVbsMipgMQ1hMuj40anupLCy=
+pWBmZVhQakVxIqdein21oxa7qIOumAAAAAElFTkSuQmCC" rel=3D"shortcut icon" type=
+=3D"image/png">
+
+<link href=3D"//fonts.googleapis.com/css?family=3DOpen+Sans" rel=3D"stylesh=
+eet" type=3D"text/css">
+  <link href=3D"//fonts.googleapis.com/css?family=3DOpen+Sans+Condensed:300=
+,700" rel=3D"stylesheet" type=3D"text/css">
+
+<meta content=3D"index,nofollow" name=3D"robots">
+
+<title>CaptureSetup/USB - The Wireshark Wiki</title>
+<script async=3D"" src=3D"https://ssl.google-analytics.com/ga.js" type=3D"t=
+ext/javascript"></script><script src=3D"/moin_static198/common/js/common.js=
+" type=3D"text/javascript"></script>
+
+<script type=3D"text/javascript">
+<!--
+var search_hint =3D "Search";
+//-->
+</script>
+
+
+<link charset=3D"utf-8" href=3D"/moin_static198/modernized/css/common.css" =
+media=3D"all" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static198/modernized/css/screen.css" =
+media=3D"screen" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static198/modernized/css/print.css" m=
+edia=3D"print" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static198/modernized/css/projection.c=
+ss" media=3D"projection" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"//www.wireshark.org/assets/css/ws-wiki-scre=
+en.css" media=3D"screen" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"//www.wireshark.org/assets/css/ws-wiki-prin=
+t.css" media=3D"print" rel=3D"stylesheet" type=3D"text/css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel=3D"stylesheet" type=3D"text/css" charset=3D"utf-8" media=3D"al=
+l" href=3D"/moin_static198/modernized/css/msie.css">
+<![endif]-->
+
+
+
+
+
+<link href=3D"/FrontPage" rel=3D"Start">
+<link href=3D"/CaptureSetup/USB?action=3Draw" rel=3D"Alternate" title=3D"Wi=
+ki Markup">
+<link href=3D"/CaptureSetup/USB?action=3Dprint" media=3D"print" rel=3D"Alte=
+rnate" title=3D"Print View">
+<link href=3D"/CaptureSetup" rel=3D"Up">
+<link href=3D"/FindPage" rel=3D"Search">
+<link href=3D"/TitleIndex" rel=3D"Index">
+<link href=3D"/WordIndex" rel=3D"Glossary">
+<link href=3D"/HelpOnFormatting" rel=3D"Help">
+<base href=3D"https://wiki.wireshark.org/CaptureSetup/"></head>
+
+<body dir=3D"ltr" lang=3D"en">
+
+<div id=3D"header">
+
+<form action=3D"/CaptureSetup/USB" id=3D"searchform" method=3D"get">
+<div>
+<input name=3D"action" type=3D"hidden" value=3D"fullsearch">
+<input name=3D"context" type=3D"hidden" value=3D"180">
+<label for=3D"searchinput" style=3D"display: none;">Search:</label>
+<input alt=3D"Search" class=3D"disabled" id=3D"searchinput" name=3D"value" =
+onblur=3D"searchBlur(this)" onchange=3D"searchChange(this)" onfocus=3D"sear=
+chFocus(this)" onkeyup=3D"searchChange(this)" size=3D"20" type=3D"text" val=
+ue=3D"Search">
+<input alt=3D"Search Titles" disabled=3D"" id=3D"titlesearch" name=3D"title=
+search" type=3D"submit" value=3D"Titles">
+<input alt=3D"Search Full Text" disabled=3D"" id=3D"fullsearch" name=3D"ful=
+lsearch" type=3D"submit" value=3D"Text">
+</div>
+</form>
+<script type=3D"text/javascript">
+<!--// Initialize search form
+var f =3D document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display =3D 'none';
+var e =3D document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<div id=3D"logo"><a href=3D"/FrontPage"><img alt=3D"The Wireshark Wiki" bor=
+der=3D"0" class=3D"logo" src=3D"//www.wireshark.org/assets/images/wsbadge@1=
+86x57.png"></a></div>
+<div id=3D"username"><a href=3D"/CaptureSetup/USB?action=3Dlogin" id=3D"log=
+in" rel=3D"nofollow">Login</a></div>
+<h1 id=3D"locationline">
+
+<span id=3D"pagelocation"><span class=3D"pagepath"><a href=3D"/CaptureSetup=
+">CaptureSetup</a></span><span class=3D"sep">/</span><a href=3D"/CaptureSet=
+up/USB">USB</a></span>
+</h1>
+
+
+<ul id=3D"navibar">
+<li class=3D"wikilink"><a href=3D"/FrontPage">FrontPage</a></li><li class=
+=3D"wikilink"><a href=3D"/RecentChanges">RecentChanges</a></li><li class=3D=
+"wikilink"><a href=3D"/FindPage">FindPage</a></li><li class=3D"wikilink"><a=
+ href=3D"/HelpContents">HelpContents</a></li><li class=3D"current"><a href=
+=3D"/CaptureSetup/USB">CaptureSetup/USB</a></li>
+</ul>
+
+<div id=3D"pageline"><hr style=3D"display:none;"></div>
+
+<ul class=3D"editbar"><li><span class=3D"disabled">Immutable Page</span></l=
+i><li class=3D"toggleCommentsButton" style=3D"display:none;"><a class=3D"nb=
+comment" href=3D"#" onclick=3D"toggleComments();return false;">Comments</a>=
+</li><li><a class=3D"nbinfo" href=3D"/CaptureSetup/USB?action=3Dinfo" rel=
+=3D"nofollow">Info</a></li><li><a class=3D"nbattachments" href=3D"/CaptureS=
+etup/USB?action=3DAttachFile" rel=3D"nofollow">Attachments</a></li><li>
+<form action=3D"/CaptureSetup/USB" class=3D"actionsmenu" method=3D"GET">
+<div>
+   =20
+    <select name=3D"action" onchange=3D"if ((this.selectedIndex !=3D 0) &am=
+p;&amp;
+                      (this.options[this.selectedIndex].disabled =3D=3D fal=
+se)) {
+                this.form.submit();
+            }
+            this.selectedIndex =3D 0;">
+        <option selected=3D"selected" value=3D"show">More Actions:</option>=
+<option value=3D"raw">Raw Text</option>
+<option value=3D"print">Print View</option>
+<option value=3D"RenderAsDocbook">Render as Docbook</option>
+<option value=3D"refresh">Delete Cache</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"SpellCheck">Check Spelling</option>
+<option value=3D"LikePages">Like Pages</option>
+<option value=3D"LocalSiteMap">Local Site Map</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"RenamePage">Rename Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"DeletePage">Delete Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Subscribe User</opt=
+ion>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Remove Spam</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Revert to this revi=
+sion</option>
+<option value=3D"PackagePages">Package Pages</option>
+<option value=3D"SyncPages">Sync Pages</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"Load">Load</option>
+<option value=3D"Save">Save</option>
+<option value=3D"SlideShow">SlideShow</option>
+    </select>
+   =20
+   =20
+</div>
+<script type=3D"text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div dir=3D"ltr" id=3D"page" lang=3D"en">
+<div dir=3D"ltr" id=3D"content" lang=3D"en"><span class=3D"anchor" id=3D"to=
+p"></span>
+<span class=3D"anchor" id=3D"line-1"></span><p class=3D"line867">
+</p><h1 id=3D"USB_capture_setup">USB capture setup</h1>
+<span class=3D"anchor" id=3D"line-2"></span><p class=3D"line874">This page =
+is about capturing raw USB traffic, e.g. the packets a USB mouse will gener=
+ate on the Universal Serial Bus. <span class=3D"anchor" id=3D"line-3"></spa=
+n><span class=3D"anchor" id=3D"line-4"></span></p><p class=3D"line867">
+</p><h2 id=3D"Table_of_contents">Table of contents</h2>
+<span class=3D"anchor" id=3D"line-5"></span><p class=3D"line867"></p><div c=
+lass=3D"table-of-contents"><p class=3D"table-of-contents-heading">Contents<=
+/p><ol><li>
+<a href=3D"#USB_capture_setup">USB capture setup</a><ol><li>
+<a href=3D"#Table_of_contents">Table of contents</a></li><li>
+<a href=3D"#USB_attached_network_interfaces">USB attached network interface=
+s</a></li><li>
+<a href=3D"#Linux">Linux</a></li><li>
+<a href=3D"#Windows">Windows</a></li><li>
+<a href=3D"#Discussion">Discussion</a></li><li>
+<a href=3D"#See_Also">See Also</a></li></ol></li></ol></div> <span class=3D=
+"anchor" id=3D"line-6"></span><span class=3D"anchor" id=3D"line-7"></span><=
+p class=3D"line867">
+</p><h2 id=3D"USB_attached_network_interfaces">USB attached network interfa=
+ces</h2>
+<span class=3D"anchor" id=3D"line-8"></span><p class=3D"line874">A special =
+case are network interfaces connected to a host computer through an USB cab=
+le. The operating system &quot;converts&quot; the raw USB packets into the =
+network traffic (e.g. Ethernet packets) and provides a network interface th=
+at looks like an ordinary network interface. So you can capture from: <span=
+ class=3D"anchor" id=3D"line-9"></span><span class=3D"anchor" id=3D"line-10=
+"></span></p><ul><li>the USB device for raw USB traffic (if supported) <spa=
+n class=3D"anchor" id=3D"line-11"></span></li><li>the network device for &q=
+uot;normal&quot; network packets <span class=3D"anchor" id=3D"line-12"></sp=
+an><span class=3D"anchor" id=3D"line-13"></span></li></ul><p class=3D"line8=
+74">The USB bus will add additional overhead, so the raw USB traffic will h=
+ave higher volume than the network traffic, even if the only active USB dev=
+ices on the system are network adapters.  (If there are other active USB de=
+vices, the raw USB traffic will include traffic to and from those devices, =
+so it will obviously have higher volume than Ethernet traffic.) <span class=
+=3D"anchor" id=3D"line-14"></span><span class=3D"anchor" id=3D"line-15"></s=
+pan></p><p class=3D"line867">
+</p><h2 id=3D"Linux">Linux</h2>
+<span class=3D"anchor" id=3D"line-16"></span><span class=3D"anchor" id=3D"l=
+ine-17"></span><p class=3D"line862">Capturing USB traffic on Linux is possi=
+ble since Wireshark 1.2.0, libpcap 1.0.0, and Linux 2.6.11, using the Linux=
+ usbmon interface. To dump USB traffic on Linux, you need the <a class=3D"h=
+ttps" href=3D"https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbm=
+on</a> kernel module. If it is not loaded yet, run this command as root: <s=
+pan class=3D"anchor" id=3D"line-18"></span><span class=3D"anchor" id=3D"lin=
+e-19"></span></p><ul><li style=3D"list-style-type:none"><p class=3D"line891=
+"><tt>modprobe&#xa0;usbmon</tt> <span class=3D"anchor" id=3D"line-20"></spa=
+n><span class=3D"anchor" id=3D"line-21"></span></p></li></ul><p class=3D"li=
+ne874">With Linux kernels prior to 2.6.23, you will also need to run this c=
+ommand as root: <span class=3D"anchor" id=3D"line-22"></span><span class=3D=
+"anchor" id=3D"line-23"></span></p><ul><li style=3D"list-style-type:none"><=
+p class=3D"line891"><tt>mount&#xa0;-t&#xa0;debugfs&#xa0;none&#xa0;/sys/kern=
+el/debug</tt> <span class=3D"anchor" id=3D"line-24"></span><span class=3D"a=
+nchor" id=3D"line-25"></span></p></li></ul><p class=3D"line874">and, with t=
+hose kernels, the usbmon mechanism&#x27;s protocol limits the total amount =
+of data captured for each raw USB block to about 30 bytes.  With a 2.6.23 o=
+r later kernel, and libpcap 1.1.0 and later, that size limitation is remove=
+d. <span class=3D"anchor" id=3D"line-26"></span><span class=3D"anchor" id=
+=3D"line-27"></span></p><p class=3D"line862">In libpcap 1.1.0 and later, th=
+e devices on which you can capture are named <tt>usbmonX</tt>, where <tt>X<=
+/tt> is the USB bus number.  On Linux 2.6.22 and later, the special &quot;u=
+sbmon0&quot; interface receives events from all USB buses.  In libpcap 1.0.=
+x, the devices were named <tt>usbX</tt>. <span class=3D"anchor" id=3D"line-=
+28"></span><span class=3D"anchor" id=3D"line-29"></span></p><p class=3D"lin=
+e867">
+</p><h2 id=3D"Windows">Windows</h2>
+<span class=3D"anchor" id=3D"line-30"></span><span class=3D"anchor" id=3D"l=
+ine-31"></span><p class=3D"line862">You can capture raw USB traffic on Wind=
+ows with <a class=3D"http" href=3D"http://desowin.org/usbpcap/">USBPcap</a>=
+. The <a href=3D"/Tools">Tools</a> page lists some other options for Window=
+s USB capture. <span class=3D"anchor" id=3D"line-32"></span><span class=3D"=
+anchor" id=3D"line-33"></span></p><p class=3D"line862">You can also capture=
+ and debug USB traffic on a virtual Windows machine under VirtualBox. In so=
+me ways this is more convenient than working with a separate Windows box. <=
+span class=3D"anchor" id=3D"line-34"></span><span class=3D"anchor" id=3D"li=
+ne-35"></span></p><p class=3D"line862">In this example, an embedded Linux d=
+evice running g_ether (RNDIS ethernet gadget) connects to Windows. e.g. an =
+NSLU2 with a USB slave modification <a class=3D"http" href=3D"http://www.ns=
+lu2-linux.org/wiki/HowTo/AddDeviceSideUSBPort">http://www.nslu2-linux.org/w=
+iki/HowTo/AddDeviceSideUSBPort</a> but it should work for almost any USB de=
+vice. <span class=3D"anchor" id=3D"line-36"></span><span class=3D"anchor" i=
+d=3D"line-37"></span></p><p class=3D"line862">With this method, Linux recog=
+nises the USB device (i.e. &gt;lsusb will still show them), but VirtualBox =
+hooks it into Windows but  Wireshark on linux  still gets to snoop on all t=
+he packets. <span class=3D"anchor" id=3D"line-38"></span><span class=3D"anc=
+hor" id=3D"line-39"></span></p><p class=3D"line874">Steps: <span class=3D"a=
+nchor" id=3D"line-40"></span><span class=3D"anchor" id=3D"line-41"></span><=
+/p><p class=3D"line862">1. Install a VirtualBox Windows guest on your Linux=
+ host.  Start up the virtual Windows session. <span class=3D"anchor" id=3D"=
+line-42"></span><span class=3D"anchor" id=3D"line-43"></span></p><p class=
+=3D"line874">2. Plug-in the embedded slave device via a USB cable, which it=
+self should be either a device Windows already knows about (or in this case=
+ it was running a valid  g_ether gadget stack and needed a .inf file) <span=
+ class=3D"anchor" id=3D"line-44"></span><span class=3D"anchor" id=3D"line-4=
+5"></span></p><p class=3D"line862">3. Run &gt;lsusb and take a note of whic=
+h bus the device connects. <span class=3D"anchor" id=3D"line-46"></span><sp=
+an class=3D"anchor" id=3D"line-47"></span></p><ul><li style=3D"list-style-t=
+ype:none">e.g <span class=3D"anchor" id=3D"line-48"></span></li><li style=
+=3D"list-style-type:none">&quot;Bus 003 Device 003: ID 0525:a4a2 Netchip Te=
+chnology, Inc. Linux-USB Ethernet/RNDIS Gadget&quot; <span class=3D"anchor"=
+ id=3D"line-49"></span><span class=3D"anchor" id=3D"line-50"></span></li></=
+ul><p class=3D"line862">4. On linux side,run  &gt;ifconfig usb0 down       =
+   - this prevents both the linux system and the windows system from fighti=
+ng over the device <span class=3D"anchor" id=3D"line-51"></span><span class=
+=3D"anchor" id=3D"line-52"></span></p><p class=3D"line862">5. On the Window=
+s virtual machine, on VirtualBox  menus  click the checkbox <span class=3D"=
+anchor" id=3D"line-53"></span><span class=3D"anchor" id=3D"line-54"></span>=
+</p><ul><li style=3D"list-style-type:none"><p class=3D"line862">[Devices]-&=
+gt;Usb devices&gt;[x]Your device <span class=3D"anchor" id=3D"line-55"></sp=
+an></p></li><li style=3D"list-style-type:none">to let windows see the USB d=
+evice. <span class=3D"anchor" id=3D"line-56"></span><span class=3D"anchor" =
+id=3D"line-57"></span></li></ul><p class=3D"line874">6. Now Windows should =
+recognise the device and proceed with the &quot;plug-and-pray&quot; session=
+ for driver initialisation. <span class=3D"anchor" id=3D"line-58"></span><s=
+pan class=3D"anchor" id=3D"line-59"></span></p><ul><li style=3D"list-style-=
+type:none"><p class=3D"line862">I worked from the instructions on <a class=
+=3D"http" href=3D"http://docwiki.gumstix.org/index.php/Windows_XP_usbnet">h=
+ttp://docwiki.gumstix.org/index.php/Windows_XP_usbnet</a> to install the dr=
+iver. <span class=3D"anchor" id=3D"line-60"></span><span class=3D"anchor" i=
+d=3D"line-61"></span></p></li></ul><p class=3D"line874">7. In this example,=
+ I had to set up the networking options for IP address, Gateway etc on Wind=
+ows to match the IP network on the gadget but for other USB device types th=
+ere will be no extra setup.  In any case this is just normal Windows behavi=
+or. <span class=3D"anchor" id=3D"line-62"></span><span class=3D"anchor" id=
+=3D"line-63"></span></p><p class=3D"line862">8. On Linux, startup Wireshark=
+ and using the Bus number given earlier from   &gt;lsusb   command to sniff=
+ for packets. <span class=3D"anchor" id=3D"line-64"></span><span class=3D"a=
+nchor" id=3D"line-65"></span></p><p class=3D"line862">Hints for developing =
+something like a Windows native &quot;USBPcap&quot;: a <a class=3D"http" hr=
+ef=3D"http://msdn2.microsoft.com/en-us/library/aa490241.aspx">kernel mode f=
+ilter device driver</a> has to be written. An older <a class=3D"http" href=
+=3D"http://www.microsoft.com/whdc/devtools/ddk/default.mspx">Driver Develop=
+ment Kit (DDK)</a> is available which at least can compile kernel mode bina=
+ries. The most important functions to install the filter driver are <a clas=
+s=3D"http" href=3D"http://msdn2.microsoft.com/en-us/library/ms682450.aspx">=
+CreateService()</a> and <a class=3D"http" href=3D"http://msdn2.microsoft.co=
+m/en-us/library/ms792978.aspx">SetupDiSetDeviceRegistryProperty()</a> funct=
+ion with SPDRP_LOWERFILTERS parameter. <span class=3D"anchor" id=3D"line-66=
+"></span><span class=3D"anchor" id=3D"line-67"></span></p><p class=3D"line8=
+67">
+</p><h2 id=3D"Discussion">Discussion</h2>
+<span class=3D"anchor" id=3D"line-68"></span><p class=3D"line862">Why was t=
+he note about inaccurate time stamps removed?!? - <em><a href=3D"/UlfLampin=
+g">UlfLamping</a></em> <span class=3D"anchor" id=3D"line-69"></span><span c=
+lass=3D"anchor" id=3D"line-70"></span></p><p class=3D"line874">The timestam=
+ps should be ok now since libpcap worksaround the issue by explicitly calli=
+ng gettimeofday()- ronnie <span class=3D"anchor" id=3D"line-71"></span><spa=
+n class=3D"anchor" id=3D"line-72"></span></p><p class=3D"line862">Well, the=
+ inaccuracies I had in mind was about the &quot;delta&quot; involved betwee=
+n the data is received from the USB device and actually timestamped from th=
+e kernel. This delta will be substantially lower for e.g. PCI based nic&#x2=
+7;s than for USB ones - and should be mentioned. Or am I just wrong on this=
+ topic and this can be ignored - which should be mentioned then too? - <em>=
+<a href=3D"/UlfLamping">UlfLamping</a></em> <span class=3D"anchor" id=3D"li=
+ne-73"></span><span class=3D"anchor" id=3D"line-74"></span></p><p class=3D"=
+line862">There&#x27;s &quot;capturing on USB-attached networking interfaces=
+&quot; and there&#x27;s &quot;capturing USB traffic&quot;; this page is for=
+ the latter, but it sounds as if the time stamp delta is an issue for the f=
+ormer. - <em>Guy Harris</em> <span class=3D"anchor" id=3D"line-75"></span><=
+span class=3D"anchor" id=3D"line-76"></span></p><p class=3D"line867">
+</p><h2 id=3D"See_Also">See Also</h2>
+<span class=3D"anchor" id=3D"line-77"></span><ul><li><p class=3D"line891"><=
+a href=3D"/CaptureSetup/Ethernet">Capturing on Ethernet Networks</a> <span =
+class=3D"anchor" id=3D"line-78"></span></p></li><li><p class=3D"line891"><a=
+ href=3D"/CaptureSetup/WLAN">Capturing on 802.11 Wireless Networks</a> <spa=
+n class=3D"anchor" id=3D"line-79"></span></p></li><li><p class=3D"line891">=
+<a href=3D"/CaptureSetup/TokenRing">Capturing on Token Ring Networks</a> <s=
+pan class=3D"anchor" id=3D"line-80"></span></p></li><li><p class=3D"line891=
+"><a href=3D"/CaptureSetup/VLAN">Capturing on VLAN Protected Networks</a> <=
+span class=3D"anchor" id=3D"line-81"></span></p></li><li><p class=3D"line89=
+1"><a href=3D"/CaptureSetup/PPP">Capturing on PPP Networks</a> <span class=
+=3D"anchor" id=3D"line-82"></span></p></li><li><p class=3D"line891"><a href=
+=3D"/CaptureSetup/Loopback">Capturing on the Loopback Device</a> <span clas=
+s=3D"anchor" id=3D"line-83"></span></p></li><li><p class=3D"line891"><a hre=
+f=3D"/CaptureSetup/FrameRelay">Capturing on Frame Relay Networks</a> <span =
+class=3D"anchor" id=3D"line-84"></span></p></li><li><p class=3D"line891"><a=
+ href=3D"/CaptureSetup/DOCSIS">Capturing DOCSIS Traffic</a> <span class=3D"=
+anchor" id=3D"line-85"></span></p></li><li><p class=3D"line891"><a href=3D"=
+/CaptureSetup/Bluetooth">Capturing Bluetooth Traffic</a> <span class=3D"anc=
+hor" id=3D"line-86"></span></p></li><li><p class=3D"line891"><a href=3D"/Ca=
+ptureSetup/ATM">Capturing on ATM Networks</a> <span class=3D"anchor" id=3D"=
+line-87"></span></p></li><li><p class=3D"line891"><a href=3D"/CaptureSetup/=
+IrDA">Capturing IrDA Traffic</a> <span class=3D"anchor" id=3D"line-88"></sp=
+an></p></li><li><p class=3D"line891"><a href=3D"/CaptureSetup/CiscoHDLC">Ca=
+pturing on Cisco HDLC Networks</a> <span class=3D"anchor" id=3D"line-89"></=
+span></p></li><li><p class=3D"line891"><a href=3D"/CaptureSetup/SS7">Captur=
+ing SS7 Traffic</a> <span class=3D"anchor" id=3D"line-90"></span><span clas=
+s=3D"anchor" id=3D"line-91"></span></p></li><li class=3D"gap" style=3D"list=
+-style-type:none"><p class=3D"line891"><a href=3D"/CategoryHowTo">CategoryH=
+owTo</a> <span class=3D"anchor" id=3D"line-92"></span></p></li></ul><span c=
+lass=3D"anchor" id=3D"bottom"></span></div><p class=3D"info" dir=3D"ltr" id=
+=3D"pageinfo" lang=3D"en">CaptureSetup/USB  (last edited 2016-04-06 17:47:3=
+6 by <span title=3D"Lekensteyn @ 2001:470:1f15:b83::c0d1:f1ed[2001:470:1f15=
+:b83::c0d1:f1ed]"><a class=3D"mailto" href=3D"mailto:peter@lekensteyn.nl" t=
+itle=3D"Lekensteyn @ 2001:470:1f15:b83::c0d1:f1ed[2001:470:1f15:b83::c0d1:f=
+1ed]">PeterWu</a></span>)</p>
+
+<div id=3D"pagebottom"></div>
+</div>
+
+
+<div id=3D"footer">
+<ul class=3D"editbar"><li><span class=3D"disabled">Immutable Page</span></l=
+i><li class=3D"toggleCommentsButton" style=3D"display:none;"><a class=3D"nb=
+comment" href=3D"#" onclick=3D"toggleComments();return false;">Comments</a>=
+</li><li><a class=3D"nbinfo" href=3D"/CaptureSetup/USB?action=3Dinfo" rel=
+=3D"nofollow">Info</a></li><li><a class=3D"nbattachments" href=3D"/CaptureS=
+etup/USB?action=3DAttachFile" rel=3D"nofollow">Attachments</a></li><li>
+<form action=3D"/CaptureSetup/USB" class=3D"actionsmenu" method=3D"GET">
+<div>
+   =20
+    <select name=3D"action" onchange=3D"if ((this.selectedIndex !=3D 0) &am=
+p;&amp;
+                      (this.options[this.selectedIndex].disabled =3D=3D fal=
+se)) {
+                this.form.submit();
+            }
+            this.selectedIndex =3D 0;">
+        <option selected=3D"selected" value=3D"show">More Actions:</option>=
+<option value=3D"raw">Raw Text</option>
+<option value=3D"print">Print View</option>
+<option value=3D"RenderAsDocbook">Render as Docbook</option>
+<option value=3D"refresh">Delete Cache</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"SpellCheck">Check Spelling</option>
+<option value=3D"LikePages">Like Pages</option>
+<option value=3D"LocalSiteMap">Local Site Map</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"RenamePage">Rename Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"DeletePage">Delete Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Subscribe User</opt=
+ion>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Remove Spam</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Revert to this revi=
+sion</option>
+<option value=3D"PackagePages">Package Pages</option>
+<option value=3D"SyncPages">Sync Pages</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"Load">Load</option>
+<option value=3D"Save">Save</option>
+<option value=3D"SlideShow">SlideShow</option>
+    </select>
+   =20
+   =20
+</div>
+<script type=3D"text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"credits" w=
+idth=3D"98%">
+  <tbody><tr>
+    <td valign=3D"top">
+Original content on this site is available under the GNU General Public Lic=
+ense.<br>
+See the <a href=3D"/License">License</a> page for details.
+    </td>
+    <td align=3D"right" valign=3D"top">
+Powered by <a href=3D"http://moinmoin.wikiwikiweb.de/">MoinMoin</a>
+and <a href=3D"http://www.python.org/">Python</a>.
+<br>
+Please don&#x27;t pee in the pool.
+    </td>
+  </tr>
+</tbody></table>
+
+<!-- Google Analytics -->
+<script type=3D"text/javascript">
+
+  var _gaq =3D _gaq || [];
+  _gaq.push(['_setAccount', 'UA-605389-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga =3D document.createElement('script'); ga.type =3D 'text/javascri=
+pt'; ga.async =3D true;
+    ga.src =3D ('https:' =3D=3D document.location.protocol ? 'https://ssl' =
+: 'http://www') + '.google-analytics.com/ga.js';
+    var s =3D document.getElementsByTagName('script')[0]; s.parentNode.inse=
+rtBefore(ga, s);
+  })();
+
+</script>
+<!-- / Google Analytics -->
+
+
+</div>
+
+
+
+</body></html>
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://fonts.googleapis.com/css?family=Open+Sans
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('=
+woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com=
+/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('=
+woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xJwN=
+a6kgmw9HIHjUBPkzL2f3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xKdG=
+PpWTn2kPFru4k7T0T-v3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xN9i=
+7v7U2vZkHC55NWxtqfn3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xK1u=
+eDcgZDcfV3TWANvdPLj3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xC3q=
+j1XlvLGj0jktnJzWu233rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xC8h=
+AQ4ocbp44gFQt8tMfcH3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url=
+(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xBEu=
+r64QvLD-0IbiAdTUNXE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+BrT1lp9IdZ6Q20XTtjH6Zv3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+IS898UBCVj0FEntoasBk6P3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+BkraXwpsr1uSZUhAAol_4_3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+KTAHfCyYjmaKhz-jw4dXo73rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+P1CsDU87ma3di2VmaZcPSr3rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+BztfhWvsElVqpbWxzFHK633rGVtsTkPsbDajuO5ueQw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), =
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-x=
+IF8zhZCJ7x9Pr62cRgaVUA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/moin_static198/modernized/css/common.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+html{background-color:white;color:black;font-family:sans-serif;font-size:1e=
+m;}body{margin:0;}a{color:#0044B3;}a:visited{color:#FF7BB3;}a.nonexistent:v=
+isited,a.nonexistent,a.badinterwiki:visited,a.badinterwiki{color:gray;}a.ww=
+w:before{content:url(../img/moin-www.png);margin:0 0.2em;}a.http:before{con=
+tent:url(../img/moin-www.png);margin:0 0.2em;}a.https:before{content:url(..=
+/img/moin-www.png);margin:0 0.2em;}a.file:before{content:url(../img/moin-ft=
+p.png);margin:0 0.2em;}a.ftp:before{content:url(../img/moin-ftp.png);margin=
+:0 0.2em;}a.nntp:before{content:url(../img/moin-news.png);margin:0 0.2em;}a=
+.news:before{content:url(../img/moin-news.png);margin:0 0.2em;}a.telnet:bef=
+ore,a.ssh:before{content:url(../img/moin-telnet.png);margin:0 0.2em;}a.irc:=
+before,a.ircs:before{content:url(../img/moin-telnet.png);margin:0 0.2em;}a.=
+mailto:before{content:url(../img/moin-email.png);margin:0 0.2em;}a.attachme=
+nt:before{content:url(../img/moin-attach.png);margin:0 0.2em;}a.badinterwik=
+i:before{content:url(../img/moin-inter.png);margin:0 0.2em;}a.interwiki:bef=
+ore{content:url(../img/moin-inter.png);margin:0 0.2em;}a.action:before{cont=
+ent:url(../img/moin-action.png);margin:0 0.2em;}li p{margin:.25em 0;}li.gap=
+{margin-top:0.5em;}dt{margin-top:0.5em;font-weight:bold;}dd{margin-top:0;ma=
+rgin-bottom:0;}dd p{margin:0.25em 0;}a,img,img.drawing{border:0;}pre{border=
+:1pt solid #AEBDCC;background-color:#F3F5F7;padding:5pt;font-family:courier=
+,monospace;white-space:pre;white-space:pre-wrap;word-wrap:break-word;white-=
+space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;}pre.comm=
+ent{background-color:#CCCCCC;color:red;padding:0;margin:0;border:0;}pre.com=
+ment:before{content:url(../img/attention.png);}.comment{color:#555555;backg=
+round-color:#DDDDFF;}.red{background-color:#FFCCCC;}.green{background-color=
+:#CCFFCC;}.blue{background-color:#CCCCFF;}.yellow{background-color:#FFF29F;=
+}.orange{background-color:#FFD59B;}.solid{border:2px solid #000000;padding:=
+2px;}.dashed{border:2px dashed #000000;padding:2px;}.dotted{border:2px dott=
+ed #000000;padding:2px;}.left{text-align:left;}.center{text-align:center;}.=
+right{text-align:right;}.justify{text-align:justify;}table{margin:0.5em 0 0=
+ 0.5em;border-collapse:collapse;}th,td{padding:0.25em 0.5em 0.25em 0.5em;bo=
+rder:1pt solid #ADB9CC;}td p{margin:0;padding:0;}div.table-of-contents{bord=
+er:1px solid #bbbbbb;color:black;background-color:#eeeeee;font-size:80%;tex=
+t-align:left;margin:0.5em 0 0.5em 1em;padding:0.5em 0.75em 0.5em 0.5em;max-=
+width:50%;display:inline-table;}div.table-of-contents ol{margin:0;padding:0=
+ 0 0 2em;}div.table-of-contents ul{margin:0;list-style:none;}div.table-of-c=
+ontents li{margin:0;padding:0;}p.table-of-contents-heading{font-weight:bold=
+;padding:0;margin:0 0 0.5em 0;letter-spacing:0.075em;}table.navigation{back=
+ground:#fff;margin:0;}.footnotes div{width:5em;border-top:1pt solid gray;}.=
+footnotes ol{padding:0 2em;margin:0 0 1em;}.footnotes li{}.info{float:right=
+;font-size:0.7em;color:gray;}#pageinfo{margin-top:2em;}.seperator{color:gra=
+y;}#pagebottom{clear:both;}hr{height:1pt;background-color:#9C9C9C;border:0;=
+}.hr1{height:2pt;}.hr2{height:3pt;}.hr3{height:4pt;}.hr4{height:5pt;}.hr5{h=
+eight:6pt;}.hr6{height:7pt;}.u{text-decoration:underline;}.strike{text-deco=
+ration:line-through;}.warning{color:red;}.error{color:red;}strong.highlight=
+{background-color:#CCE0FF;padding:1pt;}.rcrss{float:right;margin:0 7px 0 14=
+px;height:0;position:relative;top:9px;}*[div=3D"rtl"] .rcrss{float:left;}.r=
+ecentchanges[dir=3D"rtl"] .rcrss{float:left;}.recentchanges table{clear:bot=
+h;border-collapse:collapse;border:1px solid #4d7da9;}.recentchanges td{vert=
+ical-align:top;border:none;background:#e6eaf0;}.recentchanges .rcdaybreak t=
+d{background:#81BBF2;border:none;border:1px solid #4d7da9;}.rcdaybreak td a=
+{font-size:0.88em;}.rcicon1,.rcicon2{text-align:center;}.rcpagelink{width:3=
+3%;}.rctime{font-size:0.88em;white-space:nowrap;}.rceditor{white-space:nowr=
+ap;font-size:0.88em;}.rccomment{width:50%;color:gray;font-size:0.88em;}.use=
+rpref table,.userpref td{border:none;}div.codemsg{margin:0.5em 0;padding:0.=
+5em;padding-left:2.5em;background:none;border:1pt solid #CCBDAE;background-=
+color:#F7F0E0;background-image:url('../img/alert.png');background-repeat:no=
+-repeat;background-position:0.5em 0.5em;color:black;}div.codearea{margin:0.=
+5em 0;padding:0;border:1pt solid #AEBDCC;background-color:#F3F5F7;color:bla=
+ck;}div.codearea pre{margin:0;padding:10pt;border:none;}a.codenumbers{margi=
+n:0 10pt;font-size:0.85em;color:gray;}div.codearea pre span.LineNumber{colo=
+r:gray;}div.codearea pre span.ID{color:#000000;}div.codearea pre span.Opera=
+tor{color:#0000C0;}div.codearea pre span.Char{color:#004080;}div.codearea p=
+re span.Comment{color:#008000;}div.codearea pre span.Number{color:#0080C0;}=
+div.codearea pre span.String{color:#004080;}div.codearea pre span.SPChar{co=
+lor:#0000C0;}div.codearea pre span.ResWord{color:#A00000;}div.codearea pre =
+span.ConsWord{color:#008080;font-weight:bold;}div.codearea pre span.Error{c=
+olor:#FF8080;border:solid 1.5pt #FF0000;}div.codearea pre span.ResWord2{col=
+or:#0080ff;font-weight:bold;}div.codearea pre span.Special{color:#0000ff;}d=
+iv.codearea pre span.Preprc{color:#803999;}div.codearea pre span.DiffAdded{=
+color:#4876FF;}div.codearea pre span.DiffRemoved{color:#FF0000;}div.codeare=
+a pre span.DiffChanged{color:#FF7F50;}div.codearea pre span.DiffSeparator{c=
+olor:#228B22;font-weight:bold}.advancedsearch{border:1pt solid #ADB9CC;}.ad=
+vancedsearch td{vertical-align:top;background-color:#E7E7E7;border:0px;}.ad=
+vancedsearch td.searchfor{font-weight:bold;}.advancedsearch input{border:1p=
+x solid #ADB9CC;background-color:#fff;}.advancedsearch input[disabled]{back=
+ground-color:#eee;}.advancedsearch td.submit{border-top:1px solid #ADB9CC;b=
+ackground-color:#fff;text-align:right;}.advancedsearch optioni,.advancedsea=
+rch select{border:1px solid #ADB9CC;background-color:#fff;}.searchresults d=
+t{margin-top:1em;font-weight:normal;}.searchresults dd,.searchresults p{fon=
+t-size:0.85em;}.searchresults .searchhitinfobar{color:#008000;margin-left:1=
+5px;margin-top:0;}p.searchstats{font-size:0.8em;text-align:right;width:100%=
+;background-color:#E6EAF0;border-top:1px solid #9088DC;padding:2px;}p.searc=
+hhint{background-color:#E6EAF0;border:1px solid #9088DC;padding:2px;}.searc=
+hpages{margin-left:auto;margin-right:auto;}.searchpages tr,.searchpages td{=
+border:0;padding:5px;margin:0;text-align:center;vertical-align:middle;color=
+:#b93a58;font-weight:bold;font-size:1.05em;}.searchpages td a,.searchpages =
+td a:link{text-decoration:underline;}a.cal-emptyday{color:#777777;text-alig=
+n:center;}a.cal-usedday{color:#000000;font-weight:bold;text-align:center;}t=
+d.cal-workday{background-color:#DDDDFF;text-align:center;}td.cal-weekend{ba=
+ckground-color:#FFDDDD;text-align:center;}td.cal-today{background-color:#CC=
+FFCC;border-style:solid;border-width:2pt;text-align:center;}td.cal-invalidd=
+ay{background-color:#CCCCCC;}a.cal-link{color:#000000;text-decoration:none;=
+}th.cal-header{background-color:#DDBBFF;text-align:center;}TABLE.tip{color:=
+black;background-color:#FF8888;font-size:small;font-weight:normal;border-st=
+yle:solid;border-width:1px;}TH.tip{background-color:#FF4444;font-weight:bol=
+d;text-align:center;}TD.tip{text-align:left;}*[dir=3D"rtl"] TD.tip{text-ali=
+gn:right;}#message .hint{font-style:italic;}#message .info{float:none;font-=
+size:1em;color:black;}#message .info:before{content:url('../img/icon-info.p=
+ng');margin:0 0.2em;}#message .warning:before{content:url('../img/alert.png=
+');margin:0 0.2em;}#message .error:before{content:url('../img/icon-error.pn=
+g');margin:0 0.2em;}#content div.caution,#content div.important,#content di=
+v.note,#content div.tip,#content div.warning{border:1pt solid #E5E5E5;backg=
+round-color:#F9F9FF;color:black;margin:10pt 30pt 10pt 30pt;background-repea=
+t:no-repeat;background-position:8px 8px;min-height:64px;padding-left:64px;}=
+#content div.caution p,#content div.important p,#content div.note p,#conten=
+t div.tip p,#content div.warning p{margin-top:8px;}#content div.tip{backgro=
+und-image:url("../img/admon-tip.png");}#content div.note{background-image:u=
+rl("../img/admon-note.png");}#content div.important{background-image:url(".=
+./img/admon-important.png");}#content div.caution{background-image:url("../=
+img/admon-caution.png");}#content div.warning{background-image:url("../img/=
+admon-warning.png");}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/moin_static198/modernized/css/screen.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body{padding:0;border:0;}a:link{color:#47f;text-decoration:none;}a:link:hov=
+er,a:link:active{text-decoration:underline;color:green;}a:visited{text-deco=
+ration:none;color:#04a;}a:visited:hover{text-decoration:none;color:red;}a.n=
+onexistent:link{color:#666}a.nonexistent:hover{color:black;text-decoration:=
+underline}a.download{font-size:120%;letter-spacing:0.05em;font-weight:bold;=
+background:#E7E7E7;border:1px solid #9C9C9C;padding:0.5em;text-align:center=
+;}input{}textarea{font-size:1em;font-family:monospace;}.disabled{color:gray=
+;}#header{margin:1px;padding:1px;background:#e6eaf0;line-height:1.1em;}#log=
+o{float:left;margin:5px 10px;padding:0;font-size:1.4em;line-height:1em;font=
+-weight:bold;}*[dir=3D"rtl"] #logo{float:right;}#logo img{vertical-align:mi=
+ddle;}#logo a{color:black;text-decoration:none;}#username{display:block;mar=
+gin:8px 12px 4px 12px;padding:0;font-size:0.82em;}#username form{display:in=
+line;}#username input{display:inline;padding:0;margin:0;border:none;backgro=
+und:transparent;color:blue;font-size:0.82em;cursor:pointer;}#username input=
+:hover{color:red;}#searchform{margin:4px 0.5em 8px 0.5em;padding:0;font-siz=
+e:0.82em;float:right;clear:right;text-align:right;}*[dir=3D"rtl"] #searchfo=
+rm{float:left;clear:left;text-align:left;}#searchform input{font-size:100%;=
+vertical-align:middle;}#pagetrail{clear:right;display:inline;margin:0 0.88e=
+m 0.25em 0.88em;padding:0;font-size:0.88em;}*[dir=3D"rtl"] #pagetrail{clear=
+:left;}#interwiki{font-size:1em;}#locationline{padding:0;font-size:100%;fon=
+t-weight:normal;margin:0.25em 12px 5px 12px;clear:right;}*[dir=3D"rtl"] #lo=
+cationline{clear:left;}#pagelocation{font-size:1.5em;letter-spacing:0.05em;=
+}*[dir=3D"rtl"] #pagetrail span.sep{visibility:hidden;}*[dir=3D"rtl"] #page=
+trail span.sep:after{content:" =C2=AB ";}#navibar{clear:both;display:block;=
+margin:0;padding:0 10px;font-size:0.82em;zoom:1;}#navibar li{float:left;dis=
+play:inline;margin:0 2px;padding:2px 5px;border:1px solid #acd;border-botto=
+m:none;white-space:nowrap;}*[dir=3D"rtl"] #navibar li{float:right;}#navibar=
+ li.wikilink{background:white;}#navibar li.userlink{background:#E6EAF0;}#na=
+vibar a,#navibar a:visited{color:black;text-decoration:none;}#navibar li.cu=
+rrent a{font-weight:bold;}#navibar li:hover{background:#d6e4f9;}#navibar li=
+.current,#navibar li.current:hover{background:#81BBF2;border:1px solid #4d7=
+da9;border-bottom:1px solid #81bbf2;margin-bottom:-1px;}#pageline{clear:bot=
+h;margin:0;padding:0;width:100%;height:4px;line-height:4px;border-bottom:1p=
+x solid #4d7da9;border-top:1px solid #4d7da9;background:#81BBF2;}.editbar{c=
+lear:both;display:block;margin:0;padding:2px 8px;background:#d6e4f9;font-si=
+ze:0.8em;border-bottom:1px solid #4d7da9;border-top:1px solid #4d7da9;margi=
+n-top:-1px;}.editbar form,.editbar form div{display:inline;margin:0;}.editb=
+ar select{font-size:100%;vertical-align:middle;}.editbar li{display:inline;=
+padding:0;margin:4px 6px;}.editbar a,.editbar a:visited{color:#0044B3;}#mes=
+sage{clear:both;margin:0;padding:5px 10px;border-bottom:1px solid #c9c9c9;b=
+ackground:#E6EAF0;}#message p{margin:5px 0;padding:0;}#message div.buttons{=
+font-weight:normal;}.dialog form{margin:0 15px;}.dialog td{border:none;padd=
+ing:5px;}.dialog td.label{text-align:right;font-weight:bold;width:25%;}*[di=
+r=3D"rtl"] .dialog td.label{text-align:left;}.dialog td.content input{width=
+:100%;}#page{background-color:white;margin:0;padding:2px 20px 20px 20px;}#e=
+ditor-textarea,#editor-help{font-family:monospace;border:1px solid #8cacbb;=
+color:black;background-color:white;padding:3px;width:100%;margin-top:0.5em;=
+}#editor-help{font-size:small;background-color:#EEEEFF;}#editor-comment{fon=
+t-size:100%;border:1px solid #8cacbb;color:black;background-color:white;ver=
+tical-align:middle;padding:1px;display:inline;width:70%;}#preview,#previewb=
+elow{border:1px solid #6C7680;padding:3px;width:100%;background:url(../img/=
+draft.png);margin-top:0.5em;}#textcha{font-size:100%;margin-top:0.5em;borde=
+r:2px solid #FF8888;color:black;vertical-align:middle;padding:3px 2px;}#tex=
+tcha-answer{border:2px solid #000000;padding:3px 2px;}input.button{}#footer=
+{clear:both;margin:0;padding:0;}#credits,#version,#timings{margin:5px 10px;=
+padding:0;text-align:center;font-size:0.88em;color:#6C7680;}#credits li,#ti=
+mings li{display:inline;padding:0 2px;margin:0 4px;}#credits img{vertical-a=
+lign:middle;}.diff{width:99%;table-layout:fixed;}.diff-header{font-weight:b=
+old;}.diff-title{background-color:#C0C0C0;}.diff-added{background-color:#E0=
+FFE0;vertical-align:top;width:50%;white-space:pre-wrap;word-wrap:break-word=
+;font-family:courier,monospace;}.diff-removed{background-color:#FFFFE0;vert=
+ical-align:top;width:50%;white-space:pre-wrap;word-wrap:break-word;font-fam=
+ily:courier,monospace;}.diff-added span{background-color:#80FF80;}.diff-rem=
+oved span{background-color:#FFFF80;}td.diff-info{vertical-align:top;}div.di=
+ff-info{white-space:nowrap;}div.diff-info-rev-comment span.diff-info-value{=
+white-space:normal;}div.diff-info-header{background-color:#E8E8E8;width:100=
+%;padding:0.25em 0.5em;margin:-0.25em -0.5em;margin-bottom:0.25em;text-alig=
+n:center;}td.diff-same{text-align:center;border:0;}table.navigation{float:r=
+ight;margin:2px;}#openididentifier{background:url(../../common/openid.png) =
+no-repeat;background-position:0 50%;padding-left:18px;}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/moin_static198/modernized/css/print.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+html{font-family:Times,serif;font-size:12pt;}body{margin:1.5cm;}a,a:visited=
+,a.nonexistent,a.badinterwiki{color:black;text-decoration:none;}a:hover{tex=
+t-decoration:underline;}.info a{color:gray;}pre{font-size:10pt;}a.interwiki=
+:before,a.badinterwiki:before{content:attr(title) ":";}a.interwiki img,a.ba=
+dinterwiki img{display:none;}.footnotes div{width:5em;border-top:1pt solid =
+gray;}#header,#sidebar,#footer,#timings,#credits,#interwiki,#pagelocation{d=
+isplay:none;}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/moin_static198/modernized/css/projection.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+@import url(screen.css);html{line-height:1.8em;}body,b,em,a,span,div,p,td{f=
+ont-size:18pt;}h1{font-size:26pt;}h2{font-size:22pt;}h3{font-size:20pt;}h4{=
+font-size:18pt;}h5{font-size:16pt;}h6{font-size:14pt;}tt,pre{font-size:16pt=
+;}sup,sub{font-size:12pt;}table.navigation{float:right;margin:2px;}.navigat=
+ion td,.navigation a{font-size:10pt;padding:2px;}#interwiki,#pagelocation,#=
+pageinfo{display:none;}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://www.wireshark.org/assets/css/ws-wiki-screen.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body{font-family:"Open Sans","DejaVu Sans",Helvetica,Arial,sans-serif;font-=
+size:14px;line-height:1.4142;}pre{font-family:Menlo,Consolas,"Bitstream Ver=
+a Sans Mono","Liberation Mono",monospace;}#content{max-width:940px;margin-l=
+eft:auto;margin-right:auto;}a.www:before,a.http:before,a.https:before,a.fil=
+e:before,a.ftp:before,a.nntp:before,a.news:before,a.telnet:before,a.ssh:bef=
+ore,a.irc:before,a.ircs:before,a.mailto:before,a.attachment:before,a.badint=
+erwiki:before,a.interwiki:before,a.action:before{content:none;margin:0;}h1,=
+h2,h3,h4{font-weight:bold;}h1{font-size:17px;line-height:19px;}h2{font-size=
+:16px;line-height:18px;}h3{font-size:14px;line-height:16px;}img{border:0px;=
+}ul,ol{padding-left:1.5em;}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://www.wireshark.org/assets/css/ws-wiki-print.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body{background:white;font-size:9pt;font-family:"Times New Roman",Times,ser=
+if;line-height:1.4em;color:black;}a.www:before,a.http:before,a.https:before=
+,a.file:before,a.ftp:before,a.nntp:before,a.news:before,a.telnet:before,a.s=
+sh:before,a.irc:before,a.ircs:before,a.mailto:before,a.attachment:before,a.=
+badinterwiki:before,a.interwiki:before,a.action:before{content:none;margin:=
+0;}h3{font-size:11px;}h2{font-size:12px;}h1{font-size:14px;}#header,#search=
+form,#username,#pagetrail,#navibar,.editbar{display:none;}#page{margin-top:=
+0.0in;margin-left:0.0in;margin-right:0.25in;}#content{margin:0;padding:0;bo=
+rder:0;}ul,ol{padding-left:1.2em;}a:link{text-decoration:none;border-bottom=
+:0.5px dotted #ccc;}
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2
+Content-Transfer-Encoding: base64
+Content-Type: font/woff2
+
+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
++8GnLABej+9aBQA=
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://ssl.google-analytics.com/ga.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+(function(){var E;function Aa(a,b){switch(b){case 0:return""+a;case 1:retur=
+n 1*a;case 2:return!!a;case 3:return 1E3*a}return a}function Ba(a){return"f=
+unction"=3D=3Dtypeof a}function Ca(a){return void 0!=3Da&&-1<(a.constructor=
++"").indexOf("String")}function F(a,b){return void 0=3D=3Da||"-"=3D=3Da&&!b=
+||""=3D=3Da}function Da(a){if(!a||""=3D=3Da)return"";for(;a&&-1<" \n\r\t".i=
+ndexOf(a.charAt(0));)a=3Da.substring(1);for(;a&&-1<" \n\r\t".indexOf(a.char=
+At(a.length-1));)a=3Da.substring(0,a.length-1);return a}
+function Ea(){return Math.round(2147483647*Math.random())}function Fa(){}fu=
+nction G(a,b){if(encodeURIComponent instanceof Function)return b?encodeURI(=
+a):encodeURIComponent(a);H(68);return escape(a)}function I(a){a=3Da.split("=
++").join(" ");if(decodeURIComponent instanceof Function)try{return decodeUR=
+IComponent(a)}catch(b){H(17)}else H(68);return unescape(a)}var Ga=3Dfunctio=
+n(a,b,c,d){a.addEventListener?a.addEventListener(b,c,!!d):a.attachEvent&&a.=
+attachEvent("on"+b,c)};
+function Ia(a,b){if(a){var c=3DJ.createElement("script");c.type=3D"text/jav=
+ascript";c.async=3D!0;c.src=3Da;c.id=3Db;var d=3DJ.getElementsByTagName("sc=
+ript")[0];d.parentNode.insertBefore(c,d);return c}}function K(a){return a&&=
+0<a.length?a[0]:""}function L(a){var b=3Da?a.length:0;return 0<b?a[b-1]:""}=
+var nf=3Dfunction(){this.prefix=3D"ga.";this.values=3D{}};nf.prototype.set=
+=3Dfunction(a,b){this.values[this.prefix+a]=3Db};nf.prototype.get=3Dfunctio=
+n(a){return this.values[this.prefix+a]};
+nf.prototype.contains=3Dfunction(a){return void 0!=3D=3Dthis.get(a)};functi=
+on Ka(a){0=3D=3Da.indexOf("www.")&&(a=3Da.substring(4));return a.toLowerCas=
+e()}
+function La(a,b){var c,d=3D{url:a,protocol:"http",host:"",path:"",R:new nf,=
+anchor:""};if(!a)return d;c=3Da.indexOf("://");0<=3Dc&&(d.protocol=3Da.subs=
+tring(0,c),a=3Da.substring(c+3));c=3Da.search("/|\\?|#");if(0<=3Dc)d.host=
+=3Da.substring(0,c).toLowerCase(),a=3Da.substring(c);else return d.host=3Da=
+.toLowerCase(),d;c=3Da.indexOf("#");0<=3Dc&&(d.anchor=3Da.substring(c+1),a=
+=3Da.substring(0,c));c=3Da.indexOf("?");0<=3Dc&&(Na(d.R,a.substring(c+1)),a=
+=3Da.substring(0,c));d.anchor&&b&&Na(d.R,d.anchor);a&&"/"=3D=3Da.charAt(0)&=
+&(a=3Da.substring(1));
+d.path=3Da;return d}
+function Oa(a,b){function c(a){var b=3D(a.hostname||"").split(":")[0].toLow=
+erCase(),c=3D(a.protocol||"").toLowerCase(),c=3D1*a.port||("http:"=3D=3Dc?8=
+0:"https:"=3D=3Dc?443:"");a=3Da.pathname||"";0=3D=3Da.indexOf("/")||(a=3D"/=
+"+a);return[b,""+c,a]}var d=3Db||J.createElement("a");d.href=3DJ.location.h=
+ref;var e=3D(d.protocol||"").toLowerCase(),f=3Dc(d),Be=3Dd.search||"",k=3De=
++"//"+f[0]+(f[1]?":"+f[1]:"");0=3D=3Da.indexOf("//")?a=3De+a:0=3D=3Da.index=
+Of("/")?a=3Dk+a:a&&0!=3Da.indexOf("?")?0>a.split("/")[0].indexOf(":")&&(a=
+=3Dk+f[2].substring(0,f[2].lastIndexOf("/"))+
+"/"+a):a=3Dk+f[2]+(a||Be);d.href=3Da;e=3Dc(d);return{protocol:(d.protocol||=
+"").toLowerCase(),host:e[0],port:e[1],path:e[2],Oa:d.search||"",url:a||""}}=
+function Na(a,b){function c(b,c){a.contains(b)||a.set(b,[]);a.get(b).push(c=
+)}for(var d=3DDa(b).split("&"),e=3D0;e<d.length;e++)if(d[e]){var f=3Dd[e].i=
+ndexOf("=3D");0>f?c(d[e],"1"):c(d[e].substring(0,f),d[e].substring(f+1))}}
+function Pa(a,b){if(F(a)||"["=3D=3Da.charAt(0)&&"]"=3D=3Da.charAt(a.length-=
+1))return"-";var c=3DJ.domain;return a.indexOf(c+(b&&"/"!=3Db?b:""))=3D=3D(=
+0=3D=3Da.indexOf("http://")?7:0=3D=3Da.indexOf("https://")?8:0)?"0":a};var =
+Qa=3D0;function Ra(a,b,c){1<=3DQa||1<=3D100*Math.random()||ld()||(a=3D["utm=
+t=3Derror","utmerr=3D"+a,"utmwv=3D5.6.7","utmn=3D"+Ea(),"utmsp=3D1"],b&&a.p=
+ush("api=3D"+b),c&&a.push("msg=3D"+G(c.substring(0,100))),M.w&&a.push("aip=
+=3D1"),Sa(a.join("&")),Qa++)};var Ta=3D0,Ua=3D{};function N(a){return Va("x=
+"+Ta++,a)}function Va(a,b){Ua[a]=3D!!b;return a}
+var Wa=3DN(),Xa=3DVa("anonymizeIp"),Ya=3DN(),$a=3DN(),ab=3DN(),bb=3DN(),O=
+=3DN(),P=3DN(),cb=3DN(),db=3DN(),eb=3DN(),fb=3DN(),gb=3DN(),hb=3DN(),ib=3DN=
+(),jb=3DN(),kb=3DN(),lb=3DN(),nb=3DN(),ob=3DN(),pb=3DN(),qb=3DN(),rb=3DN(),=
+sb=3DN(),tb=3DN(),ub=3DN(),vb=3DN(),wb=3DN(),xb=3DN(),yb=3DN(),zb=3DN(),Ab=
+=3DN(),Bb=3DN(),Cb=3DN(),Db=3DN(),Eb=3DN(),Fb=3DN(!0),Gb=3DVa("currencyCode=
+"),Hb=3DVa("page"),Ib=3DVa("title"),Jb=3DN(),Kb=3DN(),Lb=3DN(),Mb=3DN(),Nb=
+=3DN(),Ob=3DN(),Pb=3DN(),Qb=3DN(),Rb=3DN(),Q=3DN(!0),Sb=3DN(!0),Tb=3DN(!0),=
+Ub=3DN(!0),Vb=3DN(!0),Wb=3DN(!0),Zb=3DN(!0),$b=3DN(!0),ac=3DN(!0),bc=3DN(!0=
+),cc=3DN(!0),R=3DN(!0),dc=3DN(!0),
+ec=3DN(!0),fc=3DN(!0),gc=3DN(!0),hc=3DN(!0),ic=3DN(!0),jc=3DN(!0),S=3DN(!0)=
+,kc=3DN(!0),lc=3DN(!0),mc=3DN(!0),nc=3DN(!0),oc=3DN(!0),pc=3DN(!0),qc=3DN(!=
+0),rc=3DVa("campaignParams"),sc=3DN(),tc=3DVa("hitCallback"),uc=3DN();N();v=
+ar vc=3DN(),wc=3DN(),xc=3DN(),yc=3DN(),zc=3DN(),Ac=3DN(),Bc=3DN(),Cc=3DN(),=
+Dc=3DN(),Ec=3DN(),Fc=3DN(),Gc=3DN(),Hc=3DN(),Ic=3DN();N();var Mc=3DN(),Nc=
+=3DN(),Yb=3DN(),Jc=3DN(),Kc=3DN(),Lc=3DVa("utmtCookieName"),Cd=3DVa("displa=
+yFeatures"),Oc=3DN(),of=3DVa("gtmid"),Oe=3DVa("uaName"),Pe=3DVa("uaDomain")=
+,Qe=3DVa("uaPath"),pf=3DVa("linkid");var Re=3Dfunction(){function a(a,c,d){=
+T(qf.prototype,a,c,d)}a("_createTracker",qf.prototype.hb,55);a("_getTracker=
+",qf.prototype.oa,0);a("_getTrackerByName",qf.prototype.u,51);a("_getTracke=
+rs",qf.prototype.pa,130);a("_anonymizeIp",qf.prototype.aa,16);a("_forceSSL"=
+,qf.prototype.la,125);a("_getPlugin",Pc,120)},Se=3Dfunction(){function a(a,=
+c,d){T(U.prototype,a,c,d)}Qc("_getName",$a,58);Qc("_getAccount",Wa,64);Qc("=
+_visitCode",Q,54);Qc("_getClientInfo",ib,53,1);Qc("_getDetectTitle",lb,56,1=
+);Qc("_getDetectFlash",
+jb,65,1);Qc("_getLocalGifPath",wb,57);Qc("_getServiceMode",xb,59);V("_setCl=
+ientInfo",ib,66,2);V("_setAccount",Wa,3);V("_setNamespace",Ya,48);V("_setAl=
+lowLinker",fb,11,2);V("_setDetectFlash",jb,61,2);V("_setDetectTitle",lb,62,=
+2);V("_setLocalGifPath",wb,46,0);V("_setLocalServerMode",xb,92,void 0,0);V(=
+"_setRemoteServerMode",xb,63,void 0,1);V("_setLocalRemoteServerMode",xb,47,=
+void 0,2);V("_setSampleRate",vb,45,1);V("_setCampaignTrack",kb,36,2);V("_se=
+tAllowAnchor",gb,7,2);V("_setCampNameKey",ob,41);V("_setCampContentKey",
+tb,38);V("_setCampIdKey",nb,39);V("_setCampMediumKey",rb,40);V("_setCampNOK=
+ey",ub,42);V("_setCampSourceKey",qb,43);V("_setCampTermKey",sb,44);V("_setC=
+ampCIdKey",pb,37);V("_setCookiePath",P,9,0);V("_setMaxCustomVariables",yb,0=
+,1);V("_setVisitorCookieTimeout",cb,28,1);V("_setSessionCookieTimeout",db,2=
+6,1);V("_setCampaignCookieTimeout",eb,29,1);V("_setReferrerOverride",Jb,49)=
+;V("_setSiteSpeedSampleRate",Dc,132);a("_trackPageview",U.prototype.Fa,1);a=
+("_trackEvent",U.prototype.F,4);a("_trackPageLoadTime",
+U.prototype.Ea,100);a("_trackSocial",U.prototype.Ga,104);a("_trackTrans",U.=
+prototype.Ia,18);a("_sendXEvent",U.prototype.ib,78);a("_createEventTracker"=
+,U.prototype.ia,74);a("_getVersion",U.prototype.qa,60);a("_setDomainName",U=
+.prototype.B,6);a("_setAllowHash",U.prototype.va,8);a("_getLinkerUrl",U.pro=
+totype.na,52);a("_link",U.prototype.link,101);a("_linkByPost",U.prototype.u=
+a,102);a("_setTrans",U.prototype.za,20);a("_addTrans",U.prototype.$,21);a("=
+_addItem",U.prototype.Y,19);a("_clearTrans",U.prototype.ea,
+105);a("_setTransactionDelim",U.prototype.Aa,82);a("_setCustomVar",U.protot=
+ype.wa,10);a("_deleteCustomVar",U.prototype.ka,35);a("_getVisitorCustomVar"=
+,U.prototype.ra,50);a("_setXKey",U.prototype.Ca,83);a("_setXValue",U.protot=
+ype.Da,84);a("_getXKey",U.prototype.sa,76);a("_getXValue",U.prototype.ta,77=
+);a("_clearXKey",U.prototype.fa,72);a("_clearXValue",U.prototype.ga,73);a("=
+_createXObj",U.prototype.ja,75);a("_addIgnoredOrganic",U.prototype.W,15);a(=
+"_clearIgnoredOrganic",U.prototype.ba,97);a("_addIgnoredRef",
+U.prototype.X,31);a("_clearIgnoredRef",U.prototype.ca,32);a("_addOrganic",U=
+.prototype.Z,14);a("_clearOrganic",U.prototype.da,70);a("_cookiePathCopy",U=
+.prototype.ha,30);a("_get",U.prototype.ma,106);a("_set",U.prototype.xa,107)=
+;a("_addEventListener",U.prototype.addEventListener,108);a("_removeEventLis=
+tener",U.prototype.removeEventListener,109);a("_addDevId",U.prototype.V);a(=
+"_getPlugin",Pc,122);a("_setPageGroup",U.prototype.ya,126);a("_trackTiming"=
+,U.prototype.Ha,124);a("_initData",U.prototype.initData,
+2);a("_setVar",U.prototype.Ba,22);V("_setSessionTimeout",db,27,3);V("_setCo=
+okieTimeout",eb,25,3);V("_setCookiePersistence",cb,24,1);a("_setAutoTrackOu=
+tbound",Fa,79);a("_setTrackOutboundSubdomains",Fa,81);a("_setHrefExamineLim=
+it",Fa,80)};function Pc(a){var b=3Dthis.plugins_;if(b)return b.get(a)}
+var T=3Dfunction(a,b,c,d){a[b]=3Dfunction(){try{return void 0!=3Dd&&H(d),c.=
+apply(this,arguments)}catch(a){throw Ra("exc",b,a&&a.name),a;}}},Qc=3Dfunct=
+ion(a,b,c,d){U.prototype[a]=3Dfunction(){try{return H(c),Aa(this.a.get(b),d=
+)}catch(e){throw Ra("exc",a,e&&e.name),e;}}},V=3Dfunction(a,b,c,d,e){U.prot=
+otype[a]=3Dfunction(f){try{H(c),void 0=3D=3De?this.a.set(b,Aa(f,d)):this.a.=
+set(b,e)}catch(Be){throw Ra("exc",a,Be&&Be.name),Be;}}},Te=3Dfunction(a,b){=
+return{type:b,target:a,stopPropagation:function(){throw"aborted";}}};var Rc=
+=3Dnew RegExp(/(^|\.)doubleclick\.net$/i),Sc=3Dfunction(a,b){return Rc.test=
+(J.location.hostname)?!0:"/"!=3D=3Db?!1:0!=3Da.indexOf("www.google.")&&0!=
+=3Da.indexOf(".google.")&&0!=3Da.indexOf("google.")||-1<a.indexOf("google.o=
+rg")?!1:!0},Tc=3Dfunction(a){var b=3Da.get(bb),c=3Da.c(P,"/");Sc(b,c)&&a.st=
+opPropagation()};var Zc=3Dfunction(){var a=3D{},b=3D{},c=3Dnew Uc;this.g=3D=
+function(a,b){c.add(a,b)};var d=3Dnew Uc;this.v=3Dfunction(a,b){d.add(a,b)}=
+;var e=3D!1,f=3D!1,Be=3D!0;this.T=3Dfunction(){e=3D!0};this.j=3Dfunction(a)=
+{this.load();this.set(sc,a,!0);a=3Dnew Vc(this);e=3D!1;d.cb(this);e=3D!0;b=
+=3D{};this.gb();a.Ja()};this.load=3Dfunction(){e&&(e=3D!1,this.Ka(),Wc(this=
+),f||(f=3D!0,c.cb(this),Xc(this),Wc(this)),e=3D!0)};this.gb=3Dfunction(){e&=
+&(f?(e=3D!1,Xc(this),e=3D!0):this.load())};this.get=3Dfunction(c){Ua[c]&&th=
+is.load();return void 0!=3D=3Db[c]?b[c]:a[c]};this.set=3D
+function(c,d,e){Ua[c]&&this.load();e?b[c]=3Dd:a[c]=3Dd;Ua[c]&&this.gb()};th=
+is.Za=3Dfunction(b){a[b]=3Dthis.b(b,0)+1};this.b=3Dfunction(a,b){var c=3Dth=
+is.get(a);return void 0=3D=3Dc||""=3D=3D=3Dc?b:1*c};this.c=3Dfunction(a,b){=
+var c=3Dthis.get(a);return void 0=3D=3Dc?b:c+""};this.Ka=3Dfunction(){if(Be=
+){var b=3Dthis.c(bb,""),c=3Dthis.c(P,"/");Sc(b,c)||(a[O]=3Da[hb]&&""!=3Db?Y=
+c(b):1,Be=3D!1)}}};Zc.prototype.stopPropagation=3Dfunction(){throw"aborted"=
+;};
+var Vc=3Dfunction(a){var b=3Dthis;this.fb=3D0;var c=3Da.get(tc);this.Ua=3Df=
+unction(){0<b.fb&&c&&(b.fb--,b.fb||c())};this.Ja=3Dfunction(){!b.fb&&c&&set=
+Timeout(c,10)};a.set(uc,b,!0)};function $c(a,b){b=3Db||[];for(var c=3D0;c<b=
+.length;c++){var d=3Db[c];if(""+a=3D=3Dd||0=3D=3Dd.indexOf(a+"."))return d}=
+return"-"}
+var bd=3Dfunction(a,b,c){c=3Dc?"":a.c(O,"1");b=3Db.split(".");if(6!=3D=3Db.=
+length||ad(b[0],c))return!1;c=3D1*b[1];var d=3D1*b[2],e=3D1*b[3],f=3D1*b[4]=
+;b=3D1*b[5];if(!(0<=3Dc&&0<d&&0<e&&0<f&&0<=3Db))return!1;a.set(Q,c);a.set(V=
+b,d);a.set(Wb,e);a.set(Zb,f);a.set($b,b);return!0},cd=3Dfunction(a){var b=
+=3Da.get(Q),c=3Da.get(Vb),d=3Da.get(Wb),e=3Da.get(Zb),f=3Da.b($b,1);return[=
+a.b(O,1),void 0!=3Db?b:"-",c||"-",d||"-",e||"-",f].join(".")},dd=3Dfunction=
+(a){return[a.b(O,1),a.b(cc,0),a.b(R,1),a.b(dc,0)].join(".")},ed=3Dfunction(=
+a,b,c){c=3Dc?"":a.c(O,
+"1");var d=3Db.split(".");if(4!=3D=3Dd.length||ad(d[0],c))d=3Dnull;a.set(cc=
+,d?1*d[1]:0);a.set(R,d?1*d[2]:10);a.set(dc,d?1*d[3]:a.get(ab));return null!=
+=3Dd||!ad(b,c)},fd=3Dfunction(a,b){var c=3DG(a.c(Tb,"")),d=3D[],e=3Da.get(F=
+b);if(!b&&e){for(var f=3D0;f<e.length;f++){var Be=3De[f];Be&&1=3D=3DBe.scop=
+e&&d.push(f+"=3D"+G(Be.name)+"=3D"+G(Be.value)+"=3D1")}0<d.length&&(c+=3D"|=
+"+d.join("^"))}return c?a.b(O,1)+"."+c:null},gd=3Dfunction(a,b,c){c=3Dc?"":=
+a.c(O,"1");b=3Db.split(".");if(2>b.length||ad(b[0],c))return!1;b=3Db.slice(=
+1).join(".").split("|");
+0<b.length&&a.set(Tb,I(b[0]));if(1>=3Db.length)return!0;b=3Db[1].split(-1=
+=3D=3Db[1].indexOf(",")?"^":",");for(c=3D0;c<b.length;c++){var d=3Db[c].spl=
+it("=3D");if(4=3D=3Dd.length){var e=3D{};e.name=3DI(d[1]);e.value=3DI(d[2])=
+;e.scope=3D1;a.get(Fb)[d[0]]=3De}}return!0},hd=3Dfunction(a,b){var c=3DUe(a=
+,b);return c?[a.b(O,1),a.b(ec,0),a.b(fc,1),a.b(gc,1),c].join("."):""},Ue=3D=
+function(a){function b(b,e){if(!F(a.get(b))){var f=3Da.c(b,""),f=3Df.split(=
+" ").join("%20"),f=3Df.split("+").join("%20");c.push(e+"=3D"+f)}}var c=3D[]=
+;b(ic,"utmcid");b(nc,"utmcsr");
+b(S,"utmgclid");b(kc,"utmgclsrc");b(lc,"utmdclid");b(mc,"utmdsid");b(jc,"ut=
+mccn");b(oc,"utmcmd");b(pc,"utmctr");b(qc,"utmcct");return c.join("|")},id=
+=3Dfunction(a,b,c){c=3Dc?"":a.c(O,"1");b=3Db.split(".");if(5>b.length||ad(b=
+[0],c))return a.set(ec,void 0),a.set(fc,void 0),a.set(gc,void 0),a.set(ic,v=
+oid 0),a.set(jc,void 0),a.set(nc,void 0),a.set(oc,void 0),a.set(pc,void 0),=
+a.set(qc,void 0),a.set(S,void 0),a.set(kc,void 0),a.set(lc,void 0),a.set(mc=
+,void 0),!1;a.set(ec,1*b[1]);a.set(fc,1*b[2]);a.set(gc,1*b[3]);
+Ve(a,b.slice(4).join("."));return!0},Ve=3Dfunction(a,b){function c(a){retur=
+n(a=3Db.match(a+"=3D(.*?)(?:\\|utm|$)"))&&2=3D=3Da.length?a[1]:void 0}funct=
+ion d(b,c){c?(c=3De?I(c):c.split("%20").join(" "),a.set(b,c)):a.set(b,void =
+0)}-1=3D=3Db.indexOf("=3D")&&(b=3DI(b));var e=3D"2"=3D=3Dc("utmcvr");d(ic,c=
+("utmcid"));d(jc,c("utmccn"));d(nc,c("utmcsr"));d(oc,c("utmcmd"));d(pc,c("u=
+tmctr"));d(qc,c("utmcct"));d(S,c("utmgclid"));d(kc,c("utmgclsrc"));d(lc,c("=
+utmdclid"));d(mc,c("utmdsid"))},ad=3Dfunction(a,b){return b?a!=3Db:!/^\d+$/=
+.test(a)};var Uc=3Dfunction(){this.filters=3D[]};Uc.prototype.add=3Dfunctio=
+n(a,b){this.filters.push({name:a,s:b})};Uc.prototype.cb=3Dfunction(a){try{f=
+or(var b=3D0;b<this.filters.length;b++)this.filters[b].s.call(W,a)}catch(c)=
+{}};function jd(a){100!=3Da.get(vb)&&a.get(Q)%1E4>=3D100*a.get(vb)&&a.stopP=
+ropagation()}function kd(a){ld(a.get(Wa))&&a.stopPropagation()}function md(=
+a){"file:"=3D=3DJ.location.protocol&&a.stopPropagation()}function Ge(a){He(=
+)&&a.stopPropagation()}
+function nd(a){a.get(Ib)||a.set(Ib,J.title,!0);a.get(Hb)||a.set(Hb,J.locati=
+on.pathname+J.location.search,!0)}function lf(a){a.get(Wa)&&"UA-XXXXX-X"!=
+=3Da.get(Wa)||a.stopPropagation()};var od=3Dnew function(){var a=3D[];this.=
+set=3Dfunction(b){a[b]=3D!0};this.encode=3Dfunction(){for(var b=3D[],c=3D0;=
+c<a.length;c++)a[c]&&(b[Math.floor(c/6)]^=3D1<<c%6);for(c=3D0;c<b.length;c+=
++)b[c]=3D"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"=
+.charAt(b[c]||0);return b.join("")+"~"}};function H(a){od.set(a)};var W=3Dw=
+indow,J=3Ddocument,ld=3Dfunction(a){var b=3DW._gaUserPrefs;if(b&&b.ioo&&b.i=
+oo()||a&&!0=3D=3D=3DW["ga-disable-"+a])return!0;try{var c=3DW.external;if(c=
+&&c._gaUserPrefs&&"oo"=3D=3Dc._gaUserPrefs)return!0}catch(d){}return!1},He=
+=3Dfunction(){return W.navigator&&"preview"=3D=3DW.navigator.loadPurpose},W=
+e=3Dfunction(a,b){setTimeout(a,b)},pd=3Dfunction(a){var b=3D[],c=3DJ.cookie=
+.split(";");a=3Dnew RegExp("^\\s*"+a+"=3D\\s*(.*?)\\s*$");for(var d=3D0;d<c=
+.length;d++){var e=3Dc[d].match(a);e&&b.push(e[1])}return b},X=3Dfunction(a=
+,b,c,d,e,f){e=3D
+ld(e)?!1:Sc(d,c)?!1:He()?!1:!0;e&&((b=3Dmf(b))&&2E3<b.length&&(b=3Db.substr=
+ing(0,2E3),H(69)),a=3Da+"=3D"+b+"; path=3D"+c+"; ",f&&(a+=3D"expires=3D"+(n=
+ew Date((new Date).getTime()+f)).toGMTString()+"; "),d&&(a+=3D"domain=3D"+d=
++";"),J.cookie=3Da)},mf=3Dfunction(a){if(!a)return a;var b=3Da.indexOf(";")=
+;-1!=3Db&&(a=3Da.substring(0,b),H(141));if(!(0<=3DW.navigator.userAgent.ind=
+exOf("Firefox")))return a;a=3Da.replace(/\n|\r/g," ");for(var b=3D0,c=3Da.l=
+ength;b<c;++b){var d=3Da.charCodeAt(b)&255;if(10=3D=3Dd||13=3D=3Dd)a=3Da.su=
+bstring(0,b)+"?"+a.substring(b+
+1)}return a};var qd,rd,sd=3Dfunction(){if(!qd){var a=3D{},b=3DW.navigator,c=
+=3DW.screen;a.jb=3Dc?c.width+"x"+c.height:"-";a.P=3Dc?c.colorDepth+"-bit":"=
+-";a.language=3D(b&&(b.language||b.browserLanguage)||"-").toLowerCase();a.j=
+avaEnabled=3Db&&b.javaEnabled()?1:0;a.characterSet=3DJ.characterSet||J.char=
+set||"-";try{var d;var e=3DJ.documentElement,f=3DJ.body,Be=3Df&&f.clientWid=
+th&&f.clientHeight,b=3D[];e&&e.clientWidth&&e.clientHeight&&("CSS1Compat"=
+=3D=3D=3DJ.compatMode||!Be)?b=3D[e.clientWidth,e.clientHeight]:Be&&(b=3D[f.=
+clientWidth,f.clientHeight]);
+d=3D0>=3Db[0]||0>=3Db[1]?"":b.join("x");a.Wa=3Dd}catch(k){H(135)}qd=3Da}},t=
+d=3Dfunction(){sd();for(var a=3Dqd,b=3DW.navigator,a=3Db.appName+b.version+=
+a.language+b.platform+b.userAgent+a.javaEnabled+a.jb+a.P+(J.cookie?J.cookie=
+:"")+(J.referrer?J.referrer:""),b=3Da.length,c=3DW.history.length;0<c;)a+=
+=3Dc--^b++;return Yc(a)},ud=3Dfunction(a){sd();var b=3Dqd;a.set(Lb,b.jb);a.=
+set(Mb,b.P);a.set(Pb,b.language);a.set(Qb,b.characterSet);a.set(Nb,b.javaEn=
+abled);a.set(Rb,b.Wa);if(a.get(ib)&&a.get(jb)){if(!(b=3Drd)){var c,d,e;d=3D=
+"ShockwaveFlash";
+if((b=3D(b=3DW.navigator)?b.plugins:void 0)&&0<b.length)for(c=3D0;c<b.lengt=
+h&&!e;c++)d=3Db[c],-1<d.name.indexOf("Shockwave Flash")&&(e=3Dd.description=
+.split("Shockwave Flash ")[1]);else{d=3Dd+"."+d;try{c=3Dnew ActiveXObject(d=
++".7"),e=3Dc.GetVariable("$version")}catch(f){}if(!e)try{c=3Dnew ActiveXObj=
+ect(d+".6"),e=3D"WIN 6,0,21,0",c.AllowScriptAccess=3D"always",e=3Dc.GetVari=
+able("$version")}catch(Be){}if(!e)try{c=3Dnew ActiveXObject(d),e=3Dc.GetVar=
+iable("$version")}catch(k){}e&&(e=3De.split(" ")[1].split(","),e=3De[0]+"."=
++e[1]+" r"+
+e[2])}b=3De?e:"-"}rd=3Db;a.set(Ob,rd)}else a.set(Ob,"-")};var vd=3Dfunction=
+(a){if(Ba(a))this.s=3Da;else{var b=3Da[0],c=3Db.lastIndexOf(":"),d=3Db.last=
+IndexOf(".");this.h=3Dthis.i=3Dthis.l=3D"";-1=3D=3Dc&&-1=3D=3Dd?this.h=3Db:=
+-1=3D=3Dc&&-1!=3Dd?(this.i=3Db.substring(0,d),this.h=3Db.substring(d+1)):-1=
+!=3Dc&&-1=3D=3Dd?(this.l=3Db.substring(0,c),this.h=3Db.substring(c+1)):c>d?=
+(this.i=3Db.substring(0,d),this.l=3Db.substring(d+1,c),this.h=3Db.substring=
+(c+1)):(this.i=3Db.substring(0,d),this.h=3Db.substring(d+1));this.Xa=3Da.sl=
+ice(1);this.Ma=3D!this.l&&"_require"=3D=3Dthis.h;this.J=3D!this.i&&!this.l&=
+&"_provide"=3D=3Dthis.h}},Y=3Dfunction(){T(Y.prototype,
+"push",Y.prototype.push,5);T(Y.prototype,"_getPlugin",Pc,121);T(Y.prototype=
+,"_createAsyncTracker",Y.prototype.Sa,33);T(Y.prototype,"_getAsyncTracker",=
+Y.prototype.Ta,34);this.I=3Dnew nf;this.eb=3D[]};E=3DY.prototype;E.Na=3Dfun=
+ction(a,b,c){var d=3Dthis.I.get(a);if(!Ba(d))return!1;b.plugins_=3Db.plugin=
+s_||new nf;b.plugins_.set(a,new d(b,c||{}));return!0};E.push=3Dfunction(a){=
+var b=3DZ.Va.apply(this,arguments),b=3DZ.eb.concat(b);for(Z.eb=3D[];0<b.len=
+gth&&!Z.O(b[0])&&!(b.shift(),0<Z.eb.length););Z.eb=3DZ.eb.concat(b);return =
+0};
+E.Va=3Dfunction(a){for(var b=3D[],c=3D0;c<arguments.length;c++)try{var d=3D=
+new vd(arguments[c]);d.J?this.O(d):b.push(d)}catch(e){}return b};
+E.O=3Dfunction(a){try{if(a.s)a.s.apply(W);else if(a.J)this.I.set(a.Xa[0],a.=
+Xa[1]);else{var b=3D"_gat"=3D=3Da.i?M:"_gaq"=3D=3Da.i?Z:M.u(a.i);if(a.Ma){i=
+f(!this.Na(a.Xa[0],b,a.Xa[2])){if(!a.Pa){var c=3DOa(""+a.Xa[1]);var d=3Dc.p=
+rotocol,e=3DJ.location.protocol;var f;if(f=3D"https:"=3D=3Dd||d=3D=3De?!0:"=
+http:"!=3Dd?!1:"http:"=3D=3De)a:{var Be=3DOa(J.location.href);if(!(c.Oa||0<=
+=3Dc.url.indexOf("?")||0<=3Dc.path.indexOf("://")||c.host=3D=3DBe.host&&c.p=
+ort=3D=3DBe.port))for(var k=3D"http:"=3D=3Dc.protocol?80:443,Ja=3DM.S,b=3D0=
+;b<Ja.length;b++)if(c.host=3D=3DJa[b][0]&&
+(c.port||k)=3D=3D(Ja[b][1]||k)&&0=3D=3Dc.path.indexOf(Ja[b][2])){f=3D!0;bre=
+ak a}f=3D!1}f&&!ld()&&(a.Pa=3DIa(c.url))}return!0}}else a.l&&(b=3Db.plugins=
+_.get(a.l)),b[a.h].apply(b,a.Xa)}}catch(t){}};E.Sa=3Dfunction(a,b){return M=
+.hb(a,b||"")};E.Ta=3Dfunction(a){return M.u(a)};var yd=3Dfunction(){functio=
+n a(a,b,c,d){void 0=3D=3Df[a]&&(f[a]=3D{});void 0=3D=3Df[a][b]&&(f[a][b]=3D=
+[]);f[a][b][c]=3Dd}function b(a,b,c){if(void 0!=3Df[a]&&void 0!=3Df[a][b])r=
+eturn f[a][b][c]}function c(a,b){if(void 0!=3Df[a]&&void 0!=3Df[a][b]){f[a]=
+[b]=3Dvoid 0;var c=3D!0,d;for(d=3D0;d<Be.length;d++)if(void 0!=3Df[a][Be[d]=
+]){c=3D!1;break}c&&(f[a]=3Dvoid 0)}}function d(a){var b=3D"",c=3D!1,d,e;for=
+(d=3D0;d<Be.length;d++)if(e=3Da[Be[d]],void 0!=3De){c&&(b+=3DBe[d]);for(var=
+ c=3D[],f=3Dvoid 0,Bd=3Dvoid 0,Bd=3D0;Bd<e.length;Bd++)if(void 0!=3De[Bd]){=
+f=3D"";1!=3D
+Bd&&void 0=3D=3De[Bd-1]&&(f+=3DBd.toString()+"!");for(var fa=3De[Bd],Ke=3D"=
+",Le=3Dvoid 0,Me=3Dvoid 0,ga=3Dvoid 0,Le=3D0;Le<fa.length;Le++)Me=3Dfa.char=
+At(Le),ga=3Dk[Me],Ke+=3Dvoid 0!=3Dga?ga:Me;f+=3DKe;c.push(f)}b+=3D"("+c.joi=
+n("*")+")";c=3D!1}else c=3D!0;return b}var e=3Dthis,f=3D[],Be=3D["k","v"],k=
+=3D{"'":"'0",")":"'1","*":"'2","!":"'3"};e.Ra=3Dfunction(a){return void 0!=
+=3Df[a]};e.A=3Dfunction(){for(var a=3D"",b=3D0;b<f.length;b++)void 0!=3Df[b=
+]&&(a+=3Db.toString()+d(f[b]));return a};e.Qa=3Dfunction(a){if(void 0=3D=3D=
+a)return e.A();for(var b=3Da.A(),c=3D0;c<f.length;c++)void 0=3D=3D
+f[c]||a.Ra(c)||(b+=3Dc.toString()+d(f[c]));return b};e.f=3Dfunction(b,c,d){=
+if(!wd(d))return!1;a(b,"k",c,d);return!0};e.o=3Dfunction(b,c,d){if(!xd(d))r=
+eturn!1;a(b,"v",c,d.toString());return!0};e.getKey=3Dfunction(a,c){return b=
+(a,"k",c)};e.N=3Dfunction(a,c){return b(a,"v",c)};e.L=3Dfunction(a){c(a,"k"=
+)};e.M=3Dfunction(a){c(a,"v")};T(e,"_setKey",e.f,89);T(e,"_setValue",e.o,90=
+);T(e,"_getKey",e.getKey,87);T(e,"_getValue",e.N,88);T(e,"_clearKey",e.L,85=
+);T(e,"_clearValue",e.M,86)};
+function wd(a){return"string"=3D=3Dtypeof a}function xd(a){return!("number"=
+=3D=3Dtypeof a||void 0!=3DNumber&&a instanceof Number)||Math.round(a)!=3Da|=
+|isNaN(a)||Infinity=3D=3Da?!1:!0};var zd=3Dfunction(a){var b=3DW.gaGlobal;a=
+&&!b&&(W.gaGlobal=3Db=3D{});return b},Ad=3Dfunction(){var a=3Dzd(!0).hid;nu=
+ll=3D=3Da&&(a=3DEa(),zd(!0).hid=3Da);return a},Dd=3Dfunction(a){a.set(Kb,Ad=
+());var b=3Dzd();if(b&&b.dh=3D=3Da.get(O)){var c=3Db.sid;c&&(a.get(ac)?H(11=
+2):H(132),a.set(Zb,c),a.get(Sb)&&a.set(Wb,c));b=3Db.vid;a.get(Sb)&&b&&(b=3D=
+b.split("."),a.set(Q,1*b[0]),a.set(Vb,1*b[1]))}};var Ed,Fd=3Dfunction(a,b,c=
+,d){var e=3Da.c(bb,""),f=3Da.c(P,"/");d=3Dvoid 0!=3Dd?d:a.b(cb,0);a=3Da.c(W=
+a,"");X(b,c,f,e,a,d)},Xc=3Dfunction(a){var b=3Da.c(bb,"");a.b(O,1);var c=3D=
+a.c(P,"/"),d=3Da.c(Wa,"");X("__utma",cd(a),c,b,d,a.get(cb));X("__utmb",dd(a=
+),c,b,d,a.get(db));X("__utmc",""+a.b(O,1),c,b,d);var e=3Dhd(a,!0);e?X("__ut=
+mz",e,c,b,d,a.get(eb)):X("__utmz","",c,b,"",-1);(e=3Dfd(a,!1))?X("__utmv",e=
+,c,b,d,a.get(cb)):X("__utmv","",c,b,"",-1)},Wc=3Dfunction(a){var b=3Da.b(O,=
+1);if(!bd(a,$c(b,pd("__utma"))))return a.set(Ub,!0),!1;
+var c=3D!ed(a,$c(b,pd("__utmb")));a.set(bc,c);id(a,$c(b,pd("__utmz")));gd(a=
+,$c(b,pd("__utmv")));Ed=3D!c;return!0},Gd=3Dfunction(a){Ed||0<pd("__utmb").=
+length||(X("__utmd","1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),1E4),0=3D=3Dpd("__=
+utmd").length&&a.stopPropagation())};var h=3D0,Jd=3Dfunction(a){void 0=3D=
+=3Da.get(Q)?Hd(a):a.get(Ub)&&!a.get(Mc)?Hd(a):a.get(bc)&&Id(a)},Kd=3Dfuncti=
+on(a){a.get(hc)&&!a.get(ac)&&(Id(a),a.set(fc,a.get($b)))},Hd=3Dfunction(a){=
+h++;1<h&&H(137);var b=3Da.get(ab);a.set(Sb,!0);a.set(Q,Ea()^td(a)&214748364=
+7);a.set(Tb,"");a.set(Vb,b);a.set(Wb,b);a.set(Zb,b);a.set($b,1);a.set(ac,!0=
+);a.set(cc,0);a.set(R,10);a.set(dc,b);a.set(Fb,[]);a.set(Ub,!1);a.set(bc,!1=
+)},Id=3Dfunction(a){h++;1<h&&H(137);a.set(Wb,a.get(Zb));a.set(Zb,a.get(ab))=
+;a.Za($b);a.set(ac,!0);a.set(cc,
+0);a.set(R,10);a.set(dc,a.get(ab));a.set(bc,!1)};var Ld=3D"daum:q eniro:sea=
+rch_word naver:query pchome:q images.google:q google:q yahoo:p yahoo:q msn:=
+q bing:q aol:query aol:q lycos:q lycos:query ask:q cnn:query virgilio:qs ba=
+idu:wd baidu:word alice:qs yandex:text najdi:q seznam:q rakuten:qt biglobe:=
+q goo.ne:MT search.smt.docomo:MT onet:qt onet:q kvasir:q terra:query ramble=
+r:query conduit:q babylon:q search-results:q avg:q comcast:q incredimail:q =
+startsiden:q go.mail.ru:q centrum.cz:q 360.cn:q sogou:query tut.by:query gl=
+obo:q ukr:q so.com:q haosou.com:q auone:q".split(" "),
+Sd=3Dfunction(a){if(a.get(kb)&&!a.get(Mc)){var b;b=3D!F(a.get(ic))||!F(a.ge=
+t(nc))||!F(a.get(S))||!F(a.get(lc));for(var c=3D{},d=3D0;d<Md.length;d++){v=
+ar e=3DMd[d];c[e]=3Da.get(e)}(d=3Da.get(rc))?(H(149),e=3Dnew nf,Na(e,d),d=
+=3De):d=3DLa(J.location.href,a.get(gb)).R;if("1"!=3DL(d.get(a.get(ub)))||!b=
+)if(d=3DXe(a,d)||Qd(a),d||b||!a.get(ac)||(Pd(a,void 0,"(direct)",void 0,voi=
+d 0,void 0,"(direct)","(none)",void 0,void 0),d=3D!0),d&&(a.set(hc,Rd(a,c))=
+,b=3D"(direct)"=3D=3Da.get(nc)&&"(direct)"=3D=3Da.get(jc)&&"(none)"=3D=3Da.=
+get(oc),a.get(hc)||
+a.get(ac)&&!b))a.set(ec,a.get(ab)),a.set(fc,a.get($b)),a.Za(gc)}},Xe=3Dfunc=
+tion(a,b){function c(c,d){d=3Dd||"-";var e=3DL(b.get(a.get(c)));return e&&"=
+-"!=3De?I(e):d}var d=3DL(b.get(a.get(nb)))||"-",e=3DL(b.get(a.get(qb)))||"-=
+",f=3DL(b.get(a.get(pb)))||"-",Be=3DL(b.get("gclsrc"))||"-",k=3DL(b.get("dc=
+lid"))||"-",Ja=3Dc(ob,"(not set)"),t=3Dc(rb,"(not set)"),Za=3Dc(sb),Ma=3Dc(=
+tb);if(F(d)&&F(f)&&F(k)&&F(e))return!1;var mb=3D!F(f)&&!F(Be),mb=3DF(e)&&(!=
+F(k)||mb),Xb=3DF(Za);if(mb||Xb){var Bd=3DNd(a),Bd=3DLa(Bd,!0);(Bd=3DOd(a,Bd=
+))&&!F(Bd[1]&&
+!Bd[2])&&(mb&&(e=3DBd[0]),Xb&&(Za=3DBd[1]))}Pd(a,d,e,f,Be,k,Ja,t,Za,Ma);ret=
+urn!0},Qd=3Dfunction(a){var b=3DNd(a),c=3DLa(b,!0);(b=3D!(void 0!=3Db&&null=
+!=3Db&&""!=3Db&&"0"!=3Db&&"-"!=3Db&&0<=3Db.indexOf("://")))||(b=3Dc&&-1<c.h=
+ost.indexOf("google")&&c.R.contains("q")&&"cse"=3D=3Dc.path);if(b)return!1;=
+if((b=3DOd(a,c))&&!b[2])return Pd(a,void 0,b[0],void 0,void 0,void 0,"(orga=
+nic)","organic",b[1],void 0),!0;if(b||!a.get(ac))return!1;a:{for(var b=3Da.=
+get(Bb),d=3DKa(c.host),e=3D0;e<b.length;++e)if(-1<d.indexOf(b[e])){a=3D!1;b=
+reak a}Pd(a,void 0,
+d,void 0,void 0,void 0,"(referral)","referral",void 0,"/"+c.path);a=3D!0}re=
+turn a},Od=3Dfunction(a,b){for(var c=3Da.get(zb),d=3D0;d<c.length;++d){var =
+e=3Dc[d].split(":");if(-1<b.host.indexOf(e[0].toLowerCase())){var f=3Db.R.g=
+et(e[1]);if(f&&(f=3DK(f),!f&&-1<b.host.indexOf("google.")&&(f=3D"(not provi=
+ded)"),!e[3]||-1<b.url.indexOf(e[3]))){f||H(151);a:{for(var c=3Df,d=3Da.get=
+(Ab),c=3DI(c).toLowerCase(),Be=3D0;Be<d.length;++Be)if(c=3D=3Dd[Be]){c=3D!0=
+;break a}c=3D!1}return[e[2]||e[0],f,c]}}}return null},Pd=3Dfunction(a,b,c,d=
+,e,f,Be,k,
+Ja,t){a.set(ic,b);a.set(nc,c);a.set(S,d);a.set(kc,e);a.set(lc,f);a.set(jc,B=
+e);a.set(oc,k);a.set(pc,Ja);a.set(qc,t)},Md=3D[jc,ic,S,lc,nc,oc,pc,qc],Rd=
+=3Dfunction(a,b){function c(a){a=3D(""+a).split("+").join("%20");return a=
+=3Da.split(" ").join("%20")}function d(c){var d=3D""+(a.get(c)||"");c=3D""+=
+(b[c]||"");return 0<d.length&&d=3D=3Dc}if(d(S)||d(lc))return H(131),!1;for(=
+var e=3D0;e<Md.length;e++){var f=3DMd[e],Be=3Db[f]||"-",f=3Da.get(f)||"-";i=
+f(c(Be)!=3Dc(f))return!0}return!1},Td=3Dnew RegExp(/^https?:\/\/(www\.)?goo=
+gle(\.com?)?(\.[a-z]{2}t?)?\/?$/i),
+jf=3D/^https?:\/\/(r\.)?search\.yahoo\.com?(\.jp)?\/?[^?]*$/i,rf=3D/^https?=
+:\/\/(www\.)?bing\.com\/?$/i,Nd=3Dfunction(a){a=3DPa(a.get(Jb),a.get(P));tr=
+y{if(Td.test(a))return H(136),a+"?q=3D";if(jf.test(a))return H(150),a+"?p=
+=3D(not provided)";if(rf.test(a))return a+"?q=3D(not provided)"}catch(b){H(=
+145)}return a};var Ud,Vd,Wd=3Dfunction(a){Ud=3Da.c(S,"");Vd=3Da.c(kc,"")},X=
+d=3Dfunction(a){var b=3Da.c(S,""),c=3Da.c(kc,"");b!=3DUd&&(-1<c.indexOf("ds=
+")?a.set(mc,void 0):!F(Ud)&&-1<Vd.indexOf("ds")&&a.set(mc,Ud))};var Zd=3Dfu=
+nction(a){Yd(a,J.location.href)?(a.set(Mc,!0),H(12)):a.set(Mc,!1)},Yd=3Dfun=
+ction(a,b){if(!a.get(fb))return!1;var c=3DLa(b,a.get(gb)),d=3DK(c.R.get("__=
+utma")),e=3DK(c.R.get("__utmb")),f=3DK(c.R.get("__utmc")),Be=3DK(c.R.get("_=
+_utmx")),k=3DK(c.R.get("__utmz")),Ja=3DK(c.R.get("__utmv")),c=3DK(c.R.get("=
+__utmk"));if(Yc(""+d+e+f+Be+k+Ja)!=3Dc){d=3DI(d);e=3DI(e);f=3DI(f);Be=3DI(B=
+e);f=3D$d(d+e+f+Be,k,Ja,c);if(!f)return!1;k=3Df[0];Ja=3Df[1]}if(!bd(a,d,!0)=
+)return!1;ed(a,e,!0);id(a,k,!0);gd(a,Ja,!0);ae(a,Be,!0);return!0},ce=3Dfunc=
+tion(a,
+b,c){var d;d=3Dcd(a)||"-";var e=3Ddd(a)||"-",f=3D""+a.b(O,1)||"-",Be=3Dbe(a=
+)||"-",k=3Dhd(a,!1)||"-";a=3Dfd(a,!1)||"-";var Ja=3DYc(""+d+e+f+Be+k+a),t=
+=3D[];t.push("__utma=3D"+d);t.push("__utmb=3D"+e);t.push("__utmc=3D"+f);t.p=
+ush("__utmx=3D"+Be);t.push("__utmz=3D"+k);t.push("__utmv=3D"+a);t.push("__u=
+tmk=3D"+Ja);d=3Dt.join("&");if(!d)return b;e=3Db.indexOf("#");if(c)return 0=
+>e?b+"#"+d:b+"&"+d;c=3D"";f=3Db.indexOf("?");0<e&&(c=3Db.substring(e),b=3Db=
+.substring(0,e));return 0>f?b+"?"+d+c:b+"&"+d+c},$d=3Dfunction(a,b,c,d){for=
+(var e=3D0;3>e;e++){for(var f=3D
+0;3>f;f++){if(d=3D=3DYc(a+b+c))return H(127),[b,c];var Be=3Db.replace(/ /g,=
+"%20"),k=3Dc.replace(/ /g,"%20");if(d=3D=3DYc(a+Be+k))return H(128),[Be,k];=
+Be=3DBe.replace(/\+/g,"%20");k=3Dk.replace(/\+/g,"%20");if(d=3D=3DYc(a+Be+k=
+))return H(129),[Be,k];try{var Ja=3Db.match("utmctr=3D(.*?)(?:\\|utm|$)");i=
+f(Ja&&2=3D=3DJa.length&&(Be=3Db.replace(Ja[1],G(I(Ja[1]))),d=3D=3DYc(a+Be+c=
+)))return H(139),[Be,c]}catch(t){}b=3DI(b)}c=3DI(c)}};var de=3D"|",fe=3Dfun=
+ction(a,b,c,d,e,f,Be,k,Ja){var t=3Dee(a,b);t||(t=3D{},a.get(Cb).push(t));t.=
+id_=3Db;t.affiliation_=3Dc;t.total_=3Dd;t.tax_=3De;t.shipping_=3Df;t.city_=
+=3DBe;t.state_=3Dk;t.country_=3DJa;t.items_=3Dt.items_||[];return t},ge=3Df=
+unction(a,b,c,d,e,f,Be){a=3Dee(a,b)||fe(a,b,"",0,0,0,"","","");var k;a:{if(=
+a&&a.items_){k=3Da.items_;for(var Ja=3D0;Ja<k.length;Ja++)if(k[Ja].sku_=3D=
+=3Dc){k=3Dk[Ja];break a}}k=3Dnull}Ja=3Dk||{};Ja.transId_=3Db;Ja.sku_=3Dc;Ja=
+.name_=3Dd;Ja.category_=3De;Ja.price_=3Df;Ja.quantity_=3DBe;k||a.items_.pus=
+h(Ja);return Ja},
+ee=3Dfunction(a,b){for(var c=3Da.get(Cb),d=3D0;d<c.length;d++)if(c[d].id_=
+=3D=3Db)return c[d];return null};var he,ie=3Dfunction(a){if(!he){var b;b=3D=
+J.location.hash;var c=3DW.name,d=3D/^#?gaso=3D([^&]*)/;if(c=3D(b=3D(b=3Db&&=
+b.match(d)||c&&c.match(d))?b[1]:K(pd("GASO")))&&b.match(/^(?:!([-0-9a-z.]{1=
+,40})!)?([-.\w]{10,1200})$/i))Fd(a,"GASO",""+b,0),M._gasoDomain=3Da.get(bb)=
+,M._gasoCPath=3Da.get(P),a=3Dc[1],Ia("https://www.google.com/analytics/web/=
+inpage/pub/inpage.js?"+(a?"prefix=3D"+a+"&":"")+Ea(),"_gasojs");he=3D!0}};v=
+ar ae=3Dfunction(a,b,c){c&&(b=3DI(b));c=3Da.b(O,1);b=3Db.split(".");2>b.len=
+gth||!/^\d+$/.test(b[0])||(b[0]=3D""+c,Fd(a,"__utmx",b.join("."),void 0))},=
+be=3Dfunction(a,b){var c=3D$c(a.get(O),pd("__utmx"));"-"=3D=3Dc&&(c=3D"");r=
+eturn b?G(c):c},Ye=3Dfunction(a){try{var b=3DLa(J.location.href,!1),c=3Ddec=
+odeURIComponent(L(b.R.get("utm_referrer")))||"";c&&a.set(Jb,c);var d=3Ddeco=
+deURIComponent(K(b.R.get("utm_expid")))||"";d&&(d=3Dd.split(".")[0],a.set(O=
+c,""+d))}catch(e){H(146)}},l=3Dfunction(a){var b=3DW.gaData&&W.gaData.expId=
+;b&&a.set(Oc,
+""+b)};var ke=3Dfunction(a,b){var c=3DMath.min(a.b(Dc,0),100);if(a.b(Q,0)%1=
+00>=3Dc)return!1;c=3DZe()||$e();if(void 0=3D=3Dc)return!1;var d=3Dc[0];if(v=
+oid 0=3D=3Dd||Infinity=3D=3Dd||isNaN(d))return!1;0<d?af(c)?b(je(c)):b(je(c.=
+slice(0,1))):Ga(W,"load",function(){ke(a,b)},!1);return!0},me=3Dfunction(a,=
+b,c,d){var e=3Dnew yd;e.f(14,90,b.substring(0,500));e.f(14,91,a.substring(0=
+,150));e.f(14,92,""+le(c));void 0!=3Dd&&e.f(14,93,d.substring(0,500));e.o(1=
+4,90,c);return e},af=3Dfunction(a){for(var b=3D1;b<a.length;b++)if(isNaN(a[=
+b])||Infinity=3D=3D
+a[b]||0>a[b])return!1;return!0},le=3Dfunction(a){return isNaN(a)||0>a?0:5E3=
+>a?10*Math.floor(a/10):5E4>a?100*Math.floor(a/100):41E5>a?1E3*Math.floor(a/=
+1E3):41E5},je=3Dfunction(a){for(var b=3Dnew yd,c=3D0;c<a.length;c++)b.f(14,=
+c+1,""+le(a[c])),b.o(14,c+1,a[c]);return b},Ze=3Dfunction(){var a=3DW.perfo=
+rmance||W.webkitPerformance;if(a=3Da&&a.timing){var b=3Da.navigationStart;i=
+f(0=3D=3Db)H(133);else return[a.loadEventStart-b,a.domainLookupEnd-a.domain=
+LookupStart,a.connectEnd-a.connectStart,a.responseStart-a.requestStart,
+a.responseEnd-a.responseStart,a.fetchStart-b,a.domInteractive-b,a.domConten=
+tLoadedEventStart-b]}},$e=3Dfunction(){if(W.top=3D=3DW){var a=3DW.external,=
+b=3Da&&a.onloadT;a&&!a.isValidLoadTime&&(b=3Dvoid 0);2147483648<b&&(b=3Dvoi=
+d 0);0<b&&a.setPageReadyTime();return void 0=3D=3Db?void 0:[b]}};var cf=3Df=
+unction(a){if(a.get(Sb))try{var b;a:{var c=3Dpd(a.get(Oe)||"_ga");if(c&&!(1=
+>c.length)){for(var d=3D[],e=3D0;e<c.length;e++){var f;var Be=3Dc[e].split(=
+"."),k=3DBe.shift();if(("GA1"=3D=3Dk||"1"=3D=3Dk)&&1<Be.length){var Ja=3DBe=
+.shift().split("-");1=3D=3DJa.length&&(Ja[1]=3D"1");Ja[0]*=3D1;Ja[1]*=3D1;f=
+=3D{Ya:Ja,$a:Be.join(".")}}else f=3Dvoid 0;f&&d.push(f)}if(1=3D=3Dd.length)=
+{b=3Dd[0].$a;break a}if(0!=3Dd.length){var t=3Da.get(Pe)||a.get(bb),d=3Dbf(=
+d,(0=3D=3Dt.indexOf(".")?t.substr(1):t).split(".").length,0);if(1=3D=3Dd.le=
+ngth){b=3Dd[0].$a;break a}var Za=3D
+a.get(Qe)||a.get(P);(c=3DZa)?(1<c.length&&"/"=3D=3Dc.charAt(c.length-1)&&(c=
+=3Dc.substr(0,c.length-1)),0!=3Dc.indexOf("/")&&(c=3D"/"+c),Za=3Dc):Za=3D"/=
+";d=3Dbf(d,"/"=3D=3DZa?1:Za.split("/").length,1);b=3Dd[0].$a;break a}}b=3Dv=
+oid 0}if(b){var Ma=3D(""+b).split(".");2=3D=3DMa.length&&/[0-9.]/.test(Ma)&=
+&(H(114),a.set(Q,Ma[0]),a.set(Vb,Ma[1]),a.set(Sb,!1))}}catch(mb){H(115)}},b=
+f=3Dfunction(a,b,c){for(var d=3D[],e=3D[],f=3D128,Be=3D0;Be<a.length;Be++){=
+var k=3Da[Be];k.Ya[c]=3D=3Db?d.push(k):k.Ya[c]=3D=3Df?e.push(k):k.Ya[c]<f&&=
+(e=3D[k],f=3Dk.Ya[c])}return 0<d.length?
+d:e};var kf=3D/^gtm\d+$/,hf=3Dfunction(a){var b;b=3D!!a.b(Cd,1);b&&(H(140),=
+"page"!=3Da.get(sc)?a.set(Kc,"",!0):(b=3Da.c(Lc,""),b||(b=3D(b=3Da.c($a,"")=
+)&&"~0"!=3Db?kf.test(b)?"__utmt_"+G(a.c(Wa,"")):"__utmt_"+G(b):"__utmt"),0<=
+pd(b).length?a.set(Kc,"",!0):(X(b,"1",a.c(P,"/"),a.c(bb,""),a.c(Wa,""),6E5)=
+,0<pd(b).length&&(a.set(Kc,Ea(),!0),a.set(Yb,1,!0),a.set(Jc,Ne()+"/r/__utm.=
+gif?",!0)))))};var U=3Dfunction(a,b,c){function d(a){return function(b){if(=
+(b=3Db.get(Nc)[a])&&b.length)for(var c=3DTe(e,a),d=3D0;d<b.length;d++)b[d].=
+call(e,c)}}var e=3Dthis;this.a=3Dnew Zc;this.get=3Dfunction(a){return this.=
+a.get(a)};this.set=3Dfunction(a,b,c){this.a.set(a,b,c)};this.set(Wa,b||"UA-=
+XXXXX-X");this.set($a,a||"");this.set(Ya,c||"");this.set(ab,Math.round((new=
+ Date).getTime()/1E3));this.set(P,"/");this.set(cb,63072E6);this.set(eb,157=
+68E6);this.set(db,18E5);this.set(fb,!1);this.set(yb,50);this.set(gb,!1);thi=
+s.set(hb,
+!0);this.set(ib,!0);this.set(jb,!0);this.set(kb,!0);this.set(lb,!0);this.se=
+t(ob,"utm_campaign");this.set(nb,"utm_id");this.set(pb,"gclid");this.set(qb=
+,"utm_source");this.set(rb,"utm_medium");this.set(sb,"utm_term");this.set(t=
+b,"utm_content");this.set(ub,"utm_nooverride");this.set(vb,100);this.set(Dc=
+,1);this.set(Ec,!1);this.set(wb,"/__utm.gif");this.set(xb,1);this.set(Cb,[]=
+);this.set(Fb,[]);this.set(zb,Ld.slice(0));this.set(Ab,[]);this.set(Bb,[]);=
+this.B("auto");this.set(Jb,J.referrer);Ye(this.a);this.set(Nc,
+{hit:[],load:[]});this.a.g("0",Zd);this.a.g("1",Wd);this.a.g("2",Jd);this.a=
+.g("3",cf);this.a.g("4",Sd);this.a.g("5",Xd);this.a.g("6",Kd);this.a.g("7",=
+d("load"));this.a.g("8",ie);this.a.v("A",kd);this.a.v("B",md);this.a.v("C",=
+Ge);this.a.v("D",Jd);this.a.v("E",jd);this.a.v("F",Tc);this.a.v("G",ne);thi=
+s.a.v("H",lf);this.a.v("I",Gd);this.a.v("J",nd);this.a.v("K",ud);this.a.v("=
+L",Dd);this.a.v("M",l);this.a.v("N",hf);this.a.v("O",d("hit"));this.a.v("P"=
+,oe);this.a.v("Q",pe);0=3D=3D=3Dthis.get(ab)&&H(111);this.a.T();
+this.H=3Dvoid 0};E=3DU.prototype;E.m=3Dfunction(){var a=3Dthis.get(Db);a||(=
+a=3Dnew yd,this.set(Db,a));return a};E.La=3Dfunction(a){for(var b in a){var=
+ c=3Da[b];a.hasOwnProperty(b)&&this.set(b,c,!0)}};E.K=3Dfunction(a){if(this=
+.get(Ec))return!1;var b=3Dthis,c=3Dke(this.a,function(c){b.set(Hb,a,!0);b.i=
+b(c)});this.set(Ec,c);return c};E.Fa=3Dfunction(a){a&&Ca(a)?(H(13),this.set=
+(Hb,a,!0)):"object"=3D=3D=3Dtypeof a&&null!=3D=3Da&&this.La(a);this.H=3Da=
+=3Dthis.get(Hb);this.a.j("page");this.K(a)};
+E.F=3Dfunction(a,b,c,d,e){if(""=3D=3Da||!wd(a)||""=3D=3Db||!wd(b)||void 0!=
+=3Dc&&!wd(c)||void 0!=3Dd&&!xd(d))return!1;this.set(wc,a,!0);this.set(xc,b,=
+!0);this.set(yc,c,!0);this.set(zc,d,!0);this.set(vc,!!e,!0);this.a.j("event=
+");return!0};E.Ha=3Dfunction(a,b,c,d,e){var f=3Dthis.a.b(Dc,0);1*e=3D=3D=3D=
+e&&(f=3De);if(this.a.b(Q,0)%100>=3Df)return!1;c=3D1*(""+c);if(""=3D=3Da||!w=
+d(a)||""=3D=3Db||!wd(b)||!xd(c)||isNaN(c)||0>c||0>f||100<f||void 0!=3Dd&&("=
+"=3D=3Dd||!wd(d)))return!1;this.ib(me(a,b,c,d));return!0};
+E.Ga=3Dfunction(a,b,c,d){if(!a||!b)return!1;this.set(Ac,a,!0);this.set(Bc,b=
+,!0);this.set(Cc,c||J.location.href,!0);d&&this.set(Hb,d,!0);this.a.j("soci=
+al");return!0};E.Ea=3Dfunction(){this.set(Dc,10);this.K(this.H)};E.Ia=3Dfun=
+ction(){this.a.j("trans")};E.ib=3Dfunction(a){this.set(Eb,a,!0);this.a.j("e=
+vent")};E.ia=3Dfunction(a){this.initData();var b=3Dthis;return{_trackEvent:=
+function(c,d,e){H(91);b.F(a,c,d,e)}}};E.ma=3Dfunction(a){return this.get(a)=
+};
+E.xa=3Dfunction(a,b){if(a)if(Ca(a))this.set(a,b);else if("object"=3D=3Dtype=
+of a)for(var c in a)a.hasOwnProperty(c)&&this.set(c,a[c])};E.addEventListen=
+er=3Dfunction(a,b){var c=3Dthis.get(Nc)[a];c&&c.push(b)};E.removeEventListe=
+ner=3Dfunction(a,b){for(var c=3Dthis.get(Nc)[a],d=3D0;c&&d<c.length;d++)if(=
+c[d]=3D=3Db){c.splice(d,1);break}};E.qa=3Dfunction(){return"5.6.7"};E.B=3Df=
+unction(a){this.get(hb);a=3D"auto"=3D=3Da?Ka(J.domain):a&&"-"!=3Da&&"none"!=
+=3Da?a.toLowerCase():"";this.set(bb,a)};E.va=3Dfunction(a){this.set(hb,!!a)=
+};
+E.na=3Dfunction(a,b){return ce(this.a,a,b)};E.link=3Dfunction(a,b){if(this.=
+a.get(fb)&&a){var c=3Dce(this.a,a,b);J.location.href=3Dc}};E.ua=3Dfunction(=
+a,b){this.a.get(fb)&&a&&a.action&&(a.action=3Dce(this.a,a.action,b))};
+E.za=3Dfunction(){this.initData();var a=3Dthis.a,b=3DJ.getElementById?J.get=
+ElementById("utmtrans"):J.utmform&&J.utmform.utmtrans?J.utmform.utmtrans:nu=
+ll;if(b&&b.value){a.set(Cb,[]);for(var b=3Db.value.split("UTM:"),c=3D0;c<b.=
+length;c++){b[c]=3DDa(b[c]);for(var d=3Db[c].split(de),e=3D0;e<d.length;e++=
+)d[e]=3DDa(d[e]);"T"=3D=3Dd[0]?fe(a,d[1],d[2],d[3],d[4],d[5],d[6],d[7],d[8]=
+):"I"=3D=3Dd[0]&&ge(a,d[1],d[2],d[3],d[4],d[5],d[6])}}};E.$=3Dfunction(a,b,=
+c,d,e,f,Be,k){return fe(this.a,a,b,c,d,e,f,Be,k)};
+E.Y=3Dfunction(a,b,c,d,e,f){return ge(this.a,a,b,c,d,e,f)};E.Aa=3Dfunction(=
+a){de=3Da||"|"};E.ea=3Dfunction(){this.set(Cb,[])};E.wa=3Dfunction(a,b,c,d)=
+{var e=3Dthis.a;if(0>=3Da||a>e.get(yb))a=3D!1;else if(!b||!c||128<b.length+=
+c.length)a=3D!1;else{1!=3Dd&&2!=3Dd&&(d=3D3);var f=3D{};f.name=3Db;f.value=
+=3Dc;f.scope=3Dd;e.get(Fb)[a]=3Df;a=3D!0}a&&this.a.gb();return a};E.ka=3Dfu=
+nction(a){this.a.get(Fb)[a]=3Dvoid 0;this.a.gb()};E.ra=3Dfunction(a){return=
+(a=3Dthis.a.get(Fb)[a])&&1=3D=3Da.scope?a.value:void 0};
+E.Ca=3Dfunction(a,b,c){12=3D=3Da&&1=3D=3Db?this.set(pf,c):this.m().f(a,b,c)=
+};E.Da=3Dfunction(a,b,c){this.m().o(a,b,c)};E.sa=3Dfunction(a,b){return thi=
+s.m().getKey(a,b)};E.ta=3Dfunction(a,b){return this.m().N(a,b)};E.fa=3Dfunc=
+tion(a){this.m().L(a)};E.ga=3Dfunction(a){this.m().M(a)};E.ja=3Dfunction(){=
+return new yd};E.W=3Dfunction(a){a&&this.get(Ab).push(a.toLowerCase())};E.b=
+a=3Dfunction(){this.set(Ab,[])};E.X=3Dfunction(a){a&&this.get(Bb).push(a.to=
+LowerCase())};E.ca=3Dfunction(){this.set(Bb,[])};
+E.Z=3Dfunction(a,b,c,d,e){if(a&&b){a=3D[a,b.toLowerCase()].join(":");if(d||=
+e)a=3D[a,d,e].join(":");d=3Dthis.get(zb);d.splice(c?0:d.length,0,a)}};E.da=
+=3Dfunction(){this.set(zb,[])};E.ha=3Dfunction(a){this.a.load();var b=3Dthi=
+s.get(P),c=3Dbe(this.a);this.set(P,a);this.a.gb();ae(this.a,c);this.set(P,b=
+)};E.ya=3Dfunction(a,b){if(0<a&&5>=3Da&&Ca(b)&&""!=3Db){var c=3Dthis.get(Fc=
+)||[];c[a]=3Db;this.set(Fc,c)}};E.V=3Dfunction(a){a=3D""+a;if(a.match(/^[A-=
+Za-z0-9]{1,5}$/)){var b=3Dthis.get(Ic)||[];b.push(a);this.set(Ic,b)}};E.ini=
+tData=3Dfunction(){this.a.load()};
+E.Ba=3Dfunction(a){a&&""!=3Da&&(this.set(Tb,a),this.a.j("var"))};var ne=3Df=
+unction(a){"trans"!=3D=3Da.get(sc)&&500<=3Da.b(cc,0)&&a.stopPropagation();i=
+f("event"=3D=3D=3Da.get(sc)){var b=3D(new Date).getTime(),c=3Da.b(dc,0),d=
+=3Da.b(Zb,0),c=3DMath.floor((b-(c!=3Dd?c:1E3*c))/1E3*1);0<c&&(a.set(dc,b),a=
+.set(R,Math.min(10,a.b(R,0)+c)));0>=3Da.b(R,0)&&a.stopPropagation()}},pe=3D=
+function(a){"event"=3D=3D=3Da.get(sc)&&a.set(R,Math.max(0,a.b(R,10)-1))};va=
+r qe=3Dfunction(){var a=3D[];this.add=3Dfunction(b,c,d){d&&(c=3DG(""+c));a.=
+push(b+"=3D"+c)};this.toString=3Dfunction(){return a.join("&")}},re=3Dfunct=
+ion(a,b){(b||2!=3Da.get(xb))&&a.Za(cc)},se=3Dfunction(a,b){b.add("utmwv","5=
+.6.7");b.add("utms",a.get(cc));b.add("utmn",Ea());var c=3DJ.location.hostna=
+me;F(c)||b.add("utmhn",c,!0);c=3Da.get(vb);100!=3Dc&&b.add("utmsp",c,!0)},t=
+e=3Dfunction(a,b){b.add("utmht",(new Date).getTime());b.add("utmac",Da(a.ge=
+t(Wa)));a.get(Oc)&&b.add("utmxkey",a.get(Oc),!0);a.get(vc)&&b.add("utmni",1=
+);
+a.get(of)&&b.add("utmgtm",a.get(of),!0);var c=3Da.get(Ic);c&&0<c.length&&b.=
+add("utmdid",c.join("."));ff(a,b);!1!=3D=3Da.get(Xa)&&(a.get(Xa)||M.w)&&b.a=
+dd("aip",1);void 0!=3D=3Da.get(Kc)&&b.add("utmjid",a.c(Kc,""),!0);a.b(Yb,0)=
+&&b.add("utmredir",a.b(Yb,0),!0);M.bb||(M.bb=3Da.get(Wa));(1<M.ab()||M.bb!=
+=3Da.get(Wa))&&b.add("utmmt",1);b.add("utmu",od.encode())},ue=3Dfunction(a,=
+b){for(var c=3Da.get(Fc)||[],d=3D[],e=3D1;e<c.length;e++)c[e]&&d.push(e+":"=
++G(c[e].replace(/%/g,"%25").replace(/:/g,"%3A").replace(/,/g,"%2C")));d.len=
+gth&&
+b.add("utmpg",d.join(","))},ff=3Dfunction(a,b){function c(a,b){b&&d.push(a+=
+"=3D"+b+";")}var d=3D[];c("__utma",cd(a));c("__utmz",hd(a,!1));c("__utmv",f=
+d(a,!0));c("__utmx",be(a));b.add("utmcc",d.join("+"),!0)},ve=3Dfunction(a,b=
+){a.get(ib)&&(b.add("utmcs",a.get(Qb),!0),b.add("utmsr",a.get(Lb)),a.get(Rb=
+)&&b.add("utmvp",a.get(Rb)),b.add("utmsc",a.get(Mb)),b.add("utmul",a.get(Pb=
+)),b.add("utmje",a.get(Nb)),b.add("utmfl",a.get(Ob),!0))},we=3Dfunction(a,b=
+){a.get(lb)&&a.get(Ib)&&b.add("utmdt",a.get(Ib),!0);b.add("utmhid",
+a.get(Kb));b.add("utmr",Pa(a.get(Jb),a.get(P)),!0);b.add("utmp",G(a.get(Hb)=
+,!0),!0)},xe=3Dfunction(a,b){for(var c=3Da.get(Db),d=3Da.get(Eb),e=3Da.get(=
+Fb)||[],f=3D0;f<e.length;f++){var Be=3De[f];Be&&(c||(c=3Dnew yd),c.f(8,f,Be=
+.name),c.f(9,f,Be.value),3!=3DBe.scope&&c.f(11,f,""+Be.scope))}F(a.get(wc))=
+||F(a.get(xc),!0)||(c||(c=3Dnew yd),c.f(5,1,a.get(wc)),c.f(5,2,a.get(xc)),e=
+=3Da.get(yc),void 0!=3De&&c.f(5,3,e),e=3Da.get(zc),void 0!=3De&&c.o(5,1,e))=
+;F(a.get(pf))||(c||(c=3Dnew yd),c.f(12,1,a.get(pf)));c?b.add("utme",c.Qa(d)=
+,!0):
+d&&b.add("utme",d.A(),!0)},ye=3Dfunction(a,b,c){var d=3Dnew qe;re(a,c);se(a=
+,d);d.add("utmt","tran");d.add("utmtid",b.id_,!0);d.add("utmtst",b.affiliat=
+ion_,!0);d.add("utmtto",b.total_,!0);d.add("utmttx",b.tax_,!0);d.add("utmts=
+p",b.shipping_,!0);d.add("utmtci",b.city_,!0);d.add("utmtrg",b.state_,!0);d=
+.add("utmtco",b.country_,!0);xe(a,d);ve(a,d);we(a,d);(b=3Da.get(Gb))&&d.add=
+("utmcu",b,!0);c||(ue(a,d),te(a,d));return d.toString()},ze=3Dfunction(a,b,=
+c){var d=3Dnew qe;re(a,c);se(a,d);d.add("utmt","item");d.add("utmtid",
+b.transId_,!0);d.add("utmipc",b.sku_,!0);d.add("utmipn",b.name_,!0);d.add("=
+utmiva",b.category_,!0);d.add("utmipr",b.price_,!0);d.add("utmiqt",b.quanti=
+ty_,!0);xe(a,d);ve(a,d);we(a,d);(b=3Da.get(Gb))&&d.add("utmcu",b,!0);c||(ue=
+(a,d),te(a,d));return d.toString()},Ae=3Dfunction(a,b){var c=3Da.get(sc);if=
+("page"=3D=3Dc)c=3Dnew qe,re(a,b),se(a,c),xe(a,c),ve(a,c),we(a,c),b||(ue(a,=
+c),te(a,c)),c=3D[c.toString()];else if("event"=3D=3Dc)c=3Dnew qe,re(a,b),se=
+(a,c),c.add("utmt","event"),xe(a,c),ve(a,c),we(a,c),b||(ue(a,c),te(a,c)),
+c=3D[c.toString()];else if("var"=3D=3Dc)c=3Dnew qe,re(a,b),se(a,c),c.add("u=
+tmt","var"),!b&&te(a,c),c=3D[c.toString()];else if("trans"=3D=3Dc)for(var c=
+=3D[],d=3Da.get(Cb),e=3D0;e<d.length;++e){c.push(ye(a,d[e],b));for(var f=3D=
+d[e].items_,Be=3D0;Be<f.length;++Be)c.push(ze(a,f[Be],b))}else"social"=3D=
+=3Dc?b?c=3D[]:(c=3Dnew qe,re(a,b),se(a,c),c.add("utmt","social"),c.add("utm=
+sn",a.get(Ac),!0),c.add("utmsa",a.get(Bc),!0),c.add("utmsid",a.get(Cc),!0),=
+xe(a,c),ve(a,c),we(a,c),ue(a,c),te(a,c),c=3D[c.toString()]):"feedback"=3D=
+=3Dc?b?c=3D[]:(c=3Dnew qe,
+re(a,b),se(a,c),c.add("utmt","feedback"),c.add("utmfbid",a.get(Gc),!0),c.ad=
+d("utmfbpr",a.get(Hc),!0),xe(a,c),ve(a,c),we(a,c),ue(a,c),te(a,c),c=3D[c.to=
+String()]):c=3D[];return c},oe=3Dfunction(a){var b,c=3Da.get(xb),d=3Da.get(=
+uc),e=3Dd&&d.Ua,f=3D0;if(0=3D=3Dc||2=3D=3Dc){var Be=3Da.get(wb)+"?";b=3DAe(=
+a,!0);for(var k=3D0,Ja=3Db.length;k<Ja;k++)Sa(b[k],e,Be,!0),f++}if(1=3D=3Dc=
+||2=3D=3Dc)for(b=3DAe(a),a=3Da.c(Jc,""),k=3D0,Ja=3Db.length;k<Ja;k++)try{Sa=
+(b[k],e,a),f++}catch(t){t&&Ra(t.name,void 0,t.message)}d&&(d.fb=3Df)};var N=
+e=3Dfunction(){return"https:"=3D=3DJ.location.protocol||M.G?"https://ssl.go=
+ogle-analytics.com":"http://www.google-analytics.com"},Ce=3Dfunction(a){thi=
+s.name=3D"len";this.message=3Da+"-8192"},De=3Dfunction(a){this.name=3D"ff2p=
+ost";this.message=3Da+"-2036"},Sa=3Dfunction(a,b,c,d){b=3Db||Fa;if(d||2036>=
+=3Da.length)gf(a,b,c);else if(8192>=3Da.length){if(0<=3DW.navigator.userAge=
+nt.indexOf("Firefox")&&![].reduce)throw new De(a.length);df(a,b)||ef(a,b)||=
+Ee(a,b)||b()}else throw new Ce(a.length);},gf=3Dfunction(a,b,c){c=3Dc||Ne()=
++"/__utm.gif?";
+var d=3Dnew Image(1,1);d.src=3Dc+a;d.onload=3Dfunction(){d.onload=3Dnull;d.=
+onerror=3Dnull;b()};d.onerror=3Dfunction(){d.onload=3Dnull;d.onerror=3Dnull=
+;b()}},ef=3Dfunction(a,b){if(0!=3DNe().indexOf(J.location.protocol))return!=
+1;var c;c=3DW.XDomainRequest;if(!c)return!1;c=3Dnew c;c.open("POST",Ne()+"/=
+p/__utm.gif");c.onerror=3Dfunction(){b()};c.onload=3Db;c.send(a);return!0},=
+df=3Dfunction(a,b){var c=3DW.XMLHttpRequest;if(!c)return!1;var d=3Dnew c;if=
+(!("withCredentials"in d))return!1;d.open("POST",Ne()+"/p/__utm.gif",!0);d.=
+withCredentials=3D
+!0;d.setRequestHeader("Content-Type","text/plain");d.onreadystatechange=3Df=
+unction(){4=3D=3Dd.readyState&&(b(),d=3Dnull)};d.send(a);return!0},Ee=3Dfun=
+ction(a,b){if(!J.body)return We(function(){Ee(a,b)},100),!0;a=3DencodeURICo=
+mponent(a);try{var c=3DJ.createElement('<iframe name=3D"'+a+'"></iframe>')}=
+catch(d){c=3DJ.createElement("iframe"),c.name=3Da}c.height=3D"0";c.width=3D=
+"0";c.style.display=3D"none";c.style.visibility=3D"hidden";var e=3DNe()+"/u=
+/post_iframe.html";Ga(W,"beforeunload",function(){c.src=3D"";c.parentNode&&=
+c.parentNode.removeChild(c)});
+setTimeout(b,1E3);J.body.appendChild(c);c.src=3De;return!0};var qf=3Dfuncti=
+on(){this.G=3Dthis.w=3D!1;0=3D=3DEa()%1E4&&(H(142),this.G=3D!0);this.C=3D{}=
+;this.D=3D[];this.U=3D0;this.S=3D[["www.google-analytics.com","","/plugins/=
+"]];this._gasoCPath=3Dthis._gasoDomain=3Dthis.bb=3Dvoid 0;Re();Se()};E=3Dqf=
+.prototype;E.oa=3Dfunction(a,b){return this.hb(a,void 0,b)};E.hb=3Dfunction=
+(a,b,c){b&&H(23);c&&H(67);void 0=3D=3Db&&(b=3D"~"+M.U++);a=3Dnew U(b,a,c);M=
+.C[b]=3Da;M.D.push(a);return a};E.u=3Dfunction(a){a=3Da||"";return M.C[a]||=
+M.hb(void 0,a)};E.pa=3Dfunction(){return M.D.slice(0)};E.ab=3Dfunction(){re=
+turn M.D.length};
+E.aa=3Dfunction(){this.w=3D!0};E.la=3Dfunction(){this.G=3D!0};var Fe=3Dfunc=
+tion(a){if("prerender"=3D=3DJ.visibilityState)return!1;a();return!0};var M=
+=3Dnew qf;var Ha=3DW._gat;Ha&&Ba(Ha._getTracker)?M=3DHa:W._gat=3DM;var Z=3D=
+new Y;(function(a){if(!Fe(a)){H(123);var b=3D!1,c=3Dfunction(){if(!b&&Fe(a)=
+){b=3D!0;var d=3DJ,e=3Dc;d.removeEventListener?d.removeEventListener("visib=
+ilitychange",e,!1):d.detachEvent&&d.detachEvent("onvisibilitychange",e)}};G=
+a(J,"visibilitychange",c)}})(function(){var a=3DW._gaq,b=3D!1;if(a&&Ba(a.pu=
+sh)&&(b=3D"[object Array]"=3D=3DObject.prototype.toString.call(Object(a)),!=
+b)){Z=3Da;return}W._gaq=3DZ;b&&Z.push.apply(Z,a)});function Yc(a){var b=3D1=
+,c=3D0,d;if(a)for(b=3D0,d=3Da.length-1;0<=3Dd;d--)c=3Da.charCodeAt(d),b=3D(=
+b<<6&268435455)+c+(c<<14),c=3Db&266338304,b=3D0!=3Dc?b^c>>21:b;return b};})=
+();
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://wiki.wireshark.org/moin_static198/common/js/common.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+//
+// MoinMoin commonly used JavaScript functions
+//
+
+// We keep here the state of the search box
+searchIsDisabled =3D false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value =3D e.value.replace(/\s+/, '');
+    if (value =3D=3D '' || searchIsDisabled) {=20
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled =3D flag;
+    document.getElementById('titlesearch').disabled =3D flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value =3D=3D search_hint) {
+        e.value =3D '';
+        e.className =3D '';
+        searchIsDisabled =3D false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value =3D=3D '') {
+        e.value =3D search_hint;
+        e.className =3D 'disabled';
+        searchIsDisabled =3D true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i =3D 0; i < document.forms.length; i++) {
+        var form =3D document.forms[i];
+        if (form.className =3D=3D 'actionsmenu') {
+            // Check if this form needs update
+            var div =3D form.getElementsByTagName('div')[0];
+            var label =3D div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton =3D div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select =3D div.getElementsByTagName('select')[0];
+                var item =3D document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value =3D 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex =3D 0;
+            }
+        }
+    }
+}
+
+// use this instead of assigning to window.onload directly:
+function addLoadEvent(func) {
+    // alert("addLoadEvent " + func)
+    var oldonload =3D window.onload;
+    if (typeof window.onload !=3D 'function') {
+        window.onload =3D func;
+    } else {
+        window.onload =3D function() {
+            oldonload();
+            func();
+        }
+    }
+}
+
+// copy from fckeditor browser check code (fckeditor.js:298, function : FCK=
+editor_IsCompatibleBrowser)
+function can_use_gui_editor() {
+    var sAgent =3D navigator.userAgent.toLowerCase() ;
+
+    // Internet Explorer 5.5+
+    if ( /*@cc_on!@*/false && sAgent.indexOf("mac") =3D=3D -1 )
+    {
+        var sBrowserVersion =3D navigator.appVersion.match(/MSIE (.\..)/)[1=
+] ;
+        return ( sBrowserVersion >=3D 5.5 ) ;
+    }
+
+    // Gecko (Opera 9 tries to behave like Gecko at this point).
+    if ( navigator.product =3D=3D "Gecko" && navigator.productSub >=3D 2003=
+0210 && !( typeof(opera) =3D=3D 'object' && opera.postError ) )
+        return true ;
+
+    // Opera 9.50+
+    if ( window.opera && window.opera.version && parseFloat( window.opera.v=
+ersion() ) >=3D 9.5 )
+        return true ;
+
+    // Adobe AIR
+    // Checked before Safari because AIR have the WebKit rich text editor
+    // features from Safari 3.0.4, but the version reported is 420.
+    if ( sAgent.indexOf( ' adobeair/' ) !=3D -1 )
+        return ( sAgent.match( / adobeair\/(\d+)/ )[1] >=3D 1 ) ; // Build =
+must be at least v1
+
+    // Safari 3+
+    if ( sAgent.indexOf( ' applewebkit/' ) !=3D -1 )
+        return ( sAgent.match( / applewebkit\/(\d+)/ )[1] >=3D 522 ) ;    /=
+/ Build must be at least 522 (v3)
+
+    return false ;
+
+}
+
+
+function update_edit_links() {
+    // Update editlink according if if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("update_edit_links: can't use gui editor");
+        return;
+    }
+    var editlinks =3D document.getElementsByName("editlink");
+    for (i =3D 0; i < editlinks.length; i++) {
+        var link =3D editlinks[i];
+        href =3D link.href.replace('editor=3Dtextonly','editor=3Dguipossibl=
+e');
+        link.href =3D href;
+        //alert("update_edit_links: modified to guipossible");
+    }
+}
+
+
+function add_gui_editor_links() {
+    // Add gui editor link after the text editor link
+   =20
+    // If the variable is not set or browser is not compatible, exit
+    try {gui_editor_link_href}
+    catch (e) {
+        //alert("add_gui_editor_links: gui_editor_link_href not here");
+        return
+    }
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("add_gui_editor_links: can't use gui_editor");
+        return;
+    }
+    var all =3D document.getElementsByName('texteditlink');
+    for (i =3D 0; i < all.length; i++) {
+        var textEditorLink =3D all[i];
+        // Create a list item with a link
+        var guiEditorLink =3D document.createElement('a');
+        guiEditorLink.href =3D gui_editor_link_href;
+        var text =3D document.createTextNode(gui_editor_link_text);
+        guiEditorLink.appendChild(text);
+        var listItem =3D document.createElement('li')
+        listItem.appendChild(guiEditorLink);
+        // Insert in the editbar
+        var editbar =3D textEditorLink.parentNode.parentNode
+        var nextListItem =3D textEditorLink.parentNode.nextSibling;
+        editbar.insertBefore(listItem, nextListItem);
+        //alert("add_gui_editor_links: added gui editor link");
+    }
+}
+=20
+
+function show_switch2gui() {
+    // Show switch to gui editor link if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false) return;
+   =20
+    var switch2gui =3D document.getElementById('switch2gui')
+    if (switch2gui) {
+        switch2gui.style.display =3D 'inline';
+    }
+}
+
+// for long documents with many comments this is expensive to calculate,
+// thus we keep it here:
+comments =3D null;
+
+function toggleComments() {
+    // Toggle visibility of every tag with class "comment"
+    for (i =3D 0; i < comments.length; i++){
+        el =3D comments[i];
+        if ( el.style.display !=3D 'none' ) {
+            el.style.display =3D 'none';
+        } else {
+            el.style.display =3D '';
+        }
+    }
+}
+
+function show_toggleComments() {
+    // Show edit bar item for toggling inline comments on/off only if inlin=
+e comments exist on the page
+    comments =3D getElementsByClassName('comment', null, document);
+    if (comments.length > 0) {
+        var buttons =3D getElementsByClassName('toggleCommentsButton', null=
+, document);
+        for (i =3D 0; i < buttons.length; i++){
+            el =3D buttons[i];
+            el.style.display =3D '';
+        }
+    }
+}
+
+
+function load() {
+    // Do not name this "onload", it does not work with IE :-)
+    // TODO: create separate onload for each type of view and set the
+    // correct function name in the html.=20
+    // e.g <body onlod=3D'editor_onload()'>
+
+    // login focus
+    if (document.forms['loginform']) {
+        document.forms['loginform'].elements['name'].focus();
+    }
+   =20
+    // Page view stuff
+    update_edit_links();
+    add_gui_editor_links();
+   =20
+    // Editor stuff
+    show_switch2gui();
+
+    // Enable menu item "ToggleComments" if inline comments exist
+    show_toggleComments();
+=20
+    // data browser widget
+    dbw_hide_buttons();
+}
+
+
+function before_unload(evt) {
+    // TODO: Better to set this in the editor html, as it does not make
+    // sense elsehwere.
+    // confirmleaving is available when editing
+    try {return confirmleaving();}
+    catch (e) {}
+}
+
+// Initialize after loading the page
+addLoadEvent(load)
+
+// Catch before unloading the page
+window.onbeforeunload =3D before_unload
+
+function dbw_update_search(dbw_id)
+{
+    var table =3D document.getElementById(dbw_id+'table');
+    var cell;
+    var shown;
+    var i
+    var cols =3D table.rows[0].cells.length;
+    var filter =3D new Array();
+    var dofilter =3D new Array();
+    var form =3D document.forms[dbw_id+'form'];
+
+    for (i =3D 0; i < cols; i++) {
+        dofilter[i] =3D false;
+        if (form[dbw_id+'filter'+i]) {
+            dofilter[i] =3D true;
+            filter[i] =3D form[dbw_id+'filter'+i].value;
+            if (filter[i] =3D=3D '[all]')
+                dofilter[i] =3D false;
+            if (filter[i] =3D=3D '[empty]')
+                filter[i] =3D '';
+        }
+    }
+
+    for (i =3D 1; i < table.rows.length; i++) {
+        var show =3D true;
+        for (col =3D 0; col < cols; col++) {
+            if (!dofilter[col])
+                continue;
+
+            cell =3D table.rows[i].cells[col];
+
+            if (filter[col] =3D=3D '[notempty]') {
+                if (cell.abbr =3D=3D '') {
+                    show =3D false;
+                    break;
+                }
+            } else if (filter[col] !=3D cell.abbr) {
+                show =3D false;
+                break;
+            }
+        }
+        if (show)
+            table.rows[i].style.display =3D '';
+        else
+            table.rows[i].style.display =3D 'none';
+    }
+}
+
+function dbw_hide_buttons() {
+    var form;
+    var elem;
+    var name;
+
+    for (var fidx =3D 0; fidx < document.forms.length; fidx++) {
+        form =3D document.forms[fidx];
+        for (var eidx =3D 0; eidx < form.elements.length; eidx++) {
+            elem =3D form.elements[eidx];
+            name =3D elem.name;
+            if (name) {
+                if (name.indexOf('dbw.') >=3D 0 && name.substr(-7) =3D=3D '=
+.submit')
+                    elem.style.display =3D 'none';
+            }
+        }
+    }
+}
+
+/*  getElementsByClassName
+    Developed by Robert Nyman, http://www.robertnyman.com
+    Code/licensing: http://code.google.com/p/getelementsbyclassname/ (MIT l=
+icense)
+    Version: 1.0.1
+*/ =20
+var getElementsByClassName =3D function (className, tag, elm){
+    if (document.getElementsByClassName) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            elm =3D elm || document;
+            var elements =3D elm.getElementsByClassName(className),
+                nodeName =3D (tag)? new RegExp("\\b" + tag + "\\b", "i") : =
+null,
+                returnElements =3D [],
+                current;
+            for(var i=3D0, il=3Delements.length; i<il; i+=3D1){
+                current =3D elements[i];
+                if(!nodeName || nodeName.test(current.nodeName)) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    else if (document.evaluate) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D "",
+                xhtmlNamespace =3D "http://www.w3.org/1999/xhtml",
+                namespaceResolver =3D (document.documentElement.namespaceUR=
+I =3D=3D=3D xhtmlNamespace)? xhtmlNamespace : null,
+                returnElements =3D [],
+                elements,
+                node;
+            for(var j=3D0, jl=3Dclasses.length; j<jl; j+=3D1){
+                classesToCheck +=3D "[contains(concat(' ', @class, ' '), ' =
+" + classes[j] + " ')]";
+            }
+            try {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, namespaceResolver, 0, null);
+            }
+            catch (e) {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, null, 0, null);
+            }
+            while ((node =3D elements.iterateNext())) {
+                returnElements.push(node);
+            }
+            return returnElements;
+        };
+    }
+    else {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D [],
+                elements =3D (tag =3D=3D=3D "*" && elm.all)? elm.all : elm.=
+getElementsByTagName(tag),
+                current,
+                returnElements =3D [],
+                match;
+            for(var k=3D0, kl=3Dclasses.length; k<kl; k+=3D1){
+                classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\=
+\s|$)"));
+            }
+            for(var l=3D0, ll=3Delements.length; l<ll; l+=3D1){
+                current =3D elements[l];
+                match =3D false;
+                for(var m=3D0, ml=3DclassesToCheck.length; m<ml; m+=3D1){
+                    match =3D classesToCheck[m].test(current.className);
+                    if (!match) {
+                        break;
+                    }
+                }
+                if (match) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    return getElementsByClassName(className, tag, elm);
+};
+
+
+// =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+// The following functions are part of scroll edit textarea on double-click
+//
+// This code is public domain (or primarily public domain).
+// Do whatever you want with it.  In particular, you may release it under
+// GPL 2.0 or incorporate it into projects that use GPL 2.0.
+// -- Radomir Dopieralski and Roger D. Haase
+
+// Debugging helpers
+//  save debugging state in cookie - presence of a cookie means debugging m=
+ode is on
+cookiePath =3D '/';
+function autoScrollSetCookie (){
+    document.cookie =3D 'autoscrolldebug=3Don; path=3D' + cookiePath + '; ';
+}
+function autoScrollDeleteCookie (){
+    var cookie_date =3D new Date ( );  // current date & time
+    cookie_date.setTime ( cookie_date.getTime() - 1 );
+    document.cookie =3D 'autoscrolldebug=3D; expires=3D' + cookie_date.toGM=
+TString() + '; path=3D' + cookiePath + '; ';
+}
+function autoScrollGetCookie (){
+    var results =3D document.cookie.match ( '(^|;) ?' + "autoscrolldebug" +=
+ '=3D([^;]*)(;|$)' );
+    if ( results ) {
+        return ( unescape ( results[2] ) );
+    } else {
+        return null;
+    }
+}
+// turn on debugging mode by previewing, saving or reading a page with "aut=
+o scroll debug on" within an h1 header
+// =3D My Page auto scroll debug on =3D
+// once set on,debug mode says on for current session or until turned off w=
+ith
+// =3D My Page auto scroll debug off =3D
+autoScrollDebugOn =3D 0;
+// this function executed on page load
+function turnDebugOnOrOff () {
+    // set global variable for use by cookie functions
+    cookiePath =3D document.getElementsByName('edit_on_doubleclick')[0].con=
+tent;
+    var hOnes =3D document.getElementsByTagName('H1');
+    for (var i =3D 0; i < hOnes.length; ++i) {
+        var header =3D hOnes[i].textContent || hOnes[i].innerText;
+        if (header.match ('auto scroll debug on')) {
+            autoScrollSetCookie ();
+        }
+        if (header.match ('auto scroll debug off')) {
+            autoScrollDeleteCookie ();
+        }
+    }
+    if (autoScrollGetCookie ()) {
+        autoScrollDebugOn =3D 1;
+    } else {
+        autoScrollDebugOn =3D 0;
+    }
+}
+
+// functions used for testing - mouseover tooltip with tagName and scroll l=
+ine number
+function doMouseOver(e) {
+    var targ =3D getNode(e);
+    targ.title =3D 'tagName=3D'+targ.tagName+'  line=3D'+targ.scrollLine;
+}
+function doMouseOut(e) {
+    var targ =3D getNode(e);
+    targ.removeAttribute('title');
+}
+// add leading zeros to hours, minutes, seconds, milliseconds
+function leadingZeros (nbr,count) {=20
+    var strNbr =3D nbr + '';
+    while (strNbr.length < count) {
+        strNbr =3D "0" + strNbr;=20
+    }
+    return strNbr;
+}
+// format hours, minutes, seconds, and ms
+function formatTime (t) {
+    var sHours =3D leadingZeros (t.getHours(), 2);
+    var sMinutes =3D leadingZeros (t.getMinutes (), 2);
+    var sSeconds =3D leadingZeros (t.getSeconds (), 2);
+    var sMilliseconds =3D leadingZeros (t.getMilliseconds (), 3);
+    return sHours + ':' + sMinutes + ':' + sSeconds + ':' + sMilliseconds;
+}
+
+// this variable is available as easy way to display trace info
+autoDebugTrace =3D '';
+function showStartStopTimes (startTime) {
+    // display a message with start and end times at top of page
+    var endTime =3D new Date();
+    var tStart =3D'auto scroll debug on -- Initialization start H:M:S:ms=3D=
+' + formatTime (startTime);
+    var tEnd =3D '  end H:M:S:ms=3D' + formatTime (endTime);
+    var timingMsg =3D document.createElement ('P');
+    timingMsg.innerHTML =3D tStart + tEnd;
+    timingMsg.style. color =3D "red";
+    var contentDiv;
+    if (document.getElementById ('preview')) {
+        contentDiv =3D document.getElementById ('preview');
+    } else {
+        contentDiv =3D document.getElementById ('content');
+    }
+    contentDiv.insertBefore (timingMsg, contentDiv.firstChild);
+    // display trace info is there is any
+    if (autoDebugTrace) {
+        alert(autoDebugTrace);
+    }
+}
+// end of debugging helpers
+
+// this scrolls the textarea after a doubleclick - jumpLine is scroll-to li=
+ne
+function scrollTextarea(jumpLine) {
+    var txtBox =3D document.getElementById('editor-textarea');
+    scroll(0,0);=20
+    if (txtBox) {
+        // Calculate the cursor position - IE supports innerText, not textC=
+ontent
+        var textLines =3D txtBox.textContent || txtBox.innerText;
+        textLines =3D textLines.match(/(.*(\r\n|\r|\n))/g);
+        var scrolledText =3D '';
+        for (var i =3D 0; i < textLines.length && i < jumpLine; ++i) {
+            scrolledText +=3D textLines[i];
+        }
+        txtBox.focus();
+        if (txtBox.setSelectionRange) {
+            // Standard-compliant browsers
+            // Move the cursor
+            txtBox.setSelectionRange(scrolledText.length, scrolledText.leng=
+th);
+            // Calculate how far to scroll, by putting the text that is to =
+be
+            // above the fold in a DIV, and checking the DIV's height.
+            var scrollPre =3D document.createElement('pre');
+            txtBox.parentNode.appendChild(scrollPre);
+            var style =3D window.getComputedStyle(txtBox, '');
+            scrollPre.style.lineHeight =3D style.lineHeight;
+            scrollPre.style.fontFamily =3D style.fontFamily;
+            scrollPre.style.fontSize =3D style.fontSize;
+            scrollPre.style.padding =3D 0;
+            scrollPre.style.letterSpacing =3D style.letterSpacing;
+            // Different browsers call this value differently:
+            try { scrollPre.style.whiteSpace =3D "-moz-pre-wrap"; } catch(e=
+) {}
+            try { scrollPre.style.whiteSpace =3D "-o-pre-wrap"; } catch(e) =
+{}
+            try { scrollPre.style.whiteSpace =3D "-pre-wrap"; } catch(e) {}
+            try { scrollPre.style.whiteSpace =3D "pre-wrap"; } catch(e) {}
+            scrollPre.textContent =3D scrolledText;
+            txtBox.scrollTop =3D scrollPre.scrollHeight-100;
+            scrollPre.parentNode.removeChild(scrollPre);
+        } else if (txtBox.createTextRange) {
+            // Microsoft Internet Explorer
+            // We don't need to scroll, it will do it automatically, just m=
+ove
+            // the cursor.
+            var range =3D txtBox.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', scrolledText.length);
+            range.moveStart('character', scrolledText.length);
+            range.select();
+            txtBox.__column =3D 1;
+        }
+    }=20
+}
+
+// stop event bubbling
+function stopBubbling(e) {
+    if (e.stopPropagation) {
+        e.stopPropagation();=20
+    }
+    e.cancelBubble =3D true;
+}
+
+// stop bubbling and return event node=20
+function getNode(e) {
+    // window.event and e.srcElement are IE
+    var e =3D e || window.event;
+    var targ =3D e.target || e.srcElement;
+    if (targ.nodeType =3D=3D 3) {
+        // workaround safari
+        targ =3D targ.parentNode;
+    }
+    stopBubbling(e);
+    return targ;
+}
+
+// add action=3Dedit and scrollLine to document.location
+function doActionEdit(e) {
+    var targ =3D getNode(e);
+    // MoinMoin counts starting with 1, scrollTextarea starts with 0
+    document.location.search =3D '?action=3Dedit&line=3D'+(targ.scrollLine-=
+1);
+}
+
+// scroll textarea on this page
+function doTextareaScroll(e) {
+    var targ =3D getNode(e);
+    scrollTextarea(targ.scrollLine-1);
+}
+
+// This is the function that registers double clicks.
+// isPreview is true if the current page is an edit draft preview
+function setCallback(node, line, isPreview) {
+    if (node.scrollLine) {
+        // this node already processed
+        return;
+    } else {
+        node.scrollLine =3D line;
+        if(window.addEventListener){=20
+            if (isPreview) {
+                node.addEventListener('dblclick',doTextareaScroll,false);
+            } else {
+                node.addEventListener('dblclick',doActionEdit,false);
+            }
+            if (autoScrollDebugOn) {
+                node.addEventListener('mouseover', doMouseOver,false);=20
+                node.addEventListener('mouseout',doMouseOut,false);=20
+            }
+        } else {
+            // IE
+            if (isPreview) {
+                node.attachEvent('ondblclick',doTextareaScroll);
+            } else {
+                node.attachEvent('ondblclick',doActionEdit);
+            }
+            if (autoScrollDebugOn) {
+                node.attachEvent('onmouseover', doMouseOver,false);=20
+                node.attachEvent('onmouseout',doMouseOut,false);
+            }
+        }
+    }
+}
+
+// walk part of DOM and add doubleclick function to all nodes with tagNames
+function walkDom (someNode, lineNbr, isPreview, nextId, topId) {
+
+    //~ // handle special cases of paragraph on line after <<TOC>> and ----=
+ (horizontal rule)
+    //~ //   But this effects paragraphs on multiple lines: doubleclick goe=
+s to paragraph bottom rather than top.
+    //~ //   Seems best to live with TOC and HR problem and wait for Moin2.
+    //~ var next1, next2, next3;
+    //~ var nextNbr =3D 'line-' + (lineNbr-0+1);
+    //~ if (someNode.parentNode.tagName =3D=3D 'P' && someNode.parentNode.s=
+crollLine) {
+        //~ next1 =3D someNode.nextSibling;
+        //~ if (next1 && next1.tagName !=3D 'SPAN') {
+            //~ next2 =3D next1.nextSibling;
+        //~ }
+        //~ if (next2 && next2.id =3D=3D nextNbr) {
+            //~ alert('Correcting scrollLine=3D'+lineNbr);
+            //~ someNode.parentNode.scrollLine =3D lineNbr;
+            //~ return;
+        //~ }
+    //~ }
+   =20
+    var ie8LoopCounter =3D 0;
+    var doChild =3D true;
+    while (!(someNode.id =3D=3D nextId) && !(someNode.id =3D=3D topId)) {
+        // workaround IE8 bug:  http://moinmo.in/MoinMoinBugs/FormInsideTab=
+leCausesIE8ScriptLoop
+        ie8LoopCounter +=3D 1;
+        if (ie8LoopCounter > 10000) {
+            return;
+        }
+       =20
+        // add children, add siblings, add parent
+        if (doChild && someNode.firstChild) {
+            someNode =3D someNode.firstChild;
+        } else {
+            doChild =3D true;
+            if (someNode.nextSibling) {
+                someNode =3D someNode.nextSibling;
+            } else {
+                if (someNode.parentNode.nextSibling) {
+                someNode =3D someNode.parentNode.nextSibling;
+                } else {
+                    doChild =3D false;
+                    someNode =3D someNode.parentNode.parentNode;
+                }
+            }
+        }
+        if (doChild && someNode.tagName && !(someNode.id =3D=3D nextId) && =
+!(someNode.id =3D=3D topId)) {
+            setCallback(someNode, lineNbr, isPreview);
+        }
+    }
+}
+
+// run during page load when user may edit current page OR is viewing draft=
+ preview
+function setSpanTags(isPreview) {
+    var startTime =3D new Date();
+    // find all the SPAN tags with an ID beginning with "line-"
+    var spanTags =3D document.getElementsByTagName('span');
+    var marks =3D [];
+    for (var i =3D 0; i < spanTags.length; ++i) {
+        if (spanTags[i].id && spanTags[i].id.substring(0, 5) =3D=3D 'line-'=
+) {
+            marks.push(spanTags[i]);
+        }
+    }
+    var top =3D document.getElementById('content');
+    var bottom =3D document.getElementById('bottom');
+    // add expected stopping point to end of array for convenience
+    if (bottom) {
+        marks.push(bottom);=20
+    } else {
+        if (autoScrollDebugOn) {
+            alert("auto scroll debug 1: document.getElementById('bottom') f=
+ailed");
+        }
+    }
+    var skipTo =3D -1;=20
+    // loop through span tags and apply double-click events to appropriate =
+node(s)=20
+    for (i =3D 0; i < marks.length-1; ++i) {
+        var mark =3D marks[i];
+        // skip span tags generated by embedded parsers
+        if (i > skipTo) {
+            // split the ID into parts: looks like "line-22" or "line-22-1"
+            var lineParts =3D mark.id.split('-');
+            var line =3D lineParts[1];
+            if (lineParts.length =3D=3D 3) {
+                // have found output from embedded parser
+                // find next span id that looks like "line-n" and the "line=
+-n-n" just before it
+                var j =3D i - 0;
+                while (lineParts.length =3D=3D 3) {
+                    j++;
+                    lineParts =3D marks[j].id.split('-');
+                }
+                // determine how many lines, starting line number, and add =
+double-click events
+                var nbrParsedLines =3D j - i;
+                var parsedLineNbr =3D lineParts[1] - nbrParsedLines - 1;
+                for (var k =3D 0; k < nbrParsedLines; ++k) {=20
+                    if (marks[i+k] && marks[i+k+1] && marks[i+k+1].id) {
+                        walkDom (marks[i+k], parsedLineNbr+k, isPreview, ma=
+rks[i+k+1].id, top.id);
+                    } else {
+                        if (autoScrollDebugOn) {
+                            alert('auto scroll debug 2: skipping walkDom, i=
+=3D' + i + ' k=3D' + k + ' marks[i].id=3D' + marks[i].id);
+                        }
+                    }
+                }
+                // done with embedded parser lines, tell main loop to skip =
+these
+                skipTo =3D j - 1;=20
+            } else {
+                // walk part of DOM and apply doubleclick function to every=
+ node with a tagname
+                if (marks[i+1] && marks[i+1].id) {
+                    walkDom (mark, line, isPreview, marks[i+1].id, top.id);
+                } else {
+                    if (autoScrollDebugOn) {
+                        alert('auto scroll debug 3: skipping walkDom, i=3D'=
+ + i + ' marks[i].id=3D' + marks[i].id);
+                    }
+                }
+            }
+        }
+    }
+    if (autoScrollDebugOn && document.getElementById('content'))  {
+        for (i =3D 0; i < marks.length-1; ++i) {
+            marks[i].innerHTML =3D ' ' + marks[i].id + ' ';
+            marks[i].style. color =3D "red";
+        }
+        showStartStopTimes(startTime);
+    }
+}
+
+// test to see if this user has selected or defaulted to edit_on_doubleclic=
+k AND
+// whether we are viewing a page, editing a page, or previewing an edit dra=
+ft=20
+function scrollTextareaInit() {
+    // look for meta tag -- is edit_on_doubleclick present?
+    if (!document.getElementsByName('edit_on_doubleclick').length) {
+        return;
+    }
+    turnDebugOnOrOff ();
+    // are we viewing a page - both gui and text editors will have button n=
+amed button_save
+    if (!document.getElementsByName('button_save').length) {
+        setSpanTags(0);
+        return;
+    }
+    // we are in editor -- is there a line number specified in URL?
+    var lineMatch =3D document.location.search.match(/line=3D(\d*)/);
+    if (lineMatch) {
+        scrollTextarea(lineMatch[1]);
+        return;
+    }=20
+    if (document.getElementById('preview')) {
+        // is an editor preview
+        setSpanTags(1);
+    }
+}
+
+// The DOM ready check for Internet Explorer
+function ieScrollCheck() {
+	try {
+		// If IE is used, use the trick by Diego Perini
+		document.documentElement.doScroll("left");
+	} catch( error ) {
+		setTimeout( ieScrollCheck, 1 );
+		return;
+	}
+    scrollTextareaInit();
+}
+
+// run auto scroll init As Soon As Possible -- prior to onload for modern b=
+rowsers
+function runASAP() {
+    if (document.addEventListener) {=20
+        // Firefox 3.6, Chrome 4.0.249.89, Safari for Windows 4.04, Opera 1=
+0.5beta, and maybe older versions
+        // schedule func to be run when DOM complete, usually before last i=
+mage loaded
+        document.addEventListener("DOMContentLoaded", scrollTextareaInit, f=
+alse);
+    } else {
+        if (document.documentElement.doScroll && window =3D=3D window.top) {
+            // IE 5-8 and not using frames
+            ieScrollCheck();
+        } else {
+            addLoadEvent(scrollTextareaInit);
+        }
+    }
+}
+// auto scroll initialization starts here
+runASAP();
+
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9
+Content-Location: https://www.wireshark.org/assets/images/wsbadge@186x57.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+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
+AAAASUVORK5CYII=
+
+------=_Part_39B196E4_C4ED6BF7.158C8E42DF9--

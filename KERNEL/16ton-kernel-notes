@@ -1,0 +1,15 @@
+stock 3.19.3
+
+try new btusb from Realtech built from bluetooth-next kernel so will steal its or the current 4.0rc* offerings then "merge" in Realtechs current offerings. compare this driver and the one ive been using completely work on that and add rtl wifi from realtech (You MUST use Realtechs wifi driver from lwfinger gits repo or bluetooth will NOT work it took me to long to figure that out) and wait till its all worked out before bothering with the rest of my changes.
+
+rest
+
+set amd opteron etc setting in system type to compile for bdver2
+
+set AMD's Geode patch for no-pl emu (not real emu just nulls out from what i understand) and make sure it claims 686 not 586
+
+Add whatever files/settings most likely in arch/arm/mach-omap* arch/arm/plat-omap* to support the ovation mobo
+
+Oh other stuff im sure im forgetting at the momment
+
+Maybe sum other cpu governors? 

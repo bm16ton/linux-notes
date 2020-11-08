@@ -1,0 +1,10 @@
+ARCH=arm CROSS_COMPILE=/opt/toolchains/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux/bin/arm-linux-gnueabihf-
+ARCH=arm CROSS_COMPILE=/opt/toolchains/arm-2010q1-202-arm-none-linux-gnueabi/bin/arm-none-linux-gnueabi-
+PATH=$PATH:/opt/toolchains/gcc-arm-none-eabi-5_stm32/bin/
+
+uh shouldnt be needed with location in cross_compile
+
+CROSS_COMPILE=/opt/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux/bin/arm-linux-gnueabihf- dpkg-buildpackage -b -a armhf -d
+
+
+

@@ -1,0 +1,35 @@
+Format: 1.8
+Date: Sat, 23 Aug 2014 12:34:19 -0700
+Source: crda
+Binary: crda
+Architecture: amd64
+Version: 3.13-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Ben Hutchings <ben@decadent.org.uk>
+Changed-By: Ben Hutchings <ben@decadent.org.uk>
+Description:
+ crda       - wireless Central Regulatory Domain Agent
+Closes: 716247 720119
+Changes:
+ crda (3.13-1) unstable; urgency=medium
+ .
+   * New upstream version (Closes: #720119)
+     - reglib: Validate all structure and array lengths (Closes: #716247)
+   * debian/control, debian/watch: Update Homepage and download URLs
+   * debian/copyright: Update licence information and copyright holders
+     - Licence is now copyleft-next 0.3.0
+   * Fix build regressions in new upstream version:
+     - Fix the linking order to avoid compilation error
+     - Add DESTDIR support in install-libreg* rules in Makefile
+     - Do not run ldconfig if DESTDIR is set
+     - Fix linking of libraries used by reglib
+   * Install reglib in /lib/crda, not /usr/lib
+   * debian/crda.lintian-overrides: Override lintian errors due to
+     wrongly detecting copyleft-next as GPL
+Checksums-Sha1:
+ ed6fac9164a4c48c263a9ad30d11b970d689fe8f 60350 crda_3.13-1_amd64.deb
+Checksums-Sha256:
+ 16396eb6575ab2529292f687948adf0e84f5df0019db564d7a69864e275c6a85 60350 crda_3.13-1_amd64.deb
+Files:
+ b3d63bc8f7a9074f1b3eaaa114e99aad 60350 net optional crda_3.13-1_amd64.deb

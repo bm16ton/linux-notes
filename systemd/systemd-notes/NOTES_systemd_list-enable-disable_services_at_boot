@@ -1,0 +1,53 @@
+#### Analyze the Boot Process
+## The systemd-analyze command allows you to view information about your boot process, such as how long it 
+## took and which services (and other processes) added the most time to the boot process.
+## To view information about the startup process in general, run this command:
+
+systemd-analyze
+
+## To view how long each process took to start, run this command:
+
+systemd-analyze blame
+
+#### View Units
+## Systemd uses “units,” which can be services (.service), mount points (.mount), devices (.device), or sockets (.socket). The same systemctl command manages all these types of units.
+## To view all available unit files on your system:
+
+systemctl list-unit-files
+
+## To list all running units:
+
+systemctl list-units
+
+## To list all failed units:
+
+systemctl –failed
+
+#### Manage Services
+## To view a list of enabled and disabled services, you use the same systemctl command as above, but tell it to only list services:
+
+systemctl list-unit-files –type=service
+
+## The systemctl command allows you to start, stop, or restart a service. You can also tell a service to “reload” its configuration.
+## The status command is the only action here that will print and output to the terminal. The other commands will silently take effect.
+
+systemctl start name.service
+systemctl stop name.service
+systemctl restart name.service
+systemctl reload name.service
+systemctl status name.service
+
+## Use the systemctl enable command to have systemd automatically start a service (or other type of unit) at bootup. 
+## The systemctl disable command disables a services and stops it from starting automatically with your computer.
+
+systemctl enable name.service
+systemctl disable name.service
+
+## You can “mask” a service or other unit to prevent it from starting up at all. You’ll need to unmask it before it can start in the future:
+
+systemctl mask name.service
+systemctl unmask name.service
+
+## Systemd also offers “targets,” which are similar to runlevels, but different. instead of a number, targets have names — it’s possible for systemd to be in multiple target states at once. 
+## Systemd also offers its own system journal, which can be accessed with the journalctl command.
+## By default, it stores system logs in binary format — but you can switch to plain-text format logs, if you prefer.

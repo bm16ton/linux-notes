@@ -1,0 +1,39 @@
+dd in GNU Coreutils 8.24+ (Ubuntu 16.04 and newer) got a new status option to display the progress:
+Example
+
+dd if=/dev/urandom of=/dev/null status=progress
+
+
+#########################################################################################################################
+
+You can monitor the progress of dd without halting it by using the kill command.
+
+To see the progress of dd once it's running, open another terminal and enter:
+
+sudo kill -USR1 $(pgrep ^dd)
+
+This will display dd progress in the dd terminal window without halting the process. If you're on BSD or OS X, use INFO instead of USR1. The USR1 signal will terminate dd.
+
+If you would like to get regular updates of the dd progress, then enter:
+
+watch -n5 'sudo kill -USR1 $(pgrep ^dd)'
+
+watch will probe the dd process every -n seconds (-n5 = 5 seconds) and report without halting it.
+
+Note the proper single quotes in the commands above.
+
+!!!!!!!!!!! sudo pkill -usr1 dd is easier to remember, works perfectly fine (at least on Ubuntu 14.04), and is less to type. !!!!!!!!!
+
+#########################################################################################################################
+
+
+
+If you have already started dd, and if you are writing a file such as when creating a copy of a pendrive to disk, you can use the watch command to constantly observe the size of the output file to see changes and estimate completion.
+
+watch ls -l /pathtofile/filename
+
+To see only file size (h-human view):
+
+watch ls -sh /pathtofile/filename
+
+

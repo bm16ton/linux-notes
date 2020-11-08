@@ -1,0 +1,103 @@
+$$$$$  "Build 0051" is the example search string this is where your search goes
+
+##########################
+To search the commit log (across all branches) for the given text:
+
+git log --all --grep='Build 0051'
+
+To search the actual content of commits through a repo's history, use:
+
+git grep 'Build 0051' $(git rev-list --all)
+
+to show all instances of the given text, the containing file name, and the commit sha1.
+
+Finally, as a last resort in case your commit is dangling and not connected to history at all, you can search the reflog itself with the -g flag (short for --walk-reflogs:
+
+git log -g --grep='Build 0051'
+
+EDIT: if you seem to have lost your history, check the reflog as your safety net. Look for Build 0051 in one of the commits listed by
+
+git reflog
+###########################
+
+###########################
+git log --grep=<pattern>
+            Limit the commits output to ones with log message that matches the
+            specified pattern (regular expression).
+###########################
+
+###########################
+
+git log | grep -b3 "Build 0051"
+
+############################
+
+############################
+
+git log --all --grep='Build 0051'
+
+############################
+
+############################
+
+############################################################ COMMITS FOR SPECIFIC FILES OR PATHS
+
+git log --follow filename    ### the --follow works for a particular file  (AND MAY STILL WORK WITH PATHS RECURSIVLY)
+
+#############################
+
+#############################
+
+git log path
+
+##   [--] <path>…
+
+##   Show only commits that affect any of the specified paths. To prevent confusion with 
+##   options and branch names, paths may need to be prefixed with "-- " to separate them
+##   from options or refnames.
+
+#############################
+
+#############################
+
+git log <somepath>
+
+########################################################## SHOW COMMITS AND THERE IMPACT
+
+git log --stat <path>    ### -p mite do same or show more
+
+##############################
+
+##############################
+
+git log -p filename
+
+##################################################  THESE MITE BE BETTER FOR NAME / PATH CHANGES VISUALIZATIONS???
+
+git log --follow --name-status -- <path>
+
+## But if you want a more compact list with only what matters:
+
+git log --follow --name-status --format='%H' -- <path>
+
+## Or even
+
+git log --follow --name-only --format='%H' -- <path>
+
+$$$$$$$ NOTE NOTE NOTE  The downside is that --follow only works for a single file.
+
+###########################################  FOLLOW COMMITS FOR JUST PART OF A FILE
+
+git log --pretty=short -u -L <upperLimit>,<lowerLimit>:<path_to_filename>
+
+## where upperLimit is the start_line_number and lowerLimit is the ending_line_numb
+
+################################################  GIT GUI SEARCH
+
+gitk <path_to_filename>
+
+##################################### This shows me all the commits for a file regardless of branch, local, reflog, and remote.
+
+gitk --all --first-parent --remotes --reflog --author-date-order -- filename
+
+

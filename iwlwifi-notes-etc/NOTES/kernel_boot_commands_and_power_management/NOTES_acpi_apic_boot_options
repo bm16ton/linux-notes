@@ -1,0 +1,194 @@
+acpi_osi=		# disable all strings
+acpi_osi=!      # disable all built-in OS vendor strings      *will try this now
+
+apic — Change the verbosity of the APIC subsystem when booting.
+Synopsis
+
+apic=[quiet(default)|verbose|debug]
+
+Control how much information the APIC subsystem generates when booting the kernel.
+Name
+
+noapic — Do not use any IOAPICs.
+
+Prevent the kernel from using any of the IOAPICs that might be present in the system.
+Name
+
+lapic — Enable the local APIC.
+
+Cause the kernel to enable the local APIC even if the BIOS had disabled it.
+Name
+
+nolapic — Do not use the local APIC.
+
+Tell the kernel not to use the local APIC.
+Name
+
+noirqbalance — Disable kernel IRQ balancing.
+
+Disable all of the built-in kernel IRQ balancing logic.
+Name
+
+irqfixup — Basic fix to interrupt problems.
+
+When an interrupt is not handled, search all known interrupt handlers for it. This is intended to get systems with badly broken firmware running.
+Name
+
+irqpoll — Extended fix to interrupt problems.
+
+When an interrupt is not handled, search all known interrupt handlers for it and also check all handlers on each timer interrupt. This is intended to get systems with badly broken firmware running.
+Name
+
+noirqdebug — Disable unhandled interrupt detection.
+
+By default, the kernel attempts to detect and disable unhandled interrupt sources because they can cause problems with the responsiveness of the rest of the kernel if left unchecked. This option will disable this logic.
+
+acpi — ACPI subsystem options.
+Synopsis
+
+acpi=[force|off|noirq|ht|strict]
+
+This is the main option for the Advanced Configuration and Power Interface (ACPI). Values are:
+
+force           #Force ACPI to be enabled. Can be used to override the kernel configuration option that disabled it.
+off             #Disable ACPI. Can be used to override the kernel configuration option that enabled it.
+noirq           #Prevent ACPI from being used for IRQ routing.
+ht              #run only enough of the ACPI layer to enable HyperThreading on processors that are capable of it.
+strict          #Make the ACPI layer be less tolerant of platforms that are not fully compliant with the ACPI specification.
+
+acpi_sleep — ACPI sleep options.
+Synopsis
+
+acpi_sleep=[s3_bios],[s3_mode]
+
+During S3 resume (which happens after the machine has been suspended to RAM), hardware needs to be reinitialized properly. For most devices this is simple, except for video cards, which are normally initialized by the BIOS. The kernel does not have enough information to restore the video device, because that information is in the BIOS and not accessable at all. This option lets the kernel try to use the ACPI subsystem to restore the video card in two different ways.
+
+See the file Documentation/power/video.txt for more information on this option and how to find the proper value for your type of hardware.
+Name
+
+acpi_sci — ACPI System Control Interrupt trigger mode.
+Synopsis
+
+acpi_sci=[level|edge|high|low]
+
+Set the ACPI System Control Interrupt trigger mode.
+Name
+
+acpi_irq_balance — Enable ACPI IRQ balance.
+
+Cause ACPI to balance the active IRQs. This is the default option when operating in APIC mode.
+Name
+
+acpi_irq_nobalance — Disable ACPI IRQ balance.
+
+Cause ACPI not to move the active IRQs. This is the default option when operating in PIC mode.
+Name
+
+acpi_irq_isa — Mark the listed IRQs as used by ISA.
+Synopsis
+
+acpi_irq_isa= irq[, irq...]
+
+If the IRQ balance option is enabled, mark the listed IRQs as used by the ISA subsystem.
+Name
+
+acpi_irq_pci — Mark the listed IRQs as used by PCI.
+Synopsis
+
+acpi_irq_pci= irq[,[irq...]
+
+If the IRQ balance option is enabled, mark the listed IRQs as used by the PCI subsystem.
+Name
+
+acpi_os_name — Fake the operating system name to ACPI.
+Synopsis
+
+acpi_os_name= name
+
+Tell the ACPI BIOS that the name of the running operating system is name. This can be useful to spoof the BIOS into thinking that Windows is running instead of Linux, which can help solve some ACPI issues for older BIOSes. As an example, use the string Microsoft 2001 to spoof the BIOS into thinking that Windows 2001 is running on the machine.
+Name
+
+acpi_osi — Disable the _OSI ACPI method.
+Synopsis
+
+acpi_osi=[n]
+
+This is actually a binary option despite the integer value. If n is absent, ACPI will disable the _OSI method. If n is present, _OSI will not be disabled.
+Name
+
+acpi_serialize — Force serialization of AML methods.
+
+Force the serialization of ACPI Machine Language methods.
+Name
+
+acpi_skip_timer_override — Skip interrupt override issues.
+
+Allow the ACPI layer to recognize and ignore IRQ0/pin2 Interrupt Override issues for broken nForce2 BIOSes that result in the XT-PIC timer acting up.
+Name
+
+acpi_dbg_layer — ACPI debug layer.
+Synopsis
+
+acpi_dbg_layer= n
+
+Set the ACPI debug layers. n is an integer in which each bit indicates a different ACPI debug layer. After the system has booted, the debug layers can be set via the /proc/acpi/debug_layer file.
+Name
+
+acpi_fake_ecdt — ECDT workaround.
+
+If present, this allows ACPI to workaround BIOS failures when it lacks an Embedded Controller Description Table.
+Name
+
+acpi_generic_hotkey — Use generic ACPI hotkey driver.
+
+This allows the ACPI consolidated generic hotkey driver to override the platform-specific driver if one is present.
+Name
+
+acpi_pm_good — Override pmtimer bug detection.
+
+Force the kernel to assume that the machine's pmtimer latches its value and always returns good values.
+Name
+
+ec_intr — ACPI Embedded Controller interrupt mode.
+Synopsis
+
+ec_intr= n
+
+Specify the ACPI embedded controller interrupt mode. If n is 0, polling mode will be used, otherwise interrupt mode will be used. Interrupt mode is the default.
+Name
+
+memmap — Mark specific memory as ACPI data.
+Synopsis
+
+memmap= n[KMG]# start[KMG]
+
+Marks a specific location and range of memory as ACPI data. n is the size of the memory location and startis the start location in memory of the range. Both are measured in units of kilobytes (K), megabytes (M), or gigabytes (G).
+Name
+
+memmap — Mark specific memory as reserved.
+Synopsis
+
+memmap= n[KMG]$ start[KMG]
+
+This marks a specific location and range of memory as reserved. n is the size of the memory location and start is the start location in memory of the range.
+Name
+
+pnpacpi — Turn PnP ACPI off.
+Synopsis
+
+pnpacpi=off
+
+Disable the PnP ACPI functionality.
+Name
+
+processor.max_cstate — Limit the processor to a maximum C-state.
+Synopsis
+
+processor.max_cstate= n
+
+Limit the processor to a maximum C-state, no matter what the ACPI tables say it can support. n is a valid C-state value. A value of 9 overrides any DMI blacklist limit that might be present for this processor.
+Name
+
+processor.nocst — Ignore the _CST method for C-states.
+
+Causes the ACPI core to ignore the _CST method of determining the processor C-states and use the legacy FADT method instead.

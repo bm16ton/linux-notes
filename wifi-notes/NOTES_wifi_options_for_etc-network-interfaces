@@ -1,0 +1,77 @@
+To run commands (IE to change txpower) in /etc/network/interfaces try the up option described under "IFACE OPTIONS" here: http://manpages.ubuntu.com/manpages/precise/man5/interfaces.5.html
+
+It, and similar options like pre-up, etc. allow you to execute arbitrary commands at various points during the configuration of your interface. So your /etc/network/interfaces might look like
+
+##########################################################################################################
+
+auto wlan0
+iface wlan0 inet static
+    wpa-ssid <my ssid>
+    wpa-psk <my psk>
+    address <address>
+    netmaks <netmask>
+    gateway <gateway>
+
+    # Command options with the same label (e.g. "up", "pre-up") are executed in the
+    #  order in which they're specified.
+    up iw reg set ...
+    up iwconfig wlan0 txpower ...
+
+    # If you have `rfkill` installed and want to disable (all) WiFi transmission
+    #  while this interface is down.
+    post-down rfkill wifi
+
+##########################################################################################################
+
+You should also be able to use the option wireless-txpower Requires the wireless-tools (i.e. iwconfig) package installed, but I'm not sure how the sequencing of your commands would work in that case. Some (sparse) information on the wireless-[ ] options here: http://manpages.ubuntu.com/manpages/precise/man7/wireless.7.html
+
+DESCRIPTION
+
+       The  Wireless Extensions is an API allowing you manipulate Wireless LAN
+       networking interfaces.  It is  composed  of  a  variety  of  tools  and
+       configuration  files.  It  is  documented  in  more detail in the Linux
+       Wireless LAN Howto.
+       The Wireless Tools are used to change the configuration of wireless LAN
+       networking  interfaces  on the fly, to get their current configuration,
+       to get statistics and diagnose them. They are described  in  their  own
+       man page, see below for references.
+       Wireless configuration is specific to each Linux distribution. This man
+       page will contain in the future the configuration procedure for  a  few
+       common   distributions.   For   the   time   being,   check   the  file
+       DISTRIBUTIONS.txt included with the Wireless Tools package.
+
+DEBIAN 3.0
+
+       In Debian 3.0 (and later) you can  configure  wireless  LAN  networking
+       devices using the network configuration tool ifupdown(8).
+
+       File : /etc/network/interfaces
+
+       Form : wireless-<function> <value>
+              wireless-essid Home
+              wireless-mode Ad-Hoc
+
+       See also :
+              /etc/network/if-pre-up.d/wireless-tools
+              /usr/share/doc/wireless-tools/README.Debian
+
+SuSE 8.0
+
+       SuSE  8.0  (and  later)  has integrated wireless configuration in their
+       network scripts.
+
+       Tool : Yast2
+
+       File : /etc/sysconfig/network/wireless
+              /etc/sysconfig/network/ifcfg-*
+
+       Form : WIRELESS_<function>=<value>
+              WIRELESS_ESSID="Home"
+              WIRELESS_MODE=Ad-Hoc
+
+       See also :
+              man ifup
+              info scpm
+
+
+

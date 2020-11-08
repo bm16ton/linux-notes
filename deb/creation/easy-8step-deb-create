@@ -1,0 +1,25 @@
+
+
+This answer was originally copied from the question it was in. It was placed here to retain the QA format.
+
+    First we need to install these packages: sudo apt-get install dh-make devscripts
+
+    Copy the script into an editor and save it as hello
+
+    chmod u+x hello
+    mkdir hello-0.1
+    cp hello hello-0.1/
+
+    cd hello-0.1/
+    dh_make -s --indep --createorig
+    grep -v makefile debian/rules > debian/rules.new
+    mv debian/rules.new debian/rules
+    echo hello usr/bin > debian/install
+    echo "1.0" > debian/source/format
+    rm debian/*.ex
+    debuild -us -uc
+    cd ..
+    sudo dpkg -i hello_0.1-1_all.deb
+
+Now entering hello into the Terminal prints 'Hello World'.
+

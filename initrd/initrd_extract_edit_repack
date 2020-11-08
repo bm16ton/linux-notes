@@ -1,0 +1,18 @@
+        EXTRACT ANDROID-X86 INITRD.IMG
+zcat /boot/initrd-2.6.18-164.6.1.el5.img | cpio -idmv
+
+        COMPRESS ANDROID-X86 INITRD.IMG
+find . | cpio -o -c | gzip -9 > /boot/test.img
+                Or on redhat (dunno why it be different
+    find . 2>/dev/null | cpio --quiet -c -o | xz -9 --format=lzma >"new_initrd.img"
+
+
+		UNPACK; (for gzip)
+gzip -dc /mnt/casper/initrd.gz | cpio -id
+		OR; (for lz)
+lzma -dc -S .lz /mnt/casper/initrd.lz | cpio -id
+
+		REPACK; (for .gz ubuntu 9.10 and newer use .lz)
+find . | cpio --quiet --dereference -o -H newc | gzip -9 > ~/new-initrd.gz
+		OR; (FOR UBUNTU 9.10 AND NEWER)
+find . | cpio --quiet --dereference -o -H newc | lzma -7 > ~/new-initrd.lz|

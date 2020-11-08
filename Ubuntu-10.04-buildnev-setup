@@ -1,0 +1,64 @@
+sudo apt-get install openjdk-6-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev lib32ncurses5-dev ia32-libs x11proto-core-dev libx11-dev lib32readline5-dev lib32z-dev libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc 
+
+possibly;
+
+sudo ln -s /usr/lib32/mesa/libGL.so.1 /usr/lib32/mesa/libGL.so
+
+
+
+
+  to build chroot;
+
+sudo debootstrap --variant=buildd --arch amd64 lucid /var/chroot/ http://mirror.pnl.gov/ubuntu/
+
+after to start chroot;
+
+sudo mount -o bind /proc /var/chroot/proc
+sudo cp /etc/resolv.conf /var/chroot/etc/resolv.conf
+
+Accessing graphical applications inside the chroot
+
+You can run graphical applications within a chroot, but you need to provide an X server for them to run in first. The easiest way to do this is to set the display of the chroot system to be identical to the root display of your system's main X server and provide access to it.
+
+In other words, in the chroot shell type;
+
+export DISPLAY=:0.0
+
+And in the system shell type
+
+xhost +
+
+You don't have to enter the chroot shell to access its commands,
+just type;
+
+gksudo chroot /var/chroot firefox -DISPLAY=:0.0
+
+If you want the chroot to have its own display, you need to create this display with the Xnest command. Perform the following instructions outside the chroot:
+
+    Install the xhost and xnest packages.
+
+    Ensure that /proc is mounted and DNS resolution is set-up within the chroot (see above).
+    Type the following into a Terminal:
+
+        Xnest -ac :1
+
+    A blank Xnest window should appear.
+    Open another Terminal and type the following to enter the chroot:
+
+        sudo chroot /var/chroot
+
+    While in the chroot shell, type the following:
+
+        export DISPLAY=localhost:1
+
+        If you have problems starting graphical applications, type the above command again, but replace localhost with 127.0.0.1 
+
+    Start a window manager inside the chroot. For example, install the metacity package and type:
+
+        metacity &
+
+    Start a graphical application inside the chroot (making sure that you installed it in the chroot first). It should appear in the Xnest window. 
+
+
+
+

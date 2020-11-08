@@ -1,0 +1,25 @@
+!!!!!!!!!!!!!!!!DECPRECATED NO LONGER EXISTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/proc/bus/usb/devices
+sudo mount -t usbfs none /proc/bus/usb -o devmode=0666
+!!!!!!!!!!!!!!!!DECPRECATED NO LONGER EXISTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+The solution is as follows;
+
+It is not a long term solution, but I found another solution, for getting /proc/bus/usb back again and no need for usbfs.
+
+First I put my user to sudoers for /bin/mount and /bin/umount
+Then I changed my scanner script to do the magic.
+
+Before running my scanner the script will do:
+sudo mount --bind /dev/bus /proc/bus
+
+while on exit of the script it fires the command:
+sudo umount -l /proc/bus
+
+mount --bind /dev/bus /proc/bus or
+mount --bind /dev/bus/usb /proc/bus/usb
+will make /proc/bus/usb accessible /proc/bus/usb for some hardware (although this will cause the other directories under /proc/bus to be hidden). So you should umount again, after use.
+
+It is a reasonable workaroud and worked fine for me. Just should make sure to unmount after using the device otherwise /proc/bus/pci and /proc/bus/input etc gets hidden!

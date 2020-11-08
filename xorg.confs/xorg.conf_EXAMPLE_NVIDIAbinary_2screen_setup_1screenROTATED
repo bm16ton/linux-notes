@@ -1,0 +1,88 @@
+Section "ServerLayout"
+    Identifier     "Default Layout"
+    Screen      0  "Screen0" 0 0
+    Screen      1  "Screen1" RightOf "Screen0"
+    ...
+    Option    "Xinerama" "true"
+EndSection
+
+...
+
+Section "Monitor"
+    Identifier     "Configured Monitor"
+EndSection
+
+Section "Monitor"
+    Identifier     "Monitor0"
+    VendorName     "Unknown"
+    ModelName      "Samsung SyncMaster"
+    HorizSync       30.0 - 81.0
+    VertRefresh     56.0 - 75.0
+EndSection
+
+Section "Monitor"
+    Identifier     "Monitor1"
+    VendorName     "Unknown"
+    ModelName      "DELL 2005FPW"
+    HorizSync       30.0 - 83.0
+    VertRefresh     56.0 - 75.0
+EndSection
+
+Section "Device"
+    Identifier     "Configured Video Device"
+    Driver         "nvidia"
+    Option         "UseFBDev" "true"
+    Option         "NoLogo" "True"
+EndSection
+
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "GeForce 6200 LE"
+    BusID          "PCI:1:0:0"
+    Screen          0
+EndSection
+
+Section "Device"
+    Identifier     "Device1"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "GeForce 6200 LE"
+    BusID          "PCI:1:0:0"
+    Screen          1
+    Option          "Rotate" "left"
+EndSection
+
+Section "Screen"
+    Identifier     "Default Screen"
+    Device         "Configured Video Device"
+    Monitor        "Configured Monitor"
+    DefaultDepth    24
+EndSection
+
+Section "Screen"
+    Identifier     "Screen0"
+    Device         "Device0"
+    Monitor        "Monitor0"
+    DefaultDepth    24
+    Option         "TwinView" "0"
+    Option         "TwinViewXineramaInfoOrder" "DFP-0"
+    Option         "metamodes" "DFP: 1680x1050 +0+0"
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection
+
+Section "Screen"
+    Identifier     "Screen1"
+    Device         "Device1"
+    Monitor        "Monitor1"
+    DefaultDepth    24
+    Option         "TwinViewXineramaInfoOrder" "DFP-0"
+    Option         "TwinView" "0"
+    Option         "metamodes" "CRT: 1680x1050 +0+0"
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection

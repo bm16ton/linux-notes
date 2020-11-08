@@ -1,0 +1,27 @@
+DRIVE SPEED TESTS;
+
+#1 quick and ez;
+
+hdparm -tT /dev/sda
+
+#2 Simply using dd you can run this command to see the write speed;
+
+dd if=/dev/zero of=test bs=1048576 count=2048
+
+#3 and then this command to check the read speed;
+
+dd if=test of=/dev/null bs=1048576
+
+## What this does is write 2G of zeros to a file in the first command, and then reads that file in the second command.
+
+ENABLE/DISABLE POWERMANAGEMENT ON DRIVE CONTROLLERS;
+
+#1 enable;
+
+echo min_power > /sys/class/scsi_host/host0/link_power_management_policy
+echo min_power > /sys/class/scsi_host/host1/link_power_management_policy
+
+#2 disable;
+
+echo max_performance > /sys/class/scsi_host/host0/link_power_management_policy
+echo max_performance > /sys/class/scsi_host/host1/link_power_management_policy

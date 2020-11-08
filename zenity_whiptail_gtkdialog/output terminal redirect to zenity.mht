@@ -1,0 +1,1704 @@
+From: <Saved by UnMHT Ver.8.3.0>
+Subject: output terminal redirect to zenity
+Date: Sat, 10 Dec 2016 18:33:56 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_E8F67ED8_94E8B11D.158EB15FCE6";
+	type="text/html"
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: about:reader?url=http%3A%2F%2Faskubuntu.com%2Fquestions%2F68115%2Foutput-terminal-redirect-to-zenity
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html>
+<html hasbrowserhandlers=3D"true"><head><meta http-equiv=3D"Content-Type" c=
+ontent=3D"text/html; charset=3DUTF-8">
+ =20
+  <meta content=3D"width=3Ddevice-width; user-scalable=3D0" name=3D"viewpor=
+t">
+
+  <link href=3D"chrome://global/skin/aboutReader.css" rel=3D"stylesheet" ty=
+pe=3D"text/css">
+
+  <script src=3D"chrome://global/content/reader/aboutReader.js" type=3D"tex=
+t/javascript;version=3D1.8"></script>
+<link href=3D"chrome://global/skin/narrate.css" rel=3D"stylesheet"><title>o=
+utput terminal redirect to zenity</title><link href=3D"https://cdn.sstatic.=
+net/Sites/askubuntu/img/favicon.ico?v=3Deff8fd315b9e" rel=3D"shortcut icon"=
+><base href=3D"about:reader?url=3Dhttp%3A%2F%2Faskubuntu.com%2Fquestions%2F=
+68115%2Foutput-terminal-redirect-to-zenity"></head>
+
+<body class=3D"light sans-serif loaded">
+  <div class=3D"container font-size5 content-width3" id=3D"container">
+    <div class=3D"header" id=3D"reader-header" style=3D"display: block;">
+      <style scoped=3D"">
+        @import url("chrome://global/skin/aboutReaderControls.css");
+      </style>
+      <a class=3D"domain" href=3D"http://askubuntu.com/questions/68115/outp=
+ut-terminal-redirect-to-zenity" id=3D"reader-domain">askubuntu.com</a>
+      <div class=3D"domain-border"></div>
+      <h1 id=3D"reader-title">output terminal redirect to zenity</h1>
+      <div class=3D"credits" id=3D"reader-credits"></div>
+    </div>
+
+    <div class=3D"content">
+      <style scoped=3D"">
+        @import url("chrome://global/skin/aboutReaderContent.css");
+      </style>
+      <div class=3D"line-height4" id=3D"moz-reader-content" style=3D"displa=
+y: block;"><div class=3D"page" id=3D"readability-page-1" xml:base=3D"http:/=
+/askubuntu.com/questions/68115/output-terminal-redirect-to-zenity"><div cla=
+ss=3D"post-text" itemprop=3D"text"><p>Let&#x27;s explain you my doubt.<br>
+We all know that <code>&gt;&amp;</code> is shell syntax for &quot;fold a fi=
+le descriptor into another&quot;.<br>
+So <code>2&gt;&amp;1</code> means that i want to redirect stderr to the std=
+in, this is simple and clear :)<br>
+The thing that i don&#x27;t understand is this (let explain it with an exam=
+ple)</p><pre class=3D"lang-bsh prettyprint prettyprinted"><code><span class=
+=3D"pln">ncftpput </span><span class=3D"pun">-</span><span class=3D"pln">u =
+$user </span><span class=3D"pun">-</span><span class=3D"pln">p $pass $host =
+$remote_dir $local_file </span><span class=3D"pun">|</span><span class=3D"p=
+ln"> zenity </span><span class=3D"pun">--</span><span class=3D"pln">text</s=
+pan><span class=3D"pun">-</span><span class=3D"pln">info </span><span class=
+=3D"pun">--</span><span class=3D"pln">title </span><span class=3D"str">&quo=
+t;Putting files...&quot;</span><span class=3D"pln"> </span><span class=3D"p=
+un">--</span><span class=3D"pln">width </span><span class=3D"lit">600</span=
+><span class=3D"pln"> </span><span class=3D"pun">--</span><span class=3D"pl=
+n">height </span><span class=3D"lit">300</span></code></pre><p>The code abo=
+ve doesn&#x27;t works...but this works perfectly:</p><pre class=3D"lang-bsh=
+ prettyprint prettyprinted"><code><span class=3D"pln">ncftpput </span><span=
+ class=3D"pun">-</span><span class=3D"pln">u $user </span><span class=3D"pu=
+n">-</span><span class=3D"pln">p $pass $host $remote_dir $local_file </span=
+><span class=3D"lit">2</span><span class=3D"pun">&gt;&amp;</span><span clas=
+s=3D"lit">1</span><span class=3D"pln"> </span><span class=3D"pun">|</span><=
+span class=3D"pln"> zenity </span><span class=3D"pun">--</span><span class=
+=3D"pln">text</span><span class=3D"pun">-</span><span class=3D"pln">info </=
+span><span class=3D"pun">--</span><span class=3D"pln">title </span><span cl=
+ass=3D"str">&quot;Putting files...&quot;</span><span class=3D"pln"> </span>=
+<span class=3D"pun">--</span><span class=3D"pln">width </span><span class=
+=3D"lit">600</span><span class=3D"pln"> </span><span class=3D"pun">--</span=
+><span class=3D"pln">height </span><span class=3D"lit">300</span></code></p=
+re><p>I don&#x27;t undestrand why if i put <code>2&gt;&amp;1</code> the red=
+irection to zenity work and if i don&#x27;t write <code>2&gt;&amp;1</code> =
+redirection doesn&#x27;t works. Why?</p></div></div></div>
+    </div>
+
+    <div>
+      <style scoped=3D"">
+        @import url("chrome://global/skin/aboutReaderControls.css");
+      </style>
+      <div id=3D"reader-message" style=3D"display: none;"></div>
+    </div>
+  </div>
+
+  <ul class=3D"toolbar" id=3D"reader-toolbar">
+    <style scoped=3D"">
+      @import url("chrome://global/skin/aboutReaderControls.css");
+    </style>
+    <li><button class=3D"button close-button" id=3D"close-button" title=3D"=
+Close Reader View"></button></li>
+    <ul class=3D"dropdown" id=3D"style-dropdown">
+      <li><button class=3D"dropdown-toggle button style-button" title=3D"Ty=
+pe controls"></button></li>
+      <li class=3D"dropdown-popup" id=3D"reader-popup">
+        <div id=3D"font-type-buttons"><button class=3D"sans-serif-button se=
+lected"><div class=3D"name">Aa</div><div class=3D"description">Sans-serif</=
+div></button><button class=3D"serif-button"><div class=3D"name">Aa</div><di=
+v class=3D"description">Serif</div></button></div>
+        <hr>
+        <div id=3D"font-size-buttons">
+          <button class=3D"minus-button" id=3D"font-size-minus">
+          </button><button id=3D"font-size-sample">Aa</button><button class=
+=3D"plus-button" id=3D"font-size-plus">
+        </button></div>
+        <hr>
+        <div id=3D"content-width-buttons">
+          <button class=3D"content-width-minus-button" id=3D"content-width-=
+minus">
+          </button><button class=3D"content-width-plus-button" id=3D"conten=
+t-width-plus">
+        </button></div>
+        <hr>
+        <div id=3D"line-height-buttons">
+          <button class=3D"line-height-minus-button" id=3D"line-height-minu=
+s">
+          </button><button class=3D"line-height-plus-button" id=3D"line-hei=
+ght-plus">
+        </button></div>
+        <hr>
+        <div id=3D"color-scheme-buttons"><button class=3D"light-button sele=
+cted"><div class=3D"name">Light</div></button><button class=3D"dark-button"=
+><div class=3D"name">Dark</div></button><button class=3D"sepia-button"><div=
+ class=3D"name">Sepia</div></button></div>
+        <div class=3D"dropdown-arrow">
+      </div></li>
+    </ul>
+  <ul class=3D"dropdown" id=3D"narrate-dropdown"><style scoped=3D"">
+      @import url("chrome://global/skin/narrateControls.css");
+    </style>
+    <li>
+       <button class=3D"dropdown-toggle button" id=3D"narrate-toggle" title=
+=3D"Narrate">
+         <svg xmlns:xlink=3D"http://www.w3.org/1999/xlink" xmlns=3D"http://=
+www.w3.org/2000/svg" height=3D"24" viewbox=3D"0 0 24 24" width=3D"24">
+          <style>
+            @keyframes grow {
+              0%   { transform: scaleY(1);   }
+              15%  { transform: scaleY(1.5); }
+              15%  { transform: scaleY(1.5); }
+              30%  { transform: scaleY(1);   }
+              100% { transform: scaleY(1);   }
+            }
+
+            #waveform &gt; rect {
+              fill: #808080;
+            }
+
+            .speaking #waveform &gt; rect {
+              fill: #58bf43;
+              transform-box: fill-box;
+              transform-origin: 50% 50%;
+              animation-name: grow;
+              animation-duration: 1750ms;
+              animation-iteration-count: infinite;
+              animation-timing-function: linear;
+            }
+
+            #waveform &gt; rect:nth-child(2) { animation-delay: 250ms; }
+            #waveform &gt; rect:nth-child(3) { animation-delay: 500ms; }
+            #waveform &gt; rect:nth-child(4) { animation-delay: 750ms; }
+            #waveform &gt; rect:nth-child(5) { animation-delay: 1000ms; }
+            #waveform &gt; rect:nth-child(6) { animation-delay: 1250ms; }
+            #waveform &gt; rect:nth-child(7) { animation-delay: 1500ms; }
+
+          </style>
+          <g id=3D"waveform">
+            <rect height=3D"8" rx=3D".5" ry=3D".5" width=3D"2" x=3D"1" y=3D=
+"8"></rect>
+            <rect height=3D"14" rx=3D".5" ry=3D".5" width=3D"2" x=3D"4" y=
+=3D"5"></rect>
+            <rect height=3D"8" rx=3D".5" ry=3D".5" width=3D"2" x=3D"7" y=3D=
+"8"></rect>
+            <rect height=3D"16" rx=3D".5" ry=3D".5" width=3D"2" x=3D"10" y=
+=3D"4"></rect>
+            <rect height=3D"20" rx=3D".5" ry=3D".5" width=3D"2" x=3D"13" y=
+=3D"2"></rect>
+            <rect height=3D"16" rx=3D".5" ry=3D".5" width=3D"2" x=3D"16" y=
+=3D"4"></rect>
+            <rect height=3D"10" rx=3D".5" ry=3D".5" width=3D"2" x=3D"19" y=
+=3D"7"></rect>
+          </g>
+         </svg>
+        </button>
+    </li>
+    <li class=3D"dropdown-popup">
+      <div class=3D"narrate-row" id=3D"narrate-control">
+        <button disabled=3D"" id=3D"narrate-skip-previous" title=3D"Back"><=
+/button>
+        <button id=3D"narrate-start-stop" title=3D"Start"></button>
+        <button disabled=3D"" id=3D"narrate-skip-next" title=3D"Forward"></=
+button>
+      </div>
+      <div class=3D"narrate-row" id=3D"narrate-rate">
+        <input id=3D"narrate-rate-input" max=3D"100" min=3D"-100" step=3D"2=
+5" title=3D"Speed" type=3D"range" value=3D"0">
+      </div>
+      <div class=3D"narrate-row" id=3D"narrate-voices"><div class=3D"voices=
+elect" id=3D"voice-select"><button aria-controls=3D"voice-options" class=3D=
+"select-toggle">
+      <span class=3D"label">Voice:</span> <span class=3D"current-voice">Def=
+ault</span>
+    </button>
+    <div class=3D"options" id=3D"voice-options" role=3D"listbox"><button ar=
+ia-selected=3D"true" class=3D"option selected" data-value=3D"automatic" rol=
+e=3D"option" tabindex=3D"-1">Default</button><button class=3D"option" data-=
+value=3D"urn:moz-tts:speechd:afrikaans?af" role=3D"option" tabindex=3D"-1">=
+Afrikaans (af)</button><button class=3D"option" data-value=3D"urn:moz-tts:s=
+peechd:albanian?sq" role=3D"option" tabindex=3D"-1">Albanian (sq)</button><=
+button class=3D"option" data-value=3D"urn:moz-tts:speechd:aragonese?an" rol=
+e=3D"option" tabindex=3D"-1">Aragonese (an)</button><button class=3D"option=
+" data-value=3D"urn:moz-tts:speechd:armenian-west?hy-WEST" role=3D"option" =
+tabindex=3D"-1">Armenian (hy-WEST)</button><button class=3D"option" data-va=
+lue=3D"urn:moz-tts:speechd:armenian?hy" role=3D"option" tabindex=3D"-1">Arm=
+enian (hy)</button><button class=3D"option" data-value=3D"urn:moz-tts:speec=
+hd:bosnian?bs" role=3D"option" tabindex=3D"-1">Bosnian (bs)</button><button=
+ class=3D"option" data-value=3D"urn:moz-tts:speechd:bulgarian?bg" role=3D"o=
+ption" tabindex=3D"-1">Bulgarian (bg)</button><button class=3D"option" data=
+-value=3D"urn:moz-tts:speechd:catalan?ca" role=3D"option" tabindex=3D"-1">C=
+atalan (ca)</button><button class=3D"option" data-value=3D"urn:moz-tts:spee=
+chd:cantonese?zh-YUE" role=3D"option" tabindex=3D"-1">Chinese (zh-YUE)</but=
+ton><button class=3D"option" data-value=3D"urn:moz-tts:speechd:Mandarin?zh"=
+ role=3D"option" tabindex=3D"-1">Chinese (zh)</button><button class=3D"opti=
+on" data-value=3D"urn:moz-tts:speechd:croatian?hr" role=3D"option" tabindex=
+=3D"-1">Croatian (hr)</button><button class=3D"option" data-value=3D"urn:mo=
+z-tts:speechd:czech?cs" role=3D"option" tabindex=3D"-1">Czech (cs)</button>=
+<button class=3D"option" data-value=3D"urn:moz-tts:speechd:danish?da" role=
+=3D"option" tabindex=3D"-1">Danish (da)</button><button class=3D"option" da=
+ta-value=3D"urn:moz-tts:speechd:dutch?nl" role=3D"option" tabindex=3D"-1">D=
+utch (nl)</button><button class=3D"option" data-value=3D"urn:moz-tts:speech=
+d:english_rp?en-GB" role=3D"option" tabindex=3D"-1">English (en-GB)</button=
+><button class=3D"option" data-value=3D"urn:moz-tts:speechd:english-north?e=
+n-GB" role=3D"option" tabindex=3D"-1">English (en-GB)</button><button class=
+=3D"option" data-value=3D"urn:moz-tts:speechd:english?en-GB" role=3D"option=
+" tabindex=3D"-1">English (en-GB)</button><button class=3D"option" data-val=
+ue=3D"urn:moz-tts:speechd:english_wmids?en-GB" role=3D"option" tabindex=3D"=
+-1">English (en-GB)</button><button class=3D"option" data-value=3D"urn:moz-=
+tts:speechd:en-scottish?en-SC" role=3D"option" tabindex=3D"-1">English (en-=
+SC)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:engl=
+ish-us?en-US" role=3D"option" tabindex=3D"-1">English (en-US)</button><butt=
+on class=3D"option" data-value=3D"urn:moz-tts:speechd:en-westindies?en-WI" =
+role=3D"option" tabindex=3D"-1">English (en-WI)</button><button class=3D"op=
+tion" data-value=3D"urn:moz-tts:speechd:default?en" role=3D"option" tabinde=
+x=3D"-1">English (en)</button><button class=3D"option" data-value=3D"urn:mo=
+z-tts:speechd:esperanto?eo" role=3D"option" tabindex=3D"-1">Esperanto (eo)<=
+/button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:estonian=
+?et" role=3D"option" tabindex=3D"-1">Estonian (et)</button><button class=3D=
+"option" data-value=3D"urn:moz-tts:speechd:finnish?fi" role=3D"option" tabi=
+ndex=3D"-1">Finnish (fi)</button><button class=3D"option" data-value=3D"urn=
+:moz-tts:speechd:french-Belgium?fr-BE" role=3D"option" tabindex=3D"-1">Fren=
+ch (fr-BE)</button><button class=3D"option" data-value=3D"urn:moz-tts:speec=
+hd:french?fr-FR" role=3D"option" tabindex=3D"-1">French (fr-FR)</button><bu=
+tton class=3D"option" data-value=3D"urn:moz-tts:speechd:georgian?ka" role=
+=3D"option" tabindex=3D"-1">Georgian (ka)</button><button class=3D"option" =
+data-value=3D"urn:moz-tts:speechd:german?de" role=3D"option" tabindex=3D"-1=
+">German (de)</button><button class=3D"option" data-value=3D"urn:moz-tts:sp=
+eechd:greek?el" role=3D"option" tabindex=3D"-1">Greek (el)</button><button =
+class=3D"option" data-value=3D"urn:moz-tts:speechd:greek-ancient?grc" role=
+=3D"option" tabindex=3D"-1">greek-ancient (grc)</button><button class=3D"op=
+tion" data-value=3D"urn:moz-tts:speechd:hindi?hi" role=3D"option" tabindex=
+=3D"-1">Hindi (hi)</button><button class=3D"option" data-value=3D"urn:moz-t=
+ts:speechd:hungarian?hu" role=3D"option" tabindex=3D"-1">Hungarian (hu)</bu=
+tton><button class=3D"option" data-value=3D"urn:moz-tts:speechd:icelandic?i=
+s" role=3D"option" tabindex=3D"-1">Icelandic (is)</button><button class=3D"=
+option" data-value=3D"urn:moz-tts:speechd:indonesian?id" role=3D"option" ta=
+bindex=3D"-1">Indonesian (id)</button><button class=3D"option" data-value=
+=3D"urn:moz-tts:speechd:irish-gaeilge?ga" role=3D"option" tabindex=3D"-1">I=
+rish (ga)</button><button class=3D"option" data-value=3D"urn:moz-tts:speech=
+d:italian?it" role=3D"option" tabindex=3D"-1">Italian (it)</button><button =
+class=3D"option" data-value=3D"urn:moz-tts:speechd:kannada?kn" role=3D"opti=
+on" tabindex=3D"-1">Kannada (kn)</button><button class=3D"option" data-valu=
+e=3D"urn:moz-tts:speechd:kurdish?ku" role=3D"option" tabindex=3D"-1">Kurdis=
+h (ku)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:l=
+atin?la" role=3D"option" tabindex=3D"-1">Latin (la)</button><button class=
+=3D"option" data-value=3D"urn:moz-tts:speechd:latvian?lv" role=3D"option" t=
+abindex=3D"-1">Latvian (lv)</button><button class=3D"option" data-value=3D"=
+urn:moz-tts:speechd:lingua_franca_nova?lfn" role=3D"option" tabindex=3D"-1"=
+>lingua_franca_nova (lfn)</button><button class=3D"option" data-value=3D"ur=
+n:moz-tts:speechd:lithuanian?lt" role=3D"option" tabindex=3D"-1">Lithuanian=
+ (lt)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:lo=
+jban?jbo" role=3D"option" tabindex=3D"-1">lojban (jbo)</button><button clas=
+s=3D"option" data-value=3D"urn:moz-tts:speechd:macedonian?mk" role=3D"optio=
+n" tabindex=3D"-1">Macedonian (mk)</button><button class=3D"option" data-va=
+lue=3D"urn:moz-tts:speechd:malay?ms" role=3D"option" tabindex=3D"-1">Malay =
+(ms)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:mal=
+ayalam?ml" role=3D"option" tabindex=3D"-1">Malayalam (ml)</button><button c=
+lass=3D"option" data-value=3D"urn:moz-tts:speechd:nepali?ne" role=3D"option=
+" tabindex=3D"-1">Nepali (ne)</button><button class=3D"option" data-value=
+=3D"urn:moz-tts:speechd:norwegian?no" role=3D"option" tabindex=3D"-1">Norwe=
+gian (no)</button><button class=3D"option" data-value=3D"urn:moz-tts:speech=
+d:persian-pinglish?fa-PIN" role=3D"option" tabindex=3D"-1">Persian (fa-PIN)=
+</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:persian=
+?fa" role=3D"option" tabindex=3D"-1">Persian (fa)</button><button class=3D"=
+option" data-value=3D"urn:moz-tts:speechd:polish?pl" role=3D"option" tabind=
+ex=3D"-1">Polish (pl)</button><button class=3D"option" data-value=3D"urn:mo=
+z-tts:speechd:brazil?pt-BR" role=3D"option" tabindex=3D"-1">Portuguese (pt-=
+BR)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:port=
+ugal?pt-PT" role=3D"option" tabindex=3D"-1">Portuguese (pt-PT)</button><but=
+ton class=3D"option" data-value=3D"urn:moz-tts:speechd:punjabi?pa" role=3D"=
+option" tabindex=3D"-1">Punjabi (pa)</button><button class=3D"option" data-=
+value=3D"urn:moz-tts:speechd:romanian?ro" role=3D"option" tabindex=3D"-1">R=
+omanian (ro)</button><button class=3D"option" data-value=3D"urn:moz-tts:spe=
+echd:russian?ru" role=3D"option" tabindex=3D"-1">Russian (ru)</button><butt=
+on class=3D"option" data-value=3D"urn:moz-tts:speechd:serbian?sr" role=3D"o=
+ption" tabindex=3D"-1">Serbian (sr)</button><button class=3D"option" data-v=
+alue=3D"urn:moz-tts:speechd:slovak?sk" role=3D"option" tabindex=3D"-1">Slov=
+ak (sk)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:=
+spanish-latin-am?es-LA" role=3D"option" tabindex=3D"-1">Spanish (es-LA)</bu=
+tton><button class=3D"option" data-value=3D"urn:moz-tts:speechd:spanish?es"=
+ role=3D"option" tabindex=3D"-1">Spanish (es)</button><button class=3D"opti=
+on" data-value=3D"urn:moz-tts:speechd:swahili-test?sw" role=3D"option" tabi=
+ndex=3D"-1">Swahili (sw)</button><button class=3D"option" data-value=3D"urn=
+:moz-tts:speechd:swedish?sv" role=3D"option" tabindex=3D"-1">Swedish (sv)</=
+button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:tamil?ta"=
+ role=3D"option" tabindex=3D"-1">Tamil (ta)</button><button class=3D"option=
+" data-value=3D"urn:moz-tts:speechd:turkish?tr" role=3D"option" tabindex=3D=
+"-1">Turkish (tr)</button><button class=3D"option" data-value=3D"urn:moz-tt=
+s:speechd:vietnam_hue?vi-HUE" role=3D"option" tabindex=3D"-1">Vietnamese (v=
+i-HUE)</button><button class=3D"option" data-value=3D"urn:moz-tts:speechd:v=
+ietnam_sgn?vi-SGN" role=3D"option" tabindex=3D"-1">Vietnamese (vi-SGN)</but=
+ton><button class=3D"option" data-value=3D"urn:moz-tts:speechd:vietnam?vi" =
+role=3D"option" tabindex=3D"-1">Vietnamese (vi)</button><button class=3D"op=
+tion" data-value=3D"urn:moz-tts:speechd:welsh?cy" role=3D"option" tabindex=
+=3D"-1">Welsh (cy)</button></div></div></div>
+      <div class=3D"dropdown-arrow"></div>
+    </li></ul></ul>
+
+
+
+
+</body></html>
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/aboutReader.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+body {
+  padding: 64px 0;
+}
+
+@media (max-width: 785px) {
+  body {
+    padding-top: 64px;
+    padding-inline-end: 0;
+    padding-bottom: 64px;
+    padding-inline-start: 51px;
+  }
+}
+
+@media print {
+  #container {
+    max-width: 100% !important;
+    font-size: 14px !important;
+    font-family: Georgia, "Times New Roman", serif !important;
+  }
+
+  body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+body.loaded {
+  transition: color 0.4s, background-color 0.4s;
+}
+
+body.light {
+  color: #333333;
+  background-color: #ffffff;
+}
+
+body.dark {
+  color: #eeeeee;
+  background-color: #333333;
+}
+
+body.dark *::-moz-selection {
+  background-color: #FFFFFF;
+  color: #0095DD;
+}
+body.dark a::-moz-selection {
+  color: #DD4800;
+}
+
+body.sepia {
+  color: #5b4636;
+  background-color: #f4ecd8;
+}
+
+body.sans-serif,
+body.sans-serif .remove-button {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body.serif,
+body.serif .remove-button  {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+#container {
+  max-width: 30em;
+  margin: 0 auto;
+}
+
+#container.font-size1 {
+  font-size: 12px;
+}
+
+#container.font-size2 {
+  font-size: 14px;
+}
+
+#container.font-size3 {
+  font-size: 16px;
+}
+
+#container.font-size4  {
+  font-size: 18px;
+}
+
+#container.font-size5 {
+  font-size: 20px;
+}
+
+#container.font-size6 {
+  font-size: 22px;
+}
+
+#container.font-size7 {
+  font-size: 24px;
+}
+
+#container.font-size8 {
+  font-size: 26px;
+}
+
+#container.font-size9 {
+  font-size: 28px;
+}
+
+#container.content-width1 {
+  max-width: 20em;
+}
+
+#container.content-width2 {
+  max-width: 25em;
+}
+
+#container.content-width3 {
+  max-width: 30em;
+}
+
+#container.content-width4  {
+  max-width: 35em;
+}
+
+#container.content-width5 {
+  max-width: 40em;
+}
+
+#container.content-width6 {
+  max-width: 45em;
+}
+
+#container.content-width7 {
+  max-width: 50em;
+}
+
+#container.content-width8 {
+  max-width: 55em;
+}
+
+#container.content-width9 {
+  max-width: 60em;
+}
+
+/* Override some controls and content styles based on color scheme */
+
+body.light > .container > .header > .domain {
+  border-bottom-color: #333333 !important;
+}
+
+body.sepia > .container > .header > .domain {
+  border-bottom-color: #5b4636 !important;
+}
+
+body.dark > .container > .header > .domain {
+  border-bottom-color: #eeeeee !important;
+}
+
+body.sepia > .container > .footer {
+  background-color: #dedad4 !important;
+}
+
+body.light blockquote {
+  border-inline-start: 2px solid #333333 !important;
+}
+
+body.sepia blockquote {
+  border-inline-start: 2px solid #5b4636 !important;
+}
+
+body.dark blockquote {
+  border-inline-start: 2px solid #eeeeee !important;
+}
+
+/* Add toolbar transition base on loaded class  */
+
+body.loaded .toolbar {
+  transition: transform 0.3s ease-out;
+}
+
+body:not(.loaded) .toolbar:-moz-locale-dir(ltr) {
+  transform: translateX(-100%);
+}
+
+body:not(.loaded) .toolbar:-moz-locale-dir(rtl) {
+  transform: translateX(100%);
+}
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body.light .narrating {
+  background-color: #ffc;
+}
+
+body.sepia .narrating {
+  background-color: #e0d7c5;
+}
+
+body.dark .narrating {
+  background-color: #242424;
+}
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/aboutReaderControls.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+.light-button {
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.dark-button {
+  color: #eeeeee;
+  background-color: #333333;
+}
+
+.sepia-button {
+  color: #5b4636;
+  background-color: #f4ecd8;
+}
+
+.sans-serif-button {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.serif-button {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Loading/error message */
+
+#reader-message {
+  margin-top: 40px;
+  display: none;
+  text-align: center;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+/* Header */
+
+.header {
+  text-align: start;
+  display: none;
+}
+
+.domain {
+  font-size: 0.9em;
+  line-height: 1.48em;
+  padding-bottom: 4px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: #0095dd;
+}
+
+.header > h1 {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  width: 100%;
+  margin: 30px 0;
+  padding: 0;
+}
+
+.header > .credits {
+  font-size: 0.9em;
+  line-height: 1.48em;
+  margin: 0 0 30px 0;
+  padding: 0;
+  font-style: italic;
+}
+
+/*=3D=3D=3D=3D=3D=3D=3D Controls toolbar =3D=3D=3D=3D=3D=3D=3D*/
+
+.toolbar {
+  font-family: Helvetica, Arial, sans-serif;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fbfbfb;
+  -moz-user-select: none;
+  border-right: 1px solid #b5b5b5;
+}
+
+.button {
+  display: block;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  color: #333;
+  background-color: #fbfbfb;
+  height: 40px;
+  padding: 0;
+}
+
+.toolbar .button {
+  width: 40px;
+  background-position: center;
+  margin-right: -1px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 1px solid #b5b5b5;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.button[hidden] {
+  display: none;
+}
+
+.dropdown {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  margin: 0;
+  padding: 0;
+}
+
+/*=3D=3D=3D=3D=3D=3D=3D Popup =3D=3D=3D=3D=3D=3D=3D*/
+
+.dropdown-popup {
+  min-width: 300px;
+  text-align: start;
+  position: absolute;
+  left: 48px; /* offset to account for toolbar width */
+  z-index: 1000;
+  background-color: #fbfbfb;
+  visibility: hidden;
+  border-radius: 4px;
+  border: 1px solid #b5b5b5;
+  border-bottom-width: 0;
+  box-shadow: 0 1px 12px #666;
+}
+
+.keep-open .dropdown-popup {
+  z-index: initial;
+}
+
+.dropdown-popup > hr {
+  display: none;
+}
+
+.open > .dropdown-popup {
+  visibility: visible;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  top: 30px; /* offset arrow from top of popup */
+  left: -16px;
+  width: 24px;
+  height: 24px;
+  background-image: url("chrome://global/skin/reader/RM-Type-Controls-Arrow=
+.svg");
+  display: block;
+}
+
+/*=3D=3D=3D=3D=3D=3D=3D Font style popup =3D=3D=3D=3D=3D=3D=3D*/
+
+#font-type-buttons,
+#font-size-buttons,
+#color-scheme-buttons,
+#content-width-buttons,
+#line-height-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+#font-type-buttons > button:first-child {
+  border-top-left-radius: 3px;
+}
+#font-type-buttons > button:last-child {
+  border-top-right-radius: 3px;
+}
+#color-scheme-buttons > button:first-child {
+  border-bottom-left-radius: 3px;
+}
+#color-scheme-buttons > button:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+#font-type-buttons > button,
+#font-size-buttons > button,
+#color-scheme-buttons > button,
+#content-width-buttons > button,
+#line-height-buttons > button {
+  text-align: center;
+  border: 0;
+}
+
+#font-type-buttons > button,
+#font-size-buttons > button,
+#content-width-buttons > button,
+#line-height-buttons > button {
+  width: 50%;
+  background-color: transparent;
+  border-left: 1px solid #B5B5B5;
+  border-bottom: 1px solid #B5B5B5;
+}
+
+#color-scheme-buttons > button {
+  width: 33.33%;
+  font-size: 14px;
+}
+
+#color-scheme-buttons > .dark-button {
+  margin-top: -1px;
+  height: 61px;
+}
+
+#font-type-buttons > button:first-child,
+#font-size-buttons > button:first-child,
+#content-width-buttons > button:first-child,
+#line-height-buttons > button:first-child {
+  border-left: 0;
+}
+
+#font-type-buttons > button {
+  display: inline-block;
+  font-size: 62px;
+  height: 100px;
+}
+
+#font-size-buttons > button,
+#color-scheme-buttons > button,
+#content-width-buttons > button,
+#line-height-buttons > button {
+  height: 60px;
+}
+
+#font-type-buttons > button:active:hover,
+#font-type-buttons > button.selected,
+#color-scheme-buttons > button:active:hover,
+#color-scheme-buttons > button.selected {
+  box-shadow: inset 0 -3px 0 0 #fc6420;
+}
+
+#font-type-buttons > button:active:hover,
+#font-type-buttons > button.selected {
+  border-bottom: 1px solid #FC6420;
+}
+
+/* Make the serif button content the same size as the sans-serif button con=
+tent. */
+#font-type-buttons > button > .description {
+  color: #666;
+  font-size: 12px;
+  margin-top: -5px;
+}
+
+/* Font sizes are different per-platform, so we need custom CSS to line the=
+m up. */
+#font-type-buttons > .sans-serif-button > .name {
+  margin-top: 5px;
+}
+
+#font-type-buttons > .sans-serif-button > .description {
+  margin-top: -8px;
+}
+
+#font-type-buttons > .serif-button > .name {
+  font-size: 70px;
+}
+
+.button:hover,
+#font-size-buttons > button:hover,
+#font-type-buttons > button:hover,
+#content-width-buttons > button:hover,
+#line-height-buttons > button:hover {
+  background-color: #ebebeb;
+}
+
+.dropdown.open,
+.button:active,
+#font-size-buttons > button:active,
+#font-size-buttons > button.selected,
+#content-width-buttons > button:active,
+#content-width-buttons > button.selected,
+#line-height-buttons > button:active,
+#line-height-buttons > button.selected {
+  background-color: #dadada;
+}
+
+/* Only used on Android */
+#font-size-sample {
+  display: none;
+}
+
+.minus-button,
+.plus-button,
+.content-width-minus-button,
+.content-width-plus-button,
+.line-height-minus-button,
+.line-height-plus-button {
+  background-color: transparent;
+  border: 0;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*=3D=3D=3D=3D=3D=3D=3D Toolbar icons =3D=3D=3D=3D=3D=3D=3D*/
+
+.close-button {
+  background-image: url("chrome://global/skin/reader/RM-Close-24x24.svg#clo=
+se");
+  height: 68px;
+  background-position: center 8px;
+}
+
+.close-button:hover {
+  background-image: url("chrome://global/skin/reader/RM-Close-24x24.svg#clo=
+se-hover");
+  background-color: #d94141;
+  border-bottom: 1px solid #d94141;
+  border-right: 1px solid #d94141;
+}
+
+.close-button:hover:active {
+  background-image: url("chrome://global/skin/reader/RM-Close-24x24.svg#clo=
+se-hover");
+  background-color: #AE2325;
+  border-bottom: 1px solid #AE2325;
+  border-right: 1px solid #AE2325;
+}
+
+.style-button {
+  background-image: url("chrome://global/skin/reader/RM-Type-Controls-24x24=
+.svg");
+}
+
+.minus-button {
+  background-image: url("chrome://global/skin/reader/RM-Minus-24x24.svg");
+}
+
+.plus-button {
+  background-image: url("chrome://global/skin/reader/RM-Plus-24x24.svg");
+}
+
+.content-width-minus-button {
+  background-size: 42px 16px;
+  background-image: url("chrome://global/skin/reader/RM-Content-Width-Minus=
+-42x16.svg");
+}
+
+.content-width-plus-button {
+  background-size: 44px 16px;
+  background-image: url("chrome://global/skin/reader/RM-Content-Width-Plus-=
+44x16.svg");
+}
+
+.line-height-minus-button {
+  background-size: 34px 14px;
+  background-image: url("chrome://global/skin/reader/RM-Line-Height-Minus-3=
+8x14.svg");
+}
+
+.line-height-plus-button {
+  background-size: 34px 24px;
+  background-image: url("chrome://global/skin/reader/RM-Line-Height-Plus-38=
+x24.svg");
+}
+
+@media print {
+  .toolbar {
+    display: none !important;
+  }
+}
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/aboutReaderContent.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#moz-reader-content {
+  display: none;
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+#moz-reader-content.line-height1 {
+  line-height: 1em;
+}
+
+#moz-reader-content.line-height2 {
+  line-height: 1.2em;
+}
+
+#moz-reader-content.line-height3 {
+  line-height: 1.4em;
+}
+
+#moz-reader-content.line-height4 {
+  line-height: 1.6em;
+}
+
+#moz-reader-content.line-height5 {
+  line-height: 1.8em;
+}
+
+#moz-reader-content.line-height6 {
+  line-height: 2.0em;
+}
+
+#moz-reader-content.line-height7 {
+  line-height: 2.2em;
+}
+
+#moz-reader-content.line-height8 {
+  line-height: 2.4em;
+}
+
+#moz-reader-content.line-height9 {
+  line-height: 2.6em;
+}
+
+@media print {
+  p,
+  code,
+  pre,
+  blockquote,
+  ul,
+  ol,
+  li,
+  figure,
+  .wp-caption {
+    margin: 0 0 10px 0 !important;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.6em;
+  line-height: 1.25em;
+}
+
+h2 {
+  font-size: 1.2em;
+  line-height: 1.51em;
+}
+
+h3 {
+  font-size: 1em;
+  line-height: 1.66em;
+}
+
+a {
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: #0095dd;
+}
+
+* {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+code,
+pre,
+blockquote,
+ul,
+ol,
+li,
+figure,
+.wp-caption {
+  margin: -10px -10px 20px -10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+p > img:only-child,
+p > a:only-child > img:only-child,
+.wp-caption img,
+figure img {
+  display: block;
+}
+
+img[moz-reader-center] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.caption,
+.wp-caption-text,
+figcaption {
+  font-size: 0.9em;
+  line-height: 1.48em;
+  font-style: italic;
+}
+
+code,
+pre {
+  white-space: pre-wrap;
+}
+
+blockquote {
+  padding: 0;
+  padding-inline-start: 16px;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+ul {
+  padding-inline-start: 30px;
+  list-style: disc;
+}
+
+ol {
+  padding-inline-start: 30px;
+  list-style: decimal;
+}
+
+/* Hide elements with common "hidden" class names */
+.visually-hidden,
+.visuallyhidden,
+.hidden,
+.invisible,
+.sr-only {
+  display: none;
+}
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrateControls.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+:scope {
+  --border-color: #e5e5e5;
+}
+
+#narrate-toggle > svg {
+  display: block;
+  margin: 0 8px;
+}
+
+.dropdown-popup button {
+  background-color: transparent;
+}
+
+.dropdown-popup button:hover:not(:disabled) {
+  background-color: #eaeaea;
+}
+
+.narrate-row {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.narrate-row:not(:first-child) {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Control buttons */
+
+#narrate-control > button {
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 64px;
+  width: 100px;
+  border: none;
+  color: #666;
+  box-sizing: border-box;
+}
+
+#narrate-control > button:not(:first-child) {
+  border-left: 1px solid var(--border-color);
+}
+
+#narrate-skip-previous {
+  border-top-left-radius: 3px;
+  background-image: url("chrome://global/skin/narrate/back.svg#enabled");
+}
+
+#narrate-skip-next {
+  border-top-right-radius: 3px;
+  background-image: url("chrome://global/skin/narrate/forward.svg#enabled");
+}
+
+#narrate-skip-previous:disabled {
+  background-image: url("chrome://global/skin/narrate/back.svg#disabled");
+}
+
+#narrate-skip-next:disabled {
+  background-image: url("chrome://global/skin/narrate/forward.svg#disabled"=
+);
+}
+
+#narrate-start-stop {
+  background-image: url("chrome://global/skin/narrate/start.svg");
+}
+
+#narrate-dropdown.speaking #narrate-start-stop {
+  background-image: url("chrome://global/skin/narrate/stop.svg");
+}
+
+/* Rate control */
+
+#narrate-rate::before, #narrate-rate::after {
+  content: '';
+  width: 48px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px auto;
+}
+
+#narrate-rate::before {
+  background-image: url("chrome://global/skin/narrate/slow.svg");
+}
+
+#narrate-rate::after {
+  background-image: url("chrome://global/skin/narrate/fast.svg");
+}
+
+#narrate-rate-input {
+  margin: 0 1px;
+  flex-grow: 1;
+}
+
+#narrate-rate-input::-moz-range-track {
+  background-color: #979797;
+  height: 2px;
+}
+
+#narrate-rate-input::-moz-range-progress {
+  background-color: #2EA3FF;
+  height: 2px;
+}
+
+#narrate-rate-input::-moz-range-thumb {
+  background-color: #808080;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  border-width: 0;
+}
+
+#narrate-rate-input:active::-moz-range-thumb {
+  background-color: #2EA3FF;
+}
+
+/* Voice selection */
+
+.voiceselect {
+  width: 100%;
+}
+
+.voiceselect > button.select-toggle,
+.voiceselect > .options > button.option {
+  -moz-appearance: none;
+  border: none;
+  width: 100%;
+  min-height: 40px;
+}
+
+.voiceselect.open > button.select-toggle {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.voiceselect > button.select-toggle::after {
+  content: '';
+  background-image: url("chrome://global/skin/narrate/arrow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  display: inline-block;
+  width: 1.5em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.voiceselect > .options > button.option:not(:first-child) {
+  border-top: 1px solid var(--border-color);
+}
+
+.voiceselect > .options > button.option  {
+  box-sizing: border-box;
+}
+
+.voiceselect > .options:not(.hovering) > button.option:focus {
+  background-color: #eaeaea;
+}
+
+.voiceselect > .options:not(.hovering) > button.option:hover:not(:focus) {
+  background-color: transparent;
+}
+
+.voiceselect > .options > button.option::-moz-focus-inner {
+  outline: none;
+  border: 0;
+}
+
+.voiceselect > .options {
+  display: none;
+  overflow-y: auto;
+}
+
+.voiceselect.open > .options {
+  display: block;
+}
+
+.current-voice {
+  color: #7f7f7f;
+}
+
+.voiceselect:not(.open) > button,
+.option:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/content/reader/aboutReader.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+"use strict";
+
+window.addEventListener("DOMContentLoaded", function () {
+  document.dispatchEvent(new CustomEvent("AboutReaderContentLoaded", { bubb=
+les: true }));
+});
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: https://cdn.sstatic.net/Sites/askubuntu/img/favicon.ico?v=eff8fd315b9e
+Content-Transfer-Encoding: base64
+Content-Type: image/x-icon
+
+AAABAAIAEBAAAAEAIABoBAAAJgAAACAgAAABACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAA
+AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABM3T8ATN2vAEzd7wBM3f8ATN3/
+AEzd/wBM3a8ATN1fAEzdLwBM3W8ATN2vAEzd7wAAAAAAAAAAAEzdDwBM3b8ATN3/AEzd/wBM3f8A
+TN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3b8AAAAAAEzdDwBM3c8ATN3/AEzd/wBM
+3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN1vAAAAAABM3b8ATN3/AEzd
+/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzdLwBM3T8ATN3/
+AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3V8A
+TN2fAEzd/zls4//D0fb/w9H2/7TG9P93mev/w9H2/8PR9v85bOP/lq/w/zls4/9Zg+f/tMb0/wBM
+3f8ATN2vAEzd7wBM3f+0xvT/lq/w/yhh4f//////KGHh/yhh4f+0xvT/pLvy/8PR9v93mev/8PP8
+/0l35f8ATN3/AEzd/wBM3f8ATN3/d5nr//Dz/P/D0fb//////zls4//D0fb/8PP8/1mD5//D0fb/
+/////3eZ6/8ATN3/AEzd/wBM3f8ATN3/AEzd/xRX3/8UV9//d5nr/+Do+v+HpO7/w9H2/wBM3f8U
+V9//w9H2/9Hc+P/D0fb/AEzd/wBM3f8ATN3/AEzd3wBM3f85bOP/8PP8//Dz/P9pjen/SXfl/+Do
++v//////WYPn/8PR9v9Jd+X/lq/w/2mN6f8ATN3/AEzd/wBM3Z8ATN3/AEzd/wBM3f8ATN3/AEzd
+/wBM3f8ATN3/AEzd/wBM3f/D0fb/SXfl/wBM3f8ATN3/AEzd/wBM3a8ATN0/AEzd/wBM3f8ATN3/
+AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/tMb0/0l35f8ATN3/AEzd/wBM3f8ATN1fAAAAAABM3a8A
+TN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN2/AAAAAAAA
+AAAATN0PAEzdzwBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3PAEzd
+DwAAAAAAAAAAAAAAAABM3Q8ATN2vAEzd/wBM3f8ATN3/AEzd/wBM3f8ATN3/AEzd/wBM3f8ATN2/
+AEzdDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABM3T8ATN2fAEzd7wBM3f8ATN3/AEzd7wBM3a8A
+TN0/AAAAAAAAAAAAAAAAAAAAAPAAAADAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAIABAACAAQAAwAMAAPAPAAAoAAAAIAAAAEAAAAABACAAAAAAAAAQAAAAAAAAAAAA
+AAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A
+////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD/
+//8A////AP///wD///8A////AP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAJWXnASVl5zglZeeAJWXntCVl59olZefpJWXn5yVl59UlZeezJWXnfSVl5zUAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAlZecOJWXnUiVl55wlZefP////AP///wAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAJWXnBiVl52glZefbJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl59olZedhJWXnBCVl5y4lZed3JWXnwCVl5/slZef/JWXn/yVl57D///8A////AAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAACVl5zwlZefXJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef3JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXndP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAlZedxJWXn/CVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5/8lZef/JWXn/yVl5/8lZec4////AP///wAAAAAAAAAAAAAAAAAAAAAAJWXniCVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn9iVl5wX///8A////AAAAAAAAAAAAAAAAACVl520l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZee/AAAAAP///wD///8AAAAA
+AAAAAAAlZec2JWXn+yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl54MA
+AAAA////AP///wAAAAAAJWXnBCVl59IlZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXnRwAAAAD///8A////AAAAAAAlZedhJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZedeAAAAAP///wD///8AAAAAACVl59clZef/JWXn/yVl
+5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl59QAAAAA////AP///wAlZec1
+JWXn/yVl5/8lZef/JWXn/z126v+GqfL/nrr0/5u49P+GqvL/Wort/yVl5/9gj+3/lrXz/6C89f+S
+svP/V4nt/yVl5/8lZef/aJTu/12N7f8lZef/JWXn/ytp6P92nvD/X47t/yVl5/8lZef/JWXn/yVl
+5zH///8A////ACVl54AlZef/JWXn/yVl5/9AeOr/8/f+//b5/v/J2fn/ytr5//b4/v/J2fn/JWXn
+/9Pg+v/c5vv/yNj5/9/p/P//////eaDw/yVl5//X4/v/u8/4/yVl5/8lZef/mLb0//////9hj+7/
+JWXn/yVl5/8lZef/JWXngP///wD///8AJWXnvCVl5/8lZef/JWXn/4qs8v//////RXvq/yVl5/8l
+Zef/ydn5/8nZ+f8lZef/M2/p/yVl5/8lZef/Jmbn/9nk+//G1/n/JWXn/9fj+/+7z/j/JWXn/2aT
+7v/+/v//ob31/yVl5/8lZef/JWXn/yVl5/8lZee3////AP///wAlZefjJWXn/yVl5/8lZef/jK3y
+//////88der/JWXn/yVl5//J2fn/ydn5/yVl5/8lZef/JWXn/yVl5/9olO7/+Pr+/7XK9/8lZef/
+1+P7/7vP+P9cjO3/9/r+/8nZ+f8qaej/JWXn/yVl5/8lZef/JWXn/yVl5+X///8A////ACVl5/wl
+Zef/JWXn/yVl5/9AeOr/8PX9/+7z/f+0yvf/ssn3//L2/v/J2fn/JWXn/yVl5/9sl+//1eH6////
+///Y4/v/Q3rq/yVl5//X4/v/6O/8//n7/v/R3vr/Mm7o/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
++P///wD///8AJWXn/yVl5/8lZef/JWXn/yVl5/86dOn/iqzy/6jB9f+kv/X/5Oz8/8nZ+f8lZef/
+hqny///////I2Pn/Z5Tu/ydm5/8lZef/JWXn/9fj+//m7fz/+/z//5i29P8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/////AP///wAlZef+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5//d5/v/tcv3/yVl5//L2vn/1uL6/yZm5/8lZef/JWXn/yVl5/8lZef/1+P7/7vP+P9ym+///f7/
+/4ap8v8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/7///8A////ACVl5+YlZef/JWXn/yVl5/8lZef/
+aJTu/3We8P9nlO7/oLz1//////+GqfL/JWXn/67G9v/x9f3/dZ7w/2OQ7v+JrPL/OXPp/yVl5//X
+4/v/u8/4/yVl5/+ApfH//////3Wd8P8lZef/JWXn/yVl5/8lZef/JWXn5v///wD///8AJWXnwSVl
+5/8lZef/JWXn/yVl5/+XtfT/9vj+///////3+v7/qcL1/ypp6P8lZef/N3Lp/77R+P/5+/7/////
+/+vx/f9Shez/JWXn/9fj+/+7z/j/JWXn/yVl5/+UtPP/3+n8/06C7P8lZef/JWXn/yVl5/8lZefB
+////AP///wAlZeeIJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/LWro/yVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yZm5/8tauj/JWXn/yVl5/8lZef/1+P7/7vP+P8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5/8lZef/JWXn/yVl54j///8A////ACVl5z0lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5//X4/v/u8/4/yVl5/8lZef/
+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXnPf///wD///8AJWXnASVl598lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/9fj
++/+7z/j/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl598lZecB////AP///wAAAAAAJWXn
+biVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn/yVl5/8lZef/ob31/6K99f8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXnbgAAAAD/
+//8A////AAAAAAAlZecIJWXn3SVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl
+5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl590lZecIAAAAAP///wD///8AAAAAAAAAAAAlZedFJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXnRQAAAAAAAAAA////AP///wAAAAAAAAAAAAAAAAAlZeeDJWXn/yVl
+5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl54MAAAAAAAAAAAAAAAD///8A////AAAAAAAAAAAA
+AAAAACVl5wElZeedJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZeedJWXnAQAAAAAAAAAAAAAAAP//
+/wD///8AAAAAAAAAAAAAAAAAAAAAACVl5wElZeeMJWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn
+/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXnjCVl5wEAAAAA
+AAAAAAAAAAAAAAAA////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlZedSJWXn6CVl5/8l
+Zef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn6CVl
+51IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAlZecPJWXngCVl5+0lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/JWXn/yVl5/8lZef/
+JWXn7SVl54AlZecPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD///8AAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJWXnByVl51IlZeeaJWXnziVl5/IlZef/JWXn/yVl
+5/IlZefOJWXnmiVl51IlZecHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////
+AP//////wAfh/wAAAf4AAAH8AAAB+AAAAfAAAAPgAAADwAAAA8AAAAPAAAADgAAAAYAAAAGAAAAB
+gAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAA8AAAAPgAAAH8AAAD/AAAA/4
+AAAf/gAAf/8AAP//wAP/
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Close-24x24.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBUaGlzIFNvdXJjZSBD
+b2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljCiAg
+IC0gTGljZW5zZSwgdi4gMi4wLiBJZiBhIGNvcHkgb2YgdGhlIE1QTCB3YXMgbm90IGRpc3RyaWJ1
+dGVkIHdpdGggdGhpcwogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8vbW96
+aWxsYS5vcmcvTVBMLzIuMC8uIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAw
+L3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIy
+NCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4K
+ICAgICAgdXNlOm5vdCg6dGFyZ2V0KSB7CiAgICAgICAgZGlzcGxheTogbm9uZTsKICAgICAgfQog
+ICAgICAjY2xvc2UgewogICAgICAgIGZpbGw6ICM4MDgwODA7CiAgICAgIH0KICAgICAgI2Nsb3Nl
+LWhvdmVyIHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxw
+YXRoIGlkPSJjbG9zZS1zaGFwZSIgZD0iTTE5LDIySDZhMiwyLDAsMCwxLTItMlYxOGwyLDJIMThh
+MSwxLDAsMCwwLDEtMVY1YTEsMSwwLDAsMC0xLTFINkw0LDZWNEEyLDIsMCwwLDEsNiwySDE5YTIs
+MiwwLDAsMSwyLDJWMjBBMiwyLDAsMCwxLDE5LDIyWm0tNi05SDUuNGw0LjIsNC4xNTRMOC4xODYs
+MTguNjMxLDEuNTY3LDEyLjAxNyw4LjAyMSw1LjQxMSw5LjUsNi45NSw1LjQyNCwxMUgxM3YyWiIv
+PgogIDwvZGVmcz4KICA8dXNlIGlkPSJjbG9zZSIgeGxpbms6aHJlZj0iI2Nsb3NlLXNoYXBlIi8+
+CiAgPHVzZSBpZD0iY2xvc2UtaG92ZXIiIHhsaW5rOmhyZWY9IiNjbG9zZS1zaGFwZSIvPgo8L3N2
+Zz4K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Type-Controls-24x24.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gVGhpcyBTb3VyY2Ug
+Q29kZSBGb3JtIGlzIHN1YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYw0K
+ICAgLSBMaWNlbnNlLCB2LiAyLjAuIElmIGEgY29weSBvZiB0aGUgTVBMIHdhcyBub3QgZGlzdHJp
+YnV0ZWQgd2l0aCB0aGlzDQogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8v
+bW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+MjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAg
+PHBhdGggZmlsbD0iIzczNzM3MyIgZD0iTTEwLjg3LDE4Ljk4OWgyLjE0NEw4LjMsMy45OTFINS43
+MjRsLTQuNzM5LDE1SDMuMDQ0bDEuMTE1LTQuMTcxaDUuNlpNNC42NTIsMTIuOTFMNi45NjgsNS42
+OWwyLjI5NCw3LjIySDQuNjUyWk0yMi4xLDE2LjUxNXYtNS4wNmMwLTIuMzEtLjk4NC0zLjcxMy0z
+LjY1LTMuNzEzYTEwLjIzNiwxMC4yMzYsMCwwLDAtMy43Ljc1NkwxNS4xMTYsOS45QTkuOSw5Ljks
+MCwwLDEsMTguMSw5LjMxN2MxLjUzMywwLDEuOTU4LjYyNywxLjk1OCwyLjIyM3YwLjk3NWgtMS4z
+NWMtMy4wODYsMC00Ljg3MSwxLjEyNS00Ljg3MSwzLjVhMy4yMTcsMy4yMTcsMCwwLDAsMy41Mjcs
+My4zMzgsMy4yMDUsMy4yMDUsMCwwLDAsMi45NDUtMS42NTksMi41NzMsMi41NzMsMCwwLDAsMi40
+MzYsMS42NTlsMC40NDEtMS4zNDRBMS40MDgsMS40MDgsMCwwLDEsMjIuMSwxNi41MTVaTTE3Ljgs
+MTcuOWExLjc0NCwxLjc0NCwwLDAsMS0xLjkxMS0xLjk5NWMwLTEuNTEyLDEuMDI5LTIuMTExLDMu
+MDY1LTIuMTExaDEuMVYxNi4xOEMxOS40MjYsMTcuMzM0LDE4LjkzOCwxNy45LDE3LjgsMTcuOVoi
+Lz4NCjwvc3ZnPg0K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Minus-24x24.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gVGhpcyBTb3VyY2Ug
+Q29kZSBGb3JtIGlzIHN1YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYw0K
+ICAgLSBMaWNlbnNlLCB2LiAyLjAuIElmIGEgY29weSBvZiB0aGUgTVBMIHdhcyBub3QgZGlzdHJp
+YnV0ZWQgd2l0aCB0aGlzDQogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8v
+bW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+MjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9k
+ZCIgZmlsbD0iIzgwODA4MCIgZD0iTTAsMTMuNXYtM2gyNHYzSDB6Ii8+DQo8L3N2Zz4NCg==
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Plus-24x24.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gVGhpcyBTb3VyY2Ug
+Q29kZSBGb3JtIGlzIHN1YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYw0K
+ICAgLSBMaWNlbnNlLCB2LiAyLjAuIElmIGEgY29weSBvZiB0aGUgTVBMIHdhcyBub3QgZGlzdHJp
+YnV0ZWQgd2l0aCB0aGlzDQogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8v
+bW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+MjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9k
+ZCIgZmlsbD0iIzgwODA4MCIgZD0iTTI0LDEzLjVIMTMuNVYyNGgtM1YxMy41SDB2LTNoMTAuNVYw
+aDN2MTAuNUgyNFYxMy41eiIvPg0KPC9zdmc+DQo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Content-Width-Minus-42x16.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJM
+SUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3Mv
+U1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KCjwhLS0gVGhpcyBTb3VyY2UgQ29kZSBGb3JtIGlzIHN1
+YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYwogICAtIExpY2Vuc2UsIHYu
+IDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMK
+ICAgLSBmaWxlLCBZb3UgY2FuIG9idGFpbiBvbmUgYXQgaHR0cDovL21vemlsbGEub3JnL01QTC8y
+LjAvLiAtLT4KCjxzdmcgdmVyc2lvbj0iMS4xIgogICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9y
+Zy8yMDAwL3N2ZyIKICAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlu
+ayIKICAgICB3aWR0aD0iNDIiCiAgICAgaGVpZ2h0PSIxNiIKICAgICB2aWV3Qm94PSIwIDAgNDIg
+MTYiCiAgICAgZmlsbD0iIzgwODA4MCI+CgogIDxwYXRoIGQ9Ik0xNC41LDcgTDguNzUsMS4yNSBM
+MTAsLTEuOTE3OTE0MzNlLTE1IEwxOCw4IEwxNy4zNzUsOC42MjUgTDEwLDE2IEw4Ljc1LDE0Ljc1
+IEwxNC41LDkgTDEuMTM2ODY4MzhlLTEzLDkgTDEuMTM2ODY4MzhlLTEzLDcgTDE0LjUsNyBaIi8+
+CiAgPHBhdGggZD0iTTM4LjUsNyBMMzIuNzUsMS4yNSBMMzQsNi41ODgzMTY0N2UtMTUgTDQyLDgg
+TDQxLjM3NSw4LjYyNSBMMzQsMTYgTDMyLjc1LDE0Ljc1IEwzOC41LDkgTDI0LDkgTDI0LDcgTDM4
+LjUsNyBaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMy4wMDAwMDAsIDguMDAwMDAwKSBzY2FsZSgt
+MSwgMSkgdHJhbnNsYXRlKC0zMy4wMDAwMDAsIC04LjAwMDAwMCkiLz4KCjwvc3ZnPgo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Content-Width-Plus-44x16.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJM
+SUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3Mv
+U1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KCjwhLS0gVGhpcyBTb3VyY2UgQ29kZSBGb3JtIGlzIHN1
+YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYwogICAtIExpY2Vuc2UsIHYu
+IDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMK
+ICAgLSBmaWxlLCBZb3UgY2FuIG9idGFpbiBvbmUgYXQgaHR0cDovL21vemlsbGEub3JnL01QTC8y
+LjAvLiAtLT4KCjxzdmcgdmVyc2lvbj0iMS4xIgogICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9y
+Zy8yMDAwL3N2ZyIKICAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlu
+ayIKICAgICB3aWR0aD0iNDQiCiAgICAgaGVpZ2h0PSIxNiIKICAgICB2aWV3Qm94PSIwIDAgNDQg
+MTYiCiAgICAgZmlsbD0iIzgwODA4MCI+CgogIDxwYXRoIGQ9Ik0xNC41LDcgTDguNzUsMS4yNSBM
+MTAsLTEuOTE3OTE0MzNlLTE1IEwxOCw4IEwxNy4zNzUsOC42MjUgTDEwLDE2IEw4Ljc1LDE0Ljc1
+IEwxNC41LDkgTDEuMTM2ODY4MzhlLTEzLDkgTDEuMTM2ODY4MzhlLTEzLDcgTDE0LjUsNyBaIiB0
+cmFuc2Zvcm09InRyYW5zbGF0ZSg5LjAwMDAwMCwgOC4wMDAwMDApIHNjYWxlKC0xLCAxKSB0cmFu
+c2xhdGUoLTkuMDAwMDAwLCAtOC4wMDAwMDApIi8+CiAgPHBhdGggZD0iTTQwLjUsNyBMMzQuNzUs
+MS4yNSBMMzYsLTUuMTcxMTA4ODhlLTE2IEw0NCw4IEw0My4zNzUsOC42MjUgTDM2LDE2IEwzNC43
+NSwxNC43NSBMNDAuNSw5IEwyNiw5IEwyNiw3IEw0MC41LDcgWiIvPgoKPC9zdmc+Cg==
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Line-Height-Minus-38x14.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJM
+SUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3Mv
+U1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KCjwhLS0gVGhpcyBTb3VyY2UgQ29kZSBGb3JtIGlzIHN1
+YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYwogICAtIExpY2Vuc2UsIHYu
+IDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMK
+ICAgLSBmaWxlLCBZb3UgY2FuIG9idGFpbiBvbmUgYXQgaHR0cDovL21vemlsbGEub3JnL01QTC8y
+LjAvLiAtLT4KCjxzdmcgdmVyc2lvbj0iMS4xIgogICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9y
+Zy8yMDAwL3N2ZyIKICAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlu
+ayIKICAgICB3aWR0aD0iMzgiCiAgICAgaGVpZ2h0PSIxNCIKICAgICB2aWV3Qm94PSIwIDAgMzgg
+MTQiCiAgICAgZmlsbD0iIzgwODA4MCI+CgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyOCIg
+aGVpZ2h0PSIyIi8+CiAgPHJlY3QgeD0iMCIgeT0iNiIgd2lkdGg9IjM4IiBoZWlnaHQ9IjIiLz4K
+ICA8cmVjdCB4PSIwIiB5PSIxMiIgd2lkdGg9IjE4IiBoZWlnaHQ9IjIiLz4KCjwvc3ZnPgo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Line-Height-Plus-38x24.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJM
+SUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3Mv
+U1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KCjwhLS0gVGhpcyBTb3VyY2UgQ29kZSBGb3JtIGlzIHN1
+YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYwogICAtIExpY2Vuc2UsIHYu
+IDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMK
+ICAgLSBmaWxlLCBZb3UgY2FuIG9idGFpbiBvbmUgYXQgaHR0cDovL21vemlsbGEub3JnL01QTC8y
+LjAvLiAtLT4KCjxzdmcgdmVyc2lvbj0iMS4xIgogICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9y
+Zy8yMDAwL3N2ZyIKICAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlu
+ayIKICAgICB3aWR0aD0iMzgiCiAgICAgaGVpZ2h0PSIyNCIKICAgICB2aWV3Qm94PSIwIDAgMzgg
+MjQiCiAgICAgZmlsbD0iIzgwODA4MCI+CgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyOCIg
+aGVpZ2h0PSIyIi8+CiAgPHJlY3QgeD0iMCIgeT0iMTEiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyIi8+
+CiAgPHJlY3QgeD0iMCIgeT0iMjIiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyIi8+Cgo8L3N2Zz4K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/reader/RM-Type-Controls-Arrow.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gVGhpcyBTb3VyY2Ug
+Q29kZSBGb3JtIGlzIHN1YmplY3QgdG8gdGhlIHRlcm1zIG9mIHRoZSBNb3ppbGxhIFB1YmxpYw0K
+ICAgLSBMaWNlbnNlLCB2LiAyLjAuIElmIGEgY29weSBvZiB0aGUgTVBMIHdhcyBub3QgZGlzdHJp
+YnV0ZWQgd2l0aCB0aGlzDQogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8v
+bW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+MjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogIDxwb2x5Z29uIG9wYWNpdHk9IjAuMTUi
+ICBwb2ludHM9IjE2LjU4MywwLjAxNSAxNi41NjksMCA0LjU4MywxMiAxNi41NjksMjQgMTYuNTgz
+LDIzLjk4NSIvPg0KICA8cG9seWdvbiBmaWxsPSIjZmJmYmZiIiBwb2ludHM9IjE2LjU3NSwxLjAy
+MSAxNi41NjEsMS4wMDggNS41ODMsMTIgMTYuNTc3LDIzLjAwOCAxNi41OTEsMjIuOTk0ICIvPg0K
+PC9zdmc+DQo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/back.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
+Oi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogIDxkZWZzPgog
+ICAgPHN0eWxlPgogICAgICB1c2U6bm90KDp0YXJnZXQpIHsKICAgICAgICBkaXNwbGF5OiBub25l
+OwogICAgICB9CiAgICAgICNkaXNhYmxlZCB7CiAgICAgICAgb3BhY2l0eTogMC41OwogICAgICB9
+CiAgICA8L3N0eWxlPgogICAgPHBhdGggaWQ9InNoYXBlIiBkPSJNIDUgMCBDIDQuNDQ2IDAgNCAw
+LjQ0NiA0IDEgTCA0IDIzIEMgNCAyMy41NTQgNC40NDYgMjQgNSAyNCBMIDcgMjQgQyA3LjU1NCAy
+NCA4IDIzLjU1NCA4IDIzIEwgOCAxMi40MDQyOTcgQyA4LjA0MTA4IDEyLjUwOTI5NyA4LjEwOTk0
+NCAxMi42MTAxMjUgOC4yMDMxMjUgMTIuNzAzMTI1IEwgMTkuMjk2ODc1IDIzLjc3NTM5MSBDIDE5
+LjQ5NTI1OSAyMy45NzIzOTEgMTkuNjYxNjEzIDI0LjAzOTU2MiAxOS43OTY4NzUgMjMuOTc2NTYy
+IEMgMTkuOTMyMTM3IDIzLjkxNTU2NCAyMCAyMy43NDg1MTYgMjAgMjMuNDc4NTE2IEwgMjAgMC41
+MjE0ODQzOCBDIDIwIDAuMjUyNDg0MzcgMTkuOTMyMTQgMC4wODQ0ODQzNjUgMTkuNzk2ODc1IDAu
+MDIxNDg0Mzc1IEMgMTkuNjYxNjEzIC0wLjA0MDUxNTYyNSAxOS40OTUyNTkgMC4wMjg1NjI0OCAx
+OS4yOTY4NzUgMC4yMjY1NjI1IEwgOC4yMDMxMjUgMTEuMjk4ODI4IEMgOC4xMDk5NDQ1IDExLjM4
+MTgyOCA4LjA0MTA4IDExLjQ4MTcwMyA4IDExLjU5NTcwMyBMIDggMSBDIDggMC40NDYgNy41NTQg
+MCA3IDAgTCA1IDAgeiAiIGZpbGw9ImdyYXkiLz4KICA8L2RlZnM+CiAgPHVzZSBpZD0iZW5hYmxl
+ZCIgeGxpbms6aHJlZj0iI3NoYXBlIi8+CiAgPHVzZSBpZD0iZGlzYWJsZWQiIHhsaW5rOmhyZWY9
+IiNzaGFwZSIvPgo8L3N2Zz4K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/start.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAy
+NCI+CiAgICA8cGF0aCBkPSJNMjEuNjQgMTIuNDRMMi44MjcgMjIuODk1Yy0uMjE3LjEyMy0uNDAz
+LjEzNy0uNTYuMDQyLS4xNTUtLjA5NC0uMjMzLS4yNjQtLjIzMy0uNTFWMS41NzJjMC0uMjQ0LjA4
+LS40MTQuMjMzLS41MS4xNTctLjA5My4zNDMtLjA4LjU2LjA0NEwyMS42NDIgMTEuNTZjLjIxNy4x
+MjQuMzI2LjI3LjMyNi40NCAwIC4xNy0uMTEuMzE2LS4zMjcuNDR6IiBmaWxsPSJncmF5Ii8+Cjwv
+c3ZnPgo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/forward.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
+Oi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogIDxkZWZzPgog
+ICAgPHN0eWxlPgogICAgICB1c2U6bm90KDp0YXJnZXQpIHsKICAgICAgICBkaXNwbGF5OiBub25l
+OwogICAgICB9CiAgICAgICNkaXNhYmxlZCB7CiAgICAgICAgb3BhY2l0eTogMC41OwogICAgICB9
+CiAgICA8L3N0eWxlPgogICAgPHBhdGggaWQ9InNoYXBlIiBkPSJtIDE5LDAgYyAwLjU1NCwwIDEs
+MC40NDYgMSwxIGwgMCwyMiBjIDAsMC41NTQgLTAuNDQ2LDEgLTEsMSBsIC0yLDAgYyAtMC41NTQs
+MCAtMSwtMC40NDYgLTEsLTEgbCAwLC0xMC41OTU3MDMgYyAtMC4wNDEwOCwwLjEwNSAtMC4xMDk5
+NDQsMC4yMDU4MjggLTAuMjAzMTI1LDAuMjk4ODI4IEwgNC43MDMxMjUsMjMuNzc1MzkxIGMgLTAu
+MTk4Mzg0LDAuMTk3IC0wLjM2NDczOCwwLjI2NDE3MSAtMC41LDAuMjAxMTcxIEMgNC4wNjc4NjMs
+MjMuOTE1NTY0IDQsMjMuNzQ4NTE2IDQsMjMuNDc4NTE2IEwgNCwwLjUyMTQ4NDM4IGMgMCwtMC4y
+NjkwMDAwMSAwLjA2Nzg2LC0wLjQzNzAwMDAxIDAuMjAzMTI1LC0wLjUgMC4xMzUyNjIsLTAuMDYy
+IDAuMzAxNjE2LDAuMDA3MDc4MSAwLjUsMC4yMDUwNzgxMiBsIDExLjA5Mzc1LDExLjA3MjI2NTUg
+YyAwLjA5MzE4LDAuMDgzIDAuMTYyMDQ1LDAuMTgyODc1IDAuMjAzMTI1LDAuMjk2ODc1IEwgMTYs
+MSBjIDAsLTAuNTU0IDAuNDQ2LC0xIDEsLTEgbCAyLDAgeiIgZmlsbD0iZ3JheSIvPgogIDwvZGVm
+cz4KICA8dXNlIGlkPSJlbmFibGVkIiB4bGluazpocmVmPSIjc2hhcGUiLz4KICA8dXNlIGlkPSJk
+aXNhYmxlZCIgeGxpbms6aHJlZj0iI3NoYXBlIi8+Cjwvc3ZnPgo=
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/slow.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAy
+NCI+CiAgICA8ZyBmaWxsPSJncmF5Ij4KICAgICAgICA8cGF0aCBkPSJNMS42ODQsMTMuNDg2Yy0w
+LjIwOSwwLTAuNDA0LTAuMTMyLTAuNDc0LTAuMzQxYy0wLjUyOC0xLjU4LTAuMjMtNS43NjcsNC4w
+OTctNy45MjEgYzEuMzE1LTAuNjU2LDIuNTg5LTAuOTg4LDMuNzg3LTAuOTg4YzMuMjM3LDAsNS4w
+OTYsMi4zNDEsNS45OSwzLjQ2NWMwLjE1OCwwLjE5OSwwLjE4MSwwLjUzMywwLDAuNzEzIGMtMC43
+OTMsMC43OTQtMS44NTIsMS41NDItMy4yMzEsMi4yODZjLTIuNDYsMS4zMjctNS4wNDUsMS43NzUt
+Ny4xMjEsMi4xMzRjLTEuMTIzLDAuMTk0LTIuMDkzLDAuMzYxLTIuODksMC42MjcgQzEuNzg5LDEz
+LjQ3OSwxLjczNSwxMy40ODYsMS42ODQsMTMuNDg2TDEuNjg0LDEzLjQ4NnoiLz4KICAgICAgICA8
+cGF0aCBkPSJNMjMuMTg1LDUuNDY1Yy0wLjg2LTEuMTIxLTIuMDc0LTEuODE5LTMuMTY4LTEuODE5
+Yy0wLjY0MSwwLTEuNTU2LDAuMjMtMi4yNzMsMS4zMjggYy0wLjM3NCwwLjU3MS0wLjU3NywxLjE2
+MS0wLjc3MywxLjczYy0wLjUxMiwxLjQ4Mi0xLjA0MSwzLjAxNi00LjY2Miw0Ljk2OWMtMi4zMTYs
+MS4yNDktNC43MDcsMS42NjQtNi44MTUsMi4wMyBjLTIuNTI0LDAuNDM4LTQuNzA0LDAuODE0LTUu
+NDU1LDIuNjIyYy0wLjA2OSwwLjE2NS0wLjA0NSwwLjM1NCwwLjA2MiwwLjQ5NWMwLjEwNywwLjE0
+MywwLjI4MSwwLjIxNywwLjQ2LDAuMTkzIGMwLjY2Ny0wLjA4MSwxLjUzMywwLjA0MSwyLjQzNCww
+LjIxN2MtMC4xMjIsMC4xNDYtMC4yNjEsMC4yODYtMC4zOTEsMC40MThjLTAuMzgsMC4zODUtMC43
+NzQsMC43ODMtMC42NTcsMS4yOTIgYzAuMTA4LDAuNDc0LDAuNjA0LDAuNjk5LDAuOTY2LDAuODI4
+YzAuMzk5LDAuMTQyLDAuODQzLDAuMjE3LDEuMjgzLDAuMjE3YzEuMjQxLDAsMi4yMTYtMC41Nzks
+Mi42NDktMS41MzkgYzEuNzA0LDAuMjg3LDMuNDg3LDAuMzEzLDUuMDQzLDAuMzEzbDEuNjM5LTAu
+MDA2YzAuMDY2LDAuMDU2LDAuMTc4LDAuMTY2LDAuMjY0LDAuMjVjMC41MDQsMC41MDYsMS4zNDgs
+MS4zNTEsMi43MjEsMS4zNTEgYzAuMTI5LDAsMC4yNjQtMC4wMDgsMC40MTYtMC4wMjZjMC42ODct
+MC4xMDIsMS4zNTEtMC4yNjcsMS41NzQtMC43ODdjMC4yMjctMC41MjgtMC4xMjMtMS4wMjMtMC41
+MjYtMS41OTcgYy0wLjQ4MS0wLjY4NS0xLjA4LTEuNTMyLTAuOTk4LTIuNjUyYzAuMTk2LTAuMzk3
+LDAuMzY4LTAuODI0LDAuNTQ2LTEuMjY3YzAuNDc5LTEuMTksMC45NzUtMi40MjEsMi4xMi0zLjUx
+MyBjMC40MzEsMC4zNDMsMS4wMjIsMC41NDksMS42MywwLjU0OWwwLDBjMC40MzksMCwwLjg3Ni0w
+LjEwMiwxLjI5NS0wLjNjMC42MjQtMC4yOTMsMS4xMDQtMC45NjcsMS4zMTYtMS44NDcgQzI0LjE3
+NSw3LjcwNywyMy45MTQsNi40MTgsMjMuMTg1LDUuNDY1TDIzLjE4NSw1LjQ2NXogTTIwLjM5Nyw3
+Ljc1N2MtMC4yNzYsMC0wLjUtMC4yMjQtMC41LTAuNXMwLjIyNC0wLjUsMC41LTAuNSBjMC4yNzUs
+MCwwLjUsMC4yMjQsMC41LDAuNVMyMC42NzQsNy43NTcsMjAuMzk3LDcuNzU3eiIvPgogICAgPC9n
+Pgo8L3N2Zz4K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/fast.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0Jv
+eD0iMCAwIDI0IDIwLjQiPgogICAgPHBhdGggZmlsbD0iZ3JheSIgZD0iTTE0LjQyIDE2LjY4YS43
+Ny43NyAwIDAgMCAuNTQuN2wyLjUxLjY4YTEuNTggMS41OCAwIDAgMSAxLjA2IDEuMjJsLjA1LjM5
+LTMuODktLjUzYTQuMzQgNC4zNCAwIDAgMS0xLjc0LS43Mkw3LjIgMTQuMDNhNS43OSA1Ljc5IDAg
+MCAxLTUuMzQtNC44OGgtLjgyYTEgMSAwIDAgMS0xLTFsMi45LTMuMjRhNi4xNiA2LjE2IDAgMCAx
+IDQuNy0yLjM5IDUuODggNS44OCAwIDAgMSAuNzcuMDUgNSA1IDAgMCAxIC44Ny4xNWMzLjc1IDEg
+Ni41IDUuODQgNi41IDUuODRhMi4yNyAyLjI3IDAgMCAwIDEuMTQuODVoLjE3YTEuMjcgMS4yNyAw
+IDAgMCAxLjIyLS40bC43OC0xLTIuNDctMS4yYy0zLjM4LTEuNDYtMi40Ni01LjcxLTIuNDYtNS43
+MSAwLS4yNi4yMy0uMzIuNDItLjE0bDUuMzIgNS00LjMxLTQuODFhMS4zOSAxLjM5IDAgMCAxIC44
+MS0xLjIybDQuMTcgNi42NS4zMy4zMSAyLjE5IDEuNTRhMi40NCAyLjQ0IDAgMCAxIC45MiAxLjc1
+djIuNzdsLS4xNi4xM2ExLjY2IDEuNjYgMCAwIDEtMS42My4xOWwtLjc1LS4zNmEyLjU3IDIuNTcg
+MCAwIDAtMi41NS4zMmwtMi4xOCAxLjgyYTQuMjggNC4yOCAwIDAgMS0uODkuNTUgMTAuMTggMTAu
+MTggMCAwIDAtNC42Mi04LjQ2Yy0uMjctLjE2LS42Ni4zMS0uNDcuNDhhMTAuNTIgMTAuNTIgMCAw
+IDEgMy42OCA4LjV2LjQ4em04LjM4LTUuNDJhLjQ5LjQ5IDAgMSAwLS40OS0uNDkuNDkuNDkgMCAw
+IDAgLjQ5LjQ5em0tMTggOS4xNHYtLjUyYTEuMzkgMS4zOSAwIDAgMSAuOTMtMS4yNXMyLjctLjY2
+IDMuNDMtMS44NGwyLjA2IDEuNjNhMjUuNjIgMjUuNjIgMCAwIDEtNi40MyAyeiIvPgo8L3N2Zz4K
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6
+Content-Location: chrome://global/skin/narrate/arrow.svg
+Content-Transfer-Encoding: base64
+Content-Type: image/svg+xml
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRw
+Oi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTIgMTIiPgogIDxwYXRoIGQ9
+Ik02IDlMMSA0bDEtMSA0IDQgNC00IDEgMXoiIGZpbGw9IiM0QzRDNEMiLz4KPC9zdmc+Cg==
+
+------=_Part_E8F67ED8_94E8B11D.158EB15FCE6--

@@ -1,0 +1,8 @@
+IMPORTANT AS ROOT!! or fail extraction procedures during install
+
+mkdir tmp
+dpkg-deb -R original.deb tmp
+# edit DEBIAN/postinst
+dpkg-deb -b tmp fixed.deb
+
+

@@ -1,0 +1,69 @@
+Linux Sysfs Thermal Driver
+
+From “Generic Thermal Sysfs driver How To”:
+
+    The generic thermal sysfs provides a set of interfaces for thermal zone devices (sensors) and thermal cooling devices (fan, processor…) to register with the thermal management solution and to be a part of it.
+
+Here is the structure of sysfs for the thermal system:
+
+    Thermal sysfs attributes will be represented under /sys/class/thermal. Hwmon sysfs I/F extension is also available under /sys/class/hwmon, if hwmon is compiled in or built as a module.
+
+    Thermal zone device sys I/F, created once it’s registered:
+
+    /sys/class/thermal/thermal_zone[0-*]:
+        |---type:         Type of the thermal zone
+        |---temp:         Current temperature
+        |---mode:         Working mode of the thermal zone
+        |---policy:           Thermal governor used for this zone
+        |---trip_point_[0-*]_temp:    Trip point temperature
+        |---trip_point_[0-*]_type:    Trip point type
+        |---trip_point_[0-*]_hyst:    Hysteresis value for this trip point
+        |---emul_temp:        Emulated temperature set node
+
+    Thermal cooling device sys I/F, created once it’s registered:
+
+    /sys/class/thermal/cooling_device[0-*]:
+        |---type:         Type of the cooling device(processor/fan/...)
+        |---max_state:        Maximum cooling state of the cooling device
+        |---cur_state:        Current cooling state of the cooling device
+
+    Then next two dynamic attributes are created/removed in pairs. They represent the relationship between a thermal zone and its associated cooling device. They are created/removed for each successful execution of thermal_zone_bind_cooling_device/thermal_zone_unbind_cooling_device.
+
+    /sys/class/thermal/thermal_zone[0-*]:
+        |---cdev[0-*]:        [0-*]th cooling device in current thermal zone
+        |---cdev[0-*]_trip_point: Trip point that cdev[0-*] is associated with
+
+Here is what I had under my sysfs tree:
+
+elatov@crbook:~$ls -l /sys/class/thermal/thermal_zone0/
+total 0
+lrwxrwxrwx 1 root root    0 Sep 25 19:06 cdev0 -> ../cooling_device1
+-r--r--r-- 1 root root 4096 Sep 25 19:06 cdev0_trip_point
+lrwxrwxrwx 1 root root    0 Sep 25 19:06 cdev1 -> ../cooling_device0
+-r--r--r-- 1 root root 4096 Sep 25 19:06 cdev1_trip_point
+-rw-r--r-- 1 root root 4096 Sep 25 19:06 fan_on_delay
+-rw-r--r-- 1 root root 4096 Sep 25 19:06 mode
+-rw-r--r-- 1 root root 4096 Sep 25 19:06 passive
+drwxr-xr-x 2 root root    0 Sep 25 19:06 power
+lrwxrwxrwx 1 root root    0 Sep 25 07:45 subsystem -> ../../../../class/thermal
+-r--r--r-- 1 root root 4096 Sep 25 19:06 temp
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_0_temp
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_0_type
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_1_temp
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_1_type
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_2_temp
+-r--r--r-- 1 root root 4096 Sep 25 19:06 trip_point_2_type
+-r--r--r-- 1 root root 4096 Sep 25 19:06 type
+-rw-r--r-- 1 root root 4096 Sep 25 07:45 uevent
+
+Notice that I didn’t have the policy node, this is because I had the TMU and was not using the Governor (which is usually part of a thermal zone).
+
+So I have one thermal Zone and two cooling devices:
+
+elatov@crbook:~$ls -l /sys/class/thermal/
+total 0
+lrwxrwxrwx 1 root root 0 Sep 27 07:50 cooling_device0 -> ../../devices/virtual/thermal/cooling_device0
+lrwxrwxrwx 1 root root 0 Sep 27 07:50 cooling_device1 -> ../../devices/virtual/thermal/cooling_device1
+lrwxrwxrwx 1 root root 0 Sep 27 07:50 thermal_zone0 -> ../../devices/virtual/thermal/thermal_zone0
+
+

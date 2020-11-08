@@ -1,0 +1,41 @@
+	PRINT JUST FIRST COLUMN OF OUTPUT
+awk '{print $1}'
+
+	PRINT JUST SECOND COLUMN OF OUTPUT
+awk '{print $2}'
+
+	ONLY OUTPUT SECOND COLUMN ON LINES STARTING WITH NUMBERS 1 THRU 9
+ip addr show | awk '/^[1-9]/ {print $2}'
+
+	ONLY OUTPUT SECOND COLUMN ON LINES STARTING WITH LETTER a
+cat test.txt | awk '/^[a]/ {print $2}'
+
+	REMOVE LAST FOUR CHARACTORS FROM OUTPUT
+string="elephant"
+echo -n "$string" | gawk '{print substr($0,1,length()-4)}'
+
+###########################################################################
+###########################################################################
+	BAD EXAMPLES DONT WORK BUT GENERAL AWK THEORY MIGHT BE SOUND
+to just print the first column:
+
+netstat -a | awk '{print $1}'
+
+you can incorporate other rules in awk to add or remove entries as needed.
+
+EDIT: same goes with ifconfig (like Doug pointed out)
+
+ifconfig | awk '{print $1}'
+
+This is an example excluding the 'lo' interface
+
+ifconfig | awk '{if ($1 != lo) print $1}'
+
+unkown
+ifconfig | grep flags | awk -F: '{print $1;}'
+
+###########################################################################
+
+ip addr show | awk '/^[1-9]/ {print $2}'
+
+ip addr show | gawk '/^[1-9]/ {print $2}' | gawk '{print substr($0,1,length()-1)}'

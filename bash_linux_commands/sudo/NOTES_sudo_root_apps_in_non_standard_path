@@ -1,0 +1,26 @@
+You have to add the path to the sudo path.
+
+Run the command sudo visudo
+
+you will see a line like this:
+
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$
+
+Now add the path of your command here and this should work.
+
+For example:
+
+$ sudo storm
+sudo: storm: command not found
+
+Now add the path as above:
+
+$ sudo visudo 
+
+secure_path="......:/opt/storm/bin"
+
+save and exit.
+
+now sudo storm will just work normally.
+
+Note You should also add the path to the default path in /etc/profile

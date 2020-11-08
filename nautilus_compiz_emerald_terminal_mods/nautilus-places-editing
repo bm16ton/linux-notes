@@ -1,0 +1,55 @@
+Romove Entrys WARNING NOT ENUFF READ AHEAD!!
+
+You need to comment out entries in the following file:
+
+~/.config/user-dirs.dirs 
+
+Rather than commenting out the entries, I simply edited them to point to folders I actually use and want in the list (in my case, in my Dropbox). For example: XDG_DOCUMENTS_DIR="$HOME/Dropbox" and XDG_MUSIC_DIR="$HOME/Dropbox/Music"
+
+This answer is also something of a tutorial for newbies. Ugh. Just looked down. It reformatted my nice, readable outline. #$!
+
+IMHO space in File windows' "Places" sidebars is valuable. You can use them to add quick jumps to where YOU need to go frequently, so I wanted to ditch some of the defaults to make more room. I decided I didn't need Music, Pictures, and Videos. The folders are still there in my home folder if I need to use them. I'm just not big on multimedia. In Raring (13.04; with the default "Unity" desktop) I ran into several challenges;
+
+User-added "Places items can be removed using the pop-up menu you get by right-clicking the item, but that option is grayed out for the system's default items.
+The real answer lies in Geekdom (this is still Linux, after all, although wonderfully slick nowadays.) It involves editing a couple of configuration files, but there seem to be several levels of defaults that tend to restore the status quo behind your back.
+What I eventually had to do to accomplish my goal was:
+
+edit the file at  ~/.config/user-dirs.dirs
+save a backup copy in the same folder under a recognizably altered name
+edit our target file
+delete the unwanted lines
+save the modified file
+edit /etc/xdg/user-dirs.defaults
+cd /etc/xdg/
+sudo cp user-dirs.defaults user-dirs.defaults.orig # backup copy
+sudo -H gedit user-dirs.defaults
+delete the offending lines
+save the modified file
+reboot
+Notes: with added explanations for newbies...
+
+it should work smoothly if you do both edits in one session, but if you try to do it piecemeal starting with just modifying  ~/.config/user-dirs.dirs it won't work (it'll be automatically restored) and you'll have to do it again after fixing /etc/xdg/user-dirs.defaults. I know this from personal experience. :o) these actions are easily performed with normal GUI applications like Files and Text Editor.  ~/ is shell (Terminal) shorthand for your home directory (a folder in the file system: the absolute path is something like  /Home/YOURUSERNAME/ .)
+
+not absolutely necessary, but a good habit to cultivate
+it should be obvious which ones, depending on what you want to eliminate. Also the first time I commented them off with leading '#'s, which didn't seem to work initially due to the auto-restores, but it actually probably will work.
+this is a tip I got from Kubuntuforums.net It's basically the same procedure as step 1, except that it's a different file, and one that belongs to the system at that. All of these commands are entered in a Terminal window following the $ prompt. They have to be letter-perfect, except that you can change the second parameter of the cp command, the backup file name.
+
+the sudo's are necessary because users don't have security "permission" to modify these resources, so you give your password when asked (you are an administrator, aren't you? Original users are by default) and proceed to pretend you're "root" (the "superuser" but be careful -- you could break something if you mess around.)
+this brings up a normal-looking instance of the Text Editor but with the necessary permissions so the "Save" doesn't fail. Also see note 1.2.
+the changes don't take effect until you reboot, but it's OK to do what else you need to immediately do in the meantime.
+
+if you ARE a newbie and you get this under your belt, congratulations! You're well on your way to Geekhood.
+
+
+
+
+
+Open Nautilus, go to your User folder, press Control + H, to show hidden files, then open the file called with .bookmarks-gtk. You can remove the unneeded lines from that file. You could also right click the menu bar, and remove them that way, but that's what I did in the past. Hope my answer helps.
+
+
+Right click on each item and select Remove! You can manage them from bookmarks menu too.
+
+Edit: For Places you can delete/rename the folder from home directory. I have removed Music from home folder and now it is not in left list.
+
+
+

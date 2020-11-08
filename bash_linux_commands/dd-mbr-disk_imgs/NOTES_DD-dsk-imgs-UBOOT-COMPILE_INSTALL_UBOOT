@@ -1,0 +1,56 @@
+#### BASIC dd EXAMPLE FOR ODROID IMAGES
+###   option oflag=direct  diables all buffering etc
+ sudo dd if=ubuntu-16.04-mate-odroid-xu4-20170731.img of=/dev/mmcblk0p1 bs=1M conv=fsync
+ sync
+
+###  ??? not sure in testing now, how to create disk backup to image without the empty space, and hopefully how not to commit mbr to specific disk size. Like growable images from arm dev board companys
+dd conv=sparse        ##hopefully removes empty space an extra program called "zerofree" to zero out the empty space, didnt seem to do anything basic 16gb sdcard backup to image
+
+
+##?? TO REPLACE /dev/mmcblk0boot0 using dd and linux has to be done on the Odroid (caint do it on a different PC!) like this;
+
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=/root/boot0.img of=/dev/mmcblk0boot0
+
+#### DOWNLOAD COMPILE INSTALL (via sd_fusing.sh) U-BOOT
+
+ git clone https://github.com/hardkernel/u-boot.git -b odroidxu3-v2012.07
+ cd u-boot
+ make odroid_config
+ make ARCH=arm CROSS_COMPILE=arm-none-eabi- -j8
+ cd sd_fuse/hardkernel
+ sudo ./sd_fusing.sh /dev/sdc
+ sync
+
+
+#### ALTERNATIVE NATIVE WAYS TO INSTALL U-BOOT
+### Installation using fastboot (XU3 ONLY NEEDS THE OTG CONNECTOR FOR THIS :(  )
+### If you can boot your ODROID-XU3 already and want to install a new u-boot.bin built by you. Fastboot helps you to install a u-boot.bin into your board.
+
+### u-boot.bin install
+
+ sudo fastboot flash bootloader u-boot.bin
+
+### bl1.bin install
+
+ sudo fastboot flash fwbl1 sd_fuse/hardkernel/bl1.bin.hardKernel
+
+### bl2.bin install
+
+ sudo fastboot flash bl2 sd_fuse/hardkernel/bl2.bin.hardKernel
+
+### tzsw.bin install
+
+ sudo fastboot flash tzsw sd_fuse/hardkernel/tzsw.bin.hardKernel
+
+### If installation is done, you care reboot your ODROID-XU3 with fastboot.
+
+ sudo fastboot reboot
+
+#### Updating from Linux
+### You also can update U-boot from Linux with dd command. After building U-boot, copy u-boot.bin into your ODROID-XU3. Then do the command below in order to flash your U-boot image to MicroSD.
+
+ sudo dd if=u-boot.bin of=<device/path/of/your/card> seek=63
+ sudo sync
+
+ 

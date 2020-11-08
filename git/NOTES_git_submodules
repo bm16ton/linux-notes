@@ -1,0 +1,45 @@
+git submodule update --init --recursive
+
+
+
+Note that --recurse-submodules and --recursive are equivalent aliases
+
+
+With version 1.9 of Git and later, you can even download the submodules simultaneously:
+
+git clone --recursive -j8 git://github.com/foo/bar.git
+cd bar
+
+Editor's note: simultaneously in this case means: in parallel; that is, -j8 is an optional performance optimization that fetches up to 8 submodules at a time in parallel - see man git-clone.
+
+With version 1.6.5 of Git and later, you can use:
+
+git clone --recursive git://github.com/foo/bar.git
+cd bar
+
+For already cloned repos, or older Git versions, just use:
+
+git clone git://github.com/foo/bar.git
+cd bar
+git submodule update --init --recursive
+
+
+
+
+
+You have to do two things before a submodule will be filled:
+
+git submodule init 
+git submodule update
+
+
+You can initiate fetching the submodule using multiple threads, in parallel.
+For instances:
+
+git fetch --recurse-submodules -j2
+
+git clone -b <branch_name> --recursive <remote> <directory>
+
+git clone --recurse-submodules
+
+git fetch --recurse-submodules --jobs=4

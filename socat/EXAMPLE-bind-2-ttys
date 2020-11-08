@@ -1,0 +1,17 @@
+binding 2 tty's
+
+socat /dev/serial1,raw,echo=0,crnl /dev/tty63,raw,echo=0,crnl
+
+sudo socat pty,raw,echo=0,link=/dev/serial1 pty,raw,echo=0,link=/dev/ttyGS0
+
+
+sudo socat - /dev/ttyS0,raw,echo=0,crnl
+
+SORTA WORKED!
+sudo socat -d -d pty,link=/dev/serial0,raw,echo=0 pty,link=/dev/tty63,raw,echo=0
+
+sudo socat PTY,link=/dev/tty63,b115200,raw,user=maddocks,group=dialout,mode=777 TCP:192.168.1.6:2000
+
+socat -x PIPE:/dev/ttyACM1 TCP4-LISTEN:14433,fork,reuseaddr
+
+sudo hciattach -r -n /dev/ttyUSB0 any 57600

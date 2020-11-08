@@ -1,0 +1,29 @@
+sudo checkinstall --install --fstrans=disable --addso
+
+sudo checkinstall --addso --install=no --fstrans=no
+
+       --install Toggle installation of the created package.
+
+       --fstrans Enable/disable filesystem translation. Filesystem translation enabled causes the install 					 to proceed  in a temporary directory, thus not actually touching your system.
+
+       --provides Features provided by this package (currently only on RPM and Deb).
+
+       --requires Dependencies required by this package.
+
+       --addso   Search for any shared libs and add them to /etc/ld.so.conf
+
+       --exclude Exclude these files/directories from the package.
+
+       --include Force the inclusion in the package of the files/dirs listed in the argument (a file).
+
+       --inspect Inspect the package's file list
+
+       --bk      Backup any overwritten files
+
+       --backup  Toggle backup
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+#### SHOW WHAT KERNEL DRIVER OPTIONS ARE SET PLUS SUM OTHER STUFF;
+sudo systool -m iwlwifi -av
+
+#### SHOW ALL INFO AND CAPABILITIES OF ALL INSTALLED WIFI DEVICES (note available frequencies and possibly more will change when connected to a network)
+sudo iw list
+
+#### SHOW CONNECTED LINK INFO
+sudo iw dev wlp3s0 link                #### look at "tx bitrate" line if "MCS" "short GI" is there your connected 802.1n
+
+#### lspci COMMAND OPTIONS (my wifi is on port/slot 03:00)
+sudo lspci -vmmk -s 03:00
+sudo lspci -vvvkn -s 03:00
+

@@ -1,0 +1,69 @@
+qemu-system-i386 [options] [disk_image]
+qemu-system-i386 -m 2048 -soundhw 
+BOOT DRIVES
+example;
+-boot c
+
+x86 boot drives;
+a, b	=	floppys
+c	=	first hdd
+d	=	first cd-rom
+
+AUDIO CARDS
+example;
+-soundhw ac97
+
+emulated sound cards;
+sb16,adlib
+es1370
+ac97
+hda
+all
+help
+
+BLOCK DEVICE OPTIONS
+-fda file
+-fdb file
+-hda file
+-hd"a-d" file
+-cdrom file
+
+USB options
+-usb   enables usb
+-usbdevice devname aka;
+	mouse
+	tablet
+	disk:[format=format]:file
+	host:bus.addr
+	host:vendor_id:product_id
+	
+DISPLAY OPTIONS;
+-display type aka;
+	sdl
+	curses
+	none
+	gtk **
+	vnc
+-nographic
+-curses
+-no-frame
+-sdl
+-vga type aka;
+	cirrus
+	std (vesa yuck)
+	vmware
+	qxl
+-full-screen
+
+X86 SPECIFIC OPTIONS;
+-no-acpi
+-no-hpet
+
+NET OPTIONS;
+-net nic[,vlan=n][,macaddr=mac][,model=type][,name=name][,addr=addr][,vectors=v]
+"virtio","i82551","i82557b","i82559er","ne2k_pci","ne2k_isa","pcnet","rtl8139","e1000","smc91c111", "lance" and "mcf_fec"
+-netdev user,id=id[,option][,option][,...]
+-net user[,option][,option][,...]
+
+ 
+	

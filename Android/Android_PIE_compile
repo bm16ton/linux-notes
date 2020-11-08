@@ -1,0 +1,39 @@
+CPPFLAGS="-fPIE"
+LDLIBS="-fPIE -pie"
+--host=armv7a-cros-linux-gnueabi
+CROSS_COMPILE="arm-linux-gnueabi-" CC="arm-linux-gnueabi-gcc" CFLAGS="-fPIE -pie" CPPFLAGS="-fPIE" LDLIBS="-fPIE -pie" ./configure --host=armv7a-cros-linux-gnueabi --exec-prefix=/system --prefix=/system
+CFLAGS="-fPIE -pie"
+
+./configure --enable-termcap --with-terminfo-dirs=/system/etc --host=armv7a-cros-linux-gnueabi --without-gpm --with-shared --exec-prefix=/system --prefix=/system
+
+LD_LIBRARY_PATH="/system/lib"
+LDFLAGS="-Wl,--dynamic-linker=/system/bin/linker -Wl,--hash-style=sysv"
+LDLIBS="-fPIE -pie -L/system/lib"
+CROSS_COMPILE="arm-linux-gnueabi-" 
+CC="arm-linux-gnueabi-gcc" 
+CFLAGS="-fPIE -pie -I/system/include/ncurses"
+
+
+export TOOLCHAIN=/usr/local/arm-linux-gnueabi-hard
+export CC=/usr/bin/arm-linux-gnueabi-gcc
+export CXX=/usr/bin/arm-linux-gnueabi-g++
+export LD=/usr/bin/arm-linux-gnueabi-ld
+export AR=/usr/bin/arm-linux-gnueabi-ar
+export RANLIB=/usr/bin/arm-linux-gnueabi-ranlib
+export CFLAGS="-I/usr/arm-linux-gnueabi/libc/include -mhard-float -mfpu=vfpv3-d16"
+export LDFLAGS="-L/usr/arm-linux-gnueabi/libc/lib"
+
+
+
+LD_LIBRARY_PATH="/system/lib" CROSS_COMPILE="arm-linux-gnueabi-" CC="arm-linux-gnueabi-gcc" CFLAGS="-fPIE -pie -I/system/include/ncurses -I/system/include/ncursesw" CPPFLAGS="-fPIE -I/system/include/ncurses -I/system/include/ncursesw" LDLIBS="-fPIE -pie -L/system/lib" ./configure --host=armv7a-cros-linux-gnueabi --exec-prefix=/system --prefix=/system --disable-rpath NCURSESW_CFLAGS="-I/system/include/" NCURSES_CFLAGS="-I/system/include" NCURSESW_LIBS="-L/system/lib  -lncursesw -ltinfo" NCURSES_LIBS="-L/system/lib -lncursesw -ltinfo"
+
+ncurses-6.0+20160213$ CC="arm-linux-gnueabi-gcc" CFLAGS="-fPIE -pie" CPPFLAGS="-fPIE" LDLIBS="-fPIE -pie" ./configure --host=armv7a-cros-linux-gnueabi --with-terminfo-dirs=/system/etc --with-termlib --without-gpm --exec-prefix=/system --prefix=/system --disable-rpath --with-shared --with-normal --without-manpages --without-progs --without-debug --enable-widec --with-default-terminfo-dir=/system/etc/terminfo --with-pthread --disable-hashmap --enable-broken_linker
+
+nano-2.5.3$ LD_LIBRARY_PATH="/system/lib" CROSS_COMPILE="arm-linux-gnueabi-" CC="arm-linux-gnueabi-gcc" CFLAGS="-fPIE -pie -I/system/include/ncurses -I/system/include/ncursesw" CPPFLAGS="-fPIE -I/system/include/ncurses -I/system/include/ncursesw" LDLIBS="-fPIE -pie -L/system/lib" ./configure --host=armv7a-cros-linux-gnueabi --exec-prefix=/system --prefix=/system --disable-rpath NCURSESW_CFLAGS="-I/system/include/" NCURSES_CFLAGS="-I/system/include" NCURSESW_LIBS="-L/system/lib  -lncursesw -ltinfow" NCURSES_LIBS="-L/system/lib -lncursesw -ltinfow"
+
+nano-2.5.3$ LD_LIBRARY_PATH="/system/lib" CC="arm-linux-gnueabi-gcc" LDFLAGS="-static-libstdc++ -static -lncursesw -ltinfow" LDLIBS="-fPIE -pie -L/system/lib -lncursesw -ltinfow" CFLAGS="-fPIE -pie -I/system/include/ncurses -I/system/include/ncursesw -static-libstdc++ -static  -Wl,--dynamic-linker=/system/bin/linker -Wl,--hash-style=sysv" CPPFLAGS="-static-libstdc++ -fPIE -I/system/include/ncurses -I/system/include/ncursesw" LDLIBS="-fPIE -pie -L/system/lib" ./configure --host=armv7a-cros-linux-gnueabi --exec-prefix=/system --libdir=/system/lib --prefix=/system --disable-rpath NCURSESW_CFLAGS="-I/system/include/" NCURSES_CFLAGS="-I/system/include" NCURSESW_LIBS="-L/system/lib  -lncursesw -ltinfow" NCURSES_LIBS="-L/system/lib -lncursesw -ltinfow" LDFLAGS="-static-libstdc++ -static  -Wl,--dynamic-linker=/system/bin/linker -Wl,--hash-style=sysv" CFLAGS="-static-libstdc++ -fPIE -pie -I/system/include/ncurses -I/system/include/ncursesw -static -Wl,--dynamic-linker=/system/bin/linker -Wl,--hash-style=sysv"
+
+CC="arm-linux-gnueabi-gcc" LDFLAGS="-Wl,--dynamic-linker=/system/bin/linker" CFLAGS="-fPIE -pie" CPPFLAGS="-fPIE" LDLIBS="-fPIE -pie -Wl,--hash-style=sysv" ./configure --host=armv7a-cros-linux-gnueabi --with-terminfo-dirs=/system/etc --with-termlib --without-gpm --exec-prefix=/system --prefix=/system --disable-rpath --with-shared --without-normal --without-manpages --without-progs --without-debug --enable-widec --with-default-terminfo-dir=/system/etc/terminfo
+
+
+CC="arm-linux-gnueabi-gcc" CFLAGS="-fPIE -pie -I/system/include/ncurses -I/system/include/ncursesw" CPPFLAGS="-fPIE -I/system/include/ncurses -I/system/include/ncursesw"  LDFLAGS="-Wl,--dynamic-linker=/system/bin/linker -Wl,--hash-style=sysv" LDLIBS="-fPIE -pie -L/system/lib" ./configure --host=armv7a-cros-linux-gnueabi --exec-prefix=/system --prefix=/system --disable-rpath NCURSESW_CFLAGS="-I/system/include/" NCURSES_CFLAGS="-I/system/include" NCURSESW_LIBS="-L/system/lib  -lncursesw -ltinfow" NCURSES_LIBS="-L/system/lib -lncursesw -ltinfow"

@@ -1,0 +1,49 @@
+YOU CAN QUERY THE CURRENT POWER STATE AND POLICY BY RUNNING AS ROOT:
+
+ # cat /sys/kernel/debug/vgaswitcheroo/switch
+ 0:DIS: :DynOff:0000:01:00.0
+ 1:IGD:+:Pwr:0000:00:02.0
+ 2:DIS-Audio: :Off:0000:01:00.1
+
+EACH LINE OF THE OUTPUT IS OF THE FOLLOWING FORMAT:
+
+    A number: not important
+    A string:
+        DIS: Discrete GPU (your AMD or NVIDIA GPU)
+        IGD: Integrated Graphics (your Intel card?)
+        DIS-Audio: The audio device exported by your discrete GPU for HDMI sound playback
+    A sign:
+        '+': This device is connected to graphics connectors
+        ' ': This device is not connected to graphics connectors
+    A power state:
+        OFF: The device is powered off
+        ON: The device is powered on
+        DynOff: The device is currently powered off but will be powered on when needed
+        DynPwr: The device is currently powered on but will be powered off when not needed
+    The PCI-ID of the device
+
+
+TURN ON THE GPU THAT IS NOT CURRENTLY DRIVING THE OUTPUTS:
+
+ echo ON > /sys/kernel/debug/vgaswitcheroo/switch
+
+TURN OFF THE GPU THAT IS NOT CURRENTLY DRIVING THE OUTPUTS:
+
+ echo OFF > /sys/kernel/debug/vgaswitcheroo/switch
+
+Connect the graphics connectors to the integrated GPU:
+
+echo IGD > /sys/kernel/debug/vgaswitcheroo/switch
+
+CONNECT THE GRAPHICS CONNECTORS TO THE DISCRETE GPU:
+
+ echo DIS > /sys/kernel/debug/vgaswitcheroo/switch
+
+PREPARE A SWITCH TO THE INTEGRATED GPU TO OCCUR WHEN THE X SERVER GETS RESTARTED:
+
+ echo DIGD > /sys/kernel/debug/vgaswitcheroo/switch
+
+PREPARE A SWITCH TO THE DISCRETE GPU TO OCCUR WHEN THE X SERVER GETS RESTARTED:
+
+ echo DDIS > /sys/kernel/debug/vgaswitcheroo/switch
+

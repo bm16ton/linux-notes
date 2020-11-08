@@ -1,0 +1,15 @@
+setting compiz as default window manager in xfce
+
+locate xfce4-session.xml
+
+	/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+
+sudo pluma /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+
+change  
+      <property name="Client0_Command" type="array">
+        <value type="string" value="xfwm4"/>
+to
+      <property name="Client0_Command" type="array">
+        <value type="string" value="compiz"/>
+

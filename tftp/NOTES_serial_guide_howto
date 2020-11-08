@@ -1,0 +1,90 @@
+This guide is is to help recover from a bad flash on the f7d8302 v1 and f7d4302 units only.
+*note* if you have the f7d8302 v1... pull up on the little sticker on the bottom of the unit... you will see your unit is/was a f7d4302 v1
+
+***Disclaimer***
+You've probably already voided your warranty if you got to this point but I assume no responsibility what-so-ever from your using this incomplete guide. If you choose to follow it you assume responsibility for your actions.
+
+Using this tutorial assume that you cannot reach the GUI (Graphical User Interface) page through your browser at 192.168.2.1 or 192.168.1.1
+
+Also you should not be able to get ping responses when you ping either one of the IP addresses listed above.
+
+I got "destination host unreachable" or request" failed" when trying to ping.
+
+This particular device has a serial port (mine had pins already in place to hook my serial ttl adapter to) ***third photo below***
+
+I searched "RS232 Serial Port To TTL Converter Module SP3232 LED" on ebay and bought the device shown below (If that search term does not work try serial ttl (it should handle 3.3v to 5v) *** second photo shown below***
+
+********************************************************to be edited later. someone please link the utility that determines what usb device you have connected to your computer (it finds the names for unkown usb devices)
+*****************************************************
+
+The driver for this device can be downloaded from this link (as always scan with antivirus):
+http://www.winchiphead.com/download/CH341/CH341SER.ZIP
+
+Also you will need to get the firmware you wish to be flashed. (use the stock buid (the one you can DL from belkin's support page for this router or....))
+the latest mini build eko has posted [url\http://www.dd-wrt.com/phpBB2/viewtopic.php?t=70454&postdays=0&postorder=asc&start=75[/url]
+***read link above from this page foward***
+
+Also check the supported devices list for updates
+http://www.dd-wrt.com/wiki/index.php/Supported_Devices#Belkin
+***note the scary red warning up top but then scroll down to the f7d4302 section and see how it says to upgrade using the browser... click that link and read***
+
+So if you have the following:
+1) windows xp or later pc
+2) the serial ttl up converter listed above
+3) a usb to serial adapter
+4) the driver for the adapter
+5) search google and download PUTTY
+6) wires to connect serial ttl to pins on board (and solder if needed)
+7)a simple 5 port switch
+8)two ethernet cables
+9) a tftp (search recover from bad flash in the wiki )program (just incase but I did not need one (although I tried and failed to flash this way) in this example.
+
+... then continue below
+
+
+1) the photos below will show you the connections for this router.
+make sure the router is turned off while doing this. If you short the vcc with the ground you could seriously f*** things up. DO NOT WORRY ABOUT THE RX or TX connections..if putty doesnt show a connection then switch the two! (my picture might not be correct for the rx and tx )2)connect the serial ttl device to the router.
+
+3)connect the serial ttl to the usb serial adapter and hook it to the computer.
+install the driver and ook for it in the hardware and devices listed for your computer. It should be in the com port section.
+
+4) Also hook your router to your pc through a switch using the ethernet cables. and turn them on.
+
+5) set your PC IP address to 192.168.2.10
+set the mask to 255.255.255.0
+set the gateway to 192.168.2.1
+picture below
+
+4) configure putty as found here: http://www.dd-wrt.com/wiki/index.php/Serial_Recovery
+***note ctrl +c function does not work for this device... use spacebar as soon as you get putty set and open. it boots REALLY FAST! ***note*** because your router already tried to boot you will not see it on the putty terminal screen. you will need to unplug the power from the router and plug it back in...then you should see it boot up.
+**tip** I actually plugged it in at the power socker so it was easier to use one hand and use the other one to hit spacebar.
+
+As LOM has said before, if you see the CFE> that's a good thing... you will most likely not need to use JTAG so do not attempt JTAG (if you are curious what JTAG flash is .,..search the wiki)
+
+In putty use the help command at CFE> to find available commands.
+example:
+CFE>help [press enter]
+a list of commands and a brief description comes up.
+
+clear the nvram
+
+I had previously used nvram erase as a command and just nvram
+
+
+ifconfig is the command that will be used.
+I typed ifconfig in and got a result of =0
+when you get =0 then it succeeded.
+
+also note the ipaddr listed 192.168.2.1
+or 192.168.1.1 and mask addr 255.255.255.0
+
+After you have used the ifconfig command wait a minute or two.
+
+(this step is probably not needed at all but it happened in my process so I will include it)
+
+I had to reboot and repeat this process a few times... the last time I typed 192.168.2.0 into my browser and then quickly changed it to 192.168.2.1 and I saw the CFE browser page that allows you to reset clear the nvram and load firmware!!!!
+
+Once you get here it is golden... then use a link from above to find the mini build and reload it for DDWRT or use the belkin stock firmware.
+
+***NOTE*** on each of my routers...once I installed the BIG build via ddwrt upgrade GUI... I was not able to install any of the previous firmware and trying to caused my router to brick in the first place.****
+

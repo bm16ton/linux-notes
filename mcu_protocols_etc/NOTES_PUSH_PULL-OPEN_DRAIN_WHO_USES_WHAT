@@ -1,0 +1,10 @@
+Push-pull vs. Open Drain outputs
+The most important thing to consider when choosing a level shifter is whether the output uses an Open-Drain or a Push-Pull type connection. The difference is subtle, but critical.
+
+In a push-pull protocol, the sender controls the voltage level of the data lines by setting them either to Vcc or GND. This means that it generally expects the other end to sink very little current, and that very little current should flow.  This has some nice outcomes: low-current means energy efficient, low emf, and faster switching times.
+
+In an open-drain protocol, the sender controls the voltage level of the data lines by setting them to either GND, or NC. In order to set the data lines high, pull-up resistors are needed. Although this is a bit slower and has the capacity to leak energy, it has some advantages. The most important is that in a bus setup, the pull-up resistor can keep a line high, but any single device can pull it low by connecting it to GND.
+
+Which are which?
+In general, you can count on the following Protocols to always be open-drain: I2C
+And these are always push-pull: I2S, SPI, UART (mcu)

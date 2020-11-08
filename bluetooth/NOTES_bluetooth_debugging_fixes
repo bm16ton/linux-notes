@@ -1,0 +1,38 @@
+# bluetoothctl
+
+to be greeted by its internal command prompt. Then enter:
+
+# power on
+# agent on
+# default-agent
+# scan on
+    [NEW] Device 00:1D:43:6D:03:26 Lasmex LBT10
+# pair 00:1D:43:6D:03:26
+# connect 00:1D:43:6D:03:26
+
+    IF
+        bluetoothd[487]: Authentication attempt without agent
+        bluetoothd[487]: Access denied: org.bluez.Error.Rejected
+    THEN
+[bluetooth]# trust 00:1D:43:6D:03:26
+
+    IF Pairing fails with AuthenticationFailed TRY;
+# hciconfig hci0 sspmode 0
+
+    IF Pairing works, but connecting does not TRY;
+[bluetooth]# connect 00:1D:43:6D:03:26
+Attempting to connect to 00:1D:43:6D:03:26
+Failed to connect: org.bluez.Error.Failed
+
+    To further investigate, have a look at the log via one of the following commands:
+# systemctl status bluetooth
+# journalctl -n 20
+    LOOK FOR Protocol not available
+
+    If restarting PulseAudio does not work, you need to load module-bluetooth-discover.
+# pactl load-module module-bluetooth-discover
+
+    USING PASSKEY
+$ passkey-agent --default <pin>
+
+

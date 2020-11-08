@@ -1,0 +1,22 @@
+New path of firmware is /lib/firmware/s5p-mfc/s5p-mfc.fw:
+
+Code: Select all
+    odroid@odroid:~$ grep -r 's5p-mfc.fw' linux-hardkernel-3.8.y/linux/drivers/media/video/s5p-mfc/
+    drivers/media/video/s5p-mfc/s5p_mfc.c:       .fw_name        = "s5p-mfc/s5p-mfc.fw",
+
+
+I copied the fw file:
+
+Code: Select all
+    odroid@odroid:~$ sudo cp /lib/firmware/s5p-mfc.fw /lib/firmware/s5p-mfc/s5p-mfc.fw
+
+
+Now MFC works fine:
+
+Code: Select all
+    18:18:52 T:2768368656  NOTICE: Opening video stream: 0 source: 256
+    18:18:52 T:2768368656  NOTICE: Creating video codec with codec id: 13
+    18:18:52 T:2768368656  NOTICE: CDVDVideoCodecMFC::Open - MFC Setup succesfull, start streaming
+    18:18:52 T:2768368656  NOTICE: Creating video thread
+    18:18:52 T:2749907984  NOTICE: Thread DVDPlayerVideo start, auto delete: false
+    18:18:52 T:2749907984  NOTICE: running thread: video_thread

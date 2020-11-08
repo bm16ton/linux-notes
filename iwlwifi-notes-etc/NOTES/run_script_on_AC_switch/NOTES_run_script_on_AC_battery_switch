@@ -1,0 +1,30 @@
+/usr/lib/pm-utils/power.d
+/etc/pm/power.d/
+
+original script;
+#!/bin/bash
+if on_ac_power; then
+  echo min_power > /sys/class/scsi_host/host0/link_power_management_policy 
+  echo min_power > /sys/class/scsi_host/host1/link_power_management_policy
+  #on ac
+else 
+  echo min_power > /sys/class/scsi_host/host0/link_power_management_policy 
+  echo min_power > /sys/class/scsi_host/host1/link_power_management_policy
+  #on battery
+fi
+
+new;
+#!/bin/sh
+
+host0="/sys/class/scsi_host/host0/link_power_management_policy"
+host1="/sys/class/scsi_host/host0/link_power_management_policy"
+
+
+case $1 in
+    true) echo min_power > "$host0" && echo min_power > "$host1";;
+    false) echo min_power > "$host0" && echo min_power > "$host1";;
+    *) exit $NA;;
+esac
+
+exit 0
+

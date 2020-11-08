@@ -1,0 +1,7 @@
+To configure the Desktop to auto-login (Ubuntu MATE 14.04) add an autologin-user line specifying your user name to the /usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf file. For example:
+
+[SeatDefaults]
+greeter-session=lightdm-gtk-greeter
+autologin-user=srackham
+
+Conf files in the /usr/share/lightdm/lightdm.conf.d/ directory are cascaded into the lightdm login manager in alpha order.

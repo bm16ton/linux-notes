@@ -1,0 +1,15 @@
+HINT/NOTE THE WIRELESS CARD MAY NEED TO BE BROUGHT DOWN FIRST BEFORE TRYING TO CHANGE THINGS, DO THIS WITH;
+
+sudo ifconfig wlp3so down
+
+disable power management;
+
+sudo iwconfig wlp3s0 power off
+
+disable world regulatory domains;
+
+iw reg set 00
+
+increase tx power;
+
+sudo iwconfig wlp3so txpower 30

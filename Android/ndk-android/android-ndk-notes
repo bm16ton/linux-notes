@@ -1,0 +1,52 @@
+# Create an arm64 API 26 libc++ toolchain.
+$NDK/build/tools/make_standalone_toolchain.py \
+  --arch arm64 \
+  --api 26 \
+  --stl=libc++ \
+  --install-dir=my-toolchain
+
+Here's how you'd set up your environment to use it to build a traditional open source project:
+
+# Add the standalone toolchain to the search path.
+export PATH=$PATH:/opt/toolchains/android-sdk-r16b
+
+# Tell configure what tools to use.
+target_host=arm-linux-androideabi
+export AR=$target_host-ar
+export AS=$target_host-as
+export CC=$target_host-gcc
+export CXX=$target_host-g++
+export LD=$target_host-ld
+export STRIP=$target_host-strip
+
+# Tell configure what flags Android requires.
+export CFLAGS="-fPIE -fPIC"
+export LDFLAGS="-pie"
+
+As an example, here's how to build toybox after performing the previous steps:
+
+git clone https://github.com/landley/toybox.git
+cd toybox
+make defconfig && make
+
+
+
+
+
+C++ STL support
+
+The standalone toolchain includes a copy of a C++ Standard Template Library implementation. This implementation is either for GNU libstdc++, STLport, or libc++, depending on what you specify for the --stl=<name> option described previously. To use this implementation of STL, you need to link your project with the proper library:
+
+    Use -static-libstdc++ when using libc++ for the static library version, or -lstdc++ (implicit) to link against the static library version of any other implementation. Doing so ensures that all required C++ STL code is included into your final binary. This method is ideal if you are only generating a single shared library or executable.
+
+This is the method that we recommend.
+
+    Alternatively, use -lgnustl_shared to link against the shared library version of GNU libstdc++. If you use this option, you must also make sure to package libgnustl_shared.so with your app in order for your code to load properly. Table 2 shows where this file is for each toolchain type.
+
+Table 2. Specifiable -march values and their resulting targets.
+Toolchain 		Location
+arm 			$TOOLCHAIN/arm-linux-androideabi/lib/
+arm64 			$TOOLCHAIN/aarch64-linux-android/lib/
+
+
+

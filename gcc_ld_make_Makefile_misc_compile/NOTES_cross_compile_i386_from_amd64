@@ -1,0 +1,27 @@
+To compile i386 binarys on amd64 without chroot or other trickery specifiy -m32 examples
+	export CFLAGS=-m32
+	gcc -o reghack2_x86 reghack2.c
+or
+	ARCH=i386 gcc -m32 -o reghack2_x86 reghack2.c		#ARCH=i386 probly isnt necessary also the command "i386" will put you into a 386 mode of sorts but doesnt apply to gcc
+	
+For C++, you could do:
+	export CXXFLAGS=-m32		#This works with cmake.
+
+To crosscompile i386 from amd64 with lxc containers
+
+sudo apt-get install lxc lxc-templates
+sudo lxc-create -t ubuntu -n my32bitbox -- --bindhome $LOGNAME -a i386 --release trusty
+sudo lxc-start -n my32bitbox
+# login as yourself
+sudo sh -c "sed s/deb/deb-src/ /etc/apt/sources.list >> /etc/apt/sources.list"
+sudo apt-get install devscripts
+sudo apt-get build-dep wine1.7
+apt-get source wine1.7
+cd wine1.7-*
+debuild -eDEB_BUILD_OPTIONS="parallel=8" -i -us -uc -b
+shutdown -h now   # to exit the container
+
+
+
+
+

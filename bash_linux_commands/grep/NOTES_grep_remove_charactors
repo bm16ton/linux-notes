@@ -1,0 +1,9 @@
+remove b from abcd
+echo abcd | grep -o "b\w*" | grep -o "\w*b"
+	b
+
+			or
+
+
+echo abcd | tr -d 'b'
+

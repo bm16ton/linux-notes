@@ -1,0 +1,34 @@
+MAKE
+    diff -u hello.c hello_new.c > hello.patch
+    diff -Naur /usr/src/old-Directory /usr/src/new-Directory > openvpn.patch
+APPLY
+    patch -p[num] < patchfile
+    patch < hello.patch
+
+
+Creating a patch using diff
+diff is the a linux command line program, and is where patch files originated. It requires that you have two copies of the code, one with your changes, and one without. Suppose these two copies are in folders called 'standard_moodle' and 'my_moodle' which are subdirectories of the current folder. Then to create the patch, type:
+
+    diff -Naur standard_moodle my_moodle > patch.txt
+
+
+Creating a patch using Git
+Creating a patch if you're using Git for version control is similar to CVS, and similarly you don't need an unchanged copy of moodle to diff against.
+There are several ways for creating a patch, the recommended one is using git format-patch (as mentioned in MDL-43119)
+The easiest way to create a patch for the last commit is
+
+    git show > patch.txt
+
+or if you want to create a patch between 2 specific commits you can use git diff
+
+    git diff commitid1 commitid2 > patch.txt
+
+There's also a tool, format-patch, for formatting a patch to send as an e-mail. You can create patches for the last n revisions like this:
+
+    git format-patch -n
+
+which will create the patch in the current directory. The -o parameter allows you to specify a different output directory. 
+
+
+
+

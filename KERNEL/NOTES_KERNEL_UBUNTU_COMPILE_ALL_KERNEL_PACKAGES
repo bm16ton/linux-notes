@@ -1,0 +1,11 @@
+chmod a+x debian/scripts/*
+chmod a+x debian/scripts/misc/*
+fakeroot debian/rules clean
+fakeroot debian/rules editconfigs
+
+debian/rules startnewrelease
+bash debian/scripts/misc/getabis 4.2.0 16.19    (replace 4.2 with correct this step may be unneccesary)
+fakeroot debian/rules clean
+fakeroot debian/rules binary-headers binary-generic binary-perarch
+
+

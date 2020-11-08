@@ -1,0 +1,16 @@
+UNTESTED BY ME FOUND CACHED FROM FORUM
+BOOT WINDOWS WITH KEXEC
+
+Suppose Windows is installed in the first partition of the first disk (hd0,0), how can I boot into it directly using kexec in Linux?
+
+# kexec -l grub.exe --command-line "root(hd0,0); chainloader (hd0,0)+1; boot"
+# kexec -e
+
+DIDNT WORK
+
+BUT THIS DID!!!
+
+kexec -l grub.exe --command-line=&#34;--config-file=chainloader &#40;hd0,0&#41;+1;rootnoverify &#40;hd0&#41;;boot&#34;
+
+kexec -e
+

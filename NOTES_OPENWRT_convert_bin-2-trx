@@ -1,0 +1,12 @@
+The uploaded image file does not contain a supported format. Make sure that you choose the generic image format for your platform.
+(.bin files are for flashing from a stock firmware. .trx files are for flashing from OpenWrt. To convert from .bin to .trx, strip the 32-byte header from the .bin file:)
+
+dd if=openwrt-10.03.1-brcm47xx-wrt150n-squashfs.bin bs=32 skip=1 of=openwrt-10.03.1-brcm47xx-wrt150n-squashfs.trx
+
+(IMPORTANT: Verify that the output file is only 32 bytes smaller than the input file and that the .trx file begins with HDR0: )
+
+hd /tmp/openwrt-10.03.1-brcm47xx-wrt150n-squashfs.trx | head
+
+
+
+

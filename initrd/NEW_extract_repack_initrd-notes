@@ -1,0 +1,33 @@
+LZ4 extract;
+lz4 -cd ../initrd.lz4 | cpio -id 
+
+LZ4 reform;
+find | cpio -o -H newc | lz4 -l >../initrd.lz4
+
+GZ extract;
+gunzip -dc ../initrd.gz | cpio -imvd --no-absolute-filenames
+
+GZ reform;
+find . | cpio -o -H newc | gzip -9 > ../initrd.gz
+
+LZMA extract;
+lzma -dc -S .lz ../initrd.lz | cpio -imvd --no-absolute-filenames
+
+LZMA reform;
+find . | cpio --quiet --dereference -o -H newc | lzma -7 > ../initrd.lz
+
+UBUNTU NEW MESS;
+extract;
+unmkinitramfs -v initrd.img-5.4.0-26-generic .
+
+reform
+cd early
+find . -print0 | cpio --null --create --format=newc > /tmp/tmp/newinitrd
+cd ../early2
+find kernel -print0 | cpio --null --create --format=newc >> /tmp/tmp/newinitrd
+cd ../main
+find . | cpio --create --format=newc | xz --format=lzma >> /tmp/tmp/newinitrd
+
+
+
+

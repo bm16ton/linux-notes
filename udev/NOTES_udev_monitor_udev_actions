@@ -1,0 +1,5 @@
+udevadm monitor --environment --udev
+
+udevadm test --action=add $(udevadm info --query=path -n /dev/input/mouse0)
+
+

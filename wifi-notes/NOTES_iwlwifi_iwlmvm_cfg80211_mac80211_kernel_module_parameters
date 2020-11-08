@@ -1,0 +1,46 @@
+        KERNEL MODULE PARAMETERS;
+    cfg80211;
+parm:           ieee80211_regdom:IEEE 802.11 regulatory domain code (charp)
+parm:           cfg80211_disable_40mhz_24ghz:Disable 40MHz support in the 2.4GHz band (bool)
+    mac80211;
+parm:           minstrel_vht_only:Use only VHT rates when VHT is supported by sta. (bool)
+parm:           max_nullfunc_tries:Maximum nullfunc tx tries before disconnecting (reason 4). (int)
+parm:           max_probe_tries:Maximum probe tries before disconnecting (reason 4). (int)
+parm:           beacon_loss_count:Number of beacon intervals before we decide beacon was lost. (int)
+parm:           probe_wait_ms:Maximum time(ms) to wait for probe response before disconnecting (reason 4). (int)
+parm:           ieee80211_default_rc_algo:Default rate control algorithm for mac80211 to use (charp)
+    iwlmvm;
+parm:           init_dbg:set to true to debug an ASSERT in INIT fw (default: false (bool)
+parm:           power_scheme:power management scheme: 1-active, 2-balanced, 3-low power, default: 2 (int)
+parm:           tfd_q_hang_detect:TFD queues hang detection (default: true (bool)
+    iwlwifi;
+parm:           swcrypto:using crypto in software (default 0 [hardware]) (int)
+parm:           11n_disable:disable 11n functionality, bitmap: 1: full, 2: disable agg TX, 4: disable agg RX, 8 enable agg TX (uint)
+parm:           amsdu_size_8K:enable 8K amsdu size (default 0) (int)
+parm:           fw_restart:restart firmware in case of error (default true) (bool)
+parm:           antenna_coupling:specify antenna coupling in dB (default: 0 dB) (int)
+parm:           nvm_file:NVM file name (charp)
+parm:           d0i3_disable:disable d0i3 functionality (default: Y) (bool)
+parm:           lar_disable:disable LAR functionality (default: N) (bool)
+parm:           uapsd_disable:disable U-APSD functionality (default: Y) (bool)
+parm:           bt_coex_active:enable wifi/bt co-exist (default: enable) (bool)
+parm:           led_mode:0=system default, 1=On(RF On)/Off(RF Off), 2=blinking, 3=Off (default: 0) (int)
+parm:           power_save:enable WiFi power management (default: disable) (bool)
+parm:           power_level:default power save level (range from 1 - 5, default: 1) (int)
+parm:           fw_monitor:firmware monitor - to debug FW (default: false - needs lots of memory) (bool)
+
+
+MISC;
+
+disable usb 3
+
+iwlmvm paramter 'power_scheme=1'  prevents pcie from going to power save mode
+disable 40mhz in 802.11n usen module paramter 'cfg80211_disable_40mhz_24ghz'
+5ghz has less noise
+
+disable bt coex bt_coex_active=0
+
+Force the disabled power management with following parameters
+
+iwlwifi.power_save=Y iwldvm.force_cam=N
+

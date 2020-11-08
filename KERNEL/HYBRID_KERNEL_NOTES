@@ -1,0 +1,19 @@
+might wanna try adding the exported symbols found in ;;
+
+linux-3.19-hybrid/debian.master/abi/3.19.0-42.48/amd64/generic 
+
+to your own config especially if using the backported i915 drivers.
+
+
+Also if the intel lpss driver is the issue, then cut all lines about ;;
+
+i915_bpo_enabled 
+
+from ;;
+
+drivers/platform/x86/intel_ips.c
+(also dont try and export the symbols in this file, if you copied them or used ubuntu config)
+
+and add them sumwhere else, probly in the i915-bpo source.
+
+ 

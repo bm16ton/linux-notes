@@ -1,0 +1,32 @@
+on pi;
+
+socat /dev/ttyGS0,raw,echo=0,crnl /dev/serial1,raw,echo=0,b115200,crtscts
+
+
+on laptop
+
+hciattach /dev/ttyACM0 bcm43xx 115200 noflow - b8:27:eb:e7:4b:7c
+
+
+WORKS WORKS WORKS WITH THE PI's GOOD TTY;
+
+on pi;
+
+socat /dev/ttyGS0,raw,echo=0,b115200,crtscts /dev/serial1,raw,echo=0,b115200,crtscts
+
+
+on laptop
+
+hciattach -s 115200 /dev/ttyACM0 bcm43xx 115200 flow - b8:27:eb:e7:4b:7c
+
+
+BAD/SLOW PI TTY;
+
+on pi;
+
+socat /dev/ttyGS0,raw,echo=0,b115200,crtscts /dev/serial1,raw,echo=0,b115200,crtscts
+
+
+on laptop
+
+hciattach -s 115200 /dev/ttyACM0 bcm43xx 115200 noflow - b8:27:eb:e7:4b:7c

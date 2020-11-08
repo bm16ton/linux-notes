@@ -1,0 +1,65 @@
+Enable Intel i915 RC6
+
+NOTE: If you are running 12.04 LTS ("Precise"), this is already enabled by default.
+
+The Intel i915 RC6 feature allows the Graphics Processing Unit (GPU) to enter a lower power state during GPU idle. The i915 RC6 feature applies to Intel Sandybridge and later processors. RC6 was switched between enabled and disabled earlier in the Ubuntu 12.04 Precise LTS development cycle, but eventually all problems were fixed and it is now enabled by default.
+
+On Ubuntu 11.10 and earlier, you need to enable it manually: edit /etc/default/grub (you need superuser privilege to do this)
+
+change:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 
+
+to:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.i915_enable_rc6=1"
+
+and run:
+
+sudo update-grub
+
+And reboot. 
+
+#############################################################################################################
+
+Enable i915 Framebuffer Compression
+
+Framebuffer compression reduces the memory bandwidth on screen refereshes and depending on the image in the framebuffer can reduce power consumption. LessWatts has reported this will save ~0.6 Watts where as testing on a Lenovo X220 Sandybridge has shown savings less than this, so your mileage may vary. This option again is not enabled by default as on some hardware framebuffer compression causes artifacts when repainting when using compositer. Some users report this breaks when using Unity 3D.
+
+To enable, edit /etc/default/grub (you need superuser privilege to do this)
+
+change:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 
+
+to:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.i915_enable_fbc=1"
+
+and run:
+
+sudo update-grub
+
+#############################################################################################################
+
+Enable i915 LVDS Downclocking
+
+This kernel option will down-clock the LVDS refresh rate, and this in theory will save power. For systems that do not support LVDS down-clocking the screen can flicker. Also, power measurments on various i915 hardware have shown that this saving is marginal, typically ~0.1 Watt.
+
+To enable, edit /etc/default/grub (you need superuser privilege to do this)
+
+change:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 
+
+to:
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.lvds_downclock=1"
+
+and run:
+
+sudo update-grub
+
+#############################################################################################################
+
+

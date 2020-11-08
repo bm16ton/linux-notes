@@ -1,0 +1,28 @@
+AP Mode
+
+mwifiex does support access point mode, but an access point interface must be created using
+
+iw phy phy0 interface add uap0 type __ap
+iw phy phy3 interface add uap0 type __ap
+
+This interface can then be used with hostapd.
+
+Due to radar presence many channels from 11a band are flagged as NO_IR i.e. do not initiate radiation.
+cfg80211 by default puts device into world domain where all channels from 11a band are prohibited from transmission.
+To enable specific channels from 11a band, driver needs to provide hint about current regulatory domain to cfg80211.This can be done by loading driver with regulatory alpha setting.
+Load mwifiex driver with following setting to enable 11a band operations:
+
+insmod mwifiex.ko reg_alpha2=<country-code>
+
+P2P Mode
+
+mwifiex supports P2P operation mode, but P2P interface must be created using
+
+iw phy phy0 interface add p2p0 type __p2pcl
+
+This interface can then be used with wpa_supplicant.
+
+mwifiex driver does not support a separate interface for P2P device mode. Same interface which was used for P2P negotiation will later be used for P2P operations in GO or Client mode.
+To avoid creation of separate interface after P2P negoation by wpa_supplicant, please include following setting in your P2P conf file
+
+p2p_no_group_iface=1

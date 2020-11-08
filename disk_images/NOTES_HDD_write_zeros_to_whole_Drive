@@ -1,0 +1,5 @@
+Modern drives regaurdless of OS will find/save/ignore bad sectors when written to so write all zeros to entire drive for it to find them (all ways2find bad sectors take 4eva)
+
+dd bs=512k if=/dev/zero of=/dev/...
+
+sudo dd if=/dev/zero of=/dev/sdX bs=4M

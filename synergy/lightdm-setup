@@ -1,0 +1,24 @@
+Autostart Synergy before logging in (LightDM)
+
+On the client
+
+Add the following line at the end of /etc/lightdm/lightdm.conf:
+
+[SeatDefaults]
+greeter-setup-script=/usr/bin/synergyc <OPTIONS> <SERVER HOSTNAME>
+
+Where <SERVER HOSTNAME> is the name/IP of the server you are connecting to.
+
+On the server
+
+Add the following line at the end of /etc/lightdm/lightdm.conf:
+
+display-setup-script=/usr/bin/synergys -c <CONFIG FILE>
+
+Where <CONFIG FILE> is the path to your config file for synergy (see above for typical locations).
+
+On the Ubuntu 14.04 64bit the configuration file changed to /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf, and you need add this line at the end of the file:
+
+greeter-setup-script=/usr/bin/synergys -c <CONFIG FILE>
+
+On the Ubuntu 14.10 64bit add the line above to /usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf. 

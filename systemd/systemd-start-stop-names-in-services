@@ -1,0 +1,7 @@
+ExecStartPre=/usr/sbin/sshd -t
+ExecStart=/sbin/plymouthd --mode=shutdown --attach-to-session
+ExecStartPost=-/bin/plymouth show-splash
+
+ExecStartPre=-/bin/rm local.sock
+ExecStop=/sbin/ifdown -a --read-environment --exclude=lo
+ExecStopPost=

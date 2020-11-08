@@ -1,0 +1,22 @@
+Configure terminal programs for correct display of newlines
+
+Background
+
+When printing something using stdio (e.g., printf("Hello World!\n");, RIOT sends a line feed character (0xA) as '\n' (newline).
+
+Some terminals need more, for example, a carriage return and a line feed character (0xD, 0xA). See https://en.wikipedia.org/wiki/Newline for background.
+
+This page tries to collect needed settings for common terminal programs that will make them correctly display newlines.
+picocom
+
+Start with --imap lfcrlf parameter.
+gtkterm
+
+    Graphical method:
+        Open the configuration menu
+        Click on 'CR LF auto'
+    Manual method:
+        Edit the file ~/.gtktermrc
+        Change value of crlfauto option to True
+
+

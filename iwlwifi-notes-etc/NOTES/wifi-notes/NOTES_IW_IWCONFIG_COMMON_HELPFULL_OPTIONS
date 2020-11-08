@@ -1,0 +1,82 @@
+iw usefull command line options;
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DEVICE NAMES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+wlp3s0          = BuiltIn
+wlxc0c1c0377c42 = SelfBuilt USB RaLink
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+sudo iw reg get      SEE THE CURRENT REG DOMAIN
+sudo iw reg set 00   SET CURRENT REG DOMAIN (00 IS WORLDWIDE RUSSIA AND CHINA ALSO HAVE LESS RESTRICTIONS THEN THE OTHERS)
+##### TO MAKE PERMANENT ADD THE SET LINE TO /etc/rc.local or edit /etc/default/crda  if regdb is out of date IE doesnt allow 5ghz when should update to newer ubuntu release
+##### package for wireless-regdb
+
+**********
+sudo iwconfig wlp3s0 power off                  BOTH TURN ON/OFF POWER MANAGEMENT FOR WIFI DEVICE  (Save power when not used by turning off etc)
+sudo iw dev <devname> get power_save <param>    BOTH TURN ON/OFF POWER MANAGEMENT FOR WIFI DEVICE  (Save power when not used by turning off etc)
+sudo iw dev wlp3s0 get power_save
+sudo iw dev wlp3s0 set power_save off
+sudo iw dev wlp3s0 set power_save on
+
+**********
+
+sudo iwconfig wlp3s0 modu 11n         FORCE 802.11n 
+
+****************
+
+############## SET WIRELESS MODE WITH IW IWCONFIG
+
+sudo iw dev wlxc0c1c0377c42 set type master      ## replace master with monitor ibss etc
+sudo iwconfig wlxc0c1c0377c42 mode master
+
+############## Show link info look at "tx bitrate" line if "MCS" "short GI" is there your connected 802.1n
+
+sudo iw dev wlp3s0 link
+
+
+#### To connect to an AP with iw it requires no encryption or wep (WPA REQUIRES WPA_SUPPLICANT);
+#### connect to AP named foo;
+iw wlan0 connect foo
+
+#### 2 AP's with name foo choose the one on frequency 2432;
+iw wlan0 connect foo 2432
+
+#### AP WITH WEP
+iw wlan0 connect foo keys 0:abcde d:1:0011223344
+
+#### STATION STATS
+iw dev wlp3s0 station dump
+
+#### STATS ON A PEER
+sudo iw dev wlan1 station get <peer-MAC-address>
+
+#### SET TX POWER USE EITHER NAMING
+iw dev <devname> set txpower <auto|fixed|limit> [<tx power in mBm>]
+iw phy <phyname> set txpower <auto|fixed|limit> [<tx power in mBm>]
+
+#### PUT CARD IN MONITOR (may require to be brought down first IE "ifconfig wlan0 down") 
+iw phy phy0 interface add moni0 type monitor      ### moni0 is interface name dunno if generated or named here etc must use phy0 naming checking monitor variable options
+### if udev renames the virtuak interface to something incorrectly run;
+ip link    ## this lists all interfaces
+
+#### TO CREATE NEW MANAGED MODE INTERFACE RUN;
+iw phy phy0 interface add wlan10 type managed      ### Note that the interface is automatically put into AP mode when using hostapd. 
+
+#### DELETE INTERFACE
+iw dev moni0 del
+
+###### MESH NETWORKING
+#### TO ADD INTERFACE mesh0 TO phy0 WITH mesh_id "mymesh";
+iw phy phy0 interface add mesh0 type mp mesh_id mymesh
+
+### LIST MESH PATHS
+iw dev mesh0 mpath dump
+
+###### WDS
+#### TO CREATE WDS PEER 1ST NEED CREATE INTERFACE OF EDS TYPE THEN SET THE PEER
+iw phy phy0 interface add wds0 type wds
+iw dev wds0 set peer <MAC address>
+
+
+
+
+

@@ -1,0 +1,55 @@
+./Documentation/lto-build:- Enable CONFIG_LTO_MENU and then disable CONFIG_LTO_DISABLE.
+./include/generated/autoconf.h:#define CONFIG_LTO 1
+./include/generated/autoconf.h:#define CONFIG_LTO_MENU 1
+./include/linux/init.h:#ifdef CONFIG_LTO
+./include/config/auto.conf:CONFIG_LTO=y
+./include/config/auto.conf:CONFIG_LTO_MENU=y
+./.config.old:CONFIG_LTO_MENU=y
+./.config.old:# CONFIG_LTO_DISABLE is not set
+./scripts/Makefile.modpost: $(if $(CONFIG_LTO),-w)
+./scripts/Makefile.lto:ifdef CONFIG_LTO
+./scripts/Makefile.lto:ifdef CONFIG_LTO_DEBUG
+./scripts/Makefile.lto:ifdef CONFIG_LTO_CP_CLONE
+./scripts/Makefile.lto:        $(warning "WARNING: Too old linker version $(call ld-version) for kernel LTO. You need Linux binutils. CONFIG_LTO disabled.")
+./scripts/Makefile.lto:        $(warning "WARNING: Compiler/Linker does not support LTO/WHOPR with linker plugin. CONFIG_LTO disabled.")
+./scripts/Makefile.lto:        $(warning "WARNING: GCC $(call cc-version) too old for LTO/WHOPR. CONFIG_LTO disabled")
+./Makefile:ifdef CONFIG_LTO
+./Makefile:ifdef CONFIG_LTO
+./.config:CONFIG_LTO_MENU=y
+./.config:# CONFIG_LTO_DISABLE is not set
+./.config:CONFIG_LTO=y
+./.config:# CONFIG_LTO_DEBUG is not set
+./.config:# CONFIG_LTO_CP_CLONE is not set
+./kernel/Makefile:CFLAGS_sys_ni.o = $(DISABLE_LTO)
+./lib/Makefile:		   $(DISABLE_LTO)
+./arch/x86/vdso/Makefile:KBUILD_CFLAGS += $(DISABLE_LTO)
+./arch/x86/vdso/Makefile:			$(DISABLE_LTO)
+./net/core/Makefile:CFLAGS_filter.o = $(DISABLE_LTO)
+./scripts/Makefile.build:cmd_cc_s_c       = $(CC) $(c_flags) $(DISABLE_LTO) -fverbose-asm -S -o $@ $<
+./scripts/Makefile.lto:DISABLE_LTO :=
+./scripts/Makefile.lto:export DISABLE_LTO
+./scripts/Makefile.lto:	DISABLE_LTO := -fno-lto
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS := -fuse-linker-plugin
+./scripts/Makefile.lto:        LTO_FINAL_CFLAGS +=-fno-toplevel-reorder
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS := -flto=$(shell getconf _NPROCESSORS_ONLN)
+./scripts/Makefile.lto:	#LTO_FINAL_CFLAGS := -flto=jobserver
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += ${LTO_CFLAGS} -fwhole-program
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += -dH -fdump-ipa-cgraph -fdump-ipa-inline-details
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += -fipa-cp-clone
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += $(filter -g%,${KBUILD_CFLAGS})
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += $(filter -O%,${KBUILD_CFLAGS})
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += $(filter -f%,${KBUILD_CFLAGS})
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += $(filter -m%,${KBUILD_CFLAGS})
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += $(filter -W%,${KBUILD_CFLAGS})
+./scripts/Makefile.lto:                  ${LTO_FINAL_CFLAGS}
+./arch/x86/vdso/Makefile:	$(call cc-ldoption, -Wl$(comma)--build-id) -Wl,-Bsymbolic $(LTO_CFLAGS)
+./scripts/Makefile.lto:LTO_CFLAGS :=
+./scripts/Makefile.lto:export LTO_CFLAGS
+./scripts/Makefile.lto:ifneq ($(call cc-option,${LTO_CFLAGS},n),n)
+./scripts/Makefile.lto:        LTO_CFLAGS := -flto -fno-toplevel-reorder
+./scripts/Makefile.lto:        LTO_CFLAGS += -fno-fat-lto-objects
+./scripts/Makefile.lto:	LTO_FINAL_CFLAGS += ${LTO_CFLAGS} -fwhole-program
+./scripts/Makefile.lto:	LTO_CFLAGS +=
+./scripts/Makefile.lto:	LTO_CFLAGS += -fipa-cp-clone
+./scripts/Makefile.lto:	KBUILD_CFLAGS += ${LTO_CFLAGS}
+

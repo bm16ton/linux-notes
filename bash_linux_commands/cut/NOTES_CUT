@@ -1,0 +1,34 @@
+CUT
+
+REMOVE FIRST FOUR DIGITS FROM OUTPUT
+
+echo abcdefghjkim | cut -c 5-
+		OUTPUTS: efghjkim
+
+REMOVE LAST FOUR DIGITS FROM OUTPUT (using rev to reverse output then again to bring it back to normal)
+
+string="elephant"
+echo "$string" | rev | cut -c 5- | rev
+
+IF YOU WANT TO USE CUT WITHOUT REVERSING THE STRING YOU HAVE TO FIND OUT THE LENGTH OF THE STRING FIRST THEN SUBTRACT THE NUMBER OF CHARACTERS YOU WANT CROPPED. THIS IS A HASSLE, BUT CAN STILL BE DONE FAIRLY EASILY:
+
+string="elephant"
+let len=${#string}-4
+echo "$string" | cut -c 1-$len
+
+	OR HARDER TO READ, BUT MORE CONCISELY:
+
+string="elephant"
+echo "$string" | cut -c 1-$((${#string}-4))
+
+SHOW ONLY THIRD CHARACTOR
+
+echo abcdefghjkim | cut --characters=3
+		OUTPUTS: c
+
+SHOW FROM THIRD CHARACTOR ON
+
+echo abcdefghjkim | cut --characters=3-
+		OUTPUTS: cdefghjkim
+
+

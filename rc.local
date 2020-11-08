@@ -1,0 +1,30 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing. /sys/class/drm/controlD64/device/power
+/sbin/iw reg set 00
+#/usr/sbin/fixsound
+/sbin/fixsound-new.py
+mount -a
+mount -o bind /430gb /media/maddocks/430gb 
+mount -o bind /230gb /media/maddocks/230gb 
+fixsound-new.py
+#chmod -R a+rw /sys/class/drm/card0/device/*
+chmod a+rw /sys/class/drm/card0/device/power_method
+chmod a+rw /sys/class/drm/card0/device/power_profile
+chmod a+rw /sys/class/drm/card0/device/power_dpm_state
+chmod a+rw /sys/class/drm/card0/device/power_dpm_force_performance_level
+chmod a+rw /sys/class/drm/controlD64/device/power_method
+chmod a+rw /sys/class/drm/controlD64/device/power_profile
+chmod a+rw /sys/class/drm/controlD64/device/power_dpm_state
+chmod a+rw /sys/class/drm/controlD64/device/power_dpm_force_performance_level
+/bin/gotherm
+exit 0

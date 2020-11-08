@@ -1,0 +1,25 @@
+to find the driver being used by a specific USB device
+
+$ lsusb
+Bus 001 Device 003: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+Bus 001 Device 013: ID 1955:1110  
+Bus 001 Device 015: ID 059f:100e LaCie, Ltd
+
+	FOR DEVICE 1955:1110
+
+$ lsusb -t     # LISTED IN REVERSE ORDER
+        |__ Port 2: Dev 15, If 0, Class=Mass Storage, Driver=usb-storage, 480M
+    |__ Port 2: Dev 13, If 0, Class=Mass Storage, Driver=usb-storage, 480M
+    |__ Port 4: Dev 3, If 0, Class=Vendor Specific Class, Driver=rtsx_usb, 480M
+
+	AND / OR
+
+lsusb -v -d 1955:1110 | grep -i interface
+    bNumInterfaces          1
+    Interface Descriptor:
+      bInterfaceNumber        0
+      bInterfaceClass         8 Mass Storage
+      bInterfaceSubClass      6 SCSI
+      bInterfaceProtocol     80 Bulk-Only
+      iInterface              6 
+

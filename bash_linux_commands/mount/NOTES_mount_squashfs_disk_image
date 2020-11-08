@@ -1,0 +1,8 @@
+* modprobe squashfs
+* cd /home/administrator
+* copy system.sfs (squash file system) to harddisk, in /home/administrator
+* mkdir systemsfs
+* mount ./system.sfs ./systemsfs -t squashfs -o loop
+* copy ./systemsfs/system.img /home/administrator/
+* mkdir systemimg
+* mount ./system.img ./systemimg -t ext2 -o loop

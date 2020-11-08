@@ -1,0 +1,8 @@
+in order to link folders/directorys with ln -s you need to be inside the directory the new link is being created, and also the link folder cannot currently exist IE
+(to link directory /home/user/poop1 into /home/user/poop2 you need to be in directory poop2 when you issue the command)
+
+CORRECT;
+user:~/home/user/poop2$ ln -s ../poop1 poop1
+
+INCORRECT:
+!!!! WILL NOT WORK !!!!! user:~/home/user$ ln -s poop1 poop2/poop1

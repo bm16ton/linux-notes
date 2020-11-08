@@ -1,0 +1,15 @@
+	SED
+
+THIS IS FASTEST:
+CODE:
+
+string="elephant"
+echo "$string" | sed 's/....$//'
+
+THIS IS SLOWER BUT LESS TEDIOUS IF YOU HAVE LOTS OF CHARACTERS TO REMOVE:
+CODE:
+
+string="elephant"
+echo "$string" | sed 's/.\{4\}$//'
+
+

@@ -1,0 +1,20 @@
+(parted) p
+ p
+ Model: MMC VYL00M (sd/mmc)
+ Disk /dev/block/mmcblk0: 15.8GB
+ Sector size (logical/physical): 512B/512B
+ Partition Table: gpt
+
+ Number  Start   End     Size    File system  Name       Flags
+  1      4194kB  25.2MB  21.0MB  ext4         EFS
+  2      25.2MB  26.5MB  1311kB               SBL1
+  3      27.3MB  28.6MB  1311kB               SBL2
+  4      29.4MB  37.7MB  8389kB               PARAM
+  5      37.7MB  46.1MB  8389kB               KERNEL
+  6      46.1MB  54.5MB  8389kB               RECOVERY
+  7      54.5MB  159MB   105MB   ext4         CACHE
+  8      159MB   176MB   16.8MB               MODEM
+  9      176MB   713MB   537MB   ext4         FACTORYFS
+ 10      713MB   2861MB  2147MB  ext4         DATAFS
+ 11      2861MB  15.2GB  12.4GB  fat32        UMS
+ 12      15.2GB  15.8GB  537MB   ext4         HIDDEN

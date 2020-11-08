@@ -1,0 +1,23 @@
+
+
+sed -i '/^$/d' file.txt
+
+
+
+
+This sed line should do the trick:
+
+sed -i '/^$/d' file.txt
+
+The -i means it will edit the file in-place
+
+
+
+
+sed '/^$/d' file.txt
+
+d is the sed command to delete a line. ^$ is a regular expression matching only a blank line, a line start followed by a line end.
+
+
+
+

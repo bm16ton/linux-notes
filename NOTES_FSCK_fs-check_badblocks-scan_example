@@ -1,0 +1,28 @@
+
+fsck.ext4 -cDfty -C 0 /dev/sdxx
+2011-05-18 13:13:29
+User: mtron
+Functions: fsck
+8
+Up
+Down
+Run a ext4 file system check and badblocks scan with progress info
+
+Nothing fancy, just a regular filesystem scan that calls the badblocks program and shows some progress info. The used options are:
+
+-c ? check for bad sectors with badblocks program
+
+-D ? optimize directories if possible
+
+-f ? force check, even if filesystem seems clean
+
+-t ? print timing stats (use -tt for more)
+
+-y ? assume answer ?yes? to all questions
+
+-C 0 ? print progress info to stdout
+
+/dev/sdxx ? the partition to check, (e.g. /dev/sda1 for first partition on first hard disk)
+
+NOTE: Never run fsck on a mounted partition!
+

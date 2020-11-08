@@ -1,0 +1,8 @@
+sudo iw reg get                  #See current regulatory domain
+sudo iw reg set                  #Change current regulatory domain
+sudo iw dev wlp3s0 link          #Lists info on current link
+sudo iwlist wlp3s0 scanning
+sudo iw dev wlp3s0 info          #strange info very little channel etc
+sudo iw dev
+sudo iw phy0 info                #List wifi card capabilities etc (base on current driver not hardware)
+sudo systool -m iwlwifi -av

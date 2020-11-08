@@ -1,0 +1,34 @@
+0x17  output amp  val[0] is usually muted
+0x18  has 2 outputs muted
+0x19 has 2 outputs muted
+0x1a has 2 ouputs muted
+
+0x1b  Surround Sound Playback Switch  when set to 0x0c all sound thru ext sub (2.1 sub doesnt work) when 0x0d sound thru internal speaker
+
+ox1e Speaker CLFE Phantom Jack  not much can be changed in HDAAnalyzer
+
+0x21  Headphone playback switch (which Headphone jack??) Looks like reg headphone jack in retask
+
+0x03  Surround playback Volume  two values on right cannot be raised
+
+0x14    ???front playback switch???
+
+0x17  mono output amp!! both usually muted output not selected
+
+################ !!!WORKS!!! ################## !!!WORKS!!! #########################
+
+SETUP (NO HDA_ANALYZER REQUIRED!!!)
+
+0x18  DEVICE;Speaker  CHANNEL;Center/LFE CHANNEL_GROUP; 15
+0x19  DEVICE;Speaker  CHANNEL;Center/LFE CHANNEL_GROUP; 15
+0x1a  DEVICE;Speaker  CHANNEL;Center/LFE CHANNEL_GROUP; 15
+0x1b  DEVICE;Speaker  CHANNEL;Center/LFE CHANNEL_GROUP; 15
+0x1e  DEVICE;Speaker  CHANNEL;Center/LFE CHANNEL_GROUP; 15
+
+Explanation; Sub works on both "stereo output" and "2.1 output" modes. The stereo option must sounds much better either sum hardware/software is sending mostly LF to external sub providing 2.1 in 2.0 mode, or it sounds better cuz everything is being sent to it. in 2.1 the sub is much much more less obvious and sounds better if you set the volume for the sub higher then left/right.
+
+Gnome alsa mixer shows "Bass Spe" as a volume where as last boot (without working sub) showed something with the word surround. 
+
+TODO: 
+1: Check hda_analyzer and make sure all volumes are enabled turned up etc. save diff python script if so and run at boot.
+2: Remove each option in hdajackretask to make sure no unneeded changes are being made.

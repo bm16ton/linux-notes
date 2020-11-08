@@ -1,0 +1,31 @@
+/ # gdisk -l /dev/block/mmcblk0
+ GPT fdisk (gdisk) version 0.8.4
+
+ Partition table scan:
+   MBR: protective
+   BSD: not present
+   APM: not present
+   GPT: present
+
+Found valid GPT with protective MBR; using GPT.
+ Disk /dev/block/mmcblk0: 30775296 sectors, 14.7 GiB
+ Logical sector size: 512 bytes
+ Disk identifier (GUID): 52444E41-494F-2044-4D4D-43204449534B
+ Partition table holds up to 128 entries
+ First usable sector is 34, last usable sector is 30775262
+ Partitions will be aligned on 2048-sector boundaries
+ Total free space is 17341 sectors (8.5 MiB)
+
+ Number  Start (sector)    End (sector)  Size       Code  Name
+    1            8192           49151   20.0 MiB    0700  EFS
+    2           49152           51711   1.2 MiB     0700  SBL1
+    3           53248           55807   1.2 MiB     0700  SBL2
+    4           57344           73727   8.0 MiB     0700  PARAM
+    5           73728           90111   8.0 MiB     0700  KERNEL
+    6           90112          106495   8.0 MiB     0700  RECOVERY
+    7          106496          311295   100.0 MiB   0700  CACHE
+    8          311296          344063   16.0 MiB    0700  MODEM
+    9          344064         1392639   512.0 MiB   0700  FACTORYFS
+   10         1392640         5586943   2.0 GiB     0700  DATAFS
+   11         5586944        29720575   11.5 GiB    0700  UMS
+   12        29720576        30769151   512.0 MiB   0700  HIDDEN

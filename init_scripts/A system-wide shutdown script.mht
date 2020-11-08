@@ -1,0 +1,798 @@
+From: <Saved by UnMHT Ver.8.0.0>
+Subject: A system-wide shutdown script
+Date: Wed, 02 Dec 2015 18:26:07 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_7632E9B3_7433E091.15165046D5F";
+	type="text/html"
+
+------=_Part_7632E9B3_7433E091.15165046D5F
+Content-Location: http://lwasserm.freeshell.org/ubuntu/rcshutdown.shtml
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><title>A system-wide shutdown script</title>
+
+
+<link href=3D"ucss.css" rel=3D"stylesheet" type=3D"text/css">
+<base href=3D"http://lwasserm.freeshell.org/ubuntu/"></head>
+<body>
+
+<div id=3D"package">
+<div id=3D"pagehead">=20
+<h2>Run a script at system shutdown</h2>
+</div>
+
+<div id=3D"maincontainer">
+
+<!-- this MSIE stuff stinks -->
+<!--[if lt IE 7]>
+<style>
+#package {height: 105%;}
+</style>
+<![endif] -->
+
+<div id=3D"leftcolumn">
+<ul class=3D"ddmarkermenu">
+<!-- Weird source layout because of IE6 bug! -->
+<li><a href=3D"index.shtml">Home</a></li><li>
+<a href=3D"runlevel3.shtml">Boot time runlevel</a></li><li>
+<a href=3D"quicktext.shtml">Quick text mode</a></li><li>
+<a href=3D"editrl.shtml">Editing Runlevels</a></li><li>
+<a href=3D"rcshutdown.shtml">Shutdown script</a></li><li>
+<a href=3D"fb.shtml">Framebuffer</a></li><li>
+<a href=3D"bootspeed.shtml">Faster Boot</a></li></ul>
+
+<!--[if IE]>
+<div style=3D"position: absolute; left: 1em; top: auto;">
+<i><b>Why not use a better browser?<br></b></i>
+<a href=3D"http://www.mozilla.com/firefox">
+<img src=3D"/images/fflogo.png" width=3D100 height=3D140 alt=3D"Get Firefox=
+!"
+style=3D"border-color: transparent; border-width: 0; position: absolute;
+left: 1em; top: auto;"></a>
+</div>
+<![endif] -->
+
+
+<ul class=3D"sitelist">
+<li><a href=3D"http://validator.w3.org/check/referer">
+<img alt=3D"W3C: Valid HTML 4.01" height=3D"31" src=3D"/images/valid-html40=
+1-blue.png" title=3D"HTML 4.01 validated by W3C" width=3D"88"></a></li><li>
+<a href=3D"http://jigsaw.w3.org/css-validator/check/referer">
+<img alt=3D"W3C: Valid CSS 2.1" height=3D"31" src=3D"/images/valid-css.png"=
+ title=3D"CSS 2.1 validated by W3C" width=3D"88"></a></li>
+</ul>
+</div>
+
+
+
+
+<div id=3D"middlecolumn">
+
+	<h5>The script /etc/rc.local runs at boot time just before user login.=20
+	But what about a system-wide shutdown script?</h5>
+
+	<p>Some linux distributions include an /etc/rc.shutdown script that runs
+	at system shutdown, after user logout but before any services
+	or daemons are stopped. It&#x27;s not difficult to add to ubuntu.</p>
+
+	<p>Copy the following text to a file and name it
+	&quot;rc.shutdown&quot; I&#x27;ve included a few comments you can change o=
+r delete,
+	and the 3 lines that end in &quot;#optional&quot; can be left out if you l=
+ike.
+	They just put a little message in the shutdown splash screen.
+	(don&#x27;t change the first line, &quot;<code>#!/bin/sh</code>&quot; ;=20
+	it&#x27;s required!)</p>
+<span class=3D"file-title">
+/etc/init.d/<a href=3D"files/init/rc.shutdown">rc.shutdown</a></span>
+<pre class=3D"textfile">#! /bin/sh
+# Don&#x27;t delete the above line or put anything before it.
+# Calls /etc/rc.shutdown before any other shutdown scripts in
+# rc0.d or rc6.d are run. Implements a shutdown analog to rc.local.
+# Use a link number of K00 to ensure rc.shutdown is called before
+# any services or daemons are stopped.
+#
+# NOTE: Starting runlevel 0 for shutdown or runlevel 6 for=20
+# reboot does NOT run the Snn... links with &quot;start&quot;
+# Entering runlevel 0 or 6 causes ALL links to be run with the argument
+# &quot;stop&quot; See /usr/share/doc/sysv-rc/README.runlevels
+
+PATH=3D/sbin:/bin:/usr/sbin:/usr/bin
+. /lib/lsb/init-functions #optional
+
+case &quot;$1&quot; in=20
+  stop)
+    if [ -x /etc/rc.shutdown ]; then
+      log_begin_msg &quot;Running local shutdown scripts (/etc/rc.shutdown)=
+&quot; #optional
+      /etc/rc.shutdown
+      log_end_msg $? #optional
+    fi=20
+  ;;
+
+  restart|reload|force-reload)
+    echo &quot;Error: argument &#x27;$1&#x27; not supported&quot; &gt;&amp;2
+    exit 3
+  ;;
+
+  start)
+    # no op in case link is installed in a normal runlevel
+  ;;
+
+  *)
+    echo &quot;Usage: $0 start|stop&quot; &gt;&amp;2
+    exit 3
+  ;;
+
+esac
+
+</pre>
+
+	<p> Put the file in /etc/init.d with root ownership and execute permission=
+s.=20
+	From a shell prompt in the directory where you have saved the file,=20
+	you can use the commands:
+	</p>
+
+	<p class=3D"cmdline">
+	sudo cp rc.shutdown /etc/init.d<br>
+	sudo chmod +x /etc/init.d/rc.shutdown
+	</p>
+
+	<p>Delete or rename your original, non-root copy of rc.shutdown;=20
+	we&#x27;ll be using the same name for another, different file.</p>
+
+	<p> Copy the next file, also named rc.shutdown, to /etc/ with executable
+	permission. This is the file where you can include any commands or
+	scripts you want to run at shutdown. The comments in the file explain
+	its use.</p>
+
+<span class=3D"file-title">
+/etc/<a href=3D"files/etc/rc.shutdown">rc.shutdown</a></span>
+<pre class=3D"textfile">#! /bin/sh
+
+# Commands or scripts called from this file will be run at shutdown,=20
+# before any services or processes are stopped by the normal
+# shutdown scripts. By default it does nothing. Your commands or
+# script should exit 0 for success or other value on error.=20
+# Delete the &quot;exit 0&quot; line from this file or make sure your comma=
+nds=20
+# are placed before that line.
+
+exit 0
+
+</pre>
+
+	<p class=3D"cmdline">
+	sudo cp rc.shutdown /etc<br>
+	sudo chmod +x /etc/rc.shutdown
+	</p>
+
+	<p>I know, it&#x27;s a little confusing using 2 different files with
+	the same name, and easy enough to change if you like, but I&#x27;ve follow=
+ed
+	the same naming convention used for the /etc/rc.local and
+	/etc/init.d/rc.local startup files.</p>
+
+	<p>The last thing necessary to actually have this script run at shutdown,
+	is to make the proper links to /etc/init.d/rc.shutdown from the=20
+	/etc/rc0.d (shutdown runlevel) and /etc/rc6.d (reboot runlevel)=20
+	directories. The script must run before any system services are stopped,=20
+	so name the link &quot;K00rc.shutdown&quot; (Those are zeros, not the lett=
+er &#x27;O&#x27;)=20
+	Use these commands:</p>
+	<p class=3D"cmdline">
+	sudo ln -s /etc/init.d/rc.shutdown /etc/rc0.d/K00rc.shutdown<br>
+	sudo ln -s /etc/init.d/rc.shutdown /etc/rc6.d/K00rc.shutdown<br>
+	</p>
+	<p>You can also use the <code>update-rc.d</code> command line utility=20
+	to change init script links. (Try
+	<code>man&#xa0;update-rc.d</code>
+	for details) See <a href=3D"editrl.shtml">modifying runlevels</a>
+	for more information.</p>
+
+</div>
+
+<div id=3D"rightcolumn">
+	<pre style=3D"text-align: center;">*  *  *</pre>
+</div>
+
+</div>
+   =20
+
+<div id=3D"footer">
+	<ul>
+	<li><a href=3D"http://sdf.lonestar.org" title=3D"Hosted on sdf.lonestar.or=
+g">Hosted by SDF</a></li><li>
+	<a href=3D"mailto:lwasserm@gmail.com" title=3D"Contact Author">Contact aut=
+hor</a></li>
+	</ul>
+</div>
+
+
+</div>
+
+</body></html>
+------=_Part_7632E9B3_7433E091.15165046D5F
+Content-Location: http://lwasserm.freeshell.org/ubuntu/ucss.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* For ubuntu & linux pages */
+
+body {
+  margin: 0;
+  position: relative;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica,Arial,sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 100%;
+  line-height: normal;
+  background-color: #ffffee;=20
+}
+
+#package {
+  min-height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  font-size: 96%;
+}
+
+#pagehead {
+  height: 4em;
+  width: 100%;
+  margin: 0 0 4px 0em;
+  background-color: #20b010;
+  background: url("/images/swamp.jpg");
+  background-position: 00% 75%;
+  border-bottom: 1px solid transparent;=20
+}
+
+#maincontainer {
+  padding: 0;
+  width: auto;=20
+  margin: 0 1em 1em 0;
+  background-color: transparent;=20
+  padding-bottom: 3em;
+}
+
+#footer {
+  margin: auto;
+  background-color: #ccccff;=20
+  clear: both;=20
+  padding: 5px 8px 0 8px;
+  position: absolute;
+  left: 2em;
+  right: 2em;
+  bottom: 1em;
+  width: auto;
+  height: 2em;
+}
+
+#pagehead  h2 {
+  padding-top: 1ex;
+  text-align: center;
+  margin-top: 0;
+  color: #ffc0ff;
+  text-decoration: underline;
+}
+
+a:hover, a:active {
+  color: maroon;
+  background-color: silver;
+}
+
+a:link img, a:visited img {
+  display: block;
+  padding: 1px;
+  margin: auto;
+  border-width: 1px 1px;
+  border-color: transparent;
+}
+
+a:hover img, a:active img {
+  background-color: #ccffff;=20
+}
+
+.sitelist {
+  list-style-type: none;
+  position: absolute;
+  top: 200%;
+  right: 2em;
+  padding-bottom: 1ex;
+}
+
+.sitelist li {
+  padding-bottom: 1ex;
+}
+
+.sitelist li a img:hover, .sitelist li a img:active {
+  background-color: #cc66cc;=20
+}
+
+.ddmarkermenu {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ddmarkermenu li {
+  padding-bottom: 0px;
+  padding-right: 5px;
+}
+
+.ddmarkermenu li a {
+  border-bottom: 1px solid #dadada;
+  padding: 2px 0 2px 5px;
+  color: #aa2716;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 92%;
+}
+
+.ddmarkermenu li a:visited {
+  color: #aa2716;
+}
+
+.ddmarkermenu li a:hover {
+  background-color: #03f3f3;
+  color: black;
+}
+
+/* Column layout */
+
+#leftcolumn {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 86%;
+  background-color: transparent;
+  width: 10em;
+  padding: 12px 5px 0 0;
+  position: absolute;
+  top: 4em;=20
+  left: 1em;=20
+}
+
+#middlecolumn {
+  font-family: Helvetica,Arial,sans-serif;
+  position: relative;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  background-color: transparent;
+  width: auto;
+  min-height: 100%;
+  margin-left: 10em;
+  margin-right: 14em;
+  padding: 1em 8px 1em 8px;
+}
+
+#rightcolumn {
+  position: absolute;
+  top: 4em; right: 1em;
+  background-color: transparent;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 92%;
+  padding-left: 5px;=20
+  width: 15em;=20
+  margin: 1em 0 0 0em;
+}
+
+#rightcolumn code { font-size: 100% }
+
+#rightcolumn .newscontainer {
+  border: 1px solid #dadada;
+  padding: 5px;
+  background-color: #ffff66;
+  margin-bottom: 1em;
+  font-size: 90%;
+}
+
+/* ***************** */
+
+
+#footer ul {
+  float: right;
+  text-align: right;
+  font-size: 90%;
+  margin: .25ex 1em;
+  font-size: 90%;
+  display: inline;
+  border-style: solid;
+  border-color: #dfdfdf;
+  border-width: 0px 0px;
+  margin: 0.5ex;
+  padding-left: 0;
+  font-weight: bold;
+}
+
+#footer ul li {
+  display: inline;
+  margin-left: 1em;=20
+}
+
+#footer ul li a:link, #footer ul li a:visited {
+  padding: 2px 4px;
+  border: 1px solid transparent;
+  background-color: #ffcccc;
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#footer ul li a:hover, #footer ul li a:active {
+  border: 1px solid black;
+  color: black;
+  background-color: #ffaa00;
+  text-decoration: none;
+}
+
+/* ***** pushbutton ****** */
+
+/* for use at bottom of page, i.e. footer area=20
+ * TO DO: generalize so buttons can be used anwhere in documents
+ */
+
+.pbtn {
+  margin: 0.25ex;
+  float: right; /* This makes area extend to full width with msie6 */
+  text-align: right;
+  font-size: 90%;
+}
+
+.pbtn ul {
+  border-style: solid;
+  border-color: silver;
+  border-width: 0px 0px;
+  margin: 0.25ex;
+  padding-left: 0;
+  font-weight: bold;
+}
+
+.pbtn ul li {
+  display: inline;
+  margin-left: 1em;=20
+}
+.pbtn ul li a, .pbtn ul li a:visited {
+  padding:      3px 5px 2px 3px;
+  border-width: 0px 3px 4px 0px;=20
+  border-color: gray; border-style: solid;
+  background-color: #ffcccc;
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pbtn ul li a:hover, .pbtn ul li a:active {
+  position: relative;
+  margin-left: 3px;
+  top: 4px; left: 2px;
+  padding:      1px 2px 1px 3px;
+  border-width: 4px 0px 0px 3px;
+  color: #33cc33;
+  background-color: #ffccee;=20
+  text-decoration: none;
+}
+
+
+/* *************** */
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+
+h5 {=20
+  display: inline;
+  font-weight: bold; font-size: 12pt; color: #003399;=20
+  font-family: Helvetica,Arial,sans-serif
+}
+
+
+.cmdline {
+  padding-left: 1em;
+  color: maroon;
+  font-family: monospace;
+  font-size: 95%;
+  font-weight: bolder;
+}
+
+code {
+  color: maroon;=20
+  font-size: 95%;=20
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+
+.file-title {
+  text-align: right;
+  padding-right: 3em;
+  display: block;
+  font-family: monospace;
+  font-size: 100%;
+}
+.file-title:before {content: "FILE: "; color: maroon; font-weight: bold;}
+
+
+pre.textfile {
+  margin: 3px auto 1em auto;=20
+  background: #ddddff;
+  border: 1px solid green;
+  padding: 10px;
+  width: 90%;=20
+  max-width: 48em;
+  white-space: pre;
+  overflow: auto;
+  font-size: .9em;
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+pre.textfile b { color: maroon; }
+
+.nobreak { white-space: nowrap; }
+
+
+------=_Part_7632E9B3_7433E091.15165046D5F
+Content-Location: http://lwasserm.freeshell.org/images/swamp.jpg
+Content-Transfer-Encoding: base64
+Content-Type: image/jpeg
+
+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
+NWrVqD//2Q==
+
+------=_Part_7632E9B3_7433E091.15165046D5F
+Content-Location: http://lwasserm.freeshell.org/images/valid-html401-blue.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAABnlBMVEUAAAAKCwwNDxAOEBIRExQT
+FhgVGBoaHBwaHiEdISUjIyMhJiokKi0oKCgmLDAuNTozMzMxOT47Ozs1PUM9Rkw/SE8/SVBLS0xC
+TFNPT1BLV19UVFRcXFxEXW9NWWFQXGRZXmJWY2xZZnBda3VlZWVqa2tgbnhwcHB7e3sAWpwIX58f
+W4cJYJ8NYqERZaIVaKQaa6YebagybZkhb6klcqopdawxea85dKE1fLA4frJndoFoeIQ8gbNEhrZH
+iLdKirlVkb1alL9vgIxrg5dxgo50hpJ4ipZ6jZp+kZ52kaddlsBjmsJpnsRtocZ1pcl8qsyBg4WJ
+jpaXl5eYmJiAk6GGmqiQl6CLoK+NorKZoaqQprWSqLeVrLyYr7+jpaarq620tLS/v7+Crs6GsM+F
+sNCJs9Gbs8Oft8iQt9SVutWYvNebvtihucqmv9GfwdqnwNKjw9upw9Wrxtmtydywy96yzeC20OPC
+wsLMzMzU1NTY2NjA1ufG2ujN3+zT4+7d6fLn5+fs7Ozi7PPp8fbu9Pj09PTy9/r1+Pv+/v7MzMwU
+1kEcAAAAinRSTlP/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////wCETaj5AAAAAWJLR0QAiAUdSAAAAAlw
+SFlzAAAASAAAAEgARslrPgAAA+pJREFUSMetlo9TGkcUxx+VYtPSqQYdMFoySWqSd1UYWrUqtaGt
+9mowmFRJGqD5oQNOKozI3m6NmqTxF9v/um/3fuLgOGTymHu3u8x+bu+777092Pvo9uw/ZbAnL7cj
+i19igrmtp4/GegDzS0344BsfDSyCnQ9dsSOK9+acCV+G3sEWb5VrnNfLO6ykrc4rdPFWqcxEo1zv
+APcmRRlinF8DswbakjwCUc5vAZTZL3DzAnAzU6DZ1amqgpwYRkZZTsrTh+Ov5Yu2BpcUOAkmKxaj
+sFisWRGAJ9anBOYKLISrdVCKd5gm4gHOKXATbVuVMg4Q2h94TWDBynAlm/0KTCHEIFQIEAlHE79B
+DEp8EW6KC8JtGt+QT+Ex+fuYOz7axnRbPoMv714Nh94rsCjbEpiMMRe8BF/EkgTOqhV3Bxdwg/wM
+Nsmn8Z2UU6o5cpVU+Oau0pixEgwyRhpzf8WtT6DogJnoHscHOEuzEUnXQ5wmuVVfhtVf7VPprHiI
+W6QxTR2Evwgf6ePzwywJFbYEw6ZZDKwY0YuKSVJhGzEl5SoW5PEkHtLW9ftRweyocMEVwVgkrKI5
+SZu3qDSK+uBvUZFtcI5ePYczKEiPA5lHY+VEtuM+WHBWo2Bt1Fo0tV5jtOKtLRUGDWrv1si8UH76
+nd57B9wkFSYyDAtHatW5NOJsW651ZF5H3lK+MRHs+e0fnKiywceY4pg/M6a38WfVP0whk/9cXCso
+6JjoVjasBYfrZt4c6cDlAtqRIeUK5jszTwQXu9udSuZxXfAm4kSbogHxRPcZTnWCGTcBahqcABja
+5df7YNB71tyr81wX/AbxnkpB/FE64Mx7u3V6qsBC7IRDGixMuH4b5nk264GtWZysnuN6RSiDf+sU
+rMpX97UUP720yXdeKjATidiQDU5AnVHsiYYHVjxjw+N+3VHd8nikU/AttQonzRQ222P/0sg47Ks4
+FmaoPqzBVj8IHgkxH7xi8wr39M34tbMe8xnlD76X8iyNBqrU24uMjn0Oa1pjcSWWjcKtBukZg10e
+inLmga059M1YPlfo2xv6RjVNvl1Jp/Nn1Ngf7R947mzeZyGVX7Xb18Q8/F6CG1zseFKwBZ9b7f3M
+Y0rjaIhvURHuq1Biky056JzH7fFo0vW2tNziT9ZJXHOJEvjP9eX19brlBHRecyeqvR5NgbKoniGc
+s9kSwv3ieKC4m72f0n6qiUBtsITlja8amtvzYSqChcIFE9f/Rtrc/IDjn0j22WNZtmeqDGk+Y/64
+GgiAX1xqzx+TPVLuD+0fO36ty/jDcVeK+Gg8PjIy4l2j8c67+iXitiXiTjPog+MKNaDB/wOqezk6
+0C6YdAAAAABJRU5ErkJggg==
+
+------=_Part_7632E9B3_7433E091.15165046D5F
+Content-Location: http://lwasserm.freeshell.org/images/valid-css.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAABzlBMVEUAAAAJBwMLCAQLCwsWEQga
+FAoUFBQcHBwmHg4pIBAxJxMzKBQ6LhY+MRgjIyMoKCg0MzI7OztDNRpGOBxMPB5OSz9TQiFYRiNb
+SCRiTiZpVCluWCx1RzlzWy17YjFOTk5ST0tWUk1VVVVcXFxqXUplZWVra2tya2FwcHB7e3sAWpwI
+X58JYJ8OY6ERZaIVaKQaa6Yebaghb6klcqopdawxea82fbE4frI+grRFhrZMi7pVkb1alL9dlsBk
+m8NoncRtocZ0pcl8qsyWBAOZAACcCASIIBmdNiegDge3PB6mPiqAZjOKbjePcjmTdTqXeDyefj+6
+QiG/TCahclPATifBUCjIXy/QbzfWej3Yfj+Rh2uigUCohkOyjke0gVi2kUi5lEq/mEyjkmuzn2e7
+pnLDnE7eikXJoFDarlfjlUrmm03poFDtqVTitFrqul30w2H5xWL+y2WDg4OXl5eYmJippZ61rZis
+rKy0tLS/v7+Crs6FsNCLtNKQt9SWu9aYvNebvtifwdqjw9uox92ryd6yzeG20OPCwsLMzMzU1NTA
+1ufG2ujN3+zT4+7d6fL/7Mbn5+fs7Ozl7vXp8fbu9Pj09PTy9/r1+Pv+/v7MzMx1sEU/AAAAmnRS
+TlP/////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////8Ay7CFYwAAAAFiS0dEAIgF
+HUgAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAK5SURBVEjH7ZX7UxJRFMeviYxMYmgEJoGmZXkINlQy
+wxHRpdfYw3J6SWkPrZjMvTmlGeMYAwn4KBFmb/9t5+6yCIbBJPVD03dmz97dnfvZe889D5Kout5/
+5yIJVl5faeV68ezUf/C/AI56Ajg70hPhkIzT6UH1+BjLvutKsiX598FbICDxC/RzcAxUjTC5jZDa
+pCl5AFf0wQZaN+ygHQRfOr0KQpYtkiPdTfra7QOAA7CM1gtRtAJsMbmXD9ua0Aunuw9yeCm4wNgO
+APp1HfrQ3YpX9PyTnNXAj1stjld0PnS8xfGW0mm71fZyH7Ao5qPChV74DOBibAQCbOccrOPRNRZF
+RQupaa63UTsxHtVN0yliMBvspcGXRU5WwT7cug+8kEJ3p9gQOIczeHaF4ClSj+uco3UGnCzhb+Yo
+nS8JviJy5cBR8Mmu8zEIpMGNvxEAvDJbKAQ7iEOZZyU661NKJ0mNcVIqBb4uqlLBGXDHwZ9x9q3C
+IH9ed0OMrRWC7WRMmSfdaiDkNu7AcohYS3Dv5Lha5vWjH+JsANTIYMwPQ8WZFyKHJb559McMEvE2
+r9P9gquBPwE4ZYwGgIzyHIfePSltJHU2s53qzPYGEqItDTYradVw0vgbdTCR52rgDYBLPAXhooqK
+gWdbHWWzKlgaazZYZugNs8F8U6JTVoORR53KvSZeDe+ud1QsLEIeWFFSMMJWBhVXDKyp5LMfyyYI
+5wVfa+sdPVFU3fyQVlJwE4MtkIm6ISp3fsM3XTVla8UDhRecVbnBu8VlM+7lNtWDESKAE3gqJvQd
+nY1koWxKS+NiXsHgkz31WF5WbiN4bQ4LwhA/w2SH3rRYST2e2AWHq1vo7+W51e4g9zVu1VvTwxy3
++j1vNqhw/0AzDYf/WpdeKqsPzyvXozMauK0CHdtP7T+9OdluUsA/AHmIulA5u0yNAAAAAElFTkSu
+QmCC
+
+------=_Part_7632E9B3_7433E091.15165046D5F--

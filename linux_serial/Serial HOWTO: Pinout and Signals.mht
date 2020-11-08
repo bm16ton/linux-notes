@@ -1,0 +1,266 @@
+From: <Saved by UnMHT Ver.8.2.0>
+Subject: Serial HOWTO: Pinout and Signals
+Date: Thu, 13 Oct 2016 20:32:21 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_DBB37DE5_52DDAA20.157C09AA0F1";
+	type="text/html"
+
+------=_Part_DBB37DE5_52DDAA20.157C09AA0F1
+Content-Location: http://tldp.org/HOWTO/Serial-HOWTO-19.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="windows-1252"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUg=
+AAABAAAAAQCAYAAAAf8/9hAAABVElEQVQ4jcXRPS9DURzH8bsbxBswGsRq8h4QrBKvgaGLxSrEa=
+BRC4jmiUoNEPK499VCtaiJNKrTknutebs/pPbdfQwWJG0okfsln/eZ/cizrL9a1De3zko6FxrXN=
+2fQfgGVZltU6Y9M8kaNlsnFN45d0Lj3WA4N7Id2bDj3rd/SuFOldvflCkb61Ej0rD4wcmXqA8zg=
+cz4FdoAaEuhLJaB9CeKxckXvYQhrxGlgeRk0NYNK7uDrEkTKStG20b7goJ9jMxjhzZ18DG6NUpo=
+cIMof1gONEklKifEP2fodEboy0t/gvgZB0KcFGJsbpb57gPyvKTznOSnFudfLnAddz+bi3X/Cn+=
+gnOd3GrtS8DnudFBE7iVPdnMeVrnKcKUspItm3julEXfFhVa5RSaK0/UUoRBMHnQD6fRwiBEIJU=
+KvUtIQTJZJJCofB+gTGGMAwbZowB4AXFGRYS9Z9ogwAAAABJRU5ErkJggg=3D=3D" rel=3D"sh=
+ortcut icon" type=3D"image/png">
+ <meta content=3D"LinuxDoc-Tools 0.9.21" name=3D"GENERATOR">
+ <title> Serial HOWTO: Pinout and Signals </title>
+ <link href=3D"Serial-HOWTO-20.html" rel=3D"next">
+ <link href=3D"Serial-HOWTO-18.html" rel=3D"previous">
+ <link href=3D"Serial-HOWTO.html#toc19" rel=3D"contents">
+<base href=3D"http://tldp.org/HOWTO/"></head>
+<body>
+<a href=3D"Serial-HOWTO-20.html">Next</a>
+<a href=3D"Serial-HOWTO-18.html">Previous</a>
+<a href=3D"Serial-HOWTO.html#toc19">Contents</a>
+<hr>
+<h2><a name=3D"pinout_"></a> <a name=3D"s19">19.</a> <a href=3D"Serial-HOWT=
+O.html#toc19">Pinout and Signals </a></h2>
+
+<h2><a name=3D"ss19.1">19.1</a> <a href=3D"Serial-HOWTO.html#toc19.1">Pinou=
+t of 9-pin and 25-pin serial connectors</a>
+</h2>
+
+<p> The pin numbers are often engraved in the plastic of the
+connector but you may need a magnifying glass to read them.
+Note DCD is sometimes labeled CD.  The numbering of the pins on a
+female connector is read from right to left, starting with 1 in the
+upper right corner (instead of 1 in the upper left corner for the male
+connector as shown below).  --&gt; direction is out of PC.</p>
+<p>
+</p><blockquote><code>
+<pre>  ___________                    _____________________________________=
+___
+  \1 2 3 4 5/  Looking at pins   \1  2  3  4  5  6  7  8  9  10 11 12 13/
+   \6 7 8 9/  on male connector   \14 15 16 17 18 19 20 21 22 23 24 25/
+    ------                         -----------------------------------
+Pin #   Pin #   Acronym  Full-Name   Direction  What-it-May-Do/Mean
+9-pin   25-pin
+ 3       2      TxD     Transmit Data     --&gt;   Transmits bytes out of PC
+ 2       3      RxD     Receive Data      &lt;--        Receives bytes into=
+ PC
+ 7       4      RTS     Request To Send   --&gt;   RTS/CTS flow control
+ 8       5      CTS     Clear To Send     &lt;--        RTS/CTS flow control
+ 6       6      DSR     Data Set Ready    &lt;--        I&#x27;m ready to c=
+ommunicate
+ 4      20      DTR     Data Terminal Ready--&gt;  I&#x27;m ready to commun=
+icate
+ 1       8      DCD     Data Carrier Detect&lt;--       Modem connected to =
+another
+ 9      22      RI      Ring Indicator    &lt;--        Telephone line ring=
+ing
+ 5       7      SG      Signal Ground
+
+  9-Pin DB9 Connector                    25-Pin DB-25 Connector
+1     DCD   Carrier Detect             1           Chassis Ground          =
+  =20
+2     RxD   Receive Data               2     TxD   Transmit Data
+3     TxD   Transmit Data              3     RxD   Receive Data
+4     DTR   Data Terminal Ready        4     RTS   Request To Send
+5     SG    Signal Ground              5     CTS   Clear To Send
+6     DSR   Data Set Ready             6     DSR   Data Set Ready
+7     RTS   Request To Send            7     SG    Signal Ground
+8     CTS   Clear To Send              8     DCD   Carrier Detect
+9     RI    Ring Indicator            20     DTR   Data Terminal Ready
+                                      22     RI    Ring Indicator
+</pre>
+</code></blockquote>
+<p></p>
+
+<h2><a name=3D"ss19.2">19.2</a> <a href=3D"Serial-HOWTO.html#toc19.2">Signa=
+ls May Have No Fixed Meaning</a>
+</h2>
+
+<p> Only 3 of the 9 pins have a fixed assignment: transmit, receive
+and signal ground.  This is fixed by the hardware and you can&#x27;t change
+it.  But the other signal lines are controlled by software and may do
+(and mean) almost anything at all.  However they can only be in one of
+two states: asserted (+12 volts) or negated (-12 volts).  Asserted is
+&quot;on&quot; and negated is &quot;off&quot;.  For example, Linux software=
+ may command
+that DTR be negated and the hardware only carries out this command and
+puts -12 volts on the DTR pin.  A modem (or other device) that
+receives this DTR signal may do various things.  If a modem has been
+configured a certain way it will hang up the telephone line when DTR
+is negated.  In other cases it may ignore this signal or do something
+else when DTR is negated (turned off).</p>
+<p>It&#x27;s like this for all the 6 signal lines.  The hardware only sends
+and receives the signals, but what action (if any) they perform is up
+to the Linux software and the configuration/design of devices that you
+connect to the serial port.  However, most pins have certain functions
+which they normally perform but this may vary with the operating
+system and the device driver configuration.  Under Linux, one may
+modify the source code to make these signal lines behave differently
+(some people have).</p>
+
+<h2><a name=3D"cabling_"></a> <a name=3D"ss19.3">19.3</a> <a href=3D"Serial=
+-HOWTO.html#toc19.3">Cabling Between Serial Ports </a>
+</h2>
+
+<p> A cable from a serial port always connects to another serial port.
+An external modem or other device that connects to the serial port has
+a serial port built into it.  For modems, the cable is always straight
+thru: pin 2 goes to pin 2, etc.  The modem is said to be DCE (Data
+Communications Equipment) and the computer is said to be DTE (Data
+Terminal Equipment).  Thus for connecting DTE-to-DCE you use
+straight-thru cable.  For connecting DTE-to-DTE you must use a
+null-modem cable (also called a crossover cable).  There are many ways
+to wire such cable (see examples in Text-Terminal-HOWTO subsection:
+&quot;Direct Cable Connection&quot;)</p>
+<p>There are good reasons why it works this way.  One reason is that the
+signals are unidirectional.  If pin 2 sends a signal out of it (but is
+unable to receive any signal) then obviously you can&#x27;t connect it to
+pin 2 of the same type of device.  If you did, they would both send
+out signals on the same wire to each other but neither would be able
+to receive any signal.  There are two ways to deal with this
+situation.  One way is to have a two different types of equipment
+where pin 2 of the first type sends the signal to pin 2 of the second
+type (which receives the signal).  That&#x27;s the way it&#x27;s done when =
+you
+connect a PC (DTE) to a modem (DCE).  There&#x27;s a second way to do this
+without having two different types of equipment: Connect pin sending
+pin 2 to a receiving pin 3 on same type of equipment.  That&#x27;s the way
+it&#x27;s done when you connect 2 PCs together or a PC to a terminal
+(DTE-to-DTE).  The cable used for this is called a null-modem cable
+since it connects two PCs without use of a modem.  A null-modem cable
+may also be called a cross-over cable since the wires between pins 2
+and 3 cross over each other (if you draw them on a sheet of paper).
+The above example is for a 25 pin connector but for a 9-pin connector
+the pin numbers 2 and 3 are just the opposite.</p>
+<p>The serial pin designations were originally intended for connecting a
+dumb terminal to a modem.  The terminal was DTE (Data Terminal
+Equipment) and the modem was DCE (Data Communication Equipment).
+Today the PC is usually used as DTE instead of a terminal (but real
+terminals may still be used this way).  The names of the pins are the
+same on both DTE and DCE.  The words: &quot;receive&quot; and &quot;transmi=
+t&quot; are
+from the &quot;point of view&quot; of the PC (DTE).  The transmit pin from =
+the
+PC transmits to the &quot;transmit&quot; pin of the modem (but actually the
+modem is receiving the data from this pin so from the point of view of
+the modem it would be a receive pin).</p>
+<p>The serial port was originally intended to be used for connecting DTE
+to DCE which makes cabling simple: just use a straight-thru cable.
+Thus when one connects a modem one seldom needs to worry about which
+pin is which.  But people wanted to connect DTE to DTE (for example a
+computer to a terminal) and various ways were found to do this by
+fabricating various types of special null-modem cables.  In this case
+what pin connects to what pin becomes significant.</p>
+
+<h2><a name=3D"rts_cts"></a> <a name=3D"ss19.4">19.4</a> <a href=3D"Serial-=
+HOWTO.html#toc19.4">RTS/CTS and DTR/DSR Flow Control </a>
+</h2>
+
+<p> This is &quot;hardware&quot; flow control.  Flow control was previously
+explained in the=20
+<a href=3D"Serial-HOWTO-4.html#flow_control">Flow Control</a>
+subsection but the pins and voltage signals were not.  Linux only
+supports RTS/CTS flow control at present (but a special driver may
+exist for a specific application which supports DTR/DSR flow control).
+Only RTS/CTS flow control will be discussed since DTR/DSR flow control
+works the same way.  To get RTS/CTS flow control one needs to either
+select hardware flow control in an application program or use the
+command:<br>
+stty -F /dev/ttyS2 crtscts (or the like).  This enables RTS/CTS
+hardware flow control in the Linux device driver.</p>
+<p>Then when a DTE (such as a PC) wants to stop the flow into it, it
+negates RTS.  Negated &quot;Request To Send&quot; (-12 volts) means &quot;r=
+equest NOT
+to send to me&quot; (stop sending).  When the PC is ready for more bytes
+it asserts RTS (+12 volts) and the flow of bytes to it resumes.  Flow
+control signals are always sent in a direction opposite to the flow of
+bytes that is being controlled.  DCE equipment (modems) works the same
+way but sends the stop signal out the CTS pin.  Thus it&#x27;s RTS/CTS flow
+control using 2 lines.</p>
+<p>On what pins is this stop signal received?  That depends on whether we
+have a DCE-DTE connection or a DTE-DTE connection.  For DCE-DTE it&#x27;s a
+straight-thru connection so obviously the signal is received on a pin
+with the same name as the pin it&#x27;s sent out from.  It&#x27;s RTS--&gt;=
+RTS (PC
+to modem) and CTS&lt;--CTS (modem to PC).  For DTE-to-DTE the connection
+is also easy to figure out.  The RTS pin always sends and the CTS pin
+always receives.  Assume that we connect two PCs (PC1 and PC2)
+together via their serial ports.  Then it&#x27;s RTS(PC1)--&gt;CTS(PC2) and
+CTS(PC1)&lt;--RTS(PC2).  In other words RTS and CTS cross over.  Such a
+cable (with other signals crossed over as well) is called a &quot;null
+modem&quot; cable.  See=20
+<a href=3D"#cabling_">Cabling Between Serial Ports</a></p>
+<p>What is sometimes confusing is that there is the original use of RTS
+where it means about the opposite of the previous explanation above.
+This original meaning is: I Request To Send to you.  This request was
+intended to be sent from a terminal (or computer) to a modem which, if
+it decided to grant the request, would send back an asserted CTS from
+its CTS pin to the CTS pin of the computer: You are Cleared To Send to
+me.  Note that in contrast to the modern RTS/CTS bi-directional flow
+control, this only protects the flow in one direction: from the
+computer (or terminal) to the modem.  This original use appears to be
+little used today on modern equipment (including modems).</p>
+
+<h3>The DTR and DSR Pins</h3>
+
+<p> Just like RTS and CTS, these pins are paired.  For DTE-to-DTE
+connections they are likely to cross over.  There are two ways to use
+these pins.  One way is to use them as a substitute for RTS/CTS flow
+control.  The DTR pin is just like the RTS pin while the DSR pin
+behaves like the CTS pin.  Although Linux doesn&#x27;t support DTR/DSR flow
+control, it can be obtained by connecting the RTS/CTS pins at the PC
+to the DSR/DTR pins at the device that uses DTR/DSR flow control.  DTR
+flow control is the same as DTR/DSR flow control but it&#x27;s only one-way
+and only uses the DTR pin at the device.  Many text terminals and some
+printers use DTR/DSR (or just DTR) flow control.  In the future, Linux
+may support DTR/DSR flow control.  The software has already been
+written but it&#x27;s not clear when (or if) it will incorporated into the
+serial driver.</p>
+<p>The normal use of DTR and DSR (not for flow control) is as follows: A
+device asserting DTR says that its powered on and ready to operate.
+For a modem, the meaning of a DTR signal from the PC depends on how
+the modem is configured.  Negating DTR is sometimes called &quot;hanging
+up&quot; but it doesn&#x27;t always do this.  One way to &quot;hang up&quot=
+; (negate DTR)
+is to set the baud rate to 0 using the command &quot;stty 0&quot;.  Trying =
+to do
+this from a &quot;foreign&quot; terminal may not work due to the two-interf=
+ace
+problem.  See=20
+<a href=3D"Serial-HOWTO-11.html#two_term_interfaces">Two interfaces at a te=
+rminal</a>.  For internal modem-serial_ports it worked OK with a port
+using minicom but didn&#x27;t work if the port was using wvdial.  Why?</p>
+
+<h2><a name=3D"ss19.5">19.5</a> <a href=3D"Serial-HOWTO.html#toc19.5">Preve=
+nting a Port From Opening</a>
+</h2>
+
+<p> If &quot;stty -clocal&quot; (or getty is used with the &quot;local&quot=
+; flag negated)
+then a serial port can&#x27;t open until DCD gets an assert (+12 volts)
+signal.</p>
+
+<hr>
+<a href=3D"Serial-HOWTO-20.html">Next</a>
+<a href=3D"Serial-HOWTO-18.html">Previous</a>
+<a href=3D"Serial-HOWTO.html#toc19">Contents</a>
+
+
+</body></html>
+------=_Part_DBB37DE5_52DDAA20.157C09AA0F1--

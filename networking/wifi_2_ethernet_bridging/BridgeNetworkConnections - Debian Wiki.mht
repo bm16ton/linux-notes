@@ -1,0 +1,4449 @@
+From: <Saved by UnMHT Ver.8.3.2>
+Subject: BridgeNetworkConnections - Debian Wiki
+Date: Tue, 01 Aug 2017 15:17:29 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15";
+	type="text/html"
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/BridgeNetworkConnections#Bridging_with_a_wireless_NIC
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8">
+<link href=3D"/htdocs/favicon.ico" rel=3D"shortcut icon">
+<script src=3D"/htdocs/bugstatus.js" type=3D"text/javascript"></script>
+
+<meta content=3D"index,nofollow" name=3D"robots">
+
+<title>BridgeNetworkConnections - Debian Wiki</title>
+<script src=3D"/htdocs/common/js/common.js" type=3D"text/javascript"></scri=
+pt>
+
+<script type=3D"text/javascript">
+<!--
+var search_hint =3D "Search";
+//-->
+</script>
+
+
+<link charset=3D"utf-8" href=3D"/htdocs/debwiki/css/common.css" media=3D"al=
+l" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/htdocs/debwiki/css/screen.css" media=3D"sc=
+reen" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/htdocs/debwiki/css/print.css" media=3D"pri=
+nt" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/htdocs/debwiki/css/projection.css" media=
+=3D"projection" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/htdocs/debian-wiki-1.0.css" media=3D"all" =
+rel=3D"stylesheet" type=3D"text/css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel=3D"stylesheet" type=3D"text/css" charset=3D"utf-8" media=3D"al=
+l" href=3D"/htdocs/debwiki/css/msie.css">
+<![endif]-->
+
+
+<link href=3D"/BridgeNetworkConnections?diffs=3D1&amp;show_att=3D1&amp;acti=
+on=3Drss_rc&amp;unique=3D0&amp;page=3DBridgeNetworkConnections&amp;ddiffs=
+=3D1" rel=3D"alternate" title=3D"Debian Wiki: BridgeNetworkConnections" typ=
+e=3D"application/rss+xml">
+
+
+<link href=3D"/FrontPage" rel=3D"Start">
+<link href=3D"/BridgeNetworkConnections?action=3Draw" rel=3D"Alternate" tit=
+le=3D"Wiki Markup">
+<link href=3D"/BridgeNetworkConnections?action=3Dprint" media=3D"print" rel=
+=3D"Alternate" title=3D"Print View">
+<link href=3D"/FindPage" rel=3D"Search">
+<link href=3D"/TitleIndex" rel=3D"Index">
+<link href=3D"/WordIndex" rel=3D"Glossary">
+<link href=3D"/HelpOnFormatting" rel=3D"Help">
+<base href=3D"https://wiki.debian.org/"></head>
+
+<body dir=3D"ltr" lang=3D"en">
+<div id=3D"logo"><a href=3D"https://www.debian.org" title=3D"Debian Homepag=
+e"><img alt=3D"Debian" height=3D"61" src=3D"https://www.debian.org/Pics/ope=
+nlogo-50.png" width=3D"50"></a></div>
+<div id=3D"header">
+<div id=3D"wikisection">
+<p class=3D"section"><a href=3D"/FrontPage" title=3D"Debian Wiki Homepage">=
+Wiki</a></p>
+<div id=3D"username"><a href=3D"/BridgeNetworkConnections?action=3Dlogin" i=
+d=3D"login" rel=3D"nofollow">Login</a></div>
+</div>
+<div id=3D"navbar">
+
+<ul id=3D"navibar">
+<li class=3D"wikilink"><a href=3D"/FrontPage">FrontPage</a></li><li class=
+=3D"wikilink"><a href=3D"/RecentChanges">RecentChanges</a></li><li class=3D=
+"wikilink"><a href=3D"/FindPage">FindPage</a></li><li class=3D"wikilink"><a=
+ href=3D"/HelpContents">HelpContents</a></li><li class=3D"current"><a href=
+=3D"/BridgeNetworkConnections">BridgeNetworkConnections</a></li>
+</ul>
+
+</div>
+
+<form action=3D"/BridgeNetworkConnections" id=3D"searchform" method=3D"get">
+<div>
+<input name=3D"action" type=3D"hidden" value=3D"fullsearch">
+<input name=3D"context" type=3D"hidden" value=3D"180">
+<label for=3D"searchinput" style=3D"display: none;">Search:</label>
+<input alt=3D"Search" class=3D"disabled" id=3D"searchinput" name=3D"value" =
+onblur=3D"searchBlur(this)" onchange=3D"searchChange(this)" onfocus=3D"sear=
+chFocus(this)" onkeyup=3D"searchChange(this)" size=3D"20" type=3D"text" val=
+ue=3D"Search">
+<input alt=3D"Search Titles" disabled=3D"" id=3D"titlesearch" name=3D"title=
+search" type=3D"submit" value=3D"Titles">
+<input alt=3D"Search Full Text" disabled=3D"" id=3D"fullsearch" name=3D"ful=
+lsearch" type=3D"submit" value=3D"Text">
+</div>
+</form>
+<script type=3D"text/javascript">
+<!--// Initialize search form
+var f =3D document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display =3D 'none';
+var e =3D document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<div id=3D"logo"><a href=3D"https://www.debian.org" title=3D"Debian Homepag=
+e"><img alt=3D"Debian" height=3D"61" src=3D"https://www.debian.org/Pics/ope=
+nlogo-50.png" width=3D"50"></a></div>
+
+<div id=3D"breadcrumbs"><a href=3D"/FrontPage" title=3D"Debian Wiki Homepag=
+e">Wiki</a><span class=3D"sep">/</span>
+
+</div>
+
+<ul class=3D"editbar"><li><a href=3D"/BridgeNetworkConnections?action=3Dlog=
+in" id=3D"login-1" rel=3D"nofollow">Login</a></li><li class=3D"toggleCommen=
+tsButton" style=3D"display:none;"><a class=3D"nbcomment" href=3D"#" onclick=
+=3D"toggleComments();return false;">Comments</a></li><li><a class=3D"nbinfo=
+" href=3D"/BridgeNetworkConnections?action=3Dinfo" rel=3D"nofollow">Info</a=
+></li><li><a class=3D"nbattachments" href=3D"/BridgeNetworkConnections?acti=
+on=3DAttachFile" rel=3D"nofollow">Attachments</a></li><li>
+<form action=3D"/BridgeNetworkConnections" class=3D"actionsmenu" method=3D"=
+GET">
+<div>
+   =20
+    <select name=3D"action" onchange=3D"if ((this.selectedIndex !=3D 0) &am=
+p;&amp;
+                      (this.options[this.selectedIndex].disabled =3D=3D fal=
+se)) {
+                this.form.submit();
+            }
+            this.selectedIndex =3D 0;">
+        <option selected=3D"selected" value=3D"show">More Actions:</option>=
+<option value=3D"raw">Raw Text</option>
+<option value=3D"print">Print View</option>
+<option value=3D"RenderAsDocbook">Render as Docbook</option>
+<option value=3D"refresh">Delete Cache</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"SpellCheck">Check Spelling</option>
+<option value=3D"LikePages">Like Pages</option>
+<option value=3D"LocalSiteMap">Local Site Map</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"RenamePage">Rename Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"DeletePage">Delete Page</=
+option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Subscribe User</opt=
+ion>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Remove Spam</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">Revert to this revi=
+sion</option>
+<option value=3D"PackagePages">Package Pages</option>
+<option class=3D"disabled" disabled=3D"" value=3D"show">-------------------=
+-----</option>
+<option value=3D"Load">Load</option>
+<option value=3D"Save">Save</option>
+<option value=3D"SlideShow">SlideShow</option>
+    </select>
+   =20
+   =20
+</div>
+<script type=3D"text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<h1 id=3D"locationline">
+
+
+<ul id=3D"pagelocation">
+<li><a href=3D"/BridgeNetworkConnections">BridgeNetworkConnections</a></li>
+</ul>
+
+</h1>
+</div>
+
+<div dir=3D"ltr" id=3D"page" lang=3D"en">
+<div dir=3D"ltr" id=3D"content" lang=3D"en"><span class=3D"anchor" id=3D"to=
+p"></span>
+<span class=3D"anchor" id=3D"line-1"></span><span class=3D"anchor" id=3D"li=
+ne-2"></span><p class=3D"line867"><small><a href=3D"/DebianWiki/EditorGuide=
+#translation">Translation(s)</a>: English - <a href=3D"/fr/BridgeNetworkCon=
+nections">Fran=C3=A7ais</a> </small> <span class=3D"anchor" id=3D"line-3"><=
+/span></p><hr><p class=3D"line874"> <span class=3D"anchor" id=3D"line-4"></=
+span><span class=3D"anchor" id=3D"line-5"></span></p><p class=3D"line867">
+</p><h1 id=3D"Bridging_Network_Connections">Bridging Network Connections</h=
+1>
+<span class=3D"anchor" id=3D"line-6"></span><p class=3D"line867"></p><div c=
+lass=3D"table-of-contents"><p class=3D"table-of-contents-heading">Contents<=
+/p><ol><li>
+<a href=3D"#Bridging_Network_Connections">Bridging Network Connections</a><=
+ol><li>
+<a href=3D"#Introduction">Introduction</a></li><li>
+<a href=3D"#Installing_the_software">Installing the software</a></li><li>
+<a href=3D"#Setting_up_your_Bridge">Setting up your Bridge</a><ol><li>
+<a href=3D"#Manual_bridge_setup">Manual bridge setup</a></li><li>
+<a href=3D"#Configuring_bridging_in_.2Fetc.2Fnetwork.2Finterfaces">Configur=
+ing bridging in /etc/network/interfaces</a><ol><li>
+<a href=3D"#Useful_options_for_virtualised_environments">Useful options for=
+ virtualised environments</a></li></ol></li><li>
+<a href=3D"#Setting_up_bridge-related_kernel_variables">Setting up bridge-r=
+elated kernel variables</a></li></ol></li><li>
+<a href=3D"#Libvirt_and_bridging">Libvirt and bridging</a></li><li>
+<a href=3D"#Bridging_with_a_wireless_NIC">Bridging with a wireless NIC</a><=
+ol><li>
+<a href=3D"#ebtables_Overview">ebtables Overview</a></li><li>
+<a href=3D"#bridge-utils_Modifications">bridge-utils Modifications</a></li>=
+<li>
+<a href=3D"#Setting_up_the_rules">Setting up the rules</a></li><li>
+<a href=3D"#Saving_your_rules">Saving your rules</a></li></ol></li><li>
+<a href=3D"#Link_Aggregation_.28LACP.29_with_VLANs">Link Aggregation (LACP)=
+ with VLANs</a></li><li>
+<a href=3D"#More_information">More information</a></li></ol></li></ol></div=
+> <span class=3D"anchor" id=3D"line-7"></span>
+<h2 id=3D"Introduction">Introduction</h2>
+<span class=3D"anchor" id=3D"line-8"></span><p class=3D"line874">Bridging y=
+our network connection is a handy method for sharing your internet connecti=
+on between two (or more) computers.  It=E2=80=99s useful if you can=E2=80=
+=99t buy a router with more than one ethernet port, or if you=E2=80=99re a =
+college student in a dorm room with limited ethernet jacks and no router. <=
+span class=3D"anchor" id=3D"line-9"></span><span class=3D"anchor" id=3D"lin=
+e-10"></span></p><p class=3D"line874">Basically, bridging is plugging one c=
+omputer into another computer that already has a connection to a larger net=
+work (like the internet) and letting the bridged computer use the networked=
+ computer=E2=80=99s connection.  To do so though, the networked computer ne=
+eds to have two ethernet ports, one for the big network, and one for the br=
+idged computer.  Make sure before starting that the computer you=E2=80=99re=
+ going to bridge through has two ethernet ports, and that the hardware is c=
+apable of bridging ethernet connections (it probably should be). <span clas=
+s=3D"anchor" id=3D"line-11"></span><span class=3D"anchor" id=3D"line-12"></=
+span></p><p class=3D"line874">Another example scenario for using bridging i=
+s to provide redundant networking capabilities. For example using two netwo=
+rk interfaces to connect to two spanning tree enabled switches provides a r=
+edundant connection in the event of a cable, interface or switch failure. T=
+his requires spanning tree to be enabled on both the bridge interface and t=
+he switch. <span class=3D"anchor" id=3D"line-13"></span><span class=3D"anch=
+or" id=3D"line-14"></span></p><p class=3D"line867">
+</p><h2 id=3D"Installing_the_software">Installing the software</h2>
+<span class=3D"anchor" id=3D"line-15"></span><p class=3D"line862">The progr=
+am you=E2=80=99re going to need is called <tt class=3D"backtick">brctl</tt>=
+ and is included in <a class=3D"interwiki" href=3D"https://packages.debian.=
+org/bridge-utils" title=3D"DebianPkg">bridge-utils</a>.  Find it in Synapti=
+c, or install it using this command: <span class=3D"anchor" id=3D"line-16">=
+</span><span class=3D"anchor" id=3D"line-17"></span><span class=3D"anchor" =
+id=3D"line-18"></span></p><pre><span class=3D"anchor" id=3D"line-1"></span>=
+ # aptitude install bridge-utils</pre><span class=3D"anchor" id=3D"line-19"=
+></span><p class=3D"line862">This software allows you to set up and use the=
+ bridge interface.  The bridge interface appears as a new interface in <tt =
+class=3D"backtick">ip&#xa0;link</tt>, much like <tt class=3D"backtick">eth0=
+</tt> or <tt class=3D"backtick">eth1</tt>.  It doesn=E2=80=99t physically e=
+xist on your computer, but instead it is a virtual interface that just take=
+s the packets from one physical interface, and transparently routes them to=
+ the other. <span class=3D"anchor" id=3D"line-20"></span><span class=3D"anc=
+hor" id=3D"line-21"></span></p><p class=3D"line867">
+</p><h2 id=3D"Setting_up_your_Bridge">Setting up your Bridge</h2>
+<span class=3D"anchor" id=3D"line-22"></span><span class=3D"anchor" id=3D"l=
+ine-23"></span><p class=3D"line867">
+</p><h3 id=3D"Manual_bridge_setup">Manual bridge setup</h3>
+<span class=3D"anchor" id=3D"line-24"></span><span class=3D"anchor" id=3D"l=
+ine-25"></span><p class=3D"line867"><strong>Note:</strong> All these comman=
+ds are to be issued on the computer with the existing network connection.  =
+To set up the computer that=E2=80=99s going to be bridged, just set it up n=
+ormally, as you would any other computer.  You CAN use DHCP, or you can use=
+ a static address.  It doesn=E2=80=99t matter. <span class=3D"anchor" id=3D=
+"line-26"></span><span class=3D"anchor" id=3D"line-27"></span></p><p class=
+=3D"line867"><strong>Note:</strong> If, after trying to use the bridge inte=
+rface, you find your network link becomes dead and refuses to work again, i=
+t might be that the router/switch upstream is blocking &quot;unauthorized s=
+witches&quot; in the network (for example, by detecting BPDU packets).  You=
+&#x27;ll have to change its configuration to explicitly allow the host mach=
+ine/network port as a &quot;switch&quot;. <span class=3D"anchor" id=3D"line=
+-28"></span><span class=3D"anchor" id=3D"line-29"></span></p><p class=3D"li=
+ne874">First step to creating the bridge network is actually creating it.  =
+Issue this command to get the ball rolling and create the new interface. <s=
+pan class=3D"anchor" id=3D"line-30"></span><span class=3D"anchor" id=3D"lin=
+e-31"></span><span class=3D"anchor" id=3D"line-32"></span></p><pre><span cl=
+ass=3D"anchor" id=3D"line-1-1"></span> # brctl addbr br0</pre><span class=
+=3D"anchor" id=3D"line-33"></span><p class=3D"line862">The name <tt class=
+=3D"backtick">br0</tt> is up to you and can be anything you want. Now you n=
+eed to add the interfaces that are going to be bridged. You can cross-check=
+ the enumeration of your ethernet devices with (<tt class=3D"backtick">eth0=
+</tt>, <tt class=3D"backtick">eth1</tt>, etc. is common): <span class=3D"an=
+chor" id=3D"line-34"></span><span class=3D"anchor" id=3D"line-35"></span><s=
+pan class=3D"anchor" id=3D"line-36"></span></p><pre><span class=3D"anchor" =
+id=3D"line-1-2"></span> # ip addr show</pre><span class=3D"anchor" id=3D"li=
+ne-37"></span><p class=3D"line862">Add both the interface with the second c=
+omputer, and the interface that leads to the existing network. Use <tt clas=
+s=3D"backtick">brctl</tt>: <span class=3D"anchor" id=3D"line-38"></span><sp=
+an class=3D"anchor" id=3D"line-39"></span><span class=3D"anchor" id=3D"line=
+-40"></span></p><pre><span class=3D"anchor" id=3D"line-1-3"></span> # brctl=
+ addif br0 eth0 eth1</pre><span class=3D"anchor" id=3D"line-41"></span><p c=
+lass=3D"line862">This will add the two interfaces <tt class=3D"backtick">et=
+h0</tt> and <tt class=3D"backtick">eth1</tt> to bridge <tt class=3D"backtic=
+k">br0</tt>.  Simple enough.  There=E2=80=99s no distinction with how you a=
+dd the bridges, or what order you do it, or any special commands you have t=
+o add to distinguish them.  So don=E2=80=99t worry about that. <span class=
+=3D"anchor" id=3D"line-42"></span><span class=3D"anchor" id=3D"line-43"></s=
+pan></p><p class=3D"line874">Well, now we have our bridges, so bring all th=
+e interfaces up, and you=E2=80=99ll be set! <span class=3D"anchor" id=3D"li=
+ne-44"></span><span class=3D"anchor" id=3D"line-45"></span></p><p class=3D"=
+line867">
+</p><h3 id=3D"Configuring_bridging_in_.2Fetc.2Fnetwork.2Finterfaces">Config=
+uring bridging in /etc/network/interfaces</h3>
+<span class=3D"anchor" id=3D"line-46"></span><span class=3D"anchor" id=3D"l=
+ine-47"></span><p class=3D"line862">To make your bridge a little more perma=
+nent, you will need to edit <tt class=3D"backtick">/etc/network/interfaces<=
+/tt>.  Using our example names, make it look like this and you=E2=80=99re s=
+et (if you want to use DHCP): <span class=3D"anchor" id=3D"line-48"></span>=
+<span class=3D"anchor" id=3D"line-49"></span><span class=3D"anchor" id=3D"l=
+ine-50"></span><span class=3D"anchor" id=3D"line-51"></span><span class=3D"=
+anchor" id=3D"line-52"></span><span class=3D"anchor" id=3D"line-53"></span>=
+<span class=3D"anchor" id=3D"line-54"></span><span class=3D"anchor" id=3D"l=
+ine-55"></span><span class=3D"anchor" id=3D"line-56"></span><span class=3D"=
+anchor" id=3D"line-57"></span><span class=3D"anchor" id=3D"line-58"></span>=
+<span class=3D"anchor" id=3D"line-59"></span><span class=3D"anchor" id=3D"l=
+ine-60"></span><span class=3D"anchor" id=3D"line-61"></span><span class=3D"=
+anchor" id=3D"line-62"></span><span class=3D"anchor" id=3D"line-63"></span>=
+<span class=3D"anchor" id=3D"line-64"></span></p><pre><span class=3D"anchor=
+" id=3D"line-1-4"></span> # This file describes the network interfaces avai=
+lable on your system
+<span class=3D"anchor" id=3D"line-2"></span> # and how to activate them. Fo=
+r more information, see interfaces(5).
+<span class=3D"anchor" id=3D"line-3"></span>
+<span class=3D"anchor" id=3D"line-4"></span> # The loopback network interfa=
+ce
+<span class=3D"anchor" id=3D"line-5"></span> auto lo br0
+<span class=3D"anchor" id=3D"line-6"></span> iface lo inet loopback
+<span class=3D"anchor" id=3D"line-7"></span>
+<span class=3D"anchor" id=3D"line-8"></span> # Set up interfaces manually, =
+avoiding conflicts with, e.g., network manager
+<span class=3D"anchor" id=3D"line-9"></span> iface eth0 inet manual
+<span class=3D"anchor" id=3D"line-10"></span>
+<span class=3D"anchor" id=3D"line-11"></span> iface eth1 inet manual
+<span class=3D"anchor" id=3D"line-12"></span>
+<span class=3D"anchor" id=3D"line-13"></span> # Bridge setup
+<span class=3D"anchor" id=3D"line-14"></span> iface br0 inet dhcp
+<span class=3D"anchor" id=3D"line-15"></span>    bridge_ports eth0 eth1</pr=
+e><span class=3D"anchor" id=3D"line-65"></span><p class=3D"line862">To brin=
+g up your bridge, you just have to issue <tt>&#xa0;#&#xa0;ifup&#xa0;br0</tt=
+> and it=E2=80=99ll bring up the other necessary interfaces without anythin=
+g in your <tt>interfaces</tt> file about the bridged interfaces. <span clas=
+s=3D"anchor" id=3D"line-66"></span><span class=3D"anchor" id=3D"line-67"></=
+span></p><p class=3D"line862">If you like static IP=E2=80=99s, then you can=
+ just add the static IP options under the <tt class=3D"backtick">br0</tt> i=
+nterface setup. For example: <span class=3D"anchor" id=3D"line-68"></span><=
+span class=3D"anchor" id=3D"line-69"></span><span class=3D"anchor" id=3D"li=
+ne-70"></span><span class=3D"anchor" id=3D"line-71"></span><span class=3D"a=
+nchor" id=3D"line-72"></span><span class=3D"anchor" id=3D"line-73"></span><=
+span class=3D"anchor" id=3D"line-74"></span><span class=3D"anchor" id=3D"li=
+ne-75"></span><span class=3D"anchor" id=3D"line-76"></span><span class=3D"a=
+nchor" id=3D"line-77"></span><span class=3D"anchor" id=3D"line-78"></span><=
+span class=3D"anchor" id=3D"line-79"></span><span class=3D"anchor" id=3D"li=
+ne-80"></span><span class=3D"anchor" id=3D"line-81"></span><span class=3D"a=
+nchor" id=3D"line-82"></span><span class=3D"anchor" id=3D"line-83"></span><=
+span class=3D"anchor" id=3D"line-84"></span><span class=3D"anchor" id=3D"li=
+ne-85"></span><span class=3D"anchor" id=3D"line-86"></span><span class=3D"a=
+nchor" id=3D"line-87"></span><span class=3D"anchor" id=3D"line-88"></span><=
+/p><pre><span class=3D"anchor" id=3D"line-1-5"></span> # This file describe=
+s the network interfaces available on your system
+<span class=3D"anchor" id=3D"line-2-1"></span> # and how to activate them. =
+For more information, see interfaces(5).
+<span class=3D"anchor" id=3D"line-3-1"></span>
+<span class=3D"anchor" id=3D"line-4-1"></span> # The loopback network inter=
+face
+<span class=3D"anchor" id=3D"line-5-1"></span> auto lo br0
+<span class=3D"anchor" id=3D"line-6-1"></span> iface lo inet loopback
+<span class=3D"anchor" id=3D"line-7-1"></span>
+<span class=3D"anchor" id=3D"line-8-1"></span> # Set up interfaces manually=
+, avoiding conflicts with, e.g., network manager
+<span class=3D"anchor" id=3D"line-9-1"></span> iface eth0 inet manual
+<span class=3D"anchor" id=3D"line-10-1"></span>
+<span class=3D"anchor" id=3D"line-11-1"></span> iface eth1 inet manual
+<span class=3D"anchor" id=3D"line-12-1"></span>
+<span class=3D"anchor" id=3D"line-13-1"></span> # Bridge setup
+<span class=3D"anchor" id=3D"line-14-1"></span> iface br0 inet static
+<span class=3D"anchor" id=3D"line-15-1"></span>    bridge_ports eth0 eth1
+<span class=3D"anchor" id=3D"line-16"></span>        address 192.168.1.2
+<span class=3D"anchor" id=3D"line-17"></span>        broadcast 192.168.1.255
+<span class=3D"anchor" id=3D"line-18"></span>        netmask 255.255.255.0
+<span class=3D"anchor" id=3D"line-19"></span>        gateway 192.168.1.1</p=
+re><span class=3D"anchor" id=3D"line-89"></span><span class=3D"anchor" id=
+=3D"line-90"></span><p class=3D"line867">
+</p><h4 id=3D"Useful_options_for_virtualised_environments">Useful options f=
+or virtualised environments</h4>
+<span class=3D"anchor" id=3D"line-91"></span><span class=3D"anchor" id=3D"l=
+ine-92"></span><p class=3D"line874">Some other useful options to use in any=
+ stanza in a virtualised environment are: <span class=3D"anchor" id=3D"line=
+-93"></span><span class=3D"anchor" id=3D"line-94"></span><span class=3D"anc=
+hor" id=3D"line-95"></span><span class=3D"anchor" id=3D"line-96"></span><sp=
+an class=3D"anchor" id=3D"line-97"></span><span class=3D"anchor" id=3D"line=
+-98"></span><span class=3D"anchor" id=3D"line-99"></span></p><pre><span cla=
+ss=3D"anchor" id=3D"line-1-6"></span>        bridge_stp off       # disable=
+ Spanning Tree Protocol
+<span class=3D"anchor" id=3D"line-2-2"></span>        bridge_waitport 0    =
+# no delay before a port becomes available
+<span class=3D"anchor" id=3D"line-3-2"></span>        bridge_fd 0          =
+# no forwarding delay
+<span class=3D"anchor" id=3D"line-4-2"></span>        bridge_ports none    =
+# if you do not want to bind to any ports
+<span class=3D"anchor" id=3D"line-5-2"></span>        bridge_ports regex et=
+h* # use a regular expression to define ports</pre><span class=3D"anchor" i=
+d=3D"line-100"></span><span class=3D"anchor" id=3D"line-101"></span><p clas=
+s=3D"line867">
+</p><h3 id=3D"Setting_up_bridge-related_kernel_variables">Setting up bridge=
+-related kernel variables</h3>
+<span class=3D"anchor" id=3D"line-102"></span><span class=3D"anchor" id=3D"=
+line-103"></span><p class=3D"line862">There are several kernel variables th=
+at affect bridge operation. In <a class=3D"http" href=3D"http://wiki.libvir=
+t.org/page/Networking">some cases</a> you may need to tweak these variables=
+. There are two common options: <span class=3D"anchor" id=3D"line-104"></sp=
+an><span class=3D"anchor" id=3D"line-105"></span></p><ul><li><p class=3D"li=
+ne862">Add variables to <em>/etc/sysctl.conf</em> directly <span class=3D"a=
+nchor" id=3D"line-106"></span></p></li><li><p class=3D"line862">Put them to=
+ a sysctl configuration file fragment (e.g. <em>/etc/sysctl.d/bridge_local.=
+conf</em>) <span class=3D"anchor" id=3D"line-107"></span><span class=3D"anc=
+hor" id=3D"line-108"></span></p></li></ul><p class=3D"line862">In the latte=
+r case, the <em>procps</em> init script <em>should</em> take care of loadin=
+g them during boot. However, on Squeeze it does not, and you need to restar=
+t it from <em>/etc/rc.local</em> (or similar): <span class=3D"anchor" id=3D=
+"line-109"></span><span class=3D"anchor" id=3D"line-110"></span></p><p clas=
+s=3D"line867"><span class=3D"anchor" id=3D"line-111"></span><span class=3D"=
+anchor" id=3D"line-112"></span><span class=3D"anchor" id=3D"line-113"></spa=
+n><span class=3D"anchor" id=3D"line-114"></span><span class=3D"anchor" id=
+=3D"line-115"></span><span class=3D"anchor" id=3D"line-116"></span><span cl=
+ass=3D"anchor" id=3D"line-117"></span></p><pre><span class=3D"anchor" id=3D=
+"line-1-7"></span># /etc/rc.local
+<span class=3D"anchor" id=3D"line-2-3"></span>
+<span class=3D"anchor" id=3D"line-3-3"></span># Load kernel variables from =
+/etc/sysctl.d
+<span class=3D"anchor" id=3D"line-4-3"></span>/etc/init.d/procps restart
+<span class=3D"anchor" id=3D"line-5-3"></span>
+<span class=3D"anchor" id=3D"line-6-2"></span>exit 0</pre><span class=3D"an=
+chor" id=3D"line-118"></span><span class=3D"anchor" id=3D"line-119"></span>=
+<p class=3D"line867">
+</p><h2 id=3D"Libvirt_and_bridging">Libvirt and bridging</h2>
+<span class=3D"anchor" id=3D"line-120"></span><span class=3D"anchor" id=3D"=
+line-121"></span><p class=3D"line867"><a class=3D"http" href=3D"http://libv=
+irt.org/index.html">Libvirt</a> is a virtualization API that supports KVM (=
+and various other virtualization technologies). It&#x27;s often desirable t=
+o <a class=3D"http" href=3D"http://wiki.libvirt.org/page/Networking#Bridged=
+_networking_.28aka_.22shared_physical_device.22.29">share a physical networ=
+k interface with guests</a> by creating a bridge. This usually offers excel=
+lent performance and doesn&#x27;t require NAT. This operation is composed o=
+f two parts: <span class=3D"anchor" id=3D"line-122"></span><span class=3D"a=
+nchor" id=3D"line-123"></span></p><ul><li><p class=3D"line862">Setup the br=
+idge interface on host as described in this article, <a class=3D"http" href=
+=3D"http://wiki.libvirt.org/page/Networking#Altering_the_interface_config">=
+here</a> or <a class=3D"https" href=3D"https://jamielinux.com/docs/libvirt-=
+networking-handbook/bridged-network.html">here</a> <span class=3D"anchor" i=
+d=3D"line-124"></span></p></li><li>Configure guest to use the newly-created=
+ bridge <span class=3D"anchor" id=3D"line-125"></span><span class=3D"anchor=
+" id=3D"line-126"></span></li></ul><p class=3D"line862">The <a class=3D"htt=
+ps" href=3D"https://jamielinux.com/docs/libvirt-networking-handbook/">libvi=
+rt Networking Handbook</a> provides thorough instructions. <span class=3D"a=
+nchor" id=3D"line-127"></span><span class=3D"anchor" id=3D"line-128"></span=
+></p><p class=3D"line862">You can verify if bridging is working properly by=
+ looking at <em>brctl</em> output: <span class=3D"anchor" id=3D"line-129"><=
+/span><span class=3D"anchor" id=3D"line-130"></span></p><p class=3D"line867=
+"><span class=3D"anchor" id=3D"line-131"></span><span class=3D"anchor" id=
+=3D"line-132"></span><span class=3D"anchor" id=3D"line-133"></span><span cl=
+ass=3D"anchor" id=3D"line-134"></span><span class=3D"anchor" id=3D"line-135=
+"></span><span class=3D"anchor" id=3D"line-136"></span><span class=3D"ancho=
+r" id=3D"line-137"></span><span class=3D"anchor" id=3D"line-138"></span></p=
+><pre><span class=3D"anchor" id=3D"line-1-8"></span>root@server:/etc/libvir=
+t/qemu# brctl show
+<span class=3D"anchor" id=3D"line-2-4"></span>bridge name     bridge id    =
+           STP enabled     interfaces
+<span class=3D"anchor" id=3D"line-3-4"></span>br0             8000.001ec952=
+d26b       yes             eth0
+<span class=3D"anchor" id=3D"line-4-4"></span>                             =
+                           vnet0
+<span class=3D"anchor" id=3D"line-5-4"></span>                             =
+                           vnet1
+<span class=3D"anchor" id=3D"line-6-3"></span>                             =
+                           vnet2
+<span class=3D"anchor" id=3D"line-7-2"></span>virbr0          8000.00000000=
+0000       yes</pre><span class=3D"anchor" id=3D"line-139"></span><span cla=
+ss=3D"anchor" id=3D"line-140"></span><p class=3D"line862">As can be seen, g=
+uest network interfaces <em>vnet0</em>, <em>vnet1</em> and <em>vnet2</em> a=
+re bound with the physical interface <em>eth0</em> in the bridge <em>br0</e=
+m>. The <em>virbr0</em> interface is only used by libvirt to give guests NA=
+T connectivity. <span class=3D"anchor" id=3D"line-141"></span><span class=
+=3D"anchor" id=3D"line-142"></span></p><p class=3D"line867">
+</p><h2 id=3D"Bridging_with_a_wireless_NIC">Bridging with a wireless NIC</h=
+2>
+<span class=3D"anchor" id=3D"line-143"></span><p class=3D"line862">Just lik=
+e you can bridge two wired ethernet interfaces, you can bridge between an e=
+thernet interface and a wireless interface. However, most Access Points (AP=
+s) will reject frames that have a source address that didn=E2=80=99t authen=
+ticate with the AP. Since Linux does ethernet bridging transparently (doesn=
+=E2=80=99t modify outgoing or incoming frames), we have to set up some rule=
+s to do this with a program called <a class=3D"interwiki" href=3D"https://p=
+ackages.debian.org/ebtables" title=3D"DebianPkg">ebtables</a>. <span class=
+=3D"anchor" id=3D"line-144"></span><span class=3D"anchor" id=3D"line-145"><=
+/span></p><p class=3D"line862">For an alternative Layer 3 approach using pr=
+oxy ARP and routing, see <a href=3D"/BridgeNetworkConnectionsProxyArp">Brid=
+geNetworkConnectionsProxyArp</a>. <span class=3D"anchor" id=3D"line-146"></=
+span><span class=3D"anchor" id=3D"line-147"></span></p><p class=3D"line867">
+</p><h3 id=3D"ebtables_Overview">ebtables Overview</h3>
+<span class=3D"anchor" id=3D"line-148"></span><p class=3D"line862">ebtables=
+ is essentially like <a class=3D"interwiki" href=3D"https://packages.debian=
+.org/iptables" title=3D"DebianPkg">iptables</a>, except it operates on the =
+MAC sublayer of the data-link layer of the OSI model, instead of the networ=
+k layer. In our case, this allows to change the source MAC address of all o=
+f our frames. This is handy because we fool our AP into thinking that all o=
+f our forwarded frames come from the machine which authenticated to the AP.=
+ <span class=3D"anchor" id=3D"line-149"></span><span class=3D"anchor" id=3D=
+"line-150"></span></p><p class=3D"line867">
+</p><h3 id=3D"bridge-utils_Modifications">bridge-utils Modifications</h3>
+<span class=3D"anchor" id=3D"line-151"></span><p class=3D"line862">Before t=
+his will work, you need to modify your <tt class=3D"backtick">/etc/network/=
+interfaces</tt> file, and add this line to your bridge stanza: <span class=
+=3D"anchor" id=3D"line-152"></span><span class=3D"anchor" id=3D"line-153"><=
+/span><span class=3D"anchor" id=3D"line-154"></span><span class=3D"anchor" =
+id=3D"line-155"></span></p><pre><span class=3D"anchor" id=3D"line-1-9"></sp=
+an> pre-up iwconfig wlan0 essid $YOUR_ESSID
+<span class=3D"anchor" id=3D"line-2-5"></span> bridge_hw $MAC_ADDRESS_OF_YO=
+UR_WIRELESS_CARD</pre><span class=3D"anchor" id=3D"line-156"></span><p clas=
+s=3D"line862">Obviously replacing <tt class=3D"backtick">$MAC_ADDRESS_OF_YO=
+UR_WIRELESS_CARD</tt> with the actual MAC address of your wireless card, an=
+d <tt class=3D"backtick">$YOUR_ESSID</tt> as the ESSID of your wireless net=
+work. If you don=E2=80=99t know your MAC address, you can find it by typing=
+ <span class=3D"anchor" id=3D"line-157"></span><span class=3D"anchor" id=3D=
+"line-158"></span><span class=3D"anchor" id=3D"line-159"></span></p><pre><s=
+pan class=3D"anchor" id=3D"line-1-10"></span> # ip link show wlan0</pre><sp=
+an class=3D"anchor" id=3D"line-160"></span><p class=3D"line862">Where <tt c=
+lass=3D"backtick">wlan0</tt> is your wireless interface. Your MAC address i=
+s listed as the HWaddr. <span class=3D"anchor" id=3D"line-161"></span><span=
+ class=3D"anchor" id=3D"line-162"></span></p><p class=3D"line867">
+</p><h3 id=3D"Setting_up_the_rules">Setting up the rules</h3>
+<span class=3D"anchor" id=3D"line-163"></span><p class=3D"line874">First, i=
+nstall ebtables: <span class=3D"anchor" id=3D"line-164"></span><span class=
+=3D"anchor" id=3D"line-165"></span><span class=3D"anchor" id=3D"line-166"><=
+/span></p><pre><span class=3D"anchor" id=3D"line-1-11"></span> # aptitude i=
+nstall ebtables</pre><span class=3D"anchor" id=3D"line-167"></span><span cl=
+ass=3D"anchor" id=3D"line-168"></span><p class=3D"line874">Now we can start=
+ setting up the rules. The syntax for ebtables is almost identical to that =
+of iptables, so if you have experience with iptables, this will look pretty=
+ familiar to you. <span class=3D"anchor" id=3D"line-169"></span><span class=
+=3D"anchor" id=3D"line-170"></span></p><p class=3D"line874">The first rule =
+we=E2=80=99re going to set up will set the source MAC address to the MAC ad=
+dress of the bridge for all frames sent to the AP. <span class=3D"anchor" i=
+d=3D"line-171"></span><span class=3D"anchor" id=3D"line-172"></span><span c=
+lass=3D"anchor" id=3D"line-173"></span></p><p class=3D"line867"><span class=
+=3D"anchor" id=3D"line-174"></span><span class=3D"anchor" id=3D"line-175"><=
+/span></p><pre><span class=3D"anchor" id=3D"line-1-12"></span> # ebtables -=
+t nat -A POSTROUTING -o wlan0 -j snat --to-src $MAC_OF_BRIDGE --snat-arp --=
+snat-target ACCEPT</pre><span class=3D"anchor" id=3D"line-176"></span><span=
+ class=3D"anchor" id=3D"line-177"></span><p class=3D"line874">The next rule=
+s will require you to know the MAC and IP of each of the machines behind yo=
+ur bridge. Replace $MAC and $IP with these. <span class=3D"anchor" id=3D"li=
+ne-178"></span><span class=3D"anchor" id=3D"line-179"></span><span class=3D=
+"anchor" id=3D"line-180"></span><span class=3D"anchor" id=3D"line-181"></sp=
+an></p><pre><span class=3D"anchor" id=3D"line-1-13"></span> # ebtables -t n=
+at -A PREROUTING -p IPv4 -i wlan0 --ip-dst $IP -j dnat --to-dst $MAC --dnat=
+-target ACCEPT
+<span class=3D"anchor" id=3D"line-2-6"></span> # ebtables -t nat -A PREROUT=
+ING -p ARP -i wlan0 --arp-ip-dst $IP -j dnat --to-dst $MAC --dnat-target AC=
+CEPT</pre><span class=3D"anchor" id=3D"line-182"></span><span class=3D"anch=
+or" id=3D"line-183"></span><p class=3D"line874">This is tedious to have to =
+type in everytime you add a new computer to a switch behind your bridge, so=
+ I wrote a script to do it for you <span class=3D"anchor" id=3D"line-184"><=
+/span><span class=3D"anchor" id=3D"line-185"></span><span class=3D"anchor" =
+id=3D"line-186"></span><span class=3D"anchor" id=3D"line-187"></span><span =
+class=3D"anchor" id=3D"line-188"></span><span class=3D"anchor" id=3D"line-1=
+89"></span><span class=3D"anchor" id=3D"line-190"></span><span class=3D"anc=
+hor" id=3D"line-191"></span><span class=3D"anchor" id=3D"line-192"></span><=
+span class=3D"anchor" id=3D"line-193"></span><span class=3D"anchor" id=3D"l=
+ine-194"></span><span class=3D"anchor" id=3D"line-195"></span><span class=
+=3D"anchor" id=3D"line-196"></span><span class=3D"anchor" id=3D"line-197"><=
+/span><span class=3D"anchor" id=3D"line-198"></span><span class=3D"anchor" =
+id=3D"line-199"></span><span class=3D"anchor" id=3D"line-200"></span><span =
+class=3D"anchor" id=3D"line-201"></span><span class=3D"anchor" id=3D"line-2=
+02"></span><span class=3D"anchor" id=3D"line-203"></span><span class=3D"anc=
+hor" id=3D"line-204"></span><span class=3D"anchor" id=3D"line-205"></span><=
+span class=3D"anchor" id=3D"line-206"></span><span class=3D"anchor" id=3D"l=
+ine-207"></span><span class=3D"anchor" id=3D"line-208"></span><span class=
+=3D"anchor" id=3D"line-209"></span><span class=3D"anchor" id=3D"line-1-1"><=
+/span></p><div class=3D"highlight bash"><div class=3D"codearea" dir=3D"ltr"=
+ lang=3D"en">
+<script type=3D"text/javascript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.f=
+irstChild.firstChild.className =3D=3D 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen =3D Math.max(0,chrs-(''+num).length), res =3D '';
+  while (nlen>0) { res +=3D ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c =3D document.getElementById(did), l =3D c.firstChild, n =3D 1;
+  if (!isnumbered(c)) {
+    if (typeof nstart =3D=3D 'undefined') nstart =3D 1;
+    if (typeof nstep  =3D=3D 'undefined') nstep =3D 1;
+    var n =3D nstart;
+    while (l !=3D null) {
+      if (l.tagName =3D=3D 'SPAN') {
+        var s =3D document.createElement('SPAN');
+        var a =3D document.createElement('A');
+        s.className =3D 'LineNumber';
+        a.appendChild(document.createTextNode(nformat(n,4,'')));
+        a.href =3D '#' + did + '_' + n;
+        s.appendChild(a);
+        s.appendChild(document.createTextNode(' '));
+        n +=3D nstep;
+        if (l.childNodes.length) {
+          l.insertBefore(s, l.firstChild);
+        }
+        else {
+          l.appendChild(s);
+        }
+      }
+      l =3D l.nextSibling;
+    }
+  }
+  return false;
+}
+function remnumber(did) {
+  var c =3D document.getElementById(did), l =3D c.firstChild;
+  if (isnumbered(c)) {
+    while (l !=3D null) {
+      if (l.tagName =3D=3D 'SPAN' && l.firstChild.className =3D=3D 'LineNum=
+ber') l.removeChild(l.firstChild);
+      l =3D l.nextSibling;
+    }
+  }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c =3D document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type=3D"text/javascript">
+document.write('<a href=3D"#" onclick=3D"return togglenumber(\'CA-3c042f810=
+abbef691cff5bd6556a81bd492a8452\', 1, 1);" \
+                class=3D"codenumbers">Toggle line numbers<\/a>');
+</script><a class=3D"codenumbers" href=3D"#" onclick=3D"return togglenumber=
+(&#x27;CA-3c042f810abbef691cff5bd6556a81bd492a8452&#x27;, 1, 1);">Toggle li=
+ne numbers</a>
+<pre dir=3D"ltr" id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452" lang=3D=
+"en"><span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f8=
+10abbef691cff5bd6556a81bd492a8452_1">   1</a> </span><span class=3D"LineAnc=
+hor" id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_1"></span><span clas=
+s=3D"anchor" id=3D"line-1-2"></span> <span class=3D"Comment">#!/bin/bash</s=
+pan></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_2">   2</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_2"></span><span class=3D"=
+anchor" id=3D"line-2-1"></span><span class=3D"Comment"></span> <span class=
+=3D"Comment"># addcomputer</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_3">   3</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_3"></span><span class=3D"=
+anchor" id=3D"line-3-1"></span><span class=3D"Comment"></span> <span class=
+=3D"Comment"># Will Orr - 2009</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_4">   4</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_4"></span><span class=3D"=
+anchor" id=3D"line-4-1"></span><span class=3D"Comment"></span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_5">   5</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_5"></span><span class=3D"=
+anchor" id=3D"line-5-1"></span> <span class=3D"ID">INIF</span>=3D<span clas=
+s=3D"String">&quot;wlan0&quot;</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_6">   6</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_6"></span><span class=3D"=
+anchor" id=3D"line-6-1"></span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_7">   7</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_7"></span><span class=3D"=
+anchor" id=3D"line-7-1"></span> <span class=3D"ResWord">function</span> add=
+_ebtables () {</span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_8">   8</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_8"></span><span class=3D"=
+anchor" id=3D"line-8-1"></span>   <span class=3D"ID">COMPIP</span>=3D<span =
+class=3D"ID">$1</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_9">   9</a> </span><span class=3D"LineAnchor" =
+id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_9"></span><span class=3D"=
+anchor" id=3D"line-9-1"></span>   <span class=3D"ID">COMPMAC</span>=3D<span=
+ class=3D"ID">$2</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_10">  10</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_10"></span><span class=
+=3D"anchor" id=3D"line-10-1"></span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_11">  11</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_11"></span><span class=
+=3D"anchor" id=3D"line-11-1"></span>   ebtables -t nat -A PREROUTING -i <sp=
+an class=3D"ID">$INIF</span> -p IPv4 --ip-dst <span class=3D"ID">$COMPIP</s=
+pan> -j <span class=3D"SPChar">\</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_12">  12</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_12"></span><span class=
+=3D"anchor" id=3D"line-12-1"></span><span class=3D"SPChar"></span>   dnat -=
+-to-dst <span class=3D"ID">$COMPMAC</span> --dnat-target ACCEPT</span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_13">  13</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_13"></span><span class=
+=3D"anchor" id=3D"line-13-1"></span>   ebtables -t nat -A PREROUTING -i <sp=
+an class=3D"ID">$INIF</span> -p ARP --arp-ip-dst <span class=3D"ID">$COMPIP=
+</span> <span class=3D"SPChar">\</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_14">  14</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_14"></span><span class=
+=3D"anchor" id=3D"line-14-1"></span><span class=3D"SPChar"></span>   -j dna=
+t --to-dst <span class=3D"ID">$COMPMAC</span> --dnat-target ACCEPT</span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_15">  15</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_15"></span><span class=
+=3D"anchor" id=3D"line-15-1"></span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_16">  16</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_16"></span><span class=
+=3D"anchor" id=3D"line-16-1"></span> }</span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_17">  17</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_17"></span><span class=
+=3D"anchor" id=3D"line-17-1"></span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_18">  18</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_18"></span><span class=
+=3D"anchor" id=3D"line-18-1"></span> <span class=3D"ResWord">if</span> [[ <=
+span class=3D"ID">$# </span>-ne <span class=3D"Number">2</span> ]]; <span c=
+lass=3D"ResWord">then</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_19">  19</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_19"></span><span class=
+=3D"anchor" id=3D"line-19-1"></span>   <span class=3D"ResWord">echo</span> =
+<span class=3D"String">&quot;</span><span class=3D"String">Usage: </span><s=
+pan class=3D"ID">$0</span><span class=3D"String"> ip mac</span><span class=
+=3D"String">&quot;</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_20">  20</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_20"></span><span class=
+=3D"anchor" id=3D"line-20-1"></span> <span class=3D"ResWord">elif</span> [[=
+ <span class=3D"ResWord">$(</span>whoami<span class=3D"ResWord">)</span> !=
+=3D <span class=3D"String">&quot;root&quot;</span> ]]; <span class=3D"ResWo=
+rd">then</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_21">  21</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_21"></span><span class=
+=3D"anchor" id=3D"line-21-1"></span>   <span class=3D"ResWord">echo</span> =
+<span class=3D"String">&quot;Error: must be root&quot;</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_22">  22</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_22"></span><span class=
+=3D"anchor" id=3D"line-22-1"></span> <span class=3D"ResWord">else</span></s=
+pan>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_23">  23</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_23"></span><span class=
+=3D"anchor" id=3D"line-23-1"></span>   add_ebtables <span class=3D"ID">$1</=
+span> <span class=3D"ID">$2</span></span>
+<span class=3D"line"><span class=3D"LineNumber"><a href=3D"#CA-3c042f810abb=
+ef691cff5bd6556a81bd492a8452_24">  24</a> </span><span class=3D"LineAnchor"=
+ id=3D"CA-3c042f810abbef691cff5bd6556a81bd492a8452_24"></span><span class=
+=3D"anchor" id=3D"line-24-1"></span> <span class=3D"ResWord">fi</span></spa=
+n>
+</pre></div></div><span class=3D"anchor" id=3D"line-210"></span><span class=
+=3D"anchor" id=3D"line-211"></span><p class=3D"line867">
+</p><h3 id=3D"Saving_your_rules">Saving your rules</h3>
+<span class=3D"anchor" id=3D"line-212"></span><p class=3D"line874">After yo=
+u have written your ebtables rules, you need to save them in an atomic file=
+. Otherwise, your rules will not be preserved. Saving them is rather simple=
+ though. <span class=3D"anchor" id=3D"line-213"></span><span class=3D"ancho=
+r" id=3D"line-214"></span><span class=3D"anchor" id=3D"line-215"></span></p=
+><pre><span class=3D"anchor" id=3D"line-1-14"></span> # EBTABLES_ATOMIC_FIL=
+E=3D/root/ebtables-atomic ebtables -t nat --atomic-save</pre><span class=3D=
+"anchor" id=3D"line-216"></span><p class=3D"line874">And then load them lik=
+e this: <span class=3D"anchor" id=3D"line-217"></span><span class=3D"anchor=
+" id=3D"line-218"></span><span class=3D"anchor" id=3D"line-219"></span></p>=
+<pre><span class=3D"anchor" id=3D"line-1-15"></span> # EBTABLES_ATOMIC_FILE=
+=3D/root/ebtables-atomic ebtables -t nat --atomic-commit</pre><span class=
+=3D"anchor" id=3D"line-220"></span><p class=3D"line862">If you want to load=
+ your ebtables rules at boot time, a handy place to stick the commit comman=
+d is in /etc/rc.local. Just pop it in there before the <tt>exit&#xa0;0</tt>=
+ line. <span class=3D"anchor" id=3D"line-221"></span><span class=3D"anchor"=
+ id=3D"line-222"></span><span class=3D"anchor" id=3D"line-223"></span></p><=
+p class=3D"line867">
+</p><h2 id=3D"Link_Aggregation_.28LACP.29_with_VLANs">Link Aggregation (LAC=
+P) with VLANs</h2>
+<span class=3D"anchor" id=3D"line-224"></span><span class=3D"anchor" id=3D"=
+line-225"></span><p class=3D"line862">Here is an example of the <tt>/etc/ne=
+twork/interfaces</tt> file for 2 interfaces LACP bonded together with VLANs=
+ defined on top of the bond. <span class=3D"anchor" id=3D"line-226"></span>=
+<span class=3D"anchor" id=3D"line-227"></span></p><p class=3D"line874">Note=
+s: Tested on Debian Jessie 8.0 rc1 on 3/11/2015 (AMD64 arch) <span class=3D=
+"anchor" id=3D"line-228"></span><span class=3D"anchor" id=3D"line-229"></sp=
+an></p><p class=3D"line874">Required debian packages for vlan and bonding: =
+<span class=3D"anchor" id=3D"line-230"></span><span class=3D"anchor" id=3D"=
+line-231"></span></p><p class=3D"line867"><span class=3D"anchor" id=3D"line=
+-232"></span><span class=3D"anchor" id=3D"line-233"></span><span class=3D"a=
+nchor" id=3D"line-234"></span></p><pre><span class=3D"anchor" id=3D"line-1-=
+16"></span>aptitude install vlan ifenslave
+<span class=3D"anchor" id=3D"line-2-7"></span>echo &quot;8021q&quot; &gt;&g=
+t; /etc/modules</pre><span class=3D"anchor" id=3D"line-235"></span><span cl=
+ass=3D"anchor" id=3D"line-236"></span><p class=3D"line862">The <tt>/etc/net=
+work/interfaces</tt> could be: <span class=3D"anchor" id=3D"line-237"></spa=
+n><span class=3D"anchor" id=3D"line-238"></span><span class=3D"anchor" id=
+=3D"line-239"></span><span class=3D"anchor" id=3D"line-240"></span><span cl=
+ass=3D"anchor" id=3D"line-241"></span><span class=3D"anchor" id=3D"line-242=
+"></span><span class=3D"anchor" id=3D"line-243"></span><span class=3D"ancho=
+r" id=3D"line-244"></span><span class=3D"anchor" id=3D"line-245"></span><sp=
+an class=3D"anchor" id=3D"line-246"></span><span class=3D"anchor" id=3D"lin=
+e-247"></span><span class=3D"anchor" id=3D"line-248"></span><span class=3D"=
+anchor" id=3D"line-249"></span><span class=3D"anchor" id=3D"line-250"></spa=
+n><span class=3D"anchor" id=3D"line-251"></span><span class=3D"anchor" id=
+=3D"line-252"></span><span class=3D"anchor" id=3D"line-253"></span><span cl=
+ass=3D"anchor" id=3D"line-254"></span><span class=3D"anchor" id=3D"line-255=
+"></span><span class=3D"anchor" id=3D"line-256"></span><span class=3D"ancho=
+r" id=3D"line-257"></span><span class=3D"anchor" id=3D"line-258"></span><sp=
+an class=3D"anchor" id=3D"line-259"></span><span class=3D"anchor" id=3D"lin=
+e-260"></span><span class=3D"anchor" id=3D"line-261"></span><span class=3D"=
+anchor" id=3D"line-262"></span><span class=3D"anchor" id=3D"line-263"></spa=
+n><span class=3D"anchor" id=3D"line-264"></span><span class=3D"anchor" id=
+=3D"line-265"></span><span class=3D"anchor" id=3D"line-266"></span><span cl=
+ass=3D"anchor" id=3D"line-267"></span><span class=3D"anchor" id=3D"line-268=
+"></span><span class=3D"anchor" id=3D"line-269"></span><span class=3D"ancho=
+r" id=3D"line-270"></span><span class=3D"anchor" id=3D"line-271"></span><sp=
+an class=3D"anchor" id=3D"line-272"></span><span class=3D"anchor" id=3D"lin=
+e-273"></span><span class=3D"anchor" id=3D"line-274"></span><span class=3D"=
+anchor" id=3D"line-275"></span><span class=3D"anchor" id=3D"line-276"></spa=
+n><span class=3D"anchor" id=3D"line-277"></span><span class=3D"anchor" id=
+=3D"line-278"></span></p><pre><span class=3D"anchor" id=3D"line-1-17"></spa=
+n>auto lo
+<span class=3D"anchor" id=3D"line-2-8"></span>iface lo inet loopback
+<span class=3D"anchor" id=3D"line-3-5"></span># there is one other thing I =
+am forgetting here... see bonding setup above
+<span class=3D"anchor" id=3D"line-4-5"></span>
+<span class=3D"anchor" id=3D"line-5-5"></span>###### Bonded 10Gig setup - L=
+ACP Aggregation #######  bond eth4 and eth5
+<span class=3D"anchor" id=3D"line-6-4"></span>#### (set up from switch as t=
+runk links with LACP)  then split out VLANS
+<span class=3D"anchor" id=3D"line-7-3"></span>
+<span class=3D"anchor" id=3D"line-8-2"></span>## View status with:   cat /p=
+roc/net/bonding/bond0
+<span class=3D"anchor" id=3D"line-9-2"></span>
+<span class=3D"anchor" id=3D"line-10-2"></span>auto bond0
+<span class=3D"anchor" id=3D"line-11-2"></span>iface bond0 inet manual
+<span class=3D"anchor" id=3D"line-12-2"></span>        up ifconfig bond0 0.=
+0.0.0 up
+<span class=3D"anchor" id=3D"line-13-2"></span>        slaves eth4 eth5
+<span class=3D"anchor" id=3D"line-14-2"></span># bond-mode 4 =3D 802.3ad
+<span class=3D"anchor" id=3D"line-15-2"></span>        bond-mode 4
+<span class=3D"anchor" id=3D"line-16-1"></span>        bond-miimon 100
+<span class=3D"anchor" id=3D"line-17-1"></span>        bond-downdelay 200
+<span class=3D"anchor" id=3D"line-18-1"></span>        bond-updelay 200
+<span class=3D"anchor" id=3D"line-19-1"></span>        bond-lacp-rate 1
+<span class=3D"anchor" id=3D"line-20"></span>        bond-xmit-hash-policy =
+layer2+3
+<span class=3D"anchor" id=3D"line-21"></span>
+<span class=3D"anchor" id=3D"line-22"></span>
+<span class=3D"anchor" id=3D"line-23"></span>auto vlan1023
+<span class=3D"anchor" id=3D"line-24"></span>iface vlan1023 inet static
+<span class=3D"anchor" id=3D"line-25"></span>
+<span class=3D"anchor" id=3D"line-26"></span>        address 18.28.4.123
+<span class=3D"anchor" id=3D"line-27"></span>        netmask 255.255.255.0
+<span class=3D"anchor" id=3D"line-28"></span>        gateway 18.28.4.1
+<span class=3D"anchor" id=3D"line-29"></span>        vlan-raw-device bond0
+<span class=3D"anchor" id=3D"line-30"></span>
+<span class=3D"anchor" id=3D"line-31"></span>
+<span class=3D"anchor" id=3D"line-32"></span>auto vlan1024
+<span class=3D"anchor" id=3D"line-33"></span>iface vlan1024 inet static
+<span class=3D"anchor" id=3D"line-34"></span>
+<span class=3D"anchor" id=3D"line-35"></span>        address 10.15.160.1
+<span class=3D"anchor" id=3D"line-36"></span>        netmask 255.255.255.0
+<span class=3D"anchor" id=3D"line-37"></span>        gateway 10.15.160.100
+<span class=3D"anchor" id=3D"line-38"></span>        vlan-raw-device bond0<=
+/pre><span class=3D"anchor" id=3D"line-279"></span><span class=3D"anchor" i=
+d=3D"line-280"></span><p class=3D"line867">
+</p><h2 id=3D"More_information">More information</h2>
+<span class=3D"anchor" id=3D"line-281"></span><ul><li><p class=3D"line891">=
+<a class=3D"http" href=3D"http://www.linux.com/feature/133849">http://www.l=
+inux.com/feature/133849</a> <span class=3D"anchor" id=3D"line-282"></span><=
+span class=3D"anchor" id=3D"line-283"></span></p></li></ul><p class=3D"line=
+867"></p><hr><p class=3D"line874"> <span class=3D"anchor" id=3D"line-284"><=
+/span><a href=3D"/CategoryNetwork">CategoryNetwork</a>  <span class=3D"anch=
+or" id=3D"line-285"></span><span class=3D"anchor" id=3D"bottom"></span></p>=
+</div><div id=3D"pagebottom"></div>
+</div>
+
+
+<div id=3D"footer">
+<p class=3D"info" dir=3D"ltr" id=3D"pageinfo" lang=3D"en">BridgeNetworkConn=
+ections  (<a class=3D"nbinfo" href=3D"/BridgeNetworkConnections?action=3Din=
+fo" rel=3D"nofollow">last modified 2016-09-29 19:03:52</a>)</p>
+
+<ul id=3D"credits">
+<li><a href=3D"https://moinmo.in/" title=3D"This site uses the MoinMoin Wik=
+i software.">MoinMoin Powered</a></li><li><a href=3D"https://moinmo.in/Pyth=
+on" title=3D"MoinMoin is written in Python.">Python Powered</a></li><li>Deb=
+ian Wiki <a href=3D"/Teams/DebianWiki">team</a>, <a href=3D"https://bugs.de=
+bian.org/wiki.debian.org">bugs</a> and <a href=3D"https://git.debian.org/?p=
+=3Dcollab-maint/wiki.debian.org.git;a=3Dsummary">config</a> available.</li>=
+<li>Hosting provided by <a href=3D"https://www.man-da.de/">Metropolitan Are=
+a Network Darmstadt</a></li>
+</ul>
+
+
+</div>
+
+
+
+</body></html>
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/common.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+@import url("modernized-common.css");
+@import url("debwiki.css");
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/modernized-common.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*  common.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+html {
+	background-color: white;
+	color: black;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+body {
+	margin: 0;
+}
+
+/* Links */
+
+a {color: #0044B3;}
+/* a:visited {color: #597BB3;} */
+a:visited {color: #FF7BB3;}
+
+a.nonexistent:visited, a.nonexistent,=20
+a.badinterwiki:visited, a.badinterwiki {color: gray;}
+
+a.www:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.http:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.https:before {content: url(../img/moin-www.png); margin: 0 0.2em;}
+a.file:before {content: url(../img/moin-ftp.png); margin: 0 0.2em;}
+a.ftp:before {content: url(../img/moin-ftp.png); margin: 0 0.2em;}
+a.nntp:before {content: url(../img/moin-news.png); margin: 0 0.2em;}
+a.news:before {content: url(../img/moin-news.png); margin: 0 0.2em;}
+a.telnet:before, a.ssh:before {content: url(../img/moin-telnet.png); margin=
+: 0 0.2em;}
+a.irc:before, a.ircs:before  {content: url(../img/moin-telnet.png); margin:=
+ 0 0.2em;}
+a.mailto:before {content: url(../img/moin-email.png); margin: 0 0.2em;}
+a.attachment:before {content: url(../img/moin-attach.png); margin: 0 0.2em;}
+a.badinterwiki:before {content: url(../img/moin-inter.png); margin: 0 0.2em=
+;}
+a.interwiki:before {content: url(../img/moin-inter.png); margin: 0 0.2em;}
+
+li p {
+	margin: .25em 0;
+}
+
+li.gap {
+    margin-top: 0.5em;
+}
+
+dt {
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+dd {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+dd p {
+    margin: 0.25em 0;
+}
+  =20
+a, img, img.drawing {
+	border: 0;
+}
+
+pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+	white-space: pre;
+	/* begin css 3 or browser specific rules - do not remove!
+	see: http://forums.techguy.org/archive/index.php/t-249849.html */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    /* end css 3 or browser specific rules */
+}
+
+pre.comment {
+    background-color: #CCCCCC;
+    color: red;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+pre.comment:before {
+    content: url(../img/attention.png);
+}
+
+
+/* .comment css definition must be top of .red/.green/.blue or it won't wor=
+k */
+.comment { color: #555555; background-color: #DDDDFF; }
+
+.red { background-color: #FFCCCC; }
+.green { background-color: #CCFFCC; }
+.blue { background-color: #CCCCFF; }
+.yellow { background-color: #FFF29F; }
+.orange { background-color: #FFD59B; }
+
+.solid { border: 2px solid #000000; padding: 2px; }
+.dashed { border: 2px dashed #000000; padding: 2px; }
+.dotted { border: 2px dotted #000000; padding: 2px; }
+
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+.justify { text-align: justify; }
+
+table
+{
+	margin: 0.5em 0 0 0.5em;
+	border-collapse: collapse;
+}
+
+th, td
+{
+	padding: 0.25em 0.5em 0.25em 0.5em;
+	border: 1pt solid #ADB9CC;
+}
+
+td p {
+	margin: 0;
+	padding: 0;
+}
+/* TableOfContents macro */
+div.table-of-contents {
+    border: 1px solid #bbbbbb;
+    color: black;
+    background-color: #eeeeee;
+    font-size: 80%;
+    text-align: left;
+    margin: 0.5em 0 0.5em 1em;
+    padding: 0.5em 0.75em 0.5em 0.5em;
+    max-width: 50%;
+    display: inline-table;
+}
+div.table-of-contents ol {
+    margin: 0;
+    padding: 0 0 0 2em;
+}
+div.table-of-contents ul {
+    margin: 0;
+    list-style:none;
+}
+div.table-of-contents li {
+    margin:0;
+    padding: 0;
+}
+p.table-of-contents-heading {
+    font-weight:bold;
+    padding:0;
+    margin: 0 0 0.5em 0;
+    letter-spacing: 0.075em;
+}
+
+/* Navigation macro */
+table.navigation {
+    background: #fff;
+    margin: 0;
+}
+
+.footnotes div {
+	width: 5em;
+	border-top: 1pt solid gray;
+}
+
+.footnotes ol {
+	padding: 0 2em;
+	margin: 0 0 1em;
+}
+
+.footnotes li {
+}
+
+.info {
+    float: right;
+    font-size: 0.7em;
+    color: gray;
+}
+
+#pageinfo {
+    margin-top: 2em;
+}
+
+.seperator {
+    color: gray;
+}
+
+#pagebottom {clear: both;}
+
+/* standard rule ---- */
+hr {
+    height: 1pt;
+    background-color: #9C9C9C;
+    border: 0;
+}
+
+/* custom rules ----- to ---------- */
+.hr1 {height: 2pt;}
+.hr2 {height: 3pt;}
+.hr3 {height: 4pt;}
+.hr4 {height: 5pt;}
+.hr5 {height: 6pt;}
+.hr6 {height: 7pt;}
+
+/* Replacement for deprecated html 3 <u> element and html 4 <strike> */
+.u {text-decoration: underline;}
+.strike {text-decoration: line-through;}
+
+/* eye catchers */
+.warning=20
+{
+	color: red;
+}
+
+.error=20
+{
+	color: red;
+}
+
+strong.highlight=20
+{
+	background-color: #CCE0FF;
+	padding: 1pt;
+}
+
+
+/* Recent changes */
+
+.rcrss {
+	float: right;
+	margin: 0 7px 0 14px;
+        height: 0;
+        position: relative;
+        top: 9px;
+}
+*[div=3D"rtl"] .rcrss {
+    float: left;
+}
+.recentchanges[dir=3D"rtl"] .rcrss {
+	float: left;
+}
+
+.recentchanges table {
+	clear: both;
+        border-collapse: collapse;
+       =20
+    border: 1px solid #4d7da9;
+}
+
+.recentchanges td {
+	vertical-align: top;
+	border: none;
+    background: #e6eaf0;
+}
+
+
+.recentchanges .rcdaybreak td {
+    background: #81BBF2;
+    border: none;
+    border: 1px solid #4d7da9;
+}
+
+.rcdaybreak td a {
+	font-size: 0.88em;
+}
+
+.rcicon1, .rcicon2 {
+	text-align: center;
+}
+
+.rcpagelink {
+	width: 33%;
+}
+
+.rctime {
+	font-size: 0.88em;
+	white-space: nowrap;
+}
+
+.rceditor {
+	white-space: nowrap;
+	font-size: 0.88em;
+}
+
+.rccomment {
+	width: 50%;
+	color: gray;
+	font-size: 0.88em;
+}
+
+
+/* User Preferences */
+
+.userpref table, .userpref td {
+	border: none;
+}
+
+/* CSS for new code_area markup used by Colorizer and ParserBase */
+
+div.codearea { /* the div makes the border */
+	margin: 0.5em 0;
+	padding: 0;
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	color: black;
+}
+
+div.codearea pre { /* the pre has no border and is inside the div */
+	margin: 0;
+	padding: 10pt;
+	border: none;
+}
+
+a.codenumbers { /* format of the line numbering link */
+	margin: 0 10pt;
+	font-size: 0.85em;
+	color: gray;
+}
+
+/* format of certain syntax spans */
+div.codearea pre span.LineNumber {color: gray;}
+div.codearea pre span.ID         {color: #000000;}
+div.codearea pre span.Operator   {color: #0000C0;}
+div.codearea pre span.Char       {color: #004080;}
+div.codearea pre span.Comment    {color: #008000;}
+div.codearea pre span.Number     {color: #0080C0;}
+div.codearea pre span.String     {color: #004080;}
+div.codearea pre span.SPChar     {color: #0000C0;}
+div.codearea pre span.ResWord    {color: #A00000;}
+div.codearea pre span.ConsWord   {color: #008080; font-weight: bold;}
+div.codearea pre span.Error      {color: #FF8080; border: solid 1.5pt #FF00=
+00;}
+div.codearea pre span.ResWord2   {color: #0080ff; font-weight: bold;}
+div.codearea pre span.Special    {color: #0000ff;}
+div.codearea pre span.Preprc     {color: #803999;}
+
+/* for diff parser */
+div.codearea pre span.DiffAdded   {color: #4876FF;}
+div.codearea pre span.DiffRemoved {color: #FF0000;}
+div.codearea pre span.DiffChanged {color: #FF7F50;}
+div.codearea pre span.DiffSeparator {color: #228B22; font-weight: bold}
+
+/* Search results */
+.advancedsearch {
+    border: 1pt solid #ADB9CC;
+}
+
+.advancedsearch td {
+    vertical-align: top;
+    background-color: #E7E7E7;   =20
+    border: 0px;
+}
+
+.advancedsearch td.searchfor {
+    font-weight: bold;
+}
+
+.advancedsearch input {
+    border: 1px solid #ADB9CC;
+    background-color: #fff;
+}
+
+.advancedsearch input[disabled] {
+    background-color: #eee;
+}
+
+.advancedsearch td.submit {
+    border-top: 1px solid #ADB9CC;
+    background-color: #fff;
+    text-align: right;
+}
+
+.advancedsearch optioni,=20
+.advancedsearch select {
+    border: 1px solid #ADB9CC;
+    background-color: #fff;
+}
+
+
+.searchresults dt {
+    margin-top: 1em;
+    font-weight: normal;
+}
+
+.searchresults dd, .searchresults p {
+    font-size: 0.85em;
+}
+
+.searchresults .searchhitinfobar {
+    color: #008000;
+    margin-left: 15px;
+    margin-top: 0;
+}
+
+p.searchstats {
+    font-size: 0.8em;
+    text-align: right;
+    width: 100%;
+    background-color: #E6EAF0;
+    border-top: 1px solid #9088DC;
+    padding: 2px;
+}
+
+p.searchhint {
+    background-color: #E6EAF0;
+    border: 1px solid #9088DC;
+    padding: 2px;
+}
+
+.searchpages {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchpages tr, .searchpages td {
+    border: 0;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #b93a58;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.searchpages td a, .searchpages td a:link {
+    text-decoration: underline;
+}
+
+/* MonthCalendar css */
+
+/* days without and with pages linked to them */
+a.cal-emptyday {
+    color: #777777;
+    text-align: center;
+}
+a.cal-usedday {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+/* general stuff: workdays, weekend, today */
+td.cal-workday {
+    background-color: #DDDDFF;
+    text-align: center;
+}
+td.cal-weekend {
+    background-color: #FFDDDD;
+    text-align: center;
+}
+td.cal-today {
+    background-color: #CCFFCC;
+    border-style: solid;
+    border-width: 2pt;
+    text-align: center;
+}
+/* invalid places on the monthly calendar sheet */
+td.cal-invalidday {
+    background-color: #CCCCCC;
+}
+/* links to prev/next month/year */
+a.cal-link {
+    color: #000000;
+    text-decoration: none;
+}
+th.cal-header {
+    background-color: #DDBBFF;
+    text-align: center;
+}
+
+/* for MonthCalendar mouseover info boxes */
+TABLE.tip {
+    color: black;
+    background-color: #FF8888;
+    font-size: small;
+    font-weight: normal;
+    border-style: solid;
+    border-width: 1px;
+}
+
+TH.tip {
+    background-color: #FF4444;
+    font-weight: bold;
+    text-align: center;
+}
+
+TD.tip {
+    text-align: left;
+}
+*[dir=3D"rtl"] TD.tip {
+    text-align: right;
+}
+
+/* end MonthCalendar stuff */
+
+#message .hint {font-style: italic;}
+#message .info {
+    float: none;
+    font-size: 1em;
+    color: black;
+}
+#message .info:before {content: url('../img/icon-info.png'); margin: 0 0.2e=
+m;}
+#message .warning:before {content: url('../img/alert.png'); margin: 0 0.2em=
+;}
+#message .error:before {content: url('../img/icon-error.png'); margin: 0 0.=
+2em;}
+
+
+/* admonition start */
+#content div.caution,=20
+#content div.important,=20
+#content div.note,=20
+#content div.tip,=20
+#content div.warning {
+    border: 1pt solid #E5E5E5;
+    background-color: #F9F9FF;
+    color: black;
+   =20
+    margin: 10pt 30pt 10pt 30pt;
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    min-height: 64px; /*64=3D48+8+8 but doesn't work with IE*/
+    padding-left: 64px;
+}
+=20
+#content div.caution p,=20
+#content div.important p,=20
+#content div.note p,=20
+#content div.tip p,=20
+#content div.warning p {
+    margin-top: 8px; /*to align text with bg graphic*/
+}
+
+#content div.tip { background-image: url("../img/admon-tip.png"); }
+#content div.note { background-image: url("../img/admon-note.png"); }
+#content div.important { background-image: url("../img/admon-important.png"=
+); }
+#content div.caution { background-image: url("../img/admon-caution.png"); }
+#content div.warning { background-image: url("../img/admon-warning.png"); }
+
+/* admonition end */
+
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/debwiki.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*
+ *      wiki.debian.org stylesheet proposal
+ *
+ *      Kalle S=C3=B6derman, 2008 debwiki.css
+ *
+ *      Copyleft : This work is free, you can copy, spread, and modify it u=
+nder
+ *      the terms of the Free Art License http://artlibre.org/licence/lal/e=
+n/
+ *=20
+ *
+ *      Font size table
+ *      ---------------
+ *      Browser default 16px
+ *
+ *      14px	87.5%		body=09
+ *      24px	1.714em
+ *      18px	1.286em
+ *      16px	1.143em
+ *      12px	0.857em
+ *      11px	0.75em
+ *      8px 	0.57em
+ */
+
+@import url("debian.css");
+
+/*
+ * 	Header
+ */
+body {
+		font-size: 100%;
+}
+
+#breadcrumbs {
+	text-transform: none;
+}
+#wikisection p.section{
+	left: 0;
+}
+#wikisection {
+	position: absolute;
+	top: 0;
+}
+div#username {
+	font-size: 0.75em;
+	margin-left: 5em;
+	color: #d2d3d7;
+}
+.sitetools {
+	text-align:left;
+	margin: 0 10px 0 0;
+	padding: 2px 10px 2px 5px;
+	position: absolute;
+	top:0;
+	right:0;
+	border-right: 1px solid white;
+	border-left: 1px solid #d2d3d7;
+	line-height: 1em;
+}
+
+#searchform {
+	float: left;
+	font-size: 0.75em;
+	line-height: 2;
+}
+
+ul#pagelocation {
+	display: inline;
+	padding:0 1em 0 0;
+}
+
+#sitetools form {
+	margin:0;
+	padding:0;
+}
+
+#sitetools input {
+	margin: 0 0 0 0.25em;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#sitetools select {
+	margin-left: 0.5em;
+}
+
+#sitetools form p {
+	display: inline;
+	line-height: 1em;
+	margin:0;
+	padding:0;
+}
+
+.sitetools a {
+	margin: 5px 0.5em 2px 0;
+	padding: 0 0 0 0;
+}
+
+.sitetools {
+	margin:0;
+	padding: 2px 10px 2px 5px;
+	border-left: 1px solid white;
+	border-right: 1px solid #d2d3d7;
+	display:block;
+	float:left;
+}
+
+/*
+ * 	Leftcol (Should be renamed secondnav)
+ */
+
+#leftcol {
+	float: right;
+	margin: 2em 0 0 1em  ;
+	width: 16em;
+	clear: both;
+}
+
+#leftcol a {
+	display: block;
+}
+
+#leftcol #username {
+	margin: 0 0 1em 0;
+	display:block;
+}
+
+#userhome {
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+#navibar
+, .editbar {
+	list-style: none;
+	margin: 0;
+	padding:0;
+}
+
+#leftcol ul.editbar {
+	margin-top: 1em;
+}
+
+form select {
+}
+
+#leftcol .editbar form select {
+	width: 100%;
+}
+
+.editbar {
+	padding: 0 0 0 0;
+	font-size: 0.75em;
+	line-height: 2;
+	position: absolute;
+	right: 10px;
+}
+
+#leftcol li {
+	display:block;
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+#content {
+	margin-top: 1.5em;
+}
+=09
+.info {
+	position: relative;
+	margin:0 0 0.5em 0;
+	float: none;
+}
+#leftcol .info a {
+	display: inline;
+}
+
+#leftcol .info strong {
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ *	Typography
+ */
+
+hr {
+	background-color: #d2d3d7;
+	height: 1px;
+}
+
+pre, div.codearea {
+	padding: 1em;
+	margin: 2em 1.5em 2em 1.5em;=20
+	line-height: 1.5em;
+	background-color: #f5f6f7;
+	border: 1px solid #d2d3d7 ;
+	font-family: monospace;
+	font-size: 100%;
+	line-height: 2em;
+}
+div.codearea pre {
+		border: none;
+		padding: 0;
+		margin: 0;
+}
+div.table-of-contents {=20
+	font-size: 0.75em;
+	line-height: 2em;
+	list-style:none;
+	background-image: url('../img/greydot.png');
+	background-position: bottom left;
+	background-repeat: repeat-x;
+	background-color: transparent;
+	padding: 0;
+	margin:0;
+	border:0;
+	max-width: 50em;
+	display:block;
+}
+
+p.table-of-contents-heading {=20
+	font-weight:bold;  =20
+	padding:0;=20
+	margin:1.5em 0 0 0;=20
+	font-size: 125%;
+	letter-spacing: normal;
+}
+
+div.table-of-contents ol {
+	list-style-position: inside;
+	padding:0;
+	margin: 0;
+}
+
+div.table-of-contents ol ol {
+	list-style-position: inside;
+	padding-left: 2em;
+	margin: 0;
+}
+
+
+div.table-of-contents li {
+	background-image: url('../img/greydot.png');
+	background-position: top left;
+	background-repeat: repeat-x;
+	padding: 0;
+	margin:0;
+ }
+
+div.table-of-contents a:hover {
+	background-color: #f0f0f4;
+}
+
+div.table-of-contents a {
+	text-decoration: none;
+}
+
+.portal h1 {
+	margin-top: 0;
+	line-height: 1em;
+}
+=09
+.portal h1:after {
+	content: "Portal";
+	font-family:monospace;
+	font-weight: normal;
+	font-size: 0.62em;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	background-color: #c70036;
+	line-height: 16px;
+	color:white;
+	padding: 0 5px 0 5px;
+	margin:1em 0 3em 0;
+	display: block;
+}
+h1#locationline {
+}
+h1#locationline a {
+	color: black;
+}
+span.u {
+		font-style: normal;
+		font-weight: normal;
+		text-decoration: underline;
+}
+p.searchhint {
+	padding:1em;
+	border: 1px solid #cccca3;
+	margin:1em 0 1em 0;
+	background-color:#ffffcb;
+	font-size: 0.75em;
+	line-height: 2;
+}
+p.searchstats {
+		font-size: 0.75em;
+		background-color: transparent;
+		background-color: #f5f6f7;
+		margin:0;=09
+		border-top: 1px solid #d2d3d7 ;
+		text-transform:lowercase;
+		line-height: 2;
+		padding: 0;
+}
+div.codearea {
+		margin: 2em 1.5em 2em 1.5em;
+		font-family: monospace;
+}
+a.codenumbers {
+		font-size: 100%;
+}
+	=09
+
+/*
+ * 	Footer
+ */
+
+p#pageinfo {
+	color: gray;
+	font-size: 1em;
+	margin: 1em 0 0 0;
+}
+
+#footer {
+	margin-top: 2em;
+	margin-left: 52px;
+	margin-right: 10px;
+	clear: both;
+}
+#footer ul.editbar {
+	font-size: 1em;
+	border-bottom: 1px solid #d2d3d7;
+	background-image: none;
+	margin: 0 0 1.5em 0;
+}
+
+ul#credits {
+	margin: 1em 0 0 0;
+	padding:0;
+	font-size: 1em;
+	line-height: 2;
+}
+
+ul#credits li {
+	list-style: none;
+	display: inline;
+	margin: 0 1em 0 0;
+}
+
+#content div.caution
+, #content div.important
+, #content div.note
+, #content div.tip
+, #content div.warning {
+	margin: 1em 0 1em 0;
+}
+
+#message {
+	background-color: #f5f6f7;
+	padding: 1em;
+	margin: 1em 0 1em 0;
+	border: 1px solid #d2d3d7 ;
+	font-size: 0.75em;
+	line-height: 2;
+}
+
+#message p {
+	margin:0;
+	padding:0;
+}
+
+table	{
+	margin: 0.75em 0 0.75em 0;
+}
+td {
+		padding: 0 1em 0 0.5em;
+}
+
+#content div.debian {
+	border:1px solid #c70036;
+	border-top: 1px solid  #c70036;=20
+	background-repeat: no-repeat;=20
+	background-position: 10px 5px;
+	margin: 2em 1.5em 2em 1.5em;
+	padding: 0 1.5em 0 50px;
+	font-size: 0.75em;
+}
+#content div.debian p {
+		margin: 1.5em  0 1.5em 0;
+}
+
+/*
+ * Editor
+ */
+
+#editor #editor-textarea {
+	display: block;
+	margin: 1em 0 1em 0;
+}
+p img.attachment {
+		/* Don't turn on this float, since it breaks this page: https://wiki.debi=
+an.org/MaintainerScripts */
+		/* float: left; */
+		padding-right: 1.5em;
+}
+table p img.attachment {
+		display: inline;
+		float: none;
+		padding: 0;
+}
+p img {
+		display: inline;
+}
+table.diff {
+	font-family: monospace;
+	font-size: 1em;
+}
+div#header ul li {
+	display: inline;
+	margin-right: 1em;
+}
+ul#navibar li.wikilink {
+	margin: 0;
+}
+ul#navibar li.current {
+	display: none;
+}
+li.wikilink {
+	margin:0;
+	padding:0;
+}
+ul#navibar li.userlink {
+	margin:0;
+	padding:0;
+}
+#pagetrail {
+	margin:0;
+	display: inline;
+	text-transform: lowercase;
+	line-height: 2;
+	background-color: transparent;
+	background-color: #f5f6f7;
+	min-height: 20px;
+}
+#searchform {
+	position: absolute;
+	right: 10px;
+	top: 0;
+}
+div#content {
+	margin: 0 10px 0 52px;
+}
+div#header {
+	margin:0;
+}
+#navbar {
+	background-color: transparent;
+	list-style:none;
+	display:block;
+	border-bottom:1px solid #c70036;
+	text-indent:0;
+	padding: 0;
+	margin-top:0;
+	margin-bottom:0;
+}
+#navbar ul {
+	margin: 0;
+	padding: 0;
+	clear: both;
+	overflow: hidden;
+	min-height: 45px;
+}
+#navbar li {
+	list-style: none;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+#navbar a:link
+, #navbar a:visited {
+	padding: 1.75em 1em 0.25em 1em;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	display: block;
+	text-decoration: none;
+}
+#navbar a:visited {
+	color: #54638c;
+}
+#navbar a:hover
+, #navbar a:visited:hover {
+	background-color: #efefef;
+	border-left: 1px solid  #d2d3d7;
+	border-right: 1px solid #d2d3d7;
+	text-decoration: underline;
+}
+form.actionsmenu {
+	float: right;
+	vertical-align: text-top;
+}
+span.sep {
+	margin-right: 0.25em;
+	margin-left: 0.25em;
+}
+
+.diff {
+    table-layout: fixed;
+}
+.diff-header {
+    font-weight: bold;
+}
+.diff-title {
+    background-color: #C0C0C0;
+}
+.diff-added {
+    background-color: #E0FFE0;
+    font-family: courier,monospace;
+    vertical-align: top;
+    white-space: pre-wrap;
+    width: 50%;
+    word-wrap: break-word;
+}
+.diff-removed {
+    background-color: #FFFFE0;
+    font-family: courier,monospace;
+    vertical-align: top;
+    white-space: pre-wrap;
+    width: 50%;
+    word-wrap: break-word;
+}
+.diff-added span {
+    background-color: #80FF80;
+}
+.diff-removed span {
+    background-color: #FFFF80;
+}
+td.diff-info {
+    vertical-align: top;
+}
+div.diff-info {
+    white-space: nowrap;
+}
+div.diff-info-rev-comment span.diff-info-value {
+    white-space: normal;
+}
+div.diff-info-header {
+    background-color: #E8E8E8;
+    margin: -0.25em -0.5em 0.25em;
+    padding: 0.25em 0.5em;
+    text-align: center;
+    width: 100%;
+}
+td.diff-same {
+    border: 0 none;
+    text-align: center;
+}
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/debian.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*
+	http://www.debian.org Stylesheet
+
+	Copyright 2011 Kalle S=C3=B6derman
+
+	This stylesheet is free software; you can redistribute it and/or modify it
+	under the terms of the GNU General Public License, version 2, as published=
+ by
+	the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful, but WITHOU=
+T ANY
+	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS =
+FOR A
+	PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License along wi=
+th
+	this program; if not, write to the Free Software Foundation, Inc., 51 Fran=
+klin
+	Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+	The license text can also be found at http://www.gnu.org/copyleft/gpl.html=
+ and
+	/usr/share/common-licenses/GPL-2 on Debian GNU/Linux. =20
+*/
+=09
+/*=09
+	Font size table (Browser default 16px)
+
+	pixels      relative
+	--------------------
+	36px        2.25em
+	31px        0.5161em
+	24px        1.5em
+	21px        1.3125em
+	18px        1.125em
+	16px        1em
+	14px        0.875em
+	12px        0.75em
+	11px        0.6875em
+	10px        0.625em
+	9px         0.5625em
+	--------------------
+*/
+
+/* Reset */
+=20
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, =
+dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td {=20
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body            { line-height: 1; color: black; background: white; }
+ol, ul          { list-style: none; }
+table           { border-collapse: separate; border-spacing: 0; }
+blockquote, q   { quotes: "" ""; }
+html            { background-color: transparent; }
+:focus          { outline: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+
+/* Main */
+
+body {
+	margin: 0;
+	font: normal 100% sans-serif;
+	line-height: 1.5;
+	color: #222;
+	background-color: white;
+	background-image:url('Pics/gradient.png');
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	/* Uncomment to show baseline grid=20
+	background-image: url('24grid.png');
+	background-position: 30px 9px;=20
+	*/
+}
+#content {
+	margin: 0 10px 0 52px;
+}
+#inner {
+	position: relative;
+}
+#maincol {
+	margin: 0 15em 1.5em 0;
+}
+
+/* Header */
+
+#header {
+	margin:0;
+	padding:0 10px 0 52px;=20
+}
+#header a:link
+, #header a:visited
+, #second-nav a:link
+, #second-nav a:visited {
+	text-decoration: none;
+}
+#header a:hover
+, #second-nav a:hover {
+	text-decoration: underline;
+}
+#breadcrumbs {
+	margin:0;
+	font-size: 0.75em;
+	text-transform: lowercase;
+	line-height: 2;
+	background-color: transparent;
+	background-color: #f5f6f7;
+	border-bottom: 1px solid #d2d3d7 ;
+	min-height: 20px;
+}
+#breadcrumbs:before {
+	content: "/";
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+p.section {
+	margin: 0;
+	padding: 0 5px 0 5px;
+	font-family:monospace;
+	line-height: 16px;
+	color:white;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	position:absolute;
+	top: 0px;
+	left:52px;
+	background-color: #c70036;
+}
+p.section a {
+	color: white;
+	text-decoration: none;
+}
+p.section a:hover {
+	color:white;
+	text-decoration: underline;
+}
+#navbar {
+	background-color: transparent;
+	list-style:none;
+	display:block;
+	border-bottom:1px solid #c70036;
+	text-indent:0;
+	padding: 0;
+	margin-top:0;
+	margin-bottom:0;
+}
+#navbar ul {
+	margin: 0;
+	padding: 0;
+	clear: both;
+	overflow: hidden;
+	min-height: 45px;
+}
+#navbar li {
+	list-style: none;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+#navbar a:link
+, #navbar a:visited {
+	padding: 1.75em 0.5em 0.25em 0.5em;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	display: block;
+	text-decoration: none;
+}
+#navbar a:visited {
+	color: #54638c;
+}
+#navbar a:hover
+, #navbar a:visited:hover {
+	background-color: #f5f6f7;
+	border-left: 1px solid  #d2d3d7;
+	border-right: 1px solid #d2d3d7;
+	text-decoration: underline;
+}
+ul.subnav {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 0;
+}
+ul.subnav li {
+	display: inline;
+	margin-right: 1em;
+}
+#searchbox {
+	text-align:left;
+	line-height: 1;
+	margin: 0 10px 0 0.5em;
+	padding: 1px 0 1px 0;
+	position: absolute;
+	top:0;
+	right:0;
+	font-size: 0.75em;
+}
+#searchbox p {
+	margin: 0;
+	padding: 0;
+}
+#upperheader {
+	margin:0;
+	padding:0;
+}
+#logo {
+	position:absolute;
+	top:0;
+	left:0;
+	padding: 0;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-top: 0;
+	width: 50px;
+	height: 5.07em;
+	min-height: 65px;
+}
+#logo a {
+	display: block;
+	position: relative;
+	padding: 0;
+	height: 100%;
+	min-height: 65px;
+}
+#logo img {
+	margin-top: 5px;
+	position: absolute;
+	bottom: 0.3em;
+	overflow: auto;
+}
+#logo:hover {
+	border: 1px solid #d2d3d7 ;
+	border-top: 0;
+	background-color: #f5f6f7;
+}
+
+/* Links */
+
+a:link {
+	color: #0035c7;
+	text-decoration: underline;
+}
+a:visited {
+	color: #54638c;
+}
+a:link:hover {
+	text-decoration: none;
+	color: #00207a;
+}
+a:visited:hover {
+	text-decoration: none;
+}
+a:active {
+	color:#c2c3c7;
+}
+a img {
+	border:0;
+}
+a.rss_logo {
+	font-size: 0.75em;
+	float: right;
+	width: 35px;
+	line-height: 10px;
+	color: #ffffff;
+	background-color: #ff6600;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-align: center;
+	text-decoration: none;
+	padding: 0.25em;
+	margin-left: 0.25em;
+	border: 1px solid #ff6600;
+}
+
+a.rss_logo:hover {
+	background-color: white;
+	border: 1px solid #ff6600;
+	color: #ff6600;
+}
+
+a.rss_logo.generic {
+	background-color: #ff8800;
+}
+
+a.rss_logo.generic:hover {
+	background-color: #ee7700;
+}
+
+
+/* Secondnav */
+
+#second-nav {
+	width: 16em;
+	font-size: 0.75em;
+	line-height: 1.5;
+	float: right;
+	top: 0;
+	right: 0;
+	margin: 3em 0 0 0;
+	padding: 0 0 0 1em;
+	border-left: 1px solid #d2d3d7 ;
+}
+#second-nav ul {
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+#second-nav ul ul {
+	margin-left: 1em;
+}
+#second-nav li {
+	font-weight: normal;
+	margin:0;
+	padding:0;
+}
+#second-nav p {
+	line-height: 2;
+	font-weight: bold;
+	margin: 0;
+}
+#second-nav h2 {
+	margin:0;
+}
+
+/* Typography */
+
+p {
+	margin: 1.5em 0 1.5em 0;
+}
+strong {
+	font-weight: bold;
+}
+em {
+	font-style: italic;
+	color: #444;
+}
+small {
+	font-size: 0.75em;
+}
+sup {
+	font-size: 0.75em;
+	vertical-align:top;
+}
+h1
+, h2
+, h3
+, h4
+, h5
+, h6 {
+	font-weight: 600;
+	color: black;
+}
+h1 {
+	font-weight: normal;
+	font-size: 1.8em;
+	line-height: 0.83333;
+	margin: 0.83333em 0 0.83333em 0;
+}
+h2 {
+	font-size: 1.4em;
+	font-weight: normal;
+	line-height: 1.0714286;
+	margin: 1.0714286em 0 1.0714286em 0;
+}
+h3 {
+	font-size: 1.125em;
+	line-height: 1.333em;
+	margin: 1.333em 0 0 0;
+}
+h4 {
+	font-weight: normal;
+	font-style: italic;
+	margin: 1.5em 0 1.5em 0;
+	color: #444;
+}
+h5 {
+	font-style: italic;
+	font-size: 0.75em;
+	margin: 2em 0 2em 0;
+}
+ol,ul {
+	padding-left: 1.5em;
+	margin-left:0;
+	margin: 1.5em 0 1.5em 0;
+}
+ol>ol, ul>ul, li>ol, li>ul {
+	margin: 0;
+}
+
+ol {
+	list-style-type: decimal;
+}
+ul {
+	list-style-type: disc;
+}
+th {
+	font-weight: bold;
+	margin: 1.5em 0 1.5em 0;
+}
+hr {
+	border: none;
+	background-color: #bbb;
+	height: 1px;
+	margin: 1.4375em 0 1.5em 0;
+}
+pre {
+	margin: 1.5em 0 1.5em 0;
+	overflow: auto;
+	font-family: monospace;
+	white-space: pre;
+	color: black;
+}
+tt, code {
+	font-family: monospace;
+	white-space: pre;
+	color: black;
+}
+dt {
+	margin: 1.5em 0 0 0;
+	font-weight: bold;
+}
+dd {
+	margin:  0 0 0 1.5em;
+}
+blockquote {
+	font-size: 0.75em;
+	margin: 2em;
+	line-height: 2;
+}
+cite {
+	font-style: italic;
+	color: #444;
+}
+acronym, abbr {
+	text-transform: uppercase;
+	font-size: 0.9em;
+}
+.toc {
+	font-size: 0.75em;
+	list-style:none;
+	background-image: url('Pics/greydot.png');
+	background-position: bottom left;
+	background-repeat: repeat-x;
+	line-height:1.833;
+	padding: 0;
+	max-width: 62%;
+	margin: 2em 0 2em 0;
+}
+.toc li {
+	background-image: url('Pics/greydot.png');
+	background-position: top left;
+	background-repeat: repeat-x;
+	padding: 0.0833em 0 0.0833em 0;
+ }
+.toc a {
+	display:block;
+	text-decoration: none;
+}
+.toc a:hover {
+	display:block;
+	background-color: #f0f0f4;
+	text-decoration: underline;
+}
+.toc dt {
+	margin: 0;
+	background-image: url('Pics/greydot.png');
+	background-position: top left;
+	background-repeat: repeat-x;
+	padding: 0.0833em 0 0.0833em 0;
+}
+
+/* Sitemap */
+
+.card {
+	clear:both;
+	margin:1.5em 0 1.5em 0;
+	background-position: 0 -50px;
+	background-repeat: repeat-x;
+	padding:0;
+}
+.card ul {
+}
+.card ul li {
+	list-style:none;
+}
+.card h2 {
+}
+.lefthalf {
+	float:left;
+}
+.righthalf {
+	margin-left:50%;
+}
+.lefthalf ul {
+	margin-top:0;
+}
+
+/* Footer */
+
+#footer {
+	font-size: 0.75em;
+	border: 1px solid #dfdfe0;
+	padding:1em;
+	background-color: #f5f6f7;
+	margin: 0 10px 0 52px;
+	line-height: 1.5em;
+	border-left: 0;
+	border-right: 0;
+}
+#content #footer {
+	margin-left: 0;
+}
+#footer p {
+	margin: 1em 0 1em 0;
+}
+#footer hr {
+	border-top: 1px solid #d2d3d7;
+	border-bottom: 1px solid white;
+	height: 0;
+}
+#footer .editbar li {
+	display: inline;
+	margin-right: 2em;
+}
+#footer .info {
+}
+#fineprint {
+	margin-bottom: 1em;
+}
+#footermap {
+	list-style:none;
+	margin: 0 0 0 0;
+	padding: 0;
+	width:100%;
+	overflow: hidden;
+	border: 0;
+}
+ul#footermap-cola a
+, ul#footermap-colb a
+, ul#footermap-colc a
+, ul#footermap-cold a
+, ul#footermap-cole a {
+	padding-left: 0;
+}
+ul#footermap-cola
+, ul#footermap-colb
+, ul#footermap-colc
+, ul#footermap-cold
+, ul#footermap-cole {
+	float:left;
+	width: 19%;
+	min-width: 11em;
+	height: 12em;		/* Update when adding items */
+	margin:0 1% 0 0;
+	padding: 2em 0 0 0;
+	list-style: none;
+}
+ul#footermap-cole {
+	width: 18.9%;
+	margin-right:0;
+}
+#footermap-wrap {
+	padding:2em;
+	border-top: 1px solid white;
+}
+#footermap a {
+	margin: 0;
+}
+#footermap ul{
+	list-style: none;
+	padding:0;
+}
+#footermap li {
+	text-indent:0;
+	background-color: transparent;
+	font-weight:bold;
+}
+#footermap li ul {
+	margin: 0;
+	padding: 0;
+}
+#footermap li li {
+	margin:0;
+	text-indent:0;
+	padding:0;
+	font-weight:normal;
+	border:0;
+	background-image:none;
+	background-color:transparent;
+}
+#serverselect {
+}
+#serverselect input
+, #serverselect option=20
+, #serverselect select {
+}
+#serverselect ul {
+	display: inline;
+	margin-left: 2em;
+}
+#serverselect li {
+	list-style: none;
+	display: inline;
+	padding:0 1em 0 1em;
+	margin:0;
+}
+#serverselect form p {
+	margin:0;
+	padding:0;
+	line-height: 1;
+}
+.lcol50 {
+	float: left;
+	width: 49%;
+	font-size:0.75em;
+	margin:0 0 0 0;
+	padding:0 0.5em 0 0;
+}
+.lcol50 h2 {
+	margin-top:0;
+}
+.rcol50 {
+	margin:0 0 0 51%;
+	padding:0;
+	font-size:0.75em;
+}
+form#pageLang {
+	display: inline;
+}
+
+/* Extras */
+
+input:focus {
+	background-color:#FFFFCB;
+=09
+}
+.hidecss {
+	display: none;
+}
+.clear {
+	clear:both
+}
+#clear {
+	clear:both;
+	border:0;
+	height:1px;
+	display:block;
+}
+.quicklist:before {
+	content: "Quick Links: ";
+	font-weight: bold;
+}
+.quicklist {
+	list-style: none;
+	font-size: 0.75em;
+	margin: 2em 0 2em 0;
+	padding:0;
+	text-indent:0;
+	line-height: 2em;
+}
+.quicklist li  {
+	display:inline;
+}
+.item p{
+	margin: 0;
+}
+.item h2
+, .item p
+, .item ul{
+	margin-right: 10px=20
+}
+.item h2
+, .item h3
+, .item h4
+, .item h5 {
+	margin-top: 0;
+}
+.line {
+	padding: 0;
+	width: auto;
+	overflow: hidden;
+	}
+div.downloads {
+	border-top: 0.17em solid #339900;
+	margin: 1.33em 0 0 0;=20
+}
+.downloads ul.downlist {
+	margin:0;
+}
+div.downloads .col50 {=20
+	border-top: 0.15em solid #339900;
+}
+ul.downlist {
+	padding-left: 30px;
+	text-indent:0;
+	background: url('Pics/emblem-downloads.png') no-repeat 0 0.15em;
+	/*=20
+	 * border-top: 0.17em solid #339900;
+	 */
+}
+ul.quicklist.downlist {
+	border-top: 0.15em solid #339900;
+	padding-top: 0.25em;
+	margin-top: 1.6em;
+}
+ul.downlist li {
+	display: inline;
+}
+ul.downlist li:after {
+	content: ', ';
+}
+ul.downlist li:last-child:after {
+	content: '';
+}
+div.tip
+, div.important
+, div.warning
+, div.note {
+	padding:0 2em 0 4em;
+	margin: 1.85em 0 1.85em 0;
+	background-repeat: no-repeat;
+	background-position: 0.5em 1em;
+	font-size: 0.75em;
+	line-height: 2em;
+	background-color:#FFFFCB;
+	border:0.15em solid #CCCCA3;
+}
+div.tip p
+, div.important p
+, div.warning p
+, div.note p {
+	margin: 1em 0 1em 0;
+}
+div.tip {
+	background-image: url('Pics/admon-tip.png');
+}
+div.important{
+	background-image: url('Pics/admon-important.png');
+}
+div.warning {
+	background-image: url('Pics/admon-warning.png');
+}
+div.note {
+	background-image: url('Pics/admon-note.png');
+}
+
+/* Layout Elements */
+
+.col50
+, .cardleft
+, .cardright {
+	width:47.5%;
+	float: left;
+	padding-bottom: 1.5em;
+}
+.lastcol
+, .cardright {
+	margin: auto;
+	width: 47.5%;
+	float:left;
+	padding-right: 0;
+	margin-left: 5%;
+}
+.lastcol h2
+, .lastcol p
+, .lastcol ul {
+	margin-right:0;
+}
+.cardleft h2 {
+	margin-right: 1em;
+}
+.cardright div {
+	margin-left: 1.5em;
+}
+.cardright h2 {
+	margin-left: 1em;
+}
+.votemenu a {
+	display:block;
+}
+table.vote td, table.vote th {
+	padding-right: 1.5em;
+}
+#maincol.with-toolbox {
+	margin-right: 14em;
+}
+div.tabular table, table.tabular, table.vendors {
+/*	border-bottom: 1px solid #a9abb3;
+	border-top: 1px solid #a9abb3; */
+	border-bottom: 0.15em solid #666;
+	border-top: 0.15em solid #666;
+	width: auto;
+	font-size: 0.75em;
+	line-height: 2em;
+	margin-bottom: 4em;
+	margin-top: -0.169em;
+}
+table td {
+	padding-right: 1.5em;
+}
+div.tabular table tr, table.tabular tr, table.vendors tr {
+	width: 100%;
+}
+table th {
+	padding-right: 1.5em;
+}
+div.tabular table td, table.tabular td, table.vendors td {
+	background-image: url(Pics/greydot.png);
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+div.tabular table > td:fist-child, table.tabular  > td:fist-child, table.ve=
+ndors  > td:fist-child {
+	background-image: none;
+}
+#pageLang p, #pageLang form {
+	display: inline;
+}
+.inline  a {
+	float: left;
+	margin-right: 1em;
+}
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/screen.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*
+ *      www.debian.org redesign
+ *
+ *      Kalle Soderman, 2008 debhome.css
+ *
+ *      Copyleft : This work is free, you can copy, spread, and modify it u=
+nder
+ *      the terms of the Free Art License http://artlibre.org/licence/lal/e=
+n/
+ */
+
+#splash {
+	margin-top:0px;
+	margin-bottom: 1em;
+	text-align:center;
+	overflow:hidden;
+	height: 150px;
+}
+#splash h1 {
+	background-image: url('Pics/debian-61_glossy-large.png');
+	background-position:top center;
+	padding-top:190px;
+	overflow:hidden;
+	text-align:center;
+	background-repeat:no-repeat;
+	display:block;
+	margin:0;
+	height:0;
+}
+#maincol {
+	background-image: url('Pics/cropped-swirls.png');
+	background-position:top center;
+	background-repeat: repeat-x;
+}
+#announce {
+	text-align: center;
+	float: left;
+	width: 41%;
+	min-width: 260px;
+	margin-bottom: 1.5em;
+}
+#intro {
+	padding-top: 0;
+}
+#intro p {
+	margin-top: 0em;
+	padding:0;
+}
+#hometoc {
+	list-style:none;
+	margin: 0 0 2em 0;
+	padding: 0;
+	width:100%;
+	font-size: 0.75em;
+	overflow: hidden;
+	line-height: 1.5em;
+	border: 0;
+}
+#hometoc a {
+	text-decoration: none;
+}
+#hometoc a:hover {
+	text-decoration: underline;
+}
+ul#hometoc-cola a, ul#hometoc-colb a, ul#hometoc-colc a, ul#hometoc-cold a,=
+ ul#hometoc-cole a {
+	padding-left: 5px;
+}
+ul#hometoc-cola, ul#hometoc-colb,ul#hometoc-colc, ul#hometoc-cold, ul#homet=
+oc-cole {
+	float:left;
+	width: 19.2%;
+	min-width: 11em;
+	height: 14em; /* Update when adding items */
+	margin:0 1% 0 0;
+	padding: 0;
+	background-image:url('Pics/gradient.png');
+	background-position: 0 -40px;
+	background-repeat: repeat-x;=20
+/*	border-top: 2px solid #c6c8e0;
+	border-bottom: 1px solid #c6c8e0;
+*/
+	border-top: 1px solid #c6c8e0;
+	list-style: none;
+}
+ul#hometoc-cole {
+	width: 18.9%;
+	margin-right:0;
+}
+#hometoc-wrap {
+	padding:1em 1em 1em 1em;
+	border-top: 1px solid white;
+}
+#hometoc a {
+	margin: 0;
+}
+#hometoc ul{
+	list-style: none;
+	padding: 1em 0 0 0;
+}
+#hometoc ul ul {
+	padding: 0;
+}
+#hometoc li {
+	text-indent:0;
+	background-color: transparent;
+	font-weight:bold;
+}
+#hometoc li ul {
+	margin: 0;
+	padding: 0:
+
+}
+#hometoc li li {
+	margin:0;
+	text-indent:0;
+	padding:0;
+	font-weight:normal;
+	border:0;
+	background-image:none;
+	background-color:transparent;
+}
+.infobar {
+	margin: 0 0 2em 0;
+	padding: 1em 5px 1em 5px;
+	line-height: 1em;
+	font-size: 0.75em;
+	border: 1px solid #d2d3d7;
+	border-bottom: 1px solid #d2d3d7;
+	background-image:url('Pics/gradient.png');
+	background-position: 0 -35px;
+	background-repeat: repeat-x;
+	clear: both;
+}
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/print.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*  print.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+html {
+	font-family: Times, serif;
+	font-size: 12pt;
+}
+
+body {
+    /* Give about 3.4cm in Mozilla/Firefox and about 2.2cm in Safari */
+	margin: 1.5cm;
+}
+
+a, a:visited, a.nonexistent, a.badinterwiki {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.info a {
+    color: gray;
+}
+
+pre {
+	font-size: 10pt;
+}
+
+a.interwiki:before, a.badinterwiki:before {
+	content: attr(title) ":";
+}
+
+a.interwiki img, a.badinterwiki img {
+	display: none;
+}
+
+.footnotes div {
+	border-top: 1pt solid gray;
+}
+
+/* user interface styles */
+
+#header, #sidebar, #footer, #timings, #credits, #interwiki, #pagelocation {
+	display: none;
+}
+
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/projection.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*  projection.css - MoinMoin Slide Styles
+
+Copyright (c) 2003 by Juergen Hermann
+*/
+
+@import url(screen.css);
+
+html { line-height: 1.8em; }
+
+body, b, em, a, span, div, p, td { font-size: 18pt; }
+
+h1 { font-size: 26pt; }
+h2 { font-size: 22pt; }
+h3 { font-size: 20pt; }
+h4 { font-size: 18pt; }
+h5 { font-size: 16pt; }
+h6 { font-size: 14pt; }
+
+tt, pre { font-size: 16pt; }
+sup, sub { font-size: 12pt; }
+
+table.navigation {
+    float: right;
+    margin: 2px;
+}
+
+.navigation td, .navigation a {
+	font-size: 10pt;
+    padding: 2px;
+}
+
+#interwiki, #pagelocation, #pageinfo { display: none; }
+
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debian-wiki-1.0.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+html {}
+
+/* # dump methode to hide the "pageinfo" would be to use css like */
+#pageinfo {
+/* 	display: none; */
+}
+
+
+/* admonition start */
+
+#content div.debian {
+    border: 1pt solid #ff9ec2;
+    background-color: #ffe4f1;
+    color: black;
+   =20
+    margin: 10pt 30pt 10pt 30pt;
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    min-height: 64px; /*64=3D48+8+8 but doesn't work with IE*/
+    padding-left: 64px;
+}
+
+#content div.debian p {
+    margin-top: 8px; /*to align text with bg graphic*/
+}
+
+#content div.debian { background-image: url("//wiki.debian.org/Portal/IDB?a=
+ction=3DAttachFile&do=3Dget&target=3Dofficial-doc.png"); }
+
+/* admonition end */
+
+/* bugstatus start */
+
+.closed-bug {
+    text-decoration: line-through !important;
+}
+
+/* bugstatus end */
+
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/favicon.ico
+Content-Transfer-Encoding: base64
+Content-Type: image/vnd.microsoft.icon
+
+AAABAAQAICAAAAEAIACoEAAARgAAACAgAgABAAEAMAEAAO4QAAAQEAAAAQAgAGgEAAAeEgAAEBAC
+AAEAAQCwAAAAhhYAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAwX8l
+ALffVQDWvwAAwX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAABVANa/QADA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAABVANa/QADA/yUAt98AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAQADA/0AAwP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAwP8lALffAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMD/QADA/wAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQADA/0AA
+wP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAFUA1r9AAMD/VQDWvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAQADA/0AAwP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAt99AAMD/AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQADA/0AAwP8AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAwP9A
+AMD/QADA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWAKxfVQDWvzMA
+zZ9WAKxfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAMwDNn0AAwP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANa/
+JQC33yUAt99AAMD/QADA/0AAwP9AAMD/MwDNnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMD/QADA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAMF/JQC33yUAt98lALffAADBfwAAAAAAAAAAAAAAAFYArF9AAMD/QADA/1YArF8AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBf0AAwP9AAMD/AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAFYArF8lALffMwDNnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABW
+AKxfQADA/1UA1r8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMF/QADA/1UA
+1r8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQC330AAwP8AAAAAAAAAAAAAAAAAAMF/AADW
+vwAAAAAAAAAAAAAAAAAAAABWAKxfQADA/1YArF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAwX9AAMD/AADBfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwX9AAMD/VgCsXwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA1r8AAAAAAAAAAAAAAAAlALffQADA/1YArF8AAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAVQDWv0AAwP9VANa/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADB
+f0AAwP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBfwAAAAAAAAAAAAAAAAAAAABAAMD/
+VgCsXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMF/QADA/yUAt98AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAMF/QADA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAEAAwP8lALffAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwX9AAMD/QADA
+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAACBAMF/AAAAAAAAAAAAAAAAQADA/0AAwP9WAKxfAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAMwDNn0AAwP9AAMD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYArF8zAM2fAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMD/QADA/1YArF8AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAABWAKxfQADA/0AAwP8AAMF/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACUAt99WAKxfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMF/AAAAAAAAAAAAAAAAAAAAAEAAwP8l
+ALffAADBfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYArF8AANa/QADA/yUAt98AAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAADBf0AAwP8AAMF/AAAAAAAAAAAAAAAAAAAAAFYArF8AAAAAAAAA
+AAAAAABWAKxfQADA/yUAt99WAKxfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVgCsX0AAwP9AAMD/
+QADA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVgCsXyUAt99AAMD/QADA/0AAwP8A
+AMF/AAAAAAAAAAAAAAAAAAAAADMAzZ9AAMD/AADWv1YArF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAEAAwP9AAMD/JQC33wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQADA/0AAwP8AAMF/AADBfwAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAMF/AAAAAEAAwP9AAMD/JQC33wAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwX9AAMD/QADA/0AA
+wP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwDNn0AAwP9AAMD/QADA
+/1YArF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+QADA/0AAwP9AAMD/JQC33wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAQADA/0AAwP9AAMD/QADA/wAAwX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAEAAwP9AAMD/QADA/0AAwP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAQADA/0AAwP9AAMD/QADA/0AAwP9VANa/AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAACUAt99AAMD/QADA/0AAwP9AAMD/AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQC330AAwP9AAMD/QADA/0AA
+wP9AAMD/QADA/0AAwP9AAMD/QADA/0AAwP9AAMD/QADA/0AAwP9AAMD/QADA/wAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAEAAwP9AAMD/QADA/0AAwP9AAMD/QADA/0AAwP9AAMD/QADA/0AAwP9AAMD/JQC331YArF8A
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlALffQADA/0AAwP8lALffAADWv1UA1r8zAM2fAADB
+fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//5////5////4///
+/8////+f////P////n////x////8////+f////n////x/8//8/4B//P8fP/z/P8/8/nvv/f7+5/j
++//f8/v/z/P7/8/j/f/P8/3/z/H+/8/x/w+P+P//n/x//4/8P/8P/h/+H/8D+D//gAB//+AB///4
+D/8oAAAAIAAAAEAAAAABAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAAAD//j////n/
+///j////z////5////8////+f////H////z////4////+P////n/z//z/gH/8/x8f/P5/z/z+++f
+4/P7n+Pz/d/j9//P4/P9z+P5/8fz/f3H8f77x/n/D4/4//+P/H//D/w//x/+H/4f/wP4P/+AAH//
+4AH///gP///+P///+f///+P////P////n////z////5////8f////P////j////4////+f/P//P+
+Af/z/Hx/8/n/P/P775/j8/uf4/P93+P3/8/j8/3P4/n/x/P9/cfx/vvH+f8Pj/j//4/8f/8P/D//
+H/4f/h//A/g//4AAf//gAf//+A//KAAAABAAAAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYArF8lALffAADBf1YArF8AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUA1r8lALffVgCsXwAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMAzZ8lALffVgCsXwAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMAzZ8lALffVgCsXwAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYArF9AAMD/AADBfwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKu/QADA/wAA
+AAAAAAAAAAAAAAAAAAAAAMF/AADBf1YArF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWAKxfQADA
+/1YArF8AAAAAAAAAAAAAwX9VANa/JQC330AAwP9AAMD/VQDWv1YArF8AAAAAAAAAAAAAAAAAAAAA
+AADBf0AAwP8AAAAAAAAAAAAAAABVANa/AADBfwAAAAAAAAAAAAAAACUAt98lALffVgCsXwAAAAAA
+AAAAAAAAADMAzZ9AAMD/AAAAAAAAAAAAAMF/AACrvwAAAABWAKxfAADBfwAAAAAAAAAAVQDWv1UA
+1r8AAAAAAAAAAAAAAAAzAM2fJQC33wAAAAAAAAAAAADBfwAAq78AAAAAAAAAAAAAAAAAAMF/AAAA
+ADMAzZ8lALffVgCsXwAAAAAAAAAAAADBf0AAwP8AAAAAAAAAAAAAAAAzAM2fAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAMF/QADA/1YArF8AAAAAAAAAAFYArF9AAMD/MwDNnwAAAAAAAAAAAAAAADMAzZ9V
+ANa/MwDNnwAAAAAAAAAAVQDWvyUAt99WAKxfAAAAAAAAAAAAAAAAVQDWvyUAt99WAKxfAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAVgCsX0AAwP9VANa/AAAAAAAAAAAAAAAAAAAAAFYArF8lALffQADA
+/wAAwX8AAAAAAAAAAAAAAAAAAAAAVgCsX1UA1r9AAMD/VgCsXwAAAAAAAAAAAAAAAAAAAAAAAAAA
+VgCsXyUAt99AAMD/AACrv1UA1r9VANa/AACrvyUAt99AAMD/VgCsXwAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAABWAKxfAADBfwAAq79AAMD/QADA/wAAq78AAMF/VgCsXwAAAAAAAAAAAAAAAAAA
+AAD+/wAA+f8AAPP/AADn/wAA7/8AAM//AADeDwAA3ecAAJ3zAACd8wAA3fsAAM4zAADP8wAA5+cA
+APAPAAD8PwAAKAAAABAAAAAgAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAAA
+/n8AAPn/AADz/wAA5/8AAM//AADeHwAAnMcAAJnzAACbMwAAm9kAAJ3ZAADOOQAAx/MAAOPjAADw
+BwAA+B8AAP5/AAD5/wAA8/8AAOf/AADP/wAA3h8AAJzHAACZ8wAAmzMAAJvZAACd2QAAzjkAAMfz
+AADj4wAA8AcAAPgfAAA=
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/bugstatus.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+//
+// Update bug interwiki links presentation
+// based on bug status.
+//
+
+function get_json(url, links, funct) {
+	var object =3D {};
+	var http_request =3D new XMLHttpRequest();
+	http_request.open('GET', url, true);
+	http_request.setRequestHeader('Accept', 'application/json');
+	http_request.onreadystatechange =3D function () {
+		var done =3D 4, ok =3D 200;
+		if (http_request.readyState =3D=3D done && http_request.status =3D=3D ok)=
+ {
+			object =3D JSON.parse(http_request.responseText);
+			funct(links, object);
+		}
+	};
+	http_request.send(null);
+}
+
+function update_debian_links(links, statuses){
+	var bug;
+
+	for (bug in statuses) {
+		for (var i in links[bug]) {
+			var link =3D links[bug][i];
+			var status =3D statuses[bug];
+
+			if (status.pending =3D=3D 'done') {
+				var fixed_versions =3D status.fixed_versions.length ? ' in ' + status.f=
+ixed_versions.join(', ') : '';
+				link.className =3D 'interwiki closed-bug';
+				link.title =3D 'Closed' + fixed_versions + ': #' + status.id + ': ' + s=
+tatus.subject;
+			} else {
+				var found_versions =3D status.found_versions.length ? ' in ' + status.f=
+ound_versions.join(', ') : '';
+				link.className =3D 'interwiki open-bug';
+				link.title =3D 'Open' + found_versions + ': #' + status.id + ': ' + sta=
+tus.subject;
+			}
+		}
+	}
+}
+
+function update_launchpad_links(links, status){
+	for (var i in links) {
+		var link =3D links[i];
+
+		if (status['cgi-status'] !=3D 'ok' ) {
+			return;
+		}
+		if( status['complete'] ){
+			link.className =3D 'interwiki closed-bug';
+			link.title =3D 'Closed: #' + status.id + ': ' + status.title;
+		} else {
+			link.className =3D 'interwiki open-bug';
+			link.title =3D 'Open: #' + status.id + ': ' + status.title;
+		}
+		link.href =3D status.url;
+	}
+}
+
+function update_debian(url, links){
+	var bug;
+	var query =3D [];
+	for (bug in links) {
+		query.push('bug=3D' + bug);
+	}
+
+	var querystr =3D query.join(';');
+
+	// Get bug statuses from script
+	get_json(url + '/cgi-bin/bugstatus?' + querystr, links, update_debian_link=
+s);
+}
+
+function update_launchpad(url, links){
+	var bug;
+	var query =3D [];
+	for (bug in links) {
+		get_json(url + '/cgi-bin/launchpad?bug=3D' + bug, links[bug], update_laun=
+chpad_links);
+	}
+}
+
+function update_links() {
+
+	// Preparation
+	var re =3D new RegExp('^(\\w+://[^/]+)/.*');
+	var loc =3D re.exec(window.location.href);
+	var types =3D ['debian','launchpad'];
+	var interwiki =3D {
+		'DebianBug': 'debian',
+		'UbuntuBug':'launchpad',
+		'LaunchpadBug':'launchpad'
+	};
+	var links =3D undefined;
+
+	// Iterate through the links on the page
+	for (var i=3D0; i < document.links.length; i++) {
+		var link =3D document.links[i];
+		var bug =3D '';
+		var type =3D '';
+
+		if( link.title in interwiki ){
+			type =3D interwiki[link.title];
+			bug =3D link.text;
+			if (isNaN(parseInt(bug))) {
+				bug =3D bug.replace(/^[^0-9]/g, '');
+				bug =3D bug.replace(/^[^0-9].*/g, '');
+			}
+		}
+
+		if( isNaN(parseInt(bug)) ){
+			if( link.href.indexOf('://bugs.debian.org/') !=3D -1 ){
+				type =3D 'debian';
+				bug =3D link.href;
+				bug =3D bug.replace(/^https?:\/\/bugs\.debian\.org\/([0-9]+)$/i, '$1');
+				bug =3D bug.replace(/^https?:\/\/bugs\.debian\.org\/mbox:([0-9]+)$/i, '=
+$1');
+				bug =3D bug.replace(/^https?:\/\/bugs\.debian\.org\/cgi-bin\/bugreport\=
+.cgi\?.*bug=3D([0-9]+).*$/i, '$1');
+			} else if( link.href.indexOf('launchpad.net/') !=3D -1 ){
+				type =3D 'launchpad';
+				bug =3D link.href;
+				bug =3D bug.replace(/^http[s]?:\/\/(bugs\.)?launchpad\.net\/.*\/([0-9]+=
+)$/i, '$2');
+			}
+		}
+
+		if (isNaN(parseInt(bug))) {
+			continue;
+		}
+
+		bug =3D parseInt(bug).toString();
+
+		if( links =3D=3D undefined ){
+			links =3D {};
+		}
+
+		if( !(type in links) ){
+			links[type] =3D {};
+		}
+
+		if ( !(bug in links[type]) ){
+			links[type][bug] =3D [];
+		}
+
+		links[type][bug].push(link);
+	}
+
+	if( links =3D=3D undefined ){
+		return;
+	}
+
+	if( 'debian' in links ){
+		update_debian(loc[1], links['debian']);
+	}
+
+	if( 'launchpad' in links ){
+		update_launchpad(loc[1], links['launchpad']);
+	}
+}
+
+function add_load_event( funct ) {
+	var old_onload =3D window.onload;
+	if (typeof window.onload !=3D 'function') {
+		window.onload =3D funct;
+	} else {
+		window.onload =3D function() {
+			old_onload();
+			funct();
+		}
+	}
+}
+
+add_load_event( update_links );
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/common/js/common.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+//
+// MoinMoin commonly used JavaScript functions
+//
+
+// We keep here the state of the search box
+searchIsDisabled =3D false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value =3D e.value.replace(/\s+/, '');
+    if (value =3D=3D '' || searchIsDisabled) {=20
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled =3D flag;
+    document.getElementById('titlesearch').disabled =3D flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value =3D=3D search_hint) {
+        e.value =3D '';
+        e.className =3D '';
+        searchIsDisabled =3D false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value =3D=3D '') {
+        e.value =3D search_hint;
+        e.className =3D 'disabled';
+        searchIsDisabled =3D true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i =3D 0; i < document.forms.length; i++) {
+        var form =3D document.forms[i];
+        if (form.className =3D=3D 'actionsmenu') {
+            // Check if this form needs update
+            var div =3D form.getElementsByTagName('div')[0];
+            var label =3D div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton =3D div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select =3D div.getElementsByTagName('select')[0];
+                var item =3D document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value =3D 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex =3D 0;
+            }
+        }
+    }
+}
+
+// use this instead of assigning to window.onload directly:
+function addLoadEvent(func) {
+    // alert("addLoadEvent " + func)
+    var oldonload =3D window.onload;
+    if (typeof window.onload !=3D 'function') {
+        window.onload =3D func;
+    } else {
+        window.onload =3D function() {
+            oldonload();
+            func();
+        }
+    }
+}
+
+// copy from fckeditor browser check code (fckeditor.js:298, function : FCK=
+editor_IsCompatibleBrowser)
+function can_use_gui_editor() {
+    var sAgent =3D navigator.userAgent.toLowerCase() ;
+
+    // Internet Explorer 5.5+
+    if ( /*@cc_on!@*/false && sAgent.indexOf("mac") =3D=3D -1 )
+    {
+        var sBrowserVersion =3D navigator.appVersion.match(/MSIE (.\..)/)[1=
+] ;
+        return ( sBrowserVersion >=3D 5.5 ) ;
+    }
+
+    // Gecko (Opera 9 tries to behave like Gecko at this point).
+    if ( navigator.product =3D=3D "Gecko" && navigator.productSub >=3D 2003=
+0210 && !( typeof(opera) =3D=3D 'object' && opera.postError ) )
+        return true ;
+
+    // Opera 9.50+
+    if ( window.opera && window.opera.version && parseFloat( window.opera.v=
+ersion() ) >=3D 9.5 )
+        return true ;
+
+    // Adobe AIR
+    // Checked before Safari because AIR have the WebKit rich text editor
+    // features from Safari 3.0.4, but the version reported is 420.
+    if ( sAgent.indexOf( ' adobeair/' ) !=3D -1 )
+        return ( sAgent.match( / adobeair\/(\d+)/ )[1] >=3D 1 ) ; // Build =
+must be at least v1
+
+    // Safari 3+
+    if ( sAgent.indexOf( ' applewebkit/' ) !=3D -1 )
+        return ( sAgent.match( / applewebkit\/(\d+)/ )[1] >=3D 522 ) ;    /=
+/ Build must be at least 522 (v3)
+
+    return false ;
+
+}
+
+
+function update_edit_links() {
+    // Update editlink according if if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("update_edit_links: can't use gui editor");
+        return;
+    }
+    var editlinks =3D document.getElementsByName("editlink");
+    for (i =3D 0; i < editlinks.length; i++) {
+        var link =3D editlinks[i];
+        href =3D link.href.replace('editor=3Dtextonly','editor=3Dguipossibl=
+e');
+        link.href =3D href;
+        //alert("update_edit_links: modified to guipossible");
+    }
+}
+
+
+function add_gui_editor_links() {
+    // Add gui editor link after the text editor link
+   =20
+    // If the variable is not set or browser is not compatible, exit
+    try {gui_editor_link_href}
+    catch (e) {
+        //alert("add_gui_editor_links: gui_editor_link_href not here");
+        return
+    }
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("add_gui_editor_links: can't use gui_editor");
+        return;
+    }
+    var all =3D document.getElementsByName('texteditlink');
+    for (i =3D 0; i < all.length; i++) {
+        var textEditorLink =3D all[i];
+        // Create a list item with a link
+        var guiEditorLink =3D document.createElement('a');
+        guiEditorLink.href =3D gui_editor_link_href;
+        var text =3D document.createTextNode(gui_editor_link_text);
+        guiEditorLink.appendChild(text);
+        var listItem =3D document.createElement('li')
+        listItem.appendChild(guiEditorLink);
+        // Insert in the editbar
+        var editbar =3D textEditorLink.parentNode.parentNode
+        var nextListItem =3D textEditorLink.parentNode.nextSibling;
+        editbar.insertBefore(listItem, nextListItem);
+        //alert("add_gui_editor_links: added gui editor link");
+    }
+}
+=20
+
+function show_switch2gui() {
+    // Show switch to gui editor link if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false) return;
+   =20
+    var switch2gui =3D document.getElementById('switch2gui')
+    if (switch2gui) {
+        switch2gui.style.display =3D 'inline';
+    }
+}
+
+// for long documents with many comments this is expensive to calculate,
+// thus we keep it here:
+comments =3D null;
+
+function toggleComments() {
+    // Toggle visibility of every tag with class "comment"
+    for (i =3D 0; i < comments.length; i++){
+        el =3D comments[i];
+        if ( el.style.display !=3D 'none' ) {
+            el.style.display =3D 'none';
+        } else {
+            el.style.display =3D '';
+        }
+    }
+}
+
+function show_toggleComments() {
+    // Show edit bar item for toggling inline comments on/off only if inlin=
+e comments exist on the page
+    comments =3D getElementsByClassName('comment', null, document);
+    if (comments.length > 0) {
+        var buttons =3D getElementsByClassName('toggleCommentsButton', null=
+, document);
+        for (i =3D 0; i < buttons.length; i++){
+            el =3D buttons[i];
+            el.style.display =3D '';
+        }
+    }
+}
+
+
+function load() {
+    // Do not name this "onload", it does not work with IE :-)
+    // TODO: create separate onload for each type of view and set the
+    // correct function name in the html.=20
+    // e.g <body onlod=3D'editor_onload()'>
+
+    // login focus
+    if (document.forms['loginform']) {
+        document.forms['loginform'].elements['name'].focus();
+    }
+   =20
+    // Page view stuff
+    update_edit_links();
+    add_gui_editor_links();
+   =20
+    // Editor stuff
+    show_switch2gui();
+
+    // Enable menu item "ToggleComments" if inline comments exist
+    show_toggleComments();
+=20
+    // data browser widget
+    dbw_hide_buttons();
+}
+
+
+function before_unload(evt) {
+    // TODO: Better to set this in the editor html, as it does not make
+    // sense elsehwere.
+    // confirmleaving is available when editing
+    try {return confirmleaving();}
+    catch (e) {}
+}
+
+// Initialize after loading the page
+addLoadEvent(load)
+
+// Catch before unloading the page
+window.onbeforeunload =3D before_unload
+
+function dbw_update_search(dbw_id)
+{
+    var table =3D document.getElementById(dbw_id+'table');
+    var cell;
+    var shown;
+    var i
+    var cols =3D table.rows[0].cells.length;
+    var filter =3D new Array();
+    var dofilter =3D new Array();
+    var form =3D document.forms[dbw_id+'form'];
+
+    for (i =3D 0; i < cols; i++) {
+        dofilter[i] =3D false;
+        if (form[dbw_id+'filter'+i]) {
+            dofilter[i] =3D true;
+            filter[i] =3D form[dbw_id+'filter'+i].value;
+            if (filter[i] =3D=3D '[all]')
+                dofilter[i] =3D false;
+            if (filter[i] =3D=3D '[empty]')
+                filter[i] =3D '';
+        }
+    }
+
+    for (i =3D 1; i < table.rows.length; i++) {
+        var show =3D true;
+        for (col =3D 0; col < cols; col++) {
+            if (!dofilter[col])
+                continue;
+
+            cell =3D table.rows[i].cells[col];
+
+            if (filter[col] =3D=3D '[notempty]') {
+                if (cell.abbr =3D=3D '') {
+                    show =3D false;
+                    break;
+                }
+            } else if (filter[col] !=3D cell.abbr) {
+                show =3D false;
+                break;
+            }
+        }
+        if (show)
+            table.rows[i].style.display =3D '';
+        else
+            table.rows[i].style.display =3D 'none';
+    }
+}
+
+function dbw_hide_buttons() {
+    var form;
+    var elem;
+    var name;
+
+    for (var fidx =3D 0; fidx < document.forms.length; fidx++) {
+        form =3D document.forms[fidx];
+        for (var eidx =3D 0; eidx < form.elements.length; eidx++) {
+            elem =3D form.elements[eidx];
+            name =3D elem.name;
+            if (name) {
+                if (name.indexOf('dbw.') >=3D 0 && name.substr(-7) =3D=3D '=
+.submit')
+                    elem.style.display =3D 'none';
+            }
+        }
+    }
+}
+
+/*  getElementsByClassName
+    Developed by Robert Nyman, http://www.robertnyman.com
+    Code/licensing: http://code.google.com/p/getelementsbyclassname/ (MIT l=
+icense)
+    Version: 1.0.1
+*/ =20
+var getElementsByClassName =3D function (className, tag, elm){
+    if (document.getElementsByClassName) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            elm =3D elm || document;
+            var elements =3D elm.getElementsByClassName(className),
+                nodeName =3D (tag)? new RegExp("\\b" + tag + "\\b", "i") : =
+null,
+                returnElements =3D [],
+                current;
+            for(var i=3D0, il=3Delements.length; i<il; i+=3D1){
+                current =3D elements[i];
+                if(!nodeName || nodeName.test(current.nodeName)) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    else if (document.evaluate) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D "",
+                xhtmlNamespace =3D "http://www.w3.org/1999/xhtml",
+                namespaceResolver =3D (document.documentElement.namespaceUR=
+I =3D=3D=3D xhtmlNamespace)? xhtmlNamespace : null,
+                returnElements =3D [],
+                elements,
+                node;
+            for(var j=3D0, jl=3Dclasses.length; j<jl; j+=3D1){
+                classesToCheck +=3D "[contains(concat(' ', @class, ' '), ' =
+" + classes[j] + " ')]";
+            }
+            try {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, namespaceResolver, 0, null);
+            }
+            catch (e) {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, null, 0, null);
+            }
+            while ((node =3D elements.iterateNext())) {
+                returnElements.push(node);
+            }
+            return returnElements;
+        };
+    }
+    else {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D [],
+                elements =3D (tag =3D=3D=3D "*" && elm.all)? elm.all : elm.=
+getElementsByTagName(tag),
+                current,
+                returnElements =3D [],
+                match;
+            for(var k=3D0, kl=3Dclasses.length; k<kl; k+=3D1){
+                classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\=
+\s|$)"));
+            }
+            for(var l=3D0, ll=3Delements.length; l<ll; l+=3D1){
+                current =3D elements[l];
+                match =3D false;
+                for(var m=3D0, ml=3DclassesToCheck.length; m<ml; m+=3D1){
+                    match =3D classesToCheck[m].test(current.className);
+                    if (!match) {
+                        break;
+                    }
+                }
+                if (match) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    return getElementsByClassName(className, tag, elm);
+};
+
+
+// =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+// The following functions are part of scroll edit textarea on double-click
+//
+// This code is public domain (or primarily public domain).
+// Do whatever you want with it.  In particular, you may release it under
+// GPL 2.0 or incorporate it into projects that use GPL 2.0.
+// -- Radomir Dopieralski and Roger D. Haase
+
+// Debugging helpers
+//  save debugging state in cookie - presence of a cookie means debugging m=
+ode is on
+cookiePath =3D '/';
+function autoScrollSetCookie (){
+    document.cookie =3D 'autoscrolldebug=3Don; path=3D' + cookiePath + '; ';
+}
+function autoScrollDeleteCookie (){
+    var cookie_date =3D new Date ( );  // current date & time
+    cookie_date.setTime ( cookie_date.getTime() - 1 );
+    document.cookie =3D 'autoscrolldebug=3D; expires=3D' + cookie_date.toGM=
+TString() + '; path=3D' + cookiePath + '; ';
+}
+function autoScrollGetCookie (){
+    var results =3D document.cookie.match ( '(^|;) ?' + "autoscrolldebug" +=
+ '=3D([^;]*)(;|$)' );
+    if ( results ) {
+        return ( unescape ( results[2] ) );
+    } else {
+        return null;
+    }
+}
+// turn on debugging mode by previewing, saving or reading a page with "aut=
+o scroll debug on" within an h1 header
+// =3D My Page auto scroll debug on =3D
+// once set on,debug mode says on for current session or until turned off w=
+ith
+// =3D My Page auto scroll debug off =3D
+autoScrollDebugOn =3D 0;
+// this function executed on page load
+function turnDebugOnOrOff () {
+    // set global variable for use by cookie functions
+    cookiePath =3D document.getElementsByName('edit_on_doubleclick')[0].con=
+tent;
+    var hOnes =3D document.getElementsByTagName('H1');
+    for (var i =3D 0; i < hOnes.length; ++i) {
+        var header =3D hOnes[i].textContent || hOnes[i].innerText;
+        if (header.match ('auto scroll debug on')) {
+            autoScrollSetCookie ();
+        }
+        if (header.match ('auto scroll debug off')) {
+            autoScrollDeleteCookie ();
+        }
+    }
+    if (autoScrollGetCookie ()) {
+        autoScrollDebugOn =3D 1;
+    } else {
+        autoScrollDebugOn =3D 0;
+    }
+}
+
+// functions used for testing - mouseover tooltip with tagName and scroll l=
+ine number
+function doMouseOver(e) {
+    var targ =3D getNode(e);
+    targ.title =3D 'tagName=3D'+targ.tagName+'  line=3D'+targ.scrollLine;
+}
+function doMouseOut(e) {
+    var targ =3D getNode(e);
+    targ.removeAttribute('title');
+}
+// add leading zeros to hours, minutes, seconds, milliseconds
+function leadingZeros (nbr,count) {=20
+    var strNbr =3D nbr + '';
+    while (strNbr.length < count) {
+        strNbr =3D "0" + strNbr;=20
+    }
+    return strNbr;
+}
+// format hours, minutes, seconds, and ms
+function formatTime (t) {
+    var sHours =3D leadingZeros (t.getHours(), 2);
+    var sMinutes =3D leadingZeros (t.getMinutes (), 2);
+    var sSeconds =3D leadingZeros (t.getSeconds (), 2);
+    var sMilliseconds =3D leadingZeros (t.getMilliseconds (), 3);
+    return sHours + ':' + sMinutes + ':' + sSeconds + ':' + sMilliseconds;
+}
+
+// this variable is available as easy way to display trace info
+autoDebugTrace =3D '';
+function showStartStopTimes (startTime) {
+    // display a message with start and end times at top of page
+    var endTime =3D new Date();
+    var tStart =3D'auto scroll debug on -- Initialization start H:M:S:ms=3D=
+' + formatTime (startTime);
+    var tEnd =3D '  end H:M:S:ms=3D' + formatTime (endTime);
+    var timingMsg =3D document.createElement ('P');
+    timingMsg.innerHTML =3D tStart + tEnd;
+    timingMsg.style. color =3D "red";
+    var contentDiv;
+    if (document.getElementById ('preview')) {
+        contentDiv =3D document.getElementById ('preview');
+    } else {
+        contentDiv =3D document.getElementById ('content');
+    }
+    contentDiv.insertBefore (timingMsg, contentDiv.firstChild);
+    // display trace info is there is any
+    if (autoDebugTrace) {
+        alert(autoDebugTrace);
+    }
+}
+// end of debugging helpers
+
+// this scrolls the textarea after a doubleclick - jumpLine is scroll-to li=
+ne
+function scrollTextarea(jumpLine) {
+    var txtBox =3D document.getElementById('editor-textarea');
+    scroll(0,0);=20
+    if (txtBox) {
+        // Calculate the cursor position - IE supports innerText, not textC=
+ontent
+        var textLines =3D txtBox.textContent || txtBox.innerText;
+        textLines =3D textLines.match(/(.*(\r\n|\r|\n))/g);
+        var scrolledText =3D '';
+        for (var i =3D 0; i < textLines.length && i < jumpLine; ++i) {
+            scrolledText +=3D textLines[i];
+        }
+        txtBox.focus();
+        if (txtBox.setSelectionRange) {
+            // Standard-compliant browsers
+            // Move the cursor
+            txtBox.setSelectionRange(scrolledText.length, scrolledText.leng=
+th);
+            // Calculate how far to scroll, by putting the text that is to =
+be
+            // above the fold in a DIV, and checking the DIV's height.
+            var scrollPre =3D document.createElement('pre');
+            txtBox.parentNode.appendChild(scrollPre);
+            var style =3D window.getComputedStyle(txtBox, '');
+            scrollPre.style.lineHeight =3D style.lineHeight;
+            scrollPre.style.fontFamily =3D style.fontFamily;
+            scrollPre.style.fontSize =3D style.fontSize;
+            scrollPre.style.padding =3D 0;
+            scrollPre.style.letterSpacing =3D style.letterSpacing;
+            // Different browsers call this value differently:
+            try { scrollPre.style.whiteSpace =3D "-moz-pre-wrap"; } catch(e=
+) {}
+            try { scrollPre.style.whiteSpace =3D "-o-pre-wrap"; } catch(e) =
+{}
+            try { scrollPre.style.whiteSpace =3D "-pre-wrap"; } catch(e) {}
+            try { scrollPre.style.whiteSpace =3D "pre-wrap"; } catch(e) {}
+            scrollPre.textContent =3D scrolledText;
+            txtBox.scrollTop =3D scrollPre.scrollHeight-100;
+            scrollPre.parentNode.removeChild(scrollPre);
+        } else if (txtBox.createTextRange) {
+            // Microsoft Internet Explorer
+            // We don't need to scroll, it will do it automatically, just m=
+ove
+            // the cursor.
+            var range =3D txtBox.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', scrolledText.length);
+            range.moveStart('character', scrolledText.length);
+            range.select();
+            txtBox.__column =3D 1;
+        }
+    }=20
+}
+
+// stop event bubbling
+function stopBubbling(e) {
+    if (e.stopPropagation) {
+        e.stopPropagation();=20
+    }
+    e.cancelBubble =3D true;
+}
+
+// stop bubbling and return event node=20
+function getNode(e) {
+    // window.event and e.srcElement are IE
+    var e =3D e || window.event;
+    var targ =3D e.target || e.srcElement;
+    if (targ.nodeType =3D=3D 3) {
+        // workaround safari
+        targ =3D targ.parentNode;
+    }
+    stopBubbling(e);
+    return targ;
+}
+
+// add action=3Dedit and scrollLine to document.location
+function doActionEdit(e) {
+    var targ =3D getNode(e);
+    // MoinMoin counts starting with 1, scrollTextarea starts with 0
+    document.location.search =3D '?action=3Dedit&line=3D'+(targ.scrollLine-=
+1);
+}
+
+// scroll textarea on this page
+function doTextareaScroll(e) {
+    var targ =3D getNode(e);
+    scrollTextarea(targ.scrollLine-1);
+}
+
+// This is the function that registers double clicks.
+// isPreview is true if the current page is an edit draft preview
+function setCallback(node, line, isPreview) {
+    if (node.scrollLine) {
+        // this node already processed
+        return;
+    } else {
+        node.scrollLine =3D line;
+        if(window.addEventListener){=20
+            if (isPreview) {
+                node.addEventListener('dblclick',doTextareaScroll,false);
+            } else {
+                node.addEventListener('dblclick',doActionEdit,false);
+            }
+            if (autoScrollDebugOn) {
+                node.addEventListener('mouseover', doMouseOver,false);=20
+                node.addEventListener('mouseout',doMouseOut,false);=20
+            }
+        } else {
+            // IE
+            if (isPreview) {
+                node.attachEvent('ondblclick',doTextareaScroll);
+            } else {
+                node.attachEvent('ondblclick',doActionEdit);
+            }
+            if (autoScrollDebugOn) {
+                node.attachEvent('onmouseover', doMouseOver,false);=20
+                node.attachEvent('onmouseout',doMouseOut,false);
+            }
+        }
+    }
+}
+
+// walk part of DOM and add doubleclick function to all nodes with tagNames
+function walkDom (someNode, lineNbr, isPreview, nextId, topId) {
+
+    //~ // handle special cases of paragraph on line after <<TOC>> and ----=
+ (horizontal rule)
+    //~ //   But this effects paragraphs on multiple lines: doubleclick goe=
+s to paragraph bottom rather than top.
+    //~ //   Seems best to live with TOC and HR problem and wait for Moin2.
+    //~ var next1, next2, next3;
+    //~ var nextNbr =3D 'line-' + (lineNbr-0+1);
+    //~ if (someNode.parentNode.tagName =3D=3D 'P' && someNode.parentNode.s=
+crollLine) {
+        //~ next1 =3D someNode.nextSibling;
+        //~ if (next1 && next1.tagName !=3D 'SPAN') {
+            //~ next2 =3D next1.nextSibling;
+        //~ }
+        //~ if (next2 && next2.id =3D=3D nextNbr) {
+            //~ alert('Correcting scrollLine=3D'+lineNbr);
+            //~ someNode.parentNode.scrollLine =3D lineNbr;
+            //~ return;
+        //~ }
+    //~ }
+   =20
+    var ie8LoopCounter =3D 0;
+    var doChild =3D true;
+    while (!(someNode.id =3D=3D nextId) && !(someNode.id =3D=3D topId)) {
+        // workaround IE8 bug:  http://moinmo.in/MoinMoinBugs/FormInsideTab=
+leCausesIE8ScriptLoop
+        ie8LoopCounter +=3D 1;
+        if (ie8LoopCounter > 10000) {
+            return;
+        }
+       =20
+        // add children, add siblings, add parent
+        if (doChild && someNode.firstChild) {
+            someNode =3D someNode.firstChild;
+        } else {
+            doChild =3D true;
+            if (someNode.nextSibling) {
+                someNode =3D someNode.nextSibling;
+            } else {
+                if (someNode.parentNode.nextSibling) {
+                someNode =3D someNode.parentNode.nextSibling;
+                } else {
+                    doChild =3D false;
+                    someNode =3D someNode.parentNode.parentNode;
+                }
+            }
+        }
+        if (doChild && someNode.tagName && !(someNode.id =3D=3D nextId) && =
+!(someNode.id =3D=3D topId)) {
+            setCallback(someNode, lineNbr, isPreview);
+        }
+    }
+}
+
+// run during page load when user may edit current page OR is viewing draft=
+ preview
+function setSpanTags(isPreview) {
+    var startTime =3D new Date();
+    // find all the SPAN tags with an ID beginning with "line-"
+    var spanTags =3D document.getElementsByTagName('span');
+    var marks =3D [];
+    for (var i =3D 0; i < spanTags.length; ++i) {
+        if (spanTags[i].id && spanTags[i].id.substring(0, 5) =3D=3D 'line-'=
+) {
+            marks.push(spanTags[i]);
+        }
+    }
+    var top =3D document.getElementById('content');
+    var bottom =3D document.getElementById('bottom');
+    // add expected stopping point to end of array for convenience
+    if (bottom) {
+        marks.push(bottom);=20
+    } else {
+        if (autoScrollDebugOn) {
+            alert("auto scroll debug 1: document.getElementById('bottom') f=
+ailed");
+        }
+    }
+    var skipTo =3D -1;=20
+    // loop through span tags and apply double-click events to appropriate =
+node(s)=20
+    for (i =3D 0; i < marks.length-1; ++i) {
+        var mark =3D marks[i];
+        // skip span tags generated by embedded parsers
+        if (i > skipTo) {
+            // split the ID into parts: looks like "line-22" or "line-22-1"
+            var lineParts =3D mark.id.split('-');
+            var line =3D lineParts[1];
+            if (lineParts.length =3D=3D 3) {
+                // have found output from embedded parser
+                // find next span id that looks like "line-n" and the "line=
+-n-n" just before it
+                var j =3D i - 0;
+                while (lineParts.length =3D=3D 3) {
+                    j++;
+                    lineParts =3D marks[j].id.split('-');
+                }
+                // determine how many lines, starting line number, and add =
+double-click events
+                var nbrParsedLines =3D j - i;
+                var parsedLineNbr =3D lineParts[1] - nbrParsedLines - 1;
+                for (var k =3D 0; k < nbrParsedLines; ++k) {=20
+                    if (marks[i+k] && marks[i+k+1] && marks[i+k+1].id) {
+                        walkDom (marks[i+k], parsedLineNbr+k, isPreview, ma=
+rks[i+k+1].id, top.id);
+                    } else {
+                        if (autoScrollDebugOn) {
+                            alert('auto scroll debug 2: skipping walkDom, i=
+=3D' + i + ' k=3D' + k + ' marks[i].id=3D' + marks[i].id);
+                        }
+                    }
+                }
+                // done with embedded parser lines, tell main loop to skip =
+these
+                skipTo =3D j - 1;=20
+            } else {
+                // walk part of DOM and apply doubleclick function to every=
+ node with a tagname
+                if (marks[i+1] && marks[i+1].id) {
+                    walkDom (mark, line, isPreview, marks[i+1].id, top.id);
+                } else {
+                    if (autoScrollDebugOn) {
+                        alert('auto scroll debug 3: skipping walkDom, i=3D'=
+ + i + ' marks[i].id=3D' + marks[i].id);
+                    }
+                }
+            }
+        }
+    }
+    if (autoScrollDebugOn && document.getElementById('content'))  {
+        for (i =3D 0; i < marks.length-1; ++i) {
+            marks[i].innerHTML =3D ' ' + marks[i].id + ' ';
+            marks[i].style. color =3D "red";
+        }
+        showStartStopTimes(startTime);
+    }
+}
+
+// test to see if this user has selected or defaulted to edit_on_doubleclic=
+k AND
+// whether we are viewing a page, editing a page, or previewing an edit dra=
+ft=20
+function scrollTextareaInit() {
+    // look for meta tag -- is edit_on_doubleclick present?
+    if (!document.getElementsByName('edit_on_doubleclick').length) {
+        return;
+    }
+    turnDebugOnOrOff ();
+    // are we viewing a page - both gui and text editors will have button n=
+amed button_save
+    if (!document.getElementsByName('button_save').length) {
+        setSpanTags(0);
+        return;
+    }
+    // we are in editor -- is there a line number specified in URL?
+    var lineMatch =3D document.location.search.match(/line=3D(\d*)/);
+    if (lineMatch) {
+        scrollTextarea(lineMatch[1]);
+        return;
+    }=20
+    if (document.getElementById('preview')) {
+        // is an editor preview
+        setSpanTags(1);
+    }
+}
+
+// The DOM ready check for Internet Explorer
+function ieScrollCheck() {
+	try {
+		// If IE is used, use the trick by Diego Perini
+		document.documentElement.doScroll("left");
+	} catch( error ) {
+		setTimeout( ieScrollCheck, 1 );
+		return;
+	}
+    scrollTextareaInit();
+}
+
+// run auto scroll init As Soon As Possible -- prior to onload for modern b=
+rowsers
+function runASAP() {
+    if (document.addEventListener) {=20
+        // Firefox 3.6, Chrome 4.0.249.89, Safari for Windows 4.04, Opera 1=
+0.5beta, and maybe older versions
+        // schedule func to be run when DOM complete, usually before last i=
+mage loaded
+        document.addEventListener("DOMContentLoaded", scrollTextareaInit, f=
+alse);
+    } else {
+        if (document.documentElement.doScroll && window =3D=3D window.top) {
+            // IE 5-8 and not using frames
+            ieScrollCheck();
+        } else {
+            addLoadEvent(scrollTextareaInit);
+        }
+    }
+}
+// auto scroll initialization starts here
+runASAP();
+
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/css/Pics/gradient.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAEAAABDCAIAAADS5/i5AAAAAXNSR0IArs4c6QAAAAlwSFlzAAAN
+/wAADf8B9IqyiQAAAAd0SU1FB9cIHhQeLyfm5HAAAAAWdEVYdENvbW1lbnQAS2FsbGUgU29kZXJt
+YW4Dov5qAAAABmJLR0QA/wD/AP+gvaeTAAAAVUlEQVQY012OwRHAMAjDJO+/X6/fLkIfcEnTF1iH
+bbjuJ4aIQQKzx1hEm4vRCiTKZswuAfue9unOdRjHJOhks1h7Tj9z09469Ope2X5+/DGIGU19u15W
+fQeCuEqAAgAAAABJRU5ErkJggg==
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://www.debian.org/Pics/openlogo-50.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAADIAAAA9CAYAAAGYbgryAAAAAXNSR0IArs4c6QAAAAlwSFlzAAB+
+9QAAfvUBJMll2gAAAAd0SU1FB9sBHgwOFLTIT8cAAAAGYktHRAAAAAAAAPlDu38AAAdWSURBVGje
+7Vp7kE9VHL92WXbtkkwqr1hNjUfyyGbzTA+10YOhyaMpJglbGc+UYUbU0IuUJjLTH1HeUUMlJq8o
+z5CKMuUViWhYj7W/Pp/6XE63c397f08xzsxn7rnf8z33e773nHvO93zucZwg6Usn51sjX8ZPqSxQ
+zlbQw3yCWTDFiSaFwhWeMZTWA8sD+VfVyIfMgvZ+Nd7VtY0Tl9TTJuwI9JEvp/waMpFNBuYA7yn/
+RjhfQ0Z+OHB3xI1FpVT19weBLEVjYZCTyFQIdNar3aar29yTwEpvhW4A31QFVRwoeS6QB7QCbo5f
++9SRhcAY4ITv20RBuq0QskxrJQhbeO5HAW19+wzCH4z8omI7GcIfjfwRT9kTtgrTPe3ewCaFnSFQ
+uDnSV7ovmn74LtoOzEjY6F1anII7W4zVda5FJ1XlIXNOXa3rQkMxz6jQzpx/y+vKb6EKcKeUmOrq
+W7kWaBn0jZUBVmjom/gVyOOME8v3tMB44B0+OpUMndej+WB3RqD/ApdFYEjQCt8An1jktxbXsEi8
++Am4yiJfGcD7tKBGtgIPWuQ1gUnuEmPIs4GDkfbHZWrVFT7lHFEdgeqxztS3xLTWRWjsMNAuWcau
+Tppn8UgpgG2KnwqMiTU2aWBECe70egz4DZgGcF18WuUMdtMVSbh6lB/S/VpgtBF9WEPb08BehSqF
+KpsNDFX5H546BcBRRcD8dpYB99tC5iXA98BrKiinK6fwmpr7B+l+nx4WUnjDhzcHjkjO9eKBIHF5
+8hM6+WHLWkK8BHSO9eGpeliRrge4KwBe5DKg2K0o1ijYNTCdH6OPzpSoDWm6p5G7Auh+IUPHIjGQ
+KwMlI/Q6I6hyeVUY41O+FujArRzXEUO+FNgSyJD2OkW2FQ6yTWHq9Wa9oJ5U4aixyLn6ZVrkDQ0j
+oaBGagCnLfI23EmEqcetYp1IjJyy7bOBxsZ9GmMuT8dnBjVSEThjkTcHjtoIC8VbdSP+CC2yEkBT
+YBvwFNAEGCwPKkT7pX8Yprw7PYt1zqqdlPWcUwTwcqKNpOi1lUi0oZb6+hNuqGakk2Usr24yV8Jk
+LsdlnUsJiVzHfR4ZY609XuIhavIB6XPLvjs9XkHaWiMWbgo8rjjYJF+36loZmAmMB+Yb9VinBsDV
+8bhkZyfOqgqamVYB9Y2WT/DQEPnALoCk53BPQxmmZhm6A4B5buErityZ1omqCBnBdjejYjXlGTMP
+U8wbkteHgQxDtx9wdibvAWxXnqF+bUsfuPd8HV/Lw6FqiJsOeYz0NY1kqqCJtg23652SWeBevpHK
+uUHaD3BHTGZtpLYM3YHdypc3jPQ3jTBdKfYzB6gnWVttF1ixo4xWVFkTbRsy1OGO+o5LcmvdcwD1
+StSUQ0apMfAZsB/4BXgeeATooyW7hTjH1P/b9uUGYCODHGPrUuSzpfHiOMM8YCFw2/loPEO7t3wa
+RyKrRzH1KwMDFbG5jrvOz0gou2o0or/HMK+Low0EFDVOtPTkPYlo/I1G5OgaWuW3j4zSxnUWZ56N
+pxMldF2nh+/lji+C+rVEAwwDemk7WjHMJs91YkQ8X5RrYJIezt85LQPW4Qy1xua0ojjOcCmWsvGy
+tVT3JePlRLb4Dc5KTwbQLwXMAhpFaa+30SvXx7M3qgM7RNQ0DKDfDJgflOX2/gvXEAy7y4vWkWv4
+x03zfckA+vWBQ8V9RyLQK1vkm4GfNcVnxdORauqR00E2C6Lg3uf34TNMW/nUq6ThO4+9FPftlj7M
+NTIyJID+5cC9QAPgT2Cs3wvQ99QT+F29kOUkMskYx+1X4Rgiy0JXB3hHs95sYL16l5TjamCoCInk
+xV0w9rExmyyO4TlZzvlMGmJzDWfaX9B7YtHYdGQXZ7QL3Znq+lNHh4Zd8IyFFr9CTc0jLwaHOO+P
+Jk0NfAR0uii4JW1l+2uTNFB0eJpzKV1Kf6dSomNKB9RNN3k5y3DLFVOZm2xHtoioKu4EZiVDt18Y
+R25KliNsUJ5YtzxRfmxcM0OngfjHx8TmMfEj/lS6XcXskYzrJH7SEcNHHpN/itxjfhki4TrIJuvw
+J5xLYpQRmZcnCrKebD8EZNscYAWXyp1myLeJs8wRA8jyJWpUBcNRnhNboPwGYBbwjPMPFUyZe3x1
+qu5H6J6n2CYDbnQwyDl33CJFNl1qegdAAoQ7xpOSjfM64h6uXeSRr5EjrLxOOjyhS/K2lhrIxnYB
+5qj8baN+tvPvE6UTlH/O0ElTz5FjzRf3yiMdjIbJ5y5XnS5GnXzJ/rODHKeC+R75JjnCIbFbOqS9
+H/WgldEj+UZ9Dity6AW6Hy+dIRrGB4ATzrlzJo7suI5w6C1THfPQUl8/R0j8n1KheQqtQDKO25HK
+z7AMTRpdqPI+hryrZAN0/6bRIx3Um1sN/Rzn3IkdPpPh/krJ2gfpEabWwEFjKGwEVig/WDr8kbBH
+sgLl+RvlVUN3t4YDqX3+6XBPbJfW0KXOTMkWGPYIMjQ7lc9Sr223vKBRkp09U/sXKl3FkyLcuogA
+AAAASUVORK5CYII=
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/img/greydot.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gIHhUCGf6/9FYAAAAndEVYdENv
+bW1lbnQAQXJjaGl0ZWN0dXJlIFJlc2VhcmNoIFVuaXQgMjAwN7g+1R0AAAASSURBVAjXY5g7f9n/
+y9fuMwAAGbUFarws5PUAAAAASUVORK5CYII=
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/img/moin-inter.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+WXMAAAsSAAALEgHS3X78AAAAB3RJTUUH1gsKFTcyUuMUyAAAAB10RVh0Q29tbWVudABDcmVhdGVk
+IHdpdGggVGhlIEdJTVDvZCVuAAACDklEQVQ4y62STUhUQQDHf7Pr+Hi+Pt6DCDOisvbLg4veIoJk
+3UNQLiKIH+WlY3gKFsNDdBDcZdvOXcQUKrpsCiG0qxDWpTxEkNeubWx+bLr29rk7HVJZX2KH+sMc
+Zpj/b34zDPxjhHthPDkWBe7vTB+MxEezhwG8rvJwwB8c7uvtFx1XI6JQKHS0tYcbctmF9381GE+O
+3Qj4g/diXd2UyzZCeJBS8mRq4kT+W/4CoIBbI/HRZwcadEYjE329/cLZdqhWKnjr6pibe3VW07Rz
+O0aeQqHQ09YePprLLrze7XlqYB8BnHKZ4kaRxbdvTlYqlaZYVzdSShzHIdbVTcAfvDueHLv9B0AI
+8SU3n8U0LbR6jaWlD82dkSibpU0cxwEBWz+36IxEAR7vA6TSibCu6z2GYTAzm0Gr12hsPPWj1mhl
+9Tu2be/2Ft0GNwcHhvAH/BhHGnj+4in5/NdSrdG242AeN8nNZxFCfHYDLlumhdfjJRRsobU1fEzX
+9cZao9NNZ5iZzWAYBrqu30mlE1fcj4ht25TLNsvLy01uo4ePkugNOj6fj8GBIYA4QN1Od3O9uGY0
+n78IQOZlxrJMi1Jpg1CwhVCwBVAo9XuzZVoA1/cAUspPU9OTl9y/zLZthAClQKFQSrFHOSypdGJ9
+dW1FVavVA8fq2opKpRPrtVfYFynlu6npyWuHHSKlnOV/5Bed9dd4IhREYwAAAABJRU5ErkJggg==
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15
+Content-Location: https://wiki.debian.org/htdocs/debwiki/img/moin-www.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QQaBywH5hnejwAAADV0RVh0Q29tbWVudAAoYykgMjAw
+NCBKYWt1YiBTdGVpbmVyCgpDcmVhdGVkIHdpdGggVGhlIEdJTVCQ2YtvAAAC7ElEQVQ4y62TXWhb
+ZRyHn/ec95xjkzRpm+ajjW3W0KIsuHWyyMSrKagwFG+UKd1FZTgQb4ShoLdSEMX7XYgVR0HE6Y1M
+hjezMLWzlo12K67rXD+znCwfTXKSc5Kc1wvZxO3W5/r/ey7+/H6CBzj+3uwp4C1dyv0KLOX7DaVY
+0HTt7NzM1BcP3ov7wfe/nDR17ceJsWTiyIE0Y6koAcuiXG+ytmmzuLLJjY3CZSHEybmZqav/Ebz2
+7ue5YLjnt1eOHhQHJ+KU603snQ1kKA49/eDYpBJRFla2OT+/chchnr0nkQDRaOin55/JiicyA5SK
+eQZHs0QGh3BabfKb60jfQ+s2eS6Xoeur6IVL188ATwNob3741UfJeH/4aG4cQ/PpyBBoAkNKTEMS
+sCSJaC9D8RixviC57KOkhweOvPHB2WkALRwJnDycHaVSLnLHDRAf3odS4CtAaAjfY7fU4PuLy1yY
+XyRiKfaPDwO8CiBrTjuWTvazcKNAZiKOr/79bL1S4qnJLEIIlFJs796h1WwyFIsAHAbQWl5HsywT
+LRSnUm9h1zwct0vN8fDqNkL8oxNCkIhFubp6E8uQAAMAUtc1v9poacHWDiFpUWgMUjRMOl2fVqnD
+ZLuN63r0hoI4jsO+VIxC0wMoAUhD0/K3torDh8aTZEaGuL25zfzaHh4mTS/Ip99ewRJd3n75ALVa
+jaVrN6E3DfA7gKa63XNLq1t4vgQgPZLi2KEYu4USd6sNqq7gdtnHtm2q1SqP9KdYXc8DfAOgL/18
+7vx47qXTQtfNSNCgx9T5ZXGZ5byi1nDZa7jsOS65EZ3CnsdW2efa2s6vczNT79wvUqVQPHHxsv+d
+78OTjyX44UqVsmfidbq4XgfLEGxUFH8V2lz6Y60shDj10BaOTX/8+mhmZDYc6TMfzyRJDoaxLAOn
+1WbXrvDnrTxbO8XrQpfHH9rCPfoGxswXTpye1a3Ai+iyD4RQyu+oTntdCe2zrz+ZPsP/zd9wbDf3
+MdodlQAAAABJRU5ErkJggg==
+
+------=_Part_5EFC0EA8_DBDF3D58.15D9F3B4A15--

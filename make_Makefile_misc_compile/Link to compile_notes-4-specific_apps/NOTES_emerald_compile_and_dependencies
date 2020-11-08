@@ -1,0 +1,12 @@
+sudo apt-get install git autoconf libtool libwnck1.0-cil-dev libwnck-dev intltool libdecoration0-dev gawk compizconfig-settings-manager
+
+wget cgit.compiz.org/fusion/decorators/emerald/snapshot/emerald-0.9.5.tar.gz
+
+tar -zxvf emerald-0.9.5.tar.gz && cd emerald-0.9.5/
+
+./autogen.sh
+make clean
+make distclean
+./configure --prefix=/usr --libdir=/usr/lib${LIBDIRSUFFIX} LIBS='-ldl -lm'
+make
+sudo make install

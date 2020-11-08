@@ -1,0 +1,11 @@
+ 11
+down vote
+accepted
+	
+
+I've found that /usr/sbin/pm-powersave turns OFF my wireless card when I switch to battery or suspend by closing the laptop's lid. I've gotten wireless to stay up between hibernates by executing sudo /usr/sbin/pm-powersave false. The man pm-powersave page says I can create an empty file /etc/pm/power.d/wireless to prevent /usr/lib/pm-utils/power.d/wireless from running and doing its magic. I've done it, and it works for me.
+
+I found this by doing an ls -lrt /var/log just after the event, and looking at the last 100 so lines of the recently modified logs. I use this technique to start answering many questions about what my system just did.
+
+
+

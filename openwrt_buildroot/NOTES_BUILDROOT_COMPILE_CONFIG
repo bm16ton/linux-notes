@@ -1,0 +1,31 @@
+
+
+./build_dir/linux-ar71xx_generic/compat-wireless-2014-05-22/
+
+
+goto openwrt directory
+edit the archive;
+	dl/compat-wireless-2014-05-22.tar.bz2
+and add all the extra patches or try adding the patches to;
+	package/mac80211/patches
+compile the ath9k modules etc with;
+
+	make V=s package/mac80211/compile
+			or clean
+	make V=s package/mac80211/clean
+
+compile just kernel modules
+
+	make V=s target/linux/compile
+
+compile the static kernel stuff
+
+	make V=s target/linux/install
+
+
+
+kernel config via make menu
+
+	make kernel_menuconfig CONFIG_TARGET=subtarget
+
+	make kernel_menuconfig CONFIG_TARGET=ar71xx

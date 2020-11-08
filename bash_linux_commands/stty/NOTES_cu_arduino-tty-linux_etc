@@ -1,0 +1,185 @@
+Arduino and Linux TTY
+
+Elliott Kipp/edk4971 posted in the forums on how to configure a linux tty with the correct parity, baud, etc to talk to arduino.
+
+Repeating it here:
+
+stty -F /dev/ttyUSB0 cs8 115200 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+
+make sure /dev/ttyUSB0 or whatever is your arduino, and 115200 is the baud you did your Serial.begin(XXXX) with
+
+You can then do:
+
+echo "Hello Arduino" > /dev/ttyUSB0
+to send the string (followed by a newline) to your arduino.
+
+Taken from this forum: http://www.crystalfontz.com/forum/showthread.php?p=19562
+
+You can also do:
+
+tail -f /dev/ttyUSB0
+to read what your arduino has to tell you.
+
+TODO: Is there any problem with buffering (and if so, how do we flush) if we send content with no end of line:
+
+echo -n "Hello" > /dev/ttyUSB0
+
+Using 'screen' to provide an interactive session with arduino
+
+this first comment on todbot's post on serial c code to talk to arduino shows how to get an interactive session with arduino using the screen command.
+
+screen /dev/cu.usbserial 9600
+
+I haven't tested this yet.
+Using 'screen' and the SimpleMessageSystem to provide an interactive session with Arduino
+
+1) Program the Arduino with the example code include in the SimpleMessageSystem library (leave the baud rate at 9600 for this example).
+
+2) Open a terminal window.
+
+3) Enter the following command (that differs slightly from above):
+
+stty -F /dev/ttyUSB0 cs8 9600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+
+4) Start screen by typing the following:
+
+screen /dev/ttyUSB0 9600
+
+5) Start by pressing the enter/return key to clear the Arduino's buffer.
+
+6) Type the following commands, followed by pressing the enter/return key for each message (please be warned that the characters will not appear as you type them, but the Arduino rx/tx leds will blink, this is considered normal behavior):
+
+w d 13 1
+
+r a
+
+r d
+
+The first message will turn on a let connected to port 13. The second message will return the value of all the analog inputs. The third message will return the value of all the digital inputs.
+
+8/7/08-by Roland Latour (rolandl@cavenet.com) There's a better way. 'screen' actually forks a second process to catch data coming the other way. So you need a helper process. My shell script package does that, and interprets and formats the data. Now with a GUI provided by the Xdialog command. Run 'wget http://user.cavenet.com/rolandl/SMS1.tgz' to get the tarball.
+
+Added 6/16/2009-by Lee:
+Workaround for using cat /dev/ttyUSB0 and screen /dev/ttyUSB0 on a Linux computer.
+
+On my system, the Arduino development environment doesn't close the port /dev/ttyUSB0 quite right.
+
+The scheme for my project is to send serial data out the USB type B connector on my Arduino Mega into a file. Open the file in a spreadsheet..
+
+cat /dev/ttyUSB0 > datafile
+gnumeric < datafile 
+
+Specifically: The arduino-0015 development application does not close or release /dev/ttyUSB0 on Linux systems completely.
+
+As a result, "cat /dev/ttyUSB0" fails if you have used the serial data display in the Arduino development application.
+
+To re-capture the data use "screen"
+
+screen /dev/ttyUSB0     // Kill screen with ^ak or control-a k
+
+An alternate way to stop the screen program: Display the process table and kill screen using the PID in column two.
+
+ps aux         // see screen and SCREEN processes. Note PID in column 2
+kill 9264 9265 // screen is gone and "cat /dev/ttyUSB0" now works
+
+Background about the environment for these commands. My Arduino hardware is an Arduino Mega that has a USB type B port built in. The program application uses serial data setup and printing straight out of the Arduino Programming Notebook. In the Arduino development environment, I can see the data being printed by the Arduino board using the Serial Monitor button. This should work before you can get data from /dev/ttyUSB0. The computer runs a mix of Ubuntu 7.10 and 8.04.
+
+Serial port code fragments:
+
+	 setup() 
+	{
+	Serial.begin(9600);
+	}
+	loop()
+	{
+	Serial.print("Total "); 
+	Serial.println(total_count/1000);
+	}
+
+End of note by Lee.
+
+Added 9-jun-2011 - by The Dare Guy (http://twitter.com/thedareguy):
+Simple communication using 'cu' in Linux (tested in Ubuntu 10.04 LTE)
+
+Find what USB port uses Arduino when you plug it into your computer. It can be something like /ttyUSBx or /ttyACMx (this is my case). To find the answer unplug the Arduino from the USB, run a Terminal (Applications > Accesories > Terminal) and type:
+
+	$ cd /dev
+	$ ls tty*
+
+	...
+	tty8
+	tty9
+	ttyS0
+	ttyS1
+	...
+
+Plug in the Arduino into the USB and type in the terminal:
+
+	$ ls tty*
+
+You will find a new device! My case:
+
+	...
+	tty8
+	tty9
+	ttyACM0   <-- New device
+	ttyS0
+	ttyS1
+	...
+
+Your program in Arduino must have initialised Serial Interface at a speed with Serial.begin(<speed>).
+
+The interface you are going to run ('cu') is so simple that every keypress will be sent to the serial device without echo, and every char sent by Arduino will be sent to your screen. There is no chance to stop 'cu', only by killing the Terminal window you are running.
+
+Type in the terminal:
+
+	$ cu -l /dev/<device> -s <speed>
+
+In my case:
+
+	$ cu -l /dev/ttyACM0 -s 115200
+
+All done!
+
+If 'cu' is not installed, type in the Terminal:
+
+	$ sudo apt-get install cu
+
+That's all folks! 9-jun-2011 - by The Dare Guy (http://twitter.com/thedareguy)
+When tail -f <serial port> does not work
+
+The tail method did not work for me after setting term capabilities with stty.
+
+However, this worked for me:
+
+cat </dev/ttyUSB0
+
+Troubleshooting
+
+When all else fails, except for the Arduino GUI's serial monitor does, run the following with the Arduino serial monitor open:
+
+stty -a < /dev/ttyACM0 #or whatever your Arduino happens to use, e.g. sometimes /dev/ttyUSB0
+
+This will print the settings that the serial monitor uses, e.g.:
+
+you@yourpc:~% stty -a < /dev/ttyUSB0
+speed 9600 baud; rows 0; columns 0; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W;
+lnext = ^V; flush = ^O; min = 0; time = 0;
+-parenb -parodd cs8 -hupcl -cstopb cread clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk inpck -istrip -inlcr -igncr -icrnl -ixon -ixoff -iuclc -ixany -imaxbel -iutf8
+-opost -olcuc -ocrnl -onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+-isig -icanon -iexten -echo -echoe -echok -echonl -noflsh -xcase -tostop -echoprt -echoctl -echoke
+
+Now, if you want your scripts to use the same settings, just run the following (once) before your scripts. You may obviously need to adapt it to whatever stty printed out before.
+
+stty -F /dev/ttyUSB0 9600 -parenb -parodd cs8 -hupcl \
+-cstopb cread clocal -crtscts -iuclc -ixany -imaxbel \
+-iutf8 -opost -olcuc -ocrnl -onlcr -onocr -onlret -ofill \
+ -ofdel nl0 cr0 tab0 bs0 vt0 ff0 -isig -icanon -iexten \
+-echo -echoe -echok -echonl -noflsh -xcase -tostop -echoprt \
+-echoctl -echoke
+
+Note: This didn't make screen work for me, but at least my scripts work again.
+
+

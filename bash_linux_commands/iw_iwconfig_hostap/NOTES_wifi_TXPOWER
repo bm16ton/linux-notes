@@ -1,0 +1,23 @@
+sudo iw phy1 set txpower limit 2800
+sudo iwconfig wlp3s0 txpower 20
+
+sudo iw wlxc0c1c0377c42 set txpower limit 2800
+
+iw dev <devname> set txpower <auto|fixed|limit> [<tx power in mBm>]
+iw phy <phyname> set txpower <auto|fixed|limit> [<tx power in mBm>]
+
+
+sudo iwconfig wlp3s0 power off                  BOTH TURN ON/OFF POWER MANAGEMENT FOR WIFI DEVICE  (Save power when not used by turning off etc)
+sudo iw dev <devname> get power_save <param>    BOTH TURN ON/OFF POWER MANAGEMENT FOR WIFI DEVICE  (Save power when not used by turning off etc)
+sudo iw dev wlp3s0 get power_save
+sudo iw dev wlp3s0 set power_save off
+sudo iw dev wlp3s0 set power_save on
+
+
+USB Ralink 3572
+	wlxc0c1c0377c42
+
+Atheros AR9462
+	wlp3s0
+	phy0
+

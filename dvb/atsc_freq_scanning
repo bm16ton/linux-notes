@@ -1,0 +1,25 @@
+Scanning ATSC VSB (United States, Over-the-Air)
+
+$ w_scan -fa -A1 -c US -X
+
+Scanning ATSC QAM annex B (United States, digital cable TV)
+
+$ w_scan -fa -A2 -c US -X
+
+Generating dvbscan tuning data
+
+Exactly as above, just specify output format dvbscan with "-x":
+
+$ w_scan -f <FRONTEND_TYPE> {-c <COUNTRY>,-s <SATELLITE>} -x >cc-Ttttt
+
+Generating c/s/tzap tuning data
+
+Exactly as above, just specify output format zap/czap/xine with "-X" (uppercase X):
+
+$ w_scan -f <FRONTEND_TYPE> {-c <COUNTRY>,-s <SATELLITE>} -X >cc-Ttttt
+
+Defining output charset
+
+$ w_scan -f <FRONTEND_TYPE> -C <CHARSET> ...
+
+Use 'iconv --list' for a list of possible output charsets, usually something like 'utf-8', 'iso8859-15'. Needs 20110410 or higher. 

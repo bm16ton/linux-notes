@@ -1,0 +1,595 @@
+From: <Saved by UnMHT Ver.8.2.0>
+Subject: pvrusb2
+Date: Tue, 25 Oct 2016 19:18:57 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_30848F04_BAF76D46.157FE23BE49";
+	type="text/html"
+
+------=_Part_30848F04_BAF76D46.157FE23BE49
+Content-Location: http://pvrusb2.dax.nu/
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="windows-1252"
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUg=
+AAABAAAAAQCAYAAAAf8/9hAAACeElEQVQ4jXXSPUjrUBjG8c4ddXBwcRDxY3PSwcGioE1NBE2lQ=
+4pIEIwgQqCDIEJHRZS2CIFKCoKioC4acPFjKMUiglanWNpFlDqImoKD5n8HoZdcb5/1OfzO+x6O=
+jzp5e3sjHo/Xq2vx3d3dUSwWfxUnJyd0dHSwvLyMYRjYtk2pVKJUKnmBcrmMIAjc399zfX3N3Nw=
+ckiSxuLiIqqpcXl6SyWSQJImWlhZeX1+9AIDjOHR1dREOh3l6egLAtm0ikQgAX19fhEIh4vE4iU=
+TiN+C6LqOjowwNDbG5ucnExASDg4MEAgHC4TAjIyNks1kAZmZmOD8/9wJ7e3uYpkkul6O5uRlVV=
+bm6uiKZTDI9PY0gCBwdHQFQrVYZHx/n5ubmB3Bdl7GxMSqVClNTUxSLRUzTZGBggLa2NjRNY39/=
+n9bWVpaWlhBFkfb2dhoaGlhfX8eXSqUQRZGNjQ2amppQFIXJyUn8fj9+v59YLEYmkyEQCJDP5wF=
+4eHggFov9TLCysoKqqlxcXBAMBqlWq+i6zvz8PKIoIssyn5+fKIpS2zuRSHB2dvYDfH9/EwqFqF=
+QqWJZFd3c3kUiE4+NjUqkUuq7T2NjIzs4OrusCEI1G+fj4+PuIlmWh6zqSJLG1tYVpmvT09NDX1=
+8f29janp6cEg0Hy+Tzv7++eaXwAj4+PdHZ2oihK7VceHBxgGEbtoOM4RKNRZFlmd3fXCySTScrl=
+MoVCAU3TmJ2dZW1tjXQ6TTabxTAMNE1jeHiYhYUFBEHwrvBvLMuit7eX/v5+VldXOTw85Pn5udb=
+f3t4iyzKO4/wfADAMg1wuV6/Gtm1eXl7qA4VCwXNrvfwBQkgfDN6yXekAAAAASUVORK5CYII=3D=
+" rel=3D"shortcut icon" type=3D"image/png">
+
+<title>pvrusb2</title>
+<link href=3D"style.css" media=3D"screen" rel=3D"StyleSheet" type=3D"text/c=
+ss">
+<base href=3D"http://pvrusb2.dax.nu/"></head>
+<body>
+<h2>A GNU/Linux driver for the Hauppauge WinTV-PVR-usb2</h2>
+
+<p>
+</p><div style=3D"margin-top: 3ex; margin-bottom: 4ex; margin-left: 3em;
+            color: #d00000; font-size: 150%">
+<i>Please read this first:
+This page is kept here primarily for historical reference.
+The canonical Linux driver for this device is Mike Isely&#x27;s
+<a href=3D"http://www.isely.net/pvrusb2/pvrusb2.html">pvrusb2</a>
+driver, which is part of the Linux kernel tree since 2.6.18.
+If you want to use the device under BSD Unix (like for instance
+FreeBSD or MacOS X), then the driver described here might still
+be of some use since it uses the portable libusb interface.
+</i>
+</div>
+
+<p>
+<span class=3D"firstwords">WARNING:</span> This is not a finished, working =
+driver yet.
+And it&#x27;s not sponsored or approved by Hauppauge in any way either.
+Hauppauge won&#x27;t even document the protocol that the PVR-usb2 deploys
+on your computer&#x27;s USB bus. So don&#x27;t annoy them with any questions
+you might have regarding this software, okay?
+
+</p><p>
+<span class=3D"firstwords">A note regarding hardware:</span> This web page =
+is only concerned with the
+<a href=3D"http://www.hauppauge.com/html/wintvpvrusb2_datasheet.htm">WinTV-=
+PVR-usb <b><font size=3D"+3">2</font></b></a>
+version of the Hauppauge WinTV family of products. If you have its
+predecessor, the &quot;plain&quot; WinTV-PVR-usb, it won&#x27;t work with t=
+he software
+published here because the devices use different chipsets. If you have
+that version of the hardware, take a look at
+<a href=3D"http://sourceforge.net/projects/pvrusb">the kernel driver by And=
+reas Gal</a>
+instead.
+
+</p><p>
+<span class=3D"firstwords">What I have done &amp; what you can download her=
+e:</span> I have managed to
+make the USB device function while connected to a Linux machine, by sending
+it the same commands as the Windows driver sends to it, as determined by the
+use of the excellent program
+&quot;<a href=3D"http://benoit.papillault.free.fr/usbsnoop/">usbsnoop</a>&q=
+uot;
+by Benoit Papillault. The effect is the capability to capture MPEG2 from
+the Hauppauge device and write it to standard output, which means it can
+be saved to a file or to a named pipe (if you want to stream it to some oth=
+er
+program or to another computer).
+
+</p><p>
+Download or browse source files here:
+
+</p><ul>
+<li><a href=3D"latest/extract-firmware.pl">extract-firmware.pl</a> - Extrac=
+ts
+firmware for the WinTV-PVR-usb2 from a Hauppauge driver for Windows.
+
+</li><li><a href=3D"latest/usbreplayprep.pl">usbreplayprep.pl</a> - Takes a=
+ usbsnoop
+log file as input and produces a simplified file of USB bulk read &amp; wri=
+te
+commands.
+
+</li><li><a href=3D"latest/usbreplay.c">usbreplay.c</a> - Reads USB bulk re=
+ad/write
+commands from standard input and sends them to the device, via libusb.
+
+</li><li><a href=3D"latest/capture.pl">capture.pl</a> - Controlling script =
+that
+invokes usbreplay.
+
+</li><li><a href=3D"latest/changesource.pl">changesource.pl</a> - Script fo=
+r changing
+the channel and/or audio/video source in the middle of a capture session.
+
+</li><li><a href=3D"latest/create-usbcommands.pl">create-usbcommands.pl</a>=
+ - Creates
+a file of USB bulk read &amp; write commands based on settings that worked =
+for
+me on my machine. This gives you less flexibility compared to the usbsnoop
+method, but <b>eliminates any need to use Windows</b> to get things going.
+
+</li></ul>
+
+<p>
+<span class=3D"firstwords">How to use:</span> There are two methods, one th=
+at lets
+you try out different settings via the Hauppauge driver for Windows, and one
+that just uses the same settings as the ones that I normally use, without
+any need to install or boot any Microsoft software.
+
+</p><hr>
+<span class=3D"firstwords">Method 1:</span>
+
+<p>
+To begin with, you need to install the Hauppauge driver
+for Windows on a machine that has the USB device connected. Then you need
+to install
+<a href=3D"http://benoit.papillault.free.fr/usbsnoop/">usbsnoop</a>
+on the same system. The latest version of usbsnoop is probably the best
+one to use. Be sure to download a numbered version, not the one that lacks
+a version number. I have been using usbsnoop-1.8. On your Linux or BSD
+machine you also need to have
+<a href=3D"http://sourceforge.net/projects/libusb">libusb</a>
+installed, including the header file &quot;usb.h&quot;.
+
+</p><p>
+Then perform the following steps:
+
+</p><p>
+<span class=3D"firstwords">1.</span> Boot Windows and start the Hauppauge W=
+in2000 application. Select the
+input source you want (for example &quot;Composite Video&quot; or one of th=
+e tuner
+channels), and also choose the video resolution you&#x27;ll be using. Then
+quit Win2000.
+
+</p><p>
+<span class=3D"firstwords">2.</span> Start the usbsnoop program and install=
+ filters for the PVR-usb2 device.
+Follow the instructions for &quot;usbsnoop&quot;. Then start Win2000 again =
+and let
+it run for a few seconds, then stop the program. Uninstall the usbsnoop
+filters and close the program.
+
+</p><p>
+<span class=3D"firstwords">3.</span> Boot into Linux and copy the usbsnoop =
+log file from your Windows
+file system (by mounting that partition read-only for example).
+
+</p><p>
+<span class=3D"firstwords">4.</span> Extract the firmware from the Windows =
+driver binaries. You will
+need to access the file &quot;pvrusb2_25_22329.exe&quot; from your Linux sy=
+stem.
+Then extract like this:
+
+</p><blockquote>
+<pre>mkdir foo
+unzip -d foo pvrusb2_25_22329.exe
+perl extract-firmware.pl foo/HCWUSB2.SYS
+</pre>
+</blockquote>
+This will produce the files &quot;fx2-firmware.bin&quot; and &quot;xxx-firm=
+ware.bin&quot;.
+Only fx2-firmware.bin is used by this method. The other firmware is
+also contained in the usbsnoop log and gets downloaded from there.
+If you use Method 2 instead, this firmware will be uploaded from the file
+xxx-firmware.bin. Note: the extracting script only knows of this particular
+driver version. You need to change the file offsets in the script if you wa=
+nt
+to use another version of the Hauppauge driver.
+<a href=3D"firmware.html">Here</a> is an explanation of how these offsets
+are determined.
+<p>
+Alternatively you can cold-start the PVR-usb2 from Windows and just leave
+it powered on.
+
+</p><p>
+<span class=3D"firstwords">5.</span> Parse the usbsnoop log file (from step=
+ 3) like this:
+
+</p><blockquote>
+<pre>perl usbreplayprep.pl &lt; usbsnoop.log &gt; usbcommands.txt
+</pre>
+</blockquote>
+
+<p>
+<span class=3D"firstwords">6.</span> Compile the C program:
+
+</p><blockquote>
+<pre>gcc -o usbreplay -g usbreplay.c -lusb
+</pre>
+</blockquote>
+
+<p>
+<span class=3D"firstwords">7.</span> Start capturing:
+
+</p><blockquote>
+<pre>perl capture.pl &gt; movie.mpg
+</pre>
+</blockquote>
+
+<p>
+Break with ^C to stop capturing.
+
+</p><hr>
+<span class=3D"firstwords">Method 2:</span>
+
+<p>
+On your Linux or BSD machine you need to have
+<a href=3D"http://sourceforge.net/projects/libusb">libusb</a>
+installed, including the header file &quot;usb.h&quot;.
+
+</p><p>
+Then perform the following steps:
+
+</p><p>
+<span class=3D"firstwords">1.</span> Extract the firmware from the Windows =
+driver binaries. You will
+need to access the file &quot;pvrusb2_25_22329.exe&quot; from your Linux sy=
+stem.
+Then extract like this:
+
+</p><blockquote>
+<pre>mkdir foo
+unzip -d foo pvrusb2_25_22329.exe
+perl extract-firmware.pl foo/HCWUSB2.SYS
+</pre>
+</blockquote>
+This will produce the files &quot;fx2-firmware.bin&quot; and &quot;xxx-firm=
+ware.bin&quot;.
+Note: the extracting script only knows of this particular driver version.
+You need to change the file offsets in the script if you want to use
+another version of the Hauppauge driver. <a href=3D"firmware.html">Here</a>
+is an explanation of how these offsets are determined.
+
+<p>
+<span class=3D"firstwords">2.</span> Create a file of USB commands needed
+to initialize the device:
+
+</p><blockquote>
+<pre>perl create-usbcommands.pl xxx-firmware.bin &gt; usbcommands.txt
+</pre>
+</blockquote>
+This will combine some USB commands containing my typical settings with
+the firmware that you extracted in step 1. Warning: there is no way of
+knowing if these commands will result in entirely different effects
+when used on your device. Don&#x27;t blame me if the thing explodes...
+
+<p>
+<span class=3D"firstwords">3.</span> Compile the C program:
+
+</p><blockquote>
+<pre>gcc -o usbreplay -g usbreplay.c -lusb
+</pre>
+</blockquote>
+
+<p>
+<span class=3D"firstwords">4.</span> Start capturing:
+
+</p><blockquote>
+<pre>perl capture.pl &gt; movie.mpg
+</pre>
+</blockquote>
+
+<p>
+Break with ^C to stop capturing.
+
+</p><hr>
+Method 1 has been tested by me on an Intel P4 system running Linux 2.4.23-r=
+c2
+and on a Microsoft
+<a href=3D"http://xbox-linux.sourceforge.net/">Xbox running Linux</a>
+2.4.22-xbox, using the usb-uhci and the ohci host drivers, respectively.
+It has also been reported to work on a 2.6.0-beta10 kernel with ehci,
+and recently also on BSD Unix: MacOS X (version 10.3.6) on libusb 0.1.9 bet=
+a 2004-10-23.
+Method 2 is still very new and has so far only been tested on two machines =
+in Europe with PAL B/G.
+
+<p>
+<span class=3D"firstwords">Why a userspace driver?</span> Well, the main re=
+ason is that doing as much
+as possible in user space makes development much more flexible. Bugs in
+the code will be less disastrous, and scripting is more convenient.
+If needed, the code can be turned into a kernel driver at a later stage.
+
+</p><p>
+The other reason is that it is an unnecessary pain in the **** to
+use kernel drivers for things that can just as easily be done by a
+userspace program. Sure, there are situations where you want to keep
+some state information for each device within the kernel, but it&#x27;s
+not necessary to put all the control logic in a kernel module. On the
+contrary, if a userspace program and a more abstract API is used,
+the logic can be separated from the nuts and bolts of the operating
+system, and the chance is greater that the driver code will work
+on other systems.
+
+</p><p>
+<span class=3D"firstwords">Hardware observations.</span> Inspection of one =
+WinTV-PVR-usb2 unit
+revealed the following contents:
+
+</p><p>
+<table border=3D"1" cellpadding=3D"7">
+<tbody><tr><td>
+CX23416-12</td><td>Conexant MPEG II A/V encoder
+
+</td></tr><tr><td>
+HY57V653220B</td><td>Hyundai 8 Mbyte RAM
+
+</td></tr><tr><td>
+SAA7115HL</td><td>Philips PAL/NTSC/SECAM decoder
+
+</td></tr><tr><td>
+MSG3415G</td><td>Micronas Multistandard Sound Processor
+
+</td></tr><tr><td>
+CY7C68013</td><td>Cypress USB 2.0 controller
+
+</td></tr><tr><td>
+XC9572XL</td><td>Xilinx logic device, unknown purpose
+
+</td></tr><tr><td>
+TPI8PSB01N</td><td>LG metal box containing a PAL TV tuner
+
+</td></tr></tbody></table>
+
+</p><p>
+On the circuit board it says:
+</p><blockquote>
+<pre>www.hauppauge.com (c) 2002      290000-03
+</pre>
+</blockquote>
+<p>
+There is a single jumper (open) on the middle of the board.
+I have no idea what it&#x27;s for...
+
+</p><p>
+<span class=3D"firstwords">Frequently asked questions</span>
+</p><p>
+<span class=3D"faqlabel">Does this driver work with MythTV or Freevo?</span>
+</p><p>
+No, not yet. As far as I understand it, both
+<a href=3D"http://www.mythtv.org">MythTV</a>
+and
+<a href=3D"http://freevo.sourceforge.net">Freevo</a>
+require kernel device drivers that conform to the
+<a href=3D"http://www.exploits.org/v4l/">Video for Linux</a>, aka &quot;v4l=
+&quot;
+specification. The present driver is much too primitive in its current
+state, and it has no interface to the Linux kernel yet (except of course
+in the form of the portable libusb interface). There are several things
+that need to be identified and separated out from the USB initialization
+sequence in order to create a v4l-conforming kernel driver.
+
+</p><p>
+<span class=3D"faqlabel">So is there any other PVR software that can be use=
+d?</span>
+</p><p>
+As a matter of fact, yes there is. I wrote a &quot;lightweight&quot; PVR sy=
+stem to
+make the driver a little more useful in its current state. It&#x27;s called
+<a href=3D"http://glotv.dax.nu/">GLOTV</a>.
+<span style=3D"color: #d00000; font-weight: bold">
+[Note: version 1.0 of GLOTV can be downloaded
+<a href=3D"http://glotv.dax.nu/glotv1.0.tar.gz">here</a>
+and it has built-in support for the libusb driver =97
+this support has been removed in GLOTV 2.0 and later!]
+</span>
+
+</p><p>
+<span class=3D"faqlabel">What privileges are needed to run the program?</sp=
+an>
+</p><p>
+By default, you need root privileges to access the device through the
+/proc/bus/usb/* files. If you don&#x27;t want to run the capture script as =
+root,
+you can either try configuring a USB policy daemon that gives you access,
+or you can make &quot;usbreplay&quot; setuid-root. This is the easiest solu=
+tion so
+that&#x27;s what I do.
+
+</p><p>
+</p><hr>
+<span class=3D"firstwords">Contact information</span>
+<p>
+If you want to chat about this software, try subscribing to the
+&quot;<a href=3D"https://lists.sourceforge.net/lists/listinfo/pvrusb-user">=
+pvrusb-user</a>&quot;
+mailing list on SourceForge. It&#x27;s a part of the SourceForge pvrusb pro=
+ject for the
+the original PVR-usb device, but no one seems to mind discussions about the=
+ PVR-usb2
+as well.
+
+</p><p>
+Happy Hacking,<br>
+Bj=F6rn Danielsson<br>
+</p><hr>
+<a name=3D"news"><h2><font color=3D"#d00000">News</font></h2></a>
+
+<p>
+<span class=3D"newslabel">
+2005-05-03
+</span><br>
+Added link to the
+<a href=3D"http://www.isely.net/pvrusb2/pvrusb2.html">V4L2 kernel driver
+by Mike Isely</a>. This is a rewrite of the earlier kernel driver by
+Aurelien Alleaume.
+
+</p><p>
+<span class=3D"newslabel">
+2005-03-03
+</span><br>
+Added a new script &quot;create-usbcommands.pl&quot; that completely elimin=
+ates the need
+to connect the device to a Microsoft-infected machine during the installati=
+on
+process. <b>But:</b> this also hardwires the settings to the ones I normall=
+y use,
+i.e. 5-6 Mbit/s, 720x576 PAL. It might not work in your environment, and I =
+can&#x27;t
+guarantee that it won&#x27;t blow up your WinTV-PVR-usb2.
+
+</p><p>
+<span class=3D"newslabel">
+2005-02-11
+</span><br>
+Added Michel Jansens audio modifications for MacOS X to &quot;changesource.=
+pl&quot;.
+Also updated the firmware extraction script to match &quot;pvrusb2_25_22329=
+.exe&quot;.
+The FX2 firmware is unchanged from previous versions.
+
+</p><p>
+<span class=3D"newslabel">
+2005-01-14
+</span><br>
+First report of successful video capture on a non-Linux system (MacOS X),
+and also on a bigendian CPU. Hooray for libusb!
+
+</p><p>
+<span class=3D"newslabel">
+2004-10-06
+</span><br>
+Added code for NTSC tuner in &quot;changesource.pl&quot;. Thanks to Kelsie =
+Flynn for
+finding the parameters for NTSC channels.
+
+</p><p>
+<span class=3D"newslabel">
+2004-09-13
+</span><br>
+Added link to the
+<a href=3D"http://justiceforall.free.fr/pvrusb2.html">V4L2 kernel driver
+by Aurelien Alleaume</a> that is replacing this driver.
+
+</p><p>
+<span class=3D"newslabel">
+2004-02-25
+</span><br>
+Switching between TV tuner and RCA inputs is now possible, in the middle of
+a session. At least it works for me. Please report back if you find differe=
+nces
+in the usbsnoop logs in your setup. Audio and video and the TV channel can =
+be
+switched separately, or all together. A new script &quot;changesource.pl&qu=
+ot; is used
+for this, and it obsoletes the old &quot;changechannel.pl&quot; script.
+</p><p>
+Also updated the firmware extraction script. The offsets are now adapted to
+&quot;pvrusb2_23_21351.exe&quot;. The firmware itself hasn&#x27;t changed a=
+s far as I could
+determine.
+</p><p>
+(And yes, I lied in the previous news item about it being the last update o=
+f the
+current programs.)
+
+</p><p>
+<span class=3D"newslabel">
+2004-02-07
+</span><br>
+New script added: &quot;changechannel.pl&quot;. It writes to a named pipe c=
+reated
+by &quot;capture.pl&quot; and read by &quot;usbreplay&quot; (these have als=
+o been updated).
+This will probably be the last update to these programs. It&#x27;s time to
+redesign and rewrite the code...
+
+</p><p>
+<span class=3D"newslabel">
+2004-02-02
+</span><br>
+Small update: &quot;capture.pl&quot; now saves the pid of the &quot;usbrepl=
+ay&quot; process in
+a file, and &quot;usbreplay.c&quot; drops any setuid privileges it might ha=
+ve, immediately
+after opening the usb device. This is to make it easier to manage the
+capturing process from other programs.
+<br>Also added a FAQ section to this web page.
+
+</p><p>
+<span class=3D"newslabel">
+2004-01-14
+</span><br>
+Fixed a bug in &quot;capture.pl&quot; that stopped some UHF channels from w=
+orking.
+The delimiting frequency is still 300 MHz. Maybe it should be much higher?
+
+</p><p>
+<span class=3D"newslabel">
+2003-12-28
+</span><br>
+Updated &quot;capture.pl&quot; to include extremely rudimentary tuner suppo=
+rt.
+A command file must first be prepared like this: pick a command file that
+works with the coaxial input. Find a line that looks like:
+
+</p><blockquote>
+<pre>00000000: 08 61 04 ** ** ce ** 81 af 55 4f
+</pre>
+</blockquote>
+
+There may be several such lines. Pick the last one before the first
+read-command from endpoint 84, and change it to:
+
+<blockquote>
+<pre>00000000: 08 61 04 $FREQ ce $B 81 af 55 4f
+</pre>
+</blockquote>
+
+Then start &quot;capture.pl&quot; with this command file as the first argum=
+ent
+and the desired frequency in MHz as the second argument. The MHz number
+must contain a decimal point. For example, the UHF channel known as &quot;3=
+7&quot;
+in PAL countries must be written as 599.25. VHF channel 6 is written 182.25
+and so on. The spacing between channels is 7 MHz for VHF, 8 MHz for UHF.
+For NTSC I think the spacing is 6 MHz, but I have only tested the tuner
+with PAL sources.
+
+<p>
+<span class=3D"newslabel">
+2003-12-22
+</span><br>
+Cold-starting can now be done from Linux. What was missing earlier was the
+initialization of the CY7C68013 chip. This is done via the USB cable, but
+for some unknown reason this transaction wasn&#x27;t visible in my usbsnoop=
+ log.
+An extra initialization stage has now been added to fix this.
+
+</p><p><span class=3D"newslabel">
+2003-12-07
+</span><br>
+First version uploaded. Needs to be cold-started from Windows.
+</p><hr>
+
+
+</body></html>
+------=_Part_30848F04_BAF76D46.157FE23BE49
+Content-Location: http://pvrusb2.dax.nu/style.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+BODY { background: #ffffff; color: black;
+       margin: 3em;
+     }
+
+.firstwords	{ font-weight: bolder; font-variant: small-caps; }
+.newslabel	{ font-weight: bolder; }
+.faqlabel	{ color: #0060c0; font-weight: bolder; }
+
+------=_Part_30848F04_BAF76D46.157FE23BE49--

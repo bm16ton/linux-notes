@@ -1,0 +1,207 @@
+From: <Saved by UnMHT Ver.8.3.0>
+Subject: 
+Date: Sat, 24 Dec 2016 17:08:04 -0500
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_4CE6421C_B84BFF9C.15932E0676F";
+	type="text/html"
+
+------=_Part_4CE6421C_B84BFF9C.15932E0676F
+Content-Location: https://www.openssh.com/txt/release-7.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="windows-1252"
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUg=
+AAABAAAAAQCAYAAAAf8/9hAAABXUlEQVQ4ja1ToY6EMBCtIHWbbJMaNARXsR+wDoGoQqGKQPEFT=
+Sp20SS4TUhIcHwB4QsWv2J3PwX/TlzaWw6SMzfJM9OZl3lvpoT8Z8z3GXv560Xv5ncLLZJYwOaU=
+5H8TFHmK8+kAk1EoyXE+HXBkHEEU4nw64HrRKPIUz9d7S1bkKUxGsYweHjcPJqPotO9ILNGRcfR=
+tg40kJTket+9mJTmSWDgi2xhEoZtm5dXz9YaSHHXJoCRHkaeoS+YIizxFkacrgtUEfds4ApNRmI=
+yiLhmW0UOnfSSxQBKLlRSTUfRt44wmnfbRaR8mo5iGCo+bh2VcS/j0QckfEEIIqUuGTvvo2wbTU=
+DlDleQrDyyR3VSRpyDP1xtBFDoZdvy6ZK7hE9YHZ+Z8n93DMnoOe8127I2RQRQiiQWslLpkqxuw=
+SGKxf5XTUCGJhVuZ1WdzdoXTUG2P6Pdf+CzaPdv/ji+CITrhgfEA4wAAAABJRU5ErkJggg=3D=
+=3D" rel=3D"shortcut icon" type=3D"image/png"><link href=3D"resource://gre-=
+resources/plaintext.css" rel=3D"alternate stylesheet" title=3D"Wrap Long Li=
+nes" type=3D"text/css"><base href=3D"https://www.openssh.com/txt/"></head><=
+body><pre>OpenSSH 7.0 has just been released. It will be available from the
+mirrors listed at http://www.openssh.com/ shortly.
+
+OpenSSH is a 100% complete SSH protocol 2.0 implementation and
+includes sftp client and server support. OpenSSH also includes
+transitional support for the legacy SSH 1.3 and 1.5 protocols
+that may be enabled at compile-time.
+
+Once again, we would like to thank the OpenSSH community for their
+continued support of the project, especially those who contributed
+code or patches, reported bugs, tested snapshots or donated to the
+project. More information on donations may be found at:
+http://www.openssh.com/donations.html
+
+Future deprecation notice
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+We plan on retiring more legacy cryptography in the next release
+including:
+
+ * Refusing all RSA keys smaller than 1024 bits (the current minimum
+   is 768 bits)
+
+ * Several ciphers will be disabled by default: blowfish-cbc,
+   cast128-cbc, all arcfour variants and the rijndael-cbc aliases
+   for AES.
+
+ * MD5-based HMAC algorithms will be disabled by default.
+
+This list reflects our current intentions, but please check the final
+release notes for OpenSSH 7.1 when it is released.
+
+Changes since OpenSSH 6.9
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+This focus of this release is primarily to deprecate weak, legacy
+and/or unsafe cryptography.
+
+Security
+--------
+
+ * sshd(8): OpenSSH 6.8 and 6.9 incorrectly set TTYs to be world-
+   writable. Local attackers may be able to write arbitrary messages
+   to logged-in users, including terminal escape sequences.
+   Reported by Nikolay Edigaryev.
+
+ * sshd(8): Portable OpenSSH only: Fixed a privilege separation
+   weakness related to PAM support. Attackers who could successfully
+   compromise the pre-authentication process for remote code
+   execution and who had valid credentials on the host could
+   impersonate other users.  Reported by Moritz Jodeit.
+
+ * sshd(8): Portable OpenSSH only: Fixed a use-after-free bug
+   related to PAM support that was reachable by attackers who could
+   compromise the pre-authentication process for remote code
+   execution. Also reported by Moritz Jodeit.
+
+ * sshd(8): fix circumvention of MaxAuthTries using keyboard-
+   interactive authentication. By specifying a long, repeating
+   keyboard-interactive &quot;devices&quot; string, an attacker could reque=
+st
+   the same authentication method be tried thousands of times in
+   a single pass. The LoginGraceTime timeout in sshd(8) and any
+   authentication failure delays implemented by the authentication
+   mechanism itself were still applied. Found by Kingcope.
+
+Potentially-incompatible Changes
+--------------------------------
+
+ * Support for the legacy SSH version 1 protocol is disabled by
+   default at compile time.
+
+ * Support for the 1024-bit diffie-hellman-group1-sha1 key exchange
+   is disabled by default at run-time. It may be re-enabled using
+   the instructions at http://www.openssh.com/legacy.html
+
+ * Support for ssh-dss, ssh-dss-cert-* host and user keys is disabled
+   by default at run-time. These may be re-enabled using the
+   instructions at http://www.openssh.com/legacy.html
+
+ * Support for the legacy v00 cert format has been removed.
+
+ * The default for the sshd_config(5) PermitRootLogin option has
+   changed from &quot;yes&quot; to &quot;prohibit-password&quot;.
+
+ * PermitRootLogin=3Dwithout-password/prohibit-password now bans all
+   interactive authentication methods, allowing only public-key,
+   hostbased and GSSAPI authentication (previously it permitted
+   keyboard-interactive and password-less authentication if those
+   were enabled).
+
+New Features
+------------
+
+ * ssh_config(5): add PubkeyAcceptedKeyTypes option to control which
+   public key types are available for user authentication.
+
+ * sshd_config(5): add HostKeyAlgorithms option to control which
+   public key types are offered for host authentications.
+
+ * ssh(1), sshd(8): extend Ciphers, MACs, KexAlgorithms,
+   HostKeyAlgorithms, PubkeyAcceptedKeyTypes and HostbasedKeyTypes
+   options to allow appending to the default set of algorithms
+   instead of replacing it. Options may now be prefixed with a &#x27;+&#x27;
+   to append to the default, e.g. &quot;HostKeyAlgorithms=3D+ssh-dss&quot;.
+
+ * sshd_config(5): PermitRootLogin now accepts an argument of
+   &#x27;prohibit-password&#x27; as a less-ambiguous synonym of &#x27;witho=
+ut-
+   password&#x27;.
+
+Bugfixes
+--------
+
+ * ssh(1), sshd(8): add compatability workarounds for Cisco and more
+   PuTTY versions. bz#2424
+
+ * Fix some omissions and errors in the PROTOCOL and PROTOCOL.mux
+   documentation relating to Unix domain socket forwarding;
+   bz#2421 bz#2422
+
+ * ssh(1): Improve the ssh(1) manual page to include a better
+   description of Unix domain socket forwarding; bz#2423
+
+ * ssh(1), ssh-agent(1): skip uninitialised PKCS#11 slots, fixing
+   failures to load keys when they are present. bz#2427
+
+ * ssh(1), ssh-agent(1): do not ignore PKCS#11 hosted keys that wth
+   empty CKA_ID; bz#2429
+
+ * sshd(8): clarify documentation for UseDNS option; bz#2045
+
+Portable OpenSSH
+----------------
+
+ * Check realpath(3) behaviour matches what sftp-server requires and
+   use a replacement if necessary.
+
+Checksums:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+ - SHA1 (openssh-7.0.tar.gz) =3D a19ff0bad2a67348b1d01a38a9580236120b7099
+ - SHA256 (openssh-7.0.tar.gz) =3D 4F6HV/ZqT465f3sMB2vIkXO+wrYtL5hnqzAymfbZ=
+1Jk=3D
+
+ - SHA1 (openssh-7.0p1.tar.gz) =3D d8337c9eab91d360d104f6dd805f8b32089c063c
+ - SHA256 (openssh-7.0p1.tar.gz) =3D /VkySToZ9MgRU9gS7k4EK0m707dZqz2TRKvswr=
+wUheU=3D
+
+Please note that the PGP key used to sign releases was recently rotated.
+The new key has been signed by the old key to provide continuity. It is
+available from the mirror sites as RELEASE_KEY.asc.
+
+Reporting Bugs:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+- Please read http://www.openssh.com/report.html
+  Security bugs should be reported directly to openssh@openssh.com
+
+OpenSSH is brought to you by Markus Friedl, Niels Provos, Theo de Raadt,
+Kevin Steves, Damien Miller, Darren Tucker, Jason McIntyre, Tim Rice and
+Ben Lindstrom.
+
+</pre></body></html>
+------=_Part_4CE6421C_B84BFF9C.15932E0676F
+Content-Location: resource://gre-resources/plaintext.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -moz-control-character-visibility: visible;
+}
+
+------=_Part_4CE6421C_B84BFF9C.15932E0676F--

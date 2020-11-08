@@ -1,0 +1,72 @@
+To determine your current console_loglevel you simply enter:
+
+$ cat /proc/sys/kernel/printk
+	7       4       1       7
+	current	default	minimum	boot-time-default
+
+The first integer shows you your current console_loglevel; the second the default log level that you have seen above.
+
+sudo pluma /etc/default/rsyslog
+sudo pluma /etc/sysctl.conf
+
+To change your current console_loglevel simply write to this file, so in order to get all messages printed to the console do a simple
+
+# echo 8 > /proc/sys/kernel/printk
+
+and every kernel message will appear on your console.
+
+Another way to change the console log level is to use dmesg with the -n parameter
+
+# #set console_loglevel to print KERN_WARNING (4) or more severe messages
+# dmesg -n 5
+
+Only messages with a value lower (not lower equal) than the console_loglevel will be printed.
+
+You can also specify the console_loglevel at boot time using the loglevel boot parameter.
+
+loglevel=       loglevel wanted -1 so if want 7 then put 8     8-1=7
+				    All Kernel Messages with a loglevel smaller than the
+                    console loglevel will be printed to the console. It can
+                    also be changed with klogd or other programs. The
+                    loglevels are defined as follows:
+
+                    0 (KERN_EMERG)          system is unusable
+                    1 (KERN_ALERT)          action must be taken immediately
+                    2 (KERN_CRIT)           critical conditions
+                    3 (KERN_ERR)            error conditions
+                    4 (KERN_WARNING)        warning conditions
+                    5 (KERN_NOTICE)         normal but significant condition
+                    6 (KERN_INFO)           informational
+                    7 (KERN_DEBUG)          debug-level messages
+
+################## Kernel Boot Parameters for log levels ################## 
+
+	ignore_loglevel	[KNL]
+			Ignore loglevel setting - this will print /all/
+			kernel messages to the console. Useful for debugging.
+			We also add it as printk module parameter, so users
+			could change it dynamically, usually by
+			/sys/module/printk/parameters/ignore_loglevel.
+
+	loglevel=	All Kernel Messages with a loglevel smaller than the
+			console loglevel will be printed to the console. It can
+			also be changed with klogd or other programs. The
+			loglevels are defined as follows:
+
+			0 (KERN_EMERG)		system is unusable
+			1 (KERN_ALERT)		action must be taken immediately
+			2 (KERN_CRIT)		critical conditions
+			3 (KERN_ERR)		error conditions
+			4 (KERN_WARNING)	warning conditions
+			5 (KERN_NOTICE)		normal but significant condition
+			6 (KERN_INFO)		informational
+			7 (KERN_DEBUG)		debug-level messages
+
+	log_buf_len=n[KMG]	Sets the size of the printk ring buffer,
+			in bytes.  n must be a power of two and greater
+			than the minimal size. The minimal size is defined
+			by LOG_BUF_SHIFT kernel config parameter. There is
+			also CONFIG_LOG_CPU_MAX_BUF_SHIFT config parameter
+			that allows to increase the default size depending on
+			the number of CPUs. See init/Kconfig for more details.
+

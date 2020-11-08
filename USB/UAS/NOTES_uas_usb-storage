@@ -1,0 +1,33 @@
+$ lsusb
+...
+Bus 002 Device 005: ID xxxx:yyyy MyDeviceManufacturer
+...
+
+Then look at the USB tree and find your device (mine was Bus 2, Dev 5):
+
+$ lsusb -t
+...
+/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/6p, 5000M
+    |__ Port 2: Dev 5, If 0, Class=Mass Storage, Driver=uas, 5000M
+    |__ Port 4: Dev 3, If 0, Class=Mass Storage, Driver=usb-storage, 5000M
+...
+
+		WOULD NOT SHOW UAS IF USING USB-STORAGE ONLY
+
+###############################################################################
+
+$ lsusb
+Bus 001 Device 013: ID 1955:1110
+$ lsusb -v -d 1955:1110 | grep -i interface
+    bNumInterfaces          1
+    Interface Descriptor:
+      bInterfaceNumber        0
+      bInterfaceClass         8 Mass Storage
+      bInterfaceSubClass      6 SCSI
+      bInterfaceProtocol     80 Bulk-Only
+      iInterface              6 MSC Bulk-Only Transfer
+
+			OR
+
+$ lsusb -t
+|__ Port 2: Dev 13, If 0, Class=Mass Storage, Driver=usb-storage, 480M

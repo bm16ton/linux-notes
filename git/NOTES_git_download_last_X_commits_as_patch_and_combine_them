@@ -1,0 +1,17 @@
+export commits into patches with this command:
+
+	git format-patch -x
+
+where -x means how many commits back from the current head and it has to be integer.
+
+For example if i want to generate patch for 10 last commits:
+
+	git format-patch -10
+
+The above example will generate 10 file patches, this will cause a problem for the team leader, because he need to apply the patches one by one. You can squashed those patches into 1 single file patch. See the code below:
+
+	git format-patch -x --stdout > patch-ddmmyyy.patch
+
+From the format above it means all those generated patches will compress into 1 output file. And for the standard i usually add the date for the file, so i know when i generate it.
+
+Note: The generated patches also work with subversion (svn).

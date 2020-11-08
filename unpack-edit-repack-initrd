@@ -1,0 +1,23 @@
+mv initrd.img initrd.gz
+gunzip initrd.gz
+mkdir tmp2
+cd tmp2/
+cpio -id < ../initrd
+find . | cpio --create --format='newc' > /tmp/newinitrd
+
+
+ALTERNATIVE INSTRUCTIONS
+
+Modify the initrd
+Extract the contents of the initrd:
+  mkdir initrd-tmp
+  cd initrd-tmp
+  gzip -dc /mnt/casper/initrd.gz | cpio -id
+or for Ubuntu 9.10 and later:
+  lzma -dc -S .lz /mnt/casper/initrd.lz | cpio -id
+Modify the files
+Repack them into a new initrd:
+  find . | cpio --quiet --dereference -o -H newc | gzip -9 > ~/new-initrd.gz
+or, if you want an initrd.lz (for Ubuntu 9.10 and later):
+  find . | cpio --quiet --dereference -o -H newc | lzma -7 > ~/new-initrd.lz
+

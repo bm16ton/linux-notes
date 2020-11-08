@@ -1,0 +1,36 @@
+;multiple patches at once
+
+for i in /path/to/patches/*.patch; do patch -p1 < $i; done
+
+
+
+lskpatches     lists installed patches + gives usefull info on'em
+ketchup		kernel source maintaner updater
+
+***two app pkg***   has more info/options then reg diff/patch
+makepatch
+applypatch
+****************************
+
+patcher   watches/stores applied patches/changes creates them puts them in required order (cure all?)
+
+***patchutils;
+ - combinediff creates a cumulative patch from two incremental patches
+ - dehtmldiff extracts a diff from an HTML page
+ - filterdiff extracts or excludes diffs from a diff file
+ - fixcvsdiff fixes diff files created by CVS that "patch" mis-interprets
+ - flipdiff exchanges the order of two patches
+ - grepdiff shows which files are modified by a patch matching a regex
+ - interdiff shows differences between two unified diff files
+ - lsdiff shows which files are modified by a patch
+ - recountdiff recomputes counts and offsets in unified context diffs
+ - rediff and editdiff fix offsets and counts of a hand-edited diff
+ - splitdiff separates out incremental patches
+ - unwrapdiff demangles patches that have been word-wrapped
+****************
+
+quilt    track install uninstall patches
+splitpatch  splits large patch or diff files by file or hunk
+tailor	   tool moves patches and changesets between different repositories, preserving as much information as possible
+
+

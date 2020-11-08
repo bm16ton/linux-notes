@@ -1,0 +1,13 @@
+using socat PTY,link=/dev/YPort TCP:192.168.4.1:23
+
+!!!!IT WORKS IT FUCKING WORKS!!!!
+
+sudo socat PTY,link=/dev/tty63 TCP:192.168.0.2:23
+
+top | tee -a /dev/tty63
+
+echo $(cpufreq-info | grep 'cpufreq stats') > /dev/tty63
+
+If using with ARDUINO tty IL9341 etc then;
+
+	since vt100 is 80x24 lines, and our terminal only supports 40x40 lines, you need to run "stty cols 40 rows 40" command to tell terminal programs that only 40 columns are available. 

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>USB Gadget/Mass storage - linux-sunxi.org</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.20.8">
+<link rel="shortcut icon" href="http://linux-sunxi.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://linux-sunxi.org/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="http://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_002.css">
+<style>.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: sunxi-mw:resourceloader:filter:minify-css:7:4250852ed2349a0d4d0fc6509a3e7d4c */.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.autoellipsis-matched,.highlight{font-weight:bold}
+/* cache key: sunxi-mw:resourceloader:filter:minify-css:7:9780324491b653a3780e2d029bdc140c */#tooltip{position:absolute;z-index:3000;border:1px solid #111;background-color:#eee;padding:5px;opacity:0.85}#tooltip h3,#tooltip div{margin:0}
+/* cache key: sunxi-mw:resourceloader:filter:minify-css:7:c67f6722c9ab75d61ca7edf2e8328002 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: sunxi-mw:resourceloader:filter:minify-css:7:f6f6fbf144bfb028308ae6b408cdb5d1 */</style>
+<script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_003.php"></script><style></style><script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"USB_Gadget/Mass_storage","wgTitle":"USB Gadget/Mass storage","wgCurRevisionId":18877,"wgArticleId":3028,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["USB OTG","Tutorial"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"USB_Gadget/Mass_storage","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":true,"previewDialog":false,"publish":false,"toc":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+/* cache key: sunxi-mw:resourceloader:filter:minify-js:7:7946f03af3782603db0ba9e475496170 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_005.php"></script>
+<link rel="canonical" href="http://linux-sunxi.org/USB_Gadget/Mass_storage">
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-USB_Gadget_Mass_storage skin-vector action-view vector-animateLayout">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+
+<div id="content" class="mw-body">
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+
+<h1 id="firstHeading" class="firstHeading"><span dir="auto">USB Gadget/Mass storage</span></h1>
+
+
+<div id="bodyContent">
+
+<div id="siteSub">From linux-sunxi.org</div>
+
+
+<div id="contentSub"><span class="subpages">&lt; <a href="http://linux-sunxi.org/USB_Gadget" title="USB Gadget">USB Gadget</a></span></div>
+
+
+<div id="jump-to-nav" class="mw-jump">
+Jump to: <a href="#mw-head">navigation</a>, <a href="#p-search">search</a>
+</div>
+
+
+<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#USB_storage_support"><span class="tocnumber">1</span> <span class="toctext">USB storage support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Kernel_support"><span class="tocnumber">1.1</span> <span class="toctext">Kernel support</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Preparing_shared_storage_device"><span class="tocnumber">1.2</span> <span class="toctext">Preparing shared storage device</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Creating_a_sparse_file"><span class="tocnumber">1.2.1</span> <span class="toctext">Creating a sparse file</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Partitioning_and_formatting_sparse_file"><span class="tocnumber">1.2.2</span> <span class="toctext">Partitioning and formatting sparse file</span></a>
+<ul>
+<li class="toclevel-4 tocsection-6"><a href="#Create_a_single_partition"><span class="tocnumber">1.2.2.1</span> <span class="toctext">Create a single partition</span></a></li>
+<li class="toclevel-4 tocsection-7"><a href="#Find_partition_offset"><span class="tocnumber">1.2.2.2</span> <span class="toctext">Find partition offset</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#Set_up_loop_device"><span class="tocnumber">1.2.2.3</span> <span class="toctext">Set up loop device</span></a></li>
+<li class="toclevel-4 tocsection-9"><a href="#Format_device"><span class="tocnumber">1.2.2.4</span> <span class="toctext">Format device</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#Test_device"><span class="tocnumber">1.2.2.5</span> <span class="toctext">Test device</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="#Release_device"><span class="tocnumber">1.2.2.6</span> <span class="toctext">Release device</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Exporting_mass_storage_.2F_Loading_the_driver_.28on_the_device.29"><span class="tocnumber">1.3</span> <span class="toctext">Exporting mass storage / Loading the driver (on the device)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Emulating_a_USB_CD-ROM"><span class="tocnumber">1.4</span> <span class="toctext">Emulating a USB CD-ROM</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table>
+<h1> <span class="mw-headline" id="USB_storage_support"> USB storage support </span></h1>
+<p>This allows your devices act as a USB mass storage like external hard drive or thumb drive.
+</p>
+<h2> <span class="mw-headline" id="Kernel_support"> Kernel support </span></h2>
+<p>Currently, the g_mass_storage module is not compiled as part of default kernel configuration.
+</p><p>To enable this, follow same kernel building information as previous section <a href="http://linux-sunxi.org/USB_Gadget#Kernel_support" title="USB Gadget">USB Ethernet support</a> but instead of compiling "Ethernet Gadget", select the following to "m":
+</p>
+<pre>Device Drivers  ---&gt;
+	USB support  ---&gt;
+		USB Gadget Support  ---&gt;
+			&lt;M&gt;     Mass Storage Gadget
+</pre>
+<p>You can now continue following <a href="http://linux-sunxi.org/Manual_build_howto" title="Manual build howto">manual build howto</a> to continue kernel compilation and installation.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Preparing_shared_storage_device"> Preparing shared storage device </span></h2>
+<p>See "<a rel="nofollow" class="external text" href="http://www.linux-usb.org/gadget/file_storage.html">Backing Storage for the Mass Storage Gadget</a>" for full instructions and recommendations.
+</p><p>Be aware that shared storage cannot be used in "read write" mode 
+if both systems (device and host) are using it at same time except if 
+you accept to corrupt your data...
+</p><p>An existing physical partition or a logical volume can be used as
+ shared storage device; another option is to use a flat file as shared 
+storage.
+</p>
+<h3> <span class="mw-headline" id="Creating_a_sparse_file"> Creating a sparse file </span></h3>
+<p>Use "dd" command's "count" and "seek" options to create a 1GB file that will not use storage until it is used:
+</p>
+<pre># dd if=/dev/zero of=/mass_storage bs=1M seek=1024 count=0
+# ls -l /mass_storage 
+-rw-r--r-- 1 root root 1073741824 Feb 15 16:40 /mass_storage
+# du -hs /mass_storage 
+0       /mass_storage
+</pre>
+<h3> <span class="mw-headline" id="Partitioning_and_formatting_sparse_file"> Partitioning and formatting sparse file </span></h3>
+<p>To be recognized by most Operating Systems, create a single FAT type 
+partition and format it as DOS filesystem using Linux loop device 
+driver.
+</p>
+<h4> <span class="mw-headline" id="Create_a_single_partition"> Create a single partition </span></h4>
+<pre># cat &lt;&lt;EOT | sfdisk --in-order -L -uM /mass_storage 
+,,c
+EOT
+</pre>
+<h4> <span class="mw-headline" id="Find_partition_offset"> Find partition offset </span></h4>
+<pre># fdisk -lu /mass_storage 
+
+Disk /mass_storage: 1073 MB, 1073741824 bytes
+139 heads, 8 sectors/track, 1885 cylinders, total 2097152 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+	Device Boot      Start         End      Blocks   Id  System
+/mass_storage1               1     2097151     1048575+   c  W95 FAT32 (LBA)
+</pre>
+<p>First partition starts at first sector: offset = 1 * 512 = 512 bytes
+</p>
+<h4> <span class="mw-headline" id="Set_up_loop_device"> Set up loop device </span></h4>
+<pre># losetup -o512 /dev/loop0 /mass_storage
+# losetup -a
+/dev/loop0: [b302]:14867 (/mass_storage), offset 512
+</pre>
+<h4> <span class="mw-headline" id="Format_device"> Format device </span></h4>
+<pre># apt-get install dosfstools
+# mkdosfs /dev/loop0
+</pre>
+<p><br>
+</p>
+<h4> <span class="mw-headline" id="Test_device"> Test device </span></h4>
+<pre># mount -t vfat /dev/loop0 /mnt/
+# df -h /mnt
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop0     1022M  4.0K 1022M   1% /mnt
+# mount | grep mnt
+/dev/loop0 on /mnt type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,errors=remount-ro)
+</pre>
+<h4> <span class="mw-headline" id="Release_device"> Release device </span></h4>
+<pre># umount  /mnt/
+# losetup -d /dev/loop0 
+# losetup -a
+</pre>
+<p>As we can see below, 1GB sparse file is only using 2.1MB storage (size of filesystem metadata):
+</p>
+<pre># du -sh /mass_storage 
+2.1M    /mass_storage
+# ls -lh /mass_storage 
+-rw-r--r-- 1 root root 1.0G Feb 15 16:54 /mass_storage
+</pre>
+<p><br>
+</p>
+<h2> <span class="mw-headline" id="Exporting_mass_storage_.2F_Loading_the_driver_.28on_the_device.29"> Exporting mass storage / Loading the driver (on the device) </span></h2>
+<p>It looks like g_mass_storage conflicts with g_ether, remove g_ether first (if previously loaded):
+</p>
+<pre># modprobe -r g_ether
+</pre>
+<p>Load g_mass_storage specifying storage to share (can also be a physical partition or a logical volume):
+</p>
+<pre># modprobe g_mass_storage file=/mass_storage
+</pre>
+<p>We can now plug device to another host and use it as USB connected storage.
+</p><p>Notes: Surprisingly it works well my Mac OS hosts (device 
+automatically appears in Finder, I can copy and read files) but not with
+ my Linux hosts (device appears and disappears constantly and cannot be 
+mounted). Not tested with Windows hosts.
+</p>
+<h2> <span class="mw-headline" id="Emulating_a_USB_CD-ROM"> Emulating a USB CD-ROM </span></h2>
+<p>The <i>g_mass_storage</i> module can also present an optical drive to
+ the USB host. For this, your backing storage should be a suitable 
+filesystem image - usually an .ISO file. Pass a "cdrom" module option 
+like this:
+</p>
+<pre># modprobe g_mass_storage file=/path/to/your-image-file.iso cdrom=y
+</pre>
+<p>(This can be useful with old PCs where the BIOS may have trouble starting from USB sticks, but supports booting via USB-CDROM.)
+</p><p><a href="http://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/Sticky-note-pin.png" width="16" height="16"></a> <i>Note:</i> As of Linux v4.7-rc2, the <i>g_mass_storage</i> driver can only emulate CD-ROM drives, not DVD-ROMs.
+</p>
+<dl><dd>That means some restrictions, especially a hardcoded limit on 
+the size of a backing (.iso) file. In case the file size exceeds 1152000
+ 2KiB blocks (approx. 2.36GB / 2.2GiB), the driver will complain "<i>file too big</i>"
+ and limit the usable range (sector count). If the filesystem driver on 
+the USB host requests any sector beyond that, it will encounter I/O 
+errors ("<i>attempt to access beyond end of device</i>").
+</dd></dl>
+<dl><dd>In order to use larger images and properly emulate DVD media, the <i>g_mass_storage</i> would have to be extended. Some ideas and patches for that have been around for a while, e.g. <a rel="nofollow" class="external free" href="https://lkml.org/lkml/2015/3/7/388">https://lkml.org/lkml/2015/3/7/388</a> and <a rel="nofollow" class="external free" href="http://linuxehacking.blogspot.de/2013/07/how-to-emulatore-dvd-rom-hardware-usb.html">http://linuxehacking.blogspot.de/2013/07/how-to-emulatore-dvd-rom-hardware-usb.html</a>.
+</dd></dl>
+
+
+
+</div> 
+
+<div class="printfooter">
+Retrieved from "<a href="http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;oldid=18877">http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;oldid=18877</a>" </div>
+
+
+<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://linux-sunxi.org/Category:USB_OTG" title="Category:USB OTG">USB OTG</a></li><li><a href="http://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li></ul></div></div> 
+<div class="visualClear"></div>
+
+
+</div>
+
+</div>
+
+
+<div id="mw-head" class="noprint">
+
+<div id="p-personal" class="">
+<h5>Personal tools</h5>
+<ul>
+<li id="pt-createaccount"><a href="http://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB+Gadget%2FMass+storage&amp;type=signup">Create account</a></li>
+<li id="pt-login"><a href="http://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB+Gadget%2FMass+storage" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>
+</ul>
+</div>
+
+<div id="left-navigation">
+
+<div id="p-namespaces" class="vectorTabs">
+<h5>Namespaces</h5>
+<ul>
+<li id="ca-nstab-main" class="selected"><span><a href="http://linux-sunxi.org/USB_Gadget/Mass_storage" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+<li id="ca-talk" class="new"><span><a href="http://linux-sunxi.org/index.php?title=Talk:USB_Gadget/Mass_storage&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+</ul>
+</div>
+
+
+<div id="p-variants" class="vectorMenu emptyPortlet">
+<h4>
+</h4>
+<h5><span>Variants</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+
+</div>
+<div id="right-navigation">
+
+<div id="p-views" class="vectorTabs">
+<h5>Views</h5>
+<ul>
+<li id="ca-view" class="selected"><span><a href="http://linux-sunxi.org/USB_Gadget/Mass_storage">Read</a></span></li>
+<li id="ca-viewsource"><span><a href="http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></span></li>
+<li id="ca-history" class="collapsible"><span><a href="http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+</ul>
+</div>
+
+
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+<h5><span>Actions</span><a href="#"></a></h5>
+<div class="menu">
+<ul>
+</ul>
+</div>
+</div>
+
+
+<div id="p-search">
+<h5><label for="searchInput">Search</label></h5>
+<form action="/index.php" id="searchform">
+<div>
+<input name="search" title="Search linux-sunxi.org [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off" placeholder="Search" type="search"> <input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" type="submit"> <input name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" type="submit"> <input name="title" value="Special:Search" type="hidden">
+</div>
+</form>
+</div>
+
+</div>
+</div>
+
+
+<div id="mw-panel" class="noprint">
+
+<div id="p-logo"><a style="background-image: url(//linux-sunxi.org/images/c/c5/Logo-155x155.png);" href="http://linux-sunxi.org/Main_Page" title="Visit the main page"></a></div>
+
+
+<div class="portal" id="p-navigation">
+<h5>Navigation</h5>
+<div class="body">
+<ul>
+<li id="n-mainpage-description"><a href="http://linux-sunxi.org/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main page</a></li>
+<li id="n-portal"><a href="http://linux-sunxi.org/sunxi:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+<li id="n-recentchanges"><a href="http://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+<li id="n-randompage"><a href="http://linux-sunxi.org/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+<li id="n-help"><a href="http://linux-sunxi.org/Help:Contents" title="The place to find out">Help</a></li>
+</ul>
+</div>
+</div>
+
+
+
+
+<div class="portal" id="p-tb">
+<h5>Tools</h5>
+<div class="body">
+<ul>
+<li id="t-whatlinkshere"><a href="http://linux-sunxi.org/Special:WhatLinksHere/USB_Gadget/Mass_storage" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+<li id="t-recentchangeslinked"><a href="http://linux-sunxi.org/Special:RecentChangesLinked/USB_Gadget/Mass_storage" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+<li id="t-print"><a href="http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>
+<li id="t-permalink"><a href="http://linux-sunxi.org/index.php?title=USB_Gadget/Mass_storage&amp;oldid=18877" title="Permanent link to this revision of the page">Permanent link</a></li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+
+
+<div id="footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"> This page was last modified on 27 November 2016, at 11:18.</li>
+<li id="footer-info-viewcount">This page has been accessed 7,756 times.</li>
+<li id="footer-info-copyright">Content is available under <a class="external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-privacy"><a href="http://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+<li id="footer-places-about"><a href="http://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+<li id="footer-places-disclaimer"><a href="http://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+</ul>
+<ul id="footer-icons" class="noprint">
+<li id="footer-copyrightico">
+<a href="http://creativecommons.org/licenses/by/3.0/"><img src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/cc-by.png" alt="Creative Commons Attribution" width="88" height="31"></a>
+</li>
+<li id="footer-poweredbyico">
+<a href="http://www.mediawiki.org/"><img src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+</li>
+</ul>
+<div style="clear:both"></div>
+</div>
+
+<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_006.php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","ext.cite"], null, true);
+}</script><script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_002.php" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shCore.css">
+<link rel="stylesheet" type="text/css" href="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shThemeDefault.css">
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/XRegExp.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shCore.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushBash.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushDiff.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushIni.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushXml.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushJava.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushCpp.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushPlain.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushPhp.js"></script>
+<script type="text/javascript" src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/shBrushPython.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/load_004.php"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="USB%20Gadget_Mass%20storage%20-%20linux-sunxi.org_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-33223122-1");
+pageTracker._trackPageview();
+</script>
+
+
+<div id="tooltip" style="display: none;"><h3></h3><div class="body"></div><div class="url"></div></div><div style="display: none; font-size: 14.6667px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

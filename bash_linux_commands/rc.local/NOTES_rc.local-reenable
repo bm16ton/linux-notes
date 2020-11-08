@@ -1,0 +1,48 @@
+n case you didn't know, rc.local is disabled by default in Ubuntu 16.10, because new versions of Ubuntu use systemd. Thus make rc.local considered a service, but you can anytime turn on rc.local with service command:
+
+sudo systemctl enable rc-local.service
+
+
+
+
+ubuntu 17.04 /etc/rc.local set
+
+Due to systemd , the default /etc/rc.local not exists in ubuntu 17.04 .
+
+ 
+
+If you want to make /etc/rc.local execute at the boot time.
+
+You need create a service /etc/systemd/system/rc.local.service
+
+[Unit]
+Description=/etc/rc.local Compatibility
+ConditionPathExists=/etc/rc.local
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target
+
+And create a file /etc/rc.local
+
+#!/bin/sh
+echo  deadline > /sys/block/sda/queue/scheduler
+
+chmod 755 /etc/rc.local
+
+Enable and start service, then check it status
+
+ 
+
+systemctl enable rc.local.service
+
+systemctl start rc.local.service
+
+systemctl status rc.local.service

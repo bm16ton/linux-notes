@@ -1,0 +1,57 @@
+a) Create a text file with all the currently installed applications:
+
+sudo dpkg --get-selections > installed-applications.txt
+
+b) To install all the packages from the "installed-applications.txt" to the fresh Ubuntu installation (or another computer), you have to run this:
+
+sudo dpkg --set-selections < installed-applications.txt
+sudo apt-get -y update
+sudo apt-get dselect-upgrade
+
+
+#########  TO CREATE A SMALL DEB (meta package deb, its whole job is just to point to many other apps, and have them installed) ############
+
+a) Install equivs (sudo apt-get install equivs) then create a folder, pick a name for your meta-pkg and name the folder after that,and create control file
+
+sudo apt-get install equivs
+cd && mkdir bm16ton
+cd bm16ton/
+mkdir debian
+cd debian/
+equivs-control control
+
+b) Create a list of currently installed apps (with applications seperated by commas for simple copy/paiste into control file)
+
+cd
+sudo aptitude search -F %p ~i --disable-columns libedataserver | sed 's/$/,/' | tr '\n\r' ' ' | sed 's/, $//' > installed-applications.txt
+
+c) edit debian/control with sum basic pkg info and paiste the installed applications into it, heres a working example with the paiste spot pointed out (just add to depends line)
+
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+Section: misc
+Priority: optional
+Standards-Version: 3.6.2
+
+Package: webupd8package
+Version: 1.0
+Maintainer: Andrew < andrew@webupd8.org >
+# Pre-Depends: <comma-separated list of packages>
+Depends: ####paste here the entire contents of the file you got in step 2.1 #####
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: all
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+Description: All my applications packed into a deb file
+
+d) Now build the meta package deb file
+
+cd bm16ton/debian
+equivs-build control
+
+

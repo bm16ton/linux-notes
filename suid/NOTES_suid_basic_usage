@@ -1,0 +1,24 @@
+If I set the SUID or SGID bit for a file, this causes any persons or processes that run the file to have access to system resources as though they are the owner of the file.
+
+To do this, we can use letters, e.g.:
+
+chmod u+s freddy
+
+This changes the situation so that if user X runs freddy, fredy will execute with MY permissions, rather than his or her own. (Whose permissions the program gets "stuck" with is dependant upon who runs the chmod command.)
+
+You can see the effect of this change like so:
+
+ls -l freddy
+
+-rwSrwxr-x 1 mike mike 0 Dec 5 11:24 freddy
+[mike@berlin mike]$
+
+The other way to run this is to chmod the group instead of the user permissions octet, e.g.
+
+chmod g+s freddy
+
+This confers the permissions of my group (g group, not additional "G" groups) to the file, so that when it runs, it runs as someone in my group, rather than as the user who executes it.
+
+The effect of this looks like so:
+
+ls -l freddy

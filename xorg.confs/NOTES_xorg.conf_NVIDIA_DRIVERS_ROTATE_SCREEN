@@ -1,0 +1,59 @@
+ROTATE OPTIONS FOR NVIDIA AND POSSIBLY OTHERS/BROAD OPTIONS
+
+to add randr rotation to nvidia binary drivers add this to the Device section with Driver "nvidia"
+
+Option	"RandRRotation"	"on"
+
+test/use by running;
+
+xrandr -o left
+xrandr -o normal
+xrandr -o right
+xrandr -o inverted
+
+To set permanently add either of the following options below Option	"RandRRotation"	"on" ;
+
+Option "Rotate" "CW"               #rotates screen clockwise
+or
+Option "Rotate" "CCW"              #rotates screen counter clockwise
+
+several gui's sum built in mate/gnome display-settings (tick box for applet) another recommended but untried
+
+sudo apt-get install gnome-randr-applet
+or;
+sudo apt-get install grandr
+
+*****************************************************************************************
+
+NVIDIA BINARY ONLY OPTIONS
+
+OPTIONAL; set screen orientation/locations (which is on left and on right) I believe these are standard xorg.conf options for all gpu's  and that it requires seperate device and screen sections in xorg.conf, this option is usually not needed but may be especially if plugging in say a HDMI screen after xorg is allready running. So in serverlayout add;
+
+    Screen      1  "Screen1" RightOf "Screen0"
+
+complete section looks like;
+
+Section "ServerLayout"
+    Identifier     "Default Layout"
+    Screen      0  "Screen0" 0 0
+    Screen      1  "Screen1" RightOf "Screen0"
+    Option    "Xinerama" "true"
+EndSection
+
+Next in the Device section for the screen you want rotated say Device1 add;
+
+    Option          "Rotate" "left"
+
+full section looks like;
+
+Section "Device"
+    Identifier     "Device1"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "GeForce 6200 LE"
+    BusID          "PCI:1:0:0"
+    Screen          1
+    Option          "Rotate" "left"
+EndSection
+
+

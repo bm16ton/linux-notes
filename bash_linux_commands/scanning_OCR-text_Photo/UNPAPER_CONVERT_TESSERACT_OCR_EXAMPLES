@@ -1,0 +1,6 @@
+	USE unpaper TO REMOVE DARK BLOTCHES ETC FROM SCAN
+unpaper 09_Software_Commands_Set_3.pnm unp09_Software_Commands_Set_3.pnm
+	CONVERT PNM TO TIF WITH convert
+convert unp10_Software_Commands_Set_3_page2.pnm unp10_Software_Commands_Set_3_page2.tif
+	USE tesseract TO CONVERT SCAN TO TEXT FILE
+tesseract unp07_Software_Commands.tif tes_unp07_Software_Commands.tif -l eng

@@ -1,0 +1,17 @@
+sudo adduser <your_username> dialout
+
+ln -s /dev/ttyUSB0 ~/.wine/dosdevices/com1
+ln -s /dev/ttyS0 ~/.wine/dosdevices/com2
+
+gedit ~/.wine/system.reg
+
+## What you should add here is not clearly known, so you should try with the following options from Wine Wiki until you find something that works.
+## This is the common option that works with most applications:
+
+[Hardware\\Devicemap\\Serialcomm] 1231984861
+"Serial0"="COM1"
+
+## The other one is:
+
+[Hardware\\Devicemap\\Serialcomm] 1131331688
+"COM1"="COM1"

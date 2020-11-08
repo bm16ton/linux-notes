@@ -1,0 +1,13 @@
+git submodule update --init dtc
+
+./configure --enable-tools --enable-xfsctl --enable-virglrenderer --enable-opengl --enable-vhost-vsock --enable-replication --enable-libssh2 --enable-tpm --enable-seccomp --enable-bzip2 --enable-snappy --enable-lzo --enable-usb-redir --enable-live-block-migration --enable-libusb --enable-libnfs --enable-libiscsi --enable-rbd --enable-spice --enable-vhost-net --enable-attr --enable-cap-ng --enable-vde --enable-kvm --enable-bluez --enable-fdt --enable-curl --enable-brlapi --enable-xen-pci-passthrough --enable-xen --enable-virtfs --enable-vnc --enable-vnc-png --enable-vnc-jpeg --enable-vnc-sasl --enable-curses --enable-vte --enable-gtk --with-gtkabi=3.0 --enable-sdl --with-sdlabi=2.0 --enable-modules --enable-pie --enable-guest-agent --enable-docs --enable-linux-user --enable-system --enable-user --enable-tcg-interpreter --enable-xen-pv-domain-build 
+
+PROVIDES = qemu,qemu-kvm,qemu-slof,qemu-system-common,qemu-system-ppc,qemu-user,qemu-utils,qemu-block-extra,qemu-efi,qemulator,qemu-system,qemu-system-mips,qemu-system-sparc,qemu-user-binfmt,qemubuilder,qemu-guest-agent,qemu-launcher,qemu-system-arm,qemu-system-misc,qemu-system-x86,qemu-user-static
+
+Uninstalled when removing repo qemu;
+	android-emulator
+	aqemu
+	qemuctl
+	qtemu
+	ubuntu-emulator-images
+	ubuntu-emulator-runtime

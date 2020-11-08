@@ -1,0 +1,1047 @@
+From: <Saved by UnMHT Ver.8.1.0>
+Subject: =?utf-8?B?bGlucnVubmVyLmRlOiBUTFAg4oCTIEZBUQ==?=
+Date: Sun, 10 Jul 2016 11:12:47 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_73A16E66_C28DC14A.155D55E2D99";
+	type="text/html"
+
+------=_Part_73A16E66_C28DC14A.155D55E2D99
+Content-Location: http://linrunner.de/en/tlp/docs/tlp-faq.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xht=
+ml11/DTD/xhtml11.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xml:lang=3D"en"><head><meta ht=
+tp-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" />
+   =20
+    <meta content=3D"FAQ,
+        power management, power save, battery save, battery life, optimize =
+battery,
+        battery tweak, improve battery, TLP, ThinkPad, workaround, solution,
+        common problem" lang=3D"en" name=3D"keywords" />
+    <meta content=3D"Thomas Koch" name=3D"author" />
+    <link href=3D"./docstyle.css" media=3D"screen" rel=3D"stylesheet" type=
+=3D"text/css" />
+    <title>linrunner.de: TLP =E2=80=93 FAQ</title>
+<base href=3D"http://linrunner.de/en/tlp/docs/" /></head>
+
+<body>
+    <div id=3D"navi">
+        <div style=3D"float:left">
+            <a href=3D"./../../">linrunner.de</a>
+            <a href=3D"./../tlp.html">TLP</a>
+        </div>
+        <div style=3D"text-align:right">
+            <a href=3D"http://thinkwiki.de/TLP_FAQ">deutsch</a>
+        </div>
+   </div>
+
+    <h1>TLP FAQ</h1>
+    <p>This document answers frequently asked questions and provides soluti=
+ons /
+        workarounds for common problems.</p>
+
+    <h2><em>Contents</em></h2>
+    <ol class=3D"contents">
+        <li><a href=3D"#install-config">Installation and Configuration</a><=
+/li>
+        <li><a href=3D"#audio">Audio</a></li>
+        <li><a href=3D"#disks">Disk Drives</a></li>
+        <li><a href=3D"#graphics">Graphics</a></li>
+        <li><a href=3D"#input">Input devices</a></li>
+        <li><a href=3D"#powertop">Powertop</a></li>
+        <li><a href=3D"#scaling">Processor Frequency Scaling</a></li>
+        <li><a href=3D"#radios">Radio Devices (Wifi, Bluetooth, WWAN)</a></=
+li>
+        <li><a href=3D"#suspend">Suspend / Hibernate</a></li>
+        <li><a href=3D"#battery">ThinkPad Battery</a></li>
+        <li><a href=3D"#usb">USB</a></li>
+        <li><a href=3D"#warnings">Warnings</a></li>
+        <li><a href=3D"#featuresexcluded">Features excluded from TLP intent=
+ionally</a></li>
+        <li><a href=3D"#links">Links</a></li>
+    </ol>
+
+	<div id=3D"docbody">
+        <h2><a href=3D"#install-config" id=3D"install-config">Installation =
+and Configuration</a></h2>
+
+        <h3>How do I install TLP on a <a href=3D"#devel-rel" id=3D"devel-re=
+l">development release</a> of my distro?</h3>
+        <p>TLP packages for new distro versions appear in due time for the =
+release. If you want to use
+           TLP with alpha or beta releases, download the packages for the p=
+redecessor and install them
+            manually with the package manager.</p>
+
+        <h3>Does TLP conflict with other power management tools like laptop=
+-mode-tools, Jupiter, etc.?</h3>
+        <p>Yes. <a href=3D"http://www.urbandictionary.com/define.php?term=
+=3D%22there+can+only+be+one%22&amp;defid=3D2225806">There can only be one</=
+a>,
+            so don&#x27;t use two tools for the same purpose simultaneously=
+.</p>
+        <p><strong>Hint:</strong> Powertop isn&#x27;t a power management to=
+ol, so the former doesn&#x27;t apply to it, refer to the
+             <a href=3D"#powertop">powertop section</a>.</p>
+
+        <h3>Does TLP run on my laptop (not a ThinkPad)?</h3>
+        <p>TLP runs on every laptop brand. Setting the battery charge thres=
+holds is available
+            for IBM/Lenovo ThinkPads only.</p>
+
+        <h3>How can I change TLP&#x27;s settings?</h3>
+        <p>See <a href=3D"./tlp-configuration.html">TLP Configuration.</a><=
+/p>
+
+        <h3>Does updating TLP overwrite my settings?</h3>
+        <p>No. Package managers take care not to replace a user edited conf=
+iguration file without explicit
+            confirmation and create a backup copy too.</p>
+
+        <h3>Do i need to edit my settings after updating TLP?</h3>
+        <p>Not necessarily. TLP is always backwards compatible to existing =
+configuration files. New features
+            get reasonable default settings when not declared in the config=
+uration file.</p>
+        <p>However package installation does <em>not</em> merge a new featu=
+re&#x27;s settings.
+            So if you want to change the default, you need to:</p><p>
+        </p><ul>
+            <li>Add the new setting to your existing file; or</li>
+            <li>Enter your individual settings into the new file at the tem=
+porary location
+            (see your distro&#x27;s package manager docs), edit the new set=
+ting and finally
+            copy the file to the <a href=3D"./tlp-configuration.html">defau=
+lt location</a></li>
+        </ul>
+
+        <h3>Does TLP work on Kubuntu, Xubuntu and the like?</h3>
+        <p>Yes. All features of TLP are independent of the desktop environm=
+ent.</p>
+
+        <h3>Why do my TLP settings not apply correctly in Kubuntu (KDE)?</h=
+3>
+        <p>Symptom: on battery the AC settings are effective and vice versa=
+.</p>
+        <p>Cause: power profile settings have been changed in
+            <em>&quot;System Settings =E2=86=92 Power Management =E2=86=92 =
+Edit Profile&quot;</em>.</p>
+        <p>Solution: prerequisite for TLP is the correct setting of <em>&qu=
+ot;Enable system power saving&quot;</em>
+            in the <em>&quot;CPU and System&quot;</em> tab:</p>
+        <ul>
+            <li>Profile <em>&quot;Powersave&quot;</em> (default for battery=
+): checked</li>
+            <li>Profile <em>&quot;Performance&quot;</em> (default for ac): =
+not checked</li>
+        </ul>
+        <p>Apply accordingly to user generated profiles.</p>
+
+        <h3>I do not use Network Manager, how do i install tlp without tlp-=
+rdw in Ubuntu/Debian?</h3>
+        <div class=3D"command">
+            sudo apt-get install --no-install-recommends tlp
+        </div>
+
+        <h3>Does TLP work with other Linux distros?</h3>
+        <p>Possibly. There is no support however.</p>
+
+        <p>You can try to install the source tarball from
+            <a href=3D"https://github.com/linrunner/TLP/tags">Github</a>:</=
+p>
+        <div class=3D"command">
+            tar xfvz linrunner-TLP-VERSION-COMMIT.tar.gz<br />
+            cd linrunner-TLP-COMMIT<br />
+            <br />
+            # as root<br />
+            make install<br />
+            chkconfig --add tlp # or the distro specific command to enable =
+a service
+        </div>
+
+        <h2><a href=3D"#audio" id=3D"audio">Audio</a></h2>
+        <p>When encountering problems with the sound output <em>on battery<=
+/em>, for example clicking noises, try to disable audio power save complete=
+ly:</p>
+        <div class=3D"config">
+            SOUND_POWER_SAVE_ON_AC=3D0<br />
+            SOUND_POWER_SAVE_ON_BAT=3D0
+        </div>
+        <p>See <a href=3D"./tlp-configuration.html#audio">TLP Configuration=
+</a>.</p>
+
+        <h2><a href=3D"#disks" id=3D"disks">Disk Drives</a></h2>
+        <h3>Why is my hard disk drive parking the read-write heads so frequ=
+ently (clicking noises)?</h3>
+        <p>The APM setting for battery mode</p>
+        <div class=3D"config">
+            DISK_APM_LEVEL_ON_BAT=3D128
+        </div>
+        <p>corresponds to the Ubuntu default and should cause no problems. =
+Unfortunately drive manufacturers
+            interpret the APM levels quite spaciously to save power. </p>
+        <p>Solution: try values &gt; 128.
+            See <a href=3D"./tlp-configuration.html#apm">TLP Configuration<=
+/a>.</p>
+
+        <h3>Why doesn&#x27;t my hard disk drive spin down?</h3>
+        <p>Stopping the system disk for extended periods of time is unlikel=
+y to work, because applications
+            and system daemons wake up the disk frequently. There is no rea=
+l solution for this other than
+            changing many applications and daemons.</p>
+
+        <h3>How can I stop my 2nd hard disk drive?</h3>
+        <p>To spin down after 1 minute (=3D <strong>12</strong> =C2=B7 5 se=
+conds) idle time use:</p>
+        <div class=3D"config">
+            DISK_SPINDOWN_TIMEOUT_ON_AC=3D&quot;0 12&quot;<br />
+            DISK_SPINDOWN_TIMEOUT_ON_BAT=3D&quot;0 12&quot;
+        </div>
+        <p>See <a href=3D"./tlp-configuration.html#spindown">TLP Configurat=
+ion</a>.</p>
+
+        <h3><a href=3D"#spinup" id=3D"spinup">Why does my hard disk drive a=
+lways spin up when
+            switching from AC to battery power (and vice versa)?</a></h3>
+        <p>TLP applies configured APM levels and spin down timeouts upon ev=
+ery change of
+            power source and upon suspend/resume. Writing the settings inev=
+itably spins up the disk.
+            To prevent this behaviour either disable the settings completel=
+y by commenting
+            all of them (with a leading &#x27;#&#x27;) or use the special v=
+alue &quot;keep&quot; for the
+            specific disk.</p>
+        <p>See <a href=3D"./tlp-configuration.html#apm">TLP Configuration</=
+a>.</p>
+
+        <h3>Why is my Crucial M4 SSD so slow on battery?</h3>
+        <p> The Crucial M4 reduces performance according to the APM level. =
+You may disable APM with</p>
+        <div class=3D"config">
+            DISK_APM_LEVEL_ON_AC=3D&quot;255 255&quot;<br />
+            DISK_APM_LEVEL_ON_BAT=3D&quot;255 255&quot;
+        </div>
+
+        <h3>Drive Slot / <a href=3D"#ultrabay" id=3D"ultrabay">Ultrabay</a>=
+: why is the
+            optical drive not powered off on battery?</h3>
+        <p>Possible causes are:</p>
+
+        <h4>ThinkPad without Ultrabay</h4>
+        <p>SL/Edge models for instance.</p>
+
+        <h4>Incompatible Laptop</h4>
+        <p>At the time of writing this functionality is tested with ThinkPa=
+ds only.</p>
+
+        <h2><a href=3D"#graphics" id=3D"graphics">Graphics</a></h2>
+
+        <h3><a href=3D"#radeon" id=3D"radeon">Radeon</a></h3>
+        <h4>Why does my display flicker upon changing the power source?</h4>
+        <p>This is caused by the radeon driver&#x27;s power management. To =
+disable the setting either use </p>
+        <div class=3D"config">
+            RADEON_POWER_PROFILE_ON_AC=3Ddefault<br />
+            RADEON_POWER_PROFILE_ON_BAT=3Ddefault
+        </div>
+        <p>or</p>
+        <div class=3D"config">
+            RADEON_DPM_STATE_ON_AC=3Dperformance<br />
+            RADEON_DPM_STATE_ON_BAT=3Dperformance
+        </div>
+        <p>depending on your card/kernel. Refer to <a href=3D"./tlp-configu=
+ration.html#radeon">TLP Configuration</a>
+            for details.</p>
+
+        <h3><a href=3D"#nvidia" id=3D"nvidia">Nvidia Optimus</a></h3>
+        <h4>Why does my laptop consume so much battery power?</h4>
+        <p>Laptops with Optimus hybrid graphics contain two graphics units:=
+ one from Intel on the processor
+            die (&quot;integrated&quot;, iGPU) and one from Nvidia (&quot;d=
+iscrete&quot;, eGPU). Linux uses the Intel unit by default,
+            but at the same time the unused Nvidia unit is enabled and uses=
+ a lot of battery power
+            because no driver is loaded.</p>
+
+        <p>TLP can&#x27;t do anything about this =E2=80=93 Possible solutio=
+ns are:</p>
+        <ul>
+            <li>Disable one of the units in the BIOS setup</li>
+            <li>Use <a href=3D"http://bumblebee-project.org/">Bumblebee</a>=
+</li>
+            <li>Use <a href=3D"http://nouveau.freedesktop.org/wiki/Optimus/=
+">Optimus/PRIME</a></li>
+        </ul>
+
+        <h4>I use PRIME to disable the eGPU, why is it always re-enabled af=
+ter boot?</h4>
+
+        <p>Exclude the eGPU from runtime power management, either by blackl=
+isting the driver(s)</p>
+        <div class=3D"config">
+            RUNTIME_PM_DRIVER_BLACKLIST=3D&quot;nouveau nvidia&quot;
+        </div>
+        <p>or the device</p>
+        <div class=3D"config">
+            RUNTIME_PM_BLACKLIST=3D&quot;01:00.0&quot;
+        </div>
+        <p><strong>Hint:</strong> to check whether &quot;01:00.0&quot; matc=
+hes your Nvidia eGPU, use</p>
+        <div class=3D"command">
+            lspci -v | perl -ne &#x27;/VGA/../^$/ and /VGA|Kern/ and print&=
+#x27;
+        </div>
+        <p>Refer to <a href=3D"./tlp-configuration.html#runtimepm">TLP Conf=
+iguration</a> too.</p>
+
+        <h2><a href=3D"#input" id=3D"input">Input Devices</a></h2>
+
+        <h3>Why does TLP cause my USB keyboard / mouse to stop working?</h3>
+        <p>It doesn&#x27;t. All USB input devices (usbhid) are excluded fro=
+m autosuspend by default.</p>
+
+        <h3>Bluetooth mouse stops or disconnects</h3>
+        <p>Cause: most internal laptop bluetooth devices and all external b=
+luetooth dongles are USB devices.
+            Some do not implement autosuspend mode properly, giving trouble=
+ to connected devices.</p>
+        <p>Solution: identify the USB bluetooth device with</p>
+        <div class=3D"command">
+            tlp-stat -u | grep btusb
+        </div>
+        <p>Add it to <a href=3D"./tlp-configuration.html#usb">USB_BLACKLIST=
+</a>
+            and apply the new setting with</p>
+        <div class=3D"command">
+            sudo tlp usb
+        </div>
+
+        <h2><a href=3D"#powertop" id=3D"powertop">Powertop</a></h2>
+        <p><strong>Disclaimer:</strong> TLP was not designed to make powert=
+op happy.</p>
+
+        <h3>Why use TLP? I applied power save settings with powertop alread=
+y</h3>
+        <p>Powertop isn&#x27;t a power management tool but merely an analys=
+is tool. Any recommended settings you apply
+            with powertop get lost upon the next system reboot. To make pow=
+ertop&#x27;s settings permanent you need a
+            tool like TLP.</p>
+        <p><strong>TLP&#x27;s default configuration contains all appropriat=
+e powertop recommendations and
+            implements them automatically.</strong></p>
+
+        <h3>Why does Powertop suggest more power saving settings with TLP a=
+lready running?</h3>
+
+        <p><strong>Important:</strong> TLP applies maximum power savings on=
+ battery power only, so unplug ac power before
+            checking with powertop.</p>
+
+        <p>Not all suggestions from Powertop make sense or are safe to impl=
+ement:</p>
+
+        <h4>Message &quot;VM writeback timeout&quot;</h4>
+        <p>Powertop insists on a value of 1500 centisecs, whereas TLP&#x27;=
+s defaults are 1500 on ac and 6000 on battery power.
+            If you incline towards powertop&#x27;s opinion then change the =
+<a href=3D"./tlp-configuration.html#filesystem">setting</a>
+            to:</p>
+        <div class=3D"config">
+            MAX_LOST_WORK_SECS_ON_BAT=3D15
+        </div>
+
+        <h4>Message &quot;SATA ALPM link power&quot;</h4>
+        <p>Some laptops refuse ALPM for particular SATA links. It is imposs=
+ible to change from
+            max_performance to min_power. One cause may be an open link to =
+the docking stations
+            drive bay (when not docked).</p>
+        <p>Workaround for X-Series ThinkPads: enter BIOS setup. Go to <em>&=
+quot;Security =E2=86=92 IO Port Access&quot;</em> and
+            change Ultrabay access to <em>&quot;disabled&quot;</em>. Saves =
+approx. 0.4 W.</p>
+
+        <h4>Message &quot;Wifi powersave&quot;</h4>
+        <p>For some wifi cards =E2=80=93 for instance the Intel 3945abg =E2=
+=80=93 the Linux kernel does not support wifi power save.</p>
+
+        <h4>Message &quot;USB autosuspend&quot;</h4>
+        <p>TLP intentionally exempts input (usbhid) and WWAN (3G/UMTS, 4G/L=
+TE) devices from autosuspend.</p>
+        <p>Input devices may be whitelisted (USB_WHITELIST, refer to <a hre=
+f=3D"./tlp-configuration.html#usb">USB</a>);
+            to enable autosuspend for WWAN devices use:</p>
+        <div class=3D"config">
+            USB_BLACKLIST_WWAN=3D0
+        </div>
+
+        <h4>Message &quot;HD audio powersave&quot;</h4>
+        <p>Probably incorrect suggestion by powertop.</p>
+
+        <h3><a href=3D"#powertop_estim" id=3D"powertop_estim">Powertop</a> =
+shows a very high power consumption for device xy =E2=80=93 what can i do?<=
+/h3>
+        <p>It is impossible to measure the power consumption of individual =
+laptop components.
+            Therefore the readings in &quot;Device stats&quot; column &quot=
+;Power est.&quot; are rough estimations that=20
+            are obviously wrong and should be ignored.</p>
+
+        <h2><a href=3D"#scaling" id=3D"scaling">Processor Frequency Scaling=
+</a></h2>
+        <h3>Settings are not or incompletely applied</h3>
+        <p>When tlp-stat -p shows values that do not reflect configuration,
+            there are several possible causes:</p>
+
+        <h4>Conflict with your distro&#x27;s settings</h4>
+        <p>Solution: disable them as follows:</p>
+
+        <h5>Ubuntu</h5>
+        <div class=3D"command">
+            sudo update-rc.d -f ondemand remove
+        </div>
+        <p>Revert change with:</p>
+        <div class=3D"command">
+            sudo update-rc.d ondemand defaults
+        </div>
+
+        <h5>Debian</h5>
+        <div class=3D"command">
+            update-rc.d -f cpufrequtils remove     # as root
+        </div>
+        <p>Revert change with:</p>
+        <div class=3D"command">
+            update-rc.d cpufrequtils defaults      # as root
+        </div>
+
+        <h4>Invalid frequency settings</h4>
+        <p>Solution: tlp-stat -p shows the correct values for your cpu. Exa=
+mple:</p>
+        <div class=3D"output">
+            /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequenc=
+ies =3D  2400000 1600000  800000 [kHz]
+        </div>
+
+        <h4>No ondemand governor with intel_pstate</h4>
+        <div class=3D"output">
+            /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    =3D inte=
+l_pstate<br />
+            /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  =3D powe=
+rsave
+        </div>
+        <p>Since kernel 3.9 the new scaling driver intel_pstate is availabl=
+e and enabled by default on Intel
+            Sandy Bridge (or newer) hardware. intel_pstate supports the gov=
+ernors powersave (recommended default)
+            and performance only, ondemand is gone.</p>
+
+        <h3>tlp-stat -p shows &quot;x86_energy_perf_policy: program [for yo=
+ur kernel] not installed.&quot;</h3>
+        <p>Depending on the distro your mileage may vary:</p>
+        <ul>
+            <li>Ubuntu: install the meta-package <span class=3D"name">linux=
+-tools</span>
+                (or <span class=3D"name">linux-tools-lts-*</span> for HWE s=
+tack kernels),
+                no package available for mainline kernels.</li>
+            <li>Debian: currently no package available.</li>
+            <li>Arch: install the package <span class=3D"name">x86_energy_p=
+erf_policy</span>.</li>
+            <li>Fedora: install the package <span class=3D"name">kernel-too=
+ls</span>.</li>
+        </ul>
+
+        <h2><a href=3D"#radios" id=3D"radios">Radio Devices</a> (Bluetooth,=
+ Wifi, WWAN)</h2>
+
+        <h3>Slow or unstable Wifi on battery power</h3>
+        <p>Cause: kernel driver does not implement powersave properly.</p>
+        <p>Solution: disable powersave on battery</p>
+        <div class=3D"config">
+             WIFI_PWR_ON_BAT=3D1
+        </div>
+
+        <h3>XFCE desktop / Xubuntu: Bluetooth is not disabled upon system s=
+tartup</h3>
+        <p>Cause: the XFCE Desktop uses the Blueman bluetooth applet, which=
+ enables bluetooth when started.</p>
+
+        <p>Solution: you have to remove the bluetooth applet from autostart=
+ or uninstall the package
+            <strong>blueman</strong>. Alternatively you may patch the bluem=
+an-applet
+            (see <a href=3D"https://bugs.launchpad.net/blueman/+bug/908375"=
+>LP #908375</a>).</p>
+
+        <h3>Radio states are not restored according to RESTORE_DEVICE_STATE=
+_ON_STARTUP=3D1</h3>
+        <p>Cause: conflict with other settings, i.e. DEVICES_TO_DISABLE/ENA=
+BLE_ON_... .</p>
+        <p>Solution: don&#x27;t use RESTORE_DEVICE_STATE_ON_STARTUP=3D1 and=
+ DEVICES_TO_DISABLE/ENABLE_ON_...
+            simultaneously.</p>
+        <p>Cause: systemd 209 (or higher) implements its own radio state re=
+store scheme.</p>
+        <p>Solution: use either RESTORE_DEVICE_STATE_ON_STARTUP=3D1 or syst=
+emd&#x27;s approach but not both.</p>
+
+        <h3>Why is USB autosuspend not enabled for my integrated WWAN (3G/U=
+MTS, 4G/LTE) card?</h3>
+        <p>Cause: some cards do not work reliable with USB autosuspend mode=
+ enabled,
+            so by default TLP doesn&#x27;t apply USB autosuspend for most i=
+ntegrated WWAN cards.</p>
+        <p>Solution: force USB autosupend for WWAN with</p>
+        <div class=3D"config">
+            USB_BLACKLIST_WWAN=3D0
+        </div>
+        <p>Refer to <a href=3D"./tlp-configuration.html#usb">TLP Configurat=
+ion</a>.</p>
+
+        <h2><a href=3D"#suspend" id=3D"suspend">Suspend</a> / Hibernate</h2>
+        <h3>Kernel 3.0: impossible to suspend on battery</h3>
+        <p>ThinkPad T400 users reported this issue. It is caused by powerin=
+g off the optical drive on battery.
+            Disable the setting with:</p>
+        <div class=3D"config">
+            BAY_POWEROFF_ON_BAT=3D0
+        </div>
+
+        <h2><a href=3D"#battery" id=3D"battery">ThinkPad Battery</a></h2>
+        <h3>How to choose good battery charge thresholds?</h3>
+        <p>Factory settings for ThinkPad battery thresholds are as follows:=
+ when
+            plugged in the battery starts charging at 96%, and stops at 100=
+%.
+            These settings are optimized for maximum runtime, but having a =
+battery
+            hold a lot of power will decrease its capacity over the years.
+            To alleviate this problem, the start/stop charge thresholds can=
+ be
+            adjusted =E2=80=93 at the cost of a more or less reduced batter=
+y runtime.</p>
+        <p>It all depends on how you use your laptop, or more precisely, on=
+ the
+            minimal runtime you&#x27;re ready to accept when you&#x27;re on=
+ the road. In the
+            end, it all comes down to a runtime vs. lifespan trade-off.</p>
+        <p>If the laptop is plugged most of the time and rarely unplugged,
+            maximizing battery lifetime at the cost of a greatly reduced ru=
+ntime may
+            be acceptable, with values like starting charge at 40% and stop=
+ping at 50%.</p>
+        <p>On the contrary, if you use it unplugged most of the time, start=
+ing
+            charge at 85% and stopping at 90% would allow for a much longer=
+ runtime
+            and still give a lifespan benefit over the factory settings.</p>
+        <p>(Source: <a href=3D"https://forums.lenovo.com/t5/Welcome-FAQs-Kn=
+owledge-Base/How-can-I-increase-battery-life-ThinkPad/ta-p/244800">
+            Lenovo Forums</a>)</p>
+        <p>Default TLP settings (only if you uncomment the relevant lines) =
+are
+            slightly more protective regarding lifespan, with 75%/80% start=
+/stop
+            charge thresholds.</p>
+        <p>Please consider that the start threshold is the critical constra=
+int for
+            runtime, because it defines the lowest charge level that can oc=
+cur
+            while plugged.</p>
+        <p>Also, don&#x27;t forget that TLP provides a command (tlp fullcha=
+rge)
+            to fully charge the battery, when you need to temporarily maxim=
+ize
+            runtime (for example in case of a trip).</p>
+
+        <h3>Why is my battery charged up to 100% =E2=80=93 ignoring the cha=
+rge thresholds?</h3>
+        <p>Possible causes are:</p>
+
+        <h4>Laptop is not a ThinkPad</h4>
+        <p>Battery charge thresholds and recalibration work with ThinkPads =
+only.</p>
+        <p><strong>Important:</strong> any other Lenovo laptop models inclu=
+ding IdeaPads =E2=80=93
+            and other laptop brands of course =E2=80=93 are expressly unsup=
+ported.
+            Please do not file issues for this.</p>
+
+        <h4>tp-smapi is not installed</h4>
+        <p>Symptom: tlp-stat -b shows</p>
+        <div class=3D"output">
+            tp-smapi =3D inactive (kernel module &#x27;tp_smapi&#x27; not i=
+nstalled)
+        </div>
+        <p>Solution: see <a href=3D"./tlp-linux-advanced-power-management.h=
+tml#installation">Installation</a> for your distro.</p>
+
+        <h4>Installation of package tp-smapi-dkms fails (Ubuntu)</h4>
+        <p>Symptom: package install shows</p>
+        <div class=3D"output">
+        Setting up tp-smapi-dkms (0.41-1) ...<br />
+        Creating symlink /var/lib/dkms/tp-smapi/0.41/source -&gt;<br />
+                 /usr/src/tp-smapi-0.41<br />
+        DKMS: add completed.<br />
+        Error! Your kernel headers for kernel 3.X.0-YY-generic cannot be fo=
+und.<br />
+        Please install the linux-headers-3.X.0-YY-generic package,<br />
+        or use the --kernelsourcedir option to tell DKMS where it&#x27;s lo=
+cated
+        </div>
+        <p>Solution: install package <strong>linux-generic-headers</strong>=
+.</p>
+
+        <h4>Kernel module tp_smapi is not loaded</h4>
+        <p>Symptom: tlp-stat -b shows</p>
+        <div class=3D"output">
+            tp-smapi =3D inactive (kernel module &#x27;tp_smapi&#x27; load =
+error)
+        </div>
+        <p>Solution: try to load manually with</p>
+        <div class=3D"command">
+            sudo modprobe -v tp_smapi
+        </div>
+        <p>and check <a href=3D"http://www.thinkwiki.org/wiki/Tp_smapi#Trou=
+bleshooting">tp-smapi Troubleshooting</a>
+            for a solution matching the error message or use adequate forum=
+s to resolve your issue with tp-smapi.</p>
+        <p>tp-smapi does not support the following models:</p>
+        <ul>
+            <li>ThinkPad SL300/400/500</li>
+            <li>ThinkPad X121e (AMD)</li>
+            <li>ThinkPad T430(s), T530, W530, X230 and all newer models =E2=
+=80=93 see according section below.</li>
+        </ul>
+
+        <h4>Kernel module acpi_call is not installed</h4>
+        <p>Symptom: tlp-stat -b shows</p>
+        <div class=3D"output">
+            tpacpi-bat =3D inactive (kernel module &#x27;acpi_call&#x27; no=
+t installed)
+        </div>
+        <p>Solution: see <a href=3D"./tlp-linux-advanced-power-management.h=
+tml#installation">Installation</a> for your distro.</p>
+
+        <h4>Kernel module acpi_call is not loaded</h4>
+        <p>Symptom: tlp-stat -b shows</p>
+        <div class=3D"output">
+            tpacpi-bat =3D  inactive (kernel module &#x27;acpi_call&#x27; l=
+oad error)
+        </div>
+        <p>Solution: try to load manually with</p>
+        <div class=3D"command">
+            sudo modprobe -v acpi_call
+        </div>
+        <p>and use adequate forums to resolve your issue with acpi-call.</p>
+
+        <h4>Incompatible hardware for tpacpi-bat</h4>
+        <p>Symptom: tlp-stat -b shows</p>
+        <div class=3D"output">
+            tpacpi-bat =3D inactive (unsupported hardware)
+        </div>
+        <p>Cause: tpacpi-bat supports ThinkPad T420(s)/T520/W520/X220 and n=
+ewer models only.</p>
+        <p>Solution: none.</p>
+
+        <h4>ThinkPad T420(s)/T520/W520/X220</h4>
+        <p>tp-smapi doesn&#x27;t support start threshold and recalibration =
+on Sandy Bridge generation ThinkPads. Symptoms are:</p>
+        <p>tlp-stat -b shows</p>
+        <div class=3D"output">
+            /sys/devices/platform/smapi/BAT0/start_charge_thresh =3D (not a=
+vailable)
+        </div>
+        <p>tlp setcharge or fullcharge shows the message</p>
+        <div class=3D"output">
+            start =3D&gt; Warning: cannot set threshold.
+        </div>
+        <p>tlp discharge or recalibrate show the message</p>
+        <div class=3D"output">
+            Error: discharge function not available for this ThinkPad model.
+        </div>
+        <p>Solution: TLP automatically uses tpacpi-bat when the kernel modu=
+le acpi_call is available,
+            see <a href=3D"./tlp-linux-advanced-power-management.html#insta=
+llation">Installation</a>.</p>
+
+        <h4>ThinkPad T430(s)/T530/W530/X230 (and all newer models)</h4>
+        <p>Solution: TLP automatically uses tpacpi-bat when the kernel modu=
+le acpi_call is available,
+            see <a href=3D"./tlp-linux-advanced-power-management.html#insta=
+llation">Installation</a>.</p>
+
+        <h4>Battery has been removed</h4>
+        <p>By removing (and re-inserting) the battery the charge thresholds=
+ are reset to factory settings (96 / 100%).
+            To restore TLP&#x27;s settings the following two steps are need=
+ed:</p>
+        <ul>
+            <li>Restart system</li>
+            <li>Shutdown and power off system</li>
+        </ul>
+        <p>or use</p>
+        <div class=3D"command">
+            sudo tlp setcharge
+        </div>
+        <p>See <a href=3D"./tlp-linux-advanced-power-management.html#change=
+thresholds">Change Battery Charge Thresholds</a>.</p>
+
+        <h3><a href=3D"#wrong-threshold-values" id=3D"wrong-threshold-value=
+s">
+                Charge thresholds</a> shown by tlp-stat -b do not correspon=
+d to the configured ones</h3>
+        <p>Possible causes are:</p>
+
+        <h4>Configuration was not activated</h4>
+        <p>After changes to the configuration it is necessary to reboot. Al=
+ternatively use</p>
+        <div class=3D"command">
+            sudo tlp start
+        </div>
+        <p>or</p>
+        <div class=3D"command">
+            sudo tlp setcharge
+        </div>
+        <p>to activate the thresholds.</p>
+
+        <h4>ThinkPad Edge (E/S) series, L series, SL410/510, Yoga series</h=
+4>
+        <p>On these models the threshold values shown by tlp-stat -b do not=
+ correspond to the written values.
+            For example the setting START_CHARGE_THRESH_BATx=3D75 / STOP_CH=
+ARGE_THRESH_BATx=3D80 shows 75 / 74.
+            The described behavior is caused by the firmware (UEFI/BIOS), n=
+ot by TLP. Nonetheless the charge thresholds work
+            as configured.</p>
+
+        <h3><a href=3D"#yoga12" id=3D"yoga12">
+                Changed lower threshold</a> does not apply on ThinkPad Yoga=
+ 12</h3>
+        <p>Activating a new start threshold may require a specific workarou=
+nd: after writing the <em>new</em>
+            threshold (e.g. via tlp setcharge or reboot) discharge the batt=
+ery below the <em>old</em> start threshold
+            (see <a href=3D"https://github.com/linrunner/TLP/issues/183#iss=
+uecomment-175228097">Issue #173</a>).</p>
+
+        <h3 id=3D"erratic-battery">Erratic battery behavior on ThinkPad T42=
+0(s)/T520/W520/X220 (and all newer models)</h3>
+        <p>Symptom: some users report severely reduced battery capacity or =
+sudden drops of charge level from around 30 % to zero
+            when employing charge thresholds.</p>
+        <p>Probable cause: undocumented changes to the threshold logic done=
+ by Lenovo.</p>
+        <p>Solution: <a href=3D"#how-to-disable-thresholds">remove battery =
+thresholds</a> completely
+            or use either start or stop threshold but not both, then
+            <a href=3D"./tlp-linux-advanced-power-management.html#recalibra=
+te">recalibrate battery</a> once.</p>
+        <p><strong>Note:</strong> this is a software only issue, no harm is=
+ done to the battery.</p>
+
+        <h3>Why does the panel applet show the battery state &quot;charging=
+&quot; despite charge thresholds are effective?</h3>
+        <p>All existing panel applets use the standard kernel interface whi=
+ch doesn&#x27;t give the charge state correctly
+            as soon as charge thresholds intervene. In this situation tlp-s=
+tat -b shows the value &quot;Unknown&quot; for
+            <strong>/sys/class/power_supply/BATx/status</strong>. There is =
+no solution at the moment.</p>
+        <p>In contrast, for ThinkPad models supporting tp-smapi tlp-stat -b=
+ shows the correct state below
+            <strong>/sys/devices/platform/smapi/BATx/</strong>. </p>
+
+        <h3>Do charge thresholds work even when Linux/TLP is not running?</=
+h3>
+        <p>Yes. The charging process is not controlled by software, but by =
+hardware.
+            TLP just writes the thresholds to the hardware registers (via
+            <a href=3D"http://www.thinkwiki.org/wiki/Tp_smapi">tp-smapi</a>=
+ or
+            <a href=3D"https://github.com/teleshoes/tpacpi-bat">tpacpi-bat<=
+/a>).
+            Once stored in the hardware the charge thresholds stay effectiv=
+e permanently. See below for removal.</p>
+
+        <h3>What exactly does the <a href=3D"#start-thresh" id=3D"start-thr=
+esh">start charge threshold</a>
+            (START_CHARGE_THRESH_BATx) do?</h3>
+        <p>The start charge threshold ensures that the battery is not recha=
+rged immediately after every short
+            discharge process. The charging process starts only when the pr=
+evious discharge was below the
+            value of START_CHARGE_THRESH_BATx.</p>
+
+        <h3>Do charge thresholds discharge the battery on AC power?</h3>
+        <p>No. Otherwise they would be callled dis-charge thresholds.</p>
+
+        <h3>Can I prevent discharging the battery by setting the start thre=
+shold?</h3>
+        <p>No. Discharging the battery can be prevented only by connecting =
+the power supply or switching
+            off your ThinkPad.</p>
+
+        <h3><a href=3D"#how-to-disable-thresholds" id=3D"how-to-disable-thr=
+esholds">How do I disable</a> the charge thresholds?</h3>
+        <p>Remove the charge thresholds from the configuration by inserting=
+ a leading &#x27;#&#x27;</p>
+        <div class=3D"config">
+            #START_CHARGE_THRESH_BAT0=3D75<br />
+            #STOP_CHARGE_THRESH_BAT0=3D80
+        </div>
+        <p>and use</p>
+        <div class=3D"command">
+            sudo tlp fullcharge
+        </div>
+        <p>to immediately activate the factory settings 96 / 100%.</p>
+
+        <h3>My battery does not charge anymore after recalibration, shows X=
+% remaining capacity constantly</h3>
+        <p>Most probable cause: battery is defect =E2=80=93 and was it even=
+ before the recalibration attempt.</p>
+
+        <h2><a href=3D"#usb" id=3D"usb">USB</a></h2>
+        <h3>USB device doesn&#x27;t work</h3>
+        <p>Symptom: some USB devices =E2=80=93 scanners for example =E2=80=
+=93 do not work reliable when TLP activates USB autosuspend mode.</p>
+        <p>Solution: lookup the corresponding USB device ID with lsusb, add=
+ it to <a href=3D"./tlp-configuration.html#usb">USB_BLACKLIST</a>
+            and reconnect the device.</p>
+        <p><strong>Hint:</strong> TLP automatically excludes all input devi=
+ces (HID) like keyboards and mice from USB autosuspend.
+            You do not need to enter those in USB_BLACKLIST.</p>
+
+        <h3>Smartphone doesn&#x27;t charge when connected</h3>
+        <p>Lookup the smartphone&#x27;s USB device ID with lsusb, add it to=
+ <a href=3D"./tlp-configuration.html#usb">USB_BLACKLIST</a>
+            and reconnect the smartphone.</p>
+
+        <h2><a href=3D"#warnings" id=3D"warnings">Warnings</a></h2>
+
+        <h3>Which kind of warnings does &quot;tlp-stat -w&quot; check for?<=
+/h3>
+        <p>Currently the command checks the kernel log for errors possibly =
+caused by the settings
+            for <a href=3D"./tlp-configuration.html#alpm">SATA ALPM</a>.</p>
+
+        <h3>What should i do if warnings are shown?</h3>
+        <p>TLP&#x27;s default setting on battery</p>
+        <div class=3D"config">
+            SATA_LINKPWR_ON_BAT=3Dmin_power
+        </div>
+        <p>is optimimized for maximum power saving. Try to use less aggress=
+ive values:</p>
+
+        <div class=3D"config">
+            SATA_LINKPWR_ON_BAT=3Dmedium_power
+        </div>
+        <p>or</p>
+        <div class=3D"config">
+            SATA_LINKPWR_ON_BAT=3Dmax_performance
+        </div>
+        <p>or disable the setting completely =E2=80=93
+            see <a href=3D"./tlp-configuration.html#alpm">SATA ALPM</a>.</p>
+        <p>Don&#x27;t forget to reboot before checking again.</p>
+        <p>The same applies to <span class=3D"name">SATA_LINKPWR_ON_AC</spa=
+n>
+            if you changed the default setting.</p>
+        <p><strong>Note:</strong> the difference in power consumption betwe=
+en
+            <span class=3D"name">min_power</span> and <span class=3D"name">=
+max_performance</span>
+            may amount to more than 1 W depending on your hardware.</p>
+
+        <h3>What to do if the warnings do not disappear after changing the =
+settings?</h3>
+        <ul>
+            <li>In case there are only 1 or 2 warnings immediately after sy=
+stem start or a change
+            of power source:<br />users reported it is safe to just ignore =
+them.</li>
+            <li>In case of a high warning count: try to use a newer kernel =
+version.</li>
+        </ul>
+
+        <h3>What is the cause for these errors?</h3>
+        <p>Candidates:</p>
+        <ul>
+            <li>Poor implementation of ALPM in the disk&#x27;s firmware or =
+SATA controller or System BIOS</li>
+            <li>Issues between the controller and the disk</li>
+            <li>Kernel driver bugs</li>
+        </ul>
+
+        <h2><a href=3D"#featuresexcluded" id=3D"featuresexcluded">Features =
+excluded</a> from TLP intentionally</h2>
+        <ul>
+            <li>Backlight brightness: this would conflict with existing des=
+ktop functionality such as the gnome power manager</li>
+            <li>Fan Control: solutions for ThinkPads exist
+                =E2=80=93 see <a href=3D"http://thinkfan.sourceforge.net">t=
+hinkfan</a> or
+                <a href=3D"http://code.google.com/p/tpfanco/">tpfanco</a></=
+li>
+            <li>ThinkPad battery balancing</li>
+        </ul>
+
+        <h1><a href=3D"#links" id=3D"links">Links</a></h1>
+
+        <h2>TLP</h2>
+        <ul>
+            <li><a href=3D"./tlp-linux-advanced-power-management.html">TLP =
+Linux Advanced Power Management</a>
+                =E2=80=93 Installation instructions and user documentation<=
+/li>
+            <li><a href=3D"./tlp-configuration.html">TLP Configuration</a><=
+/li>
+            <li><a href=3D"./tlp-developer-documentation.html">TLP Develope=
+r Documentation</a> =E2=80=93 Packaging instructions</li>
+        </ul>
+
+        <h2>Other</h2>
+        <ul>
+            <li>Power saving basics:
+                <ul class=3D"ll2">
+                    <li><a href=3D"http://www.codon.org.uk/~mjg59/power/goo=
+d_practices.html">
+                        Observations on power management</a> =E2=80=93 by M=
+atthew Garrett</li>
+                    <li><a href=3D"http://mjg59.livejournal.com/88608.html">
+                        Modern CPUs are great. They have all sorts of advan=
+ced power saving features ...</a>
+                        =E2=80=93 by Matthew Garrett</li>
+                    <li><a href=3D"">Some basics on CPU P states on Intel P=
+rocessors</a>
+                        =E2=80=93 by Arjen van de Veen</li>
+                </ul>
+            </li>
+            <li><a href=3D"http://thinkfan.sourceforge.net">thinkfan</a> =
+=E2=80=93 Simple fan control program (for ThinkPads)</li>
+            <li><a href=3D"http://code.google.com/p/tpfanco/">tpfanco</a> =
+=E2=80=93 Fan control software with gui (for ThinkPads)</li>
+        </ul>
+    </div>
+
+    <div id=3D"copyright">
+        <p style=3D"margin-top:3em; font-size:small">
+            =C2=A9 2016, linrunner. Licensed under the
+            <a href=3D"http://creativecommons.org/licenses/by-nc-sa/3.0/" r=
+el=3D"license">CC BY-NC-SA</a>.
+        </p>
+    </div>
+
+
+</body></html>
+------=_Part_73A16E66_C28DC14A.155D55E2D99
+Content-Location: http://linrunner.de/en/tlp/docs/docstyle.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+#docbody p {
+    margin-left: 3.0em;
+    margin-right: 3.0em;
+    }
+
+#docbody ul {
+    margin-left: 2.5em;
+    margin-right: 3.0em;
+    list-style-type: disc;
+    }
+
+#docbody ul.ll2 {
+    margin-left: 0em;
+    list-style-type: circle;
+    }
+
+#docbody h3 {
+    margin-left: 1.0em;
+    }
+
+#docbody h4 {
+    margin-left: 3.0em;
+    }
+
+#docbody h5 {
+    margin-left: 4.0em;
+    }
+
+#docbody h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: #000000;
+    text-decoration:none;
+    }
+
+#docbody h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+    color: #000000;
+    text-decoration:underline;
+    }
+
+#docbody ol.contents {
+    font-style: italic;
+    }
+
+#docbody div.command {
+    margin: 0.0em 5.0em 0.0em 5.0em;
+    padding: 0.5em 0.5em 0.5em 0.5em ;
+    border-style: dotted;
+    border-width: thin;
+    background-color: #D0D0D0;
+    font-family: monospace;
+    font-weight: bold;
+    }
+
+#docbody div.config {
+    margin: 0.0em 5.0em 0.0em 5.0em;
+    padding: 0.5em 0.5em 0.5em 0.5em ;
+    border-style: dotted;
+    border-width: thin;
+    background-color: #F0F0F0;
+    font-family: monospace;
+    font-weight: bold;
+    }
+
+#docbody div.output {
+    margin: 0.0em 5.0em 0.0em 5.0em;
+    padding: 0.5em 0.5em 0.5em 0.5em ;
+    border-style: dotted;
+    border-width: thin;
+    background-color: #FFFFFF;
+    font-family: monospace;
+    font-style: italic;
+    }
+
+#docbody .name {
+    font-weight: bold;
+    }
+
+#docbody table {
+    margin: 0.0em 5.0em 0.0em 3.0em;
+    border-width: thin;
+    border-style: solid;
+    background-color: #F0F0F0;
+    padding: 0.5em;
+    }
+
+#docbody th {
+    background-color: #F0F0F0;
+    padding: 0.5em;
+}
+
+#docbody tr, td {
+    border-width: thin;
+    border-style: solid;
+    background-color: #FFFFFF;
+    padding: 0.5em;
+}
+
+
+------=_Part_73A16E66_C28DC14A.155D55E2D99--

@@ -1,0 +1,14 @@
+lshal
+
+look for the logitech device 'Elite Keyboard Y-RP20 + Mouse MX900 (Bluetooth)'
+
+then look for the linux.sysfs_path (like '/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.5/2-1.5.1')
+
+then remove the /sys from the front.
+
+so:
+
+sudo /lib/udev/hid2hci --method=logitech-hid --devpath=/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.5/2-1.5.1
+
+/lib/udev/hid2hci --method=csr2 --devpath=devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.1 --mode=hid
+/lib/udev/hid2hci --method=csr --devpath=devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.1 --mode=hid

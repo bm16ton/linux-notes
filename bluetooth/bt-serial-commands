@@ -1,0 +1,10 @@
+sudo sdptool browse 64:6C:B2:23:EF:BC
+sudo rfcomm bind 0 64:6C:B2:23:EF:BC 6
+sudo getty -L 115200 rfcomm1 vt102
+
+
+WORKS
+start s2 bluetooth terminal first
+sudo rfcomm bind 0 64:6C:B2:23:EF:BC 4
+sudo getty -L 115200 rfcomm0 vt102
+

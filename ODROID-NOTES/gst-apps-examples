@@ -1,0 +1,13 @@
+gst-launch-1.0 \
+        filesrc location=/mnt/ext/samples/big_buck_bunny_1080p_h264.mov \
+        typefind=true ! \
+        qtdemux name=m m.video_0 ! \
+        h264parse ! video/x-h264, stream-format=byte-stream, alignment=au ! \
+        v4l2video8dec ! videoconvert ! \
+        fpsdisplaysink video-sink=glimagesink
+
+
+
+gst-launch-1.0 filesrc location=/path/to/media.mp4 typefind=true ! qtdemux name=m m.video_0 ! h264parse ! video/x-h264, stream-format=byte-stream, alignment=au ! v4l2video8dec ! v4l2video10convert ! glimagesink
+
+

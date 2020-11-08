@@ -1,0 +1,89 @@
+CON10 - 2×15 pins
+Pin 
+Number  Net Name 	GPIO & Export No 	Default Pin State 
+
+1 	5V0 	
+2 	GND 	
+3 	ADC_0.AIN0 	XADC0AIN_0 		I		
+4 	UART_0.RTSN 	GPA0.2 (#173) 		I(PUDN)
+5 	UART_0.CTSN 	GPA0.3 (#174) 		I(PUDN)
+6 	UART_0.RXD 	GPA0.0 (#171) 		I(PUDN)
+7 	SPI_1.MOISI 	GPA2.7 (#192) 		I(PUDN)
+8 	UART_0.TXD 	GPA0.1 (#172) 		I(PUDN)
+9 	SPI_1.MISO 	GPA2.6 (#191) 		I(PUDN)
+10 	SPI_1.CLK 	GPA2.4 (#189) 		I(PUDN)
+11 	SPI_1.CSN 	GPA2.5 (#190) 		I(PUDN)
+12 	PWRON 					I
+13 	XE.INT13 	GPX1.5 (#21) 		I(PUDN)
+14 	I2C_1.SCL 	GPB3.3 (#210) 		I(PUDN)
+15 	XE.INT10 	GPX1.2 (#18) 		I(PUDN)
+16 	I2C_1.SDA 	GPB3.2 (#209) 		I(PUDN)
+17 	XE.INT14 	GPX1.6 (#22) 		I(PUDN)
+18 	XE.INT11 	GPX1.3 (#19) 		I(PUDN)
+19 	XE.INT22 	GPX2.6 (#30) 		I(PUDN)
+20 	XE.INT20 	GPX2.4 (#28) 		I(PUDN)
+21 	XE.INT21 	GPX2.5 (#29) 		I(PUDN)
+22 	XE.INT23 	GPX2.7 (#31) 		I(PUDN)
+23 	ADC_0.AIN3 	XADC0AIN_3 		I
+24 	XE.INT17 	GPX2.1 (#25) 		I(PUDN)
+25 	XE.INT15 	GPX1.7 (Soft I2C) 	I(PUDN)
+26 	XE.INT16 	GPX2.0 (#24) 		I(PUDN)
+27 	XE.INT25 	GPX3.1 (Soft I2C) 	I(PUDN)
+28 	GND 	
+29 	VDD_IO(1.8V) 		
+30 	GND 		
+
+______________________________________________________________________________________
+
+
+CON11 - 2×6 pins
+Pin #  	Net Name 	GPIO & Export No 	Default Pin State 
+
+1 	5V0 			
+2 	GND 		
+3 	VDD_IO(1.8V) 			
+4 	I2C_5.SDA 	GPA2.2 (#187) 		I(PUDN)
+5 	XE.INT26 	GPX3.2 (#34) 		I(PUDN) 	
+6 	I2C_5.SCL 	GPA2.3 (#188) 		I(PUDN)
+7 	I2S_0.SCLK 	GPZ.0 (#225) 		I(PUDN) 	
+8 	GND 		
+9 	I2S_0.CDCLK 	GPZ.1 (#226) 		I(PUDN) 	
+10 	I2S_0.SDO 	GPZ.4 (#229) 		I(PUDN)
+11 	I2S_0.LRCK 	GPZ.2 (#227) 		I(PUDN) 	
+12 	I2S_0.SDI 	GPZ.3 (#228) 		I(PUDN) 
+
+
+________________________________________________________________________________________
+
+UART Console Connector
+
+_____UART____
+|Pin 4 - GND|
+|Pin 3 - RXD|
+|Pin 2 - TXD|
+|Pin 1 - VCC|
+\___________|
+
+1.8V LVTTL
+________________________________________________________________________________________
+
+LED Indicators
+
+The ODROID-XU4 has four indicator LEDs that provide visual feedback.
+
+1. Red LED
+
+    Power: Hooked up to 5V power
+
+2. Blue LED
+
+    Alive Solid light : u-boot is running
+
+    Flashing : Kernel is running (heart beat)
+
+
+
+	
+
+
+

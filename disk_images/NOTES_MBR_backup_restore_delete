@@ -1,0 +1,15 @@
+MBR BACKUP RESTORE DELETE
+
+BACKUP;
+
+dd if=/dev/sda of=/path/mbr-backup bs=512 count=1
+
+RESTORE;
+
+dd if=/path/mbr-backup of=/dev/sda bs=512 count=1
+
+
+DELETE;
+
+dd if=/dev/zero of=/dev/sda bs=446 count=1
+

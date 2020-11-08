@@ -1,0 +1,45 @@
+Basic Terminal Shortcuts
+CTRL L = Clear the terminal
+CTRL D = Logout
+SHIFT Page Up/Down = Go up/down the terminal
+CTRL A = Cursor to start of line
+CTRL E = Cursor the end of line
+CTRL U = Delete left of the cursor
+CTRL K = Delete right of the cursor
+CTRL W = Delete word on the left
+CTRL Y = Paste (after CTRL U,K or W)
+TAB = auto completion of file or command
+CTRL R = reverse search history
+!! = repeat last command
+!$ = Last argument of previous command
+$! = pid of last background program started
+!abc = Run last command starting with abc
+!abc:p = Print last command starting with abc
+^abc^123 = Run previous command, replacing abc with 123
+CTRL Z = stops the current command (resume with fg in foreground or bg in background)
+CTRL-c = Stop current command
+ALT- = Last argument of previous command
+!* = All arguments of previous command
+
+head -n1 /etc/issue Show distri​ bution
+
+PROCESS MANAGEMENT
+ps = Static process list
+	-ef --> ex: ps -ef | less
+	-ejH --> show process hierarchy
+	-u --> process's from current user
+	aux  displays info the best way
+
+pkill name 	Kill process with name name
+killall name 	Kill all processes with names
+		beginning name
+
+COMMAND LISTS
+	Run cmd1 then cmd2
+cmd1 ; cmd2
+	Run cmd2 if cmd1 is successful
+cmd1 && cmd2
+	Run cmd2 if cmd1 is not successful
+cmd1 || cmd2
+	Run cmd in a subshell
+cmd &

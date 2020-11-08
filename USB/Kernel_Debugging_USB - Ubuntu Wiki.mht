@@ -1,0 +1,1846 @@
+From: <Saved by UnMHT Ver.8.2.0>
+Subject: Kernel/Debugging/USB - Ubuntu Wiki
+Date: Thu, 27 Oct 2016 22:24:00 -0400
+MIME-Version: 1.0
+X-UnMHT-Save-State: Current-State
+Content-Type: multipart/related;
+	boundary="----=_Part_B6B3D453_7B840B2E.1580919DE24";
+	type="text/html"
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/Kernel/Debugging/USB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link href=3D"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAA=
+AAQCAYAAAAf8/9hAAACSklEQVQ4jX1TXWhSYRj+ZMxRN7vpZuwiRrBREchgxS6CQXTn1EULyWiF=
+dIQQRCu6yI0Yg4KUJIOhNCSiusqLbmSMLroQ2WgRw5Oxc456NHeOOmPqMX/W4ekm/46uF76bl/d=
+53p/n+QhRRImLjWf9Djdvm9xmZ1UyO6uSedvkdtbvcJe42LiyvisKQZedMQzWWC1Bv8cYBmuFoM=
+veA6RpWv3z0aWNo4CslqDOx9BIMw1Wp5IzzsvrNE2rWwSi59arLoBOhZzHitLGW5Q/vYewNIc6t=
+4NGhgOrU4HVEmT9DjchhBBpd0vD6lRyE5yyTkNcMaGyuY5m1PkYhKU5JG+e6mwil5mvZ4jopXzN=
+ZPzaCVS/b6KeoBE3jiB5ewKJ66PIeayQpSL+HOTB3znXIskFHj4hSfMY10wUXi8DAPKrD3pukHV=
+RAAAp/LGVS1omYoTVEvx69xTybwl7Tj3qfAzx+eEeAu7KcRRDARwEX7ZV0Q80CKMfaBTWFiFLRa=
+TtMzjMpsAZ1H2VSNsugrdoOkiPVUh8YTTdWmFtEQCw59T3gu0zAIBiKNC9gvjM9KZ1xPlh1H58Q=
+TUaQdw4gsSNk+AMagjLRjQyHA73M11KCF7LKqlEw1OdncQVE7IuCuXPH9oycjsQHl9F0nxaIeO3=
+s4QQQoTnCwHlyPkXNhRDARRDAaTunkc1GkE1Gmk38lK+lhMZhhlK37sQ+Z+V/60ms1qC9P3pcJe=
+VmyT9JlE+0Uv5GIYZOvJHVqLhKdFL+ToNljSPcaKX8km7Wxpl/V9ZLTo82gQ36wAAAABJRU5Erk=
+Jggg=3D=3D" rel=3D"shortcut icon" type=3D"image/png">
+
+<meta content=3D"index,nofollow" name=3D"robots">
+
+<title>Kernel/Debugging/USB - Ubuntu Wiki</title>
+<script async=3D"" src=3D"//www.google-analytics.com/analytics.js"></script=
+><script src=3D"/moin_static193/common/js/common.js" type=3D"text/javascrip=
+t"></script>
+
+<script type=3D"text/javascript">
+<!--
+var search_hint =3D "Search";
+//-->
+</script>
+
+
+<link charset=3D"utf-8" href=3D"/moin_static193/light/css/common.css" media=
+=3D"all" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/light/css/screen.css" media=
+=3D"screen" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/light/css/print.css" media=
+=3D"print" rel=3D"stylesheet" type=3D"text/css">
+<link charset=3D"utf-8" href=3D"/moin_static193/light/css/projection.css" m=
+edia=3D"projection" rel=3D"stylesheet" type=3D"text/css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel=3D"stylesheet" type=3D"text/css" charset=3D"utf-8" media=3D"al=
+l" href=3D"/moin_static193/light/css/msie.css">
+<![endif]-->
+
+
+
+
+
+<link href=3D"/Home" rel=3D"Start">
+<link href=3D"/Kernel/Debugging/USB?action=3Draw" rel=3D"Alternate" title=
+=3D"Wiki Markup">
+<link href=3D"/Kernel/Debugging/USB?action=3Dprint" media=3D"print" rel=3D"=
+Alternate" title=3D"Print View">
+<link href=3D"/Kernel/Debugging" rel=3D"Up">
+<link href=3D"/FindPage" rel=3D"Search">
+<link href=3D"/TitleIndex" rel=3D"Index">
+<link href=3D"/WordIndex" rel=3D"Glossary">
+<link href=3D"/HelpOnFormatting" rel=3D"Help">
+<base href=3D"https://wiki.ubuntu.com/Kernel/Debugging/"></head><body dir=
+=3D"ltr" lang=3D"en"><div class=3D"hfeed" id=3D"wrapper"><div id=3D"main"><=
+div id=3D"container"><div id=3D"content"><div class=3D"hentry post"><div di=
+r=3D"ltr" id=3D"page" lang=3D"en"><div dir=3D"ltr" id=3D"content" lang=3D"e=
+n"><pre>debugfs none /sys/kernel/debug</pre></div></div></div></div></div><=
+/div></div></body></html>
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/common.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/* standard rule ---- */
+hr {
+    height: 1pt;
+    background-color: #C1B496; /* ubuntu dark tan */
+    border: 0;
+}
+
+/* custom rules ----- to ---------- */
+.hr1 {height: 2pt;}
+.hr2 {height: 3pt;}
+.hr3 {height: 4pt;}
+.hr4 {height: 5pt;}
+.hr5 {height: 6pt;}
+.hr6 {height: 7pt;}
+
+/* Replacement for html 3 u tag */
+.u {text-decoration: underline;}
+
+/* eye catchers */
+.warning=20
+{
+	color: red;
+}
+
+.error=20
+{
+	color: red;
+}
+
+strong.highlight=20
+{
+	background-color: #edddba; /* ubuntu pale orange */
+	padding: 1pt;
+}
+
+
+/* Recent changes */
+
+.rcrss {
+	float: right;
+	margin: 0;
+}
+
+.recentchanges[dir=3D"rtl"] .rcrss {
+	float: left;
+}
+
+.recentchanges table {
+	clear: both;
+}
+
+.recentchanges td {
+	vertical-align: top;
+	border: none;
+	border-bottom: 1pt solid #C1B496; /* ubuntu dark tan */
+	background: white;
+}
+
+.rcdaybreak td {
+	background: #EDD097; /* classic: deep yellow */
+	border: none;
+}
+
+.rcdaybreak td a {
+	font-size: 0.88em;
+}
+
+.rcicon1, .rcicon2 {
+	text-align: center;
+}
+
+.rcpagelink {
+	width: 33%;
+}
+
+.rctime {
+	font-size: 0.88em;
+	white-space: nowrap;
+}
+
+.rceditor {
+	white-space: nowrap;
+	font-size: 0.88em;
+}
+
+.rccomment {
+	width: 66%;
+	color: #C1B496; /* ubuntu dark tan */
+	font-size: 0.88em;
+	font-weight: bold;
+}
+
+
+/* User Preferences */
+
+.userpref table, .userpref td {
+	border: none;
+}
+
+/* CSS for new code_area markup used by Colorizer and ParserBase */
+
+div.codearea { /* the div makes the border */
+	margin: 4pt 0;
+	padding: 0;
+	border: 1pt solid #C1B496; /* ubuntu dark tan */
+	background-color: #F7F6F5;  / * light grey */
+	color: black;
+}
+
+div.codearea pre { /* the pre has no border and is inside the div */
+	margin: 0;
+	padding: 4pt;
+	border: none;
+	white-space: pre-wrap;
+}
+
+a.codenumbers { /* format of the line numbering link */
+	margin: 0 4pt;
+	font-size: 0.85em;
+	color: #6d4c07; /* ubuntu dark brown */
+}
+
+/* format of certain syntax spans */
+div.codearea pre span.LineNumber {color: gray;}
+div.codearea pre span.ID         {color: #000000;}
+div.codearea pre span.Operator   {color: #0000C0;}
+div.codearea pre span.Char       {color: #004080;}
+div.codearea pre span.Comment    {color: #008000;}
+div.codearea pre span.Number     {color: #0080C0;}
+div.codearea pre span.String     {color: #004080;}
+div.codearea pre span.SPChar     {color: #0000C0;}
+div.codearea pre span.ResWord    {color: #A00000;}
+div.codearea pre span.ConsWord   {color: #008080; font-weight: bold;}
+div.codearea pre span.Error      {color: #FF8080; border: solid 1.5pt #FF00=
+00;}
+div.codearea pre span.ResWord2   {color: #0080ff; font-weight: bold;}
+div.codearea pre span.Special    {color: #0000ff;}
+div.codearea pre span.Preprc     {color: #803999;}
+
+
+/* Search results */
+
+.searchresults dt {
+    margin-top: 1em;
+	font-weight: normal;
+}
+
+.searchresults dd {
+	font-size: 0.85em;
+}
+
+/* MonthCalendar css */
+
+/* days without and with pages linked to them */
+a.cal-emptyday {
+    color: #777777;
+    text-align: center;
+}
+a.cal-usedday {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+/* general stuff: workdays, weekend, today */
+td.cal-workday {
+    background-color: #F1F1ED; /* ubuntu near-white */
+    text-align: center;
+}
+td.cal-weekend {
+    background-color: #edddba; /* ubuntu pale orange */
+    text-align: center;
+}
+td.cal-today {
+    background-color: #DBBA75; /* ubuntu orange */
+    border-style: solid;
+    border-width: 2pt;
+    text-align: center;
+}
+/* invalid places on the monthly calendar sheet */
+td.cal-invalidday {
+    background-color: #CCCCCC;
+}
+/* links to prev/next month/year */
+a.cal-link {
+    color: #F1F1ED; /* ubuntu near-white */
+    text-decoration: none;
+}
+th.cal-header {
+    background-color: #6d4c07; /* ubuntu dark brown */
+    color: white;
+    text-align: center;
+}
+
+/* for MonthCalendar mouseover info boxes */
+TABLE.tip {
+    color: black;
+	border: 1px solid #C1B496; /* ubuntu dark tan */
+	background-color: #f0eee6; /* ubuntu light salmon */
+    font-size: small;
+    font-weight: normal;
+}
+
+TH.tip {
+    background-color: #DBBA75; /* ubuntu orange */
+    font-weight: bold;
+    text-align: center;
+}
+
+TD.tip {
+    text-align: left;
+}
+*[dir=3D"rtl"] TD.tip {
+    text-align: right;
+}
+
+/* end MonthCalendar stuff */
+
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/screen.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+@import url('typography.css');
+@import url('general.css');
+
+#wikinav {
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    margin: 0 16px 5px;
+    background-color: white;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+    height: 42px;
+}
+#wikinav ul {
+    display: inline;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+#wikinav li {
+    display: block;
+    font-size: 12px;
+    float: left;
+    height: 30px;
+    padding: 12px 10px 0;
+    margin-bottom: 0;
+    border-right: 1px solid #e9e9e9;
+    color: #333;
+}
+#wikinav li a {
+    color: #333;
+}
+
+#wikinav hr {
+    border: 0;
+    width: 100%;
+    color: #d9d9d9;
+    background-color: #d9d9d9;
+    margin: 0;
+    padding: 0;
+}
+#wikinav select {
+    width: 140px;
+    margin-top: 0;
+}
+
+/* header / title area */
+
+h2.entry-title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 24px 0 32px 0;
+    padding: 0 6px;
+    border:0px;
+}
+
+h2.entry-title a {
+    text-decoration: none;
+    color: #333;
+}
+
+#pagebottom {
+    clear: both;
+}
+
+/* modal message box - should stand out */
+#message {
+    padding: 8px 16px;
+    margin: 8px 0;
+    border: 2px #F7F6F5 solid;
+    font-size: 14px;
+    background-color: white;
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 4px;
+    -moz-box-shadow: 1px 1px 1px #bbb;
+    -webkit-box-shadow: 1px 1px 1px #bbb;
+    box-shadow: 1px 1px 1px #bbb;
+}
+#message p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+#message p.status {
+    font-weight: 400;
+}
+
+/* editor page styles */
+
+textarea {
+    display: block;
+    width: 100%;
+    font-size: 100%;
+}
+
+/* quick links menu */
+#wikinav .quicklinks li ul {=20
+    font-size:.8em;
+    margin-bottom:1.875em;
+    line-height:1.875em;=20
+}
+
+#wikinav .quicklinks li ul li{
+    display: block;
+    border: 1px solid #F58539;
+    background-color: #fff;
+    padding: 3px;
+}
+#wikinav .quicklinks li ul li.current {
+    background-color: #efefef;
+}
+#wikinav .quicklinks li ul li a {
+    color: #4A2811;
+    text-decoration: none;
+    border-bottom-style: none;
+    margin-right: 0;
+}
+
+#wikinav .quicklinks li ul li:hover {
+    background-color: #f5d4bf;
+}
+
+#wikinav .quicklinks li ul li.current:hover {
+    background-color: #efefef;
+}
+
+#wikinav .quicklinks li ul li:hover a {
+    color: #000;
+}
+
+#wikinav .quicklinks li {
+    display: inline;
+    position: relative;
+}
+
+#wikinav .quicklinks li a {
+    margin-right: 10px;
+}
+#wikinav .quicklinks li ul {
+    display: none;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    max-height: 400px;
+    overflow: auto;
+    margin-right: 15px;
+}
+
+#wikinav .quicklinks:hover li ul {
+    display: block;
+}
+
+#wikinav .quicklinks li.wikilink {
+    display: none;
+}
+
+#content ul li p {
+	margin-bottom:0px;
+}
+
+#content ul li {
+	margin-bottom:10px;
+}
+
+
+#content td {
+    padding: 0 8px;
+    border: 1px dotted #AEA79F;
+}
+
+#content td p {
+    margin-bottom: 4px;
+}
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/typography.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+body
+{
+	margin: 0 auto;
+	width: 984px;
+	font-family: "Ubuntu Beta", UbuntuBeta, Ubuntu, "Bitstream Vera Sans", "De=
+jaVu Sans", Tahoma, sans-serif;
+	background: #ecebe9;
+	font-size: 13px;
+	background: url("../images/dotted-bg.png");
+	line-height: 1.5;
+	color: #333;
+}
+
+table{
+	padding:12px !important;
+	margin-left:20px !important;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border-collapse: collapse;
+}
+
+table .table-of-contents ol{
+	padding-left:20px;
+}
+
+.clearBoth
+{
+	clear: both;
+}
+
+
+h1
+{=09
+	font-size: 28px;
+	line-height: 40px;
+	margin: 0 0 8px;
+	font-weight: normal;
+}
+
+h1.pagetitle
+{
+	margin: 64px 0 0 8px;
+	height: 138px;
+	color: #741546;
+}
+
+#content h1{
+	border-top:1px solid #999;
+	padding-top:10px;
+	line-height: 1.2;
+}
+
+#content h1:first-of-type{
+	border:0;
+}
+
+h2
+{
+	border-top: 1px dotted #AEA79F;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 28px;
+    margin: 16px 0 8px;
+    padding-top: 16px;
+}
+
+h3
+{
+	font-size: 16px;
+	line-height: 24px;
+	margin: 0 0 8px 0;
+	font-weight: bold;
+}
+
+h4
+{
+	font-size: 13px;
+	margin: 18px 0 8px;
+	text-transform:uppercase;
+	font-weight: normal;
+}
+
+p
+{
+	font-size: 13px;
+	margin: 0 0 1em 0;
+}
+
+a
+{
+	color: #dd4814;
+	text-decoration: none;
+}
+
+a img
+{
+	border: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: #dd4814;
+}
+
+pre{
+	width:100%;
+	overflow-x: auto;
+}
+
+.strike
+{
+	text-decoration: line-through;
+}
+
+.diff-removed
+{
+	background-color: #CCFFCC;
+}
+
+.diff-added
+{
+	background-color: #FFFFCC;
+}
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/general.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+#wrapper
+{
+	background: #f7f7f7;
+	-moz-box-shadow: 0 0 2px #bbb;
+	-webkit-box-shadow: 0 0 2px #bbb;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	z-index: 2;
+	position: relative;
+}
+
+#header
+{
+	background-color: white;
+}
+
+#header ul#mothership
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	height: 20px;
+}
+
+#header ul#mothership li
+{
+	float: right;
+	padding: 3px 0;
+	margin: 0 16px 0 0;
+	font-size: 10px;
+	line-height: 14px;
+}
+
+#header ul#mothership a
+{
+	color: #333;
+}
+
+#header #orangeHeader
+{
+	height: 72px;
+	background: #d05630 url('../images/orangeheader-tile.png') repeat-x top le=
+ft;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-radius: 0 0 4px 4px;
+}
+
+#header #orangeHeader h1
+{
+	margin: 0;
+    width: 350px;
+    float: left;
+}
+
+#header #orangeHeader a
+{
+	display: block;
+	height: 72px;
+	width: 198px;
+	background: url('../images/ubuntu-wiki.png') no-repeat center center;
+	padding-left: 40px;
+}
+
+#header #orangeHeader span
+{
+	display: none;
+}
+/* search box in header */
+
+#search-box {
+    float: right;
+    margin-top: 24px;
+    margin-right: 20px;
+}
+#searchinput {
+    float: left;
+}
+#fullsearch {
+    display: none;
+}
+
+#search-box #titlesearch {
+    float: left;
+    background: url("../images/search_button_sprite.png") transparent;
+    width: 24px;
+    height: 24px;
+    margin: 1px 0 0 8px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    text-indent: 50px;
+    float: left;
+}
+
+
+#pageTitle
+{
+	margin: 10px 0;
+	color: #aea79f;
+}
+
+#main
+{
+	background: #f7f6f5;
+}
+#container
+{
+	margin: 0 0 0 20px;
+	width: 944px;
+	float: left;
+}
+
+#secondary
+{
+	margin: 40px 20px 0 0;
+	width: 224px;
+	float: right;
+}
+
+.post
+{
+	background: #fff;
+	margin: 0 0 16px 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 20px;
+	-moz-box-shadow: 0px 1px 2px #CCC;
+	-webkit-box-shadow: 0px 1px 2px #CCC;
+	box-shadow: 0px 1px 2px #CCC;
+}
+
+.post .postHeader
+{
+	border-bottom: 1px dotted #aea79f;
+	margin: 0 0 8px 0;
+}
+
+.post .postHeader h2
+{
+	width: 560px;
+	float: left;
+	margin-bottom: 4px;
+}
+
+.post .postHeader h3
+{
+	width: 560px;
+	float: left;
+	color: #aea79f;
+	margin-bottom: 16px;
+}
+
+.post .postHeader h2.entry-title,
+.post .postHeader h2.entry-title a
+{
+	color: #333333;
+}
+.post .postHeader img
+{
+	float: right;
+	max-height: 56px;
+	padding-top: 4px;
+}
+
+.post .entry-content
+{
+	border-bottom: 1px dotted #aea79f;
+	padding-bottom: 8px;
+}
+
+.post .entry-content p
+{
+	clear: both;
+}
+
+.post .entry-content img
+{
+	float: left;
+	margin: 0 8px 8px 0;
+}
+
+.post .entry-utility
+{
+	margin: 8px 0 0;
+	text-align: right;
+}
+
+.post .entry-utility .cat-links a
+{
+	color: #888;
+}
+
+.xoxo
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.widgetcontainer
+{
+	background: #fff;
+	margin: 0 0 16px 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 0 0 1em 0;
+	-moz-box-shadow: 0px 2px 2px #CCC;
+	-webkit-box-shadow: 0px 2px 3px #CCC;
+	box-shadow: 0px 2px 3px #CCC;
+}
+
+.widgetcontainer .widgettitle
+{
+	padding: 10px 8px;
+	background: url("../images/sidebox_stripes.png");
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-size: 18px;
+}
+
+.widgetcontainer p
+{
+	margin: 0 8px 1em 8px;
+}
+
+.widgetcontainer p:last-child
+{
+	margin: 0 8px;
+}
+
+.widgetcontainer a
+{
+	color: #333;
+}
+
+.widgetcontainer p a
+{
+	text-decoration: underline;
+}
+
+.widgetcontainer ul
+{
+	margin: 0 8px;
+	padding: 0;
+	list-style-type: none;
+}
+
+.widgetcontainer ul li
+{
+	padding: 6px 0;
+	border-bottom: 1px dotted #aea79f;
+}
+
+.widgetcontainer ul li:last-child
+{
+	border: 0;
+}
+
+#footer
+{
+	background: #F7F6F5;
+	z-index: 1;
+	position: relative;
+	color: #aea79f;
+	padding: 56px 16px 16px 16px;
+}
+
+#footer p
+{
+	margin: 0;
+	font-size: 10px;
+	line-height: 14px;
+}
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/print.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*  print.css - MoinMoin Default Styles
+
+Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+html {
+	font-family: Times, serif;
+	font-size: 12pt;
+}
+
+body {
+    /* Give about 3.4cm in Mozilla/Firefox and about 2.2cm in Safari */
+	margin: 1.5cm;
+}
+
+a, a:visited, a.nonexistent, a.badinterwiki {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+pre {
+	font-size: 10pt;
+}
+
+a.interwiki:before, a.badinterwiki:before {
+	content: attr(title) ":";
+}
+
+a.interwiki img, a.badinterwiki img {
+	display: none;
+}
+
+.footnotes div {
+	width: 5em;
+	border-top: 1pt solid gray;
+}
+
+/* user interface styles */
+
+#header, #sidebar, #footer, #timings, #credits {
+	display: none;
+}
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/css/projection.css
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/css
+
+/*  projection.css - MoinMoin Slide Styles
+
+Copyright (c) 2003 by Juergen Hermann
+*/
+
+@import url("screen.css");
+
+html { line-height: 1.8em; }
+
+body, b, em, a, span, div, p, td { font-size: 22pt; }
+h1 { font-size: 28pt; }
+h2 { font-size: 24pt; }
+h3 { font-size: 22pt; }
+h4 { font-size: 20pt; }
+h5 { font-size: 18pt; }
+h6 { font-size: 16pt; }
+tt,pre { font-size: 18pt; }
+sup, sub { font-size: 14pt; }
+
+.navigation {
+	font-size: 16pt;
+	padding-top: 8pt;
+	padding-bottom: 8pt;
+}
+
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://www.google-analytics.com/analytics.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+(function(){var $c=3Dfunction(a){this.w=3Da||[]};$c.prototype.set=3Dfunctio=
+n(a){this.w[a]=3D!0};$c.prototype.encode=3Dfunction(){for(var a=3D[],b=3D0;=
+b<this.w.length;b++)this.w[b]&&(a[Math.floor(b/6)]^=3D1<<b%6);for(b=3D0;b<a=
+.length;b++)a[b]=3D"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012=
+3456789-_".charAt(a[b]||0);return a.join("")+"~"};var vd=3Dnew $c;function =
+J(a){vd.set(a)}var Nd=3Dfunction(a,b){var c=3Dnew $c(Dd(a));c.set(b);a.set(=
+Gd,c.w)},Td=3Dfunction(a){a=3DDd(a);a=3Dnew $c(a);for(var b=3Dvd.w.slice(),=
+c=3D0;c<a.w.length;c++)b[c]=3Db[c]||a.w[c];return(new $c(b)).encode()},Dd=
+=3Dfunction(a){a=3Da.get(Gd);ka(a)||(a=3D[]);return a};var ea=3Dfunction(a)=
+{return"function"=3D=3Dtypeof a},ka=3Dfunction(a){return"[object Array]"=3D=
+=3DObject.prototype.toString.call(Object(a))},qa=3Dfunction(a){return void =
+0!=3Da&&-1<(a.constructor+"").indexOf("String")},D=3Dfunction(a,b){return 0=
+=3D=3Da.indexOf(b)},sa=3Dfunction(a){return a?a.replace(/^[\s\xa0]+|[\s\xa0=
+]+$/g,""):""},ta=3Dfunction(a){var b=3DM.createElement("img");b.width=3D1;b=
+.height=3D1;b.src=3Da;return b},ua=3Dfunction(){},K=3Dfunction(a){if(encode=
+URIComponent instanceof Function)return encodeURIComponent(a);J(28);return =
+a},
+L=3Dfunction(a,b,c,d){try{a.addEventListener?a.addEventListener(b,c,!!d):a.=
+attachEvent&&a.attachEvent("on"+b,c)}catch(e){J(27)}},f=3D/^[\w\-:/.?=3D&%!=
+]+$/,wa=3Dfunction(a,b,c){a&&(c?(c=3D"",b&&f.test(b)&&(c=3D' id=3D"'+b+'"')=
+,f.test(a)&&M.write("<script"+c+' src=3D"'+a+'">\x3c/script>')):(c=3DM.crea=
+teElement("script"),c.type=3D"text/javascript",c.async=3D!0,c.src=3Da,b&&(c=
+.id=3Db),a=3DM.getElementsByTagName("script")[0],a.parentNode.insertBefore(=
+c,a)))},Ud=3Dfunction(){return"https:"=3D=3DM.location.protocol},E=3Dfuncti=
+on(a,b){var c=3D
+a.match("(?:&|#|\\?)"+K(b).replace(/([.*+?^=3D!:${}()|\[\]\/\\])/g,"\\$1")+=
+"=3D([^&#]*)");return c&&2=3D=3Dc.length?c[1]:""},xa=3Dfunction(){var a=3D"=
+"+M.location.hostname;return 0=3D=3Da.indexOf("www.")?a.substring(4):a},ya=
+=3Dfunction(a){var b=3DM.referrer;if(/^https?:\/\//i.test(b)){if(a)return b=
+;a=3D"//"+M.location.hostname;var c=3Db.indexOf(a);if(5=3D=3Dc||6=3D=3Dc)if=
+(a=3Db.charAt(c+a.length),"/"=3D=3Da||"?"=3D=3Da||""=3D=3Da||":"=3D=3Da)ret=
+urn;return b}},za=3Dfunction(a,b){if(1=3D=3Db.length&&null!=3Db[0]&&"object=
+"=3D=3D=3Dtypeof b[0])return b[0];for(var c=3D
+{},d=3DMath.min(a.length+1,b.length),e=3D0;e<d;e++)if("object"=3D=3D=3Dtype=
+of b[e]){for(var g in b[e])b[e].hasOwnProperty(g)&&(c[g]=3Db[e][g]);break}e=
+lse e<a.length&&(c[a[e]]=3Db[e]);return c};var ee=3Dfunction(){this.keys=3D=
+[];this.values=3D{};this.m=3D{}};ee.prototype.set=3Dfunction(a,b,c){this.ke=
+ys.push(a);c?this.m[":"+a]=3Db:this.values[":"+a]=3Db};ee.prototype.get=3Df=
+unction(a){return this.m.hasOwnProperty(":"+a)?this.m[":"+a]:this.values[":=
+"+a]};ee.prototype.map=3Dfunction(a){for(var b=3D0;b<this.keys.length;b++){=
+var c=3Dthis.keys[b],d=3Dthis.get(c);d&&a(c,d)}};var O=3Dwindow,M=3Ddocumen=
+t;var F=3Dwindow,G=3Dfunction(a){var b=3DF._gaUserPrefs;if(b&&b.ioo&&b.ioo(=
+)||a&&!0=3D=3D=3DF["ga-disable-"+a])return!0;try{var c=3DF.external;if(c&&c=
+._gaUserPrefs&&"oo"=3D=3Dc._gaUserPrefs)return!0}catch(d){}return!1};var Ca=
+=3Dfunction(a){var b=3D[],c=3DM.cookie.split(";");a=3Dnew RegExp("^\\s*"+a+=
+"=3D\\s*(.*?)\\s*$");for(var d=3D0;d<c.length;d++){var e=3Dc[d].match(a);e&=
+&b.push(e[1])}return b},zc=3Dfunction(a,b,c,d,e,g){e=3DG(e)?!1:eb.test(M.lo=
+cation.hostname)||"/"=3D=3Dc&&vc.test(d)?!1:!0;if(!e)return!1;b&&1200<b.len=
+gth&&(b=3Db.substring(0,1200),J(24));c=3Da+"=3D"+b+"; path=3D"+c+"; ";g&&(c=
++=3D"expires=3D"+(new Date((new Date).getTime()+g)).toGMTString()+"; ");d&&=
+"none"!=3Dd&&(c+=3D"domain=3D"+d+";");d=3DM.cookie;M.cookie=3Dc;if(!(d=3Dd!=
+=3DM.cookie))a:{a=3D
+Ca(a);for(d=3D0;d<a.length;d++)if(b=3D=3Da[d]){d=3D!0;break a}d=3D!1}return=
+ d},Cc=3Dfunction(a){return K(a).replace(/\(/g,"%28").replace(/\)/g,"%29")}=
+,vc=3D/^(www\.)?google(\.com?)?(\.[a-z]{2})?$/,eb=3D/(^|\.)doubleclick\.net=
+$/i;var oc=3Dfunction(){return(Ba||Ud()?"https:":"http:")+"//www.google-ana=
+lytics.com"},Da=3Dfunction(a){this.name=3D"len";this.message=3Da+"-8192"},b=
+a=3Dfunction(a,b,c){c=3Dc||ua;if(2036>=3Db.length)wc(a,b,c);else if(8192>=
+=3Db.length)x(a,b,c)||wd(a,b,c)||wc(a,b,c);else throw ge("len",b.length),ne=
+w Da(b.length);},wc=3Dfunction(a,b,c){var d=3Dta(a+"?"+b);d.onload=3Dd.oner=
+ror=3Dfunction(){d.onload=3Dnull;d.onerror=3Dnull;c()}},wd=3Dfunction(a,b,c=
+){var d=3DO.XMLHttpRequest;if(!d)return!1;var e=3Dnew d;if(!("withCredentia=
+ls"in e))return!1;
+e.open("POST",a,!0);e.withCredentials=3D!0;e.setRequestHeader("Content-Type=
+","text/plain");e.onreadystatechange=3Dfunction(){4=3D=3De.readyState&&(c()=
+,e=3Dnull)};e.send(b);return!0},x=3Dfunction(a,b,c){return O.navigator.send=
+Beacon?O.navigator.sendBeacon(a,b)?(c(),!0):!1:!1},ge=3Dfunction(a,b,c){1<=
+=3D100*Math.random()||G("?")||(a=3D["t=3Derror","_e=3D"+a,"_v=3Dj47","sr=3D=
+1"],b&&a.push("_f=3D"+b),c&&a.push("_m=3D"+K(c.substring(0,100))),a.push("a=
+ip=3D1"),a.push("z=3D"+hd()),wc(oc()+"/collect",a.join("&"),ua))};var h=3Df=
+unction(a){var b=3DO.gaData=3DO.gaData||{};return b[a]=3Db[a]||{}};var Ha=
+=3Dfunction(){this.M=3D[]};Ha.prototype.add=3Dfunction(a){this.M.push(a)};H=
+a.prototype.D=3Dfunction(a){try{for(var b=3D0;b<this.M.length;b++){var c=3D=
+a.get(this.M[b]);c&&ea(c)&&c.call(O,a)}}catch(d){}b=3Da.get(Ia);b!=3Dua&&ea=
+(b)&&(a.set(Ia,ua,!0),setTimeout(b,10))};function Ja(a){if(100!=3Da.get(Ka)=
+&&La(P(a,Q))%1E4>=3D100*R(a,Ka))throw"abort";}function Ma(a){if(G(P(a,Na)))=
+throw"abort";}function Oa(){var a=3DM.location.protocol;if("http:"!=3Da&&"h=
+ttps:"!=3Da)throw"abort";}
+function Pa(a){try{O.navigator.sendBeacon?J(42):O.XMLHttpRequest&&"withCred=
+entials"in new O.XMLHttpRequest&&J(40)}catch(c){}a.set(ld,Td(a),!0);a.set(A=
+c,R(a,Ac)+1);var b=3D[];Qa.map(function(c,d){if(d.F){var e=3Da.get(c);void =
+0!=3De&&e!=3Dd.defaultValue&&("boolean"=3D=3Dtypeof e&&(e*=3D1),b.push(d.F+=
+"=3D"+K(""+e)))}});b.push("z=3D"+Bd());a.set(Ra,b.join("&"),!0)}
+function Sa(a){var b=3DP(a,gd)||oc()+"/collect",c=3DP(a,fa);!c&&a.get(Vd)&&=
+(c=3D"beacon");if(c){var d=3DP(a,Ra),e=3Da.get(Ia),e=3De||ua;"image"=3D=3Dc=
+?wc(b,d,e):"xhr"=3D=3Dc&&wd(b,d,e)||"beacon"=3D=3Dc&&x(b,d,e)||ba(b,d,e)}el=
+se ba(b,P(a,Ra),a.get(Ia));b=3Da.get(Na);b=3Dh(b);c=3Db.hitcount;b.hitcount=
+=3Dc?c+1:1;b=3Da.get(Na);delete h(b).pending_experiments;a.set(Ia,ua,!0)}
+function Hc(a){(O.gaData=3DO.gaData||{}).expId&&a.set(Nc,(O.gaData=3DO.gaDa=
+ta||{}).expId);(O.gaData=3DO.gaData||{}).expVar&&a.set(Oc,(O.gaData=3DO.gaD=
+ata||{}).expVar);var b;var c=3Da.get(Na);if(c=3Dh(c).pending_experiments){v=
+ar d=3D[];for(b in c)c.hasOwnProperty(b)&&c[b]&&d.push(encodeURIComponent(b=
+)+"."+encodeURIComponent(c[b]));b=3Dd.join("!")}else b=3Dvoid 0;b&&a.set(m,=
+b,!0)}function cd(){if(O.navigator&&"preview"=3D=3DO.navigator.loadPurpose)=
+throw"abort";}
+function yd(a){var b=3DO.gaDevIds;ka(b)&&0!=3Db.length&&a.set("&did",b.join=
+(","),!0)}function vb(a){if(!a.get(Na))throw"abort";};var hd=3Dfunction(){r=
+eturn Math.round(2147483647*Math.random())},Bd=3Dfunction(){try{var a=3Dnew=
+ Uint32Array(1);O.crypto.getRandomValues(a);return a[0]&2147483647}catch(b)=
+{return hd()}};function Ta(a){var b=3DR(a,Ua);500<=3Db&&J(15);var c=3DP(a,V=
+a);if("transaction"!=3Dc&&"item"!=3Dc){var c=3DR(a,Wa),d=3D(new Date).getTi=
+me(),e=3DR(a,Xa);0=3D=3De&&a.set(Xa,d);e=3DMath.round(2*(d-e)/1E3);0<e&&(c=
+=3DMath.min(c+e,20),a.set(Xa,d));if(0>=3Dc)throw"abort";a.set(Wa,--c)}a.set=
+(Ua,++b)};var Ya=3Dfunction(){this.data=3Dnew ee},Qa=3Dnew ee,Za=3D[];Ya.pr=
+ototype.get=3Dfunction(a){var b=3D$a(a),c=3Dthis.data.get(a);b&&void 0=3D=
+=3Dc&&(c=3Dea(b.defaultValue)?b.defaultValue():b.defaultValue);return b&&b.=
+Z?b.Z(this,a,c):c};var P=3Dfunction(a,b){var c=3Da.get(b);return void 0=3D=
+=3Dc?"":""+c},R=3Dfunction(a,b){var c=3Da.get(b);return void 0=3D=3Dc||""=
+=3D=3D=3Dc?0:1*c};Ya.prototype.set=3Dfunction(a,b,c){if(a)if("object"=3D=3D=
+typeof a)for(var d in a)a.hasOwnProperty(d)&&ab(this,d,a[d],c);else ab(this=
+,a,b,c)};
+var ab=3Dfunction(a,b,c,d){if(void 0!=3Dc)switch(b){case Na:wb.test(c)}var =
+e=3D$a(b);e&&e.o?e.o(a,b,c,d):a.data.set(b,c,d)},bb=3Dfunction(a,b,c,d,e){t=
+his.name=3Da;this.F=3Db;this.Z=3Dd;this.o=3De;this.defaultValue=3Dc},$a=3Df=
+unction(a){var b=3DQa.get(a);if(!b)for(var c=3D0;c<Za.length;c++){var d=3DZ=
+a[c],e=3Dd[0].exec(a);if(e){b=3Dd[1](e);Qa.set(b.name,b);break}}return b},y=
+c=3Dfunction(a){var b;Qa.map(function(c,d){d.F=3D=3Da&&(b=3Dd)});return b&&=
+b.name},S=3Dfunction(a,b,c,d,e){a=3Dnew bb(a,b,c,d,e);Qa.set(a.name,a);retu=
+rn a.name},cb=3Dfunction(a,
+b){Za.push([new RegExp("^"+a+"$"),b])},T=3Dfunction(a,b,c){return S(a,b,c,v=
+oid 0,db)},db=3Dfunction(){};var gb=3Dqa(window.GoogleAnalyticsObject)&&sa(=
+window.GoogleAnalyticsObject)||"ga",Ba=3D!1,hb=3DT("apiVersion","v"),ib=3DT=
+("clientVersion","_v");S("anonymizeIp","aip");var jb=3DS("adSenseId","a"),V=
+a=3DS("hitType","t"),Ia=3DS("hitCallback"),Ra=3DS("hitPayload");S("nonInter=
+action","ni");S("currencyCode","cu");S("dataSource","ds");var Vd=3DS("useBe=
+acon",void 0,!1),fa=3DS("transport");S("sessionControl","sc","");S("session=
+Group","sg");S("queueTime","qt");var Ac=3DS("_s","_s");S("screenName","cd");
+var kb=3DS("location","dl",""),lb=3DS("referrer","dr"),mb=3DS("page","dp","=
+");S("hostname","dh");var nb=3DS("language","ul"),ob=3DS("encoding","de");S=
+("title","dt",function(){return M.title||void 0});cb("contentGroup([0-9]+)"=
+,function(a){return new bb(a[0],"cg"+a[1])});var pb=3DS("screenColors","sd"=
+),qb=3DS("screenResolution","sr"),rb=3DS("viewportSize","vp"),sb=3DS("javaE=
+nabled","je"),tb=3DS("flashVersion","fl");S("campaignId","ci");S("campaignN=
+ame","cn");S("campaignSource","cs");S("campaignMedium","cm");
+S("campaignKeyword","ck");S("campaignContent","cc");var ub=3DS("eventCatego=
+ry","ec"),xb=3DS("eventAction","ea"),yb=3DS("eventLabel","el"),zb=3DS("even=
+tValue","ev"),Bb=3DS("socialNetwork","sn"),Cb=3DS("socialAction","sa"),Db=
+=3DS("socialTarget","st"),Eb=3DS("l1","plt"),Fb=3DS("l2","pdt"),Gb=3DS("l3"=
+,"dns"),Hb=3DS("l4","rrt"),Ib=3DS("l5","srt"),Jb=3DS("l6","tcp"),Kb=3DS("l7=
+","dit"),Lb=3DS("l8","clt"),Mb=3DS("timingCategory","utc"),Nb=3DS("timingVa=
+r","utv"),Ob=3DS("timingLabel","utl"),Pb=3DS("timingValue","utt");S("appNam=
+e","an");
+S("appVersion","av","");S("appId","aid","");S("appInstallerId","aiid","");S=
+("exDescription","exd");S("exFatal","exf");var Nc=3DS("expId","xid"),Oc=3DS=
+("expVar","xvar"),m=3DS("exp","exp"),Rc=3DS("_utma","_utma"),Sc=3DS("_utmz"=
+,"_utmz"),Tc=3DS("_utmht","_utmht"),Ua=3DS("_hc",void 0,0),Xa=3DS("_ti",voi=
+d 0,0),Wa=3DS("_to",void 0,20);cb("dimension([0-9]+)",function(a){return ne=
+w bb(a[0],"cd"+a[1])});cb("metric([0-9]+)",function(a){return new bb(a[0],"=
+cm"+a[1])});S("linkerParam",void 0,void 0,Bc,db);
+var ld=3DS("usage","_u"),Gd=3DS("_um");S("forceSSL",void 0,void 0,function(=
+){return Ba},function(a,b,c){J(34);Ba=3D!!c});var ed=3DS("_j1","jid");cb("\=
+\&(.*)",function(a){var b=3Dnew bb(a[0],a[1]),c=3Dyc(a[0].substring(1));c&&=
+(b.Z=3Dfunction(a){return a.get(c)},b.o=3Dfunction(a,b,g,ca){a.set(c,g,ca)}=
+,b.F=3Dvoid 0);return b});
+var Qb=3DT("_oot"),dd=3DS("previewTask"),Rb=3DS("checkProtocolTask"),md=3DS=
+("validationTask"),Sb=3DS("checkStorageTask"),Uc=3DS("historyImportTask"),T=
+b=3DS("samplerTask"),Vb=3DS("_rlt"),Wb=3DS("buildHitTask"),Xb=3DS("sendHitT=
+ask"),Vc=3DS("ceTask"),zd=3DS("devIdTask"),Cd=3DS("timingTask"),Ld=3DS("dis=
+playFeaturesTask"),V=3DT("name"),Q=3DT("clientId","cid"),n=3DT("clientIdTim=
+e"),Ad=3DS("userId","uid"),Na=3DT("trackingId","tid"),U=3DT("cookieName",vo=
+id 0,"_ga"),W=3DT("cookieDomain"),Yb=3DT("cookiePath",void 0,"/"),Zb=3DT("c=
+ookieExpires",void 0,63072E3),
+$b=3DT("legacyCookieDomain"),Wc=3DT("legacyHistoryImport",void 0,!0),ac=3DT=
+("storage",void 0,"cookie"),bc=3DT("allowLinker",void 0,!1),cc=3DT("allowAn=
+chor",void 0,!0),Ka=3DT("sampleRate","sf",100),dc=3DT("siteSpeedSampleRate"=
+,void 0,1),ec=3DT("alwaysSendReferrer",void 0,!1),gd=3DS("transportUrl"),Md=
+=3DS("_r","_r");function X(a,b,c,d){b[a]=3Dfunction(){try{return d&&J(d),c.=
+apply(this,arguments)}catch(e){throw ge("exc",a,e&&e.name),e;}}};var Od=3Df=
+unction(a){this.V=3Da;this.fa=3Dvoid 0;this.$=3D!1;this.oa=3Dvoid 0;this.ea=
+=3D1},Ed=3Dfunction(a,b){var c;if(a.fa&&a.$)return 0;a.$=3D!0;if(b){if(a.oa=
+&&R(b,a.oa))return R(b,a.oa);if(0=3D=3Db.get(dc))return 0}if(0=3D=3Da.V)ret=
+urn 0;void 0=3D=3D=3Dc&&(c=3DBd());return 0=3D=3Dc%a.V?Math.floor(c/a.V)%a.=
+ea+1:0};function fc(){var a,b,c;if((c=3D(c=3DO.navigator)?c.plugins:null)&&=
+c.length)for(var d=3D0;d<c.length&&!b;d++){var e=3Dc[d];-1<e.name.indexOf("=
+Shockwave Flash")&&(b=3De.description)}if(!b)try{a=3Dnew ActiveXObject("Sho=
+ckwaveFlash.ShockwaveFlash.7"),b=3Da.GetVariable("$version")}catch(g){}if(!=
+b)try{a=3Dnew ActiveXObject("ShockwaveFlash.ShockwaveFlash.6"),b=3D"WIN 6,0=
+,21,0",a.AllowScriptAccess=3D"always",b=3Da.GetVariable("$version")}catch(g=
+){}if(!b)try{a=3Dnew ActiveXObject("ShockwaveFlash.ShockwaveFlash"),b=3Da.G=
+etVariable("$version")}catch(g){}b&&
+(a=3Db.match(/[\d]+/g))&&3<=3Da.length&&(b=3Da[0]+"."+a[1]+" r"+a[2]);retur=
+n b||void 0};var aa=3Dfunction(a){var b=3DMath.min(R(a,dc),100);return La(P=
+(a,Q))%100>=3Db?!1:!0},gc=3Dfunction(a){var b=3D{};if(Ec(b)||Fc(b)){var c=
+=3Db[Eb];void 0=3D=3Dc||Infinity=3D=3Dc||isNaN(c)||(0<c?(Y(b,Gb),Y(b,Jb),Y(=
+b,Ib),Y(b,Fb),Y(b,Hb),Y(b,Kb),Y(b,Lb),a(b)):L(O,"load",function(){gc(a)},!1=
+))}},Ec=3Dfunction(a){var b=3DO.performance||O.webkitPerformance,b=3Db&&b.t=
+iming;if(!b)return!1;var c=3Db.navigationStart;if(0=3D=3Dc)return!1;a[Eb]=
+=3Db.loadEventStart-c;a[Gb]=3Db.domainLookupEnd-b.domainLookupStart;a[Jb]=
+=3Db.connectEnd-b.connectStart;a[Ib]=3D
+b.responseStart-b.requestStart;a[Fb]=3Db.responseEnd-b.responseStart;a[Hb]=
+=3Db.fetchStart-c;a[Kb]=3Db.domInteractive-c;a[Lb]=3Db.domContentLoadedEven=
+tStart-c;return!0},Fc=3Dfunction(a){if(O.top!=3DO)return!1;var b=3DO.extern=
+al,c=3Db&&b.onloadT;b&&!b.isValidLoadTime&&(c=3Dvoid 0);2147483648<c&&(c=3D=
+void 0);0<c&&b.setPageReadyTime();if(void 0=3D=3Dc)return!1;a[Eb]=3Dc;retur=
+n!0},Y=3Dfunction(a,b){var c=3Da[b];if(isNaN(c)||Infinity=3D=3Dc||0>c)a[b]=
+=3Dvoid 0},Fd=3Dfunction(a){return function(b){if("pageview"=3D=3Db.get(Va)=
+&&!a.I){a.I=3D!0;var c=3D
+aa(b);b=3D0<E(b.get(kb),"gclid").length;(c||b)&&gc(function(b){a.send(c?"ti=
+ming":"adtiming",b)})}}};var hc=3D!1,mc=3Dfunction(a){if("cookie"=3D=3DP(a,=
+ac)){var b=3DP(a,U),c=3Dnd(a),d=3Dkc(P(a,Yb)),e=3Dlc(P(a,W)),g=3D1E3*R(a,Zb=
+),ca=3DP(a,Na);if("auto"!=3De)zc(b,c,d,e,ca,g)&&(hc=3D!0);else{J(32);var l;=
+a:{c=3D[];e=3Dxa().split(".");if(4=3D=3De.length&&(l=3De[e.length-1],parseI=
+nt(l,10)=3D=3Dl)){l=3D["none"];break a}for(l=3De.length-2;0<=3Dl;l--)c.push=
+(e.slice(l).join("."));c.push("none");l=3Dc}for(var k=3D0;k<l.length;k++)if=
+(e=3Dl[k],a.data.set(W,e),c=3Dnd(a),zc(b,c,d,e,ca,g)){hc=3D!0;return}a.data=
+.set(W,"auto")}}},nc=3Dfunction(a){if("cookie"=3D=3DP(a,ac)&&
+!hc&&(mc(a),!hc))throw"abort";},Yc=3Dfunction(a){if(a.get(Wc)){var b=3DP(a,=
+W),c=3DP(a,$b)||xa(),d=3DXc("__utma",c,b);d&&(J(19),a.set(Tc,(new Date).get=
+Time(),!0),a.set(Rc,d.R),(b=3DXc("__utmz",c,b))&&d.hash=3D=3Db.hash&&a.set(=
+Sc,b.R))}},nd=3Dfunction(a){var b=3DCc(P(a,Q)),c=3Dlc(P(a,W)).split(".").le=
+ngth;a=3Djc(P(a,Yb));1<a&&(c+=3D"-"+a);return["GA1",c,b].join(".")},Gc=3Dfu=
+nction(a,b,c){for(var d=3D[],e=3D[],g,ca=3D0;ca<a.length;ca++){var l=3Da[ca=
+];l.H[c]=3D=3Db?d.push(l):void 0=3D=3Dg||l.H[c]<g?(e=3D[l],g=3Dl.H[c]):l.H[=
+c]=3D=3Dg&&e.push(l)}return 0<
+d.length?d:e},lc=3Dfunction(a){return 0=3D=3Da.indexOf(".")?a.substr(1):a},=
+kc=3Dfunction(a){if(!a)return"/";1<a.length&&a.lastIndexOf("/")=3D=3Da.leng=
+th-1&&(a=3Da.substr(0,a.length-1));0!=3Da.indexOf("/")&&(a=3D"/"+a);return =
+a},jc=3Dfunction(a){a=3Dkc(a);return"/"=3D=3Da?1:a.split("/").length};funct=
+ion Xc(a,b,c){"none"=3D=3Db&&(b=3D"");var d=3D[],e=3DCa(a);a=3D"__utma"=3D=
+=3Da?6:2;for(var g=3D0;g<e.length;g++){var ca=3D(""+e[g]).split(".");ca.len=
+gth>=3Da&&d.push({hash:ca[0],R:e[g],O:ca})}if(0!=3Dd.length)return 1=3D=3Dd=
+.length?d[0]:Zc(b,d)||Zc(c,d)||Zc(null,d)||d[0]}function Zc(a,b){var c,d;nu=
+ll=3D=3Da?c=3Dd=3D1:(c=3DLa(a),d=3DLa(D(a,".")?a.substring(1):"."+a));for(v=
+ar e=3D0;e<b.length;e++)if(b[e].hash=3D=3Dc||b[e].hash=3D=3Dd)return b[e]};=
+var od=3Dnew RegExp(/^https?:\/\/([^\/:]+)/),pd=3D/(.*)([?&#])(?:_ga=3D[^&#=
+]*)(?:&?)(.*)/;function Bc(a){a=3Da.get(Q);var b=3DIc(a,0);return"_ga=3D1."=
++K(b+"."+a)}function Ic(a,b){for(var c=3Dnew Date,d=3DO.navigator,e=3Dd.plu=
+gins||[],c=3D[a,d.userAgent,c.getTimezoneOffset(),c.getYear(),c.getDate(),c=
+.getHours(),c.getMinutes()+b],d=3D0;d<e.length;++d)c.push(e[d].description)=
+;return La(c.join("."))}var Dc=3Dfunction(a){J(48);this.target=3Da;this.T=
+=3D!1};
+Dc.prototype.ca=3Dfunction(a,b){if(a.tagName){if("a"=3D=3Da.tagName.toLower=
+Case()){a.href&&(a.href=3Dqd(this,a.href,b));return}if("form"=3D=3Da.tagNam=
+e.toLowerCase())return rd(this,a)}if("string"=3D=3Dtypeof a)return qd(this,=
+a,b)};
+var qd=3Dfunction(a,b,c){var d=3Dpd.exec(b);d&&3<=3Dd.length&&(b=3Dd[1]+(d[=
+3]?d[2]+d[3]:""));a=3Da.target.get("linkerParam");var e=3Db.indexOf("?"),d=
+=3Db.indexOf("#");c?b+=3D(-1=3D=3Dd?"#":"&")+a:(c=3D-1=3D=3De?"?":"&",b=3D-=
+1=3D=3Dd?b+(c+a):b.substring(0,d)+c+a+b.substring(d));return b=3Db.replace(=
+/&+_ga=3D/,"&_ga=3D")},rd=3Dfunction(a,b){if(b&&b.action){var c=3Da.target.=
+get("linkerParam").split("=3D")[1];if("get"=3D=3Db.method.toLowerCase()){fo=
+r(var d=3Db.childNodes||[],e=3D0;e<d.length;e++)if("_ga"=3D=3Dd[e].name){d[=
+e].setAttribute("value",c);return}d=3D
+M.createElement("input");d.setAttribute("type","hidden");d.setAttribute("na=
+me","_ga");d.setAttribute("value",c);b.appendChild(d)}else"post"=3D=3Db.met=
+hod.toLowerCase()&&(b.action=3Dqd(a,b.action))}};
+Dc.prototype.S=3Dfunction(a,b,c){function d(c){try{c=3Dc||O.event;var d;a:{=
+var g=3Dc.target||c.srcElement;for(c=3D100;g&&0<c;){if(g.href&&g.nodeName.m=
+atch(/^a(?:rea)?$/i)){d=3Dg;break a}g=3Dg.parentNode;c--}d=3D{}}("http:"=3D=
+=3Dd.protocol||"https:"=3D=3Dd.protocol)&&sd(a,d.hostname||"")&&d.href&&(d.=
+href=3Dqd(e,d.href,b))}catch(k){J(26)}}var e=3Dthis;this.T||(this.T=3D!0,L(=
+M,"mousedown",d,!1),L(M,"keyup",d,!1));c&&L(M,"submit",function(b){b=3Db||O=
+.event;if((b=3Db.target||b.srcElement)&&b.action){var c=3Db.action.match(od=
+);c&&sd(a,
+c[1])&&rd(e,b)}})};function sd(a,b){if(b=3D=3DM.location.hostname)return!1;=
+for(var c=3D0;c<a.length;c++)if(a[c]instanceof RegExp){if(a[c].test(b))retu=
+rn!0}else if(0<=3Db.indexOf(a[c]))return!0;return!1};var p=3D/^(GTM|OPT)-[A=
+-Z0-9]+$/,q=3D/;_gaexp=3D[^;]*/g,r=3D/;((__utma=3D)|([^;=3D]+=3DGAX?\d+\.))=
+[^;]*/g,t=3Dfunction(a){function b(a,b){b&&(c+=3D"&"+a+"=3D"+K(b))}var c=3D=
+"https://www.google-analytics.com/gtm/js?id=3D"+K(a.id);"dataLayer"!=3Da.B&=
+&b("l",a.B);b("t",a.target);b("cid",a.ja);b("cidt",a.ka);b("gac",a.la);b("a=
+ip",a.ia);a.na&&b("m","sync");b("cycle",a.G);return c};var Jd=3Dfunction(a,=
+b,c){this.U=3Ded;this.aa=3Db;(b=3Dc)||(b=3D(b=3DP(a,V))&&"t0"!=3Db?Wd.test(=
+b)?"_gat_"+Cc(P(a,Na)):"_gat_"+Cc(b):"_gat");this.Y=3Db;Ed(new Od(100),a)&&=
+(J(30),this.pa=3D!0)},Rd=3Dfunction(a,b){var c=3Db.get(Wb);b.set(Wb,functio=
+n(b){Pd(a,b);var d=3Dc(b);Qd(a,b);return d});var d=3Db.get(Xb);b.set(Xb,fun=
+ction(b){var c=3Dd(b);Id(a,b);return c})},Pd=3Dfunction(a,b){b.get(a.U)||("=
+1"=3D=3DCa(a.Y)[0]?b.set(a.U,"",!0):b.set(a.U,""+hd(),!0))},Qd=3Dfunction(a=
+,b){if(b.get(a.U)){var c=3D6E5;a.pa&&(c/=3D10);zc(a.Y,"1",b.get(Yb),b.get(W=
+),
+b.get(Na),c)}},Id=3Dfunction(a,b){if(b.get(a.U)){var c=3Dnew ee,d=3Dfunctio=
+n(a){$a(a).F&&c.set($a(a).F,b.get(a))};d(hb);d(ib);d(Na);d(Q);d(Ad);d(a.U);=
+c.set($a(ld).F,Td(b));var e=3Da.aa;c.map(function(a,b){e+=3DK(a)+"=3D";e+=
+=3DK(""+b)+"&"});e+=3D"z=3D"+hd();ta(e);b.set(a.U,"",!0)}},Wd=3D/^gtm\d+$/;=
+var fd=3Dfunction(a,b){var c=3Da.b;if(!c.get("dcLoaded")){Nd(c,29);b=3Db||{=
+};var d;b[U]&&(d=3DCc(b[U]));d=3Dnew Jd(c,"https://stats.g.doubleclick.net/=
+r/collect?t=3Ddc&aip=3D1&_r=3D3&",d);Rd(d,c);c.set("dcLoaded",!0)}};var Sd=
+=3Dfunction(a){if(!a.get("dcLoaded")&&"cookie"=3D=3Da.get(ac)){Nd(a,51);var=
+ b=3Dnew Jd(a);Pd(b,a);Qd(b,a);a.get(b.U)&&(a.set(Md,1,!0),a.set(gd,oc()+"/=
+r/collect",!0))}};var Lc=3Dfunction(){var a=3DO.gaGlobal=3DO.gaGlobal||{};r=
+eturn a.hid=3Da.hid||hd()};var ad,bd=3Dfunction(a,b,c){if(!ad){var d;d=3DM.=
+location.hash;var e=3DO.name,g=3D/^#?gaso=3D([^&]*)/;if(e=3D(d=3D(d=3Dd&&d.=
+match(g)||e&&e.match(g))?d[1]:Ca("GASO")[0]||"")&&d.match(/^(?:!([-0-9a-z.]=
+{1,40})!)?([-.\w]{10,1200})$/i))zc("GASO",""+d,c,b,a,0),window._udo||(windo=
+w._udo=3Db),window._utcp||(window._utcp=3Dc),a=3De[1],wa("https://www.googl=
+e.com/analytics/web/inpage/pub/inpage.js?"+(a?"prefix=3D"+a+"&":"")+hd(),"_=
+gasojs");ad=3D!0}};var wb=3D/^(UA|YT|MO|GP)-(\d+)-(\d+)$/,pc=3Dfunction(a){=
+function b(a,b){d.b.data.set(a,b)}function c(a,c){b(a,c);d.filters.add(a)}v=
+ar d=3Dthis;this.b=3Dnew Ya;this.filters=3Dnew Ha;b(V,a[V]);b(Na,sa(a[Na]))=
+;b(U,a[U]);b(W,a[W]||xa());b(Yb,a[Yb]);b(Zb,a[Zb]);b($b,a[$b]);b(Wc,a[Wc]);=
+b(bc,a[bc]);b(cc,a[cc]);b(Ka,a[Ka]);b(dc,a[dc]);b(ec,a[ec]);b(ac,a[ac]);b(A=
+d,a[Ad]);b(n,a[n]);b(hb,1);b(ib,"j47");c(Qb,Ma);c(dd,cd);c(Rb,Oa);c(md,vb);=
+c(Sb,nc);c(Uc,Yc);c(Tb,Ja);c(Vb,Ta);c(Vc,Hc);c(zd,yd);c(Ld,Sd);c(Wb,Pa);c(X=
+b,Sa);
+c(Cd,Fd(this));Jc(this.b,a[Q]);Kc(this.b);this.b.set(jb,Lc());bd(this.b.get=
+(Na),this.b.get(W),this.b.get(Yb))},Jc=3Dfunction(a,b){if("cookie"=3D=3DP(a=
+,ac)){hc=3D!1;var c;b:{var d=3DCa(P(a,U));if(d&&!(1>d.length)){c=3D[];for(v=
+ar e=3D0;e<d.length;e++){var g;g=3Dd[e].split(".");var ca=3Dg.shift();("GA1=
+"=3D=3Dca||"1"=3D=3Dca)&&1<g.length?(ca=3Dg.shift().split("-"),1=3D=3Dca.le=
+ngth&&(ca[1]=3D"1"),ca[0]*=3D1,ca[1]*=3D1,g=3D{H:ca,s:g.join(".")}):g=3Dvoi=
+d 0;g&&c.push(g)}if(1=3D=3Dc.length){J(13);c=3Dc[0].s;break b}if(0=3D=3Dc.l=
+ength)J(12);else{J(14);d=3Dlc(P(a,
+W)).split(".").length;c=3DGc(c,d,0);if(1=3D=3Dc.length){c=3Dc[0].s;break b}=
+d=3Djc(P(a,Yb));c=3DGc(c,d,1);c=3Dc[0]&&c[0].s;break b}}c=3Dvoid 0}c||(c=3D=
+P(a,W),d=3DP(a,$b)||xa(),c=3DXc("__utma",d,c),void 0!=3Dc?(J(10),c=3Dc.O[1]=
++"."+c.O[2]):c=3Dvoid 0);c&&(a.data.set(Q,c),hc=3D!0)}c=3Da.get(cc);if(e=3D=
+E(M.location[c?"href":"search"],"_ga"))a.get(bc)?(c=3De.indexOf("."),-1=3D=
+=3Dc?J(22):(d=3De.substring(c+1),"1"!=3De.substring(0,c)?J(22):(c=3Dd.index=
+Of("."),-1=3D=3Dc?J(22):(e=3Dd.substring(0,c),c=3Dd.substring(c+1),e!=3DIc(=
+c,0)&&e!=3DIc(c,-1)&&e!=3DIc(c,-2)?J(23):
+(J(11),a.data.set(Q,c)))))):J(21);b&&(J(9),a.data.set(Q,K(b)));if(!a.get(Q)=
+)if(c=3D(c=3DO.gaGlobal&&O.gaGlobal.vid)&&-1!=3Dc.search(/^(?:utma\.)?\d+\.=
+\d+$/)?c:void 0)J(17),a.data.set(Q,c);else{J(8);c=3DO.navigator.userAgent+(=
+M.cookie?M.cookie:"")+(M.referrer?M.referrer:"");d=3Dc.length;for(e=3DO.his=
+tory.length;0<e;)c+=3De--^d++;a.data.set(Q,[hd()^La(c)&2147483647,Math.roun=
+d((new Date).getTime()/1E3)].join("."))}mc(a)},Kc=3Dfunction(a){var b=3DO.n=
+avigator,c=3DO.screen,d=3DM.location;a.set(lb,ya(a.get(ec)));if(d){var e=3D
+d.pathname||"";"/"!=3De.charAt(0)&&(J(31),e=3D"/"+e);a.set(kb,d.protocol+"/=
+/"+d.hostname+e+d.search)}c&&a.set(qb,c.width+"x"+c.height);c&&a.set(pb,c.c=
+olorDepth+"-bit");var c=3DM.documentElement,g=3D(e=3DM.body)&&e.clientWidth=
+&&e.clientHeight,ca=3D[];c&&c.clientWidth&&c.clientHeight&&("CSS1Compat"=3D=
+=3D=3DM.compatMode||!g)?ca=3D[c.clientWidth,c.clientHeight]:g&&(ca=3D[e.cli=
+entWidth,e.clientHeight]);c=3D0>=3Dca[0]||0>=3Dca[1]?"":ca.join("x");a.set(=
+rb,c);a.set(tb,fc());a.set(ob,M.characterSet||M.charset);a.set(sb,b&&"funct=
+ion"=3D=3D=3D
+typeof b.javaEnabled&&b.javaEnabled()||!1);a.set(nb,(b&&(b.language||b.brow=
+serLanguage)||"").toLowerCase());if(d&&a.get(cc)&&(b=3DM.location.hash)){b=
+=3Db.split(/[?&#]+/);d=3D[];for(c=3D0;c<b.length;++c)(D(b[c],"utm_id")||D(b=
+[c],"utm_campaign")||D(b[c],"utm_source")||D(b[c],"utm_medium")||D(b[c],"ut=
+m_term")||D(b[c],"utm_content")||D(b[c],"gclid")||D(b[c],"dclid")||D(b[c],"=
+gclsrc"))&&d.push(b[c]);0<d.length&&(b=3D"#"+d.join("&"),a.set(kb,a.get(kb)=
++b))}};pc.prototype.get=3Dfunction(a){return this.b.get(a)};
+pc.prototype.set=3Dfunction(a,b){this.b.set(a,b)};var qc=3D{pageview:[mb],e=
+vent:[ub,xb,yb,zb],social:[Bb,Cb,Db],timing:[Mb,Nb,Pb,Ob]};pc.prototype.sen=
+d=3Dfunction(a){if(!(1>arguments.length)){var b,c;"string"=3D=3D=3Dtypeof a=
+rguments[0]?(b=3Darguments[0],c=3D[].slice.call(arguments,1)):(b=3Dargument=
+s[0]&&arguments[0][Va],c=3Darguments);b&&(c=3Dza(qc[b]||[],c),c[Va]=3Db,thi=
+s.b.set(c,void 0,!0),this.filters.D(this.b),this.b.data.m=3D{})}};
+pc.prototype.ma=3Dfunction(a,b){var c=3Dthis;u(a,c,b)||(v(a,function(){u(a,=
+c,b)}),y(String(c.get(V)),a,void 0,b,!0))};var rc=3Dfunction(a){if("prerend=
+er"=3D=3DM.visibilityState)return!1;a();return!0},z=3Dfunction(a){if(!rc(a)=
+){J(16);var b=3D!1,c=3Dfunction(){if(!b&&rc(a)){b=3D!0;var d=3Dc,e=3DM;e.re=
+moveEventListener?e.removeEventListener("visibilitychange",d,!1):e.detachEv=
+ent&&e.detachEvent("onvisibilitychange",d)}};L(M,"visibilitychange",c)}};va=
+r td=3D/^(?:(\w+)\.)?(?:(\w+):)?(\w+)$/,sc=3Dfunction(a){if(ea(a[0]))this.u=
+=3Da[0];else{var b=3Dtd.exec(a[0]);null!=3Db&&4=3D=3Db.length&&(this.c=3Db[=
+1]||"t0",this.K=3Db[2]||"",this.C=3Db[3],this.a=3D[].slice.call(a,1),this.K=
+||(this.A=3D"create"=3D=3Dthis.C,this.i=3D"require"=3D=3Dthis.C,this.g=3D"p=
+rovide"=3D=3Dthis.C,this.ba=3D"remove"=3D=3Dthis.C),this.i&&(3<=3Dthis.a.le=
+ngth?(this.X=3Dthis.a[1],this.W=3Dthis.a[2]):this.a[1]&&(qa(this.a[1])?this=
+.X=3Dthis.a[1]:this.W=3Dthis.a[1])));b=3Da[1];a=3Da[2];if(!this.C)throw"abo=
+rt";if(this.i&&(!qa(b)||""=3D=3Db))throw"abort";
+if(this.g&&(!qa(b)||""=3D=3Db||!ea(a)))throw"abort";if(ud(this.c)||ud(this.=
+K))throw"abort";if(this.g&&"t0"!=3Dthis.c)throw"abort";}};function ud(a){re=
+turn 0<=3Da.indexOf(".")||0<=3Da.indexOf(":")};var Yd,Zd,$d,A;Yd=3Dnew ee;$=
+d=3Dnew ee;A=3Dnew ee;Zd=3D{ec:45,ecommerce:46,linkid:47};
+var u=3Dfunction(a,b,c){b=3D=3DN||b.get(V);var d=3DYd.get(a);if(!ea(d))retu=
+rn!1;b.plugins_=3Db.plugins_||new ee;if(b.plugins_.get(a))return!0;b.plugin=
+s_.set(a,new d(b,c||{}));return!0},y=3Dfunction(a,b,c,d,e){if(!ea(Yd.get(b)=
+)&&!$d.get(b)){Zd.hasOwnProperty(b)&&J(Zd[b]);if(p.test(b)){J(52);a=3DN.j(a=
+);if(!a)return!0;c=3Dd||{};d=3D{id:b,B:c.dataLayer||"dataLayer",ia:!!a.get(=
+"anonymizeIp"),na:e,G:!1};a.get("&gtm")=3D=3Db&&(d.G=3D!0);var g=3DString(a=
+.get("name"));"t0"!=3Dg&&(d.target=3Dg);G(String(a.get("trackingId")))||(d.=
+ja=3DString(a.get(Q)),
+d.ka=3DNumber(a.get(n)),a=3Dc.palindrome?r:q,a=3D(a=3DM.cookie.replace(/^|(=
+; +)/g,";").match(a))?a.sort().join("").substring(1):void 0,d.la=3Da);a=3Dd=
+.B;c=3D(new Date).getTime();O[a]=3DO[a]||[];c=3D{"gtm.start":c};e||(c.event=
+=3D"gtm.js");O[a].push(c);c=3Dt(d)}!c&&Zd.hasOwnProperty(b)?(J(39),c=3Db+".=
+js"):J(43);c&&(c&&0<=3Dc.indexOf("/")||(c=3D(Ba||Ud()?"https:":"http:")+"//=
+www.google-analytics.com/plugins/ua/"+c),d=3Dae(c),a=3Dd.protocol,c=3DM.loc=
+ation.protocol,("https:"=3D=3Da||a=3D=3Dc||("http:"!=3Da?0:"http:"=3D=3Dc))=
+&&B(d)&&(wa(d.url,void 0,
+e),$d.set(b,!0)))}},v=3Dfunction(a,b){var c=3DA.get(a)||[];c.push(b);A.set(=
+a,c)},C=3Dfunction(a,b){Yd.set(a,b);for(var c=3DA.get(a)||[],d=3D0;d<c.leng=
+th;d++)c[d]();A.set(a,[])},B=3Dfunction(a){var b=3Dae(M.location.href);if(D=
+(a.url,"https://www.google-analytics.com/gtm/js?id=3D"))return!0;if(a.query=
+||0<=3Da.url.indexOf("?")||0<=3Da.path.indexOf("://"))return!1;if(a.host=3D=
+=3Db.host&&a.port=3D=3Db.port)return!0;b=3D"http:"=3D=3Da.protocol?80:443;r=
+eturn"www.google-analytics.com"=3D=3Da.host&&(a.port||b)=3D=3Db&&D(a.path,"=
+/plugins/")?!0:!1},
+ae=3Dfunction(a){function b(a){var b=3D(a.hostname||"").split(":")[0].toLow=
+erCase(),c=3D(a.protocol||"").toLowerCase(),c=3D1*a.port||("http:"=3D=3Dc?8=
+0:"https:"=3D=3Dc?443:"");a=3Da.pathname||"";D(a,"/")||(a=3D"/"+a);return[b=
+,""+c,a]}var c=3DM.createElement("a");c.href=3DM.location.href;var d=3D(c.p=
+rotocol||"").toLowerCase(),e=3Db(c),g=3Dc.search||"",ca=3Dd+"//"+e[0]+(e[1]=
+?":"+e[1]:"");D(a,"//")?a=3Dd+a:D(a,"/")?a=3Dca+a:!a||D(a,"?")?a=3Dca+e[2]+=
+(a||g):0>a.split("/")[0].indexOf(":")&&(a=3Dca+e[2].substring(0,e[2].lastIn=
+dexOf("/"))+"/"+
+a);c.href=3Da;d=3Db(c);return{protocol:(c.protocol||"").toLowerCase(),host:=
+d[0],port:d[1],path:d[2],query:c.search||"",url:a||""}};var Z=3D{ga:functio=
+n(){Z.f=3D[]}};Z.ga();Z.D=3Dfunction(a){var b=3DZ.J.apply(Z,arguments),b=3D=
+Z.f.concat(b);for(Z.f=3D[];0<b.length&&!Z.v(b[0])&&!(b.shift(),0<Z.f.length=
+););Z.f=3DZ.f.concat(b)};Z.J=3Dfunction(a){for(var b=3D[],c=3D0;c<arguments=
+.length;c++)try{var d=3Dnew sc(arguments[c]);d.g?C(d.a[0],d.a[1]):(d.i&&(d.=
+ha=3Dy(d.c,d.a[0],d.X,d.W)),b.push(d))}catch(e){}return b};
+Z.v=3Dfunction(a){try{if(a.u)a.u.call(O,N.j("t0"));else{var b=3Da.c=3D=3Dgb=
+?N:N.j(a.c);if(a.A)"t0"!=3Da.c||N.create.apply(N,a.a);else if(a.ba)N.remove=
+(a.c);else if(b)if(a.i){if(a.ha&&(a.ha=3Dy(a.c,a.a[0],a.X,a.W)),!u(a.a[0],b=
+,a.W))return!0}else if(a.K){var c=3Da.C,d=3Da.a,e=3Db.plugins_.get(a.K);e[c=
+].apply(e,d)}else b[a.C].apply(b,a.a)}}catch(g){}};var N=3Dfunction(a){J(1)=
+;Z.D.apply(Z,[arguments])};N.h=3D{};N.P=3D[];N.L=3D0;N.answer=3D42;var uc=
+=3D[Na,W,V];N.create=3Dfunction(a){var b=3Dza(uc,[].slice.call(arguments));=
+b[V]||(b[V]=3D"t0");var c=3D""+b[V];if(N.h[c])return N.h[c];b=3Dnew pc(b);N=
+.h[c]=3Db;N.P.push(b);return b};N.remove=3Dfunction(a){for(var b=3D0;b<N.P.=
+length;b++)if(N.P[b].get(V)=3D=3Da){N.P.splice(b,1);N.h[a]=3Dnull;break}};N=
+.j=3Dfunction(a){return N.h[a]};N.getAll=3Dfunction(){return N.P.slice(0)};
+N.N=3Dfunction(){"ga"!=3Dgb&&J(49);var a=3DO[gb];if(!a||42!=3Da.answer){N.L=
+=3Da&&a.l;N.loaded=3D!0;var b=3DO[gb]=3DN;X("create",b,b.create);X("remove"=
+,b,b.remove);X("getByName",b,b.j,5);X("getAll",b,b.getAll,6);b=3Dpc.prototy=
+pe;X("get",b,b.get,7);X("set",b,b.set,4);X("send",b,b.send);X("requireSync"=
+,b,b.ma);b=3DYa.prototype;X("get",b,b.get);X("set",b,b.set);if(!Ud()&&!Ba){=
+a:{for(var b=3DM.getElementsByTagName("script"),c=3D0;c<b.length&&100>c;c++=
+){var d=3Db[c].src;if(d&&0=3D=3Dd.indexOf("https://www.google-analytics.com=
+/analytics")){J(33);
+b=3D!0;break a}}b=3D!1}b&&(Ba=3D!0)}Ud()||Ba||!Ed(new Od(1E4))||(J(36),Ba=
+=3D!0);(O.gaplugins=3DO.gaplugins||{}).Linker=3DDc;b=3DDc.prototype;C("link=
+er",Dc);X("decorate",b,b.ca,20);X("autoLink",b,b.S,25);C("displayfeatures",=
+fd);C("adfeatures",fd);a=3Da&&a.q;ka(a)?Z.D.apply(N,a):J(50)}};N.da=3Dfunct=
+ion(){for(var a=3DN.getAll(),b=3D0;b<a.length;b++)a[b].get(V)};var H=3DN.N,=
+I=3DO[gb];I&&I.r?H():z(H);z(function(){Z.D(["provide","render",ua])});funct=
+ion La(a){var b=3D1,c,d;if(a)for(b=3D0,d=3Da.length-1;0<=3Dd;d--)c=3Da.char=
+CodeAt(d),b=3D(b<<6&268435455)+c+(c<<14),c=3Db&266338304,b=3D0!=3Dc?b^c>>21=
+:b;return b};})(window);
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/common/js/common.js
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/javascript
+
+//
+// MoinMoin commonly used JavaScript functions
+//
+
+// We keep here the state of the search box
+searchIsDisabled =3D false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value =3D e.value.replace(/\s+/, '');
+    if (value =3D=3D '' || searchIsDisabled) {=20
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled =3D flag;
+    document.getElementById('titlesearch').disabled =3D flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value =3D=3D search_hint) {
+        e.value =3D '';
+        e.className =3D '';
+        searchIsDisabled =3D false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value =3D=3D '') {
+        e.value =3D search_hint;
+        e.className =3D 'disabled';
+        searchIsDisabled =3D true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i =3D 0; i < document.forms.length; i++) {
+        var form =3D document.forms[i];
+        if (form.className =3D=3D 'actionsmenu') {
+            // Check if this form needs update
+            var div =3D form.getElementsByTagName('div')[0];
+            var label =3D div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton =3D div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select =3D div.getElementsByTagName('select')[0];
+                var item =3D document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value =3D 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex =3D 0;
+            }
+        }
+    }
+}
+
+// use this instead of assigning to window.onload directly:
+function addLoadEvent(func) {
+    // alert("addLoadEvent " + func)
+    var oldonload =3D window.onload;
+    if (typeof window.onload !=3D 'function') {
+        window.onload =3D func;
+    } else {
+        window.onload =3D function() {
+            oldonload();
+            func();
+        }
+    }
+}
+
+// copy from fckeditor browser check code (fckeditor.js:298, function : FCK=
+editor_IsCompatibleBrowser)
+function can_use_gui_editor() {
+    var sAgent =3D navigator.userAgent.toLowerCase() ;
+
+    // Internet Explorer 5.5+
+    if ( /*@cc_on!@*/false && sAgent.indexOf("mac") =3D=3D -1 )
+    {
+        var sBrowserVersion =3D navigator.appVersion.match(/MSIE (.\..)/)[1=
+] ;
+        return ( sBrowserVersion >=3D 5.5 ) ;
+    }
+
+    // Gecko (Opera 9 tries to behave like Gecko at this point).
+    if ( navigator.product =3D=3D "Gecko" && navigator.productSub >=3D 2003=
+0210 && !( typeof(opera) =3D=3D 'object' && opera.postError ) )
+        return true ;
+
+    // Opera 9.50+
+    if ( window.opera && window.opera.version && parseFloat( window.opera.v=
+ersion() ) >=3D 9.5 )
+        return true ;
+
+/*
+  // disable safari : until fck devteam fix http://dev.fckeditor.net/ticket=
+/2333
+ =20
+    // Adobe AIR
+    // Checked before Safari because AIR have the WebKit rich text editor
+    // features from Safari 3.0.4, but the version reported is 420.
+    if ( sAgent.indexOf( ' adobeair/' ) !=3D -1 )
+        return ( sAgent.match( / adobeair\/(\d+)/ )[1] >=3D 1 ) ; // Build =
+must be at least v1
+
+    // Safari 3+
+    if ( sAgent.indexOf( ' applewebkit/' ) !=3D -1 )
+        return ( sAgent.match( / applewebkit\/(\d+)/ )[1] >=3D 522 ) ;    /=
+/ Build must be at least 522 (v3)
+*/
+    return false ;
+
+}
+
+
+function update_edit_links() {
+    // Update editlink according if if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("update_edit_links: can't use gui editor");
+        return;
+    }
+    var editlinks =3D document.getElementsByName("editlink");
+    for (i =3D 0; i < editlinks.length; i++) {
+        var link =3D editlinks[i];
+        href =3D link.href.replace('editor=3Dtextonly','editor=3Dguipossibl=
+e');
+        link.href =3D href;
+        //alert("update_edit_links: modified to guipossible");
+    }
+}
+
+
+function add_gui_editor_links() {
+    // Add gui editor link after the text editor link
+   =20
+    // If the variable is not set or browser is not compatible, exit
+    try {gui_editor_link_href}
+    catch (e) {
+        //alert("add_gui_editor_links: gui_editor_link_href not here");
+        return
+    }
+    if (can_use_gui_editor() =3D=3D false){
+        //alert("add_gui_editor_links: can't use gui_editor");
+        return;
+    }
+    var all =3D document.getElementsByName('texteditlink');
+    for (i =3D 0; i < all.length; i++) {
+        var textEditorLink =3D all[i];
+        // Create a list item with a link
+        var guiEditorLink =3D document.createElement('a');
+        guiEditorLink.href =3D gui_editor_link_href;
+        var text =3D document.createTextNode(gui_editor_link_text);
+        guiEditorLink.appendChild(text);
+        var listItem =3D document.createElement('li')
+        listItem.appendChild(guiEditorLink);
+        // Insert in the editbar
+        var editbar =3D textEditorLink.parentNode.parentNode
+        var nextListItem =3D textEditorLink.parentNode.nextSibling;
+        editbar.insertBefore(listItem, nextListItem);
+        //alert("add_gui_editor_links: added gui editor link");
+    }
+}
+=20
+
+function show_switch2gui() {
+    // Show switch to gui editor link if the browser is compatible
+    if (can_use_gui_editor() =3D=3D false) return;
+   =20
+    var switch2gui =3D document.getElementById('switch2gui')
+    if (switch2gui) {
+        switch2gui.style.display =3D 'inline';
+    }
+}
+
+// for long documents with many comments this is expensive to calculate,
+// thus we keep it here:
+comments =3D null;
+
+function toggleComments() {
+    // Toggle visibility of every tag with class "comment"
+    for (i =3D 0; i < comments.length; i++){
+        el =3D comments[i];
+        if ( el.style.display !=3D 'none' ) {
+            el.style.display =3D 'none';
+        } else {
+            el.style.display =3D '';
+        }
+    }
+}
+
+function show_toggleComments() {
+    // Show edit bar item for toggling inline comments on/off only if inlin=
+e comments exist on the page
+    comments =3D getElementsByClassName('comment', null, document);
+    if (comments.length > 0) {
+        var buttons =3D getElementsByClassName('toggleCommentsButton', null=
+, document);
+        for (i =3D 0; i < buttons.length; i++){
+            el =3D buttons[i];
+            el.style.display =3D '';
+        }
+    }
+}
+
+
+function load() {
+    // Do not name this "onload", it does not work with IE :-)
+    // TODO: create separate onload for each type of view and set the
+    // correct function name in the html.=20
+    // e.g <body onlod=3D'editor_onload()'>
+
+    // login focus
+    if (document.forms['loginform']) {
+        document.forms['loginform'].elements['name'].focus();
+    }
+   =20
+    // Page view stuff
+    update_edit_links();
+    add_gui_editor_links();
+   =20
+    // Editor stuff
+    show_switch2gui();
+
+    // Enable menu item "ToggleComments" if inline comments exist
+    show_toggleComments();
+=20
+    // data browser widget
+    dbw_hide_buttons();
+}
+
+
+function before_unload(evt) {
+    // TODO: Better to set this in the editor html, as it does not make
+    // sense elsehwere.
+    // confirmleaving is available when editing
+    try {return confirmleaving();}
+    catch (e) {}
+}
+
+// Initialize after loading the page
+addLoadEvent(load)
+
+// Catch before unloading the page
+window.onbeforeunload =3D before_unload
+
+function dbw_update_search(dbw_id)
+{
+    var table =3D document.getElementById(dbw_id+'table');
+    var cell;
+    var shown;
+    var i
+    var cols =3D table.rows[0].cells.length;
+    var filter =3D new Array();
+    var dofilter =3D new Array();
+    var form =3D document.forms[dbw_id+'form'];
+
+    for (i =3D 0; i < cols; i++) {
+        dofilter[i] =3D false;
+        if (form[dbw_id+'filter'+i]) {
+            dofilter[i] =3D true;
+            filter[i] =3D form[dbw_id+'filter'+i].value;
+            if (filter[i] =3D=3D '[all]')
+                dofilter[i] =3D false;
+            if (filter[i] =3D=3D '[empty]')
+                filter[i] =3D '';
+        }
+    }
+
+    for (i =3D 1; i < table.rows.length; i++) {
+        var show =3D true;
+        for (col =3D 0; col < cols; col++) {
+            if (!dofilter[col])
+                continue;
+
+            cell =3D table.rows[i].cells[col];
+
+            if (filter[col] =3D=3D '[notempty]') {
+                if (cell.abbr =3D=3D '') {
+                    show =3D false;
+                    break;
+                }
+            } else if (filter[col] !=3D cell.abbr) {
+                show =3D false;
+                break;
+            }
+        }
+        if (show)
+            table.rows[i].style.display =3D '';
+        else
+            table.rows[i].style.display =3D 'none';
+    }
+}
+
+function dbw_hide_buttons() {
+    var form;
+    var elem;
+    var name;
+
+    for (var fidx =3D 0; fidx < document.forms.length; fidx++) {
+        form =3D document.forms[fidx];
+        for (var eidx =3D 0; eidx < form.elements.length; eidx++) {
+            elem =3D form.elements[eidx];
+            name =3D elem.name;
+            if (name) {
+                if (name.indexOf('dbw.') >=3D 0 && name.substr(-7) =3D=3D '=
+.submit')
+                    elem.style.display =3D 'none';
+            }
+        }
+    }
+}
+
+/*  getElementsByClassName
+    Developed by Robert Nyman, http://www.robertnyman.com
+    Code/licensing: http://code.google.com/p/getelementsbyclassname/ (MIT l=
+icense)
+    Version: 1.0.1
+*/ =20
+var getElementsByClassName =3D function (className, tag, elm){
+    if (document.getElementsByClassName) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            elm =3D elm || document;
+            var elements =3D elm.getElementsByClassName(className),
+                nodeName =3D (tag)? new RegExp("\\b" + tag + "\\b", "i") : =
+null,
+                returnElements =3D [],
+                current;
+            for(var i=3D0, il=3Delements.length; i<il; i+=3D1){
+                current =3D elements[i];
+                if(!nodeName || nodeName.test(current.nodeName)) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    else if (document.evaluate) {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D "",
+                xhtmlNamespace =3D "http://www.w3.org/1999/xhtml",
+                namespaceResolver =3D (document.documentElement.namespaceUR=
+I =3D=3D=3D xhtmlNamespace)? xhtmlNamespace : null,
+                returnElements =3D [],
+                elements,
+                node;
+            for(var j=3D0, jl=3Dclasses.length; j<jl; j+=3D1){
+                classesToCheck +=3D "[contains(concat(' ', @class, ' '), ' =
+" + classes[j] + " ')]";
+            }
+            try {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, namespaceResolver, 0, null);
+            }
+            catch (e) {
+                elements =3D document.evaluate(".//" + tag + classesToCheck=
+, elm, null, 0, null);
+            }
+            while ((node =3D elements.iterateNext())) {
+                returnElements.push(node);
+            }
+            return returnElements;
+        };
+    }
+    else {
+        getElementsByClassName =3D function (className, tag, elm) {
+            tag =3D tag || "*";
+            elm =3D elm || document;
+            var classes =3D className.split(" "),
+                classesToCheck =3D [],
+                elements =3D (tag =3D=3D=3D "*" && elm.all)? elm.all : elm.=
+getElementsByTagName(tag),
+                current,
+                returnElements =3D [],
+                match;
+            for(var k=3D0, kl=3Dclasses.length; k<kl; k+=3D1){
+                classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\=
+\s|$)"));
+            }
+            for(var l=3D0, ll=3Delements.length; l<ll; l+=3D1){
+                current =3D elements[l];
+                match =3D false;
+                for(var m=3D0, ml=3DclassesToCheck.length; m<ml; m+=3D1){
+                    match =3D classesToCheck[m].test(current.className);
+                    if (!match) {
+                        break;
+                    }
+                }
+                if (match) {
+                    returnElements.push(current);
+                }
+            }
+            return returnElements;
+        };
+    }
+    return getElementsByClassName(className, tag, elm);
+};
+
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24
+Content-Location: https://wiki.ubuntu.com/moin_static193/light/images/dotted-bg.png
+Content-Transfer-Encoding: base64
+Content-Type: image/png
+
+iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAMAAACeL25MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAAZQTFRF////zsrFFOhhzwAAAA9JREFUeNpiYGTAAAABBgAAJwAC/Bns
+gQAAAABJRU5ErkJggg==
+
+------=_Part_B6B3D453_7B840B2E.1580919DE24--

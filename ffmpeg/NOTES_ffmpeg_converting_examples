@@ -1,0 +1,84 @@
+Extracting sound from a video, and save it as Mp3
+
+	ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 sound.mp3
+
+Convert video to mpeg2 mp3 lq for DPF's
+
+	"/usr/bin/ffmpeg" -i "/home/maddocks/Videos/Nirvana_Lake_Of_Fire.mp4" -strict experimental -f mpeg -vf scale=640:480 -map_chapters -1 -map 0:0 -map 0:1 -sn -c:a:0 libmp3lame -b:a:0 192k -c:v:0 mpeg2video -b:v:0 800k -mbd:v:0 rd -mbcmp:v:0 rd -cmp:v:0 rd -precmp:v:0 rd -subcmp:v:0 rd -trellis:v:0 1 -y "/home/maddocks/Videos/Nirvana_Lake_of_Fire.mpg"
+
+		MORE SIMPLE WAY
+
+	ffmpeg -i bite.mp4 -vcodec mpeg2video -s 800x480 -b:v:0 2500k -bt 300k  -acodec libmp3lame -ar 48000 -b:a 128k -ac 2 bite.mpg
+
+Convert a wav file to Mp3
+
+    ffmpeg -i son_origine.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 son_final.mp3
+
+Convert .avi video to .mpg
+
+    ffmpeg -i video_origine.avi video_finale.mpg
+
+Convert .mpg to .avi
+
+    ffmpeg -i video_origine.mpg video_finale.avi
+
+Convert .avi to animated gif(uncompressed)
+
+    ffmpeg -i video_origine.avi gif_anime.gif
+
+Mix a video with a sound file
+
+    ffmpeg -i son.wav -i video_origine.avi video_finale.mpg
+
+Convert .avi to .flv
+
+    ffmpeg -i video_origine.avi -ab 56 -ar 44100 -b 200 -r 15 -s 320x240 -f flv video_finale.flv
+
+Convert .avi to dv
+
+    ffmpeg -i video_origine.avi -s pal -r pal -aspect 4:3 -ar 48000 -ac 2 video_finale.dv
+
+Or:
+
+    ffmpeg -i video_origine.avi -target pal-dv video_finale.dv
+
+Convert .avi to mpeg for dvd players
+
+	ffmpeg -i source_video.avi -target pal-dvd -ps 2000000000 -aspect 16:9 finale_video.mpeg
+
+		Explanations :
+		    target pal-dvd : Output format
+    	ps 2000000000 maximum size for the output file, in bits (here, 2 Gb)
+    	aspect 16:9 : Widescreen
+
+Compress .avi to divx
+
+	ffmpeg -i video_origine.avi -s 320x240 -vcodec msmpeg4v2 video_finale.avi
+
+Compress Ogg Theora to Mpeg dvd
+
+	ffmpeg -i film_sortie_cinelerra.ogm -s 720x576 -vcodec mpeg2video -acodec mp3 film_terminÃ©e.mpg
+
+Compress .avi to SVCD mpeg2
+
+		NTSC format:
+
+	ffmpeg -i video_origine.avi -target ntsc-svcd video_finale.mpg
+
+		PAL format:
+
+	ffmpeg -i video_origine.avi -target pal-svcd video_finale.mpg
+
+Compress .avi to VCD mpeg2
+
+		NTSC format:
+
+	ffmpeg -i video_origine.avi -target ntsc-vcd video_finale.mpg
+
+		PAL format:
+
+	ffmpeg -i video_origine.avi -target pal-vcd video_finale.mpg
+
+Multi-pass encoding with ffmpeg
+
+	ffmpeg -i fichierentree -pass 2 -passlogfile ffmpeg2pass fichiersortie-2

@@ -1,0 +1,27 @@
+Now, use "dkms add" to tell DKMS we have a module is ready. DKMS will create symlink from /var/lib/dkms to /usr/src.
+
+	sudo dkms add -m hello -v 0.1
+
+				Creating symlink /var/lib/dkms/hello/0.1/source ->
+				                 /usr/src/hello-0.1
+								DKMS: add Completed.
+
+
+Then, you can try to build this module with "DKMS build".
+
+	sudo dkms build -m hello -v 0.1
+
+And, you can install this module to the kernel module tree.
+
+	sudo dkms install -m hello -v 0.1
+
+
+
+
+You can also ask DKMS to build and install this module for another kernel version after "dkms add".
+
+	sudo dkms build -m hello -v 0.1 -k 4.4.0-57-generic
+
+It is also possible to build against multiple kernel versions.
+
+	sudo dkms build -m hello -v 0.1 -k 4.4.0-57-generic -k 4.4.0-58-generic

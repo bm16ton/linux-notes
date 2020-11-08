@@ -1,0 +1,91 @@
+xorg.conf options shortcut/handsheet/explanations
+
+Defining output ports
+
+To force an output port even if no display is found on that output, under Device/Device0/Device1 use;
+    Option "ConnectedMonitor" "option"
+IE          Option "ConnectedMonitor" "DFP0,DFP1"
+OFFICIAL docs supported output names;
+"CRT" (anything using a 15pin vga port) "DFP" (digital flat panel) "TV" (obvious)
+
+UNOFFICAL output names;
+ive seen eDP0 eDP1 mine goes by eDP-1-0 using eDP-1-0 broke,system eDP-1 worked most of the time but "eDP-1,eDP-1-0" works everytime.Sumtimes Xorg.0.log will show DFP0 DFP1 after loading that option but most of time it does not.
+
+IMPORTANT
+1; Can use multiple comma seperated values  "DFP0,DFP1" 
+2; If you using "ConnectedMonitor" then most likely the display isnt being recognized. so EDID info will NOT work.You need to manually download/provide The EDID tools in ubuntu 14.04-15.10 did not work for me for downloading the EDID file so I grabbed it from;
+/sys/class/drm/card0-eDP-1/edid
+look in /sys/class/drm/ for anything starting with card0- those should be your connected displays NOTE: too see all the files in /sys/ switch to root "sudo su" or "su" etc. WARNING: this will most likely not work in recovery mode. So backup the EDID file;
+sudo su
+cp /sys/class/drm/card0-eDP-1/edid /lib/firmware/whatever.edid
+now tell xorg.conf where the edid info is.
+
+Option #1 if your system is reliable with /sys/class/drm/card0-eDP-1/edid (or your equivalent) then you can specify that in the Device/Device0/Device1 section like;
+    Option "CustomEDID" "eDP-1:/sys/class/drm/card0-eDP-1/edid"
+
+Option #2 if you saved the edid file to say /lib/firmware/whatever.edid then
+    Option "CustomEDID" "eDP-1:/lib/firmware/whatever.edid"
+i had used both "eDP-1,eDP-1-0" so mine looks like
+    Option "CustomEDID" "eDP-1:/lib/firmware/whatever.edid"
+    Option "CustomEDID" "eDP-1-0:/lib/firmware/whatever.edid"
+
+Now to make sure edid is being used add this directly after;
+    Option "IgnoreEDID" "false"
+    Option "UseEDID" "true"
+    Option "DPI" "96x96"
+
+END RESULT
+Section "Device"
+    Identifier "nvidia"
+    Driver "nvidia"
+    BusID "PCI:1@0:0:0"
+    Option "ConstrainCursor" "off"
+    Option "ModeValidation" "NoVirtualSizeCheck"
+    Option "ConnectedMonitor" "eDP-1,eDP-1-0"
+#    Option "CustomEDID" "eDP-1:/sys/class/drm/card0-eDP-1/edid"
+    Option "CustomEDID" "eDP-1-0:/lib/firmware/lg1080p.edid"
+    Option "CustomEDID" "eDP-1:/lib/firmware/lg1080p.edid"
+    Option "IgnoreEDID" "false"
+    Option "UseEDID" "true"
+    Option "DPI" "96x96"
+EndSection
+
+Now to make sure it doesnt validate any particular modes use;
+
+Option "ModeValidation" "string"
+
+examples (self explanitory ones)
+"NoHorizSyncCheck"
+"NoVertRefreshCheck"
+"NoVirtualSizeCheck"
+examples of multiple screens with multiple options
+
+    Option "ModeValidation" "CRT-0: NoEdidModes, NoMaxPClkCheck; DFP-0: NoVesaModes"
+
+******************************************************************************
+
+To force a specific output when multiple displays are detected use
+
+Option "UseDisplayDevice" "string"
+
+specific DFP-1 or vaugue DFP options can both be used and multiple displays for say a twinview config would look like;
+
+Option "UseDisplayDevice" "CRT-0, DFP-1"
+
+to disable all programming, mode validation, or modesetting for this xscreen the "none" variable can be used.usefull for CUDA remote displays (VNC, RGS) tho OpenGL SyncToVBlank will have no effect, you must specifically specify the virtual screen size IE in screen subsection display add;
+	Virtual	1920 1080
+also Stereo, Overlay, CIOverlay, or SLI will work or "are allowed" with the "none" option. An example screen section for "UseDisplayDevice" "none" is;
+
+Section "Screen"
+    Identifier "nvidia"
+    Device "nvidia"
+    Option "AllowEmptyInitialConfiguration" "on"
+    Option "IgnoreDisplayDevices" "CRT"
+    Option "UseDisplayDevice" "None"
+    SubSection "Display"
+	Depth	24
+	Virtual	1920 1080
+	Modes   "1920x1080_60.00"
+#	Modes   "1920x1080"
+    EndSubSection
+

@@ -1,0 +1,10 @@
+On kernels 2.6.24 and new this enables SATA Link Power Management:
+
+echo min_power > /sys/class/scsi_host/host0/link_power_management_policy
+echo min_power > /sys/class/scsi_host/host1/link_power_management_policy
+
+Disable it by replacing min_power with max_performance.
+
+Which host-number to use depends on your laptop. It is typically 0 for the main drive, but for example on the T61 the 0 and 1 are for the pata interface used for the optical drive, and the main hard-disk is on host2.
+
+On Ubuntu Hardy Heron with a 2.6.24-16 kernel, a suspend/resume cycle is much quicker if you disable SATA Link Power Management before initiating the suspend. As of Intrepid Ibex and kernel 2.6.27, this should be fixed

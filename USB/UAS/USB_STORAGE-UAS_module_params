@@ -1,0 +1,68 @@
+	HAS TO HAVE FILE-NAME;
+		/etc/modprobe.d/ignore_uas.conf
+
+			options usb-storage quirks=idVendor:idProduct:u
+			options usb-storage quirks=0bc2:331a:u
+
+		case 'a':
+			f |= US_FL_SANE_SENSE;
+			break;
+		case 'b':
+			f |= US_FL_BAD_SENSE;
+			break;
+		case 'c':
+			f |= US_FL_FIX_CAPACITY;
+			break;
+		case 'd':
+			f |= US_FL_NO_READ_DISC_INFO;
+			break;
+		case 'e':
+			f |= US_FL_NO_READ_CAPACITY_16;
+			break;
+		case 'f':
+			f |= US_FL_NO_REPORT_OPCODES;
+			break;
+		case 'g':
+			f |= US_FL_MAX_SECTORS_240;
+			break;
+		case 'h':
+			f |= US_FL_CAPACITY_HEURISTICS;
+			break;
+		case 'i':
+			f |= US_FL_IGNORE_DEVICE;
+			break;
+		case 'j':
+			f |= US_FL_NO_REPORT_LUNS;
+			break;
+		case 'l':
+			f |= US_FL_NOT_LOCKABLE;
+			break;
+		case 'm':
+			f |= US_FL_MAX_SECTORS_64;
+			break;
+		case 'n':
+			f |= US_FL_INITIAL_READ10;
+			break;
+		case 'o':
+			f |= US_FL_CAPACITY_OK;
+			break;
+		case 'p':
+			f |= US_FL_WRITE_CACHE;
+			break;
+		case 'r':
+			f |= US_FL_IGNORE_RESIDUE;
+			break;
+		case 's':
+			f |= US_FL_SINGLE_LUN;
+			break;
+		case 't':
+			f |= US_FL_NO_ATA_1X;
+			break;
+		case 'u':
+			f |= US_FL_IGNORE_UAS;
+			break;
+		case 'w':
+			f |= US_FL_NO_WP_DETECT;
+			break;
+
+

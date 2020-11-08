@@ -1,0 +1,109 @@
+How to build dfu-util from source
+Prerequisites for building from git
+Mac OS X
+
+First install MacPorts (and if you are on 10.6 or older, the Java Developer Package) and then run:
+
+	sudo port install libusb-devel git-core
+
+FreeBSD
+
+	sudo pkg_add -r git pkgconf
+
+Ubuntu and Debian and derivatives
+
+	sudo apt-get build-dep dfu-util
+	sudo apt-get install libusb-1.0-0-dev
+
+Get the source code and build it
+
+The first time you will have to clone the git repository:
+
+	git clone git://git.code.sf.net/p/dfu-util/dfu-util
+	cd dfu-util
+
+If you later want to update to latest git version, just run this:
+
+	make maintainer-clean
+	git pull
+
+To build the source:
+
+	./autogen.sh
+	./configure  # on most systems
+	make
+
+If you are building on Mac OS X, replace the ./configure command with:
+
+	./configure --libdir=/opt/local/lib --includedir=/opt/local/include  # on MacOSX only
+
+Your dfu-util binary will be inside the src folder. Use it from there, or install it to /usr/local/bin by running "sudo make install".
+Cross-building for Windows
+
+Windows binaries can be built in a MinGW environment, on a Windows computer or cross-hosted in another OS. To build it on a Debian or Ubuntu host, first install build dependencies:
+
+	sudo apt-get build-dep libusb-1.0-0 dfu-util
+	sudo apt-get install mingw32
+
+The below example builds dfu-util 0.8 and libusb 1.0.20 from unpacked release tarballs. If you instead build from git, you will have to run "./autogen.sh" before running the "./configure" steps.
+
+mkdir -p build
+cd libusb-1.0.20
+PKG_CONFIG_PATH=$PWD/../build/lib/pkgconfig ./configure \
+    --host=i586-mingw32msvc --prefix=$PWD/../build
+make
+make install
+cd ..
+
+cd dfu-util-0.8
+PKG_CONFIG_PATH=$PWD/../build/lib/pkgconfig ./configure \
+    --host=i586-mingw32msvc --prefix=$PWD/../build
+make
+make install
+cd ..
+
+The build files will now be in build/bin.
+
+Building on Windows using MinGW-w64 from MSYS2
+
+This assumes using release tarballs or having run ./autogen.sh on the git sources.
+
+First install MSYS2 from the MSYS2 installer home page.
+
+To avoid interference from other software on your computer, set a clean path in the MSYS window before running the upgrade commands:
+
+PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin
+
+update-core
+pacman -Su
+pacman -Sy
+
+Close all MSYS windows and open a new one to install the toolchain:
+
+PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin
+
+pacman -S mingw-w64-x86_64-gcc
+pacman -S make
+
+Now open a MINGW64 shell to build libusb and dfu-util:
+
+PATH=/mingw64/bin:/usr/local/bin:/usr/bin:/bin
+
+cd libusb-1.0.20
+./configure --prefix=$PWD/../build
+make
+make install
+cd ..
+
+cd dfu-util-0.9
+./configure USB_CFLAGS="-I$PWD/../build/include/libusb-1.0" \
+            USB_LIBS="-L $PWD/../build/lib -lusb-1.0" --prefix=$PWD/../build
+make
+make install
+cd ..
+
+To link libusb statically into dfu-util.exe use instead of only "make":
+
+make LDFLAGS=-static
+
+The built executables (and DLL) will now be in the build/bin folder. 

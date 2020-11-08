@@ -1,0 +1,26 @@
+-display sdl   -display gtk: GTK support is disabled
+-vga cirrus
+-net user    no root privlidges
+	to share files between host/client with -net user use
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ smb=dir[,smbserver=addr]
+               When using the user mode network stack, activate a built-in SMB server so that Windows OSes can access to
+               the host files in dir transparently. The IP address of the SMB server can be set to addr. By default the
+               4th IP in the guest network is used, i.e. x.x.x.4.
+
+               In the guest Windows OS, the line:
+
+                       10.0.2.4 smbserver
+
+               must be added in the file C:\WINDOWS\LMHOSTS (for windows 9x/Me) or C:\WINNT\SYSTEM32\DRIVERS\ETC\LMHOSTS
+               (Windows NT/2000).
+
+               Then dir can be accessed in \smbserver\qemu.
+
+               Note that a SAMBA server must be installed on the host OS.  QEMU was tested successfully with smbd
+               versions from Red Hat 9, Fedora Core 3 and OpenSUSE 11.x.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
