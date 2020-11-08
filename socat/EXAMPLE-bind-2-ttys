@@ -1,5 +1,7 @@
 binding 2 tty's
 
+socat /dev/ttyGS0,raw,echo=0,b115200,crtscts /dev/serial1,raw,echo=0,b115200,crtscts
+
 socat /dev/serial1,raw,echo=0,crnl /dev/tty63,raw,echo=0,crnl
 
 sudo socat pty,raw,echo=0,link=/dev/serial1 pty,raw,echo=0,link=/dev/ttyGS0
