@@ -1,0 +1,144 @@
+>> Align widget. xalign/yalign may hold 0 (left), 1 (right) and 2 (center). xalign/yalign works for most widgets. For button/progressbar they describe placement of label rather than widget itself.
+<text xalign="0">...</text>
+
+>> Add tooltips.
+<hbox tooltip-text=" This is the text ">...</hbox>
+>> Add tooltips with advanced text layout.
+<button tooltip-markup="<span background='yellow'><b><i> press alt m </i><b><span>">......</button>
+>> Widgets might be invisible.
+<progressbar visible="false">...</progressbar>
+>> Define how much space the widget should take.
+<text height-request="50" width-request="200">...</text>
+>> Avoid tab-key to give focus
+<edit can-focus="no">...</edit>
+>> Align widget. xalign/yalign may hold 0 (left), 1 (right) and 2 (center). xalign/yalign works for most widgets. For button/progressbar they describe placement of label rather than widget itself.
+<text xalign="0">...</text>
+
+<window>
+>> prevent user from resizing the gui.
+<window allow-grow="false">
+>> Shrink window smaller than the widgets requires to show up.
+<window allow-shrink="true">
+
+<text>
+>> Text knowledge has been moved to its own post.
+Please look at Text managing
+>> Justify aligment to right (1), center (2), left (3).
+<text justify="2">
+>> Angle the text
+<text angle="45">
+>> Force one-line text
+<text wrap="false">
+<text single-line-mode="true">
+>> Set underline pattern
+<text label="Underline me with an useless pattern" pattern="__ __ __ __ __ __ _"></text>
+
+<button>
+>> You can skip the button decoration.
+<button relief="2">...</button>
+>> The image doesn't need to be left of label. It can be left/right/above/below. Values 0-3. Be aware that this seems to work only for icons in the gtk-stock.
+<button use-stock="true" image-position="3">...</button>
+>> Use gtk-stock values
+<button use-stock="true" label="gtk-quit"></button>
+>> Hotkey is set in 2 ways
+<button use-stock="true" label="gtk-cancel">...</button>
+<button use-underline="true"><label>_Cancel</label>...</button>
+>> Scale icon
+<button height-request="50" width-request="80"><input file>file.jpg</input><height>40</height><width>70</width></button>
+
+<entry>
+>> Give entry focus
+<entry text="Focus is here" is-focus="true"></entry>
+>> Not editable
+<entry editable="false"></entry>
+>> Password - show input text as ******, and a note if capslock is turned on
+<entry visibility="false" caps-lock-warning="true"></entry>
+>> Alternative way to define default text
+<entry text="default string">
+>> Show progress in entry - or simply change the color of the entry background
+<entry progress-fraction="0.5">
+>> Icons in <entry>
+<entry primary-icon-activatable="true" primary-icon-stock="gtk-refresh" secondary-icon-activatable="true" secondary-icon-stock="gtk-clear"
+
+<notebook>
+>> You can define which tab should be active by default. "0" represent tab1, "1" represent tab2 ...
+<notebook page="1">...</notebook>
+>> Tabs can be shown at Top/Bottom/Left/Right. Values from 0-3
+<notebook tab-pos="3">...</notebook>
+>> Tabs can chosen in right-click menu
+<notebook enable-popup="true">...</notebook>
+
+<edit>
+>> insert margins
+<edit left-margin="20">...</edit>
+>> avoid user input
+<edit editable="no">...</edit>
+
+<pixmap>
+>> Scale image
+<pixmap><input file>file.jpg</input><height>40</height><width>70</width></pixmap>
+
+<progressbar>
+>> Avoid window to autoscale because of too much text in progressbar. You can truncate text at left (1), at right (3) or in the middle (2) by the ellipsize tag.
+<progressbar text="Truncated the text in the middle" ellipsize="2"></progressbar>
+>> Define the text alignment by text-xalign and text-yalign tag. try out values from 0-3 for left, right and center.
+<progressbar text-xalign="1" text-yalign="1">
+>> Do not show text
+<progressbar show-text="false">
+>> Alternative bar outfit. - view blocks
+<progressbar bar-style="1">
+>> Do not truncate result to block-size.
+<progressbar discrete-blocks="25">
+>> Set orientation
+0 - Horizontal - left to right.
+1 - Horizontal - right to left.
+2 - Vertical - bottom to top.
+3 - Vertical - top to bottom.
+<progressbar orientation="3">
+
+<chooser>
+>> Type of chooser-widget
+0 - Open file
+1 - Save file
+2 - Select folder
+3 - Create folder
+<chooser action="1">
+>> Hide/Show 'create folders' button
+<chooser create-folders="false">
+
+<tree>
+>> manual sort the list
+<tree reorderable="true">...</tree> - See the Drag'n drop workaround to succeed
+
+
+Let entry accept (some) numbers only
+>> The following example shows how to limit the user input to a <entry>. Useful for 'all' kinds of settings.
+Code:	
+#!/bin/bash
+ 
+export MAIN_DIALOG='
+<vbox>
+    <text>
+      <label>"Enter a number (text will default to 0)"</label>
+    </text>
+    <entry editable="true" allow-empty="false">
+      <input>case $ENTRY in ""|*[^0-9]*) echo 0;; *) echo $ENTRY ;; esac</input>
+      <variable>ENTRY</variable>
+      <action signal="focus-out-event">refresh:ENTRY</action>
+    </entry>
+    <text>
+      <label>"Enter a number within [5,15], otherwise:
+        input will be capped at 15,
+        floored at 5,
+        or set to 10 in case of text input"</label>
+    </text>
+    <entry editable="true" allow-empty="false">
+      <input>A=$ENTRY2; case $A in [0-9]*) [[ $A -gt 15 ]] && echo 15 || [[ $A -lt 5 ]] && echo 5 || echo $A ;; *) echo 10;; esac</input>
+      <variable>ENTRY2</variable>
+      <action signal="focus-out-event">refresh:ENTRY2</action>
+    </entry>
+  <button ok></button>
+</vbox>'
+
+gtkdialog -p MAIN_DIALOG
+unset MAIN_DIALOG

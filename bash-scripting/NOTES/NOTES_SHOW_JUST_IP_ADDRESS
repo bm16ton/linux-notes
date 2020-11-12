@@ -1,0 +1,15 @@
+echo -n "ip address 192.168.0.1" | grep -o '[0-9]*'
+192
+168
+0
+1
+
+maddocks@maddocks-Q552UB:~$ echo -n "ip address 192.168.0.1" | grep -oz '[0-9]*'
+19216801maddocks@maddocks-Q552UB:~$
+
+echo -n "ip address 192.168.0.1" | grep -oz '[0-9]*' ; echo ""
+19216801
+
+echo -n "ip address 192.168.0.1" | grep -oz '[0-9]*[.]*' ; echo ""
+192.168.0.1
+

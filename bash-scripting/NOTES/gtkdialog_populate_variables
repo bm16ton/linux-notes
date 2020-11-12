@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# we search for multimedia using present tools...
+locate -i $1 | grep '.mp3\|.wma' > PLAYLIST
+
+#killall mplayer
+
+[ -z $GTKDIALOG ] && GTKDIALOG=gtkdialog
+
+# gtkdialog header
+echo '<window title="gtkdialog test" width-request="400" height-request="280"> <vbox>
+	 <list> <variable>LIST</variable>' > DIALOG
+
+#feed the list
+while read theline; do
+	#ls "$theline";
+	echo "<item>$theline</item>" >> DIALOG;
+done < PLAYLIST
+
+# gtkdialog footer
+
+#<action signal="selection-changed">	echo "LIST=\"$LIST\" - selection-changed"</action>
+#<action signal="button-press-event">	echo "$(killall mplayer) - button-press-event"	</action>
+#<action signal="key-press-event">	echo $(mplayer -quiet "$LIST")" - key-press-event"</action>
+echo '
+</list>
+	<hbox>
+		<button cancel></button>
+		<button ok></button>
+		<button>
+		<label>Click Me</label> 
+		<action>
+			echo "You choosed $LIST"
+		</action>
+		</button> 
+	</hbox>
+</vbox> </window>' >> DIALOG
+
+case $2 in
+	-d | --dump) echo "$DIALOG" ;;
+	*) $GTKDIALOG -c -f DIALOG ;;
+esac

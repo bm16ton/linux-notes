@@ -1,0 +1,1 @@
+iwconfig 2>&1 | grep -i essid | grep -v "no wireless extensions" | awk '{print $1}'

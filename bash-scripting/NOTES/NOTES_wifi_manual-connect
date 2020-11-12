@@ -1,0 +1,56 @@
+ SOME CARDS REQUIRE THAT THE KERNEL INTERFACE BE ACTIVATED BEFORE YOU CAN USE IW OR WIRELESS_TOOLS:
+
+# ip link set wlp3s0 up
+
+ SCAN FOR WIRELESS AP'S
+
+# sudo iw wlp3s0 scan
+		OR
+# sudo iw wlp3s0 scan | less
+
+ IF AD-HOC MODE SET OPERATING MODE TO IBSS (sum cards require interface to be down for changing modes "ip link set wlp3s0 down")
+
+# iw wlp3s0 set type ibss
+
+ No encryption
+
+# iw wlp3s0 connect "your_essid"
+
+ WEP
+
+    	using a hexadecimal or ASCII key (the format is distinguished automatically, because a WEP key has a fixed length):
+
+# iw wlp3s0 connect "your_essid" key 0:your_key
+
+    	using a hexadecimal or ASCII key, specifying the third set up key as default (keys are counted from zero, four are possible):
+
+# iw wlp3s0 connect "your_essid" key d:2:your_key
+
+ WPA/WPA2 ACCORDING TO WHAT YOU GOT FROM #DISCOVER ACCESS POINTS, ISSUE THIS COMMAND:
+
+# wpa_supplicant -i interface -c <(wpa_passphrase "your_SSID" "your_key")
+
+ CHECK IF ASSOCIATED
+
+# iw wlp3s0 link
+
+ HERE IS A COMPLETE EXAMPLE OF SETTING UP A WIRELESS NETWORK WITH WPA SUPPLICANT AND DHCP. 
+
+# ip link set dev wlp3s0 up
+# wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+# dhclient wlp3s0
+
+ AND THEN TO CLOSE THE CONNECTION, YOU CAN SIMPLY DISABLE THE INTERFACE:
+
+# ip link set dev wlp3s0 down
+
+ FOR A STATIC IP, YOU WOULD REPLACE THE DHCPCD INVOCATION WITH
+
+# ip addr add 192.168.0.10/24 broadcast 192.168.0.255 dev wlp3s0
+# ip route add default via 192.168.0.1
+
+ AND BEFORE DISABLING THE INTERFACE YOU WOULD FIRST FLUSH THE IP ADDRESS AND GATEWAY:
+
+# ip addr flush dev wlp3s0
+# ip route flush dev wlp3s0
+

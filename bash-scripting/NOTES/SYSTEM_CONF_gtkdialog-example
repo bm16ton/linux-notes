@@ -1,0 +1,391 @@
+#! /bin/bash
+Encoding=UTF-8
+
+FILE1=/etc/X11/xorg.conf
+FILE2=/etc/fstab
+FILE3=/boot/grub/menu.lst
+FILE4=/etc/apt/sources.list
+FILE5=/etc/conky/conky.conf
+FILE6=/etc/rc.local
+FILE7=/etc/sudoers
+FILE8=~/.bashrc
+FILE9=/root/.bashrc
+
+export MAIN_DIALOG='
+<window window_position="1" title="System Tools">
+
+<vbox>
+  <hbox homogeneous="True">
+    <frame>
+    <hbox homogeneous="True">
+      <hbox>
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/konsole_60.png</input>
+          <action>konsole &</action>
+        </button>
+      </hbox>
+
+      <vbox homogeneous="True">
+        <button>
+          <label>TOP</label>
+          <action>konsole -e top &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/root.png</input>
+          <action>kdesu "konsole -e top" &</action>
+        </button>
+      </vbox>
+    </hbox>
+    </frame>
+
+    <vbox>
+      <frame Kernel messages>
+
+        <button>
+          <label>View messages</label>
+          <action>dmesg | zenity --text-info  --width=700 --height=500 --title $"View kernel messages" &</action>
+        </button>
+
+        <entry><variable>VAR2</variable></entry>
+
+        <hbox>
+          <button>
+            <label>search</label>
+            <input file>'$HOME'/.kde/share/icons/ananke/search.png</input>
+            <action>dmesg | grep $VAR2 | zenity --text-info  --width=700 --height=500 --title $"$VAR2 in kernel messages" &</action>
+          </button>
+
+          <button>
+            <label>search & save</label>
+            <input file>'$HOME'/.kde/share/icons/ananke/save.png</input>
+            <action>dmesg | grep $VAR2 > '$HOME'/dmesg_output_$VAR2.txt &</action>
+            <action>kate '$HOME'/dmesg_output_$VAR2.txt</action>
+          </button>
+        </hbox>
+        </frame>
+      </vbox>
+    </hbox>
+
+    <frame Commands Information>
+    <hbox>
+      <text> <label>Command:</label> </text>
+      <entry><variable>VAR1</variable></entry>
+    </hbox>
+
+    <hbox>
+      <button>
+        <label>Help</label>
+        <action>$VAR1 --help | zenity --text-info --width=600 --height=600 --title $"Help" &</action>
+      </button>
+
+      <button>
+        <label>Whereis</label>
+        <action>whereis $VAR1 | zenity --text-info  --width=400 --height=20 --title $"Whereis" &</action>
+      </button>
+
+      <button>
+        <label>Which</label>
+        <action>which $VAR1 | zenity --text-info --width=200 --height=200 --title $"Version" &</action>
+      </button>
+
+      <button>
+        <label>Version</label>
+        <action>$VAR1 --version | zenity --text-info --width=200 --height=200 --title $"Version" &</action>
+      </button>
+
+      <button>
+        <label>Manual</label>
+        <action>man $VAR1 | zenity --text-info --width=400 --height=500 --title $"Manual" &</action>
+      </button>
+
+      <button>
+        <label>Kate Manual</label>
+        <action>man $VAR1 >>'$HOME'/tmp/temp_man.txt</action>
+        <action>kate '$HOME'/tmp/temp_man.txt</action>
+        <action>rm -f '$HOME'/tmp/temp_man.txt</action>
+      </button>
+    </hbox>
+    </frame>
+    <hbox homogeneous="True">
+
+    <frame>
+      <vbox>
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/gkrellm.png</input>
+          <label>Sensors</label>
+          <action>sensors | zenity --text-info  --width=700 --height=500 --title $"Sensors" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/ethernet.png</input>
+          <label>Ethernet Interfaces</label>
+          <action>ifconfig | zenity --text-info  --width=700 --height=500 --title $"View an ethernet network interface" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/wifi.png</input>
+          <label>Wireless Interfaces</label>
+          <action>iwconfig | zenity --text-info  --width=700 --height=500 --title $"Current wireless network interface" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/synaptic.png</input>
+          <label>Synaptic logs</label>
+          <action>kdesu "konqueror /root/.synaptic/log" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/hardware.png</input>
+          <label>Hardware information </label>
+          <action>kdesu "lshw | zenity --text-info  --width=700 --height=500 --title \"View detailed information about the hardware\"" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/bios.png</input>
+          <label>BIOS information</label>
+          <action>kdesu "dmidecode | head -15 | zenity --text-info  --width=700 --height=500 --title \"BIOS information\"" &</action>
+        </button>
+
+        <button>
+          <input file>'$HOME'/.kde/share/icons/ananke/sys1.png</input>
+          <label>PCI devices</label>
+          <action>lspci | zenity --text-info  --width=700 --height=500 --title $"PCI devices" &</action>
+        </button>
+      </vbox>
+    </frame>
+
+    <frame>
+      <vbox>
+        <hbox>
+          <pixmap>
+            <input file>'$HOME'/.kde/share/icons/ananke/kde.png</input>
+          </pixmap>
+
+          <menubar>
+          <menu>
+            <menuitem>
+              <label>Running kernel</label>
+              <action>uname -a | zenity --text-info  --width=900 --height=20 --title $"Current running kernel" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>KDE Version</label>
+              <action>kde-config --version | grep KDE | zenity --text-info  --width=60 --title $"KDE Version" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Show Path</label>
+              <action>echo '$PATH' | zenity --text-info  --width=900 --height=10 --title $"PATH" &</action>
+            </menuitem>
+          <label>System Information</label>
+          </menu>
+          </menubar>
+        </hbox>
+
+        <hbox>
+          <pixmap>
+            <input file>'$HOME'/.kde/share/icons/ananke/rpm.png</input>
+          </pixmap>
+
+          <menubar>
+          <menu>
+            <menuitem>
+              <label>View Installed Applications</label>
+              <action>rpm -qa | sort | zenity --text-info  --width=900 --height=600 --title $"Installed RPMS" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Open list of Installed Applications</label>
+              <action>zenity --info --text "I will open a list of the installed RPMs in a temporary text file. \\nIf you want to keep it, save it in a different location, since the temporary file will be removed."</action>
+              <action>rpm -qa | sort >> '$HOME'/tmp/installed_rpms.txt</action>
+              <action>kate '$HOME'/tmp/installed_rpms.txt</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Search in list of installed Applications</label>
+              <action>KeyRPM=(`zenity --entry --text "Enter search word:"`) ; rpm -qa | grep "$KeyRPM" | zenity --text-info  --width=900 --height=600 --title $""$KeyRPM" in installed RPMS" &</action>
+            </menuitem>
+
+          <label>Installed Applications</label>
+          </menu>
+          </menubar>
+        </hbox>
+
+        <hbox>
+          <pixmap>
+            <input file>'$HOME'/.kde/share/icons/ananke/devices.png</input>
+          </pixmap>
+
+          <menubar>
+          <menu>
+            <menuitem>
+              <label>Hard drive partitions</label>
+              <action>kdesu "fdisk -l | zenity --text-info  --width=700 --height=500 --title $"Hard drive partitions"" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Hard drive UUID</label>
+              <action>blkid | zenity --text-info  --width=700 --height=500 --title $"Hard Drive UUID" &</action>
+            </menuitem>
+
+              <menuitem>
+              <label>Current mount points</label>
+              <action>mount | zenity --text-info  --width=700 --height=500 --title $"Current mount points" & </action>
+            </menuitem>
+
+            <menuitem>
+              <label>Available disk space</label>
+              <action>df -h | zenity --text-info  --width=700 --height=500 --title $"Available disk space"  &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Connected USB devices</label>
+              <action>lsusb | zenity --text-info  --width=700 --height=500 --title $"Connected USB devices" &</action>
+            </menuitem>
+
+          <label>Devices</label>
+          </menu>
+          </menubar>
+        </hbox>
+
+        <hbox>
+          <pixmap>
+            <input file>'$HOME'/.kde/share/icons/ananke/x.png</input>
+          </pixmap>
+
+          <menubar>
+          <menu>
+            <menuitem>
+              <label>X-Server information</label>
+              <action>xdpyinfo | zenity --text-info  --width=700 --height=500 --title $"Information about the X-server" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>GLX/OpenGL Information</label>
+              <action>glxinfo | zenity --text-info  --width=700 --height=500 --title $"Information about glx and opengl" & </action>
+            </menuitem>
+
+          <label>X-Server</label>
+          </menu>
+          </menubar>
+        </hbox>
+
+        <hbox>
+          <pixmap>
+            <input file>'$HOME'/.kde/share/icons/ananke/groups.png</input>
+          </pixmap>
+
+          <menubar>
+          <menu>
+            <menuitem>
+              <label>Group memberships</label>
+              <action>groups | zenity --text-info  --width=700 --height=100 --title $"View group memberships" &</action>
+            </menuitem>
+
+            <menuitem>
+              <label>Groups</label>
+              <action>cat /etc/group | zenity --text-info  --width=700 --height=500 --title $"View Groups" &</action>
+            </menuitem>
+
+          <label>Groups</label>
+          </menu>
+          </menubar>
+        </hbox>
+
+        <button>
+          <label>Loaded modules</label>
+          <action>lsmod | zenity --text-info  --width=700 --height=500 --title $"View loaded modules" &</action>
+        </button>
+
+        <button>
+          <label>Services</label>
+          <action>chkconfig --list | zenity --text-info  --width=900 --height=600 --title $"View Services" &</action>
+        </button>
+
+      </vbox>
+    </frame>
+    </hbox>
+
+    <hbox>
+      <frame System Files>
+        <hbox>
+          <button><label>'"$FILE1"'</label><action>zenity --title='"$FILE1"' --text-info --width 500 --height 400 --filename='"$FILE1"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE1"'" &</action></button>
+        </hbox>
+
+        <hbox>
+          <button><label>'"$FILE2"'</label><action>zenity --title='"$FILE2"' --text-info --width 500 --height 400 --filename='"$FILE2"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE2"'" &</action></button>
+        </hbox>
+
+        <hbox>
+          <button><label>'"$FILE3"'</label><action>zenity --title='"$FILE3"' --text-info --width 500 --height 400 --filename='"$FILE3"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE3"'" &</action></button>
+        </hbox>
+
+        <hbox>
+          <button><label>'"$FILE4"'</label><action>zenity --title='"$FILE4"' --text-info --width 500 --height 400 --filename='"$FILE4"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE4"'" &</action></button>
+        </hbox>
+      </frame>
+
+      <frame>
+        <hbox>
+          <button><label>'"$FILE5"'</label><action>zenity --title='"$FILE5"' --text-info --width 500 --height 400 --filename='"$FILE5"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE5"'" &</action></button>
+        </hbox>
+
+        <hbox>
+          <button><label>'"$FILE6"'</label><action>zenity --title='"$FILE6"' --text-info --width 500 --height 400 --filename='"$FILE6"' &</action></button>
+          <button><input file>'$HOME'/.kde/share/icons/ananke/root.png</input><action>kdesu "kate '"$FILE6"'" &</action></button>
+        </hbox>
+
+        <hbox>
+          <button>
+            <label>'"$FILE7"'</label>
+            <action>kdesu "zenity --title='"$FILE7"' --text-info --width 500 --height 400 --filename='"$FILE7"'" &</action>
+          </button>
+
+          <button>
+            <input file>'$HOME'/.kde/share/icons/ananke/root.png</input>
+            <action>kdesu "kate '"$FILE7"'" &</action>
+          </button>
+
+        </hbox>
+
+        <hbox>
+          <button>
+            <label>'"$FILE8"'</label>
+            <action>kate '"$FILE8"' &</action>
+          </button>
+
+          <button>
+            <input file>'$HOME'/.kde/share/icons/ananke/root.png</input>
+            <action>kdesu "kate '"$FILE9"'" &</action>
+          </button>
+
+        </hbox>
+      </frame>
+    </hbox>
+
+    <frame>
+    <hbox homogeneous="True">
+      <button>
+        <input file>'$HOME'/.kde/share/icons/ananke/info.png</input>
+        <action>zenity --question --text "To be able to perform all the operations, the following apps must be installed: \\n\\ndmidecode lm_sensors lshw mesa-demos xdpyinfo \\n\\nDo you want to install them if they are not already installed?"; if [ "$?" = 0 ]; then kdesu "konsole --noclose -e apt-get install mesa-demos xdpyinfo lm_sensors dmidecode lshw"; fi</action>
+      </button>
+
+      <text use-markup="true"><label>"<span color='"'blue'"' font-family='"'purisa'"' weight='"'bold'"' size='"'large'"'><small>System Tools</small></span>"</label></text>
+
+      <button>
+        <input file>'$HOME'/.kde/share/icons/ananke/exit.png</input>
+        <action type="exit">exit 0</action>
+      </button>
+    </hbox>
+    </frame>
+  </vbox>
+  </window>
+  '
+
+  gtkdialog --program=MAIN_DIALOG

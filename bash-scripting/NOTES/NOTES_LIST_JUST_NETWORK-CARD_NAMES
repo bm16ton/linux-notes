@@ -1,0 +1,54 @@
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  EASYIEST !!!!!!!!!!!!!!!!!!!!!!11
+
+ls /sys/class/net
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  EASYIEST !!!!!!!!!!!!!!!!!!!!!!11
+
+
+
+SHOW JUST NETWORK CARD NAMES
+
+	ifconfig -a | sed 's/[ \t].*//;/^$/d'
+
+This will omit lo:
+
+	ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\)$/d'
+
+	Another alternative would be:
+
+ip -o link show | awk -F': ' '{print $2}'
+
+	Or maybe:
+
+ls /sys/class/net
+
+
+
+###############################################################################
+	ifconfig | cut -c 1-8 | sort | uniq -u
+
+cut -c 1-8 			EXTRACTS THE FIRST 8 CHARACTERS OF EACH LINE
+sort 				SORTS THE LINES
+uniq -u 			PRINTS ONLY UNIQUE LINES WHICH WILL REMOVE THE BLANK LINES FOR THE DESCRIPTION LINES WHICH HAVE ONLY SPACES IN THEIR FIRST EIGHT CHARACTERS
+###############################################################################
+	MacBookPro (OS X 10.6.4), ifconfig uses tabs instead of spaces, so it's a bit more complicated:
+
+ifconfig | expand | cut -c1-8 | sort | uniq -u | awk -F: '{print $1;}'
+
+    expand converts tabs to spaces
+awk -F: '{print $1;}' prints the first field before a colon.
+###############################################################################
+###############################################################################
+	Using /sys filesystem:
+
+basename -a $(ls /sys/devices/**/net/* -d)
+
+	Using ip and Perl:
+
+ip -o l|perl -lane'$F[1]=~s/://g;print $F[1]'
+
+
+
+
