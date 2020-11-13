@@ -1,0 +1,67 @@
+find default nic
+    ip route list
+192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.139 metric 1
+192.168.42.0/24 dev usb0 proto kernel scope link src 192.168.42.82 metric 1
+169.254.0.0/16 dev eth0 scope link metric 1000
+default via 192.168.0.249 dev eth0 proto static
+
+4th line tells what network interface is the current default and as you can see it tells us that the default one is eth0. To set usb0 as the default one we need to issue the command
+
+    sudo ip route change to default dev usb0 via [gateway ip]
+
+change “[gateway ip]” with your gateway ip. If you dont know whats your gateway ip, issue the command “ls /var/lib/dhcp3”
+
+ls /var/lib/dhcp3/
+dhclient-02a61e24-57d8-42f8-a726-69c1549f4f5e-eth0.lease
+dhclient-1a11fa8a-8555-4a86-83bb-d01028c4529c-usb0.lease
+dhclient-1a243ccf-05bf-4fd7-ae38-6759e16f3f4e-usb0.lease
+dhclient-3807ffbd-11d6-4fb9-9b0b-989595870406-eth0.lease
+dhclient-38f8832d-d0f6-4f39-933d-6d75748f9028-eth0.lease
+dhclient-43f89ef1-50a1-457f-aa0d-e9e62085ddf9-eth0.lease
+dhclient-4e32954d-e15e-4453-bfae-926d4dd05949-eth0.lease
+dhclient-6c11e53c-4989-4272-8ab4-5be4f7d57d42-eth0.lease
+dhclient-7b6bcd13-1791-4fbe-8f69-73e5e65fc64c-usb0.lease
+dhclient-83692358-9045-4b68-82ff-3af8d3261a35-eth0.lease
+dhclient-a03fa74b-68f5-48b4-97ea-40d9db334dcb-usb0.lease
+dhclient-b6c809b8-8c7d-4114-bab8-e65a89e5aa32-eth0.lease
+dhclient-c7ba5ccd-d728-406a-aa1d-c0e3fb2e74f9-eth0.lease
+dhclient-dac6741e-70ce-463c-8b23-34b7a6908ebe-eth0.lease
+dhclient-e41d06db-fef3-4849-93fd-9336ba5306df-eth0.lease
+dhclient.leases
+
+now look for the last entry of the “usb0.lease”. With the list above we can get the gateway with issuing the command “cat /var/lib/dhcp3/dhclient-a03fa74b-68f5-48b4-97ea-40d9db334dcb-usb0.lease”
+
+~$ cat /var/lib/dhcp3/dhclient-a03fa74b-68f5-48b4-97ea-40d9db334dcb-usb0.lease
+lease {
+ interface "usb0";
+ fixed-address 192.168.42.82;
+ option subnet-mask 255.255.255.0;
+ option routers 192.168.42.129;
+ option dhcp-lease-time 3600;
+ option dhcp-message-type 5;
+ option domain-name-servers 192.168.42.129;
+ option dhcp-server-identifier 192.168.42.129;
+ option dhcp-renewal-time 1800;
+ option broadcast-address 192.168.42.255;
+ option dhcp-rebinding-time 3150;
+ option host-name "my-computer-host-name";
+ renew 3 2013/03/27 10:17:39;
+ rebind 3 2013/03/27 10:44:38;
+ expire 3 2013/03/27 10:52:08;
+}
+
+With the above info we can now determine that the gateway ip for usb0 is 192.168.42.129. We just need to issue the command ip route change
+
+sudo ip route change to default dev usb0 via 192.168.42.129
+
+“ip route list” shoud now look like this
+
+~$ ip route list
+192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.139 metric 1
+192.168.42.0/24 dev usb0 proto kernel scope link src 192.168.42.82 metric 1
+169.254.0.0/16 dev eth0 scope link metric 1000
+default via 192.168.42.129 dev usb0
+
+Now all traffic will be directed to usb0 unless it is for a machine thats inside the eth0 network.
+
+

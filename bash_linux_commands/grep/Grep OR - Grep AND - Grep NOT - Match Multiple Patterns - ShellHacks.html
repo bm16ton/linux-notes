@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--[if !IE]>
+	<html class="no-js non-ie" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]>
+	<html class="no-js ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>
+	<html class="no-js ie8" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>
+	<html class="no-js ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style="" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.shellhacks.com/xmlrpc.php">
+<!-- This site is optimized with the Yoast SEO plugin v15.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Grep OR - Grep AND - Grep NOT - Match Multiple Patterns - ShellHacks</title>
+<meta name="description" content="Examples of GREP, EGREP, AWK, SED. GREP OR, GREP AND: match multiple patterns. GREP NOT: print the lines, that do not match a pattern (negative matching).">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grep OR - Grep AND - Grep NOT - Match Multiple Patterns - ShellHacks">
+<meta property="og:description" content="Examples of GREP, EGREP, AWK, SED. GREP OR, GREP AND: match multiple patterns. GREP NOT: print the lines, that do not match a pattern (negative matching).">
+<meta property="og:url" content="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/">
+<meta property="og:site_name" content="ShellHacks">
+<meta property="article:published_time" content="2016-12-27T11:36:33+00:00">
+<meta property="article:modified_time" content="2017-03-19T19:01:53+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@shellhacks">
+<meta name="twitter:site" content="@shellhacks">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="admin">
+<meta name="twitter:label2" content="Est. reading time">
+<meta name="twitter:data2" content="2 minutes">
+<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-.1em!important;background:none!important;padding:0!important}</style><link rel="stylesheet" id="wp-block-library-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/A_004.css" type="text/css" media="all"><link rel="stylesheet" id="cookie-notice-front-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/front.css" type="text/css" media="all"><link rel="stylesheet" id="activello-bootstrap-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/A.css" type="text/css" media="all"><link rel="stylesheet" id="activello-icons-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/A_002.css" type="text/css" media="all"><link rel="stylesheet" id="activello-fonts-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/css.css" type="text/css" media="all"><link rel="stylesheet" id="activello-style-css" href="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/A_003.css" type="text/css" media="all"><style type="text/css">.qtranxs_flag_en{background-image:url(/wp-content/plugins/qtranslate-x/flags/gb.png.pagespeed.ce.w314CMjBd6.png);background-repeat:no-repeat}.qtranxs_flag_ru{background-image:url(/wp-content/plugins/qtranslate-x/flags/ru.png.pagespeed.ce.b3qXQnZPvO.png);background-repeat:no-repeat}</style><style type="text/css"></style><style type="text/css">#social li{display:inline-block}#social li,#social ul{border:0!important;list-style:none;padding-left:0;text-align:center}#social li a[href*="twitter.com"] .fa:before,.fa-twitter:before{content:"\f099"}#social li a[href*="facebook.com"] .fa:before,.fa-facebook-f:before,.fa-facebook:before{content:"\f09a"}#social li a[href*="github.com"] .fa:before,.fa-github:before{content:"\f09b"}#social li a[href*="/feed"] .fa:before,.fa-rss:before{content:"\f09e"}#social li a[href*="pinterest.com"] .fa:before,.fa-pinterest:before{content:"\f0d2"}#social li a[href*="plus.google.com"] .fa:before,.fa-google-plus:before{content:"\f0d5"}#social li a[href*="linkedin.com"] .fa:before,.fa-linkedin:before{content:"\f0e1"}#social li a[href*="youtube.com"] .fa:before,.fa-youtube:before{content:"\f167"}#social li a[href*="instagram.com"] .fa:before,.fa-instagram:before{content:"\f16d"}#social li a[href*="flickr.com"] .fa:before,.fa-flickr:before{content:"\f16e"}#social li a[href*="tumblr.com"] .fa:before,.fa-tumblr:before{content:"\f173"}#social li a[href*="dribbble.com"] .fa:before,.fa-dribbble:before{content:"\f17d"}#social li a[href*="skype.com"] .fa:before,.fa-skype:before{content:"\f17e"}#social li a[href*="foursquare.com"] .fa:before,.fa-foursquare:before{content:"\f180"}#social li a[href*="vimeo.com"] .fa:before,.fa-vimeo-square:before{content:"\f194"}#social li a[href*="weheartit.com"] .fa:before,.fa-heart:before{content:"\f004"}#social li a[href*="spotify.com"] .fa:before,.fa-spotify:before{content:"\f1bc"}#social li a[href*="soundcloud.com"] .fa:before,.fa-soundcloud:before{content:"\f1be"}</style><style type="text/css">.gadsense_slot_5{display:none}@media (min-width:500px){.gadsense_slot_5{display:inline-block;width:336px;height:600px}}</style><script async="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/analytics.js"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.shellhacks.com/#website","url":"https://www.shellhacks.com/","name":"ShellHacks","description":"Command-Line Tips and Tricks","potentialAction":[{"@type":"SearchAction","target":"https://www.shellhacks.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#webpage","url":"https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/","name":"Grep OR - Grep AND - Grep NOT - Match Multiple Patterns - ShellHacks","isPartOf":{"@id":"https://www.shellhacks.com/#website"},"datePublished":"2016-12-27T11:36:33+00:00","dateModified":"2017-03-19T19:01:53+00:00","author":{"@id":"https://www.shellhacks.com/#/schema/person/d632a1244d1f7f019349fa16e9a16554"},"description":"Examples of GREP, EGREP, AWK, SED. GREP OR, GREP AND: match multiple patterns. GREP NOT: print the lines, that do not match a pattern (negative matching).","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/"]}]},{"@type":"Person","@id":"https://www.shellhacks.com/#/schema/person/d632a1244d1f7f019349fa16e9a16554","name":"admin","image":{"@type":"ImageObject","@id":"https://www.shellhacks.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/c748c0e4483afd45f3d0fcf6fe4f2a21?s=96&d=wavatar&r=g","caption":"admin"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="ShellHacks » Feed" href="https://www.shellhacks.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="ShellHacks » Comments Feed" href="https://www.shellhacks.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="ShellHacks » Grep OR – Grep AND – Grep NOT – Match Multiple Patterns Comments Feed" href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/feed/">
+<script type="text/javascript">window._wpemojiSettings={"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.shellhacks.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.3"}};!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);</script><script src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+<!-- shellhacks.com is managing ads with Advanced Ads – https://wpadvancedads.com/ --><script>advanced_ads_ready=function(){var fns=[],listener,doc=typeof document==="object"&&document,hack=doc&&doc.documentElement.doScroll,domContentLoaded="DOMContentLoaded",loaded=doc&&(hack?/^loaded|^c/:/^loaded|^i|^c/).test(doc.readyState);if(!loaded&&doc){listener=function(){doc.removeEventListener(domContentLoaded,listener);window.removeEventListener("load",listener);loaded=1;while(listener=fns.shift())listener()};doc.addEventListener(domContentLoaded,listener);window.addEventListener("load",listener)}return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}}();</script>
+<script type="text/javascript" id="cookie-notice-front-js-extra">var cnArgs={"ajaxUrl":"https:\/\/www.shellhacks.com\/wp-admin\/admin-ajax.php","nonce":"dde4ef3421","hideEffect":"fade","position":"top","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"2592000","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"1","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1","coronabarActive":"0"};</script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/front.js" id="cookie-notice-front-js"></script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/jquery.js" id="jquery-core-js"></script>
+<script type="text/javascript" id="advanced-ads-advanced-js-js-extra">var advads_options={"blog_id":"1","privacy":{"consent-method":"0","custom-cookie-name":"","custom-cookie-value":"","enabled":false,"state":"not_needed"}};</script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/advanced.js" id="advanced-ads-advanced-js-js"></script>
+<script type="text/javascript" id="advanced-ads-responsive-js-extra">var advanced_ads_responsive={"reload_on_resize":"0"};</script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/script.js" id="advanced-ads-responsive-js"></script>
+<script type="text/javascript" id="advanced_ads_pro/visitor_conditions-js-extra">var advanced_ads_pro_visitor_conditions={"referrer_cookie_name":"advanced_ads_pro_visitor_referrer","referrer_exdays":"365","page_impr_cookie_name":"advanced_ads_page_impressions","page_impr_exdays":"3650"};</script>
+<script src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/plugins_advanced-ads-pro_modules_advanced-visitor-conditions_.js"></script><script>eval(mod_pagespeed_k7TIZzVSBp);</script>
+<script>eval(mod_pagespeed_Hd9n3r6bdj);</script>
+<script>eval(mod_pagespeed_jORM_TD83V);</script>
+<script>eval(mod_pagespeed_Fyxey351Ob);</script>
+<script>eval(mod_pagespeed_l_BdWYfGuz);</script>
+<script type="text/javascript" id="advanced-ads-pro/cache_busting-js-extra">var advanced_ads_pro_ajax_object={"ajax_url":"https:\/\/www.shellhacks.com\/wp-admin\/admin-ajax.php","lazy_load_module_enabled":"1","lazy_load":{"default_offset":200,"offsets":[]},"moveintohidden":""};</script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/base.js" id="advanced-ads-pro/cache_busting-js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.shellhacks.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.shellhacks.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 5.5.3">
+<link rel="shortlink" href="https://www.shellhacks.com/?p=221">
+<link rel="alternate" type="application/json+oembed" href="https://www.shellhacks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.shellhacks.com%2Fgrep-or-grep-and-grep-not-match-multiple-patterns%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.shellhacks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.shellhacks.com%2Fgrep-or-grep-and-grep-not-match-multiple-patterns%2F&amp;format=xml">
+<link hreflang="en" href="https://www.shellhacks.com/en/grep-or-grep-and-grep-not-match-multiple-patterns/" rel="alternate">
+<link hreflang="ru" href="https://www.shellhacks.com/ru/grep-or-grep-and-grep-not-match-multiple-patterns/" rel="alternate">
+<link hreflang="x-default" href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/" rel="alternate">
+<meta name="generator" content="qTranslate-X 3.4.6.8">
+<script type="text/javascript">;var advadsCfpExpHours=3;var advadsCfpClickLimit=3;var advadsCfpBan=7;var advadsCfpPath='';var advadsCfpDomain='www.shellhacks.com';</script><script type="text/javascript">var advadsCfpQueue=[];var advadsCfpAd=function(adID){if('undefined'==typeof advadsProCfp){advadsCfpQueue.push(adID)}else{advadsProCfp.addElement(adID)}};</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-91470100-1','auto');ga('send','pageview');</script>
+<script type="text/javascript">if('undefined'==typeof advadsGATracking)window.advadsGATracking={};</script>
+<link rel="icon" href="https://www.shellhacks.com/wp-content/uploads/cropped-site-icon-1-32x32.png.pagespeed.ce.CTGL7Lfot4.png" sizes="32x32">
+<link rel="icon" href="https://www.shellhacks.com/wp-content/uploads/cropped-site-icon-1-192x192.png.pagespeed.ce.ykcnnJdAvW.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.shellhacks.com/ru/linux-define-locale-language-settings/,_wp-content,_uploads,_cropped-site-icon-1-180x180.png.pagespeed.ce.CtcUxjdRL6.png/ru/linux-define-locale-language-settings/,_wp-content,_uploads,_cropped-site-icon-1-180x180.png.pagespeed.ce.CtcUxjdRL6.png">
+<meta name="msapplication-TileImage" content="https://www.shellhacks.com/wp-content/uploads/cropped-site-icon-1-270x270.png">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/"><link rel="dns-prefetch" href="https://pagead2.googlesyndication.com/"></head>
+<body class="post-template-default single single-post postid-221 single-format-standard wp-custom-logo has-sidebar-right cookies-not-set">
+<div id="page" class="hfeed site">
+<header id="masthead" class="site-header" role="banner">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+<div class="row">
+<div class="site-navigation-inner col-sm-12">
+<div class="navbar-header">
+<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="mini-logo">
+<a href="https://www.shellhacks.com/" title="ShellHacks" rel="home">
+</a>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-primary-menu" class="nav navbar-nav"><li id="menu-item-3958" class="qtranxs-lang-menu qtranxs-lang-menu-ru menu-item menu-item-type-custom menu-item-object-custom menu-item-3958"><a title="ru" href="https://www.shellhacks.com/ru/grep-or-grep-and-grep-not-match-multiple-patterns/"><span class="glyphicon ru"></span>&nbsp;ru</a></li>
+</ul></div>
+<div class="nav-search"><form action="/" method="get"><input type="text" name="s" placeholder="Search"><button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></form>
+</div>
+</div>
+</div>
+</div>
+</nav><!-- .site-navigation -->
+<div class="container">
+<div id="logo">
+<span class="site-name">
+<a class="navbar-brand" href="https://www.shellhacks.com/" title="ShellHacks" rel="home">ShellHacks</a>
+</span><!-- end of .site-name -->
+<div class="tagline">Command-Line Tips and Tricks</div>
+</div><!-- end of #logo -->
+<div id="line"></div>
+</div>
+</header><!-- #masthead -->
+<div id="content" class="site-content">
+<div class="top-section">
+</div>
+<div class="container main-content-area">
+<div class="cat-title">
+<ul class="post-categories">
+<li><a href="https://www.shellhacks.com/cat/blog/" rel="category tag">Blog</a></li></ul>	</div>
+<div class="row">
+<div class="main-content-inner col-sm-12 col-md-8 side-right">
+<div id="primary" class="content-area">
+<main id="main" class="site-main" role="main">
+<article id="post-221" class="post-221 post type-post status-publish format-standard hentry category-blog tag-text-processing">
+<div class="blog-item-wrap">
+<div class="post-inner-content">
+<header class="entry-header page-header">
+<h1 class="entry-title">Grep OR – Grep AND – Grep NOT – Match Multiple Patterns</h1>
+<div class="entry-meta">
+<span class="posted-on">Posted on <a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/" rel="bookmark"><time class="entry-date published" datetime="2016-12-27T13:36:33+00:00">Tuesday December 27th, 2016</time><time class="updated" datetime="2017-03-19T21:01:53+00:00">Sunday March 19th, 2017</time></a></span>by <span class="author vcard"><a class="url fn n" href="https://www.shellhacks.com/author/admin/">admin</a></span>
+</div><!-- .entry-meta -->
+</header><!-- .entry-header -->
+<a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/" title="Grep OR – Grep AND – Grep NOT – Match Multiple Patterns">
+</a>
+<div class="entry-content">
+<div class="aa-191b35b72f3f888e7b75af03460ac4d5 aa-before-content" id="aa-191b35b72f3f888e7b75af03460ac4d5"></div><p>The <code>grep</code>, <code>egrep</code>, <code>sed</code> and <code>awk</code> are the most common Linux command line tools for parsing files.</p>
+<p>From the following article you’ll learn how to match multiple patterns with the <code>OR</code>, <code>AND</code>, <code>NOT</code> operators, using <code>grep</code>, <code>egrep</code>, <code>sed</code> and <code>awk</code> commands from the Linux command line.</p>
+<p>I’ll show the examples of how to find the lines, that match any of 
+multiple patterns, how to print the lines of a file, that match each of 
+provided patterns and how to find and print the lines, that do not match
+ a pattern (negative matching).<span id="more-221"></span></p>
+<p class="note-lnk"><strong>Cool Tip:</strong> Find and validate email addresses with <code>grep</code> command! The best regular expression for email addresses! <a href="https://www.shellhacks.com/regex-find-email-addresses-file-grep/">Read more →</a></p>
+<h2>GREP OR: Match Any Of Multiple Patterns</h2>
+<p>Find all the lines of a file, that match any of provided patterns.</p>
+<p>Using <code>grep</code> and <code>egrep</code> commands:</p>
+<pre>$ grep "PATTERN1\|PATTERN2" FILE
+$ grep -E "PATTERN1|PATTERN2" FILE
+$ grep -e PATTERN1 -e PATTERN2 FILE
+$ egrep "PATTERN1|PATTERN2" FILE</pre>
+<p>Using <code>awk</code> command:</p>
+<pre>$ awk '/PATTERN1|PATTERN2/' FILE</pre>
+<p>Using <code>sed</code> command:</p>
+<pre>$ sed -e '/PATTERN1/b' -e '/PATTERN2/b' -e d FILE</pre>
+<h2>GREP AND: Match Multiple Patterns</h2>
+<div class="aa-9dec11d1cf61ec98da23cfb39f4219b4 aa-manual-inside-content" id="aa-9dec11d1cf61ec98da23cfb39f4219b4"></div>
+<p>It is also often required to <code>grep</code> a file for multiple patterns – when it is needed to find all the lines in a file, that contain not one, but several patterns.</p>
+<p>Note, that you can both find the lines in a file that match multiple patterns in the exact order or in the any order.</p>
+<p>Use one of the following commands to find and print all the lines of a file, that match multiple patterns.</p>
+<p>Using <code>grep</code> command (exact order):</p>
+<pre>$ grep -E 'PATTERN1.*PATTERN2' FILE</pre>
+<p>Using <code>grep</code> command (any order):</p>
+<pre>$ grep -E 'PATTERN1.*PATTERN2|PATTERN2.*PATTERN1' FILE
+$ grep 'PATTERN1' FILE | grep 'PATTERN2'</pre>
+<p class="note-lnk"><strong>Cool Tip:</strong> The server is out of memory? Check what processes are using all the RAM and SWAP! Bash one liner for the true Linux admins! <a href="https://www.shellhacks.com/regex-find-ip-addresses-file-grep/">Read more →</a></p>
+<p>Using <code>awk</code> command (exact order):</p>
+<pre>$ awk '/PATTERN1.*PATTERN2/' FILE</pre>
+<p>Using <code>awk</code> command (any order):</p>
+<pre>$ awk '/PATTERN1/ &amp;&amp; /PATTERN2/' FILE</pre>
+<p>Using <code>sed</code> command (exact order):</p>
+<pre>$ sed '/PATTERN1.*PATTERN2/!d' FILE</pre>
+<p>Using <code>sed</code> command (any order):</p>
+<pre>$ sed '/PATTERN1/!d; /PATTERN2/!d' FILE</pre>
+<h2>GREP NOT: Negative Matching</h2>
+<p class="note-lnk"><strong>Cool Tip:</strong> Find and validate IP addresses with <code>grep</code> command! The best regular expression for IP addresses! <a href="https://www.shellhacks.com/regex-find-ip-addresses-file-grep/">Read more →</a></p>
+<p>Find and print all the lines, that do not match a pattern.</p>
+<p>Using <code>grep</code> command:</p>
+<pre>$ grep -v 'PATTERN1' FILE</pre>
+<p>Using <code>awk</code> command:</p>
+<pre>$ awk '!/PATTERN1/' FILE</pre>
+<p>Using <code>sed</code> command:</p>
+<pre>$ sed -n '/PATTERN1/!p' FILE</pre>
+<div class="aa-7bf0692a040fd231b14c3947bca6f300 aa-after-content" id="aa-7bf0692a040fd231b14c3947bca6f300"></div><div class="aa-b0b9164f7e127b08e2aa800dd416c9ae aa-after-content_2" id="aa-b0b9164f7e127b08e2aa800dd416c9ae"></div>
+</div><!-- .entry-content -->
+<div class="entry-footer">
+<span class="comments-link"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comments">Comments (5)</a></span>
+<!-- tags -->
+<div class="tagcloud">
+<a href="https://www.shellhacks.com/tag/text-processing/">text-processing</a>
+</div>
+<!-- end tags -->
+</div><!-- .entry-footer -->
+</div>
+</div>
+</article><!-- #post-## -->
+<div id="comments" class="comments-area">
+<h2 class="comments-title">
+5 Replies to “Grep OR – Grep AND – Grep NOT – Match Multiple Patterns”	</h2>
+<ol class="comment-list">
+<li class="comment even thread-even depth-1 parent" id="comment-8681">
+<div id="div-comment-8681" class="comment-body">
+<div class="comment-author vcard asdasd">
+<img alt="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/b81bed0fcfc2af4387726d809678e16f.png" srcset="https://secure.gravatar.com/avatar/b81bed0fcfc2af4387726d809678e16f?s=160&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-80 photo" loading="lazy" width="80" height="80">	<cite class="fn">Dan Shalit</cite> <span class="says">says:</span>	<a rel="nofollow" class="comment-reply-link" href="#comment-8681" data-commentid="8681" data-postid="221" data-belowelement="div-comment-8681" data-respondelement="respond" data-replyto="Reply to Dan Shalit" aria-label="Reply to Dan Shalit">Reply</a>	<div class="comment-meta commentmetadata"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comment-8681">
+Wednesday January 23rd, 2019 at 10:32 PM</a>	</div>
+</div>
+<p>$ grep ‘PATTERN1’ FILE | grep ‘PATTERN2’ works under csh but not under bash<br>
+grep mynetworks /etc/postfix/main.cf | grep #<br>
+Usage: grep [OPTION]… PATTERN [FILE]…<br>
+Try ‘grep –help’ for more information.</p>
+</div>
+<ol class="children">
+<li class="comment odd alt depth-2" id="comment-9195">
+<div id="div-comment-9195" class="comment-body">
+<div class="comment-author vcard asdasd">
+<img alt="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/b39dbe66d0a9d9dfea874393fa32294c.png" srcset="https://secure.gravatar.com/avatar/b39dbe66d0a9d9dfea874393fa32294c?s=160&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-80 photo" loading="lazy" width="80" height="80">	<cite class="fn">booty</cite> <span class="says">says:</span>	<a rel="nofollow" class="comment-reply-link" href="#comment-9195" data-commentid="9195" data-postid="221" data-belowelement="div-comment-9195" data-respondelement="respond" data-replyto="Reply to booty" aria-label="Reply to booty">Reply</a>	<div class="comment-meta commentmetadata"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comment-9195">
+Friday March 8th, 2019 at 06:58 PM</a>	</div>
+</div>
+<p>You can certainly pipe grep into another grep in bash. In your case, 
+you need to escape the octothorp (#) or surround it with quotes. All of 
+the following will work in bash:</p>
+<p>grep mynetworks /etc/postfix/main.cf | grep \#<br>
+grep mynetworks /etc/postfix/main.cf | grep “#”<br>
+grep mynetworks /etc/postfix/main.cf | grep ‘#’</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even depth-2" id="comment-9213">
+<div id="div-comment-9213" class="comment-body">
+<div class="comment-author vcard asdasd">
+<img alt="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/31409f2372ea10d12eeaedd7805600c3.png" srcset="https://secure.gravatar.com/avatar/31409f2372ea10d12eeaedd7805600c3?s=160&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-80 photo" loading="lazy" width="80" height="80">	<cite class="fn">Victor</cite> <span class="says">says:</span>	<a rel="nofollow" class="comment-reply-link" href="#comment-9213" data-commentid="9213" data-postid="221" data-belowelement="div-comment-9213" data-respondelement="respond" data-replyto="Reply to Victor" aria-label="Reply to Victor">Reply</a>	<div class="comment-meta commentmetadata"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comment-9213">
+Sunday March 10th, 2019 at 01:04 PM</a>	</div>
+</div>
+<p>grep mynetworks /etc/postfix/main.cf | grep “#”</p>
+</div>
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-11567">
+<div id="div-comment-11567" class="comment-body">
+<div class="comment-author vcard asdasd">
+<img alt="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/64f14eba987aa5f8352ee187d82fd5b1.png" srcset="https://secure.gravatar.com/avatar/64f14eba987aa5f8352ee187d82fd5b1?s=160&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-80 photo" loading="lazy" width="80" height="80">	<cite class="fn">rk</cite> <span class="says">says:</span>	<a rel="nofollow" class="comment-reply-link" href="#comment-11567" data-commentid="11567" data-postid="221" data-belowelement="div-comment-11567" data-respondelement="respond" data-replyto="Reply to rk" aria-label="Reply to rk">Reply</a>	<div class="comment-meta commentmetadata"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comment-11567">
+Wednesday July 17th, 2019 at 10:18 AM</a>	</div>
+</div>
+<p>it is helpfull</p>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-13925">
+<div id="div-comment-13925" class="comment-body">
+<div class="comment-author vcard asdasd">
+<img alt="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/cf0aa83159fcc39bc391e380bf301a58.png" srcset="https://secure.gravatar.com/avatar/cf0aa83159fcc39bc391e380bf301a58?s=160&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-80 photo" loading="lazy" width="80" height="80">	<cite class="fn">Tom</cite> <span class="says">says:</span>	<a rel="nofollow" class="comment-reply-link" href="#comment-13925" data-commentid="13925" data-postid="221" data-belowelement="div-comment-13925" data-respondelement="respond" data-replyto="Reply to Tom" aria-label="Reply to Tom">Reply</a>	<div class="comment-meta commentmetadata"><a href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#comment-13925">
+Monday January 20th, 2020 at 12:34 AM</a>	</div>
+</div>
+<p>A nice summary that covers all use cases… thank you!</p>
+</div>
+</li><!-- #comment-## -->
+</ol><!-- .comment-list -->
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.shellhacks.com/grep-or-grep-and-grep-not-match-multiple-patterns/#respond" style="display:none;">Cancel reply</a></small></h3><form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Comment"></textarea><div class="row"><div class="col-sm-4"><input id="author" name="author" type="text" size="30" aria-required="true" placeholder="Name"></div>
+<div class="col-sm-4"><input id="email" name="email" type="text" size="30" aria-required="true" placeholder="Email"></div>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Reply"> <input type="hidden" name="comment_post_ID" value="221" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e6778f550f"></p><p style="display: none;"></p>	</div><input type="hidden" id="ak_js" name="ak_js" value="1605208438027"></form><!-- #respond -->
+</div><!-- #comments -->
+<nav class="navigation post-navigation" role="navigation">
+<h1 class="screen-reader-text">Post navigation</h1>
+<div class="nav-links">
+<div class="nav-previous"><a href="https://www.shellhacks.com/tsm-client-config-file/" rel="prev"><i class="fa fa-chevron-left"></i> TSM Client Configuration File</a></div><div class="nav-next"><a href="https://www.shellhacks.com/install-vmware-tools-centos-rhel/" rel="next">HowTo: Install VMware Tools on CentOS/RHEL <i class="fa fa-chevron-right"></i></a></div>	</div><!-- .nav-links -->
+</nav><!-- .navigation -->
+</div></main><!-- #main -->
+</div><!-- #primary -->
+</div>
+<div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+<div class="inner">
+<aside class="widget aa-widget"><div style="float: left; " id="aa-918745604" data-cfptl="1" data-cfpa="3845">
+<ins class="adsbygoogle gadsense_slot_5" data-ad-client="ca-pub-9082572314087695" data-ad-slot="3156308856"></ins>
+<script async="" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/adsbygoogle.js"></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div><br style="clear: both; display: block; float: none;"><script type="text/javascript">;new advadsCfpAd(3845);</script></aside><aside id="tag_cloud-4" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="https://www.shellhacks.com/tag/access-control/" class="tag-cloud-link tag-link-129 tag-link-position-1" style="font-size: 9.4141414141414pt;" aria-label="access-control (4 items)">access-control</a>
+<a href="https://www.shellhacks.com/tag/anonymity/" class="tag-cloud-link tag-link-52 tag-link-position-2" style="font-size: 12.949494949495pt;" aria-label="anonymity (8 items)">anonymity</a>
+<a href="https://www.shellhacks.com/tag/ansible/" class="tag-cloud-link tag-link-291 tag-link-position-3" style="font-size: 9.4141414141414pt;" aria-label="ansible (4 items)">ansible</a>
+<a href="https://www.shellhacks.com/tag/apache/" class="tag-cloud-link tag-link-36 tag-link-position-4" style="font-size: 12.949494949495pt;" aria-label="apache (8 items)">apache</a>
+<a href="https://www.shellhacks.com/tag/archive/" class="tag-cloud-link tag-link-100 tag-link-position-5" style="font-size: 9.4141414141414pt;" aria-label="archive (4 items)">archive</a>
+<a href="https://www.shellhacks.com/tag/artifactory/" class="tag-cloud-link tag-link-298 tag-link-position-6" style="font-size: 8pt;" aria-label="artifactory (3 items)">artifactory</a>
+<a href="https://www.shellhacks.com/tag/aws/" class="tag-cloud-link tag-link-309 tag-link-position-7" style="font-size: 9.4141414141414pt;" aria-label="aws (4 items)">aws</a>
+<a href="https://www.shellhacks.com/tag/bash/" class="tag-cloud-link tag-link-55 tag-link-position-8" style="font-size: 15.212121212121pt;" aria-label="bash (12 items)">bash</a>
+<a href="https://www.shellhacks.com/tag/boot/" class="tag-cloud-link tag-link-232 tag-link-position-9" style="font-size: 9.4141414141414pt;" aria-label="boot (4 items)">boot</a>
+<a href="https://www.shellhacks.com/tag/cmd/" class="tag-cloud-link tag-link-294 tag-link-position-10" style="font-size: 19.313131313131pt;" aria-label="cmd (24 items)">cmd</a>
+<a href="https://www.shellhacks.com/tag/command-line/" class="tag-cloud-link tag-link-252 tag-link-position-11" style="font-size: 10.545454545455pt;" aria-label="command-line (5 items)">command-line</a>
+<a href="https://www.shellhacks.com/tag/curl/" class="tag-cloud-link tag-link-157 tag-link-position-12" style="font-size: 10.545454545455pt;" aria-label="curl (5 items)">curl</a>
+<a href="https://www.shellhacks.com/tag/dns/" class="tag-cloud-link tag-link-134 tag-link-position-13" style="font-size: 12.949494949495pt;" aria-label="dns (8 items)">dns</a>
+<a href="https://www.shellhacks.com/tag/docker/" class="tag-cloud-link tag-link-263 tag-link-position-14" style="font-size: 19.313131313131pt;" aria-label="docker (24 items)">docker</a>
+<a href="https://www.shellhacks.com/tag/encryption/" class="tag-cloud-link tag-link-28 tag-link-position-15" style="font-size: 9.4141414141414pt;" aria-label="encryption (4 items)">encryption</a>
+<a href="https://www.shellhacks.com/tag/git/" class="tag-cloud-link tag-link-30 tag-link-position-16" style="font-size: 20.020202020202pt;" aria-label="git (27 items)">git</a>
+<a href="https://www.shellhacks.com/tag/java/" class="tag-cloud-link tag-link-301 tag-link-position-17" style="font-size: 9.4141414141414pt;" aria-label="java (4 items)">java</a>
+<a href="https://www.shellhacks.com/tag/jenkins/" class="tag-cloud-link tag-link-286 tag-link-position-18" style="font-size: 12.949494949495pt;" aria-label="jenkins (8 items)">jenkins</a>
+<a href="https://www.shellhacks.com/tag/kubernetes/" class="tag-cloud-link tag-link-305 tag-link-position-19" style="font-size: 10.545454545455pt;" aria-label="kubernetes (5 items)">kubernetes</a>
+<a href="https://www.shellhacks.com/tag/linux/" class="tag-cloud-link tag-link-297 tag-link-position-20" style="font-size: 9.4141414141414pt;" aria-label="linux (4 items)">linux</a>
+<a href="https://www.shellhacks.com/tag/mail/" class="tag-cloud-link tag-link-85 tag-link-position-21" style="font-size: 9.4141414141414pt;" aria-label="mail (4 items)">mail</a>
+<a href="https://www.shellhacks.com/tag/mongodb/" class="tag-cloud-link tag-link-287 tag-link-position-22" style="font-size: 13.656565656566pt;" aria-label="mongodb (9 items)">mongodb</a>
+<a href="https://www.shellhacks.com/tag/mysql/" class="tag-cloud-link tag-link-164 tag-link-position-23" style="font-size: 15.777777777778pt;" aria-label="mysql (13 items)">mysql</a>
+<a href="https://www.shellhacks.com/tag/network/" class="tag-cloud-link tag-link-39 tag-link-position-24" style="font-size: 11.535353535354pt;" aria-label="network (6 items)">network</a>
+<a href="https://www.shellhacks.com/tag/nmap/" class="tag-cloud-link tag-link-64 tag-link-position-25" style="font-size: 8pt;" aria-label="nmap (3 items)">nmap</a>
+<a href="https://www.shellhacks.com/tag/openssl/" class="tag-cloud-link tag-link-61 tag-link-position-26" style="font-size: 14.222222222222pt;" aria-label="openssl (10 items)">openssl</a>
+<a href="https://www.shellhacks.com/tag/oracle/" class="tag-cloud-link tag-link-306 tag-link-position-27" style="font-size: 8pt;" aria-label="oracle (3 items)">oracle</a>
+<a href="https://www.shellhacks.com/tag/password/" class="tag-cloud-link tag-link-25 tag-link-position-28" style="font-size: 8pt;" aria-label="password (3 items)">password</a>
+<a href="https://www.shellhacks.com/tag/pdf/" class="tag-cloud-link tag-link-32 tag-link-position-29" style="font-size: 8pt;" aria-label="pdf (3 items)">pdf</a>
+<a href="https://www.shellhacks.com/tag/performance/" class="tag-cloud-link tag-link-70 tag-link-position-30" style="font-size: 8pt;" aria-label="performance (3 items)">performance</a>
+<a href="https://www.shellhacks.com/tag/powershell/" class="tag-cloud-link tag-link-295 tag-link-position-31" style="font-size: 20.161616161616pt;" aria-label="powershell (28 items)">powershell</a>
+<a href="https://www.shellhacks.com/tag/prometheus/" class="tag-cloud-link tag-link-270 tag-link-position-32" style="font-size: 9.4141414141414pt;" aria-label="prometheus (4 items)">prometheus</a>
+<a href="https://www.shellhacks.com/tag/proxy/" class="tag-cloud-link tag-link-103 tag-link-position-33" style="font-size: 8pt;" aria-label="proxy (3 items)">proxy</a>
+<a href="https://www.shellhacks.com/tag/python/" class="tag-cloud-link tag-link-24 tag-link-position-34" style="font-size: 12.242424242424pt;" aria-label="python (7 items)">python</a>
+<a href="https://www.shellhacks.com/tag/rabbitmq/" class="tag-cloud-link tag-link-307 tag-link-position-35" style="font-size: 8pt;" aria-label="rabbitmq (3 items)">rabbitmq</a>
+<a href="https://www.shellhacks.com/tag/raspberry-pi/" class="tag-cloud-link tag-link-302 tag-link-position-36" style="font-size: 14.222222222222pt;" aria-label="raspberry pi (10 items)">raspberry pi</a>
+<a href="https://www.shellhacks.com/tag/redis/" class="tag-cloud-link tag-link-268 tag-link-position-37" style="font-size: 8pt;" aria-label="redis (3 items)">redis</a>
+<a href="https://www.shellhacks.com/tag/ssh/" class="tag-cloud-link tag-link-45 tag-link-position-38" style="font-size: 15.212121212121pt;" aria-label="ssh (12 items)">ssh</a>
+<a href="https://www.shellhacks.com/tag/systemd/" class="tag-cloud-link tag-link-267 tag-link-position-39" style="font-size: 8pt;" aria-label="systemd (3 items)">systemd</a>
+<a href="https://www.shellhacks.com/tag/telnet/" class="tag-cloud-link tag-link-38 tag-link-position-40" style="font-size: 9.4141414141414pt;" aria-label="telnet (4 items)">telnet</a>
+<a href="https://www.shellhacks.com/tag/text-processing/" class="tag-cloud-link tag-link-242 tag-link-position-41" style="font-size: 15.212121212121pt;" aria-label="text-processing (12 items)">text-processing</a>
+<a href="https://www.shellhacks.com/tag/tor/" class="tag-cloud-link tag-link-102 tag-link-position-42" style="font-size: 9.4141414141414pt;" aria-label="tor (4 items)">tor</a>
+<a href="https://www.shellhacks.com/tag/tsm/" class="tag-cloud-link tag-link-176 tag-link-position-43" style="font-size: 10.545454545455pt;" aria-label="tsm (5 items)">tsm</a>
+<a href="https://www.shellhacks.com/tag/windows/" class="tag-cloud-link tag-link-173 tag-link-position-44" style="font-size: 22pt;" aria-label="windows (38 items)">windows</a>
+<a href="https://www.shellhacks.com/tag/yum/" class="tag-cloud-link tag-link-154 tag-link-position-45" style="font-size: 9.4141414141414pt;" aria-label="yum (4 items)">yum</a></div>
+</aside>	</div>
+</div><!-- #secondary -->
+</div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+</div><!-- close .row -->
+</div><!-- close .container -->
+</div><!-- close .site-content -->
+<div id="footer-area">
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div class="site-info container">
+<div class="row">
+<nav id="social" class="social-icons"><ul id="menu-social-items" class="social-menu"><li id="menu-item-3967" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3967"><a href="https://twitter.com/shellhacks"><i class="social_icon fa"><span>Twitter</span></i></a></li>
+<li id="menu-item-4020" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4020"><a href="https://www.shellhacks.com/feed"><i class="social_icon fa"><span>RSS</span></i></a></li>
+</ul></nav>	<div class="copyright col-md-12">
+<a href="https://www.shellhacks.com/privacy" target="_blank">Privacy</a>
+</div>
+<div class="copyright col-md-12">
+Copyright © 2011-2020 | www.ShellHacks.com	</div>
+</div>
+</div><!-- .site-info -->
+<div class="scroll-to-top" style="display: block;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+</footer><!-- #colophon -->
+</div>
+<!-- #page -->
+<script type="text/javascript">jQuery(document).ready(function($){if($(window).width()>=767){$('.navbar-nav > li.menu-item > a').click(function(){if($(this).attr('target')!=='_blank'){window.location=$(this).attr('href');}else{var win=window.open($(this).attr('href'),'_blank');win.focus();}});}});</script>
+<script>var advanced_ads_ga_UID='UA-91470100-1';var advanced_ads_ga_anonymIP=true;advanced_ads_check_adblocker=function(t){function e(t){(window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||function(t){return setTimeout(t,16)}).call(window,t)}var n=[],a=null;return e(function(){var t=document.createElement("div");t.innerHTML="&nbsp;",t.setAttribute("class","ad_unit ad-unit text-ad text_ad pub_300x250"),t.setAttribute("style","width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;"),document.body.appendChild(t),e(function(){var e=window.getComputedStyle&&window.getComputedStyle(t),o=e&&e.getPropertyValue("-moz-binding");a=e&&"none"===e.getPropertyValue("display")||"string"==typeof o&&-1!==o.indexOf("about:");for(var i=0;i<n.length;i++)n[i](a);n=[]})}),function(t){if(null===a)return void n.push(t);t(a)}}(),function(){var t=function(t,e){this.name=t,this.UID=e,this.analyticsObject=null;var n=this,a={hitType:"event",eventCategory:"Advanced Ads",eventAction:"AdBlock",eventLabel:"Yes",nonInteraction:!0,transport:"beacon"};this.analyticsObject="string"==typeof GoogleAnalyticsObject&&"function"==typeof window[GoogleAnalyticsObject]&&window[GoogleAnalyticsObject],!1===this.analyticsObject?(!function(t,e,n,a,o,i,d){t.GoogleAnalyticsObject=o,t[o]=t[o]||function(){(t[o].q=t[o].q||[]).push(arguments)},t[o].l=1*new Date,i=e.createElement(n),d=e.getElementsByTagName(n)[0],i.async=1,i.src="https://www.google-analytics.com/analytics.js",d.parentNode.insertBefore(i,d)}(window,document,"script",0,"_advads_ga"),_advads_ga("create",n.UID,"auto",this.name),advanced_ads_ga_anonymIP&&_advads_ga("set","anonymizeIp",!0),_advads_ga(n.name+".send",a)):(window.console&&window.console.log("Advanced Ads Analytics >> using other's variable named `"+GoogleAnalyticsObject+"`"),window[GoogleAnalyticsObject]("create",n.UID,"auto",this.name),window[GoogleAnalyticsObject]("set","anonymizeIp",!0),window[GoogleAnalyticsObject](n.name+".send",a))};advanced_ads_check_adblocker(function(e){e&&"string"==typeof advanced_ads_ga_UID&&advanced_ads_ga_UID&&new t("advadsTracker",advanced_ads_ga_UID)})}();</script><script src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/wp-content_themes_activello_assets_js_skip-link-focus-fix.js"></script><script>eval(mod_pagespeed_WCHn8eh1M2);</script>
+<script>eval(mod_pagespeed_LEgoYB4cVV);</script>
+<script type="text/javascript" id="advadsTrackingHandle-js-extra">var advadsTracking={"ajaxurl":"https:\/\/www.shellhacks.com\/wp-admin\/admin-ajax.php","ajaxActionName":"aatrack-records","method":"ga","blogId":"1"};</script>
+<script type="text/javascript" src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/script_002.js" id="advadsTrackingHandle-js"></script><div class="ad_unit ad-unit text-ad text_ad pub_300x250" style="width: 1px !important; height: 1px !important; position: absolute !important; left: 0px !important; top: 0px !important; overflow: hidden !important;">&nbsp;</div>
+<script type="text/javascript" id="advadsTrackingGAFront-js-extra">var advadsGALocale={"Impressions":"Impressions","Clicks":"Clicks"};</script>
+<script src="Grep%20OR%20-%20Grep%20AND%20-%20Grep%20NOT%20-%20Match%20Multiple%20Patterns%20-%20ShellHacks_files/wp-content_plugins_advanced-ads-tracking_public_assets_js_ga-.js"></script><script>eval(mod_pagespeed_p8kF75X3il);</script>
+<script>eval(mod_pagespeed_0y96pa$dYN);</script>
+<script async="async" type="text/javascript" id="akismet-form-js">var ak_js=document.getElementById("ak_js");if(!ak_js){ak_js=document.createElement('input');ak_js.setAttribute('id','ak_js');ak_js.setAttribute('name','ak_js');ak_js.setAttribute('type','hidden');}else{ak_js.parentNode.removeChild(ak_js);}ak_js.setAttribute('value',(new Date()).getTime());var commentForm=document.getElementById('commentform');if(commentForm){commentForm.appendChild(ak_js);}else{var replyRowContainer=document.getElementById('replyrow');if(replyRowContainer){var children=replyRowContainer.getElementsByTagName('td');if(children.length>0){children[0].appendChild(ak_js);}}}</script>
+<script>window.advads_passive_placements={"manual-inside-content_1":{"elementid":["aa-9dec11d1cf61ec98da23cfb39f4219b4"],"ads":{"3849":{"id":3849,"title":"[:en]AdSense - Manual Inside Content - Float Left - 336x280[:]","expiry_date":0,"visitors":[],"content":"<div class=\"aa-manual-inside-content\" style=\"float: left; margin-top: 9px; margin-right: 16px; margin-bottom: -8px; \" id=\"aa-812048349\" data-cfptl=\"1\" data-cfpa=\"3849\"><style type=\"text\/css\">\n.gadsense_slot_1{ display: inline-block; width: 300px; height: 250px;}\n@media (min-width:360px) { .gadsense_slot_1 { width: 336px; height: 280px; } }\n<\/style>\n<ins class=\"adsbygoogle gadsense_slot_1\" style=\"display:inline-block;\" data-ad-client=\"ca-pub-9082572314087695\" \ndata-ad-slot=\"8817492565\" \n><\/ins>\n<script async src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"><\/script>\n<script> \n(adsbygoogle = window.adsbygoogle || []).push({}); \n<\/script>\n<\/div><script type=\"text\/javascript\">;new advadsCfpAd( 3849 );<\/script>","once_per_page":0,"debugmode":false,"blog_id":1,"type":"adsense","position":"left","tracking_enabled":true,"privacy":{"ignore":false,"needs_consent":false}}},"type":"ad","id":3849,"placement_info":{"type":"default","name":"Manual Inside Content","item":"ad_3849","options":{"lazy_load":"enabled","placement_position":""},"id":"manual-inside-content"},"test_id":null,"inject_before":[""]},"before-content_3":{"elementid":["aa-191b35b72f3f888e7b75af03460ac4d5"],"ads":{"3844":{"id":3844,"title":"[:en]AdSense - Below Post Headline - Float Right - 336x280[:]","expiry_date":0,"visitors":[],"content":"<div class=\"aa-before-content\" style=\"float: right; margin-top: 24px; margin-bottom: -8px; margin-left: 16px; \" id=\"aa-1475871568\" data-cfptl=\"1\" data-cfpa=\"3844\"><style type=\"text\/css\">\n.gadsense_slot_2{display: none;}\n@media (min-width:480px) { .gadsense_slot_2 { display: inline-block; width: 336px; height: 280px; } }\n<\/style>\n<ins class=\"adsbygoogle gadsense_slot_2\" data-ad-client=\"ca-pub-9082572314087695\" \ndata-ad-slot=\"7626634163\" \n><\/ins>\n<script async src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"><\/script>\n<script> \n(adsbygoogle = window.adsbygoogle || []).push({}); \n<\/script>\n<\/div><script type=\"text\/javascript\">;new advadsCfpAd( 3844 );<\/script>","once_per_page":0,"debugmode":false,"blog_id":1,"type":"adsense","position":"right","tracking_enabled":true,"privacy":{"ignore":false,"needs_consent":false}}},"type":"ad","id":3844,"placement_info":{"type":"post_top","name":"Before Content","item":"ad_3844","options":{"lazy_load":"enabled","placement_position":""},"id":"before-content"},"test_id":null,"inject_before":[""]},"after-content_5":{"elementid":["aa-7bf0692a040fd231b14c3947bca6f300"],"ads":{"3847":{"id":3847,"title":"[:en]AdSense - After Content - Float Left - 336x280[:]","expiry_date":0,"visitors":[],"content":"<div class=\"aa-after-content\" style=\"float: left; margin-top: 20px; \" id=\"aa-1749948786\" data-cfptl=\"1\" data-cfpa=\"3847\"><style type=\"text\/css\">\n.gadsense_slot_3{display: none;}\n@media (min-width:480px) { .gadsense_slot_3 { display: inline-block; width: 336px; height: 280px; } }\n<\/style>\n<ins class=\"adsbygoogle gadsense_slot_3\" data-ad-client=\"ca-pub-9082572314087695\" \ndata-ad-slot=\"2278104566\" \n><\/ins>\n<script async src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"><\/script>\n<script> \n(adsbygoogle = window.adsbygoogle || []).push({}); \n<\/script>\n<\/div><script type=\"text\/javascript\">;new advadsCfpAd( 3847 );<\/script>","once_per_page":0,"debugmode":false,"blog_id":1,"type":"adsense","position":"left","tracking_enabled":true,"privacy":{"ignore":false,"needs_consent":false}}},"type":"ad","id":3847,"placement_info":{"type":"post_bottom","name":"After Content","item":"ad_3847","options":{"lazy_load":"enabled","placement_position":""},"id":"after-content"},"test_id":null,"inject_before":[""]},"after-content_2_7":{"elementid":["aa-b0b9164f7e127b08e2aa800dd416c9ae"],"ads":{"3848":{"id":3848,"title":"[:en]AdSense - After Content - Float Right - 336x280[:ru] (copy) (copy)[:]","expiry_date":0,"visitors":[],"content":"<div class=\"aa-after-content_2\" style=\"float: right; margin-top: 20px; \" id=\"aa-44077655\" data-cfptl=\"1\" data-cfpa=\"3848\"><style type=\"text\/css\">\n.gadsense_slot_4{display: none;}\n@media (min-width:480px) { .gadsense_slot_4 { display: inline-block; width: 336px; height: 280px; } }\n<\/style>\n<ins class=\"adsbygoogle gadsense_slot_4\" data-ad-client=\"ca-pub-9082572314087695\" \ndata-ad-slot=\"2278104566\" \n><\/ins>\n<script async src=\"\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js\"><\/script>\n<script> \n(adsbygoogle = window.adsbygoogle || []).push({}); \n<\/script>\n<\/div><script type=\"text\/javascript\">;new advadsCfpAd( 3848 );<\/script>","once_per_page":0,"debugmode":false,"blog_id":1,"type":"adsense","position":"right","tracking_enabled":true,"privacy":{"ignore":false,"needs_consent":false}}},"type":"ad","id":3848,"placement_info":{"type":"post_bottom","name":"After Content 2","item":"ad_3848","options":{"lazy_load":"enabled","placement_position":""},"id":"after-content_2"},"test_id":null,"inject_before":[""]}};window.advads_has_ads=[["3845","ad",null]];(window.advanced_ads_ready||jQuery(document).ready).call(null,function(){if(!window.advanced_ads_pro){console.log("Advanced Ads Pro: cache-busting can not be initialized");}});</script>
+<!-- Cookie Notice plugin v1.3.2 by Digital Factory https://dfactory.eu/ -->
+<div id="cookie-notice" role="banner" class="cookie-revoke-hidden cn-position-top cn-effect-fade cookie-notice-visible" aria-label="Cookie Notice" style="background-color: rgba(242,242,242,0.8);"><div class="cookie-notice-container" style="color: #393939;"><span id="cn-notice-text" class="cn-text-container">We
+ use cookies to ensure that we give you the best experience on our 
+website. If you continue to use this site we will assume that you are 
+happy with it.</span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button wp-default button" aria-label="Ok">Ok</a></span><a href="javascript:void(0);" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="Ok"></a></div>
+</div>
+<!-- / Cookie Notice plugin --><script type="text/javascript">var advads_tracking_ads={"1":[3845]};var advads_tracking_urls={"1":"https:\/\/www.shellhacks.com\/wp-admin\/admin-ajax.php"};var advads_gatracking_uids={"1":"UA-91470100-1"};var advads_tracking_methods={"1":"ga"};var advads_tracking_parallel={"1":false};var advads_tracking_linkbases={"1":"https:\/\/www.shellhacks.com\/linkout\/"};var advads_gatracking_allads={"1":{"3851":{"title":"AdSense - Above Headline - Responsive - 01","target":false},"3849":{"title":"AdSense - Manual Inside Content - Float Left - 336x280","target":false},"3848":{"title":"AdSense - After Content - Float Right - 336x280","target":false},"3847":{"title":"AdSense - After Content - Float Left - 336x280","target":false},"3845":{"title":"AdSense - Sidebar Widget - Responsive - 01","target":false},"3844":{"title":"AdSense - Below Post Headline - Float Right - 336x280","target":false}}};var advads_gatracking_anonym=true;</script>
+
+
+</body></html>
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Object Caching 104/114 objects using memcached
+Page Caching using memcached 
+Database Caching 14/15 queries in 0.001 seconds using memcached
+
+Served from: www.shellhacks.com @ 2020-11-12 12:20:40 by W3 Total Cache
+-->

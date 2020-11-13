@@ -1,0 +1,19 @@
+systemctl is-active --quiet service && echo Service is running
+    will exit with status zero if service is active, non-zero otherwise, making it ideal for scripts:
+    If you omit --quiet it will also output the current status to its standard output.
+
+
+    see if sshd is running if so restart it
+systemctl is-active --quiet sshd.service && systemctl restart sshd.service
+
+    This will check if the service is down and perform service restart
+systemctl is-active --quiet <service name> || <service name> restart
+    the || there checks if the return value from systemctl is non-zero meaning if it's not active as explained by the author.
+
+    non systemd OS's
+    Example:
+ps -C privoxy && echo running
+    The quiet version:
+ps -C privoxy 1>/dev/null && echo running
+    Caveat:
+    I noticed that service-names longer than 14 characters can give a false positive.

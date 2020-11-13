@@ -1,0 +1,259 @@
+    One way to do it is:
+while read p; do
+  echo "$p"
+done <peptides.txt
+
+    As pointed out in the comments, this has the side effects of trimming leading whitespace, interpreting backslash sequences,and skipping the last line if it's missing a terminating linefeed.
+    If these are concerns, you can do:
+
+while IFS="" read -r p || [ -n "$p" ]
+do
+  printf '%s\n' "$p"
+done < peptides.txt
+
+    Exceptionally, if the loop body may read from standard input, you can open the file using a different file descriptor:
+while read -u 10 p; do
+  ...
+done 10<peptides.txt
+##################################################################################################################
+cat peptides.txt | while read line
+do
+   # do something with $line here
+done
+
+    and the one-liner variant:
+cat peptides.txt | while read line; do something_with_$line_here; done
+
+    These options will skip the last line of the file if there is no trailing line feed.
+    You can avoid this by the following:
+cat peptides.txt | while read line || [[ -n $line ]];
+do
+   # do something with $line here
+done
+##################################################################################################################
+    Option 1a: While loop: Single line at a time: Input redirection
+#!/bin/bash
+filename='peptides.txt'
+echo Start
+while read p; do
+    echo $p
+done < $filename
+
+    Option 1b: While loop: Single line at a time:
+    Open the file, read from a file descriptor (in this case file descriptor #4).
+#!/bin/bash
+filename='peptides.txt'
+exec 4<$filename
+echo Start
+while read -u4 p ; do
+    echo $p
+done
+##################################################################################################################
+    This is no better than other answers, but is one more way to get the job done in a file without spaces (see comments). I find that I often need one-liners to dig through
+    lists in text files without the  extra step of using separate script files.
+
+for word in $(cat peptides.txt); do echo $word; done
+
+    This format allows me to put it all in one command-line. Change the "echo $word" portion to whatever you want and you can issue multiple commands separated by semicolons.
+    The following example uses the file's contents as arguments into two other scripts you may have written.
+
+for word in $(cat peptides.txt); do cmd_a.sh $word; cmd_b.py $word; done
+
+    Or if you intend to use this like a stream editor (learn sed) you can dump the output to another file as follows.
+for word in $(cat peptides.txt); do cmd_a.sh $word; cmd_b.py $word; done > outfile.txt
+
+    I've used these as written above because I have used text files where I've created them with one word per line. (See comments) If you have spaces that you don't want splitting your words/lines,
+    it gets a little uglier, but the same command still works as follows:
+
+OLDIFS=$IFS; IFS=$'\n'; for line in $(cat peptides.txt); do cmd_a.sh $line; cmd_b.py $line; done > outfile.txt; IFS=$OLDIFS
+
+    This just tells the shell to split on newlines only, not spaces, then returns the environment back to what it was previously.
+    At this point, you may want to consider putting it all into a shell script    rather than squeezing it all into a single line, though.
+##################################################################################################################
+Reading from a delimited file
+
+# ':' is the delimiter here, and there are three fields on each line in the file
+# IFS set below is restricted to the context of `read`, it doesn't affect any other code
+while IFS=: read -r field1 field2 field3; do
+  # process the fields
+  # if the line has less than three fields, the missing fields will be set to an empty string
+  # if the line has more than three fields, `field3` will get all the values, including the third field plus the delimiter(s)
+done < input.txt
+
+Reading from the output of another command, using process substitution
+
+while read -r line; do
+  # process the line
+done < <(command ...)
+
+    This approach is better than command ... | while read -r line; do ... because the while loop here runs in the current shell rather than a subshell as in the case of the latter.
+    See the related post A variable modified inside a while loop is not remembered.
+    Reading from a null delimited input, for example find ... -print0
+
+while read -r -d '' line; do
+  # logic
+  # use a second 'read ... <<< "$line"' if we need to tokenize the line
+done < <(find /path/to/dir -print0)
+
+Reading from more than one file at a time
+
+while read -u 3 -r line1 && read -u 4 -r line2; do
+  # process the lines
+  # note that the loop will end when we reach EOF on either of the files, because of the `&&`
+done 3< input1.txt 4< input2.txt
+    ##-u is a bash extension. For POSIX compatibility, each call would look something like read -r X <&3.
+
+    Reading a whole file into an array (Bash versions earlier to 4)
+
+while read -r line; do
+    my_array+=("$line")
+done < my_file
+
+If the file ends with an incomplete line (newline missing at the end), then:
+
+while read -r line || [[ $line ]]; do
+    my_array+=("$line")
+done < my_file
+
+Reading a whole file into an array (Bash versions 4x and later)
+
+readarray -t my_array < my_file
+
+or
+
+mapfile -t my_array < my_file
+
+And then
+
+for line in "${my_array[@]}"; do
+  # process the lines
+done
+##################################################################################################################
+    Use a while loop, like this:
+while IFS= read -r line; do
+   echo "$line"
+done <file
+
+Notes:
+    If you don't set the IFS properly, you will lose indentation.
+    You should almost always use the -r option with read.
+    Don't read lines with for
+##################################################################################################################
+Suppose you have this file:
+
+$ cat /tmp/test.txt
+Line 1
+    Line 2 has leading space
+Line 3 followed by blank line
+
+Line 5 (follows a blank line) and has trailing space
+Line 6 has no ending CR
+
+There are four elements that will alter the meaning of the file output read by many Bash solutions:
+
+    The blank line 4;
+    Leading or trailing spaces on two lines;
+    Maintaining the meaning of individual lines (i.e., each line is a record);
+    The line 6 not terminated with a CR.
+
+If you want the text file line by line including blank lines and terminating lines without CR, you must use a while loop and you must have an alternate test for the final line.
+
+Here are the methods that may change the file (in comparison to what cat returns):
+
+1) Lose the last line and leading and trailing spaces:
+$ while read -r p; do printf "%s\n" "'$p'"; done </tmp/test.txt
+'Line 1'
+'Line 2 has leading space'
+'Line 3 followed by blank line'
+''
+'Line 5 (follows a blank line) and has trailing space'
+
+(If you do while IFS= read -r p; do printf "%s\n" "'$p'"; done </tmp/test.txt instead, you preserve the leading and trailing spaces but still lose the last line if it is not terminated with CR)
+
+2) Using process substitution with cat will reads the entire file in one gulp and loses the meaning of individual lines:
+
+$ for p in "$(cat /tmp/test.txt)"; do printf "%s\n" "'$p'"; done
+'Line 1
+    Line 2 has leading space
+Line 3 followed by blank line
+
+Line 5 (follows a blank line) and has trailing space
+Line 6 has no ending CR'
+
+(If you remove the " from $(cat /tmp/test.txt) you read the file word by word rather than one gulp. Also probably not what is intended...)
+
+The most robust and simplest way to read a file line-by-line and preserve all spacing is:
+
+$ while IFS= read -r line || [[ -n $line ]]; do printf "'%s'\n" "$line"; done </tmp/test.txt
+'Line 1'
+'    Line 2 has leading space'
+'Line 3 followed by blank line'
+''
+'Line 5 (follows a blank line) and has trailing space    '
+'Line 6 has no ending CR'
+If you want to strip leading and trading spaces, remove the IFS= part:
+
+$ while read -r line || [[ -n $line ]]; do printf "'%s'\n" "$line"; done </tmp/test.txt
+'Line 1'
+'Line 2 has leading space'
+'Line 3 followed by blank line'
+''
+'Line 5 (follows a blank line) and has trailing space'
+'Line 6 has no ending CR'
+
+(A text file without a terminating \n, while fairly common, is considered broken under POSIX. If you can count on the trailing \n you do not need || [[ -n $line ]] in the while loop.)
+##################################################################################################################
+If you don't want your read to be broken by newline character, use -
+
+#!/bin/bash
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo "$line"
+done < "$1"
+
+Then run the script with file name as parameter.
+##################################################################################################################
+#!/bin/bash
+#
+# Change the file name from "test" to desired input file
+# (The comments in bash are prefixed with #'s)
+for x in $(cat test.txt)
+do
+    echo $x
+done
+##################################################################################################################
+Here is my real life example how to loop lines of another program output, check for substrings, drop double quotes from variable, use that variable outside of the loop. I guess quite many is asking these questions sooner or later.
+
+##Parse FPS from first video stream, drop quotes from fps variable
+## streams.stream.0.codec_type="video"
+## streams.stream.0.r_frame_rate="24000/1001"
+## streams.stream.0.avg_frame_rate="24000/1001"
+FPS=unknown
+while read -r line; do
+  if [[ $FPS == "unknown" ]] && [[ $line == *".codec_type=\"video\""* ]]; then
+    echo ParseFPS $line
+    FPS=parse
+  fi
+  if [[ $FPS == "parse" ]] && [[ $line == *".r_frame_rate="* ]]; then
+    echo ParseFPS $line
+    FPS=${line##*=}
+    FPS="${FPS%\"}"
+    FPS="${FPS#\"}"
+  fi
+done <<< "$(ffprobe -v quiet -print_format flat -show_format -show_streams -i "$input")"
+if [ "$FPS" == "unknown" ] || [ "$FPS" == "parse" ]; then
+  echo ParseFPS Unknown frame rate
+fi
+echo Found $FPS
+
+Declare variable outside of the loop, set value and use it outside of loop requires done <<< "$(...)" syntax. Application need to be run within a context of current console. Quotes around the command keeps newlines of output stream.
+
+Loop match for substrings then reads name=value pair, splits right-side part of last = character, drops first quote, drops last quote, we have a clean value to be used elsewhere.
+##################################################################################################################
+I like to use xargs instead of while. xargs is powerful and command line friendly
+
+cat peptides.txt | xargs -I % sh -c "echo %"
+
+With xargs, you can also add verbosity with -t and validation with -p
+##################################################################################################################
+
+
