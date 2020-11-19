@@ -1,5 +1,11 @@
-grep  "vmx\|svm" /proc/cpuinfo 
+grep  "vmx\|svm" /proc/cpuinfo
 
 grep "sd\|hd\|sr\|mmc"
 
 grep  "sd*\|svm"
+
+grep 'pattern1\|pattern2' filename
+
+with -E  #extended , it doesnt need \
+
+grep -E 'abc|123' test

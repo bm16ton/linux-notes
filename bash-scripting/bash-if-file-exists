@@ -1,0 +1,25 @@
+REGULAR FILE IF EXISTS, EXCEPT -d IM SURE MEANS SOMETHING
+
+if [ -x /usr/bin/rkhunter1 ]; then
+echo poo
+fi
+
+if ! [ -d /usr/bin/rkhunter1 ]; then
+echo poo
+fi
+
+if [[ -f poo.txt ]]; then
+echo yup
+fi
+
+IF INSTEAD OF FILE ITS A LINK
+
+if [[ -L /sys/class/hwmon/hwmon0/name ]]; then
+ echo poo
+fi
+
+IF ITS EXECUTABLE
+
+if [ -x poo.txt ]; then
+echo poo
+fi

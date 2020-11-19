@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+echo "USAGE: patchfolder /path/to/folder"
+echo " all patches should end in .patch"
+echo "assumes -p1"
+exit
+return
+fi
+for i in $1/*.patch; do patch -p1 < $i; done

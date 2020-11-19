@@ -1,0 +1,14 @@
+
+systemd.unified_cgroup_hierarchy=true                       <- cgroups2 enabl
+efi=novamap pd_ignore_unused clk_ignore_unused              <- needed on yoga c630
+net.ifnames=0
+earlycon=efi                                                <- early debug msgs to efifb
+loglevel=8
+
+SPECTRE SHUTOFF BOOT OPTIONS
+nospectre_v2                                                <-disable the kernel's built-in mitigations for the Spectre v2
+nospec_store_bypass_disable                                 <-disable the kernel's built-in mitigations for the Spectre v4
+nospectre_v1                                                <-disable the kernel's built-in mitigations for the Spectre v1
+spectre_v2=off                                              <-same as nospectre_v2 but can be fine tuned
+spec_store_bypass_disable=off                               <-same as nospec_store_bypass_disable but can be fine tuned
+PR_SPEC_DISABLE_NOEXEC                                      <-disables spectre stuff otherwised not disabled

@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">.backtick { background-color: #eeeeee; font-size: larger; }</style>
+<title>BashGuide/TestsAndConditionals - Greg's Wiki</title>
+<script type="text/javascript" src="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+<script type="text/javascript">
+<!-- // GUI edit link and i18n
+var gui_editor_link_href = "/BashGuide/TestsAndConditionals?action=edit&editor=gui";
+var gui_editor_link_text = "Edit (GUI)";
+//-->
+</script>
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static198/modernized/css/msie.css">
+<![endif]-->
+
+
+<link rel="alternate" title="Greg's Wiki: BashGuide/TestsAndConditionals" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=BashGuide%2FTestsAndConditionals&amp;ddiffs=1" type="application/rss+xml">
+<link rel="alternate" type="application/wiki" title="Edit" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=edit">
+
+<link rel="Start" href="http://mywiki.wooledge.org/EnglishFrontPage">
+<link rel="Alternate" title="Wiki Markup" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=print">
+<link rel="Up" href="http://mywiki.wooledge.org/BashGuide">
+<link rel="Search" href="http://mywiki.wooledge.org/FindPage">
+<link rel="Index" href="http://mywiki.wooledge.org/TitleIndex">
+<link rel="Glossary" href="http://mywiki.wooledge.org/WordIndex">
+<link rel="Help" href="http://mywiki.wooledge.org/HelpOnFormatting">
+</head>
+
+<body dir="ltr" lang="en">
+
+<div id="header">
+
+<form id="searchform" method="get" action="/BashGuide/TestsAndConditionals">
+<div>
+<input type="hidden" name="action" value="fullsearch">
+<input type="hidden" name="context" value="180">
+<label for="searchinput" style="display: none;">Search:</label>
+<input id="searchinput" type="text" name="value" value="Search" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" class="disabled">
+<input id="titlesearch" name="titlesearch" type="submit" value="Titles" alt="Search Titles" disabled="disabled">
+<input id="fullsearch" name="fullsearch" type="submit" value="Text" alt="Search Full Text" disabled="disabled">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<div id="logo"><a href="http://mywiki.wooledge.org/EnglishFrontPage"><img src="BashGuide_TestsAndConditionals%20-%20Greg's%20Wiki_files/moinmoin.png" alt="MoinMoin Logo"></a></div>
+<div id="username"><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=login" id="login" rel="nofollow">Login</a></div>
+<h1 id="locationline">
+
+<span id="pagelocation"><span class="pagepath"><a href="http://mywiki.wooledge.org/BashGuide">BashGuide</a></span><span class="sep">/</span><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals">TestsAndConditionals</a></span>
+</h1>
+
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://mywiki.wooledge.org/BashGuide">BashGuide</a></li><li class="wikilink"><a href="http://mywiki.wooledge.org/BashFAQ">BashFAQ</a></li><li class="wikilink"><a href="http://mywiki.wooledge.org/RecentChanges">RecentChanges</a></li><li class="wikilink"><a href="http://mywiki.wooledge.org/FindPage">FindPage</a></li><li class="wikilink"><a href="http://mywiki.wooledge.org/HelpContents">HelpContents</a></li><li class="current"><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals">TestsAndConditionals</a></li>
+</ul>
+
+<div id="pageline"><hr style="display:none;"></div>
+
+<ul class="editbar"><li><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=edit&amp;editor=text" name="texteditlink" rel="nofollow">Edit (Text)</a></li><li><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=edit&amp;editor=gui">Edit (GUI)</a></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onclick="toggleComments();return false;">Comments</a></li><li><a class="nbinfo" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="/BashGuide/TestsAndConditionals">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &amp;&amp;
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show" selected="selected">More Actions:</option><option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Subscribe User</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Remove Spam</option>
+<option value="show" disabled="disabled" class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="Load">Load</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><p class="line867"><a href="http://mywiki.wooledge.org/BashGuide/Patterns">&lt;- Patterns</a> | <a href="http://mywiki.wooledge.org/BashGuide/Arrays">Arrays -&gt;</a> <span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span></p><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-5"></span></p><div class="table-of-contents"><p class="table-of-contents-heading">Contents</p><ol><li>
+<a href="#Exit_Status">Exit Status</a></li><li>
+<a href="#Control_Operators_.28.26.26_and_.7C.7C.29">Control Operators (&amp;&amp; and ||)</a></li><li>
+<a href="#Grouping_Statements">Grouping Statements</a></li><li>
+<a href="#Conditional_Blocks_.28if.2C_test_and_.5B.5B.29">Conditional Blocks (if, test and [[)</a></li><li>
+<a href="#Conditional_Loops_.28while.2C_until_and_for.29">Conditional Loops (while, until and for)</a></li><li>
+<a href="#Choices_.28case_and_select.29">Choices (case and select)</a></li></ol></div> <span class="anchor" id="StartOfContent"></span> <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line867">
+</p><h1 id="Tests_and_Conditionals">Tests and Conditionals</h1>
+<span class="anchor" id="line-8"></span><p class="line874">Sequential 
+execution of commands is one thing, but to achieve any advanced logic in
+ your scripts or your command line one-liners, you'll need tests and 
+conditionals.  Tests determine whether something is true or false.  
+Conditionals are used to make decisions which determine the execution 
+flow of a script. <span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span></p><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-11"></span><span class="anchor" id="Exit_Status"></span> <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><p class="line867">
+</p><h2 id="Exit_Status-1">1. Exit Status</h2>
+<span class="anchor" id="line-14"></span><p class="line874">Every 
+command results in an exit code whenever it terminates.  This exit code 
+is used by whatever application started it to evaluate whether 
+everything went OK.  This exit code is like a return value from 
+functions.  It's an integer between 0 and 255 (inclusive).  Convention 
+dictates that we use 0 to denote success, and any other number to denote
+ failure of some sort.  The specific number is entirely 
+application-specific, and is used to hint as to what exactly went wrong.
+ <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line862">For example, the <tt class="backtick">ping</tt>
+ command sends ICMP packets over the network to a certain host.  That 
+host normally responds to this packet by sending the exact same one 
+right back.  This way, we can check whether we can communicate with a 
+remote host.  <tt class="backtick">ping</tt> has a range of exit codes which can tell us what went wrong, if anything did: <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span></p><p class="line867"><strong>From the Linux <tt class="backtick">ping</tt> manual:</strong> <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>If
+ ping does not receive any reply packets at all it will exit with code 
+1. If a packet count and deadline are both specified, and fewer than 
+count packets are received by the time the deadline has arrived, it will
+ also exit with code 1. On other error it exits with code 2. Otherwise 
+it exits with code 0. This makes it possible to use the exit code to see
+ if a host is alive or not.</strong> <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p></li></ul><p class="line862">The special parameter <tt class="backtick">?</tt> shows us the exit code of the last foreground process that terminated. Let's play around a little with <tt class="backtick">ping</tt> to see its exit codes: <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span></p><p class="line867"><span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p><pre><span class="anchor" id="line-1"></span>$ ping God
+<span class="anchor" id="line-2"></span>ping: unknown host God
+<span class="anchor" id="line-3"></span>$ echo $?
+<span class="anchor" id="line-4"></span>2
+<span class="anchor" id="line-5"></span>$ ping -c 1 -W 1 1.1.1.1
+<span class="anchor" id="line-6"></span>PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+<span class="anchor" id="line-7"></span>--- 1.1.1.1 ping statistics ---
+<span class="anchor" id="line-8"></span>1 packets transmitted, 0 received, 100% packet loss, time 0ms
+<span class="anchor" id="line-9"></span>$ echo $?
+<span class="anchor" id="line-10"></span>1</pre><span class="anchor" id="line-36"></span><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-37"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>Good Practice: <br>
+ You should make sure that your scripts always return a non-zero exit 
+code if something unexpected happened in their execution.  You can do 
+this with the <tt class="backtick">exit</tt> builtin:</strong> <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span></p><pre><span class="anchor" id="line-1-1"></span> rm file || { echo 'Could not delete file!' &gt;&amp;2; exit 1; }</pre><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-44"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In The Manual: <a class="http" href="http://www.gnu.org/software/bash/manual/bashref.html#Exit-Status">Exit Status</a></strong> <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-47"></span></p><ul><li style="list-style-type:none"><p class="line891"><em>Exit Code</em> / <em>Exit Status</em>:
+ Whenever a command ends it notifies its parent (which in our case will 
+always be the shell that started it) of its exit status.  This is 
+represented by a number ranging from 0 to 255.  This code is a hint as 
+to the success of the command's execution. <span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span></p></li></ul><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-50"></span><span class="anchor" id="Control_Operators"></span> <span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span></p><p class="line867">
+</p><h2 id="Control_Operators_.28.26.26_and_.7C.7C.29">2. Control Operators (&amp;&amp; and ||)</h2>
+<span class="anchor" id="line-53"></span><p class="line862">Now that we 
+know what exit codes are, and that an exit code of '0' means the 
+command's execution was successful, we'll learn to use this information.
+  The easiest way of performing a certain action depending on the 
+success of a previous command is through the use of <em>control operators</em>.  These operators are <tt class="backtick">&amp;&amp;</tt> and <tt class="backtick">||</tt>,
+ which respectively represent a logical AND and a logical OR.  These 
+operators are used between two commands, and they are used to control 
+whether the second command should be executed depending on the success 
+of the first.  This concept is called <em>conditional execution</em>. <span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span></p><p class="line874">Let's put that theory in practice: <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span></p><p class="line867"><span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span></p><pre><span class="anchor" id="line-1-2"></span>$ mkdir d &amp;&amp; cd d</pre><span class="anchor" id="line-60"></span><p class="line862">This simple example has two commands, <tt class="backtick">mkdir&nbsp;d</tt> and <tt class="backtick">cd&nbsp;d</tt>.
+  You could use a semicolon there to separate the commands and execute 
+them sequentially; but we want something more.  In the above example, <a href="http://mywiki.wooledge.org/BASH">BASH</a> will execute <tt class="backtick">mkdir&nbsp;d</tt>, then <tt class="backtick">&amp;&amp;</tt> will check the result of the <tt class="backtick">mkdir</tt> application after it finishes.  If the <tt class="backtick">mkdir</tt> application was successful (exit code 0), then Bash will execute the next command, <tt class="backtick">cd&nbsp;d</tt>.  If <tt class="backtick">mkdir&nbsp;d</tt> failed, and returned a non-0 exit code, Bash will skip the next command, and we will stay in the current directory. <span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span></p><p class="line874">Another example: <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span></p><p class="line867"><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></p><pre><span class="anchor" id="line-1-3"></span>$ rm /etc/some_file.conf || echo "I couldn't remove the file"
+<span class="anchor" id="line-2-1"></span>rm: cannot remove `/etc/some_file.conf': No such file or directory
+<span class="anchor" id="line-3-1"></span>I couldn't remove the file</pre><span class="anchor" id="line-69"></span><p class="line867"><tt class="backtick">||</tt> is much like <tt class="backtick">&amp;&amp;</tt>, but it does the exact opposite.  It only executes the next command if the first <strong>failed</strong>.  As such, the message is only echoed if the <tt class="backtick">rm</tt> command was unsuccessful. <span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span></p><p class="line862">In general, it's <em>not</em>
+ a good idea to string together multiple different control operators in 
+one command (we will explore this in the next section).  <tt class="backtick">&amp;&amp;</tt> and <tt class="backtick">||</tt>
+ are quite useful in simple cases, but not in complex ones.  In the next
+ few sections we'll show some other tools you can use for 
+decision-making. <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span></p><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-74"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>Good Practice: <br>
+ It's best not to get overzealous when dealing with conditional 
+operators. They can make your script hard to understand, especially for a
+ person that's assigned to maintain it and didn't write it themselves.</strong> <span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-77"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In The Manual: <a class="http" href="http://www.gnu.org/software/bash/manual/bashref.html#Lists">Lists of Commands</a></strong> <span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-80"></span></p><ul><li style="list-style-type:none"><p class="line891"><em>Control Operators</em>:
+ These operators are used to link commands together.  They check the 
+exit code of the previous command to determine whether or not to execute
+ the next command in the sequence. <span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span></p></li></ul><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-83"></span><span class="anchor" id="Grouping"></span> <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span></p><p class="line867">
+</p><h2 id="Grouping_Statements">3. Grouping Statements</h2>
+<span class="anchor" id="line-86"></span><p class="line874">Using 
+conditional operators is easy and terse if we want to do simple error 
+checking.  Things get a bit more dangerous, though, when we want to run 
+multiple statements if a condition holds true, or if we need to evaluate
+ multiple conditions. <span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span></p><p class="line862">Suppose you want to delete a file if it contains a certain "good" word but also doesn't contain another "bad" word.  Using <tt class="backtick">grep</tt> (a command that checks its input for patterns), we translate these conditions to: <span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span></p><p class="line867"><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span></p><pre><span class="anchor" id="line-1-4"></span>grep -q goodword "$file"            # exit status 0 (success) if "$file" contains 'goodword'
+<span class="anchor" id="line-2-2"></span>! grep -q "badword" "$file"         # exit status 0 (success) if "$file" does not contain 'badword'</pre><span class="anchor" id="line-94"></span><p class="line862">We use <tt class="backtick">-q</tt> (quiet) on grep because we don't want it to output the lines that match; we just want the exit code to be set. <span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span></p><p class="line862">The <tt class="backtick">!</tt> in front of a command causes Bash to <em>negate</em> the command's exit status.  If the command returns 0 (success), the <tt class="backtick">!</tt> turns it into a failure.  Likewise, if the command returns non-zero (failure), the <tt class="backtick">!</tt> turns it into a success. <span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span></p><p class="line862">Now, to put these conditions together and delete the file as a result of both holding true, we could use <strong>Conditional Operators</strong>: <span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span></p><p class="line867"><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span></p><pre><span class="anchor" id="line-1-5"></span>$ grep -q goodword "$file" &amp;&amp; ! grep -q badword "$file" &amp;&amp; rm "$file"</pre><span class="anchor" id="line-103"></span><p class="line862">This works great.  (In fact, we can string together as many <tt class="backtick">&amp;&amp;</tt> as we want, without any problems.)  Now, imagine we want to show an error message in case the deletion of the file failed: <span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span></p><p class="line867"><span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span></p><pre><span class="anchor" id="line-1-6"></span>$ grep -q goodword "$file" &amp;&amp; ! grep -q badword "$file" &amp;&amp; rm "$file" || echo "Couldn't delete: $file" &gt;&amp;2</pre><span class="anchor" id="line-108"></span><p class="line862">This looks OK, at first sight.  If <tt class="backtick">rm</tt>'s exit code is not <tt class="backtick">0</tt> (success), then the <tt class="backtick">||</tt> operator will trigger the next command and <tt class="backtick">echo</tt> the error message (<tt class="backtick">&gt;&amp;2</tt>: to standard error). <span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span></p><p class="line862">But there's a problem.  When we have a sequence of commands separated by <em>Conditional Operators</em>,
+ Bash looks at every one of them, in order from left to right.  The exit
+ status is carried through from whichever command was most recently 
+executed, and skipping a command doesn't change it. <span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span></p><p class="line862">So, imagine the first <tt class="backtick">grep</tt> fails (sets the exit status to 1).  Bash sees a <tt class="backtick">&amp;&amp;</tt> next, so it skips the second <tt class="backtick">grep</tt> altogether.  Then it sees another <tt class="backtick">&amp;&amp;</tt>, so it also skips the <tt class="backtick">rm</tt> which follows that one.  Finally, it sees a <tt class="backtick">||</tt> operator.  Aha!  The exit status is "failure", and we have a <tt class="backtick">||</tt>, so Bash executes the <tt class="backtick">echo</tt> command, and tells us that it couldn't delete a file -- even though it never actually <em>tried</em> to!  That's not what we want. <span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span></p><p class="line862">This doesn't sound too bad when it's just a wrong error message you receive, but if you're not careful, this <strong>will</strong>
+ eventually happen on more dangerous code.  You wouldn't want to 
+accidentally delete files or overwrite files as a result of a failure in
+ your logic! <span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span></p><p class="line862">The failure in our logic is in the fact that we <strong>want</strong> the <tt class="backtick">rm</tt> and the <tt class="backtick">echo</tt> statements to belong together.  The <tt class="backtick">echo</tt> is related to the <tt class="backtick">rm</tt>, not to the <tt class="backtick">grep</tt>s.  So what we need is to <em>group</em> them.  Grouping is done using curly braces: <span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span></p><p class="line867"><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span></p><pre><span class="anchor" id="line-1-7"></span>$ grep -q goodword "$file" &amp;&amp; ! grep -q badword "$file" &amp;&amp; { rm "$file" || echo "Couldn't delete: $file" &gt;&amp;2; }</pre><span class="anchor" id="line-121"></span><p class="line874">(Note: don't forget that you need a semicolon or newline before the closing curly brace!) <span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span></p><p class="line862">Now we've grouped the <tt class="backtick">rm</tt> and <tt class="backtick">echo</tt> command together.  That effectively means the group is considered <strong>one statement</strong> instead of several.  Going back to our situation of the first <tt class="backtick">grep</tt> failing, instead of Bash trying the <tt class="backtick">&amp;&amp;&nbsp;rm&nbsp;"$file"</tt> statement, it will now try the <tt class="backtick">&amp;&amp;&nbsp;{&nbsp;...&nbsp;}</tt> statement.  Since it is preceded by a <tt class="backtick">&amp;&amp;</tt> and the last command it ran failed (the failed <tt class="backtick">grep</tt>), it will skip this group and move on. <span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span></p><p class="line862">Command grouping can be used for more things than just <em>Conditional Operators</em>.  We may also want to group them so that we can redirect input to a group of statements instead of just one: <span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span></p><p class="line867"><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span></p><pre><span class="anchor" id="line-1-8"></span>{
+<span class="anchor" id="line-2-3"></span>    read firstLine
+<span class="anchor" id="line-3-2"></span>    read secondLine
+<span class="anchor" id="line-4-1"></span>    while read otherLine; do
+<span class="anchor" id="line-5-1"></span>        something
+<span class="anchor" id="line-6-1"></span>    done
+<span class="anchor" id="line-7-1"></span>} &lt; file</pre><span class="anchor" id="line-136"></span><p class="line862">Here we're <a href="http://mywiki.wooledge.org/BashGuide/InputAndOutput#Redirection">redirecting</a> <tt class="backtick">file</tt>
+ to a group of commands that read input.  The file will be opened when 
+the command group starts, stay open for the duration of it, and be 
+closed when the command group finishes.  This way, we can keep 
+sequentially reading lines from it with multiple commands. <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p><p class="line874">Another common use of grouping is in simple error handling: <span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span></p><p class="line867"><span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span></p><pre><span class="anchor" id="line-1-9"></span># Check if we can go into appdir.  If not, output an error and exit the script.
+<span class="anchor" id="line-2-4"></span>cd "$appdir" || { echo "Please create the appdir and try again" &gt;&amp;2; exit 1; }</pre><span class="anchor" id="line-144"></span><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-145"></span><span class="anchor" id="Conditional_Blocks"></span> <span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span></p><p class="line867">
+</p><h2 id="Conditional_Blocks_.28if.2C_test_and_.5B.5B.29">4. Conditional Blocks (if, test and [[)</h2>
+<span class="anchor" id="line-148"></span><p class="line867"><tt class="backtick">if</tt>
+ is a shell keyword that executes a command (or a set of commands), and 
+checks that command's exit code to see whether it was successful.  
+Depending on that exit code, <tt class="backtick">if</tt> executes a specific, different, block of commands. <span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span></p><p class="line867"><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span></p><pre><span class="anchor" id="line-1-10"></span>$ if true
+<span class="anchor" id="line-2-5"></span>&gt; then echo "It was true."
+<span class="anchor" id="line-3-3"></span>&gt; else echo "It was false."
+<span class="anchor" id="line-4-2"></span>&gt; fi
+<span class="anchor" id="line-5-2"></span>It was true.</pre><span class="anchor" id="line-157"></span><p class="line862">Here you see the basic outline of an <em>if-statement</em>.  We start by calling <tt class="backtick">if</tt> with the command <tt class="backtick">true</tt>.  <tt class="backtick">true</tt> is a builtin command that always ends successfully.  <tt class="backtick">if</tt> runs that command, and once the command is done, <tt class="backtick">if</tt> checks the exit code.  Since <tt class="backtick">true</tt> always exits successfully, <tt class="backtick">if</tt> continues to the <tt class="backtick">then</tt>-block, and executes that code.  Should the <tt class="backtick">true</tt> command have failed somehow, and returned an unsuccessful exit code, the <tt class="backtick">if</tt> statement would have skipped the <tt class="backtick">then</tt> code, and executed the <tt class="backtick">else</tt> code block instead. <span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span></p><p class="line862">Different people have different preferred styles for writing <tt class="backtick">if</tt> statements.  Here are some of the common styles: <span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span></p><p class="line867"><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span></p><pre><span class="anchor" id="line-1-11"></span>if COMMANDS
+<span class="anchor" id="line-2-6"></span>then OTHER COMMANDS
+<span class="anchor" id="line-3-4"></span>fi
+<span class="anchor" id="line-4-3"></span>
+<span class="anchor" id="line-5-3"></span>if COMMANDS
+<span class="anchor" id="line-6-2"></span>then
+<span class="anchor" id="line-7-2"></span>    OTHER COMMANDS
+<span class="anchor" id="line-8-1"></span>fi
+<span class="anchor" id="line-9-1"></span>
+<span class="anchor" id="line-10-1"></span>if COMMANDS; then
+<span class="anchor" id="line-11"></span>    OTHER COMMANDS
+<span class="anchor" id="line-12"></span>fi</pre><span class="anchor" id="line-175"></span><p class="line862">There are some commands designed specifically to <em>test</em> things and return an exit status based on what they find.  The first such command is <tt class="backtick">test</tt> (also known as <tt class="backtick">[</tt>).  A more advanced version is called  <tt class="backtick">[[</tt>.  <tt class="backtick">[</tt> or <tt class="backtick">test</tt> is a normal command that reads its arguments and does some checks with them.  <tt class="backtick">[[</tt> is much like <tt class="backtick">[</tt>, but it's special (a shell keyword), and it offers far more versatility.  Let's get practical: <span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span></p><p class="line867"><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span></p><pre><span class="anchor" id="line-1-12"></span>$ if [ a = b ]
+<span class="anchor" id="line-2-7"></span>&gt; then echo "a is the same as b."
+<span class="anchor" id="line-3-5"></span>&gt; else echo "a is not the same as b."
+<span class="anchor" id="line-4-4"></span>&gt; fi
+<span class="anchor" id="line-5-4"></span>a is not the same as b.</pre><span class="anchor" id="line-184"></span><p class="line867"><tt class="backtick">if</tt> executes the command <tt class="backtick">[</tt> (remember, you don't <strong>need</strong> an <tt class="backtick">if</tt> to run the <tt class="backtick">[</tt> command!) with the arguments <tt class="backtick">a</tt>, <tt class="backtick">=</tt>, <tt class="backtick">b</tt> and <tt class="backtick">]</tt>.  <tt class="backtick">[</tt> uses these arguments to determine what must be checked.  In this case, it checks whether the string <tt class="backtick">a</tt> (the first argument) is equal (the second argument) to the string <tt class="backtick">b</tt>
+ (the third argument), and if this is the case, it will exit 
+successfully.  However, since the string "a" is not equal to the string 
+"b", <tt class="backtick">[</tt> will not exit successfully (its exit code will be 1).  <tt class="backtick">if</tt> sees that <tt class="backtick">[</tt> terminated unsuccessfully and executes the code in the <tt class="backtick">else</tt> block. <span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span></p><p class="line862">The last argument, "]", means nothing to <tt class="backtick">[</tt>, but it is required. See what happens when you omit it. <span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span></p><p class="line862">Here's an example of a common pitfall when <tt class="backtick">[</tt> is used: <span class="anchor" id="line-189"></span><span class="anchor" id="line-190"></span></p><p class="line867"><span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span><span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span></p><pre><span class="anchor" id="line-1-13"></span>$ myname='Greg Wooledge' yourname='Someone Else'
+<span class="anchor" id="line-2-8"></span>$ [ $myname = $yourname ]
+<span class="anchor" id="line-3-6"></span>-bash: [: too many arguments</pre><span class="anchor" id="line-195"></span><p class="line874">Can you guess what caused the problem? <span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span></p><p class="line867"><tt class="backtick">[</tt> was executed with the arguments <tt class="backtick">Greg</tt>, <tt class="backtick">Wooledge</tt>, <tt class="backtick">=</tt>, <tt class="backtick">Someone</tt>, <tt class="backtick">Else</tt> and <tt class="backtick">]</tt>.  That is 6 arguments, not 4!  <tt class="backtick">[</tt>
+ doesn't understand what test it's supposed to execute, because it 
+expects either the first or second argument to be an operator.  In our 
+case, the operator is the third argument.  Yet another reason why <a href="http://mywiki.wooledge.org/Quotes">quotes</a> are so terribly important.  Whenever we type whitespace in Bash that belongs together with the words before or after it, <strong>we need to quote it</strong>, and the same thing goes for parameter expansions: <span class="anchor" id="line-198"></span><span class="anchor" id="line-199"></span></p><p class="line867"><span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span></p><pre><span class="anchor" id="line-1-14"></span>$ [ "$myname" = "$yourname" ]</pre><span class="anchor" id="line-202"></span><p class="line862">This time, <tt class="backtick">[</tt> sees an operator (<tt class="backtick">=</tt>) in the second argument and it can continue with its work. <span class="anchor" id="line-203"></span><span class="anchor" id="line-204"></span></p><p class="line862">To
+ help us out a little, the Korn shell introduced (and Bash adopted) a 
+new style of conditional test.  Original as the Korn shell authors are, 
+they called it <tt class="backtick">[[</tt>.  <tt class="backtick">[[</tt> is loaded with several very interesting features that <tt class="backtick">[</tt> lacks. <span class="anchor" id="line-205"></span><span class="anchor" id="line-206"></span></p><p class="line862">One of the features of <tt class="backtick">[[</tt> is <a href="http://mywiki.wooledge.org/BashGuide/Patterns">pattern</a> matching: <span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span></p><p class="line867"><span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span></p><pre><span class="anchor" id="line-1-15"></span>$ [[ $filename = *.png ]] &amp;&amp; echo "$filename looks like a PNG file"</pre><span class="anchor" id="line-211"></span><p class="line862">Another feature of <tt class="backtick">[[</tt> helps us in dealing with parameter expansions: <span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span></p><p class="line867"><span class="anchor" id="line-214"></span><span class="anchor" id="line-215"></span><span class="anchor" id="line-216"></span><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span></p><pre><span class="anchor" id="line-1-16"></span>$ [[ $me = $you ]]           # Fine.
+<span class="anchor" id="line-2-9"></span>$ [[ I am $me = I am $you ]] # Not fine!
+<span class="anchor" id="line-3-7"></span>-bash: conditional binary operator expected
+<span class="anchor" id="line-4-5"></span>-bash: syntax error near `am'</pre><span class="anchor" id="line-219"></span><p class="line862">This time, <tt class="backtick">$me</tt> and <tt class="backtick">$you</tt> did not need quotes.  Since <tt class="backtick">[[</tt> isn't a normal command (like <tt class="backtick">[</tt> is), but a <em>shell keyword</em>,
+ it has special magical powers.  It parses its arguments before they are
+ expanded by Bash and does the expansion itself, taking the result as a 
+single argument, even if that result contains whitespace.  (In other 
+words, <tt class="backtick">[[</tt> does not allow word-splitting of its arguments.)  <em>However</em>, be aware that simple strings still have to be quoted properly.  <tt class="backtick">[[</tt> treats a space outside of quotes as an argument separator, just like Bash normally would.  Let's fix our last example: <span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span></p><p class="line867"><span class="anchor" id="line-222"></span><span class="anchor" id="line-223"></span></p><pre><span class="anchor" id="line-1-17"></span>$ [[ "I am $me" = "I am $you" ]]</pre><span class="anchor" id="line-224"></span><p class="line862">Also; there is a subtle difference between quoting and not quoting the <strong>right-hand side</strong> of the comparison in <tt class="backtick">[[</tt>.  The <tt class="backtick">=</tt> operator does pattern matching by default, whenever the <em>right-hand side</em> is <strong>not</strong> quoted: <span class="anchor" id="line-225"></span><span class="anchor" id="line-226"></span></p><p class="line867"><span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span><span class="anchor" id="line-229"></span><span class="anchor" id="line-230"></span><span class="anchor" id="line-231"></span><span class="anchor" id="line-232"></span></p><pre><span class="anchor" id="line-1-18"></span>$ foo=[a-z]* name=lhunath
+<span class="anchor" id="line-2-10"></span>$ [[ $name = $foo   ]] &amp;&amp; echo "Name $name matches pattern $foo"
+<span class="anchor" id="line-3-8"></span>Name lhunath matches pattern [a-z]*
+<span class="anchor" id="line-4-6"></span>$ [[ $name = "$foo" ]] || echo "Name $name is not equal to the string $foo"
+<span class="anchor" id="line-5-5"></span>Name lhunath is not equal to the string [a-z]*</pre><span class="anchor" id="line-233"></span><p class="line862">The first test checks whether <tt class="backtick">$name</tt> matches the <em>pattern</em> in <tt class="backtick">$foo</tt>.  The second test checks whether <tt class="backtick">$name</tt> is equal to the <em>string</em> in <tt class="backtick">$foo</tt>.  The quotes really do make that much difference -- a subtlety worth noting. <span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span></p><p class="line867"><strong>Remember:</strong>
+ Quoting is usually going to give you the behavior that you want, so 
+make it a habit; omit only when the specific situation requires unquoted
+ behavior. Unfortunately, bugs caused by incorrect quoting are often 
+hard to find, because code is often valid with or without quotes, but 
+may have different meanings. In such cases, bash cannot tell that you 
+did something wrong; it just does what you tell it, even if that's not 
+what you intended. <span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span></p><p class="line862">You could also combine several <tt class="backtick">if</tt> statements into one using <tt class="backtick">elif</tt> instead of <tt class="backtick">else</tt>, where each test indicates another possibility: <span class="anchor" id="line-238"></span><span class="anchor" id="line-239"></span></p><p class="line867"><span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span><span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><span class="anchor" id="line-244"></span><span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span><span class="anchor" id="line-247"></span><span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span><span class="anchor" id="line-250"></span></p><pre><span class="anchor" id="line-1-19"></span>$ name=lhunath
+<span class="anchor" id="line-2-11"></span>$ if [[ $name = "George" ]]
+<span class="anchor" id="line-3-9"></span>&gt; then echo "Bonjour, $name"
+<span class="anchor" id="line-4-7"></span>&gt; elif [[ $name = "Hans" ]]
+<span class="anchor" id="line-5-6"></span>&gt; then echo "Goeie dag, $name"
+<span class="anchor" id="line-6-3"></span>&gt; elif [[ $name = "Jack" ]]
+<span class="anchor" id="line-7-3"></span>&gt; then echo "Good day, $name"
+<span class="anchor" id="line-8-2"></span>&gt; else
+<span class="anchor" id="line-9-2"></span>&gt; echo "You're not George, Hans or Jack.  Who the hell are you, $name?"
+<span class="anchor" id="line-10-2"></span>&gt; fi</pre><span class="anchor" id="line-251"></span><p class="line862">Note that "&lt;" and "&gt;" have special significance in bash. Pop quiz: Predict what happens when you do <tt class="backtick">[&nbsp;apple&nbsp;&lt;&nbsp;banana&nbsp;]</tt>.
+ Test your hypothesis (don't cheat by trying without first forming a 
+hypothesis!). Cue Jeopardy music... Answer: bash looks for a file named 
+"banana" in the current directory so that its contents can be sent to <tt class="backtick">[&nbsp;apple</tt>
+ (via standard input). Assuming you don't have a file named "banana" in 
+your current directory, this will result in an error. Pop quiz: Assuming
+ the original intention of that command is determine whether "apple" 
+comes before "banana", how would you change the command to get the 
+desired effect? Cue Jeopardy music... Answer: escape the "&lt;" with a 
+backslash like that: <tt class="backtick">[&nbsp;apple&nbsp;\&lt;&nbsp;banana&nbsp;]</tt> or use <tt class="backtick">[[</tt> instead of <tt class="backtick">[</tt>. <span class="anchor" id="line-252"></span><span class="anchor" id="line-253"></span></p><p class="line862">Note that the comparison operators <tt class="backtick">=</tt>, <tt class="backtick">!=</tt>, <tt class="backtick">&gt;</tt>, and <tt class="backtick">&lt;</tt>
+ treat their arguments as strings. In order for the operands to be 
+treated as numbers, you need to use one of a different set of operators:
+ <tt class="backtick">-eq</tt>, <tt class="backtick">-ne</tt> (not equal), <tt class="backtick">-lt</tt> (less than), <tt class="backtick">-gt</tt>, <tt class="backtick">-le</tt> (less than or equal to), or <tt class="backtick">-ge</tt>. Pop quiz: Come up with an example that shows the difference between <tt class="backtick">&lt;</tt> and <tt class="backtick">-lt</tt>. Cue Jeopardy music... Since "314" comes before "9" lexicographically (i.e. the order that the dictionary would put them in), <tt class="backtick">[</tt> considers the former to be <tt class="backtick">&lt;</tt> than the later; whereas, <tt class="backtick">[</tt> considers "314" NOT to be <tt class="backtick">-lt</tt> "9", because three hundred fourteen is NOT less than nine. <span class="anchor" id="line-254"></span><span class="anchor" id="line-255"></span></p><p class="line862">Now
+ that you've got a decent understanding of quoting issues that may 
+arise, let's have a look at some of the other features that <tt class="backtick">[</tt> and <tt class="backtick">[[</tt> were blessed with: <span class="anchor" id="line-256"></span><span class="anchor" id="line-257"></span></p><ul><li><p class="line862">Tests supported by <tt class="backtick">[</tt> (also known as <tt class="backtick">test</tt>) and <tt class="backtick">[[</tt>: <span class="anchor" id="line-258"></span><span class="anchor" id="line-259"></span></p><ul><li><p class="line891"><strong>-e FILE</strong>: True if file exists. <span class="anchor" id="line-260"></span></p></li><li><p class="line891"><strong>-f FILE</strong>: True if file is a regular file. <span class="anchor" id="line-261"></span></p></li><li><p class="line891"><strong>-d FILE</strong>: True if file is a directory. <span class="anchor" id="line-262"></span></p></li><li><p class="line891"><strong>-h FILE</strong>: True if file is a symbolic link. <span class="anchor" id="line-263"></span></p></li><li><p class="line891"><strong>-p PIPE</strong>: True if pipe exists. <span class="anchor" id="line-264"></span></p></li><li><p class="line891"><strong>-r FILE</strong>: True if file is readable by you. <span class="anchor" id="line-265"></span></p></li><li><p class="line891"><strong>-s FILE</strong>: True if file exists and is not empty. <span class="anchor" id="line-266"></span></p></li><li><p class="line891"><strong>-t FD  </strong>: True if FD is opened on a terminal. <span class="anchor" id="line-267"></span></p></li><li><p class="line891"><strong>-w FILE</strong>: True if the file is writable by you. <span class="anchor" id="line-268"></span></p></li><li><p class="line891"><strong>-x FILE</strong>: True if the file is executable by you. <span class="anchor" id="line-269"></span></p></li><li><p class="line891"><strong>-O FILE</strong>: True if the file is effectively owned by you. <span class="anchor" id="line-270"></span></p></li><li><p class="line891"><strong>-G FILE</strong>: True if the file is effectively owned by your group. <span class="anchor" id="line-271"></span></p></li><li><p class="line891"><strong>FILE -nt FILE</strong>: True if the first file is newer than the second. <span class="anchor" id="line-272"></span></p></li><li><p class="line891"><strong>FILE -ot FILE</strong>: True if the first file is older than the second. <span class="anchor" id="line-273"></span></p></li><li><p class="line891"><strong>-z STRING</strong>: True if the string is empty (it's length is zero). <span class="anchor" id="line-274"></span></p></li><li><p class="line891"><strong>-n STRING</strong>: True if the string is not empty (it's length is not zero). <span class="anchor" id="line-275"></span></p></li><li>String operators: <span class="anchor" id="line-276"></span><ul><li><p class="line891"><strong>STRING = STRING</strong>: True if the first string is identical to the second. <span class="anchor" id="line-277"></span></p></li><li><p class="line891"><strong>STRING != STRING</strong>: True if the first string is not identical to the second. <span class="anchor" id="line-278"></span></p></li><li><p class="line891"><strong>STRING &lt; STRING</strong>: True if the first string sorts before the second. <span class="anchor" id="line-279"></span></p></li><li><p class="line891"><strong>STRING &gt; STRING</strong>: True if the first string sorts after the second. <span class="anchor" id="line-280"></span></p></li></ul></li><li><p class="line891"><strong>! EXPR</strong>: Inverts the result of the expression (logical NOT). <span class="anchor" id="line-281"></span></p></li><li>Numeric operators: <span class="anchor" id="line-282"></span><ul><li><p class="line891"><strong>INT -eq INT</strong>: True if both integers are identical. <span class="anchor" id="line-283"></span></p></li><li><p class="line891"><strong>INT -ne INT</strong>: True if the integers are not identical. <span class="anchor" id="line-284"></span></p></li><li><p class="line891"><strong>INT -lt INT</strong>: True if the first integer is less than the second. <span class="anchor" id="line-285"></span></p></li><li><p class="line891"><strong>INT -gt INT</strong>: True if the first integer is greater than the second. <span class="anchor" id="line-286"></span></p></li><li><p class="line891"><strong>INT -le INT</strong>: True if the first integer is less than or equal to the second. <span class="anchor" id="line-287"></span></p></li><li><p class="line891"><strong>INT -ge INT</strong>: True if the first integer is greater than or equal to the second. <span class="anchor" id="line-288"></span></p></li></ul></li></ul></li><li><p class="line862">Additional tests supported only by <tt class="backtick">[[</tt>: <span class="anchor" id="line-289"></span><span class="anchor" id="line-290"></span></p><ul><li><p class="line891"><strong>STRING = (or ==) PATTERN</strong>: Not string comparison like with <tt class="backtick">[</tt> (or <tt class="backtick">test</tt>), but <em>pattern matching</em> is performed.  True if the string matches the glob pattern. <span class="anchor" id="line-291"></span></p></li><li><p class="line891"><strong>STRING != PATTERN</strong>: Not string comparison like with <tt class="backtick">[</tt> (or <tt class="backtick">test</tt>), but <em>pattern matching</em> is performed.  True if the string does not match the glob pattern. <span class="anchor" id="line-292"></span></p></li><li><p class="line891"><strong>STRING =~ REGEX</strong>: True if the string matches the regex pattern. <span class="anchor" id="line-293"></span></p></li><li><p class="line891"><strong>( EXPR )</strong>: Parentheses can be used to change the evaluation precedence. <span class="anchor" id="line-294"></span></p></li><li><p class="line891"><strong>EXPR &amp;&amp; EXPR</strong>: Much like the '-a' operator of <tt class="backtick">test</tt>, but does not evaluate the second expression if the first already turns out to be false. <span class="anchor" id="line-295"></span></p></li><li><p class="line891"><strong>EXPR || EXPR</strong>: Much like the '-o' operator of <tt class="backtick">test</tt>, but does not evaluate the second expression if the first already turns out to be true. <span class="anchor" id="line-296"></span></p></li></ul></li><li><p class="line862">Tests exclusive to <tt class="backtick">[</tt> (and <tt class="backtick">test</tt>): <span class="anchor" id="line-297"></span><span class="anchor" id="line-298"></span></p><ul><li><p class="line891"><strong>EXPR -a EXPR</strong>: True if both expressions are true (logical AND). <span class="anchor" id="line-299"></span></p></li><li><p class="line891"><strong>EXPR -o EXPR</strong>: True if either expression is true (logical OR). <span class="anchor" id="line-300"></span><span class="anchor" id="line-301"></span></p></li></ul></li></ul><p class="line874">Some examples?  Sure: <span class="anchor" id="line-302"></span><span class="anchor" id="line-303"></span></p><p class="line867"><span class="anchor" id="line-304"></span><span class="anchor" id="line-305"></span><span class="anchor" id="line-306"></span><span class="anchor" id="line-307"></span><span class="anchor" id="line-308"></span><span class="anchor" id="line-309"></span><span class="anchor" id="line-310"></span><span class="anchor" id="line-311"></span><span class="anchor" id="line-312"></span><span class="anchor" id="line-313"></span><span class="anchor" id="line-314"></span></p><pre><span class="anchor" id="line-1-20"></span>$ test -e /etc/X11/xorg.conf &amp;&amp; echo 'Your Xorg is configured!'
+<span class="anchor" id="line-2-12"></span>Your Xorg is configured!
+<span class="anchor" id="line-3-10"></span>$ test -n "$HOME" &amp;&amp; echo 'Your homedir is set!'
+<span class="anchor" id="line-4-8"></span>Your homedir is set!
+<span class="anchor" id="line-5-7"></span>$ [[ boar != bear ]] &amp;&amp; echo "Boars aren't bears."
+<span class="anchor" id="line-6-4"></span>Boars aren't bears!
+<span class="anchor" id="line-7-4"></span>$ [[ boar != b?ar ]] &amp;&amp; echo "Boars don't look like bears."
+<span class="anchor" id="line-8-3"></span>$ [[ $DISPLAY ]] &amp;&amp; echo "Your DISPLAY variable is not empty, you probably have Xorg running."
+<span class="anchor" id="line-9-3"></span>Your DISPLAY variable is not empty, you probably have Xorg running.
+<span class="anchor" id="line-10-3"></span>$ [[ ! $DISPLAY ]] &amp;&amp; echo "Your DISPLAY variable is not not empty, you probably don't have Xorg running."</pre><span class="anchor" id="line-315"></span><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-316"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>Good Practice: <br>
+ Whenever you're making a Bash script, you should always use <tt class="backtick">[[</tt> rather than <tt class="backtick">[</tt>. <br>
+ Whenever you're making a Shell script, which may end up being used in 
+an environment where Bash is not available, you should use <tt class="backtick">[</tt>, because it is far more portable.  (While being built in to Bash and some other shells, <tt class="backtick">[</tt>
+ should be available as an external application as well; meaning it will
+ work as argument to, for example, find's -exec and xargs.) <br>
+ Don't ever use the <tt class="backtick">-a</tt> or <tt class="backtick">-o</tt> tests of the <tt class="backtick">[</tt> command.  Use multiple <tt class="backtick">[</tt> commands instead (or use <tt class="backtick">[[</tt> if you can).  POSIX doesn't define the behavior of <tt class="backtick">[</tt> with complex sets of tests, so you never know what you'll get.</strong> <span class="anchor" id="line-317"></span><span class="anchor" id="line-318"></span><span class="anchor" id="line-319"></span><span class="anchor" id="line-320"></span><span class="anchor" id="line-321"></span><span class="anchor" id="line-322"></span></p><pre><span class="anchor" id="line-1-21"></span>if [ "$food" = apple ] &amp;&amp; [ "$drink" = tea ]; then
+<span class="anchor" id="line-2-13"></span>  echo "The meal is acceptable."
+<span class="anchor" id="line-3-11"></span>fi</pre><span class="anchor" id="line-323"></span><span class="anchor" id="line-324"></span></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-325"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In The Manual: <a class="http" href="http://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs">Conditional Constructs</a></strong> <span class="anchor" id="line-326"></span><span class="anchor" id="line-327"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-328"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In the FAQ: </strong> <span class="anchor" id="line-329"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/017">How can I group expressions, e.g. (A AND B) OR C?</a> </strong> <span class="anchor" id="line-330"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/031">What is the difference between the old and new test commands ([ and [[)?</a> </strong> <span class="anchor" id="line-331"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/041">How do I determine whether a variable contains a substring?</a> </strong> <span class="anchor" id="line-332"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/054">How can I tell whether a variable contains a valid number?</a></strong> <span class="anchor" id="line-333"></span><span class="anchor" id="line-334"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-335"></span></p><ul><li style="list-style-type:none"><p class="line891"><em>if (keyword)</em>: Execute a list of commands and then, depending on their exit code, execute the code in the following <tt class="backtick">then</tt> (or optionally <tt class="backtick">else</tt>) block. <span class="anchor" id="line-336"></span><span class="anchor" id="line-337"></span></p></li></ul><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-338"></span><span class="anchor" id="Conditional_Loops"></span> <span class="anchor" id="line-339"></span><span class="anchor" id="line-340"></span></p><p class="line867">
+</p><h2 id="Conditional_Loops_.28while.2C_until_and_for.29">5. Conditional Loops (while, until and for)</h2>
+<span class="anchor" id="line-341"></span><p class="line862">Now you've 
+learned how to make some basic decisions in your scripts.  However, 
+that's not enough for every kind of task we might want to script.  
+Sometimes we need to repeat things.  For that, we need to use a <em>loop</em>.
+  There are two basic kinds of loops (plus a couple of variants), and 
+using the correct kind of loop will help you keep your scripts readable 
+and maintainable. <span class="anchor" id="line-342"></span><span class="anchor" id="line-343"></span></p><p class="line862">The two basic kinds of loops are called <tt class="backtick">while</tt> and <tt class="backtick">for</tt>.  The <tt class="backtick">while</tt> loop has a variant called <tt class="backtick">until</tt> which simply reverses its check; and the <tt class="backtick">for</tt> loop can appear in two different forms.  Here's a summary: <span class="anchor" id="line-344"></span><span class="anchor" id="line-345"></span></p><ul><li><p class="line891"><strong><tt class="backtick">while</tt> <em>command</em></strong>: Repeat so long as command is executed successfully (exit code is 0). <span class="anchor" id="line-346"></span></p></li><li><p class="line891"><strong><tt class="backtick">until</tt> <em>command</em></strong>: Repeat so long as command is executed unsuccessfully (exit code is not 0). <span class="anchor" id="line-347"></span></p></li><li><p class="line891"><strong><tt class="backtick">for</tt> <em>variable</em> <tt class="backtick">in</tt> <em>words</em></strong>: Repeat the loop for each word, setting <em>variable</em> to each word in turn. <span class="anchor" id="line-348"></span></p></li><li><p class="line891"><strong><tt class="backtick">for&nbsp;((</tt> <em>expression</em><tt class="backtick">;</tt> <em>expression</em><tt class="backtick">;</tt> <em>expression</em> <tt class="backtick">))</tt></strong>:
+ Starts by evaluating the first arithmetic expression; repeats the loop 
+so long as the second arithmetic expression is successful; and at the 
+end of each loop evaluates the third arithmetic expression. <span class="anchor" id="line-349"></span><span class="anchor" id="line-350"></span></p></li></ul><p class="line862">Each loop form is followed by the key word <tt class="backtick">do</tt>, then one or more commands in the <em>body</em>, then the key word <tt class="backtick">done</tt>.  The <tt class="backtick">do</tt> and <tt class="backtick">done</tt> are similar to the <tt class="backtick">then</tt> and <tt class="backtick">fi</tt> (and possible <tt class="backtick">elif</tt> and/or <tt class="backtick">else</tt>) from the <tt class="backtick">if</tt> statement we saw earlier.  Their job is to tell us where the body of the loop begins and ends. <span class="anchor" id="line-351"></span><span class="anchor" id="line-352"></span></p><p class="line862">In practice, the loops are used for different kinds of tasks.  The <tt class="backtick">for</tt> loop (first form) is appropriate when we have a list of things, and we want to run through that list sequentially.  The <tt class="backtick">while</tt>
+ loop is appropriate when we don't know exactly how many times we need 
+to repeat something; we simply want it to keep going until we find what 
+we're looking for. <span class="anchor" id="line-353"></span><span class="anchor" id="line-354"></span></p><p class="line862">Here
+ are some examples to illustrate the differences and also the 
+similarities between the loops.  (Remember: on most operating systems, 
+you press <strong>Ctrl-C</strong> to kill a program that's running on your terminal.) <span class="anchor" id="line-355"></span><span class="anchor" id="line-356"></span></p><p class="line867"><span class="anchor" id="line-357"></span><span class="anchor" id="line-358"></span><span class="anchor" id="line-359"></span><span class="anchor" id="line-360"></span></p><pre><span class="anchor" id="line-1-22"></span>$ while true
+<span class="anchor" id="line-2-14"></span>&gt; do echo "Infinite loop"
+<span class="anchor" id="line-3-12"></span>&gt; done</pre><span class="anchor" id="line-361"></span><p class="line867"><span class="anchor" id="line-362"></span><span class="anchor" id="line-363"></span><span class="anchor" id="line-364"></span><span class="anchor" id="line-365"></span><span class="anchor" id="line-366"></span></p><pre><span class="anchor" id="line-1-23"></span>$ while ! ping -c 1 -W 1 1.1.1.1; do
+<span class="anchor" id="line-2-15"></span>&gt; echo "still waiting for 1.1.1.1"
+<span class="anchor" id="line-3-13"></span>&gt; sleep 1
+<span class="anchor" id="line-4-9"></span>&gt; done</pre><span class="anchor" id="line-367"></span><p class="line867"><span class="anchor" id="line-368"></span><span class="anchor" id="line-369"></span><span class="anchor" id="line-370"></span><span class="anchor" id="line-371"></span><span class="anchor" id="line-372"></span><span class="anchor" id="line-373"></span><span class="anchor" id="line-374"></span><span class="anchor" id="line-375"></span><span class="anchor" id="line-376"></span><span class="anchor" id="line-377"></span><span class="anchor" id="line-378"></span></p><pre><span class="anchor" id="line-1-24"></span>$ (( i=10 )); while (( i &gt; 0 ))
+<span class="anchor" id="line-2-16"></span>&gt; do echo "$i empty cans of beer."
+<span class="anchor" id="line-3-14"></span>&gt; (( i-- ))
+<span class="anchor" id="line-4-10"></span>&gt; done
+<span class="anchor" id="line-5-8"></span>$ for (( i=10; i &gt; 0; i-- ))
+<span class="anchor" id="line-6-5"></span>&gt; do echo "$i empty cans of beer."
+<span class="anchor" id="line-7-5"></span>&gt; done
+<span class="anchor" id="line-8-4"></span>$ for i in {10..1}
+<span class="anchor" id="line-9-4"></span>&gt; do echo "$i empty cans of beer."
+<span class="anchor" id="line-10-4"></span>&gt; done</pre><span class="anchor" id="line-379"></span><p class="line862">The
+ last three loops achieve exactly the same result, using different 
+syntax.  You'll encounter this many times in your shell scripting 
+experience.  There will nearly always be multiple approaches to solving a
+ problem.  The test of your skill soon won't be about solving a problem 
+as much as about how <em>best</em> to solve it.  You must learn to pick 
+the best angle of approach for the job.  Usually, the main factors to 
+take into account will be the simplicity and flexibility of the 
+resulting code.  My personal favorite is the last of the examples.  In 
+that example I used <em>Brace Expansion</em> to generate the words; but there are other ways, too. <span class="anchor" id="line-380"></span><span class="anchor" id="line-381"></span></p><p class="line862">Let's take a closer look at that last example, because although it looks the easier of the two <tt class="backtick">for</tt>s, it can often be the trickier, if you don't know exactly how it works. <span class="anchor" id="line-382"></span><span class="anchor" id="line-383"></span></p><p class="line862">As I mentioned before: <tt class="backtick">for</tt>
+ runs through a list of words and puts each one in the loop index 
+variable, one at a time, and then loops through the body with it.  The 
+tricky part is how Bash decides what the words are.  Let me explain 
+myself by expanding the braces from that previous example: <span class="anchor" id="line-384"></span><span class="anchor" id="line-385"></span></p><p class="line867"><span class="anchor" id="line-386"></span><span class="anchor" id="line-387"></span><span class="anchor" id="line-388"></span><span class="anchor" id="line-389"></span></p><pre><span class="anchor" id="line-1-25"></span>$ for i in 10 9 8 7 6 5 4 3 2 1
+<span class="anchor" id="line-2-17"></span>&gt; do echo "$i empty cans of beer."
+<span class="anchor" id="line-3-15"></span>&gt; done</pre><span class="anchor" id="line-390"></span><p class="line862">Bash takes the characters between <tt class="backtick">in</tt>
+ and the end of the line, and splits them up into words.  This splitting
+ is done on spaces and tabs, just like argument splitting.  However, if 
+there are any unquoted substitutions in there, they will be word-split 
+as well (using <a href="http://mywiki.wooledge.org/IFS">IFS</a>).  All these split-up words become the iteration elements. <span class="anchor" id="line-391"></span><span class="anchor" id="line-392"></span></p><p class="line867"><strong>As a result, be VERY careful not to make the following mistake:</strong> <span class="anchor" id="line-393"></span><span class="anchor" id="line-394"></span></p><p class="line867"><span class="anchor" id="line-395"></span><span class="anchor" id="line-396"></span><span class="anchor" id="line-397"></span><span class="anchor" id="line-398"></span><span class="anchor" id="line-399"></span><span class="anchor" id="line-400"></span><span class="anchor" id="line-401"></span><span class="anchor" id="line-402"></span><span class="anchor" id="line-403"></span><span class="anchor" id="line-404"></span><span class="anchor" id="line-405"></span><span class="anchor" id="line-406"></span></p><pre><span class="anchor" id="line-1-26"></span>$ ls
+<span class="anchor" id="line-2-18"></span>The best song in the world.mp3
+<span class="anchor" id="line-3-16"></span>$ for file in $(ls *.mp3)
+<span class="anchor" id="line-4-11"></span>&gt; do rm "$file"
+<span class="anchor" id="line-5-9"></span>&gt; done
+<span class="anchor" id="line-6-6"></span>rm: cannot remove `The': No such file or directory
+<span class="anchor" id="line-7-6"></span>rm: cannot remove `best': No such file or directory
+<span class="anchor" id="line-8-5"></span>rm: cannot remove `song': No such file or directory
+<span class="anchor" id="line-9-5"></span>rm: cannot remove `in': No such file or directory
+<span class="anchor" id="line-10-5"></span>rm: cannot remove `the': No such file or directory
+<span class="anchor" id="line-11-1"></span>rm: cannot remove `world.mp3': No such file or directory</pre><span class="anchor" id="line-407"></span><p class="line862">You should already know to quote the <tt class="backtick">$file</tt> in the <tt class="backtick">rm</tt> statement; but what's going wrong here?  Bash expands the command substitution (<tt class="backtick">$(ls&nbsp;*.mp3)</tt>), replaces it by its output, and <em>then</em> performs word splitting on it (because it was unquoted).  Essentially, Bash executes <tt class="backtick">for&nbsp;file&nbsp;in&nbsp;The&nbsp;best&nbsp;song&nbsp;in&nbsp;the&nbsp;world.mp3</tt>.  <em>Boom, you are dead</em>. <span class="anchor" id="line-408"></span><span class="anchor" id="line-409"></span></p><p class="line874">You want to quote it, you say?  Let's add another song: <span class="anchor" id="line-410"></span><span class="anchor" id="line-411"></span></p><p class="line867"><span class="anchor" id="line-412"></span><span class="anchor" id="line-413"></span><span class="anchor" id="line-414"></span><span class="anchor" id="line-415"></span><span class="anchor" id="line-416"></span><span class="anchor" id="line-417"></span><span class="anchor" id="line-418"></span></p><pre><span class="anchor" id="line-1-27"></span>$ ls
+<span class="anchor" id="line-2-19"></span>The best song in the world.mp3  The worst song in the world.mp3
+<span class="anchor" id="line-3-17"></span>$ for file in "$(ls *.mp3)"
+<span class="anchor" id="line-4-12"></span>&gt; do rm "$file"
+<span class="anchor" id="line-5-10"></span>&gt; done
+<span class="anchor" id="line-6-7"></span>rm: cannot remove `The best song in the world.mp3  The worst song in the world.mp3': No such file or directory</pre><span class="anchor" id="line-419"></span><p class="line862">Quotes will indeed protect the whitespace in your filenames; but they will do more than that.  The quotes will protect <strong>all the whitespace</strong> from the output of <tt class="backtick">ls</tt>.  There is no way Bash can know which parts of the output of <tt class="backtick">ls</tt> represent filenames; it's not psychic.  The output of <tt class="backtick">ls</tt> is a simple string, and Bash treats it as such.  The <tt class="backtick">for</tt> puts the whole quoted output in <tt class="backtick">i</tt> and runs the <tt class="backtick">rm</tt> command with it.  <em>Damn, dead again</em>. <span class="anchor" id="line-420"></span><span class="anchor" id="line-421"></span></p><p class="line874">So what do we do?  As suggested earlier, globs are your best friend: <span class="anchor" id="line-422"></span><span class="anchor" id="line-423"></span></p><p class="line867"><span class="anchor" id="line-424"></span><span class="anchor" id="line-425"></span><span class="anchor" id="line-426"></span><span class="anchor" id="line-427"></span></p><pre><span class="anchor" id="line-1-28"></span>$ for file in *.mp3
+<span class="anchor" id="line-2-20"></span>&gt; do rm "$file"
+<span class="anchor" id="line-3-18"></span>&gt; done</pre><span class="anchor" id="line-428"></span><p class="line862">This time, Bash <strong>does</strong> know that it's dealing with filenames, and it <strong>does</strong> know what the filenames are, and as such it can split them up nicely.  The result of expanding the glob is this: <tt class="backtick">for&nbsp;file&nbsp;in&nbsp;"The&nbsp;best&nbsp;song&nbsp;in&nbsp;the&nbsp;world.mp3"&nbsp;"The&nbsp;worst&nbsp;song&nbsp;in&nbsp;the&nbsp;world.mp3"</tt>. Problem solved! <span class="anchor" id="line-429"></span><span class="anchor" id="line-430"></span></p><p class="line862">Now let's look at the <tt class="backtick">while</tt> loop.  The <tt class="backtick">while</tt>
+ loop is very interesting for its capacity to execute commands until 
+something interesting happens.  Here are a few examples of how <tt class="backtick">while</tt> loops are very often used: <span class="anchor" id="line-431"></span><span class="anchor" id="line-432"></span></p><p class="line867"><span class="anchor" id="line-433"></span><span class="anchor" id="line-434"></span><span class="anchor" id="line-435"></span><span class="anchor" id="line-436"></span><span class="anchor" id="line-437"></span></p><pre><span class="anchor" id="line-1-29"></span>$ # The sweet machine; hand out sweets for a cute price.
+<span class="anchor" id="line-2-21"></span>$ while read -p $'The sweet machine.\nInsert 20c and enter your name: ' name
+<span class="anchor" id="line-3-19"></span>&gt; do echo "The machine spits out three lollipops at $name."
+<span class="anchor" id="line-4-13"></span>&gt; done</pre><span class="anchor" id="line-438"></span><p class="line867"><span class="anchor" id="line-439"></span><span class="anchor" id="line-440"></span><span class="anchor" id="line-441"></span><span class="anchor" id="line-442"></span><span class="anchor" id="line-443"></span></p><pre><span class="anchor" id="line-1-30"></span>$ # Check your email every five minutes.
+<span class="anchor" id="line-2-22"></span>$ while sleep 300
+<span class="anchor" id="line-3-20"></span>&gt; do kmail --check
+<span class="anchor" id="line-4-14"></span>&gt; done</pre><span class="anchor" id="line-444"></span><p class="line867"><span class="anchor" id="line-445"></span><span class="anchor" id="line-446"></span><span class="anchor" id="line-447"></span><span class="anchor" id="line-448"></span><span class="anchor" id="line-449"></span></p><pre><span class="anchor" id="line-1-31"></span>$ # Wait for a host to come back online.
+<span class="anchor" id="line-2-23"></span>$ while ! ping -c 1 -W 1 "$host"
+<span class="anchor" id="line-3-21"></span>&gt; do echo "$host is still unavailable."
+<span class="anchor" id="line-4-15"></span>&gt; done; echo -e "$host is available again.\a"</pre><span class="anchor" id="line-450"></span><p class="line862">The <tt class="backtick">until</tt> loop is barely ever used, if only because it is pretty much exactly the same as <tt class="backtick">while&nbsp;!</tt>.  We could rewrite our last example using an <tt class="backtick">until</tt> loop: <span class="anchor" id="line-451"></span><span class="anchor" id="line-452"></span></p><p class="line867"><span class="anchor" id="line-453"></span><span class="anchor" id="line-454"></span><span class="anchor" id="line-455"></span><span class="anchor" id="line-456"></span><span class="anchor" id="line-457"></span></p><pre><span class="anchor" id="line-1-32"></span>$ # Wait for a host to come back online.
+<span class="anchor" id="line-2-24"></span>$ until ping -c 1 -W 1 "$host"
+<span class="anchor" id="line-3-22"></span>&gt; do echo "$host is still unavailable."
+<span class="anchor" id="line-4-16"></span>&gt; done; echo -e "$host is available again.\a"</pre><span class="anchor" id="line-458"></span><p class="line862">In practice, most people simply use <tt class="backtick">while&nbsp;!</tt> instead. <span class="anchor" id="line-459"></span><span class="anchor" id="line-460"></span></p><p class="line862">Lastly, you can use the <tt class="backtick">continue</tt> builtin to skip ahead to the next iteration of a loop without executing the rest of the body, and the <tt class="backtick">break</tt> builtin to jump out of the loop and continue with the script after it.  This works in both <tt class="backtick">for</tt> and <tt class="backtick">while</tt> loops. <span class="anchor" id="line-461"></span><span class="anchor" id="line-462"></span></p><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-463"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In The Manual: <a class="http" href="http://www.gnu.org/software/bash/manual/bashref.html#Looping-Constructs">Looping Constructs</a></strong> <span class="anchor" id="line-464"></span><span class="anchor" id="line-465"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-466"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In the FAQ: </strong> <span class="anchor" id="line-467"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/015">How can I run a command on all files with the extension .gz?</a> </strong> <span class="anchor" id="line-468"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/018">How can I use numbers with leading zeros in a loop, e.g. 01, 02?</a> </strong> <span class="anchor" id="line-469"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/020">How can I find and deal with file names containing newlines, spaces or both?</a> </strong> <span class="anchor" id="line-470"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/030">How can I rename all my *.foo files to *.bar, or convert spaces to underscores, or convert upper-case file names to lower case?</a> </strong> <span class="anchor" id="line-471"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/034">Can I do a spinner in Bash?</a> </strong> <span class="anchor" id="line-472"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/046">I want to check to see whether a word is in a list (or an element is a member of a set).</a></strong> <span class="anchor" id="line-473"></span><span class="anchor" id="line-474"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-475"></span></p><ul><li style="list-style-type:none"><p class="line891"><em>Loop</em>:
+ A loop is a structure that is designed to repeat the code within until a
+ certain condition has been fulfilled.  At that point, the loop stops 
+and the code beyond it is executed. <span class="anchor" id="line-476"></span></p></li><li style="list-style-type:none"><p class="line891"><em>for (keyword)</em>: A <tt class="backtick">for</tt>-loop is a type of loop that sets a variable to each of a list of values in turn, and repeats until the list is exhausted. <span class="anchor" id="line-477"></span></p></li><li style="list-style-type:none"><p class="line891"><em>while (keyword)</em>: A <tt class="backtick">while</tt>-loop
+ is a type of loop that continues to run its code so long as a certain 
+command (run before each iteration) executes successfully. <span class="anchor" id="line-478"></span></p></li><li style="list-style-type:none"><p class="line891"><em>until (keyword)</em>: An <tt class="backtick">until</tt>-loop
+ is a type of loop that continues to run its code so long as a certain 
+command (run before each iteration) executes unsuccessfully. <span class="anchor" id="line-479"></span><span class="anchor" id="line-480"></span></p></li></ul><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-481"></span><span class="anchor" id="Choices"></span> <span class="anchor" id="line-482"></span><span class="anchor" id="line-483"></span></p><p class="line867">
+</p><h2 id="Choices_.28case_and_select.29">6. Choices (case and select)</h2>
+<span class="anchor" id="line-484"></span><p class="line862">Sometimes 
+you want to build application logic depending on the content of a 
+variable.  This could be implemented by taking a different branch of an <tt class="backtick">if</tt> statement depending on the results of testing against a glob: <span class="anchor" id="line-485"></span><span class="anchor" id="line-486"></span></p><p class="line867"><span class="anchor" id="line-487"></span><span class="anchor" id="line-488"></span><span class="anchor" id="line-489"></span><span class="anchor" id="line-490"></span><span class="anchor" id="line-491"></span><span class="anchor" id="line-492"></span><span class="anchor" id="line-493"></span><span class="anchor" id="line-494"></span><span class="anchor" id="line-495"></span><span class="anchor" id="line-496"></span><span class="anchor" id="line-497"></span><span class="anchor" id="line-498"></span><span class="anchor" id="line-499"></span><span class="anchor" id="line-500"></span><span class="anchor" id="line-501"></span><span class="anchor" id="line-502"></span><span class="anchor" id="line-503"></span><span class="anchor" id="line-504"></span><span class="anchor" id="line-505"></span><span class="anchor" id="line-506"></span></p><pre><span class="anchor" id="line-1-33"></span>shopt -s extglob
+<span class="anchor" id="line-2-25"></span>
+<span class="anchor" id="line-3-23"></span>if [[ $LANG = en* ]]; then
+<span class="anchor" id="line-4-17"></span>    echo 'Hello!'
+<span class="anchor" id="line-5-11"></span>elif [[ $LANG = fr* ]]; then
+<span class="anchor" id="line-6-8"></span>    echo 'Salut!'
+<span class="anchor" id="line-7-7"></span>elif [[ $LANG = de* ]]; then
+<span class="anchor" id="line-8-6"></span>    echo 'Guten Tag!'
+<span class="anchor" id="line-9-6"></span>elif [[ $LANG = nl* ]]; then
+<span class="anchor" id="line-10-6"></span>    echo 'Hallo!'
+<span class="anchor" id="line-11-2"></span>elif [[ $LANG = it* ]]; then
+<span class="anchor" id="line-12-1"></span>    echo 'Ciao!'
+<span class="anchor" id="line-13"></span>elif [[ $LANG = es* ]]; then
+<span class="anchor" id="line-14"></span>    echo 'Hola!'
+<span class="anchor" id="line-15"></span>elif [[ $LANG = @(C|POSIX) ]]; then
+<span class="anchor" id="line-16"></span>    echo 'hello world'
+<span class="anchor" id="line-17"></span>else
+<span class="anchor" id="line-18"></span>    echo 'I do not speak your language.'
+<span class="anchor" id="line-19"></span>fi</pre><span class="anchor" id="line-507"></span><p class="line862">But all these comparisons are a bit redundant.  Bash provides a keyword called <tt class="backtick">case</tt> exactly for this kind of situation.  A <tt class="backtick">case</tt> statement basically enumerates several possible <em>Glob Patterns</em> and checks the content of your parameter against these: <span class="anchor" id="line-508"></span><span class="anchor" id="line-509"></span></p><p class="line867"><span class="anchor" id="line-510"></span><span class="anchor" id="line-511"></span><span class="anchor" id="line-512"></span><span class="anchor" id="line-513"></span><span class="anchor" id="line-514"></span><span class="anchor" id="line-515"></span><span class="anchor" id="line-516"></span><span class="anchor" id="line-517"></span><span class="anchor" id="line-518"></span><span class="anchor" id="line-519"></span><span class="anchor" id="line-520"></span></p><pre><span class="anchor" id="line-1-34"></span>case $LANG in
+<span class="anchor" id="line-2-26"></span>    en*) echo 'Hello!' ;;
+<span class="anchor" id="line-3-24"></span>    fr*) echo 'Salut!' ;;
+<span class="anchor" id="line-4-18"></span>    de*) echo 'Guten Tag!' ;;
+<span class="anchor" id="line-5-12"></span>    nl*) echo 'Hallo!' ;;
+<span class="anchor" id="line-6-9"></span>    it*) echo 'Ciao!' ;;
+<span class="anchor" id="line-7-8"></span>    es*) echo 'Hola!' ;;
+<span class="anchor" id="line-8-7"></span>    C|POSIX) echo 'hello world' ;;
+<span class="anchor" id="line-9-7"></span>    *)   echo 'I do not speak your language.' ;;
+<span class="anchor" id="line-10-7"></span>esac</pre><span class="anchor" id="line-521"></span><p class="line862">Each choice in a <tt class="backtick">case</tt> statement consists of a pattern (or a list of patterns with <tt class="backtick">|</tt>
+ between them), a right parenthesis, a block of code that is to be 
+executed if the string matches one of those patterns, and two 
+semi-colons to denote the end of the block of code (since you might need
+ to write it on several lines).  A left parenthesis can be added to the 
+left of the pattern.  Using <tt class="backtick">;&amp;</tt> instead of <tt class="backtick">;;</tt> will grant you the ability to fall-through the <tt class="backtick">case</tt> matching in bash, zsh and ksh.  <tt class="backtick">case</tt> stops matching patterns as soon as one is successful.  Therefore, we can use the <tt class="backtick">*</tt> pattern in the end to match any case that has not been caught by the other choices. <span class="anchor" id="line-522"></span><span class="anchor" id="line-523"></span></p><p class="line862">When
+ a matching pattern is found and the ;&amp; operator is used after the 
+block of code, the block of code for the next choice will be executed 
+too no matter if the pattern for that choice matches or not. When the 
+;;&amp; operator is used, instead of the block of code for the next 
+choice, will be executed the block of code for the next matching 
+pattern. <span class="anchor" id="line-524"></span><span class="anchor" id="line-525"></span></p><p class="line862">Another construct of choice is the <tt class="backtick">select</tt>
+ construct.  This statement smells like a loop and is a convenience 
+statement for generating a menu of choices that the user can choose 
+from. <span class="anchor" id="line-526"></span><span class="anchor" id="line-527"></span></p><p class="line862">The user is presented by choices and asked to enter a number reflecting his choice.  The code in the <tt class="backtick">select</tt>
+ block is then executed with a variable set to the choice the user made.
+  If the user's choice was invalid, the variable is made empty: <span class="anchor" id="line-528"></span><span class="anchor" id="line-529"></span></p><p class="line867"><span class="anchor" id="line-530"></span><span class="anchor" id="line-531"></span><span class="anchor" id="line-532"></span><span class="anchor" id="line-533"></span><span class="anchor" id="line-534"></span><span class="anchor" id="line-535"></span><span class="anchor" id="line-536"></span></p><pre><span class="anchor" id="line-1-35"></span>$ echo "Which of these does not belong in the group?"; \
+<span class="anchor" id="line-2-27"></span>&gt; select choice in Apples Pears Crisps Lemons Kiwis; do
+<span class="anchor" id="line-3-25"></span>&gt; if [[ $choice = Crisps ]]
+<span class="anchor" id="line-4-19"></span>&gt; then echo "Correct!  Crisps are not fruit."; break; fi
+<span class="anchor" id="line-5-13"></span>&gt; echo "Errr... no.  Try again."
+<span class="anchor" id="line-6-10"></span>&gt; done</pre><span class="anchor" id="line-537"></span><p class="line862">The menu reappears so long as the <tt class="backtick">break</tt> statement is not executed.  In the example the <tt class="backtick">break</tt> statement is only executed when the user makes the correct choice. <span class="anchor" id="line-538"></span><span class="anchor" id="line-539"></span></p><p class="line862">We can also use the <tt class="backtick">PS3</tt> variable to define the prompt the user replies on.  Instead of showing the question before executing the <tt class="backtick">select</tt> statement, we could choose to set the question as our prompt: <span class="anchor" id="line-540"></span><span class="anchor" id="line-541"></span></p><p class="line867"><span class="anchor" id="line-542"></span><span class="anchor" id="line-543"></span><span class="anchor" id="line-544"></span><span class="anchor" id="line-545"></span><span class="anchor" id="line-546"></span><span class="anchor" id="line-547"></span><span class="anchor" id="line-548"></span></p><pre><span class="anchor" id="line-1-36"></span>$ PS3="Which of these does not belong in the group (#)? "; \
+<span class="anchor" id="line-2-28"></span>&gt; select choice in Apples Pears Crisps Lemons Kiwis; do
+<span class="anchor" id="line-3-26"></span>&gt; if [[ $choice = Crisps ]]
+<span class="anchor" id="line-4-20"></span>&gt; then echo "Correct!  Crisps are not fruit."; break; fi
+<span class="anchor" id="line-5-14"></span>&gt; echo "Errr... no.  Try again."
+<span class="anchor" id="line-6-11"></span>&gt; done</pre><span class="anchor" id="line-549"></span><p class="line862">All of these conditional constructs (<tt class="backtick">if</tt>, <tt class="backtick">for</tt>, <tt class="backtick">while</tt>, and <tt class="backtick">case</tt>) can be <em>nested</em>.  This means you could have a <tt class="backtick">for</tt> loop with a <tt class="backtick">while</tt> loop inside it, or any other combination, as deeply as you need to solve your problem. <span class="anchor" id="line-550"></span><span class="anchor" id="line-551"></span></p><p class="line867"><span class="anchor" id="line-552"></span><span class="anchor" id="line-553"></span><span class="anchor" id="line-554"></span><span class="anchor" id="line-555"></span><span class="anchor" id="line-556"></span><span class="anchor" id="line-557"></span><span class="anchor" id="line-558"></span><span class="anchor" id="line-559"></span><span class="anchor" id="line-560"></span><span class="anchor" id="line-561"></span><span class="anchor" id="line-562"></span><span class="anchor" id="line-563"></span><span class="anchor" id="line-564"></span><span class="anchor" id="line-565"></span><span class="anchor" id="line-566"></span><span class="anchor" id="line-567"></span><span class="anchor" id="line-568"></span><span class="anchor" id="line-569"></span><span class="anchor" id="line-570"></span><span class="anchor" id="line-571"></span><span class="anchor" id="line-572"></span><span class="anchor" id="line-573"></span><span class="anchor" id="line-574"></span><span class="anchor" id="line-575"></span><span class="anchor" id="line-576"></span><span class="anchor" id="line-577"></span><span class="anchor" id="line-578"></span><span class="anchor" id="line-579"></span></p><pre><span class="anchor" id="line-1-37"></span># A simple menu:
+<span class="anchor" id="line-2-29"></span>while true; do
+<span class="anchor" id="line-3-27"></span>    echo "Welcome to the Menu"
+<span class="anchor" id="line-4-21"></span>    echo "  1. Say hello"
+<span class="anchor" id="line-5-15"></span>    echo "  2. Say good-bye"
+<span class="anchor" id="line-6-12"></span>
+<span class="anchor" id="line-7-9"></span>    read -p "-&gt; " response
+<span class="anchor" id="line-8-8"></span>    case $response in
+<span class="anchor" id="line-9-8"></span>        1) echo 'Hello there!' ;;
+<span class="anchor" id="line-10-8"></span>        2) echo 'See you later!'; break ;;
+<span class="anchor" id="line-11-3"></span>        *) echo 'What was that?' ;;
+<span class="anchor" id="line-12-2"></span>    esac
+<span class="anchor" id="line-13-1"></span>done
+<span class="anchor" id="line-14-1"></span>
+<span class="anchor" id="line-15-1"></span># Alternative: use a variable to terminate the loop instead of an
+<span class="anchor" id="line-16-1"></span># explicit break command.
+<span class="anchor" id="line-17-1"></span>
+<span class="anchor" id="line-18-1"></span>quit=
+<span class="anchor" id="line-19-1"></span>while test -z "$quit"; do
+<span class="anchor" id="line-20"></span>    echo "...."
+<span class="anchor" id="line-21"></span>    read -p "-&gt; " response
+<span class="anchor" id="line-22"></span>    case $response in
+<span class="anchor" id="line-23"></span>        ...
+<span class="anchor" id="line-24"></span>        2) echo 'See you later!'; quit=y ;;
+<span class="anchor" id="line-25"></span>        ...
+<span class="anchor" id="line-26"></span>    esac
+<span class="anchor" id="line-27"></span>done</pre><span class="anchor" id="line-580"></span><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-581"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>Good Practice: <br>
+ A select statement makes a simple menu simple, but it doesn't offer 
+much flexibility.  If you want something more elaborate, you might 
+prefer to write your own menu using a while loop, some echo or printf 
+commands, and a read command.</strong> <span class="anchor" id="line-582"></span><span class="anchor" id="line-583"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-584"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In The Manual: <a class="http" href="http://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs">Conditional Constructs</a></strong> <span class="anchor" id="line-585"></span><span class="anchor" id="line-586"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-587"></span></p><ul><li style="list-style-type:none"><p class="line891"><strong>In the FAQ: </strong> <span class="anchor" id="line-588"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/066">I want to check if [[ $var == foo or $var == bar or $var = more ... without repeating $var n times.</a> </strong> <span class="anchor" id="line-589"></span></p></li><li style="list-style-type:none"><p class="line891"><strong><a href="http://mywiki.wooledge.org/BashFAQ/035">How can I handle command-line arguments (options) to my script easily?</a></strong> <span class="anchor" id="line-590"></span><span class="anchor" id="line-591"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-592"></span></p><ul><li style="list-style-type:none"><p class="line891"><em>case (keyword)</em>: The <tt class="backtick">case</tt> statement evaluates a parameter's value against several given patterns (choices). <span class="anchor" id="line-593"></span></p></li><li style="list-style-type:none"><p class="line891"><em>select (keyword)</em>: The <tt class="backtick">select</tt>
+ statement offers the user the choice of several options and executes a 
+block of code with the user's choice in a parameter.  The menu repeats 
+until a <tt class="backtick">break</tt> command is executed. <span class="anchor" id="line-594"></span><span class="anchor" id="line-595"></span></p></li></ul><p class="line867"><span class="anchor" id="EndOfContent"></span> <span class="anchor" id="line-596"></span><span class="anchor" id="line-597"></span></p><p class="line867"></p><hr class="hr4"><p class="line874"> <span class="anchor" id="line-598"></span><a href="http://mywiki.wooledge.org/BashGuide/Patterns">&lt;- Patterns</a> | <a href="http://mywiki.wooledge.org/BashGuide/Arrays">Arrays -&gt;</a> <span class="anchor" id="line-599"></span></p><hr><p class="line874"> <span class="anchor" id="line-600"></span><a href="http://mywiki.wooledge.org/CategoryBashguide">CategoryBashguide</a> <span class="anchor" id="line-601"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="en">BashGuide/TestsAndConditionals  (last edited 2020-07-29 07:41:58 by <span title="bgustav @ 188-27-97-165.rdsnet.ro[188.27.97.165]"><a class="nonexistent" href="http://mywiki.wooledge.org/bgustav" title="bgustav @ 188-27-97-165.rdsnet.ro[188.27.97.165]">bgustav</a></span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=edit&amp;editor=text" name="texteditlink" rel="nofollow">Edit (Text)</a></li><li><a href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=edit&amp;editor=gui">Edit (GUI)</a></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onclick="toggleComments();return false;">Comments</a></li><li><a class="nbinfo" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="http://mywiki.wooledge.org/BashGuide/TestsAndConditionals?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="/BashGuide/TestsAndConditionals">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &amp;&amp;
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show" selected="selected">More Actions:</option><option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Subscribe User</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Remove Spam</option>
+<option value="show" disabled="disabled" class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="Load">Load</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li><li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li><li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li><li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+
+
+
+</body></html>
