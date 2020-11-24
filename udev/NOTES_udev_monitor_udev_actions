@@ -3,3 +3,39 @@ udevadm monitor --environment --udev
 udevadm test --action=add $(udevadm info --query=path -n /dev/input/mouse0)
 
 
+
+udevadm monitor --environment --udev
+
+LIST THE ATTRIBUTES OF A DEVICE
+
+To get a list of all of the attributes of a device you can use to write rules, run this command:
+
+udevadm info --attribute-walk --name=device_name
+
+Replace device_name with the device present in the system, such as /dev/sda or /dev/ttyUSB0.
+
+If you do not know the device name you can also list all attributes of a specific system path:
+
+udevadm info --attribute-walk --path=/sys/class/backlight/acpi_video0
+
+TESTING RULES BEFORE LOADING
+
+udevadm test $(udevadm info --query=path --name=device_name) 2>&1
+
+This will not perform all actions in your new rules but it will however process symlink rules on existing devices which might come in handy if you are unable to load them otherwise. You can also directly provide the path to the device you want to test the udev rule for:
+
+udevadm test /sys/class/backlight/acpi_video0/
+
+LOADING NEW RULES
+
+udev automatically detects changes to rules files, so changes take effect immediately without requiring udev to be restarted. However, the rules are not re-triggered automatically on already existing devices. Hot-pluggable devices, such as USB devices, will probably have to be reconnected for the new rules to take effect, or at least unloading and reloading the ohci-hcd and ehci-hcd kernel modules and thereby reloading all USB drivers.
+
+IF RULES FAIL TO RELOAD AUTOMATICALLY:
+
+udevadm control --reload
+
+FORCE TRIGGER RULES
+
+udevadm trigger
+
+
