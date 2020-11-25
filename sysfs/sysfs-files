@@ -1,20 +1,49 @@
+######## NETWORK TRAFFIC;
+/proc/sys/net/ipv4/conf/
+CONFIGURE AN INSIDE CLIENT WITH A STATIC IP OF 10.42.0.11/24
+ON THE BRIDGE:
+bridge# echo 1 > /proc/sys/net/ipv4/conf/all/proxy_arp
+bridge# echo 1 > /proc/sys/net/ipv4/ip_forward
+bridge# ip ro add 10.42.0.11/32 dev eth0
+
+######## QMI MODEM MIC
+echo Y &gt; /sys/class/net/wwan0/qmi/raw_ip
+
+######## GENERIC/OPTION USB SERIAL DRIVER
+echo 19d2 0601 &gt; /sys/bus/usb-serial/drivers/option1/new_id
+echo <vid> <pid> >/sys/bus/usb-serial/drivers/generic/new_id
+
+######## edid
+/sys/devices/platform/gpu/drm/card1/card1-HDMI-A-1/edid
+
+######## TYPEC TYPE-C
 /sys/class/typec/
 /sys/class/typec/port0/<alternate mode>/mode1/
 
-echo Y &gt; /sys/class/net/wwan0/qmi/raw_ip
-echo 19d2 0601 &gt; /sys/bus/usb-serial/drivers/option1/new_id
 
-ALSA
+######## ALSA
 RECONFIG ALSA
 echo 1 > /sys/class/sound/card/reconfig
 
 cat /proc/asound/cards    # list cards
 
-VENUS;
+######## VENUS;
 turn on venus decoder/encoder debug
 echo "1" > /sys/class/video4linux/video3/dev_debug
 
-ATH10K
+WATCH FOR VENUS INTERRUPTS
+grep venus /proc/interrupts
+
+/sys/kernel/debug/dma_buf/bufinfo
+
+######## DMABUF DMA_BUF
+/sys/kernel/debug/dma_buf/bufinfo
+
+######## BLUETOOTH
+/sys/kernel/debug/bluetooth/hci0/
+/sys/class/bluetooth/hci0
+
+######## ATH10K
 /sys/kernel/debug/ieee80211/phy0
 /sys/class/ieee80211/phy0/
 /sys/class/ieee80211/phy0/device/net/wlan0
@@ -43,40 +72,54 @@ echo 0x1f > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
     To disable pktlog
 echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
     powersave setting/reporting
-cat /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/ps_state_enable
 echo Y > /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
     Y = 0 to enable and Y = 1 to disable <-deprecated? use 0/1
 
-/sys/class/thermal/thermal_zone[0-*]:
+######## THERMAL
+/sys/class/thermal/thermal_zoneX /type   # shows hardware temps
+                                 /temp
 /sys/class/thermal/cooling_device[0-*]:
-/sys/devices/platform/panel/modalias     # what kind of panel
+
+######## REMOTE PROC
 /sys/class/remoteproc/remoteprocX        # remote proc stuff
 /sys/class/remoteproc/.../firmware       # name of firmware on remote proc
 /sys/class/remoteproc/.../state          # can write start/stop and will report current status
-                       # show sound cards
-/sys/class/thermal/thermal_zoneX /type   # shows hardware temps
-                                 /temp
 
+######## SOME BATTERY SOME ADAPTER
+/sys/class/power_supply/some-adapter/uevent
+
+######## CPUFREQ TURBO BOOST
 echo 1 > /sys/devices/system/cpu/cpufreq/boost
-echo <vid> <pid> >/sys/bus/usb-serial/drivers/generic/new_id
 
-
+######## DEVICE INFORMATION
 /proc/device-tree
          /proc/device-tree
          /proc/device-tree/firmware/scm/compatible
          /proc/device-tree/panel/compatible
+         /sys/class/dmi/id/*    tons of stuff
+         /sys/devices/platform/panel/modalias     # what kind of panel
+         /sys/kernel/debug/qcom_socinfo
 
+######## CPU FREQUENCY SPEEDS PROFILES
 /sys/devices/system/cpu/cpufreq/policy4/
 /sys/kernel/debug/opp/cpu4/
 echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
-/sys/kernel/debug/qcom_socinfo
 
+######## OPP TABLES
+/sys/kernel/debug/opp
 
+######## INTERCONNECT
 /sys/kernel/debug/interconnect/interconnect_summary
                                             interconnect_graph
 
-/sys/kernel/debug/dma_buf/bufinfo
-/sys/kernel/debug/bluetooth/hci0/
 
-/sys/class/dmi/id/*    tons of stuff
+
+
+
+
+
+
+
+
 
