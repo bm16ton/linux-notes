@@ -112,6 +112,8 @@ echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
 ######## INTERCONNECT
 /sys/kernel/debug/interconnect/interconnect_summary
                                             interconnect_graph
+cat /sys/kernel/debug/interconnect/interconnect_graph | \
+                dot -Tsvg > interconnect_graph.svg
 
 
 
