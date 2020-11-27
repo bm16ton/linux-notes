@@ -1,0 +1,25 @@
+## NON MACCHANGER WAY TO SET MAC
+    ifconfig wlan0 hw ether 42:33:1e:bd:d1:51
+
+## CHANGE MAC SO IT LOOKS IKE IT WAS BUILTIN
+    macchanger --bia --mac=42:33:1e:bd:d1:51 wlan0
+
+## SET RANDOM VENDOR MAC OF ANY KIND
+    macchanger -A wlan0
+
+## SET RANDOM VENDOR MAC OF THE SAME KIND
+    macchanger -a wlan0
+
+## DONT CHANGE VENDOR BYTES
+    macchanger -e wlan0
+
+## DON'T CHANGE THE VENDOR BYTES
+    macchanger -A wlan0
+
+## FULLY RANDOM MAC
+    macchanger -r wlan0
+
+### RESTORE ###
+## RESET TO ORIGINAL, PERMANENT HARDWARE MAC
+    macchanger -P wlan0
+

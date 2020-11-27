@@ -1,0 +1,19 @@
+generate mac addresses
+openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/:$//'
+openssl rand -hex 6 | sed 's/\(..\)\(..\)\(..\)\(..\)\(..\)\(..\)/\1:\2:\3:\4:\5:\6/'
+macaddr=$(echo $FQDN|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/')
+tr -dc A-F0-9 < /dev/urandom | head -c 10 | sed -r 's/(..)/\1:/g;s/:$//;s/^/02:/'
+perl -e 'for ($i=0;$i<6;$i++){@m[$i]=int(rand(256));} printf "%X:%X:%X:%X:%X:%X\n",@m;'
+printf '%02x' $((0x$(od /dev/urandom -N1 -t x1 -An | cut -c 2-) & 0xFE | 0x02)); od /dev/urandom -N5 -t x1 -An | sed 's/ /:/g'
+    macaddr=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1:\2:\3:\4:\5:\6/')
+    echo $macaddr
+openssl rand -hex 6|fold -w2|paste -sd: -
+od -N6 -tx1 -An /dev/random|awk '$1=$1'|tr \  :
+god -N6 -tx1 -An /dev/random|cut -c2-|tr \  :
+hexdump -n6 -e'/1 ":%02X"' /dev/random|cut -c2-
+echo -n 02; od -t x1 -An -N 5 /dev/urandom | tr ' ' ':'
+python3 -c 'import os; print(":".join(["{:02x}".format(x) for x in b"\02x" + os.urandom(5)]))'
+    PURE BASH;
+        read -N6 b </dev/urandom
+        LC_ALL=C printf "%02x:%02x:%02x:%02x:%02x:%02x\n" "'${b:0:1}" "'${b:1:1}" "'${b:2:1}" "'${b:3:1}" "'${b:4:1}" "'${b:5:1}"
+

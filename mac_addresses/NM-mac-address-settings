@@ -1,0 +1,32 @@
+### wifi.cloned-mac-address=  and  ethernet.cloned-mac-address=  options;
+
+    00:00:00:00:00:00 An explict MAC address: this was already supported before 1.4.0 and allows to spoof a specific MAC address.
+    “permanent”: use the permanent MAC address of the device. Before 1.4.0, the permanent MAC address was used if the “cloned-mac-address” property was left empty, thus it was the default.
+    “preserve”: don’t change the MAC address of the device upon activation.
+    “random”: generate a randomized value upon each connect.
+    “stable”: generate a stable, hashed MAC address.
+    NULL/unset: this is the default value which allows fallback to a globally configured default, see below. In case no global override exists, NetworkManager falls back to “permanent”, like it did before.
+
+### wifi.mac-address-randomization= options;
+DEFAULT = 0,
+NEVER = 1,
+ALWAYS = 2,
+
+
+###  This doesnt seem to do anything
+# /etc/NetworkManager/NetworkManager.conf
+
+[device]
+wifi.scan-rand-mac-address=no
+
+### This is slightly better
+# /etc/NetworkManager/conf.d/300-mac-randomization.conf
+
+[device-mac-randomization]
+wifi.scan-rand-mac-address=no
+
+[connection-mac-randomization]
+ethernet.cloned-mac-address=permanent
+wifi.cloned-mac-address=42:33:1e:bd:d1:51
+
+

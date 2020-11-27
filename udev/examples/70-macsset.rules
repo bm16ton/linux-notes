@@ -1,0 +1,1 @@
+SUBSYSTEM=="ieee80211", ACTION=="add", ATTR{name}=="phy0", RUN+="/usr/bin/macchanger --bia --mac=42:33:1e:bd:d1:51 wlan0" RUN+="test.sh"

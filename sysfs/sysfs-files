@@ -85,7 +85,10 @@ echo Y > /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
 /sys/class/remoteproc/remoteprocX        # remote proc stuff
 /sys/class/remoteproc/.../firmware       # name of firmware on remote proc
 /sys/class/remoteproc/.../state          # can write start/stop and will report current status
-
+/proc/device-tree/"remoteproc-adsp|remoteproc-cdsp"
+                 status                  # okay
+                 compatible              # qcom,sdm845-adsp-pas
+                 firmware-name           # qcom/LENOVO/81JL/qcadsp850.mbn
 ######## SOME BATTERY SOME ADAPTER
 /sys/class/power_supply/some-adapter/uevent
 
@@ -95,17 +98,48 @@ echo 1 > /sys/devices/system/cpu/cpufreq/boost
 ######## DEVICE INFORMATION
 /proc/device-tree
          /proc/device-tree
-         /proc/device-tree/firmware/scm/compatible
+         /proc/device-tree/compatible               # lenovo,yoga-c630qcom,sdm845
+         /proc/device-tree/chosen/bootargs          # obvious
+         /proc/device-tree/cpu0_opp_table/          # cpu operating tables
+         /proc/device-tree/cpus/cpu@0/compatible    #  qcom,kryo385
+         /proc/device-tree/firmware/scm/compatible  #  qcom,scm-sdm845qcom,scm
          /proc/device-tree/panel/compatible
          /sys/class/dmi/id/*    tons of stuff
-         /sys/devices/platform/panel/modalias     # what kind of panel
+                    bios_date                       # 06/ 4/2019
+                    bios_release                    # 1.33
+                    bios_version                    # 9UCN33WW(V2.06)
+                    board_name                      # LNVNB161216
+                    board_serial                    # MP1EUJZB
+                    board_version                   # SDK0R32787 WIN
+                    ec_firmware_release             # 1.33
+                    modalias                        # dmi:bvnLENOVO:bvr9UCN33WW(V2.06):bd06/4/2019:br1.33:efr1.33:svnLENOVO:pn81JL:pvrLenovoYOGAC630-13Q50:rvnLENOVO:rnLNVNB161216:rvrSDK0R32787WIN:cvnLENOVO:ct32:cvrLenovoYOGAC630-13Q50:
+                    product_family                  # YOGA C630-13Q50
+                    product_name                    # 81JL
+                    product_sku                     # LENOVO_MT_81JL_BU_idea_FM_YOGA C630-13Q50
+                    product_uuid                    # unique id
+                    product_version                 # Lenovo YOGA C630-13Q50
+         /sys/devices/platform/panel/modalias       # what kind of panel      of:NpanelT(null)Cboe,nv133fhm-n61
          /sys/kernel/debug/qcom_socinfo
+                    pmic_model                      # PM8015
+                    pmic_die_rev                    # 2.0
+                    num_defective_parts             # 6
+                    chip_id                         # SDM850
+                    adsp/name                       # 12:ADSP.HT.4.1.c2-00016-SDM845-1
+                    adsp/variant                    # 845.adsp.prodQ
+                    boot/name                       # 00:BOOT.XF.2.2-00080-SDM845WZB-1
+                    boot/variant                    # SDM845WP
+                    mpss/name                       # 11:MPSS.AT.4.0.c2-01017-SDM845_GEN_PACK-1
+                    mpss/variant                    # sdm845.gen.prodQ
+
 
 ######## CPU FREQUENCY SPEEDS PROFILES
 /sys/devices/system/cpu/cpufreq/policy4/
 /sys/kernel/debug/opp/cpu4/
 echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
-
+/sys/devices/system/cpu/cpufreq/policy4/scaling_boost_frequencies           #list boost freq for higher cores
+/sys/devices/system/cpu/cpu4/cpufreq/stats/time_in_state                    #amount of time in each freq,time measured in 10mS increments
+/sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state                 #higher cores amount of time in each freq,time measured in 10mS increments
+/sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state                 #lower cores amount of time in each freq,time measured in 10mS increments
 ######## OPP TABLES
 /sys/kernel/debug/opp
 

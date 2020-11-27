@@ -1,0 +1,6 @@
+so you can use 2 RUN+= just dont put a , between them IE
+    SUBSYSTEM=="ieee80211", ACTION=="add", ATTR{name}=="phy0", RUN+="/usr/bin/macchanger --bia --mac=42:33:1e:bd:d1:51 wlan0" RUN+="test.sh"
+
+symlinks IE
+    ATTRS{idProduct}=="0004", ATTRS{idVendor}=="1eaf", MODE="777", GROUP="dialout" SYMLINK+="maple"
+
