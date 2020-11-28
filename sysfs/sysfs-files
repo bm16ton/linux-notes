@@ -92,6 +92,13 @@ echo Y > /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
 ######## SOME BATTERY SOME ADAPTER
 /sys/class/power_supply/some-adapter/uevent
 
+######## USB
+echo host > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo device > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo otg > /sys/kernel/debug/usb/a600000.dwc3/mode
+
+/sys/bus/usb/devices/usb2
+
 ######## CPUFREQ TURBO BOOST
 echo 1 > /sys/devices/system/cpu/cpufreq/boost
 

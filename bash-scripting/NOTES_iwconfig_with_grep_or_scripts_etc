@@ -1,0 +1,8 @@
+	To use iwconfig with grep or in a script etc u must use;
+
+iwconfig 2>&1
+
+	EXAMPLE;
+
+iwconfig 2>&1 | grep -i essid | grep -v "no wireless extensions" | awk '{print $1}'
+
