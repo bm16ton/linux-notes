@@ -45,8 +45,21 @@ grep venus /proc/interrupts
 
 ######## ATH10K
 /sys/kernel/debug/ieee80211/phy0
+          ##### ENABLE HISTORY
+/sys/kernel/debug/ieee80211/phy0/ath10k# echo 0xf > history_enable   (requires module param history_enable_mask=0xf)
 /sys/class/ieee80211/phy0/
 /sys/class/ieee80211/phy0/device/net/wlan0
+/sys/kernel/debug/ieee80211/phy0/
+                                "ton of stuff"
+                                /hwflags
+
+/sys/kernel/debug/ieee80211/phy0/hw_conf
+                    	WMI_VDEV_TYPE_AP      = 1,  after setting monitor mode shows 1
+	                    WMI_VDEV_TYPE_STA     = 2,  reg managed mode operation shows 2
+	                    WMI_VDEV_TYPE_IBSS    = 3,
+	                    WMI_VDEV_TYPE_MONITOR = 4,
+/sys/kernel/debug/ieee80211/phy0/netdev\:wlan0/
+                                                "ton of stuff"
 /sys/kernel/debug/ieee80211/phy0/ath10k/
     Firmware dbglogs can be now enabled through fw_dbglog file.
     To enable all possible log messages run:
