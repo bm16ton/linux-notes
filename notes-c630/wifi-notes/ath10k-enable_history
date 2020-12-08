@@ -1,0 +1,23 @@
+To enable all the history recording, the driver
+should be loaded as below
+
+"insmod ath10k_core.ko history_enable_mask=0xf"
+
+
+	const char buf[] =
++		"To enable recording of certain event history, write to this file with the enable mask\n"
++		"BIT(0): Enable Reg Access history\n"
++		"	- Register write events\n"
++		"	- Register read events\n"
++		"BIT(1): Enable CE events history\n"
++		"	- ATH10K_IRQ_TRIGGER event\n"
++		"	- ATH10K_NAPI_POLL event\n"
++		"	- ATH10K_CE_SERVICE event\n"
++		"	- ATH10K_NAPI_COMPLETE event\n"
++		"	- ATH10K_NAPI_RESCHED event\n"
++		"	- ATH10K_IRQ_SUMMARY event\n"
++		"BIT(2): Enable WMI CMD history\n"
++		"	- WMI CMD event\n"
++		"	- WMI CMD TX completion event\n"
++		"BIT(3): Enable WMI events history\n"
++		"	- WMI Events event\n";

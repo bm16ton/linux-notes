@@ -1,0 +1,9 @@
+gst-launch-1.0 filesrc location=<path to file> ! qtdemux name=m m.video_0 ! h264parse ! v4l2h264dec capture-io-mode=dmabuf ! glimagesink
+GST_GL_PLATFORM=egl gst-launch-1.0 filesrc location=<path to file> ! qtdemux name=m m.video_0 ! h264parse ! v4l2h264dec capture-io-mode=dmabuf ! glimagesink
+
+ffplay -sync video -an -autoexit -vcodec h264_v4l2m2m -i <an h264 video clip>
+
+
+v4l2-ctl -d 2 --list-formats-out
+v4l2-ctl -d 3 --list-formats-out
+

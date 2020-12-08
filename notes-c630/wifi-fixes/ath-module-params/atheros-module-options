@@ -1,0 +1,26 @@
+- ath10k_core module parameters:
+
+     cryptmode:
+
+        0                       Use HW crypto engine. Use native WiFi mode Tx/Rx encap
+
+        1                       Use SW crypto engine. Use raw mode Tx/Rx encap
+
+        2                       Supports both SW & HW crypto engine. Use raw mode Tx/Rx encap.
+
+
+     rawmode
+
+        true                    raw (non-native 802.11) mode
+
+DIFFERENT/OLD MODULE PARAMS
+
+    rawtxrx:
+
+        1                       hw uses raw Tx encap (per frame), and raw Rx decap (global, pdev setting) on datapath.
+
+    nohwcrypt:
+
+        1                       disables HW crypto engine globally.
+
+

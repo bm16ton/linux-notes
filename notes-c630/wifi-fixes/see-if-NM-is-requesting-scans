@@ -1,0 +1,10 @@
+sudo dbus-send --system --print-reply --dest=org.freedesktop.NetworkManager /org/freedesktop/NetworkManager org.freedesktop.NetworkManager.SetLogging string:"debug" string:"wifi,wifi_scan"
+
+
+and then wait at least 5 minutes and attach your /var/log/messages
+
+mv /usr/sbin/wpa_supplicant /
+killall -TERM wpa_supplicant
+/wpa_supplicant -dddtu -f /tmp/sup.log
+
+and let NM connect, then reproduce the latency, and attach /tmp/sup.log

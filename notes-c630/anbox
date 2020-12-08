@@ -1,0 +1,37 @@
+sudo anbox container-manager --android-image=/var/lib/anbox/android.img --data-path=/var/lib/anbox
+
+nmcli con add type bridge ifname anbox0 -- connection.id anbox-net ipv4.method shared ipv4.addresses 192.168.250.1/24
+
+adb shell
+su
+ip route add default dev eth0 via 192.168.250.1
+ip rule add pref 32766 table main
+ip rule add pref 32767 table local
+
+sudo mkdir /dev/binderfs
+sudo mount -t binder binder /dev/binderfs
+
+
+sudo ANBOX_LOG_LEVEL=debug anbox container-manager --android-image=/var/lib/anbox/android.img --data-path=/var/lib/anbox --privileged --daemon
+
+ANBOX_FORCE_SOFTWARE_RENDERING=true SWIFTSHADER_PATH=/home/maddocks/src/SwiftShader/build anbox session-manager
+
+ANBOX_LOG_LEVEL=debug anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+ANBOX_LOG_LEVEL=debug anbox session-manager --gles-driver=translator
+                      --gles-driver=host
+                      
+adb shell ‘pm list packages -f’
+
+SWIFTSHADER_PATH=/home/maddocks/src/SwiftShader/build 
+
+sudo unsquashfs android.img
+sudo mksquashfs squashfs-root android.img -b 131072 -comp xz -Xbcj arm
+
+ANBOX_LOG_LEVEL=debug anbox session-manager --rootfs=android-rootfs --single-window --window-size=360,640
+
+ANBOX_LOG_LEVEL=debug anbox launch session-manager --rootfs=/var/lib/anbox/rootfs/ --single-window --data-path=/var/lib/anbox --privileged
+
+DBUS_FATAL_WARNINGS=0
+
+ANBOX_LOG_LEVEL=debug anbox session-manager --rootfs=/var/lib/anbox/rootfs/ --android-image=/var/lib/anbox/android.img --data-path=/var/lib/anbox --privileged

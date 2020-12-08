@@ -1,0 +1,17 @@
+at start of driver will be a data section "struct driver_name data" "struct drivername" with int lines etc
+need to add something like
+struct some_battery {
+	int last_state;
+}
+
+then in poling section something like
+
+	int state;
+	state = some_battery_read(battery, ADPT);
+	            or not sure how next line would get state
+	battery->adapter_online = !!(val & BIT(7));
+
+		if (state != battery->last_state) {
+            power_supply_changed(psy);
+			battery->last_state = state;
+			}

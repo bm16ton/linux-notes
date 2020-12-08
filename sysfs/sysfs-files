@@ -170,9 +170,17 @@ cat /sys/kernel/debug/interconnect/interconnect_graph | \
                 dot -Tsvg > interconnect_graph.svg
 
 
+######## GPIO-KEYS
+/sys/devices/platform/gpio-keys/keys [ro]
+/sys/devices/platform/gpio-keys/switches [ro]
+/sys/devices/platform/gpio-keys/disabled_keys [rw]
+/sys/devices/platform/gpio-keys/disables_switches [rw]
 
-
-
+######## GPIO
+/sys/class/gpio/
+/sys/bus/gpio
+/sys/devices/platform/gpio-keys
+/sys/kernel/debug/gpio
 
 
 

@@ -1,0 +1,53 @@
+[  293.037479] device wlan0mon entered promiscuous mode
+[  293.087158] ------------[ cut here ]------------
+[  293.087350] WARNING: CPU: 0 PID: 2625 at drivers/net/wireless/ath/ath10k/mac.c:3786 ath10k_mac_tx+0x274/0x4d8 [ath10k_core]
+[  293.087362] Modules linked in: rfcomm af_alg bnep q6asm_dai q6routing q6afe_dai q6asm q6adm fuse q6dsp_common q6afe q6core snd_soc_wsa881x regmap_sdw gpio_wcd934x soundwire_qcom snd_soc_wcd934x wcd934x regmap_slimbus mousedev apr venus_enc pdr_interface venus_dec videobuf2_dma_sg qrtr_smd uvcvideo videobuf2_vmalloc videobuf2_memops msm hci_uart ath10k_snoc btqca btbcm snd_soc_sdm845 ath10k_core bluetooth ti_sn65dsi86 snd_soc_rt5663 qcom_spmi_adc5 snd_soc_rl6231 snd_soc_qcom_common qcom_vadc_common soundwire_bus crct10dif_ce ath drm_kms_helper venus_core mac80211 ecdh_generic v4l2_mem2mem ecc some_battery hid_multitouch videobuf2_v4l2 reset_qcom_pdc videobuf2_common videodev mc qcom_rng cfg80211 qcom_q6v5_mss rfkill libarc4 socinfo qrtr ns icc_osm_l3 qcom_q6v5_pas qcom_pil_info qcom_q6v5 slim_qcom_ngd_ctrl qcom_sysmon qcom_common slimbus qcom_glink_smem qmi_helpers rmtfs_mem qnoc_sdm845 mdt_loader qcom_wdt icc_rpmh icc_bcm_voter ppdev lp ip_tables x_tables ipv6 i2c_hid camcc_sdm845
+[  293.087652]  i2c_qcom_geni phy_qcom_qusb2 panel_simple drm
+[  293.087704] CPU: 0 PID: 2625 Comm: aireplay-ng Not tainted 5.9.11-16ton #7
+[  293.087715] Hardware name: LENOVO 81JL/LNVNB161216, BIOS 9UCN33WW(V2.06) 06/ 4/2019
+[  293.087732] pstate: 40400005 (nZcv daif +PAN -UAO BTYPE=--)
+[  293.087828] pc : ath10k_mac_tx+0x274/0x4d8 [ath10k_core]
+[  293.087924] lr : ath10k_mac_op_tx+0x214/0x268 [ath10k_core]
+[  293.087933] sp : ffff800017beb790
+[  293.087943] x29: ffff800017beb790 x28: ffff03423e5cf828
+[  293.087959] x27: ffff0342ad512c44 x26: 0000000000000000
+[  293.087974] x25: ffff0342ad5107e0 x24: ffffd003d6c36c1c
+[  293.087989] x23: ffff03429187cbf8 x22: 0000000000000000
+[  293.088004] x21: 0000000000000000 x20: ffff03423e5cf800
+[  293.088020] x19: ffff0342ad511ec0 x18: 0000000000000000
+[  293.088034] x17: 0000000000000000 x16: ffffd004232ad440
+[  293.088049] x15: 0000000000000000 x14: 0005002800000001
+[  293.088064] x13: 6000111800050000 x12: ffff0342935e6630
+[  293.088078] x11: 0000000000000004 x10: ffff800017beb988
+[  293.088093] x9 : 000000000000008c x8 : 0000000000000000
+[  293.088108] x7 : ffff0342935e5c4e x6 : 0000000000000000
+[  293.088122] x5 : 0000000000000000 x4 : ffff03423e5cf800
+[  293.088136] x3 : 0000000000000000 x2 : 0000000000000000
+[  293.088151] x1 : 000000004001009d x0 : 0000000000000009
+[  293.088167] Call trace:
+[  293.088264]  ath10k_mac_tx+0x274/0x4d8 [ath10k_core]
+[  293.088361]  ath10k_mac_op_tx+0x214/0x268 [ath10k_core]
+[  293.088656]  ieee80211_tx_frags+0x1a4/0x318 [mac80211]
+[  293.088842]  __ieee80211_tx+0xac/0x180 [mac80211]
+[  293.089016]  ieee80211_tx+0x12c/0x178 [mac80211]
+[  293.089190]  ieee80211_xmit+0xb4/0x130 [mac80211]
+[  293.089364]  ieee80211_monitor_start_xmit+0x2a4/0x2c0 [mac80211]
+[  293.089392]  dev_hard_start_xmit+0xa4/0x140
+[  293.089408]  __dev_queue_xmit+0x5c4/0x718
+[  293.089421]  dev_queue_xmit+0x14/0x20
+[  293.089445]  packet_sendmsg+0xa88/0x16b0
+[  293.089465]  sock_sendmsg+0x4c/0x58
+[  293.089480]  sock_write_iter+0x90/0xe8
+[  293.089503]  new_sync_write+0x17c/0x190
+[  293.089518]  vfs_write+0x214/0x230
+[  293.089533]  ksys_write+0xcc/0x100
+[  293.089547]  __arm64_sys_write+0x1c/0x28
+[  293.089570]  el0_svc_common.constprop.3+0x68/0x170
+[  293.089586]  do_el0_svc+0x24/0x90
+[  293.089605]  el0_sync_handler+0x13c/0x1a8
+[  293.089618]  el0_sync+0x158/0x180
+[  293.089631] ---[ end trace 91d8ab1afc90eb70 ]---
+[  293.089792] ath10k_snoc 18800000.wifi: failed to transmit frame: -524
+[  293.690209] ath10k_snoc 18800000.wifi: failed to transmit frame: -524
+[  294.290555] ath10k_snoc 18800000.wifi: failed to transmit frame: -524
+

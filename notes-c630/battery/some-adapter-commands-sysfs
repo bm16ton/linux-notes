@@ -1,0 +1,18 @@
+cat /sys/class/power_supply/some-adapter/uevent
+
+        when plugged it will return
+
+POWER_SUPPLY_NAME=some-adapter
+POWER_SUPPLY_TYPE=USB_C
+POWER_SUPPLY_ONLINE=1
+
+        when on battery it will return
+
+POWER_SUPPLY_NAME=some-adapter
+POWER_SUPPLY_TYPE=USB_C
+POWER_SUPPLY_ONLINE=0
+
+
+sudo udevadm info --attribute-walk --path=/sys/class/power_supply/some-adapter
+
+

@@ -1,0 +1,9 @@
+GST_GL_PLATFORM=egl gst-launch-1.0 filesrc location=<path to file> ! qtdemux name=m m.video_0 ! h264parse ! v4l2h264dec capture-io-mode=dmabuf ! glimagesink
+
+
+ffplay -sync video -an -autoexit -vcodec h264_v4l2m2m -i <an h264 video clip>
+
+
+[   31.722457] platform aa00000.video-codec:video-core1: deferred probe pending
+[   31.722478] platform aa00000.video-codec:video-core0: deferred probe pending
+

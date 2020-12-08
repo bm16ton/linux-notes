@@ -1,0 +1,6 @@
+sudo ./ath10k-fwencoder --modify --features=wowlan,mgmt-tx-by-reference,non-bmi,single-chan-info-per-channel  firmware-5.bin
+
+needed to edit ath10k_fwencoder and change
+mgmt-tx-by-ref
+to
+mgmt-tx-by-reference

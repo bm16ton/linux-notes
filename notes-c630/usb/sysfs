@@ -1,0 +1,18 @@
+echo host > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo device > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo otg > /sys/kernel/debug/usb/a600000.dwc3/mode
+
+/sys/bus/usb/devices/usb2
+
+
+device error
+
+[   97.114375] xhci-hcd xhci-hcd.0.auto: remove, state 4
+[   97.114408] usb usb4: USB disconnect, device number 1
+[   97.116039] xhci-hcd xhci-hcd.0.auto: USB bus 4 deregistered
+[   97.116067] xhci-hcd xhci-hcd.0.auto: remove, state 4
+[   97.116078] usb usb1: USB disconnect, device number 1
+[   97.133104] xhci-hcd xhci-hcd.0.auto: Host halt failed, -110
+[   97.133117] xhci-hcd xhci-hcd.0.auto: Host controller not halted, aborting reset.
+[   97.133392] xhci-hcd xhci-hcd.0.auto: USB bus 1 deregistered
+

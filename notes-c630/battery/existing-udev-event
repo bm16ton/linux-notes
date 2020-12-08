@@ -1,0 +1,12 @@
+eventually ?mates power deamon/indicator panel? realizes AC power has been removed
+and changes backlight settings acordingly.Unfortunatly no power change uevent.
+
+heres the only call on power change if backlight settings are different between
+battery and AC
+
+KERNEL[3398.267547] change   /devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-002c/backlight/sn65dsi86 (backlight)
+UDEV  [3398.274679] change   /devices/platform/soc@0/ac0000.geniqup/a88000.i2c/i2c-10/10-002c/backlight/sn65dsi86 (backlight)
+
+And the two kicks to the head are it doesnt say if changed up/down for dirty work around
+and it also obviously sends these events whenever bcklight is changed from any program/reason
+

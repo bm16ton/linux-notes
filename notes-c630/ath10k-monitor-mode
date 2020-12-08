@@ -1,0 +1,8 @@
+sudo systemctl stop network-manager
+sudo airmon-ng check kill
+sudo airmon-ng start wlan0
+iwconfig
+sudo aireplay-ng --test wlan0mon
+sudo airmon-ng stop wlan0mon
+sudo systemctl start network-manager
+

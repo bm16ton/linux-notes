@@ -1,0 +1,82 @@
+sudo ifconfig wlan0 down
+sudo airmon-ng check kill
+sudo airmon-ng start wlan0
+iwconfig
+sudo aireplay-ng --test wlan0mon
+sudo airmon-ng stop wlan0mon
+iwconfig
+sudo ifconfig wlan0 up
+sudo systemctl start network-manager
+
+##########
+try setting mac address same as;
+/sys/devices/platform/soc@0/18800000.wifi/ieee80211/phy0/macaddress
+sudo iw wlan0 interface add mon type monitor addr 3a:65:be:97:a7:73
+
+####### sudo iw wlan0 interface add mon type monitor addr 39:6f:65:d2:bf:78
+sudo iw wlan0 interface add mon type monitor && sudo ip link set mon up
+sudo iw dev mon del
+####### if u delete wlan0
+sudo iw phy0 interface add wlan0 type managed addr 42:33:1e:bd:d1:51
+
+######################################33
+Point airodump-ng at an association point
+
+airodump-ng -c ? --bssid 55:44:33:22:11:00 mon0
+
+Now use aireplay-ng to do a fake auth against the AP
+
+aireplay-ng -1 10 -a 55:44:33:22:11:00 mon0
+
+You will see the mac you are broadcasting in airodump-ng
+
+##################################################
+
+## another method
+sudo ifconfig wlan0 down
+sudo systemctl stop network-manager
+sudo airmon-ng check kill
+
+sudo iw wlan0 set monitor none
+
+sudo ifconfig wlan0 up
+
+### turn back
+sudo ip link set wlan0 down
+
+sudo iw wlan0 set type managed addr 3a:65:be:97:a7:73
+
+sudo ip link set wlan0 up
+
+### iwconfig
+sudo ifconfig wlan0 down
+
+sudo iwconfig wlan0 mode monitor
+
+sudo ifconfig wlan0 up
+
+sudo ifconfig wlan0 down
+
+sudo iwconfig wlan0 mode managed
+
+sudo ifconfig wlan0 up
+
+## To tune into 80 MHz channel, in this example channel 36 (5180 MHz):
+
+# ip link set wlan0 down
+# iw wlan0 set type monitor
+# ip link set wlan0 up
+# iw wlan0 set freq 5180 80 5210
+sudo iw wlan0 set freq 5785 80 5815
+## To capture HT40+ on channel 36:
+
+# iw wlan0 set freq 5180 40 5190
+
+## Known issues
+
+##    Assoc Request frames not captured (Assoc Response shows up fine)
+##    cannot see Add BA action frames
+##    frames do not come up with FCS value in them
+##    the management frames do not contain mac timestamp as data/control frames
+
+

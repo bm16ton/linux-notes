@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+      <meta charset="UTF-8">
+
+      <meta name="referrer" content="origin">
+<script type="text/javascript" src="5gQuuzEQ_files/page.cgi"></script>
+
+
+
+
+<script type="text/javascript">var BB_CONFIG = ({"defaults":{"priority":"Unspecified","bugentry_fields":["summary","product","component","rh_sub_components","severity","priority","comment"],"platform":"Unspecified","severity":"Unspecified","op_sys":"Unspecified"},"user":{"enterable_products":[],"groups":[],"logged_in":false}});</script><script type="text/javascript">
+var classifications = '[ { "name": "Red Hat", "description": "Red Hat Products"},{ "name": "Workflows", "description": "User driven workflows"},{ "name": "JBoss", "description": "JBoss Products"},{ "name": "CentOS", "description": "CentOS Projects"},{ "name": "Fedora", "description": "Fedora Products"},{ "name": "Community", "description": "Community Projects"},{ "name": "oVirt", "description": "oVirt Virtualization Management Projects"},{ "name": "Internal", "description": "Internal Projects."},{ "name": "Other", "description": "Other Miscellaneous Products"},{ "name": "Unclassified", "description": "Not assigned to any classification"},{ "name": "Retired", "description": "Products that have reached end of life, or were never released."} ]';
+var c_optgroups = JSON.parse(classifications);
+</script>
+    <title>885491 – NM must allow to disable  network scanning</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="5gQuuzEQ_files/2d0dd8b68f6d7df392c433fbc1772f41.css" rel="stylesheet" type="text/css">
+
+
+
+    
+<script type="text/javascript" src="5gQuuzEQ_files/cb7582b38f16d1c929e2366a8e3439af.js"></script>
+
+    <script type="text/javascript">
+    <!--
+        YAHOO.namespace('bugzilla');
+        YAHOO.util.Event.addListener = function (el, sType, fn, obj, overrideContext) {
+               if ( ("onpagehide" in window || YAHOO.env.ua.gecko) && sType === "unload") { sType = "pagehide"; };
+               var capture = ((sType == "focusin" || sType == "focusout") && !YAHOO.env.ua.ie) ? true : false;
+               return this._addListener(el, this._getType(sType), fn, obj, overrideContext, capture);
+         };
+        if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+            YAHOO.util.Event._simpleRemove(window, "unload", 
+                                           YAHOO.util.Event._unload);
+        }
+        
+        function unhide_language_selector() { 
+            YAHOO.util.Dom.removeClass(
+                'lang_links_container', 'bz_default_hidden'
+            ); 
+        } 
+        YAHOO.util.Event.onDOMReady(unhide_language_selector);
+
+        
+        var BUGZILLA = {
+            param: {
+                cookiepath: '\/',
+                maxusermatches: 8,
+                maxattachmentsize: 20000
+            },
+            constant: {
+                COMMENT_COLS: 80
+            },
+            string: {
+                
+
+                attach_desc_required:
+                    "You must enter a Description for this attachment.",
+                component_required:
+                    "You must select a Component for this bug.",
+                description_required:
+                    "You must enter a Description for this bug.",
+                short_desc_required:
+                    "You must enter a Summary for this bug.",
+                version_required:
+                    "You must select a Version for this bug.",
+                group_required:
+                    "You must select at least one group for bugs in this product."
+            }
+              , api_token: ''
+        };
+
+    if (history && history.replaceState) {
+      if(!document.location.href.match(/show_bug\.cgi/)) {
+        history.replaceState( null,
+                             "885491 – NM must allow to disable  network scanning",
+                             "show_bug.cgi?id=885491" );
+        document.title = "885491 – NM must allow to disable  network scanning";
+      }
+      if (document.location.href.match(/show_bug\.cgi\?.*list_id=/)) {
+        var href = document.location.href;
+        href = href.replace(/[\?&]+list_id=(\d+|cookie)/, '');
+        history.replaceState(null, "885491 – NM must allow to disable  network scanning", href);
+      }
+    }
+    YAHOO.util.Event.onDOMReady(function() {
+      initDirtyFieldTracking();
+
+    });
+    // -->
+    </script>
+<script type="text/javascript" src="5gQuuzEQ_files/86a7bc2d5b705a6cd76cf8f4a5906ddd.js"></script>
+
+    
+
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Red Hat Bugzilla" href="https://bugzilla.redhat.com/search_plugin.cgi">
+    <link rel="shortcut icon" href="https://bugzilla.redhat.com/extensions/RedHat/web/css/favicons/production.ico?v=0">
+  </head>
+
+  <body class="bugzilla-redhat-com
+                 bz_bug
+                 bz_status_CLOSED
+                 bz_product_Fedora
+                 bz_component_wpa_supplicant
+                 bz_bug_885491 yui-skin-sam">
+
+  <div id="header"><div id="banner">
+   <ul id="loginin_launcher"><a href="#" onclick="$('#loginin_launcher').addClass('bz_default_hidden');$('#login_container').removeClass('bz_default_hidden');"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</a></ul>
+   <ul id="login_container" class="bz_default_hidden">
+    <a href="#" id="hide_mini_login" onclick="$('#login_container').addClass('bz_default_hidden');$('#loginin_launcher').removeClass('bz_default_hidden');">[x]</a>
+     
+    <li id="mini_login_container"><div id="saml2_container">
+    Log in using an account from:
+  <div id="saml2auth_login_Fedora Account System">
+    <a href="https://bugzilla.redhat.com/saml2_login.cgi?idp=Fedora%20Account%20System&amp;target=show_bug.cgi?id=885491"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;&nbsp;Fedora Account System</a>
+  </div>
+  <div id="saml2auth_login_Red Hat Associate">
+    <a href="https://bugzilla.redhat.com/saml2_login.cgi?idp=Red%20Hat%20Associate&amp;target=show_bug.cgi?id=885491"><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;&nbsp;Red Hat Associate</a>
+  </div>
+  <div id="saml2auth_login_Red Hat Customer">
+    <a href="https://bugzilla.redhat.com/saml2_login.cgi?idp=Red%20Hat%20Customer&amp;target=show_bug.cgi?id=885491"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Red Hat Customer</a>
+  </div>
+  Or login using a Red Hat Bugzilla account
+  <div>
+
+  <form action="show_bug.cgi?id=885491" method="POST" class="mini_login " id="mini_login">
+    <input id="Bugzilla_login" required="" name="Bugzilla_login" class="bz_login" type="email" placeholder="Email Address">
+    <input class="bz_password" name="Bugzilla_password" type="password" id="Bugzilla_password" required="" placeholder="Password">
+    <input type="hidden" name="Bugzilla_login_token" value="1605638179-5R-v1eujyCbm2yNw9GSb6tioIT_40igYDioL3LEOUlw">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in" id="log_in">
+  </form>
+</div></div></li>
+<li id="forgot_container">
+  <a id="forgot_link" href="#forgot" onclick="return show_forgot_form('')"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;Forgot&nbsp;Password</a>
+  <form action="token.cgi" method="post" id="forgot_form" class="mini_forgot bz_default_hidden">
+    <label for="login">Login:</label>
+    <input name="loginname" size="20" id="login" required="" type="email" placeholder="Your Email Address">
+    <input id="forgot_button" value="Reset Password" type="submit">
+    <input type="hidden" name="a" value="reqpw">
+    <input type="hidden" id="token" name="token" value="1605638179-woSMz8LFH-fWv1n_Wes8HEp9gcJ9r9bstvqC7hOZYpw">
+    <p>
+    <a href="#" onclick="return hide_forgot_form('')"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;Hide Forgot</a>
+  </p></form>
+</li>
+    
+   </ul>
+  </div>
+
+    <div id="titles">
+      <span id="title">Red Hat Bugzilla – Bug&nbsp;885491</span>
+
+
+    </div>
+
+
+    <div id="common_links"><ul class="links">
+  <li class="form">
+    
+    <form action="buglist.cgi" method="get" onsubmit="if (this.quicksearch.value == '')
+                  { alert('Please enter one or more search terms first.');
+                    return false; } return true;">
+    <input type="hidden" id="no_redirect_top" name="no_redirect" value="1">
+    <script type="text/javascript">
+      if (history && history.replaceState) {
+        var no_redirect = document.getElementById("no_redirect_top");
+        no_redirect.value = 1;
+      }
+    </script>
+    <input class="txt" type="text" id="quicksearch_top" name="quicksearch" title="Quick Search">
+    <input class="btn" type="submit" value="Search" id="find_top"></form>
+  <a href="https://bugzilla.redhat.com/page.cgi?id=quicksearch.html" title="Quicksearch Help">[?]</a></li>
+  <li><a href="https://bugzilla.redhat.com/" title="Home"><i class="fas fa-home"></i></a></li>
+  <li><a href="https://bugzilla.redhat.com/enter_bug.cgi">New</a></li>
+  <li class="submenu">
+    <a href="#" title="Search"><i class="fas fa-search"></i> <span class="fa fa-caret-down"></span></a>
+    <div>
+      <ul>
+        <li><a href="https://bugzilla.redhat.com/query.cgi?format=specific">Simple Search</a></li>
+        <li><a href="https://bugzilla.redhat.com/query.cgi?format=advanced">Advanced Search</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="submenu">
+   <a href="#">My Links <span class="fa fa-caret-down"></span></a>
+   <div>
+    <ul>
+      <li><a href="https://bugzilla.redhat.com/describecomponents.cgi">Browse</a></li>
+      <li>
+            <a href="https://bugzilla.redhat.com/request.cgi">Requests</a></li>
+      <li class="submenu">
+        <a href="https://bugzilla.redhat.com/report.cgi">Reports <span class="fa fa-caret-right"></span></a>
+        <div>
+          <ul>
+            <li class="submenu">
+              <a href="#">Current State <span class="fa fa-caret-right"></span></a>
+              <div>
+                <ul>
+                  <li id="report_search">
+                    <a href="https://bugzilla.redhat.com/query.cgi">Search</a>
+                  </li>
+                  <li id="report_tabular">
+                      <a href="https://bugzilla.redhat.com/query.cgi?format=report-table">Tabular reports</a>
+                  </li>
+                    <li id="report_graphical">
+                        <a href="https://bugzilla.redhat.com/query.cgi?format=report-graph">Graphical reports</a>
+                    </li>
+                  <li id="report_duplicates">
+                    <a href="https://bugzilla.redhat.com/duplicates.cgi">Duplicates</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="submenu">
+              <a href="#">Other Reports <span class="fa fa-caret-right"></span></a>
+              <div>
+                <ul>
+                  <li>
+                      <a href="https://bugzilla.redhat.com/page.cgi?id=user_activity.html">User Changes</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="submenu">
+              <a href="#">Plotly Reports <span class="fa fa-caret-right"></span></a>
+              <div>
+                <ul>
+                  <li>
+                      <a href="https://bugzilla.redhat.com/page.cgi?id=bug_status.html">Bug Status</a>
+                  </li>
+                  <li>
+                      <a href="https://bugzilla.redhat.com/page.cgi?id=bug_severity.html">Bug Severity</a>
+                  </li>
+                  <li>
+                      <a href="https://bugzilla.redhat.com/page.cgi?id=non_defaults.html">Non-Defaults</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li><li><span class="separator"> | </span><a href="https://bugzilla.redhat.com/page.cgi?id=productdashboard.html">Product Dashboard</a></li>
+    </ul>
+   </div>
+  </li>
+
+  <li class="submenu">
+   <a href="#">Help <span class="fa fa-caret-down"></span></a>
+   <div>
+    <ul><li><a href="https://bugzilla.redhat.com/docs/en/html/using/understanding.html">Page Help!</a></li>
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=bug-writing.html">Bug Writing Guidelines</a></li> 
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=whats-new.html">What's new</a></li>
+      <li><a href="https://access.redhat.com/help/browsers">Browser Support Policy</a></li>
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=release-notes.html">5.0.4.rh50 Release notes</a></li>
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=faq.html">FAQ</a></li>
+      <li><a href="https://bugzilla.redhat.com/docs/en/html/index.html">Guides index</a></li>
+      <li><a href="https://bugzilla.redhat.com/docs/en/html/using/index.html">User guide</a></li>
+      <li><a href="https://bugzilla.redhat.com/docs/en/html/integrating/api/Bugzilla/WebService/Bug.html">Web Services</a></li>
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=redhat/contact.html">Contact</a></li> 
+      <li><a href="https://bugzilla.redhat.com/page.cgi?id=terms-conditions.html">Legal</a></li> 
+    </ul>
+   </div>
+  </li>
+
+
+
+</ul>
+    </div>
+  </div>
+
+
+  <div id="bugzilla-body">
+
+
+
+<noscript>
+      <div id="no-js-message">This site requires JavaScript to be enabled to function correctly, please enable it.</div>
+</noscript>
+
+<ul class="related_actions">
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?format=multiple&amp;id=885491" title="Format For Printing"><i class="fa fa-print"></i></a></li>
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?ctype=xml&amp;id=885491" title="Export as XML"><i class="far fa-file-excel"></i></a></li>
+    <li><a href="https://bugzilla.redhat.com/enter_bug.cgi?cloned_bug_id=885491" title="Clone This Bug"><i class="fa fa-clone"></i></a></li>
+    <li>
+      <a href="https://bugzilla.redhat.com/enter_bug.cgi?cloned_bug_id=885491&amp;lite=1" title="Copy is a lite weight clone that only copies the summary &amp; description">
+       <i class="far fa-clone"></i>
+      </a>
+    </li>
+
+
+          
+    <li>
+      <a href="#c6" title="Last Comment">
+         <i class="fas fa-arrow-down" aria-hidden="true"></i>
+      </a>
+    </li><li>
+  <a href="https://bugzilla.redhat.com/buglist.cgi?bug_id=885491&amp;bug_id_type=anddependson&amp;format=tvp" title="TreeView+">
+    <i class="fa fa-tree"></i>
+  </a>
+</li>
+    </ul>
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+
+
+
+
+<form name="changeform" id="changeform" method="post" action="process_bug.cgi">
+
+
+
+
+
+  <input type="hidden" name="delta_ts" value="2015-02-17 14:36:43">
+  <input type="hidden" name="id" value="885491">
+  <input type="hidden" name="token" value="1605638180-M3wJHOgqlIYtAKX4OvvNHFGlzdeEgaVNy7SJ-chzx74">
+<div class="bz_short_desc_container edit_form">
+    
+    
+
+     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491"><b>Bug&nbsp;885491</b></a> <span id="summary_container">
+      - <span id="short_desc_nonedit_display">NM must allow to disable  network scanning</span>
+     </span>
+
+    
+      <b>[NEEDINFO]</b>
+    
+
+    <div id="summary_input" class="bz_default_hidden"><span class="field_label " id="field_label_short_desc">
+
+
+  <a title="The bug summary is a short sentence which succinctly describes what the bug is about." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#short_desc">Summary:</a>
+
+</span>NM must allow to disable  network scanning
+    </div>
+  </div>
+  <script type="text/javascript">
+    hideEditableField('summary_container',
+                      'summary_input',
+                      'summary_edit_action',
+                      'short_desc',
+                      'NM must allow to disable  network scanning' );
+  </script>
+  <table class="edit_form">
+    <tbody><tr>
+      
+      <td id="bz_show_bug_column_1" class="bz_show_bug_column">     
+        <table>
+          <tbody><tr>
+      <th class="field_label">
+        <a href="https://bugzilla.redhat.com/describekeywords.cgi">Keywords</a>:
+      </th>
+      <td>
+        <div class="keywords_select">
+          <select id="keywords" name="keywords" disabled="disabled" multiple="multiple" tabindex="-1" style="display: none;" class="selectized"></select><div class="selectize-control multi plugin-remove_button plugin-minimum_search_length plugin-extra_keys_control plugin-related_fields plugin-load_from_js"><div class="selectize-input items not-full disabled locked"><input type="select-multiple" autocomplete="off" tabindex="-1" id="keywords-selectized" style="width: 4px;" disabled="disabled"></div><div class="selectize-dropdown multi plugin-remove_button plugin-minimum_search_length plugin-extra_keys_control plugin-related_fields plugin-load_from_js" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+        </div>
+      </td>
+    </tr>
+
+  <tr>
+    <th class="field_label">
+      <a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#bug_status">Status</a>:
+    </th>
+    <td id="bz_field_status">
+      <span id="static_bug_status">CLOSED
+          EOL
+      </span>
+    </td>
+  </tr>
+
+<tr><th class="field_label " id="field_label_alias">
+
+
+  <a title="A short, unique name assigned to a bug in order to assist with looking it up and referring to it in other places in Bugzilla." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#alias">Alias:</a>
+
+</th>
+    <td>
+        None
+    </td>
+  </tr>
+
+<tr>
+
+<th class="field_label " id="field_label_product">
+
+
+  <a title="Bugs are categorised into Products and Components. Select a Classification to narrow down this list." class="field_help_link" href="https://bugzilla.redhat.com/describecomponents.cgi">Product:</a>
+
+</th>
+  <td class="field_value " id="field_container_product">Fedora
+
+</td>
+
+
+    </tr>
+
+    
+    <tr class="bz_default_hidden"><th class="field_label " id="field_label_classification">
+
+
+  <a title="Bugs are categorised into Classifications, Products and Components. classifications is the top-level categorisation." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#classification">Classification:</a>
+
+</th>
+  <td class="field_value " id="field_container_classification">Fedora
+
+</td>
+    </tr>
+        
+    
+    
+    <tr><th class="field_label " id="field_label_component">
+
+
+  <a title="Components are second-level categories; each belongs to a particular Product. Select a Product to narrow down this list." class="field_help_link" href="https://bugzilla.redhat.com/describecomponents.cgi?product=Fedora">Component:</a>
+
+</th>
+      <td>
+        
+
+            <input type="hidden" id="component" name="component" value="wpa_supplicant">wpa_supplicant
+        
+        
+        <span class="show_others">
+          <a href="https://bugzilla.redhat.com/buglist.cgi?component=wpa_supplicant&amp;product=Fedora" title="Show other bugs for this component"><i class="fas fa-th-list"></i></a>
+        
+        
+          <a href="https://bugzilla.redhat.com/enter_bug.cgi?component=wpa_supplicant&amp;product=Fedora&amp;version=19" title="Create a new bug for this component"><i class="fas fa-plus-circle"></i></a>
+        
+        </span>
+      </td>
+    </tr>
+    <tr>
+        <th id="bz_rh_sub_component_input_th" class="field_label bz_default_hidden">
+          <label for="rh_sub_component-selectized" class="selectized">
+            <a class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#rh_sub_components" title="The sub component of a specific component">Sub Component:</a>
+          </label>
+        </th>
+        <td id="bz_rh_sub_component_input_td" class="bz_default_hidden">
+          <input type="hidden" name="defined_rh_sub_component" id="defined_rh_sub_component" value="0">
+          <select name="rh_sub_component" id="rh_sub_component" disabled="disabled" onchange="assign_to_default();" placeholder="Type a sub-component name" tabindex="-1" style="display: none;" class="selectized"><option value="" selected="selected"></option></select><div class="selectize-control single plugin-remove_button plugin-minimum_search_length plugin-extra_keys_control plugin-form_history plugin-related_fields"><div class="selectize-input items not-full disabled locked"><input type="select-one" autocomplete="off" tabindex="-1" id="rh_sub_component-selectized" placeholder="Type a sub-component name" style="width: 172px;" disabled="disabled"></div><div class="selectize-dropdown single plugin-remove_button plugin-minimum_search_length plugin-extra_keys_control plugin-form_history plugin-related_fields" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+          <script>
+            $(document).ready(function () {
+              init_sub_components();
+            });
+          </script>
+        
+          <span class="show_others">
+            <a href="https://bugzilla.redhat.com/buglist.cgi?component=wpa_supplicant&amp;product=Fedora" title="Show other bugs for this sub-component"><i class="fas fa-th-list"></i></a>
+          
+          </span>
+        </td>
+      </tr>
+
+<script>
+  function rh_check_sub_components () {
+    var ret = '';
+      var sub_comp_obj = document.getElementById('rh_sub_component');
+        if ($('#defined_rh_sub_component').val() == 1 && !$("#rh_sub_component").selectize()[0].selectize.getValue()) {
+          if (!ret) ret = sub_comp_obj;
+          _sub_comps_errorFor(
+            sub_comp_obj,
+            "You must specify the sub component"
+          );
+      }
+
+    return ret;
+  }
+
+  function _sub_comps_errorFor(field, error_text) {
+      var new_node = document.createElement('div');
+      YAHOO.util.Dom.addClass(new_node, 'validation_error_text');
+      new_node.innerHTML = error_text;
+      YAHOO.util.Dom.insertAfter(new_node, field);
+      YAHOO.util.Dom.addClass(field, 'validation_error_field');
+      new_node.scrollIntoView();
+  }
+</script>
+    <tr><th class="field_label " id="field_label_version">
+
+
+  <a title="The version field defines the version of the software the bug was found in." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#version">Version:</a>
+
+</th>
+<td>
+      <span id="version">19
+      </span></td>
+    </tr>
+        
+    
+        
+    <tr><th class="field_label " id="field_label_rep_platform">
+
+
+  <a title="The hardware platform the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#rep_platform">Hardware:</a>
+
+</th>
+      <td class="field_value">Unspecified
+      </td>
+    </tr>
+    <tr><th class="field_label " id="field_label_op_sys">
+
+
+  <a title="The operating system the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#op_sys">OS:</a>
+
+</th>
+      <td class="field_value">
+        Unspecified
+      </td>
+    </tr>
+          
+          
+          <tr>
+      <th class="field_label">
+        <label accesskey="i">
+          <a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#priority">Priority:</a></label>
+      </th>
+      <td>unspecified
+      </td>
+    </tr>
+    <tr>
+      <th class="field_label">
+        <label><a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#bug_severity">Severity:</a>
+        </label>
+      </th>
+      <td>
+       unspecified
+      </td>
+    </tr>
+
+      <tr><th class="field_label " id="field_label_target_milestone">
+
+
+  <a title="The Target Milestone field is used to define when the engineer the bug is assigned to expects to fix it." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#target_milestone">Target Milestone:</a>
+
+</th><td>
+      <span id="target_milestone">---
+      </span></td>
+      </tr>
+          
+          <tr><th class="field_label " id="field_label_assigned_to">
+
+
+  <a title="The person in charge of resolving the bug." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#assigned_to">Assignee:</a>
+
+</th>
+      <td><span class="vcard redhat_user"><span class="fn">Dan Williams</span>
+</span>
+      </td>
+    </tr>
+
+    <tr><th class="field_label " id="field_label_qa_contact">
+
+
+  <a title="The person responsible for confirming this bug if it is unconfirmed, and for verifying the fix once the bug has been resolved." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#qa_contact">QA Contact:</a>
+
+</th>
+      <td><span class="vcard "><span class="fn">Fedora Extras Quality Assurance</span>
+</span>
+      </td>
+    </tr>
+    
+    <tr><th class="field_label " id="field_label_docs_contact">
+
+    <label for="docs_contact" accesskey="q">
+
+  <a title="The person responsible for documenting once the bug has been resolved." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#docs_contact">Docs Contact:</a>
+</label>
+</th>
+      <td><span class="vcard ">
+</span>
+      </td>
+    </tr>
+    
+    <script type="text/javascript">
+      assignToDefaultOnChange(['product', 'component'],
+        'lkundrak\x40v3.sk',
+        'extras-qa\x40fedoraproject.org',
+        '');
+    </script>
+          
+          
+          <tr><th class="field_label " id="field_label_bug_file_loc">
+
+
+  <a title="Bugs can have a URL associated with them - for example, a pointer to a web site where the problem is seen." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#bug_file_loc">URL:</a>
+
+</th>
+    <td>
+      <span id="bz_url_input_area">
+      </span>
+    </td>
+  </tr>
+
+    <tr><th class="field_label " id="field_label_status_whiteboard">
+
+
+  <a title="Each bug has a free-form single line text entry box for adding tags and status information." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#status_whiteboard">Whiteboard:</a>
+
+</th><td>  
+  </td>
+    </tr>
+          
+
+          
+<tr><th class="field_label " id="field_label_dependson">
+
+
+  <a title="The bugs listed here must be resolved before this bug can be resolved." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#dependson">Depends On:</a>
+
+</th>
+
+  <td>
+    <span id="dependson_input_area">
+    </span>
+
+  </td>
+  </tr>
+  
+  <tr><th class="field_label " id="field_label_blocked">
+
+
+  <a title="This bug must be resolved before the bugs listed in this field can be resolved." class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#blocked">Blocks:</a>
+
+</th>
+
+  <td>
+    <span id="blocked_input_area">
+    </span>
+
+  </td>
+  </tr>
+
+          <tr>
+    <th class="field_label">TreeView+</th>
+    <td>
+        <a href="https://bugzilla.redhat.com/buglist.cgi?bug_id=885491&amp;bug_id_type=anddependson&amp;format=tvp">
+        depends on</a> /
+        <a href="https://bugzilla.redhat.com/buglist.cgi?bug_id=885491&amp;bug_id_type=andblocked&amp;format=tvp&amp;tvp_dir=blocked">
+        blocked</a>
+    </td>
+    <td></td>
+</tr>
+          
+          
+        </tbody></table>
+      </td>
+      <td>
+        <div class="bz_column_spacer">&nbsp;</div>
+      </td>
+      
+      <td id="bz_show_bug_column_2" class="bz_show_bug_column">
+        <table>
+        <tbody><tr>
+    <th class="field_label">
+      <a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#reporter">Reported:</a>
+    </th>
+    <td>2012-12-09 20:31 UTC by <span class="vcard redhat_user"><span class="fn">Zdenek Kabelac</span>
+</span>
+    </td>
+  </tr>
+  
+  <tr>
+    <th class="field_label">
+      <a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#modified">Modified:</a>
+    </th>
+    <td>2015-02-17 14:36 UTC
+      (<a href="https://bugzilla.redhat.com/show_activity.cgi?id=885491">History</a>)
+    </td>
+  
+  </tr>
+<tr>
+      <th class="field_label">
+        <label accesskey="a">
+          <a href="https://bugzilla.redhat.com/page.cgi?id=fields.html#cclist">CC List:</a>
+        </label>
+      </th>
+      <td>4 
+          users
+          <span id="cc_edit_area_showhide_container">
+            (<a href="#" id="cc_edit_area_showhide">show</a>)
+          </span>
+        <div id="cc_edit_area" class="bz_default_hidden">
+          <br>
+            <select id="cc" multiple="multiple" size="5">
+                <option value="alekcejk">alekcejk</option>
+                <option value="dcbw">dcbw</option>
+                <option value="psimerda">psimerda</option>
+                <option value="zkabelac">zkabelac</option>
+            </select>
+        </div>
+          <script type="text/javascript">
+            hideEditableField( 'cc_edit_area_showhide_container', 
+                               'cc_edit_area', 
+                               'cc_edit_area_showhide', 
+                               '', 
+                               '');  
+          </script>
+      </td>
+    </tr>
+
+
+ 
+<tr>
+      <th class="field_label " id="field_label_cf_fixed_in">
+
+
+  <a title="The full package version. PGM uses to check if brew build is in errata tool.">Fixed In Version:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_fixed_in" colspan="2">
+
+</td>
+    </tr>
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_doc_type">
+
+
+  <a title="Indicate the type of documentation to appear in the next field 'Doc Text'. Depending on the value chosen, the template in the 'Doc Text' field will change accordingly">Doc Type:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_doc_type" colspan="2">Bug Fix
+
+<span id="cf_doc_warn"></span></td>
+    </tr>
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_release_notes">
+
+
+  <a title="This field is the basis of the errata or release note for this bug. It can also be used for change logs.">Doc Text:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_release_notes" colspan="2">
+      <div class="uneditable_textarea"></div>
+
+</td>
+    </tr>
+    
+    
+
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_clone_of">
+
+
+  <a title="The bug listed here was the bug cloned to create this bug">Clone Of:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_clone_of" colspan="2">
+
+</td>
+    </tr>
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_environment">
+
+
+  <a title="This field is used for unformatted text that helps to further describe the bug report">Environment:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_environment" colspan="2">
+      <div class="uneditable_textarea"></div>
+
+</td>
+    </tr>
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_last_closed">
+
+
+  <a title="When this bug was last marked as closed. Used for statistical purposes">Last Closed:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_last_closed" colspan="2">2015-02-17 14:36:43 UTC
+    
+
+</td>
+    </tr>
+    
+    
+
+    <tr>
+      <th class="field_label " id="field_label_cf_type">
+
+
+  <a title="Keywords in a custom field">Type:</a>
+
+</th>
+  <td class="field_value " id="field_container_cf_type" colspan="2">Bug
+
+</td>
+    </tr>
+
+<tr>
+  <th class="field_label">
+    <label for="dependent_products-selectized" class="selectized">
+      <a class="field_help_link" href="https://bugzilla.redhat.com/page.cgi?id=fields.html#dependent_products" title="Other Products that are affected by this bug.">
+        Dependent Products:
+      </a>
+     </label>
+  </th>
+  <td>
+    <select id="dependent_products" name="dependent_products" multiple="multiple" disabled="disabled" placeholder="" tabindex="-1" style="display: none;" class="selectized"></select><div class="selectize-control multi plugin-remove_button plugin-extra_keys_control plugin-related_fields"><div class="selectize-input items not-full has-options disabled locked"><input type="select-multiple" autocomplete="off" tabindex="-1" id="dependent_products-selectized" style="width: 4px;" disabled="disabled"></div><div class="selectize-dropdown multi plugin-remove_button plugin-extra_keys_control plugin-related_fields" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        init_products({id : "dependent_products", noajax: 1});
+      });
+    </script>
+  </td>
+</tr>
+<tr>
+      <th class="field_label">
+        <label>Flags:</label>
+      </th>
+      <td><span title="Dan Williams">dcbw</span>:
+      
+      needinfo?
+          (<span title="Zdenek Kabelac">zkabelac</span>)<br>
+      </td>
+    </tr>
+
+        </tbody></table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+          <hr id="bz_top_half_spacer">
+      </td>
+    </tr>
+  </tbody></table>
+
+  <table id="bz_big_form_parts">
+  <tbody><tr>
+  <td>
+
+    
+<script type="text/javascript">
+<!--
+function toggle_display(link) {
+    var table = document.getElementById("attachment_table");
+    var view_all = document.getElementById("view_all");
+    var hide_obsolete_url_parameter = "&hide_obsolete=1";
+    // Store current height for scrolling later
+    var originalHeight = table.offsetHeight;
+    var rows = YAHOO.util.Dom.getElementsByClassName(
+        'bz_tr_obsolete', 'tr', table);
+
+    for (var i = 0; i < rows.length; i++) {
+        bz_toggleClass(rows[i], 'bz_default_hidden');
+    }
+
+    if (YAHOO.util.Dom.hasClass(rows[0], 'bz_default_hidden')) {
+        link.innerHTML = "Show Obsolete";
+        view_all.href = view_all.href + hide_obsolete_url_parameter 
+    }
+    else {
+        link.innerHTML = "Hide Obsolete";
+        view_all.href = view_all.href.replace(hide_obsolete_url_parameter,"");
+    }
+
+    var newHeight = table.offsetHeight;
+    // This scrolling makes the window appear to not move at all.
+    window.scrollBy(0, newHeight - originalHeight);
+
+    return false;
+}
+//-->
+</script>
+
+<br>
+<table id="attachment_table">
+  <tbody><tr id="a0">
+    
+    <th align="left">
+      Attachments
+    </th>
+    <th colspan="2" align="right">
+      <a href="https://bugzilla.redhat.com/page.cgi?id=terms-conditions.html">(Terms of Use)</a>
+    </th>
+    
+  </tr>
+
+
+
+  <tr class="bz_attach_footer">
+    <td colspan="3">
+        <a href="https://bugzilla.redhat.com/attachment.cgi?bugid=885491&amp;action=enter">Add an attachment</a>
+        (proposed patch, testcase, etc.)
+    </td>
+  </tr>
+</tbody></table>
+<br>
+
+    
+
+    
+    
+
+  </td>
+
+  <td class="groups">
+  </td>
+  </tr></tbody></table>
+
+  
+  <div id="comments"><script type="text/javascript">
+<!--
+  /* Adds the reply text to the 'comment' textarea */
+  function replyToComment(id, real_id, name) {
+      var prefix = "(In reply to " + name + " from comment #" + id + ")\n";
+      var replytext = "";
+        /* pre id="comment_name_N" */
+        var text_elem = document.getElementById('comment_text_'+id);
+        var text = getText(text_elem);
+        replytext = prefix + wrapReplyText(text);
+
+
+      /* <textarea id="comment"> */
+      var textarea = document.getElementById('comment');
+      if (textarea.value != replytext) {
+          textarea.value += replytext;
+      }
+
+      textarea.focus();
+  } 
+//-->
+</script>
+
+
+
+
+
+
+<!-- This auto-sizes the comments and positions the collapse/expand links 
+     to the right. -->
+<table class="bz_comment_table">
+<tbody><tr>
+<td>
+<div id="c0" class="bz_comment bz_first_comment
+            ">
+
+      <div class="bz_first_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c0">Description</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard redhat_user"><span class="fn">Zdenek Kabelac</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2012-12-09 20:31:49 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">Description of problem:
+
+NM *MUST* have an option to disable  NM scanning - there are multiple points why it should be allowed to do this - i.e. have a look at  <a class="bz_bug_link 
+          bz_status_CLOSED  bz_closed
+                                        " title="CLOSED RAWHIDE - NM wifi scans makes VOIP uncomfortable" href="https://bugzilla.redhat.com/show_bug.cgi?id=830151">Bug 830151</a>.
+
+I'm not sure which version of NM has changed now this behavior that even with configured BSSID it will not be disabled - but current behavior is simply very broken.
+
+NM is not supposed to be smarten then user and there needs to be a way to have it in the user-controlled mode - there are broken hardwares (or at least noone at Intel is going to fix i.e. iwl3945 for this in this century)
+
+Why the latest Intel wifi driver with i7 core laptops are 'fast' enough to handle this NM scan almost not noticeable - but still wastes energy in case I know I do not need/want to have scans running and eating battery.
+
+So ideally each Wifi connection should have another 'flag' just like auto-connection - disable scan when connected.
+
+It seems that during NM scan  UDP packets are simply dropped - making VOIP unusable (end of 2012 and I've to be wire-connected to speak over IP - crazy...)
+
+There is also this patch floating on the net for a long long time - why it's not something like this applied ?
+
+<a href="http://www.openmamba.org/showfile.html?file=/pub/openmamba/milestone2/patches/NetworkManager-0.8.2-disable-scan-if-connected.patch">http://www.openmamba.org/showfile.html?file=/pub/openmamba/milestone2/patches/NetworkManager-0.8.2-disable-scan-if-connected.patch</a>
+
+
+Version-Release number of selected component (if applicable):
+NetworkManager-0.9.7.0-9.git20121004.fc19.x86_64
+
+How reproducible:
+
+
+Steps to Reproduce:
+1. run laptop with iwl3945  (T61)
+2. ping gateway router
+3. watch for ping latency during NM wifi scan
+  
+Actual results:
+periodic significant slowdowns
+
+Expected results:
+usable reliable usable Wifi connection
+
+Additional info:
+
+</pre>
+    </div>
+
+    <div id="c1" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c1">Comment 1</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard "><span class="fn">Fedora End Of Life</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2013-04-03 14:26:49 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">This bug appears to have been reported against 'rawhide' during the Fedora 19 development cycle.
+Changing version to '19'.
+
+(As we did not run this process for some time, it could affect also pre-Fedora 19 development
+cycle bugs. We are very sorry. It will help us with cleanup during Fedora 19 End Of Life. Thank you.)
+
+More information and reason for this action is here:
+<a href="https://fedoraproject.org/wiki/BugZappers/HouseKeeping/Fedora19">https://fedoraproject.org/wiki/BugZappers/HouseKeeping/Fedora19</a>
+
+</pre>
+    </div>
+
+    <div id="c2" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c2">Comment 2</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard redhat_user"><span class="fn">Dan Williams</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2013-04-05 17:57:53 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">I cannot reproduce this issue with current NM in F18, when setting a BSSID to lock the connection to a specific AP.  When you can reproduce this issue, please run:
+
+sudo dbus-send --system --print-reply --dest=org.freedesktop.NetworkManager /org/freedesktop/NetworkManager org.freedesktop.NetworkManager.SetLogging string:"debug" string:"wifi,wifi_scan"
+
+and then wait at least 5 minutes and attach your /var/log/messages file to this bug report so we can see if NM is requesting a scan for some reason or not.
+
+</pre>
+    </div>
+
+    <div id="c3" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c3">Comment 3</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard redhat_user"><span class="fn">Zdenek Kabelac</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2013-06-29 22:26:35 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">Yep - nearly forget about this one -
+
+(I've a bit shortened the log line 
+devices/nm-device-wifi.c and only important time sec deviation
+and anonymized router names (XXXXXXXXX being my own...
+others are surrounding)
+
+It seems to be doing this work over and over again
+and I still get scary ping delays when pinging VOIP master server
+though it's hard to guess which thing is still influencing it.
+
+So still VOIP in linux with iwl3945 in 2013 is hard thing to do and much easier is to use ethernet connect, while every cheap android phone with CSipSimple can handle VOIP without a single problem on the same router...
+
+(And the usability of Linphone with pulseaudio is another horror story as well)
+
+Here is what debug log shows (it's definitely not passive)
+
+15.665 .c:582] get_active_ap():       matched
+20.667 .c:1742] request_wireless_scan(): (wlan0): scan requested but not allowed at this time
+20.668 .c:1797] schedule_scan(): (wlan0): scheduled scan in 43 seconds (interval now 43 seconds)
+21.663 .c:506] get_active_ap(): (wlan0): active BSSID: 94:0c:6d:ac:46:c8
+21.663 .c:516] get_active_ap(): (wlan0): active SSID: 'XXXXXXXXX'
+21.664 .c:526] get_active_ap():   Pass #1
+21.664 .c:542] get_active_ap():     AP: 'ZZZZZZZZZ'  00:1b:2f:4b:88:38
+21.664 .c:550] get_active_ap():       BSSID mismatch
+21.664 .c:542] get_active_ap():     AP: 'YYYYYYYYY'  38:60:77:ad:b1:12
+21.664 .c:550] get_active_ap():       BSSID mismatch
+21.664 .c:542] get_active_ap():     AP: 'XXXXXXXXX'  94:0c:6d:ac:46:c8
+21.664 .c:582] get_active_ap():       matched
+27.665 .c:506] get_active_ap(): (wlan0): active BSSID: 94:0c:6d:ac:46:c8
+27.665 .c:516] get_active_ap(): (wlan0): active SSID: 'XXXXXXXXX'
+27.665 .c:526] get_active_ap():   Pass #1
+27.665 .c:542] get_active_ap():     AP: 'ZZZZZZZZZ'  00:1b:2f:4b:88:38
+27.665 .c:550] get_active_ap():       BSSID mismatch
+27.665 .c:542] get_active_ap():     AP: 'YYYYYYYYY'  38:60:77:ad:b1:12
+27.665 .c:550] get_active_ap():       BSSID mismatch
+27.665 .c:542] get_active_ap():     AP: 'XXXXXXXXX'  94:0c:6d:ac:46:c8
+27.665 .c:582] get_active_ap():       matched
+33.668 .c:506] get_active_ap(): (wlan0): active BSSID: 94:0c:6d:ac:46:c8
+33.668 .c:516] get_active_ap(): (wlan0): active SSID: 'XXXXXXXXX'
+33.669 .c:526] get_active_ap():   Pass #1
+33.669 .c:542] get_active_ap():     AP: 'ZZZZZZZZZ'  00:1b:2f:4b:88:38
+33.669 .c:550] get_active_ap():       BSSID mismatch
+33.669 .c:542] get_active_ap():     AP: 'YYYYYYYYY'  38:60:77:ad:b1:12
+33.669 .c:550] get_active_ap():       BSSID mismatch
+33.669 .c:542] get_active_ap():     AP: 'XXXXXXXXX'  94:0c:6d:ac:46:c8
+33.669 .c:582] get_active_ap():       matched
+
+</pre>
+    </div>
+
+    <div id="c4" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c4">Comment 4</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard redhat_user"><span class="fn">Dan Williams</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2013-07-22 19:56:17 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">Ok, what this is saying to me is that NetworkManager is not causing the scan requests, it must be done somewhere lower, either in wpa_supplicant or in the kernel.  To debug the supplicant, leave NM locked to the same BSSID, then:
+
+mv /usr/sbin/wpa_supplicant /
+killall -TERM wpa_supplicant
+/wpa_supplicant -dddtu -f /tmp/sup.log
+
+and let NM connect, then reproduce the latency, and attach /tmp/sup.log as a private attachment (since it may contain details of your network).
+
+</pre>
+    </div>
+
+    <div id="c5" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c5">Comment 5</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard "><span class="fn">Fedora End Of Life</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2015-01-09 17:31:22 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">This message is a notice that Fedora 19 is now at end of life. Fedora 
+has stopped maintaining and issuing updates for Fedora 19. It is 
+Fedora's policy to close all bug reports from releases that are no 
+longer maintained. Approximately 4 (four) weeks from now this bug will
+be closed as EOL if it remains open with a Fedora 'version' of '19'.
+
+Package Maintainer: If you wish for this bug to remain open because you
+plan to fix it in a currently maintained version, simply change the 'version' 
+to a later Fedora version.
+
+Thank you for reporting this issue and we are sorry that we were not 
+able to fix it before Fedora 19 is end of life. If you would still like 
+to see this bug fixed and are able to reproduce it against a later version 
+of Fedora, you are encouraged  change the 'version' to a later Fedora 
+version prior this bug is closed as described in the policy above.
+
+Although we aim to fix as many bugs as possible during every release's 
+lifetime, sometimes those efforts are overtaken by events. Often a 
+more recent Fedora release includes newer upstream software that fixes 
+bugs or makes them obsolete.
+
+</pre>
+    </div>
+
+    <div id="c6" class="bz_comment
+            ">
+
+      <div class="bz_comment_head">
+
+
+        <span class="bz_comment_number">
+          <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491#c6">Comment 6</a>
+        </span>
+
+        <span class="bz_comment_user">
+          <span class="vcard "><span class="fn">Fedora End Of Life</span>
+</span>
+        </span>
+
+        
+        <span class="bz_comment_user_images">
+        </span>
+
+        <span class="bz_comment_time">
+          2015-02-17 14:36:43 UTC
+        </span>
+
+      </div>
+
+      
+
+
+      
+      
+
+
+
+<pre class="bz_comment_text">Fedora 19 changed to end-of-life (EOL) status on 2015-01-06. Fedora 19 is
+no longer maintained, which means that it will not receive any further
+security or bug fix updates. As a result we are closing this bug.
+
+If you can reproduce this bug against a currently maintained version of
+Fedora please feel free to reopen this bug against that version. If you
+are unable to reopen this bug, please file a new report against the
+current release. If you experience problems, please add a comment to this
+bug.
+
+Thank you for reporting this bug and we are sorry it could not be fixed.
+
+</pre>
+    </div>
+
+
+  <script>
+$(document).ready(function() {
+  var mysel = document.getElementsByClassName('flag_type-415')[0];
+  var relnotes = document.getElementById('cf_release_notes');
+  if ( mysel && relnotes &&
+      relnotes.value != '' &&
+      relnotes.value != cf_doc_type_text[document.getElementById('cf_doc_type').value] &&
+      mysel.options[mysel.selectedIndex].value != '+'
+    )
+      document.getElementById('cf_doc_warn').innerHTML = '<div class="warning "><b>Warning: Doc Text is not yet verified as correct</b></div>';
+});
+</script>
+
+</td>
+<td>
+</td>
+</tr></tbody></table>
+  </div>
+
+    <hr><div id="add_comment" class="bz_section_additional_comments">
+      <table>
+        <tbody><tr>
+          <td>
+            <fieldset>
+              <legend>Note</legend>
+              You need to
+              <a href="https://bugzilla.redhat.com/show_bug.cgi?id=885491&amp;GoAheadAndLogIn=1">log in</a>
+              before you can comment on or make changes to this bug.
+            </fieldset>
+          </td>
+        </tr> 
+      </tbody></table>
+  </div>        
+
+</form>
+
+<hr>
+<ul class="related_actions">
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?format=multiple&amp;id=885491" title="Format For Printing"><i class="fa fa-print"></i></a></li>
+    <li><a href="https://bugzilla.redhat.com/show_bug.cgi?ctype=xml&amp;id=885491" title="Export as XML"><i class="far fa-file-excel"></i></a></li>
+    <li><a href="https://bugzilla.redhat.com/enter_bug.cgi?cloned_bug_id=885491" title="Clone This Bug"><i class="fa fa-clone"></i></a></li>
+    <li>
+      <a href="https://bugzilla.redhat.com/enter_bug.cgi?cloned_bug_id=885491&amp;lite=1" title="Copy is a lite weight clone that only copies the summary &amp; description">
+       <i class="far fa-clone"></i>
+      </a>
+    </li><li>
+  <a href="https://bugzilla.redhat.com/buglist.cgi?bug_id=885491&amp;bug_id_type=anddependson&amp;format=tvp" title="TreeView+">
+    <i class="fa fa-tree"></i>
+  </a>
+</li>
+    <li>
+      <a href="#" title="Top of page">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    </ul>
+
+<br>
+</div>
+
+    <div id="footer">
+      <div class="intro"></div>
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li class="form">
+    
+    <form action="buglist.cgi" method="get" onsubmit="if (this.quicksearch.value == '')
+                  { alert('Please enter one or more search terms first.');
+                    return false; } return true;">
+    <input type="hidden" id="no_redirect_bottom" name="no_redirect" value="1">
+    <script type="text/javascript">
+      if (history && history.replaceState) {
+        var no_redirect = document.getElementById("no_redirect_bottom");
+        no_redirect.value = 1;
+      }
+    </script>
+    <input class="txt" type="text" id="quicksearch_bottom" name="quicksearch" title="Quick Search">
+    <input class="btn" type="submit" value="Search" id="find_bottom"></form>
+  <a href="https://bugzilla.redhat.com/page.cgi?id=quicksearch.html" title="Quicksearch Help">[?]</a></li>
+
+</ul>
+  </li>
+
+  
+
+
+
+
+  
+</ul>
+
+      <div class="outro"></div>
+    </div>
+<script type="text/javascript">
+function dt_submit() {
+  var tables = $.fn.dataTable.tables( { visible: true, api: true } );
+  $.each(tables.context, function() {
+    var $myform = this.nTable.closest('form');
+
+    // Checked checkboxes
+    $.each(this.oInstance.$('input:checked'), function() {
+      add_hidden(this.name, this.value, $myform)
+    });
+
+    // Inputs in selected rows
+    $.each(this.oInstance.$('tr.selected'), function() {
+      $(this).find('input').each( function() {
+        add_hidden(this.name, this.value, $myform)
+      });
+    });
+
+    // select boxes
+    $.each(this.oInstance.$('select'), function() {
+      if(($(this).val()!=="") && ($(this).val() !== 0)) {
+        add_hidden(this.name, this.value, $myform);
+      }
+    });
+  });
+}
+
+function add_hidden(nm, val, $frm) {
+        $('<input />').attr('type', 'hidden')
+          .attr('name', nm)
+          .attr('value', val)
+          .appendTo($frm);
+}
+
+$(document).ready(function() {
+    $('form').submit(function( event ) {
+        dt_submit();
+        if( $(this).attr('id') === 'changeform') {
+          return(validateEnterBug(this));
+        }
+    });
+
+});
+
+</script><script type="text/javascript">
+$(document).ready(function() {
+    $('select').not('.custom_search_condition select, #member_template select, #available_columns, #p2_component, #select_user_verify_class, #inclusion_to_remove, #exclusion_to_remove, #cc, #hide, #ack_col_edit #show, .noselectize, #j_top').each(function() {
+        if(! $(this).hasClass('selectized')) {
+            $(this).selectize({
+                plugins: ['remove_button', 'minimum_search_length', 'extra_keys_control', 'related_fields', 'load_from_js'],
+                selectOnTab: true,
+                maxOptions: 'nolimit',
+                minimum_search_length: 2,
+                render: {
+                    option: function(item, escape) {
+                        var classes = "option";
+                        var selected = this.items.indexOf(item.value) !== -1;
+                        if(item.disabled) {
+                            classes = classes + " bz_default_hidden" ;
+                        }
+
+                        return '<div class="' +  classes  + '" title="' + escape(item.title) + '" id="' + escape(item.id) + '" data-value="' + escape(item.value) + '">' +
+                                    '<span>' + escape(item.text) + '</span>' +
+                                '</div>';
+                    }
+                },
+            });
+        }
+    });
+});
+</script>
+  
+<span style="position: absolute; top: -99999px; left: -99999px; width: auto; padding: 0px; white-space: pre; letter-spacing: 0px; font-size: 13px; font-family: &quot;Open Sans&quot;, Helvetica, sans-serif; font-weight: 400; text-transform: none;">Type a sub-component name</span></body></html>

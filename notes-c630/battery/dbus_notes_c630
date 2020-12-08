@@ -1,0 +1,25 @@
+sudo qdbus --system org.freedesktop.UPower
+sudo qdbus --system org.freedesktop.UPower /org/freedesktop/UPower/devices/battery_some_battery
+sudo qdbus --system org.freedesktop.UPower /org/freedesktop/UPower/devices/line_power_some_adapter
+sudo upower -m
+
+signal time=1606317791.185652 sender=:1.41 -> destination=(null destination) serial=72 path=/org/freedesktop/UPower/devices/battery_some_battery; interface=org.freedesktop.DBus.Properties; member=PropertiesChanged
+   string "org.freedesktop.UPower.Device"
+   array [
+      dict entry(
+         string "UpdateTime"
+         variant             uint64 1606317791
+      )
+      dict entry(
+         string "IconName"
+         variant             string "battery-full-charged-symbolic"
+      )
+      dict entry(
+         string "TimeToEmpty"
+         variant             int64 0
+      )
+      dict entry(
+         string "State"
+         variant             uint32 4
+      )
+

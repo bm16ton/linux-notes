@@ -1,0 +1,15 @@
+ROOT
+ExecStartPre=/usr/share/anbox/anbox-bridge.sh start
+ExecStart=/usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox
+ExecStopPost=/usr/share/anbox/anbox-bridge.sh stop
+
+USER
+ExecStart=/usr/bin/anbox session-manager
+
+anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+
+
+sudo anbox container-manager --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img
+anbox session-manager
+anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity

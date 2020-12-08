@@ -1,0 +1,56 @@
+[  157.408924] arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402, iova=0x7fddce300, fsynr=0xa0003, cbfrsynra=0x41, cb=5
+[  160.591035] ath10k_snoc 18800000.wifi: wmi command 16385 timeout, restarting hardware
+[  160.591107] ath10k_snoc 18800000.wifi: failed to set pdev regdomain: -11
+[  160.592271] ath10k_snoc 18800000.wifi: failed to create WMI vdev 0: -108
+[  160.592540] ------------[ cut here ]------------
+[  160.592818] WARNING: CPU: 1 PID: 2868 at net/mac80211/iface.c:417 ieee80211_add_virtual_monitor+0x250/0x278 [mac80211]
+[  160.592833] Modules linked in: rfcomm af_alg bnep q6asm_dai q6afe_dai q6routing q6adm fuse q6asm q6afe q6dsp_common q6core snd_soc_wsa881x regmap_sdw gpio_wcd934x soundwire_qcom snd_soc_wcd934x wcd934x regmap_slimbus apr pdr_interface venus_dec venus_enc videobuf2_dma_sg qrtr_smd uvcvideo videobuf2_vmalloc videobuf2_memops mousedev venus_core v4l2_mem2mem videobuf2_v4l2 hci_uart msm snd_soc_sdm845 videobuf2_common ath10k_snoc btqca btbcm videodev crct10dif_ce snd_soc_rt5663 bluetooth ath10k_core snd_soc_rl6231 mc snd_soc_qcom_common soundwire_bus ti_sn65dsi86 drm_kms_helper ecdh_generic ecc qcom_spmi_adc5 qcom_vadc_common reset_qcom_pdc some_battery ath hid_multitouch mac80211 qcom_rng qcom_q6v5_mss cfg80211 qrtr ns qcom_q6v5_pas rfkill libarc4 slim_qcom_ngd_ctrl slimbus qcom_pil_info socinfo icc_osm_l3 qcom_q6v5 qcom_sysmon qcom_common qcom_glink_smem qmi_helpers qcom_wdt mdt_loader qnoc_sdm845 icc_rpmh icc_bcm_voter rmtfs_mem ppdev lp ip_tables x_tables ipv6 i2c_hid camcc_sdm845
+[  160.593198]  i2c_qcom_geni phy_qcom_qusb2 panel_simple drm
+[  160.593266] CPU: 1 PID: 2868 Comm: ip Not tainted 5.9.11-16ton #5
+[  160.593282] Hardware name: LENOVO 81JL/LNVNB161216, BIOS 9UCN33WW(V2.06) 06/ 4/2019
+[  160.593306] pstate: 60400005 (nZCv daif +PAN -UAO BTYPE=--)
+[  160.593521] pc : ieee80211_add_virtual_monitor+0x250/0x278 [mac80211]
+[  160.593735] lr : ieee80211_add_virtual_monitor+0xe8/0x278 [mac80211]
+[  160.593750] sp : ffff800017ff3280
+[  160.593762] x29: ffff800017ff3280 x28: ffffab63f374ee30
+[  160.593784] x27: ffff09af8e126e10 x26: 00000000ffffffff
+[  160.593805] x25: 0000000000000001 x24: ffff09afab56cdd8
+[  160.593825] x23: 0000000000000000 x22: ffff09afab56c000
+[  160.593846] x21: ffff09af5d266000 x20: 00000000ffffff94
+[  160.593866] x19: ffff09afad3707e0 x18: ffffffffffffffff
+[  160.593886] x17: 0000000000000000 x16: ffffab63f38a09b0
+[  160.593906] x15: ffffab63f4149948 x14: 000000000000014f
+[  160.593926] x13: 000000000000014f x12: 0000000000000000
+[  160.593945] x11: 0000000000000000 x10: 0000000000000002
+[  160.593965] x9 : 00000000ffffffff x8 : ffff09afbb843ec0
+[  160.593985] x7 : ffff09afbb843ef0 x6 : 0000000000000003
+[  160.594004] x5 : 0000000000000000 x4 : 0000000000000000
+[  160.594023] x3 : 00000000000f4240 x2 : 5471036a0ec42500
+[  160.594043] x1 : 0000000000000000 x0 : 00000000ffffff94
+[  160.594065] Call trace:
+[  160.594278]  ieee80211_add_virtual_monitor+0x250/0x278 [mac80211]
+[  160.594487]  ieee80211_do_open+0x588/0x928 [mac80211]
+[  160.594696]  ieee80211_open+0x4c/0x68 [mac80211]
+[  160.594730]  __dev_open+0x110/0x198
+[  160.594754]  __dev_change_flags+0x16c/0x1c8
+[  160.594773]  dev_change_flags+0x24/0x68
+[  160.594796]  do_setlink+0x388/0xed8
+[  160.594815]  __rtnl_newlink+0x3f8/0x770
+[  160.594833]  rtnl_newlink+0x50/0x80
+[  160.594855]  rtnetlink_rcv_msg+0x2a4/0x358
+[  160.594879]  netlink_rcv_skb+0x60/0x130
+[  160.594901]  rtnetlink_rcv+0x18/0x28
+[  160.594919]  netlink_unicast+0x2c8/0x318
+[  160.594937]  netlink_sendmsg+0x2bc/0x3f8
+[  160.594962]  sock_sendmsg+0x4c/0x58
+[  160.594981]  ____sys_sendmsg+0x284/0x2c8
+[  160.595001]  ___sys_sendmsg+0x84/0xc8
+[  160.595022]  __sys_sendmsg+0x70/0xd0
+[  160.595042]  __arm64_sys_sendmsg+0x24/0x30
+[  160.595073]  el0_svc_common.constprop.3+0x68/0x170
+[  160.595094]  do_el0_svc+0x24/0x90
+[  160.595120]  el0_sync_handler+0x13c/0x1a8
+[  160.595139]  el0_sync+0x158/0x180
+[  160.595156] ---[ end trace 4ffa946e126d6033 ]---
+[  160.685148] ieee80211 phy0: Hardware restart was requested
+

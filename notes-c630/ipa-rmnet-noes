@@ -1,0 +1,9 @@
+ip link add link ${qmi_wwan network interface} name ${rmnet device network interface name} type rmnet mux_id ${mux id}
+
+e.g.
+
+ip link add link wwp0s20u5i2 name rmnet0 type rmnet mux_id 1
+
+
+
+qmicli --help-all

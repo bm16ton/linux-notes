@@ -1,0 +1,82 @@
+/sys/class/typec/
+/sys/class/typec/port0/<alternate mode>/mode1/
+
+echo Y &gt; /sys/class/net/wwan0/qmi/raw_ip
+echo 19d2 0601 &gt; /sys/bus/usb-serial/drivers/option1/new_id
+
+ALSA
+RECONFIG ALSA
+echo 1 > /sys/class/sound/card/reconfig
+
+cat /proc/asound/cards    # list cards
+
+VENUS;
+turn on venus decoder/encoder debug
+echo "1" > /sys/class/video4linux/video3/dev_debug
+
+ATH10K
+/sys/kernel/debug/ieee80211/phy0
+/sys/class/ieee80211/phy0/
+/sys/class/ieee80211/phy0/device/net/wlan0
+/sys/kernel/debug/ieee80211/phy0/ath10k/
+    Firmware dbglogs can be now enabled through fw_dbglog file.
+    To enable all possible log messages run:
+echo 0xffffffff > /sys/kernel/debug/ieee80211/phy0/ath10k/fw_dbglog
+    And to put back firmare defaults use 0x0:
+echo 0x0 > /sys/kernel/debug/ieee80211/phy0/ath10k/fw_dbglog
+ATH10K TPC
+    Export the final Transmit Power Control (TPC) value, which is the
+    minimum of control power and existing TPC value to user space via
+    a debugfs file "tpc_stats_final"
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats_final
+
+    The existing tpc_stats debugfs file provides the dump
+    which is minimum of target power and regulatory domain.
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats
+
+    The existing tpc_stats debugfs file provides the dump
+    which is minimum of target power and regulatory domain.
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats
+
+    To enable pktlog for all filters
+echo 0x1f > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
+    To disable pktlog
+echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
+    powersave setting/reporting
+cat /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
+echo Y > /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
+    Y = 0 to enable and Y = 1 to disable <-deprecated? use 0/1
+
+/sys/class/thermal/thermal_zone[0-*]:
+/sys/class/thermal/cooling_device[0-*]:
+/sys/devices/platform/panel/modalias     # what kind of panel
+/sys/class/remoteproc/remoteprocX        # remote proc stuff
+/sys/class/remoteproc/.../firmware       # name of firmware on remote proc
+/sys/class/remoteproc/.../state          # can write start/stop and will report current status
+                       # show sound cards
+/sys/class/thermal/thermal_zoneX /type   # shows hardware temps
+                                 /temp
+
+echo 1 > /sys/devices/system/cpu/cpufreq/boost
+echo <vid> <pid> >/sys/bus/usb-serial/drivers/generic/new_id
+
+
+/proc/device-tree
+         /proc/device-tree
+         /proc/device-tree/firmware/scm/compatible
+         /proc/device-tree/panel/compatible
+
+/sys/devices/system/cpu/cpufreq/policy4/
+/sys/kernel/debug/opp/cpu4/
+echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+/sys/kernel/debug/qcom_socinfo
+
+
+/sys/kernel/debug/interconnect/interconnect_summary
+                                            interconnect_graph
+
+/sys/kernel/debug/dma_buf/bufinfo
+/sys/kernel/debug/bluetooth/hci0/
+
+/sys/class/dmi/id/*    tons of stuff
+

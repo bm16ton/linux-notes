@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# "><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/amp4ads-host-v0.js"></script><script src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/osd.js"></script><script src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/pubads_impl_rendering_2020040702.js"></script><script type="text/javascript" async="" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/ga.js"></script><script async="" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/apstag.js"></script><script type="text/javascript">!function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore(A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");</script><script type="text/javascript" async="" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/prebid.js"></script>
+<title>
+alsaucm: ALSA Use Case Manager - Linux Man Pages (1)</title>
+
+<meta name="description" content="alsaucm (ALSA Use Case Manager) is a program to use the ALSA Use Case Interface from the command line. On complex sound cards, setting up audio routes is not trivial">
+<meta property="og:title" content="alsaucm: ALSA Use Case Manager - Linux Man Pages (1)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="//www.systutorials.com/docs/linux/man/docs/linux/man/1-alsaucm/">
+<meta property="og:image" content="http://www.systutorials.com/docs/linux/man/content/tux.png">
+<meta property="og:image:secure_url" content="https://www.systutorials.com/docs/linux/man/content/tux.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">body {
+  background:#333;
+}
+.content {
+  font-family: arial, sans-serif;
+  font-size: 17px;
+  line-height:1.3;
+  width: 928px;
+  margin: 10px auto;
+  padding: 30px 40px;
+  background:#fff;
+  color: #333;
+  border-radius:2px;
+  overflow: auto;
+}
+
+.main-content, .sidebar {
+  font-family: monospace, arial, sans-serif;
+  font-size: 11pt;
+}
+
+.main-content {
+  margin-bottom:2rem;
+  width: 580px;
+  float: left;
+  display: block;
+}
+
+.before-content {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-top: 16px;
+}
+
+.before-content-inner::after {
+  content: "Additional notes";
+  font-size: 9px;
+  text-transform: uppercase;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  text-align: right;
+}
+
+.content h1, .main-content, .sidebar {
+  overflow-wrap: break-word;
+}
+
+.main-content pre, .sidebar pre {
+  overflow-wrap: normal;
+}
+
+.sidebar {
+  width: 300px;
+  float: right;
+  display: block;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 15px 0;
+  overflow:hidden;
+  width: 100%;
+}
+h1, h2, h3, h4 {
+  color:#000099;
+  font-weight: normal;
+  font-family: arial, sans-serif;
+  margin-bottom: 0.4em;
+}
+h1, .content h1 {
+  font-size:36px;
+  margin-top:0px;
+  line-height:1.4em;
+  font-weight: normal;
+}
+
+dd {
+  margin-left: 1.5em;
+}
+
+/*
+pre{
+  padding:6px 10px;
+  overflow:auto;
+  text-shadow:0 0 0;
+  min-width:60%;
+  font-size: 10pt;
+  border-radius:2px;
+  background: #f8f8f8;
+}
+*/
+pre {
+  font-size: 1em;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-family: consolas, monospace;
+  /*
+  font-size: 15px;
+  font-size: 0.9375em;
+  */
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 0.5em 0.1em !important;
+  background: white !important;
+}
+
+b {
+  font-weight:bold;
+}
+
+pre b {
+  font-weight: normal;
+}
+
+a {
+  text-decoration:none;
+  color:#000099;
+}
+
+a:hover {
+  text-decoration:underline;
+  /* color:#fff; */
+  /* background:#198601; */
+  text-shadow:none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0.1em 0.2em;
+}
+
+#nav-top {
+  font-size: 0.9em;
+  margin-bottom: 0.8em;
+}
+
+#nav-after-title {
+  clear:both;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 6px 0;
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+.nav-tool-float {
+  position:fixed;
+  margin-left:604px;
+  top:222px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  background:#fff;
+  padding:8px 4px;
+  width:61px;
+}
+
+.nav-tool-float ul {
+  margin:0;
+  padding:0;
+}
+
+.nav-tool-float ul li {
+  margin:4px 1px;
+  list-style:none;
+}
+
+.nav-tool-float-tool {
+  border-top:solid 3px #198601;
+}
+
+.nav-tool-float a {
+  text-decoration:none;
+  color:#000099;
+}
+
+.nav-tool-float a:hover {
+  color:#666;
+  background:none;
+}
+
+@media screen and (max-width: 1024px) {
+  body {margin: 0;}
+  .content { width: auto; padding: 10px; margin: 0; border-radius: 0; }
+  .main-content { width: auto; float: none;}
+  .sidebar {width: auto; float: none;}
+}
+
+.hljs-comment, .hljs-quote {
+  color: #666 !important; font-style: normal !important;
+}
+</style>
+<script async="" type="text/javascript" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/gpt.js"></script><script type="text/javascript" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/5673.js"></script><style type="text/css">#waldo-sticky-footer-wrapper {position: fixed; width: 100%; bottom: 0px; left: 0px; text-align: center; z-index: 9000;}#waldo-sticky-footer-wrapper > div {position: relative; display: inline-block}#waldo-sticky-footer-wrapper iframe, #waldo-sticky-footer-wrapper div {margin-left: auto;margin-right: auto;}.waldo-sticky-sidebar{position: fixed; top: 10px;z-index: 90}.waldo-sticky-css{position: sticky; top: 10px; z-index: 90}.waldo-overlay{position: fixed;height: 100%;width: 100%;top: 0;left: 0;z-index: 105;background: rgba(0,0,0,0.7);}#waldo-counter {position: absolute;bottom: 0;right: 0;color: #fff;font-size: 30px;padding: 15px;}.waldo-bfleft {position: fixed; left: 0; top: 10px;z-index:101;}.waldo-bfright {position: fixed; right: 0; top: 10px;z-index:101;}#waldo-tag-6038 {clear: both !important;}div[class^="app_gdpr-"] a {color: #41afbb !important; text-decoration: underline !important}#waldo-close-button {position: absolute; right: 0;top: -24px;}#waldo-close-button a {border: 1px solid rgba(0,0,0,.35);padding: 3px;font-size: 12px;color: #fff;font-weight: bold;background-color: #777;}</style>
+<script type="text/javascript">googletag.cmd.push(function() {googletag.pubads().addEventListener('slotRenderEnded', function(event) {waldoPassbackCheck(event);waldoAddCloseBtn(event);});googletag.pubads().enableSingleRequest();googletag.enableServices();gptAdSlots[5674] = googletag.defineSlot('/124067137/systutorials300x250FL_1', [[300, 250], [300, 600], [160, 600]], 'waldo-tag-5674').defineSizeMapping(googletag.sizeMapping().addSize([1024, 0], [[300, 250], [300, 600], [160, 600]]).addSize([768, 0], [[300, 250], [300, 600], [160, 600]]).addSize([0, 0], [[300, 250], [300, 600], [160, 600]]).build()).addService(googletag.pubads());googletag.display('waldo-tag-5674');gptAdSlots[5676] = googletag.defineSlot('/124067137/systutorials300x250FL_2', [[300, 250], [300, 600], [160, 600]], 'waldo-tag-5676').defineSizeMapping(googletag.sizeMapping().addSize([1024, 0], [[300, 250], [300, 600], [160, 600]]).addSize([768, 0], [[300, 250], [300, 600], [160, 600]]).addSize([0, 0], [[300, 250], [300, 600], [160, 600]]).build()).addService(googletag.pubads());googletag.display('waldo-tag-5676');gptAdSlots[5680] = googletag.defineSlot('/124067137/systutorials300x250FX_1', [300, 250], 'waldo-tag-5680').defineSizeMapping(googletag.sizeMapping().addSize([1024, 0], [[300, 250]]).addSize([768, 0], [[300, 250]]).addSize([0, 0], [[300, 250]]).build()).addService(googletag.pubads());googletag.display('waldo-tag-5680');gptAdSlots[5682] = googletag.defineSlot('/124067137/systutorials300x250FX_2', [300, 250], 'waldo-tag-5682').defineSizeMapping(googletag.sizeMapping().addSize([1024, 0], [[300, 250]]).addSize([768, 0], [[300, 250]]).addSize([0, 0], [[300, 250]]).build()).addService(googletag.pubads());googletag.display('waldo-tag-5682');});</script><link rel="preload" href="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/integrator.js" as="script"><script type="text/javascript" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/integrator.js"></script><script src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/pubads_impl_2020040702.js" async=""></script></head>
+
+<body>
+<a name="top"></a>
+
+<div class="content">
+
+<div id="nav-top">
+<a href="https://www.systutorials.com/docs/linux/man/"> Linux Manual Pages </a>
+» <a href="https://www.systutorials.com/docs/linux/man/1/">Session 1</a>
+» <a href="https://www.systutorials.com/docs/linux/man/1=a/">Starting with a</a>
+</div>
+
+
+<h1 style="margin-bottom:0;">
+
+alsaucm (1) - Linux Man Pages</h1>
+<h3 style="color:#333;font-size:13pt;">alsaucm: ALSA Use Case Manager</h3>
+
+
+<div id="nav-after-title">
+<div style="float:right">
+<a href="#index">Index of alsaucm man page</a> <br>
+</div>
+<p style="margin:0;">Read alsaucm man page on Linux: <code style="font-size: 0.9em;">$ man 1 alsaucm</code></p>
+</div>
+
+
+
+<div class="main-content">
+
+<h2>NAME</h2>
+
+alsaucm - ALSA Use Case Manager
+
+<a name="lbAC"></a>
+<h2>SYNOPSIS</h2>
+
+<p>
+<i>alsaucm</i> &lt;options&gt; [command]
+<a name="lbAD"></a>
+</p><h2>DESCRIPTION</h2>
+
+
+<p>
+alsaucm (ALSA Use Case Manager) is a program to use the ALSA <i>Use Case
+Interface</i> from the command line.
+
+</p><div style="display:block; margin:1em auto 0 auto; text-align: center; width: 100%;">
+
+<!--
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+-->
+<!-- st-linux-man-top-tnd-1 -->
+<!--
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4446804871809882"
+     data-ad-slot="5501392018"
+     data-ad-format="rectangle"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+-->
+
+<!-- 300x250 -->
+<div id="waldo-tag-5680" data-processed="true" data-google-query-id="CPKClZCZ7ugCFVI6TwodzPYPBQ"><div id="google_ads_iframe_/124067137/systutorials300x250FX_1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/124067137/systutorials300x250FX_1_0" title="3rd party ad content" name="google_ads_iframe_/124067137/systutorials300x250FX_1_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="6" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+
+<!-- Ezoic - st-linux-man-p-first-1 - under_first_paragraph -->
+<div id="ezoic-pub-ad-placeholder-161"></div>
+<!-- End Ezoic - st-linux-man-p-first-1 - under_first_paragraph -->
+
+
+</div>
+
+
+<style type="text/css">
+
+.carbon-img {float:left; padding-right: 10px;}
+
+#carbonads {
+}
+
+#carbonads {
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
+  text-align: left;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+#carbonads .carbon-wrap {
+  border-bottom: none;
+  padding: 1rem;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+}
+
+.carbon-text {
+  line-height: 1.5;
+  text-align: left;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 0 1rem .5em 1rem;
+  text-align: right;
+  letter-spacing: .5px;
+  font-size: 9px;
+}
+
+a.carbon-poweredby {
+  font-size: 9px;
+}
+</style>
+
+<div id="carbon-block"></div>
+<script>
+try {
+  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+    return true;
+  }).catch(function(e) {
+    var carbonScript = document.createElement("script");
+    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CE7D62QE&placement=wwwsystutorialscom";
+    carbonScript.id = "_carbonads_js";
+    document.getElementById("carbon-block").appendChild(carbonScript);
+  });
+} catch (error) {
+  console.log(error);
+}
+</script>
+
+
+
+<p>
+On complex sound cards, setting up audio routes is not trivial and mixer
+settings can conflict one another preventing the audio card to work at all.
+</p><p>
+The ALSA Use Case Manager is a mechanism for controlling complex audio
+hardware establishing a relationship between hardware configurations and
+meaningful use cases that the end-user can relate with.
+</p><p>
+The use case manager can also be used to switch between use cases when
+necessary, in a consistent way.
+</p><p>
+At a lower level, the use case manager works by configuring the sound card
+ALSA kcontrols to change the hardware digital and analog audio routing to
+match the requested device use case.
+</p><p>
+The use case manager kcontrol configurations are stored in easy to modify text
+files. An audio use case can be defined by a <b>verb</b> and <b>device</b> parameter.
+</p><p>
+The verb describes the use case action i.e. a phone call, listening to music,
+recording a conversation etc. The device describes the physical audio capture
+and playback hardware i.e. headphones, phone handset, bluetooth headset, etc.
+<a name="lbAE"></a>
+</p><h2>OPTIONS</h2>
+
+<p>
+Available options:
+
+
+
+</p><dl compact="compact">
+<dt><b>-h</b>, <b>--help</b>
+
+</dt><dd>
+this help
+</dd><dt><b>-c</b>, <b>--card</b> <i>NAME</i>
+
+</dt><dd>
+open card NAME
+</dd><dt><b>-i</b>, <b>--interactive</b>
+
+</dt><dd>
+interactive mode
+</dd><dt><b>-b</b>, <b>--batch</b> <i>FILE</i>
+
+</dt><dd>
+batch mode (use <b>'-'</b> for the stdin input)
+</dd><dt><b>-n</b>, <b>--no-open</b>
+
+</dt><dd>
+do not open first card found
+
+
+
+<p>
+Available commands:
+
+
+
+</p></dd><dt><b>open</b> <i>NAME</i>
+
+</dt><dd>
+open card NAME.
+<p>
+valid names are sound card names as listed in <b>/usr/share/alsa/ucm</b>.
+</p></dd><dt><b>reset</b>
+
+</dt><dd>
+reset sound card to default state.
+</dd><dt><b>reload</b>
+
+</dt><dd>
+reload configuration.
+</dd><dt><b>listcards</b>
+
+</dt><dd>
+list available cards.
+</dd><dt><b>list</b> <i>IDENTIFIER</i>
+
+</dt><dd>
+list command, for items returning two entries (value+comment).
+<p>
+the value of the <i>IDENTIFIER</i> argument can can be:
+
+</p></dd><dt>•</dt><dd>
+<b>_verbs</b> - get verb list (in pair verb+comment)
+</dd><dt>•</dt><dd>
+<b>_devices[/{verb}]</b> - get list of supported devices (in pair device+comment)
+</dd><dt>•</dt><dd>
+<b>_modifiers[/{verb}]</b> - get list of supported modifiers (in pair modifier+comment)
+
+<p>
+The forms without the trailing <b>/{verb}</b> are valid only after a specific
+verb has been set.
+</p></dd><dt><b>list1</b> <i>IDENTIFIER</i>
+
+</dt><dd>
+list command, for lists returning one item per entry.
+<p>
+the value of the <i>IDENTIFIER</i> argument can vary depending on the context,
+it can be:
+
+</p></dd><dt>•</dt><dd>
+<b>TQ[/{verb}]</b> - get list of Tone Quality identifiers
+</dd><dt>•</dt><dd>
+<b>_enadevs</b> - get list of enabled devices
+</dd><dt>•</dt><dd>
+<b>_enamods</b> - get list of enabled modifiers
+</dd><dt>•</dt><dd>
+<b>_supporteddevs/{modifier}|{device}[/{verb}]</b> - list of supported devices
+</dd><dt>•</dt><dd>
+<b>_conflictingdevs/{modifier}|{device}[/{verb}]</b> - list of conflicting devices
+
+</dd><dt><b>get</b> <i>IDENTIFIER</i>
+
+</dt><dd>
+get string value.
+<p>
+the value of the <i>IDENTIFIER</i> argument can can be:
+
+</p></dd><dt>•</dt><dd>
+<b>_verb</b> - return current verb
+</dd><dt>•</dt><dd>
+<b>[=]{NAME}[/[{modifier}|{/device}][/{verb}]]</b> (For valid NAMEs look at the
+ALSA <i>Use Case Interface</i>)
+
+</dd><dt><b>geti</b> <i>IDENTIFIER</i>
+
+</dt><dd>
+get integer value.
+<p>
+the value of the <i>IDENTIFIER</i> argument can can be:
+
+</p></dd><dt>•</dt><dd>
+<b>_devstatus/{device}</b>
+</dd><dt>•</dt><dd>
+<b>_modtstaus/{device}</b>
+
+</dd><dt><b>set</b> <i>IDENTIFIER</i> <i>VALUE</i>
+
+</dt><dd>
+set string value
+<p>
+The value of the <i>IDENTIFIER</i> argument can can be:
+
+</p></dd><dt>•</dt><dd>
+<b>_verb</b> - set the verb to <i>VALUE</i>
+</dd><dt>•</dt><dd>
+<b>_enadev</b> - enable the device specified by <i>VALUE</i>
+</dd><dt>•</dt><dd>
+<b>_disdev</b> - disable the device specified by <i>VALUE</i>
+</dd><dt>•</dt><dd>
+<b>_swdev/{old_device}</b> - switche device:
+
+</dd><dt>•</dt><dd>
+disable <i>old_device</i> and then enable the device specified by
+<i>VALUE</i>
+</dd><dt>•</dt><dd>
+if no device was enabled just return
+
+</dd><dt>•</dt><dd>
+<b>_enamod</b> - enable the modifier specified by <i>VALUE</i>
+</dd><dt>•</dt><dd>
+<b>_dismod</b> - disable the modifier specified by <i>VALUE</i>
+</dd><dt>•</dt><dd>
+<b>_swmod/{old_modifier}</b> - switch modifier:
+
+</dd><dt>•</dt><dd>
+disable <i>old_modifier</i> and then enable the modifier specified by
+<i>VALUE</i>
+</dd><dt>•</dt><dd>
+if no modifier was enabled just return
+
+
+<p>
+Note that the identifiers referring to devices and modifiers are valid
+only after setting a verb.
+</p></dd><dt><b>h</b>, <b>help</b>
+
+</dt><dd>
+help
+</dd><dt><b>q</b>, <b>quit</b>
+
+</dt><dd>
+quit
+
+
+
+</dd></dl>
+<a name="lbAF"></a>
+<h2>FILES</h2>
+
+<p>
+The master use case files for each supported sound card are in <b>/usr/share/alsa/ucm</b>.
+</p><p>
+For example, the master use case file for the <i>Pandaboard</i> card is in
+<b>/usr/share/alsa/ucm/PandaBoard/PandaBoard.conf</b>, this file lists all the
+supported use cases, e.g.
+
+
+</p><p>
+</p><pre>SectionUseCase."HiFi" {
+                File "hifi"
+                Comment "Play HiFi quality Music."
+}
+...
+</pre>
+
+
+
+<p>
+Each use case defines a _verb, which is described in the file specified in
+the <b>File</b> directive, like above.
+</p><p>
+The <b>HiFi</b> verb above is described in
+<b>/usr/share/alsa/ucm/PandaBoard/hifi</b>.
+</p><p>
+For more details on the syntax of UCM files, see the alsa-lib source code:
+<i><a rel="nofollow" href="http://git.alsa-project.org/?p=alsa-lib.git;a=blob;f=src/ucm/parser.c">http://git.alsa-project.org/?p=alsa-lib.git;a=blob;f=src/ucm/parser.c</a></i>
+<a name="lbAG"></a>
+</p><h2>EXAMPLES OF USE</h2>
+
+<p>
+Some commands, like for instance <b>list _devices</b>,
+can only work after setting a <b>_verb</b> in the <b>same execution</b>, for
+instance this sequence doesn't work:
+
+
+</p><p>
+</p><pre># alsaucm -c bytcr-rt5640 set _verb HiFi
+# alsaucm -c bytcr-rt5640 list _devices
+</pre>
+
+
+
+<p>
+However this command does:
+
+
+</p><p>
+</p><pre># alsaucm -n -b - &lt;&lt;EOM
+open bytcr-rt5640
+set _verb HiFi
+list _devices
+EOM
+</pre>
+
+
+
+<p>
+An example of setting the <i>Speaker</i> device for the <i>HiFi</i> verb of the
+<i>bytcr-rt5640</i> card:
+
+
+</p><p>
+</p><pre># alsaucm -n -b - &lt;&lt;EOM
+open bytcr-rt5640
+reset
+set _verb HiFi
+set _enadev Speaker
+EOM
+</pre>
+
+
+
+<a name="lbAH"></a>
+<h2>SEE ALSO</h2>
+
+
+<dl compact="compact">
+<dt>•</dt><dd>
+Use Case Interface: <i><a rel="nofollow" href="http://www.alsa-project.org/alsa-doc/alsa-lib/group__ucm.html">http://www.alsa-project.org/alsa-doc/alsa-lib/group__ucm.html</a></i>
+
+</dd></dl>
+<a name="lbAI"></a>
+<h2>BUGS</h2>
+
+<p>
+None known.
+<a name="lbAJ"></a>
+</p><h2>AUTHOR</h2>
+
+Antonio Ospite &lt;ao2 [at] ao2.it&gt;
+<a name="lbAK"></a>
+<h2>COPYRIGHT</h2>
+
+GPLv2+
+
+<p>
+
+</p><hr>
+
+
+<div style="display:block; margin:1em auto 0 auto; text-align: center; width: 100%;">
+
+<!--
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+-->
+<!-- st-linux-man-after-content-tnd-1 -->
+<!--
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4446804871809882"
+     data-ad-slot="4588932228"
+     data-ad-format="rectangle"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+-->
+
+<!-- 300x250 -->
+<div id="waldo-tag-5682" data-processed="true" data-google-query-id="CIi2s5WZ7ugCFVAvaQodBpgCSQ"><div id="google_ads_iframe_/124067137/systutorials300x250FX_2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/124067137/systutorials300x250FX_2_0" title="3rd party ad content" name="google_ads_iframe_/124067137/systutorials300x250FX_2_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="7" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+
+<!-- Ezoic - st-linux-man-after-content-1 - long_content -->
+<div id="ezoic-pub-ad-placeholder-162"></div>
+<!-- End Ezoic - st-linux-man-after-content-1 - long_content -->
+
+</div>
+
+</div>
+
+<div class="sidebar">
+
+      <div style="margin-top: 1em; width: 100%;">
+
+      <!-- 300x250/300x600/160x600 -->
+      <div id="waldo-tag-5674" data-processed="true" data-google-query-id="CMjujruZ7ugCFSI8AQodGdYOGw"><div id="google_ads_iframe_/124067137/systutorials300x250FL_1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/124067137/systutorials300x250FL_1_0" title="3rd party ad content" name="google_ads_iframe_/124067137/systutorials300x250FL_1_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="a" data-load-complete="true" width="120" height="600" frameborder="0"></iframe></div></div>
+
+      </div>
+
+      
+<div style="margin-top:20px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 5px 0;">
+Font size:&nbsp;<a onclick="setContentFontSize('80%')">Smaller</a>&nbsp;|&nbsp;<a onclick="setContentFontSize('')">Normal</a>
+</div>
+<script>
+function setContentFontSize(fsize) {
+  document.querySelector('.main-content').style.fontSize = fsize;
+}
+</script>
+
+<a name="index"></a><h2>Index</h2>
+
+<dl>
+<dt><a href="#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="#lbAF">FILES</a></dt><dd>
+</dd><dt><a href="#lbAG">EXAMPLES OF USE</a></dt><dd>
+</dd><dt><a href="#lbAH">SEE ALSO</a></dt><dd>
+</dd><dt><a href="#lbAI">BUGS</a></dt><dd>
+</dd><dt><a href="#lbAJ">AUTHOR</a></dt><dd>
+</dd><dt><a href="#lbAK">COPYRIGHT</a></dt><dd>
+</dd></dl>
+<h2>SEE ALSO</h2>
+
+
+<dl compact="compact">
+<dt>•</dt><dd>
+Use Case Interface: <i><a rel="nofollow" href="http://www.alsa-project.org/alsa-doc/alsa-lib/group__ucm.html">http://www.alsa-project.org/alsa-doc/alsa-lib/group__ucm.html</a></i>
+
+</dd></dl>
+<a name="lbAI"></a>
+
+      <div style="margin-top: 1em; width: 100%;">
+
+
+      <!-- 300x250/300x600/160x600 -->
+      <div id="waldo-tag-5676" data-processed="true" data-google-query-id="CP_lwMaZ7ugCFU66TwodwgcGJA"><div id="google_ads_iframe_/124067137/systutorials300x250FL_2_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe style="border: 0px none; vertical-align: bottom;" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/container.html" id="google_ads_iframe_/124067137/systutorials300x250FL_2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" data-is-safeframe="true" data-google-container-id="b" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+
+      <div style="margin-top: 10px;">
+      <!-- code from Primis - systutorials.com - systutorials.com -->
+      <script type="text/javascript" language="javascript" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/liveView.php"></script><div style="width: 100%; height: 100%; margin: auto; display: block;"><div style="width: 100%;"><div id="primis_container_div" style="display: block; z-index: initial; position: relative; text-align: initial; margin: 0px; padding: 0px; border-width: 0px; height: 511px;"><iframe id="flow_close_btn_iframe" title="Flow Close Button" style="border: medium none; position: fixed; display: block; background-color: rgba(255, 255, 255, 0); left: 1811px; z-index: 2147483646; width: 21px; height: 21px; bottom: 235px;" scrolling="no"></iframe><div id="placeHolder" style="position: relative; overflow: hidden; width: 300px; height: 169px;"><img src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/placeHolder.png" alt="Primis Player Placeholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: auto; height: 100%;"></div><iframe id="primis_playerSekindoSPlayer5e98f6f704135" title="Primis Player Videos" style="border: medium none; position: fixed; z-index: 2147483646; inset: auto 10px 10px auto; width: 400px; height: 225px; box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 6px 3px; border-radius: 1px;" scrolling="no" allowfullscreen=""></iframe><iframe style="border: medium none; margin: 0px; visibility: visible; position: absolute; z-index: 0 !important; top: 0px; left: 0px; width: 300px; max-width: 100%; min-width: 100%; height: 511px;" scrolling="no" id="sekindoNativeSkinFrameSekindoSPlayer5e98f6f704135"></iframe></div><iframe marginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" onload="constructsekindoParent308(this)" title="Primis Frame" id="google_ads_iframe_dummy_sekindoParent308" style="height: 1px; width: 1px;" width="300" height="250" frameborder="0"></iframe></div></div>
+      <!-- code from Primis -->
+      </div>
+
+      </div>
+
+      
+
+</div>
+
+<div style="clean: both;"></div>
+
+<hr>
+<a href="https://www.systutorials.com/docs/linux/man/">Linux man pages</a> generated by: <a href="https://www.systutorials.com/">SysTutorials</a><br><br>
+<div style="font-size:small;color:gray;">
+Linux Man Pages Copyright Respective Owners. Site Copyright © <a style="color:gray;" href="https://www.systutorials.com/">SysTutorials</a>. All Rights Reserved.</div>
+</div>
+
+<!-- begine code highlighter -->
+<script source="content/bundle.js" async=""></script><style type="text/css">.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}</style><!-- end code highlighter -->
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=6390640;
+var sc_invisible=1;
+var sc_security="4c9e244b";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' async src='" +
+scJsHost+
+"statcounter.com/counter/counter_xhtml.js'></"+"script>");
+</script><script type="text/javascript" async="" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/counter_xhtml.js"></script>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34520918-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+<iframe style="display: none;" src="https://s.amazon-adsystem.com/iu3?cm3ppd=1&amp;d=dtb-pub&amp;csif=t&amp;dl=rbd_oath_r1u_dm_dmx"></iframe><iframe id="google_osd_static_frame_6255165558661" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><script src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/bundle.js"></script><iframe style="display: none !important; width: 0px !important; height: 0px !important;" src="https://eb2.3lift.com/sync?max=10&amp;cb=81270"></iframe><iframe style="display: none !important;"></iframe></body><iframe sandbox="allow-scripts allow-same-origin" id="596b54c308519d18" allowtransparency="true" marginheight="0" marginwidth="0" hspace="0" vspace="0" style="height:0px;width:0px;display:none;" scrolling="no" src="alsaucm%20%20ALSA%20Use%20Case%20Manager%20-%20Linux%20Man%20Pages%20(1)_files/cs.html" width="0" height="0" frameborder="0">
+    </iframe></html>

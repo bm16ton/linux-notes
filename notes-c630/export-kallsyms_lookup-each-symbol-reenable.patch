@@ -1,0 +1,56 @@
+From 0bd476e6c67190b5eb7b6e105c8db8ff61103281 Mon Sep 17 00:00:00 2001
+From: Will Deacon <will@kernel.org>
+Date: Mon, 6 Apr 2020 20:11:43 -0700
+Subject: kallsyms: unexport kallsyms_lookup_name() and
+ kallsyms_on_each_symbol()
+
+kallsyms_lookup_name() and kallsyms_on_each_symbol() are exported to
+modules despite having no in-tree users and being wide open to abuse by
+out-of-tree modules that can use them as a method to invoke arbitrary
+non-exported kernel functions.
+
+Unexport kallsyms_lookup_name() and kallsyms_on_each_symbol().
+
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
+Reviewed-by: Quentin Perret <qperret@google.com>
+Acked-by: Alexei Starovoitov <ast@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Frederic Weisbecker <frederic@kernel.org>
+Cc: K.Prasad <prasad@linux.vnet.ibm.com>
+Cc: Miroslav Benes <mbenes@suse.cz>
+Cc: Petr Mladek <pmladek@suse.com>
+Cc: Joe Lawrence <joe.lawrence@redhat.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Link: http://lkml.kernel.org/r/20200221114404.14641-4-will@kernel.org
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+---
+ kernel/kallsyms.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
+index a9b3f660dee7..16c8c605f4b0 100644
+--- a/kernel/kallsyms.c
++++ b/kernel/kallsyms.c
+@@ -175,7 +175,6 @@ unsigned long kallsyms_lookup_name(const char *name)
+ 	}
+ 	return module_kallsyms_lookup_name(name);
+ }
+-EXPORT_SYMBOL_GPL(kallsyms_lookup_name);
+ 
+ int kallsyms_on_each_symbol(int (*fn)(void *, const char *, struct module *,
+ 				      unsigned long),
+@@ -194,7 +193,6 @@ int kallsyms_on_each_symbol(int (*fn)(void *, const char *, struct module *,
+ 	}
+ 	return module_kallsyms_on_each_symbol(fn, data);
+ }
+-EXPORT_SYMBOL_GPL(kallsyms_on_each_symbol);
+ 
+ static unsigned long get_symbol_pos(unsigned long addr,
+ 				    unsigned long *symbolsize,
+-- 
+cgit 1.2.3-1.el7
+

@@ -1,0 +1,55 @@
+Clone, build, install https://github.com/andersson/qrtr
+sudo systemctl enable qrtr-ns.service
+apt-get install libudev-dev
+Clone, build, install https://github.com/andersson/rmtfs
+sudo systemctl enable rmtfs.service
+Clone, build, install https://github.com/andersson/pd-mapper
+sudo systemctl enable pd-mapper.service
+Clone, build, install https://github.com/andersson/tqftpserv
+sudo systemctl enable tqftpserv.service
+Copy FileRepository\qcsubsys8998.inf_arm64_09c39c1cc604f5ac\WLANMDSP.MBN to  the same directory the modem fw lives (ie /lib/firmware/qcom/LENOVO/81F1) as wlanmdsp.mbn
+Copy modemuw.jsn from https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/qcom/sdm845 and put in the same directory as the modem fw lives
+mkdir bdf (just need to exist temporary)
+Copy FileRepository\qcsubsys8998.inf_arm64_09c39c1cc604f5ac\bdwlan* to bdf/
+Run script[1] - twice since it exits after clone
+Create /lib/firmware/ath10k/WCN3990/hw1.0 directory
+Copy board-2.bin script output to /lib/firmware/ath10k/WCN3990/hw1.0
+Download firmware-5.bin from https://github.com/kvalo/ath10k-firmware/tree/master/WCN3990/hw1.0/HL2.0/WLAN.HL.2.0-01387-QCAHLSWMTPLZ-1 to /lib/firmware/ath10k/WCN3990/hw1.0
+Enable "single-chan-info-per-channel" to suppresss "chan info event" warning with qca-swiss-army-knife/tools/scripts/ath10k/ath10k-fwencoder --modify --features=wowlan,mgmt-tx-by-ref,non-bmi,single-chan-info-per-channel  firmware-5.bin
+
+
+[1]
+
+#!/bin/bash
+
+if [ \! -d qca-swiss-army-knife ]; then
+        git clone https://github.com/qca/qca-swiss-army-knife.git
+        exit 0
+fi
+
+JSON="bdf/board-2.json"
+
+iter=0
+echo "[" > "${JSON}"
+for file in bdf/bdwlan.*; do
+ [[ $file == *.txt ]] && continue
+
+ iter=$((iter+1))
+ [ $iter -ne 1 ] && echo "  }," >> "${JSON}"
+
+ echo "  {" >> "${JSON}"
+ echo "          \"data\": \"$file\"," >> "${JSON}"
+ if [[ $file == */bdwlan.bin ]]; then
+  file_ext="ff"
+ else
+  file_ext="$(printf '%x\n' "$(basename "${file}" | sed -E
+'s:^.*\.b?([0-9a-f]*)$:0x\1:')")"
+ fi
+ echo "          \"names\": [\"bus=snoc,qmi-board-id=${file_ext}\"]"
+>> "${JSON}"
+done
+
+echo "  }" >> "${JSON}"
+echo "]" >> "${JSON}"
+
+python2 qca-swiss-army-knife/tools/scripts/ath10k/ath10k-bdencoder -c "${JSON}" -o board-2.bin

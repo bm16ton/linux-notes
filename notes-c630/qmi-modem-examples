@@ -1,0 +1,375 @@
+    SIM details (UIM service):
+
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --uim-get-card-status
+    [/dev/cdc-wdm0] Successfully got card status
+    Provisioning applications:
+            Primary GW:   slot '0', application '0'
+            Primary 1X:   session doesn't exist
+            Secondary GW: session doesn't exist
+            Secondary 1X: session doesn't exist
+    Card [0]:
+            Card state: 'present'
+            UPIN state: 'not-initialized'
+                    UPIN retries: '0'
+                    UPUK retries: '0'
+            Application [0]:
+                    Application type:  'usim (2)'
+                    Application state: 'ready'
+                    Application ID:
+                            A0:00:00:00:87:10:02:FF:FF:FF:FF:89:06:19:00:00
+                    Personalization state: 'ready'
+                    UPIN replaces PIN1: 'no'
+                    PIN1 state: 'disabled'
+                            PIN1 retries: '3'
+                            PUK1 retries: '10'
+                    PIN2 state: 'enabled-not-verified'
+                            PIN2 retries: '10'
+                            PUK2 retries: '10'
+            Application [1]:
+                    Application type:  'isim (5)'
+                    Application state: 'detected'
+                    Application ID:
+                            A0:00:00:00:87:10:04:FF:FF:FF:FF:89:07:03:00:00
+                    Personalization state: 'unknown'
+                    UPIN replaces PIN1: 'no'
+                    PIN1 state: 'disabled'
+                            PIN1 retries: '3'
+                            PUK1 retries: '10'
+                    PIN2 state: 'not-initialized'
+                            PIN2 retries: '0'
+                            PUK2 retries: '0'
+
+        look for Card state: 'present' which tells you the SIM is present and could be read 
+    Signal strength:
+
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-signal-info
+    [/dev/cdc-wdm0] Successfully got signal info
+    WCDMA:
+            RSSI: '-96 dBm'
+            ECIO: '-12.0 dBm'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength
+    [/dev/cdc-wdm0] Successfully got signal strength
+    Current:
+            Network 'umts': '-96 dBm'
+    RSSI:
+            Network 'umts': '-96 dBm'
+    ECIO:
+            Network 'umts': '-11.0 dBm'
+    IO: '-106 dBm'
+    SINR (8): '9.0 dB'
+
+    Network details (NAS service):
+
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-system-selection-preference
+    [/dev/cdc-wdm0] Successfully got system selection preference
+            Emergency mode: 'no'
+            Mode preference: 'umts, lte'
+            Band preference: 'wcdma-2100, wcdma-pcs-1900, wcdma-dcs-1800, wcdma-1700-us, wcdma-850-us, wcdma-900'
+            LTE band preference: '1, 2, 3, 4, 5, 7, 8, 12, 13, 20, 25, 41'
+            TD-SCDMA band preference: '(null)'
+            Roaming preference: 'any'
+            Network selection preference: 'automatic'
+            Service domain preference: 'cs-ps'
+            Service selection preference: 'automatic'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-network-scan
+    [/dev/cdc-wdm0] Successfully scanned networks
+    Network [0]:
+            MCC: '310'
+            MNC: '260'
+            Status: 'available, home, not-forbidden, preferred'
+            Description: 'T-Mobile'
+    Network [1]:
+            MCC: '310'
+            MNC: '260'
+            Status: 'current-serving, home, not-forbidden, preferred'
+            Description: 'Project F'
+    Network [2]:
+            MCC: '312'
+            MNC: '770'
+            Status: 'available, roaming, not-forbidden, not-preferred'
+            Description: '312 770'
+    Network [3]:
+            MCC: '310'
+            MNC: '410'
+            Status: 'available, roaming, not-forbidden, not-preferred'
+            Description: 'AT&T'
+    Network [4]:
+            MCC: '310'
+            MNC: '410'
+            Status: 'available, roaming, not-forbidden, not-preferred'
+            Description: 'AT&T'
+    Network [5]:
+            MCC: '311'
+            MNC: '480'
+            Status: 'available, roaming, forbidden, not-preferred'
+            Description: 'Verizon'
+    Network [0]:
+            MCC: '310'
+            MNC: '260'
+            RAT: 'lte'
+    Network [1]:
+            MCC: '310'
+            MNC: '260'
+            RAT: 'umts'
+    Network [2]:
+            MCC: '312'
+            MNC: '770'
+            RAT: 'lte'
+    Network [3]:
+            MCC: '310'
+            MNC: '410'
+            RAT: 'lte'
+    Network [4]:
+            MCC: '310'
+            MNC: '410'
+            RAT: 'umts'
+    Network [5]:
+            MCC: '311'
+            MNC: '480'
+            RAT: 'lte'
+    Network [0]:
+            MCC: '310'
+            MNC: '260'
+            MCC with PCS digit: 'yes'
+    Network [1]:
+            MCC: '310'
+            MNC: '260'
+            MCC with PCS digit: 'yes'
+    Network [2]:
+            MCC: '312'
+            MNC: '770'
+            MCC with PCS digit: 'yes'
+    Network [3]:
+            MCC: '310'
+            MNC: '410'
+            MCC with PCS digit: 'yes'
+    Network [4]:
+            MCC: '310'
+            MNC: '410'
+            MCC with PCS digit: 'yes'
+    Network [5]:
+            MCC: '311'
+            MNC: '480'
+            MCC with PCS digit: 'yes'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-operator-name
+    [/dev/cdc-wdm0] Successfully got operator name data
+    PLMN List:
+            MCC/MNC: '310-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '311-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '312-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '313-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '314-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '315-DDD' LAC Range: 0->65279  PNN Record: 1
+            MCC/MNC: '316-DDD' LAC Range: 0->65279  PNN Record: 1
+    PLMN Names:
+            0: 'Project Fi' ('Project Fi')          Country: 'initials-do-not-add'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-serving-system
+    [/dev/cdc-wdm0] Successfully got serving system:
+            Registration state: 'registered'
+            CS: 'attached'
+            PS: 'attached'
+            Selected network: '3gpp'
+            Radio interfaces: '1'
+                    [0]: 'umts'
+            Roaming status: 'off'
+            Data service capabilities: '3'
+                    [0]: 'hsdpa'
+                    [1]: 'hsupa'
+                    [2]: 'wcdma'
+            Current PLMN:
+                    MCC: '310'
+                    MNC: '260'
+                    Description: 'Project Fi'
+            Roaming indicators: '1'
+                    [0]: 'off' (umts)
+            3GPP location area code: '26289'
+            3GPP cell ID: '85367600'
+            Detailed status:
+                    Status: 'available'
+                    Capability: 'cs-ps'
+                    HDR Status: 'none'
+                    HDR Hybrid: 'no'
+                    Forbidden: 'no'
+            Call barring status:
+                    Circuit switched: 'all-calls'
+                    Packet switched: 'all-calls'
+            UMTS primary scrambling code: '61'
+            Full operator code info:
+                    MCC: '310'
+                    MNC: '260'
+                    MNC with PCS digit: 'yes'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-home-network
+    [/dev/cdc-wdm0] Successfully got home network:
+            Home network:
+                    MCC: '310'
+                    MNC: '260'
+                    Description: 'Project F'
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --nas-get-system-info
+    [/dev/cdc-wdm0] Successfully got system info:
+            WCDMA service:
+                    Status: 'available'
+                    True Status: 'available'
+                    Preferred data path: 'no'
+                    Domain: 'cs-ps'
+                    Service capability: 'cs-ps'
+                    Roaming status: 'off'
+                    Forbidden: 'no'
+                    Location Area Code: '26289'
+                    Cell ID: '85367600'
+                    MCC: '310'
+                    MNC: '260'
+                    HS call status: 'hsdpa-hsupa-unsupported'
+                    HS service: 'hsdpa-hsupa-supported'
+                    Primary scrambling code: '61'
+                    Cell broadcast support: 'off'
+                    Call barring status (CS): 'all-calls'
+                    Call barring status (PS): 'all-calls'
+                    Cipher Domain: 'none'
+            LTE service:
+                    Status: 'none'
+                    True Status: 'none'
+                    Preferred data path: 'no'
+            SIM reject info: 'available'
+
+        look for Registration state: 'registered' from --nas-get-serving-system above to verify that you are registered on a network. The output also tells you what tower (PLMN) you are registered on. 
+    Configure Link Protocol:
+
+    root@ventana:~# qmicli -p -d /dev/cdc-wdm0 --wda-set-data-format=802-3 # set data format (raw-ip/802-3)
+    root@ventana:~# qmicli -p -d /dev/cdc-wdm0 --set-expected-data-format=802-3 # set expected format, should match above
+
+        Make sure you choose a link protocol (802-3 or raw-ip) that is compatible with your modem/firmware/SIM 
+    Connect to Google Fi network (WDS service):
+
+    root@ventana:~# echo "APN=h2g2" > /etc/qmi-network.conf # specify APN
+    root@ventana:~# echo "PROXY=yes" >> /etc/qmi-network.conf # allow ports to be shared by multiple libqmi apps
+    root@ventana:~# qmi-network /dev/cdc-wdm0 start
+    Loading profile at /etc/qmi-network.conf...
+        APN: h2g2
+        APN user: unset
+        APN password: unset
+        qmi-proxy: no
+    Checking data format with 'qmicli -d /dev/cdc-wdm0 --wda-get-data-format --device-open-proxy'...
+    Device link layer protocol retrieved: raw-ip
+    Getting expected data format with 'qmicli -d /dev/cdc-wdm0 --get-expected-data-format'...
+    Expected link layer protocol retrieved: 802-3
+    Updating kernel link layer protocol with 'qmicli -d /dev/cdc-wdm0 --set-expected-data-format=raw-ip'...
+    Kernel link layer protocol updated
+    Starting network with 'qmicli -d /dev/cdc-wdm0 --wds-start-network=apn='h2g2'  --client-no-release-cid '...
+    Saving state at /tmp/qmi-network-state-cdc-wdm0... (CID: 35)
+    Saving state at /tmp/qmi-network-state-cdc-wdm0... (PDH: 62482624)
+    Network started successfully
+
+    Configuring IP:
+        If your modem/firmware/SIM combination supports 802-3 link protocol and is configured to do so, you can use DHCP:
+
+        root@ventana:~# dhclient wwan0
+
+        or, you can use -wds-get-current-settings to obtain the settings provided to the conneciton from the carrier and configure them manually. Take care to use the same client-cid that was returned from the -wds-start-network command and to not release the client-id:
+
+        root@ventana:~# qmicli --device /dev/cdc-wdm0 --client-no-release-cid --client-cid=35 --wds-get-current-settings
+        [/dev/cdc-wdm0] Current settings retrieved:
+                   IP Family: IPv4
+                IPv4 address: 100.69.157.123
+            IPv4 subnet mask: 255.255.255.248
+        IPv4 gateway address: 100.69.157.124
+            IPv4 primary DNS: 10.177.0.34
+          IPv4 secondary DNS: 10.177.0.210
+                         MTU: 1500
+                     Domains: none
+        [/dev/cdc-wdm0] Client ID not released:
+                Service: 'wds'
+                    CID: '35'
+        root@ventana:~# ifconfig wwan0 100.69.157.123 netmask 255.255.255.248
+        root@ventana:~# route add default gw 100.69.157.124 wwan0
+        root@ventana:~# echo "nameserver 10.177.0.34" > /etc/resolv.conf
+        root@ventana:~# echo "nameserver 10.177.0.210" >> /etc/resolv.conf
+        root@ventana:~# ping www.google.com
+
+Troubleshooting QMI connection issues:
+
+    make sure you are using a Link Protocol compatible with your modem/firmware/SIM
+    make sure you are using an IP Family compatible with your modem/firmware/SIM
+    don't use DHCP if its not supported by your carrier or if your not using the 802-3 link protocol - instead use 'wds-get-current-settings' and manually configure the interface
+    make sure you are not releasing the Client ID when connecting to the network 
+
+Firmware related commands:
+
+    Show firmware versions
+
+    root@ventana:~# qmicli -d /dev/cdc-wdm0 --dms-get-firmware-preference
+    firmware preference successfully retrieved:
+    [image 0]
+            Image type: 'modem'
+            Unique ID:  '005.010_001'
+            Build ID:   '05.05.16.02_ATT'
+    [image 1]
+            Image type: 'pri'
+            Unique ID:  '005.010_001'
+            Build ID:   '05.05.16.02_ATT'
+
+    update firmware:
+
+    root@ventana:~/mc7354/firmware# qmi-firmware-update --update -d 1199:68c0 9999999_9902196_SWI9X15C_05.05.58.00_00_ATT_005.026_000-field.spk
+    loading device information before the update...
+    setting firmware preference:
+      firmware version: '05.05.58.00'
+      config version:   '005.026_000'
+      carrier:          'ATT'
+    rebooting in download mode...
+    download mode detected
+    downloading cwe image: 9999999_9902196_SWI9X15C_05.05.58.00_00_ATT_005.026_000-field.spk (34.8 MB)...
+    finalizing download... (may take more than one minute, be patient)
+    successfully downloaded in 11.31s (3.1 MB/s)
+    rebooting in normal mode...
+    normal mode detected
+
+    ------------------------------------------------------------------------
+        NOTE: in order to validate which is the firmware running in the
+        module, the program will wait for a complete boot; this process
+        may take some time and several retries.
+    ------------------------------------------------------------------------
+
+    waiting some time for the device to boot...
+    loading device information after the update (1/12)...
+    waiting some time for the device to boot...
+    loading device information after the update (2/12)...
+    waiting some time for the device to boot...
+    loading device information after the update (3/12)...
+
+    ------------------------------------------------------------------------
+
+       original firmware revision was:
+          SWI9X15C_05.05.16.02 r21040 carmd-fwbuild1 2014/03/17 23:49:48
+       original running firmware details:
+          Model: MC7354
+          Boot version: SWI9X15C_05.05.16.02 r21040 carmd-fwbuild1 2014/03/17 23:49:48
+          AMSS version: SWI9X15C_05.05.16.02 r21040 carmd-fwbuild1 2014/03/17 23:49:48
+          SKU ID: 1102016
+          Package ID: 1102016_9903211_SWI9X15C_05.05.16.02_00_Generic_005.006_000
+          Carrier ID: 4
+       original firmware preference details:
+          image 'modem': unique id '005.010_001', build id '05.05.16.02_ATT'
+          image 'pri': unique id '005.010_001', build id '05.05.16.02_ATT'
+
+       new firmware revision is:
+          SWI9X15C_05.05.58.00 r27038 carmd-fwbuild1 2015/03/04 21:30:23
+       new running firmware details:
+          Model: MC7354
+          Boot version: SWI9X15C_05.05.58.00 r27038 carmd-fwbuild1 2015/03/04 18:38:46
+          AMSS version: SWI9X15C_05.05.58.00 r27038 carmd-fwbuild1 2015/03/04 21:30:23
+          SKU ID: 1102016
+          Package ID: 1102016_9903211_SWI9X15C_05.05.16.02_00_Generic_005.006_000
+          Carrier ID: 4
+       new firmware preference details:
+          image 'modem': unique id '005.026_000', build id '05.05.58.00_ATT'
+          image 'pri': unique id '005.026_000', build id '05.05.58.00_ATT'
+
+       NOTE: this device supports firmware preference management
+       with qmicli operations:
+          --dms-get-firmware-preference
+          --dms-set-firmware-preference
+
+    ------------------------------------------------------------------------
+
+    firmware update operation finished successfully
+

@@ -1,0 +1,749 @@
+<!--
+//Declerations samples
+$nativeHtml = '{"skinName":"ThumbnailsSkin"}';
+$nativeHtml = '{"skinName": "ThumbnailsSkin", "externalParams":{"skinWidth": 600, "mainTitle": "FEATURED VIDEOS", "itemsTitle": "More Videos", "readMoreText": "Watch Video", "primisLogoOn":true, "thumbsNum":5, "largeUnitBgColor":"#000000", "skinTitleTextColor":"#ffffff", "skinDescTextColor":"#ffffff", "showDescription":false, "fontLinks":"https://fonts.googleapis.com/css?family=Karla:400,700|Libre+Baskerville:400,400i,700&subset=latin-ext", "titleLinesToCropAfter":2}}';
+
+config.primisSkinParams:
+//Set default params
+        var params = {};// config object
+        params.mainTitle = "FEATURED VIDEOS"; // String, default is "FEATURED VIDEOS" (if not declared), the unit left top side title
+        params.itemsTitle = "More Videos"; // String, default is "More Videos" (if not declared), the unit left mid side title
+        params.readMoreText = "Watch Video"; // String, default is "Read More" (if not declared), empty string will hide read-more element
+        params.primisLogoOn = true; // Boolean, default is true (if not declared), show or hide the right top side primis logo
+        params.skinWidth = 300; //Integer , default 300 (if not declared), set the skin width if 'isResponsive' set to 'false'. other wize skin width is responsive
+        params.thumbsNum = 3;// Integer, default is 3, The number of thumbnail elements that will appear under the video
+        params.largeUnitBgColor = "#ffffff"; // String, default background-color is "white" (if not declared)
+        params.skinTitleTextColor = "#062242"; // String, default text color is "black-blue" (if not declared)
+        params.skinDescTextColor = "#000000"; // String, default text color is "black" (if not declared)
+        params.fontLinks = null; // String, custom font links that will be additionally included at the page
+        params.css = null; // String, css structure that overrides the current css. an example for background and title colors change '.Large-unit{ background-color: #ff0055; } .main-title{ color: white; }';
+        params.showDescription = false; //Boolean, default is false (if not declared), show video description
+        params.titleLinesToCropAfter = 4; //Integer , default 1 (if not declared), set main title number of lines to be cropped after
+        params.descriptionLinesToCropAfter = 1; //Integer , default 3 (if not declared), set description number of lines to be cropped after
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">
+    .td{
+        vertical-align: middle;
+    }
+
+    .Large-unit
+    {
+        display: inline-block;
+        background-color: white;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .main-title
+    {
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #9b9b9b;
+    }
+
+    .Promoted-by-primis
+    {
+        width: 96.4px;
+        height: 11px;
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #9b9b9b;
+    }
+
+    .title-box
+    {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.1px;
+        color: #062242;
+        word-wrap: break-word;
+    }
+
+    .description-box
+    {
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: 0.1px;
+        color: #000000;
+        word-wrap: break-word;
+    }
+
+    .read-more
+    {
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: bold;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #f2405e;
+        text-decoration: underline;
+    }
+
+    .thumbnail-read-more
+    {
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: bold;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #f2405e;
+        text-decoration: underline;
+    }
+
+    .thumbnail-title
+    {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        color: #062242;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .thumbnail-desc
+    {
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: 0.1px;
+        word-wrap: break-word;
+        color: #000000;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .related-items
+    {
+        height: 16px;
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #9b9b9b;
+    }
+
+</style>
+<link rel="stylesheet" type="text/css" href="a_data_006/css.css"></head><body style="padding: 0px; margin: 0px;"><div id="largeUnit" class="Large-unit" style="background-color: rgb(255, 255, 255);">
+    <table id="titlesTable" style="width: 100%; ">
+        <tbody><tr style="height: 18px; border-spacing: 0px;" valign="top">
+            <td>
+                <div id="featuredVideos" class="main-title" style="margin-left: -3px; margin-top: -2px;">FEATURED VIDEOS</div>
+            </td>
+            <td style="text-align: right">
+                <div id="primisLogo" style="margin-right: -2px; display: inline-flex; cursor: pointer;">
+                    <div id="promotedBy" style="position:relative; top: -3px; padding-right: 3px" class="Promoted-by-primis">Powered by </div>
+                    <div id="primisLogoImg" style=" height: 11px; width: 37px; object-fit: contain;"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 877.5 228.7" style="enable-background:new 0 0 877.5 228.7;" xml:space="preserve"> <style type="text/css"> .st0{fill:#022242;} .st1{fill:#FF3E5F;} </style> <path class="st0" d="M154.2,195H115l29.8-146.3H184l-2.4,11.5c5.4-7.8,16-12.8,29-12.8c24,0,47.4,18.8,47.4,49.4 c0,34.9-30.8,62.4-61.9,62.4c-16.5,0-29.5-5-32-12.8L154.2,195z M192.2,124.1c13.6,0,24.5-10.8,24.5-22.7c0-11-8.5-18.8-20.6-18.8 c-14.3,0-24.7,11-24.7,22.5C171.4,116,179.9,124.1,192.2,124.1L192.2,124.1z"></path> <path class="st0" d="M280.2,48.7h40.1l-2.8,13.4c8.7-12.1,18.2-16,29.9-16c4.4,0,8.9,0.4,13.2,1.2l-7.2,35.7 c-4.7-0.8-9.5-1.1-14.3-1.1c-17.3,0-27.9,12.6-32.3,33.1l-8.9,42.7h-40.1L280.2,48.7z"></path> <path class="st0" d="M374.9,48.7h40.1l-22.3,109.1h-40.1L374.9,48.7z M377.7,24c0-12.6,10.8-24,24.5-24c12.1,0,20.6,8.5,20.6,19.9 c0,12.1-10.4,23.8-24.5,23.8C386.1,43.7,377.7,35.5,377.7,24L377.7,24z"></path> <path class="st0" d="M430.8,48.7h40.1l-2.8,13.4c8-12.1,17.1-16,27.9-16c14.3,0,24.9,6.3,29.2,16.9c9.3-11,23.1-17.2,37.4-16.9 c21.4,0,33.6,14.1,33.6,36.2c0,3.6-0.4,7.3-1.1,10.8l-13.4,64.8h-40.1l12.3-61.1c0.2-1.4,0.4-2.9,0.4-4.3c0-7.6-3.7-12.1-10.6-12.1 c-8.7,0-14.3,7.4-16.5,18l-12.3,59.6H475l12.3-61.1c0.2-1.4,0.4-2.9,0.4-4.3c0-7.6-3.7-12.1-10.6-12.1c-8.7,0-14.3,6.9-16.5,17.5 l-12.1,60h-40.1L430.8,48.7z"></path> <path class="st0" d="M619.7,48.7h40.1l-22.3,109.2h-40.1L619.7,48.7z M622.5,24c0-12.6,10.8-24,24.5-24c12.1,0,20.6,8.5,20.6,19.9 c0,12.1-10.4,23.8-24.5,23.8C631,43.7,622.5,35.5,622.5,24z"></path> <path class="st0" d="M676.1,116.7c7.4,8.7,18.4,10.8,29.9,10.8c9.5,0,12.8-2.4,12.8-5.2c0-4.8-18.4-3.9-32.9-11 c-11.5-5.6-17.5-14.5-17.5-26.9c0-21,20.6-39,48.9-39c16.6-0.1,32.7,5.8,45.3,16.7l-20.1,25.3c-7.4-6.7-17.1-10.4-27.1-10.4 c-7.6,0-10.4,2.8-10.4,5.6c0,5.2,15.2,4.8,33.3,11.9c14.3,5.6,18,16.2,18,27.1c0,24.5-18.8,39.4-54.6,39.4 c-22.7,0-40.1-7.4-50.7-19.7L676.1,116.7z"></path> <path class="st1" d="M81.9,195l-6.9,33.8H0L46.5,0h74.9l-6.9,33.8H77.3L44.6,195H81.9z"></path> <path class="st1" d="M795.6,33.7L802.5,0h74.9L831,228.7H756L763,195h37.3l32.6-161.2L795.6,33.7z"></path> </svg></div>
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+    <div>
+        <div id="vidPlaceHolder" style="width: 300px; height: 169px;"></div>
+    </div>
+    <div id="txtContainer" style="overflow: hidden; height: auto; cursor: pointer;">
+        <div class="title-box td" id="titleContainer" style="font-weight: bold; color: rgb(6, 34, 66); width: 294px;">What is SAP Why do we need ERP Beginner Tutorial <a class="read-more" style="color:#333333" onclick="mainReadMoreClick(event)"> Go To Article</a></div>
+        <div style="height:5px;"></div>
+        <div class="description-box td" id="descriptionContainer" style="color: rgb(0, 0, 0);"></div>
+    </div>
+    <br>
+    <div id="relatedItems" class="related-items">More Videos</div>
+    <table id="relatedItemsTable"><tbody><tr><td style="padding-bottom: 4px;"><div style="position: relative;"><div><img src="a_data_006/vid5d666adc11935294718797.jpg" style="cursor: pointer;" width="130" height="73"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"> <path fill="#FFF" fill-rule="evenodd" d="M24.483 12.682c0 6.584-5.336 11.92-11.92 11.92S.643 19.267.643 12.683 5.978.762 12.562.762s11.92 5.336 11.92 11.92zm-7.633.413l-6.121-4.08v8.16l6.12-4.08z"></path></svg></div></div></td><td style="vertical-align: top;"><div style="cursor: pointer; width: auto; height: 73px;"><div class="thumbnail-title" style="color: rgb(6, 34, 66);">Linux Tutorial for Beginners Introduction to Linux Operating… <a class="thumbnail-read-more" style="color:#333333"> Watch Video</a></div><div class="thumbnail-desc" style="color: rgb(0, 0, 0);"></div></div></td></tr><tr><td style="padding-bottom: 4px;"><div style="position: relative;"><div><img src="a_data_006/vid5ce059d71bc67868031778.jpg" style="cursor: pointer;" width="130" height="73"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"> <path fill="#FFF" fill-rule="evenodd" d="M24.483 12.682c0 6.584-5.336 11.92-11.92 11.92S.643 19.267.643 12.683 5.978.762 12.562.762s11.92 5.336 11.92 11.92zm-7.633.413l-6.121-4.08v8.16l6.12-4.08z"></path></svg></div></div></td><td style="vertical-align: top;"><div style="cursor: pointer; width: auto; height: 73px;"><div class="thumbnail-title" style="color: rgb(6, 34, 66);">Process Management Commands (fg, bg, top, ps,… <a class="thumbnail-read-more" style="color:#333333"> Watch Video</a></div><div class="thumbnail-desc" style="color: rgb(0, 0, 0);"></div></div></td></tr><tr><td style="padding-bottom: 4px;"><div style="position: relative;"><div><img src="a_data_006/vid5ca4a8cf85336481462251.jpg" style="cursor: pointer;" width="130" height="73"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"> <path fill="#FFF" fill-rule="evenodd" d="M24.483 12.682c0 6.584-5.336 11.92-11.92 11.92S.643 19.267.643 12.683 5.978.762 12.562.762s11.92 5.336 11.92 11.92zm-7.633.413l-6.121-4.08v8.16l6.12-4.08z"></path></svg></div></div></td><td style="vertical-align: top;"><div style="cursor: pointer; width: auto; height: 73px;"><div class="thumbnail-title" style="color: rgb(6, 34, 66);">How to Upgrade to Ubuntu 19.04 Beta Right Now <a class="thumbnail-read-more" style="color:#333333"> Watch Video</a></div><div class="thumbnail-desc" style="color: rgb(0, 0, 0);"></div></div></td></tr></tbody></table>
+</div>
+
+<script type="text/javascript">
+    //Add Robotto font
+    var head  = document.getElementsByTagName("head")[0];
+    var link  = document.createElement("link");
+    link.rel  = "stylesheet";
+    link.type = "text/css";
+    link.href = "https://fonts.googleapis.com/css?family=Roboto&display=swap";
+    head.appendChild(link);
+
+    SekindoNativeSkinApi = function(config)
+    {
+        //Get html elements
+        var largeUnit = document.getElementById("largeUnit");
+        var elm = document.getElementById("txtContainer");
+        var titleElm = document.getElementById("titleContainer");
+        var descriptionElm = document.getElementById("descriptionContainer");
+        var featuredVideos = document.getElementById("featuredVideos");
+        var titlesTable = document.getElementById("titlesTable");
+        var relatedItems = document.getElementById("relatedItems");
+        var relatedItemsTable = document.getElementById("relatedItemsTable");
+        var primisLogo = document.getElementById("primisLogo");
+        var primisLogoImg = document.getElementById("primisLogoImg");
+        var vidPlaceHolder = document.getElementById("vidPlaceHolder");
+        var promotedBy = document.getElementById("promotedBy");
+
+        //Declare vars
+        var readMoreAddedTxt = "";
+        var strBreakAddedTxt = "…";
+        var thumbUnitsArray = [];
+        var readMoreAddedTxtOrigin = '';
+        var defaultImgSrc = decodeURI(config.absolutePath+'/content/video/splayer/assets/bigPlayBtn.jpg');
+        var descriptionHtml = descriptionElm.innerHTML;
+        var titleHtml = titleElm.innerHTML;
+        var clkUrl = "";
+        var fileId = '';
+        var rowsArray = [];
+        var isDisplayMainTitle;
+        var isDisplayReadMore;
+        var descriptionLinesToCropAfter = 3;
+
+        var playBtnSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"> <path fill="#FFF" fill-rule="evenodd" d="M24.483 12.682c0 6.584-5.336 11.92-11.92 11.92S.643 19.267.643 12.683 5.978.762 12.562.762s11.92 5.336 11.92 11.92zm-7.633.413l-6.121-4.08v8.16l6.12-4.08z"/></svg>';
+        var primisLogoSvg = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 877.5 228.7" style="enable-background:new 0 0 877.5 228.7;" xml:space="preserve"> <style type="text/css"> .st0{fill:#022242;} .st1{fill:#FF3E5F;} </style> <path class="st0" d="M154.2,195H115l29.8-146.3H184l-2.4,11.5c5.4-7.8,16-12.8,29-12.8c24,0,47.4,18.8,47.4,49.4 c0,34.9-30.8,62.4-61.9,62.4c-16.5,0-29.5-5-32-12.8L154.2,195z M192.2,124.1c13.6,0,24.5-10.8,24.5-22.7c0-11-8.5-18.8-20.6-18.8 c-14.3,0-24.7,11-24.7,22.5C171.4,116,179.9,124.1,192.2,124.1L192.2,124.1z"/> <path class="st0" d="M280.2,48.7h40.1l-2.8,13.4c8.7-12.1,18.2-16,29.9-16c4.4,0,8.9,0.4,13.2,1.2l-7.2,35.7 c-4.7-0.8-9.5-1.1-14.3-1.1c-17.3,0-27.9,12.6-32.3,33.1l-8.9,42.7h-40.1L280.2,48.7z"/> <path class="st0" d="M374.9,48.7h40.1l-22.3,109.1h-40.1L374.9,48.7z M377.7,24c0-12.6,10.8-24,24.5-24c12.1,0,20.6,8.5,20.6,19.9 c0,12.1-10.4,23.8-24.5,23.8C386.1,43.7,377.7,35.5,377.7,24L377.7,24z"/> <path class="st0" d="M430.8,48.7h40.1l-2.8,13.4c8-12.1,17.1-16,27.9-16c14.3,0,24.9,6.3,29.2,16.9c9.3-11,23.1-17.2,37.4-16.9 c21.4,0,33.6,14.1,33.6,36.2c0,3.6-0.4,7.3-1.1,10.8l-13.4,64.8h-40.1l12.3-61.1c0.2-1.4,0.4-2.9,0.4-4.3c0-7.6-3.7-12.1-10.6-12.1 c-8.7,0-14.3,7.4-16.5,18l-12.3,59.6H475l12.3-61.1c0.2-1.4,0.4-2.9,0.4-4.3c0-7.6-3.7-12.1-10.6-12.1c-8.7,0-14.3,6.9-16.5,17.5 l-12.1,60h-40.1L430.8,48.7z"/> <path class="st0" d="M619.7,48.7h40.1l-22.3,109.2h-40.1L619.7,48.7z M622.5,24c0-12.6,10.8-24,24.5-24c12.1,0,20.6,8.5,20.6,19.9 c0,12.1-10.4,23.8-24.5,23.8C631,43.7,622.5,35.5,622.5,24z"/> <path class="st0" d="M676.1,116.7c7.4,8.7,18.4,10.8,29.9,10.8c9.5,0,12.8-2.4,12.8-5.2c0-4.8-18.4-3.9-32.9-11 c-11.5-5.6-17.5-14.5-17.5-26.9c0-21,20.6-39,48.9-39c16.6-0.1,32.7,5.8,45.3,16.7l-20.1,25.3c-7.4-6.7-17.1-10.4-27.1-10.4 c-7.6,0-10.4,2.8-10.4,5.6c0,5.2,15.2,4.8,33.3,11.9c14.3,5.6,18,16.2,18,27.1c0,24.5-18.8,39.4-54.6,39.4 c-22.7,0-40.1-7.4-50.7-19.7L676.1,116.7z"/> <path class="st1" d="M81.9,195l-6.9,33.8H0L46.5,0h74.9l-6.9,33.8H77.3L44.6,195H81.9z"/> <path class="st1" d="M795.6,33.7L802.5,0h74.9L831,228.7H756L763,195h37.3l32.6-161.2L795.6,33.7z"/> </svg>';
+
+        //Set default params
+        var params = {};// config object
+        params.mainTitle = "FEATURED VIDEOS"; // String, default is "FEATURED VIDEOS" (if not declared), the unit left top side title
+        params.itemsTitle = "More Videos"; // String, default is "More Videos" (if not declared), the unit left mid side title
+        params.readMoreText = "Watch Video"; // String, default is "Read More" (if not declared), empty string will hide read-more element
+        params.primisLogoOn = true; // Boolean, default is true (if not declared), show or hide the right top side primis logo
+        params.skinWidth = 300; //Integer , default 300 (if not declared), set the skin width if 'isResponsive' set to 'false'. other wize skin width is responsive
+        params.isResponsive = false;// Boolean, default is "false", if set to "true" then the skinWidth is set to '100%'
+        params.thumbsNum = 3;// Integer, default is 3, The number of thumbnail elements that will appear under the video
+        params.fontLinks = null; // String, custom font links that will be additionally included at the page
+        params.css = null; // String, css structure that overrides the current css. an example for background and title colors change '.Large-unit{ background-color: #ff0055; } .main-title{ color: white; }';
+        params.showDescription = false; //Boolean, default is false (if not declared), show video description
+        params.titleLinesToCropAfter = 4; //Integer , default 4 (if not declared), set main title number of lines to be cropped after
+        params.descriptionLinesToCropAfter = 1; //Integer , default 1 (if not declared), set description number of lines to be cropped after
+
+        //TODO to be removed when the "params.css" is activated
+        params.largeUnitBgColor   = "#ffffff"; // String, default background-color is "white" (if not declared)
+        params.skinTitleTextColor = "#062242"; // String, default text color is "black-blue" (if not declared)
+        params.skinDescTextColor  = "#000000"; // String, default text color is "black" (if not declared)
+
+        //Merge current params with external params.
+        params = merge2Objs(params, config.primisSkinParams);
+
+        if(params.css)
+        {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.appendChild(document.createTextNode(params.css));
+            document.body.appendChild(style);
+        }
+        //Add custom font links separated by #!#
+        addCustomFontLinks(params.fontLinks);
+
+        //TODO to be removed when the "params.css" is activated
+        //Set general background-color
+        largeUnit.style.backgroundColor = params.largeUnitBgColor;
+        //Set main title text color
+        titleElm.style.color = params.skinTitleTextColor;
+        //Set main description text color
+        descriptionElm.style.color = params.skinDescTextColor;
+
+        isDisplayMainTitle = getDisplayStateByContent(params.mainTitle);
+        // TODO - remove when parameter mainTitleOn will be deprecated
+        if(params.hasOwnProperty("mainTitleOn") && isDisplayMainTitle)
+        {
+            isDisplayMainTitle = params.mainTitleOn;
+        }
+
+        //Set read more text
+        readMoreAddedTxtOrigin  = ' <a class="thumbnail-read-more" style="color:'+config.playerTemplateData.designColor+'" > '+params.readMoreText+'</a>';
+        isDisplayReadMore       = getDisplayStateByContent(params.readMoreText);
+        // TODO - remove when parameter showReadMore will be deprecated
+        if(params.hasOwnProperty("showReadMore") && isDisplayReadMore)
+        {
+            isDisplayReadMore = params.showReadMore;
+        }
+
+        //Set logo and update it's colors
+        var rgb = getComputedStyle(largeUnit).backgroundColor.match(/\d+/g);
+        var R = parseInt(rgb[0]);
+        var G = parseInt(rgb[1]);
+        var B = parseInt(rgb[2]);
+        var avg = (R+G+B)/3;
+
+        //White logo
+        if(R > 180 &&  G < 120  && R / ((G+B)/2) > 1.2)
+        {
+            primisLogoSvg = primisLogoSvg.replace('st0{fill:#022242;}', 'st0{fill:#ffffff;}')
+            primisLogoSvg = primisLogoSvg.replace('st1{fill:#FF3E5F;}', 'st1{fill:#ffffff;}')
+        }
+        //Bright logo
+        else if(avg < 150)
+        {
+            primisLogoSvg = primisLogoSvg.replace('st0{fill:#022242;}', 'st0{fill:#ffffff;}')
+        }
+        //White "Powered by"
+        if(avg > 115 && avg < 195)
+        {
+            promotedBy.style.color = '#FFF'
+        }
+        primisLogoImg.innerHTML = primisLogoSvg;
+
+        //Set the player to allways true with this skin
+        config.responsive = true;
+        config.nativeSkinType = 'sideBar';//simple/sideBar/inContent/classic
+
+        //Set the skin Iframe size
+        config.nativeSkinIframe.style.width = params.skinWidth + 'px';
+        config.nativeSkinIframe.style.maxWidth = params.isResponsive? '100%': params.skinWidth + 'px';
+        config.nativeSkinIframe.style.minWidth = params.isResponsive? '100%': params.skinWidth + 'px';
+
+        //The "largeUnitWidth" parameter is used for calculating text lines and position.
+        var largeUnitWidth = config.nativeSkinIframe.clientWidth;
+
+        setTimeout(function()
+        {
+            config.nativeSkinIframe.style.visibility = 'visible';
+
+            //Set external video div sizes and absolute position
+            config.containerDiv.parentNode.style.width = params.isResponsive ? '100%': params.skinWidth + 'px';
+            var rect = vidPlaceHolder.getBoundingClientRect();
+            playerIframe.style.top = rect.top+'px';
+            playerIframe.style.left = rect.left+'px';
+        },2);
+
+        //Set titles display
+        if(isDisplayMainTitle)
+        {
+            featuredVideos.innerText = (params.mainTitle && params.mainTitle.length)? params.mainTitle : 'FEATURED VIDEOS';
+        }
+        else
+        {
+            featuredVideos.innerText = '';
+        }
+        relatedItems.innerHTML = (params.itemsTitle && params.itemsTitle.length)?params.itemsTitle : 'More Videos'
+
+        //Set primis logo display
+        if(!params.primisLogoOn && !isDisplayMainTitle)
+        {
+            titlesTable.style.display = 'none';
+        }
+        else if(!params.primisLogoOn)
+        {
+            titlesTable.rows[0].cells[1].style.display = 'none';
+        }
+
+        //Generate thumbs HTML objects
+        for (var i = 0; i < params.thumbsNum; i++)
+        {
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = relatedItemsTable.insertRow(i);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell2.style.verticalAlign = 'top';
+
+            var txtContainer = document.createElement('div');
+            var titleContainer = document.createElement('div');
+            var descriptionContainer = document.createElement('div');
+
+            var imgContainerDiv = document.createElement('div');
+            imgContainerDiv.style.position = 'relative';
+
+            var imgDiv = document.createElement('div');
+
+            var playBtnDiv = document.createElement('div');
+            playBtnDiv.innerHTML = playBtnSvg;
+            playBtnDiv.style.position = 'absolute';
+            playBtnDiv.style.top = '50%';
+            playBtnDiv.style.left = '50%';
+            playBtnDiv.style.transform = 'translate(-50%, -50%)';
+            playBtnDiv.style.pointerEvents = 'none';
+
+            titleContainer.classList.add("thumbnail-title");
+            descriptionContainer.classList.add("thumbnail-desc");
+            //Set thumbnail title text color
+            titleContainer.style.color = params.skinTitleTextColor;
+            //Set thumbnail description text color
+            descriptionContainer.style.color = params.skinDescTextColor;
+            txtContainer.appendChild(titleContainer)
+            txtContainer.appendChild(descriptionContainer)
+            imgContainerDiv.appendChild(imgDiv)
+            imgContainerDiv.appendChild(playBtnDiv)
+            cell1.appendChild(imgContainerDiv)
+
+            txtContainer.style.cursor = "pointer";
+            txtContainer.style.width = 'auto';
+            txtContainer.style.height = '73px';
+            cell1.style.paddingBottom = '4px';
+
+            cell2.appendChild(txtContainer)
+            rowsArray.push({imgTd:imgDiv, playBtn:playBtnDiv, unitRow:row, txtTd:cell2, txtContainer:txtContainer, titleContainer:titleContainer, descriptionContainer:descriptionContainer});
+        }
+        thumbsNum = rowsArray.length;
+
+        function addCustomFontLinks(fontLinks)
+        {
+            if(fontLinks)
+            {
+                var linksArray = fontLinks.split("#!#");
+                for (var k = 0; k < linksArray.length; k++)
+                {
+                    var head  = document.getElementsByTagName("head")[0];
+                    var link  = document.createElement("link");
+                    link.rel  = "stylesheet";
+                    link.type = "text/css";
+                    link.href = linksArray[k];
+                    head.appendChild(link);
+                }
+            }
+        }
+
+        //Crops the titles and descriptions to fit with requested number of lines
+        function cropTextByLines(obj1, linesNum, innerHtml, addedDots, addedTxt, width)
+        {
+            var strArray = innerHtml.split(" ");
+
+            //Calculate a single line height and everege letter width
+            obj1.style.width = 'fit-content';
+            obj1.innerHTML = "WIwaii";
+            var lineHeight = obj1.clientHeight;
+            var letterWidth = obj1.offsetWidth/6;
+            var lettersNum = Math.round((width - 20)/letterWidth);
+
+            obj1.innerHTML = "";
+            obj1.style.width = width;
+
+            //Calculate the text height and add only the requiered words
+            for (var i = 0; i < strArray.length; i++)
+            {
+                var tmpArr = strArray.slice(0, (i+1));
+                obj1.innerHTML = tmpArr.join(" ") + addedDots + addedTxt;
+
+                //Check if we acceded lines height
+                if((lineHeight*linesNum) < obj1.clientHeight)
+                {
+                    var tmpArr = strArray.slice(0, i);
+                    var j = i;
+                    while((lineHeight*linesNum) < obj1.clientHeight)
+                    {
+                        tmpArr = strArray.slice(0, (j--));
+                        var str
+                        if(tmpArr.length)
+                        {
+                            str = tmpArr.join(" ") + addedDots  + addedTxt;
+                            obj1.innerHTML = str;
+                        }
+                        else
+                        {
+                            var addedStr = addedDots + addedTxt;
+                            var addedTxtLength = addedStr.length;
+                            str = strArray[0].slice(0,(lettersNum - addedTxtLength))+addedStr;
+                            obj1.innerHTML = str;
+
+                            break;
+                        }
+                    }
+                    break;
+                }
+
+                //All sentence is viewable
+                if(i == strArray.length-1)
+                {
+                    obj1.innerHTML = tmpArr.join(" ") + addedTxt;
+                }
+            }
+        }
+
+        //Crop the description to fit with the available div size.
+        function cropTextByHeight(obj, parent, innerHtml, addedDots, addedTxt, width)
+        {
+            var strArray = innerHtml.split(" ");
+
+            obj.innerHTML = "";
+            obj.style.width = width;
+
+            //Remove words that extend the requiered space
+            for (var i = 0; i < strArray.length; i++)
+            {
+                var tmpArr = strArray.slice(0, (i+1));
+                obj.innerHTML = tmpArr.join(" ") + addedDots + addedTxt ;
+
+                if (parent.scrollHeight > parent.clientHeight)
+                {
+                    tmpArr = strArray.slice(0, (i));
+                    obj.innerHTML = tmpArr.join(" ") + addedDots + addedTxt;
+                    break;
+                }
+                else if (strArray.length == (i+1) && parent.scrollHeight == parent.clientHeight)
+                {
+                    obj.innerHTML = strArray.join(" ") + addedTxt;
+                    break;
+                }
+            }
+        }
+
+        function ThumbnailUnit(i, index)
+        {
+            var innerIndex = (index + i) % config.contentPlayList.length;
+            var thumbMoreAddedTxt = '';
+            rowsArray[i].imgTd.innerHTML = '';
+            rowsArray[i].titleContainer.innerHTML = config.contentPlayList[innerIndex].title;
+            if(params.showDescription)
+            {
+                rowsArray[i].descriptionContainer.innerHTML = config.contentPlayList[innerIndex].desc;
+            }
+
+            var img = new Image(130,73);
+            img.src = config.contentPlayList[innerIndex].bgImg
+
+            img.style.cursor = "pointer";
+            img.onImgError = function ()
+            {
+                //Avoid infinity error loop
+                if(img.isImgError)
+                {
+                    img.parentNode.removeChild(img);
+                    return;
+                }
+                img.isImgError = true;
+                img.src = defaultImgSrc;
+            }
+            img.addEventListener('error', img.onImgError);
+            rowsArray[i].imgTd.appendChild(img);
+
+            // handle click on read more text
+            rowsArray[i].unitRow.clkUrl = config.contentPlayList[innerIndex].clkUrl ? config.contentPlayList[innerIndex].clkUrl : "";
+            rowsArray[i].unitRow.fileId = config.contentPlayList[innerIndex].fileId ? config.contentPlayList[innerIndex].clkUrl : "";
+            if(isDisplayReadMore)
+            {
+                thumbMoreAddedTxt = readMoreAddedTxtOrigin;
+            }
+            rowsArray[i].unitRow.onclick = function ()
+            {
+                if (config.hadImpression)
+                {
+                    return;
+                }
+                config.nextContentIndex = innerIndex;
+                config.intentInitiator = 'userSwitchContentFS';
+                config.bus.triggerNote('userIntentOn');
+                config.bus.triggerNote('onUserEvent', {type: 'onPlay'});
+                config.bus.triggerNote('userSwitchContent', innerIndex);
+            }
+
+            this.cropTexts = function(){
+                var unitWidth = config.nativeSkinIframeWindow.clientWidth - 156;
+                if(config.contentPlayList[innerIndex].desc && config.contentPlayList[innerIndex].desc.length && params.showDescription)
+                {
+                    cropTextByLines(rowsArray[i].titleContainer, params.descriptionLinesToCropAfter, config.contentPlayList[innerIndex].title, strBreakAddedTxt, '', unitWidth);
+                    cropTextByLines(rowsArray[i].descriptionContainer, (params.titleLinesToCropAfter - 1), config.contentPlayList[innerIndex].desc, strBreakAddedTxt, thumbMoreAddedTxt, unitWidth);
+                }
+                else
+                {
+                    cropTextByLines(rowsArray[i].titleContainer, params.titleLinesToCropAfter, config.contentPlayList[innerIndex].title, strBreakAddedTxt, thumbMoreAddedTxt, unitWidth);
+                }
+            }
+            this.cropTexts();
+        }
+
+        function setThumbnails(index)
+        {
+            thumbUnitsArray = [];
+            for (var i = 0; i < thumbsNum; i++)
+            {
+                var thumbUnit = new ThumbnailUnit(i, index);
+                thumbUnitsArray.push(thumbUnit);
+            }
+        }
+
+        //Size change detector
+        setInterval(function ()
+        {
+            if (largeUnitWidth != config.nativeSkinIframe.clientWidth)
+            {
+                largeUnitWidth = config.nativeSkinIframe.clientWidth;
+
+                if(descriptionHtml && descriptionHtml.length && params.showDescription)
+                {
+                    cropTextByLines(titleElm, params.descriptionLinesToCropAfter, titleHtml, strBreakAddedTxt, '', largeUnitWidth - 6);
+                    cropTextByLines(descriptionElm, (params.titleLinesToCropAfter - 1), descriptionHtml, strBreakAddedTxt, readMoreAddedTxt, largeUnitWidth - 6);
+                }
+                else
+                {
+                    cropTextByHeight(titleElm, elm, titleHtml, strBreakAddedTxt, readMoreAddedTxt, largeUnitWidth - 6);
+                }
+                for (var k = 0; k < thumbUnitsArray.length; k++)
+                {
+                    thumbUnitsArray[k].cropTexts();
+                }
+            }
+        }, 100)
+
+        function changeTxt(title, desc)
+        {
+            titleHtml = titleElm.innerHTML = title;
+            if(params.showDescription)
+            {
+                descriptionHtml = descriptionElm.innerHTML = desc;
+            }
+            largeUnitWidth = config.nativeSkinIframe.clientWidth;
+
+            if(descriptionHtml && descriptionHtml.length && params.showDescription)
+            {
+                cropTextByLines(titleElm, params.descriptionLinesToCropAfter, titleHtml, strBreakAddedTxt, '', largeUnitWidth - 6);
+                cropTextByLines(descriptionElm, (params.titleLinesToCropAfter - 1), descriptionHtml, strBreakAddedTxt, readMoreAddedTxt, largeUnitWidth - 6);
+            }
+            else
+            {
+                cropTextByHeight(titleElm, elm, titleHtml, strBreakAddedTxt, readMoreAddedTxt, largeUnitWidth - 6);
+            }
+        }
+
+        //Set read-more at the first title and description
+        if (getDisplayStateByContent(config.playerTemplateData.goToArticleText)
+            && config.contentPlayList[0].clkUrl && config.contentPlayList[0].clkUrl.length)
+        {
+            clkUrl = config.contentPlayList[0].clkUrl;
+            fileId = config.contentPlayList[0].fileId;
+            elm.style.cursor = "pointer";
+            readMoreAddedTxt = ' <a class="read-more" style="color:'+config.playerTemplateData.designColor+'" onclick="mainReadMoreClick(event)"> '+config.playerTemplateData.goToArticleText+'</a>';
+        }
+        else
+        {
+            clkUrl = "";
+            fileId = '';
+            elm.style.cursor = "auto";
+            readMoreAddedTxt = "";
+        }
+
+        //Timeout is needed for IE that haz a delay in rendering the HTML
+        setTimeout(function()
+        {
+            changeTxt(config.contentPlayList[0].title, config.contentPlayList[0].desc);
+            setThumbnails(1);
+            config.nativeSkinIframe.style.height = largeUnit.clientHeight + 'px';
+            config.containerDiv.style.height = largeUnit.clientHeight + 'px';
+        },10);
+
+        //Objects merging func
+        function merge2Objs(obj, src)
+        {
+            for (var key in src)
+            {
+                if (src.hasOwnProperty(key))
+                {
+                    obj[key] = src[key];
+                }
+            }
+            return obj;
+        }
+
+        function getDisplayStateByContent(paramsField)
+        {
+            return (paramsField.trim().length == 0) ? false : true;
+        }
+
+        config.bus.addCallBack("adStarted", function(val)
+        {
+            config.nativeSkinIframe.style.opacity = '0.3';
+        });
+        config.bus.addCallBack("adCompleted", function(val)
+        {
+            config.nativeSkinIframe.style.opacity = '1';
+            config.nativeSkinIframe.style.backfaceVisibility = 'hidden'; // needed for chrome opacity transitions
+        });
+
+        config.bus.addCallBack("onNextContentInited", function(val)
+        {
+            if(getDisplayStateByContent(config.playerTemplateData.goToArticleText) &&
+                val.content.clkUrl && val.content.clkUrl.length)
+            {
+                clkUrl = val.content.clkUrl;
+                fileId = val.content.fileId;
+                elm.style.cursor = "pointer";
+                readMoreAddedTxt = ' <a class="read-more" style="color:'+config.playerTemplateData.designColor+'" onclick="mainReadMoreClick(event)"> '+config.playerTemplateData.goToArticleText+'</a>';
+            }
+            else
+            {
+                clkUrl = "";
+                fileId = '';
+                elm.style.cursor = "auto";
+                readMoreAddedTxt = "";
+            }
+            changeTxt(val.content.title, val.content.desc);
+            setThumbnails(val.index + 1);
+            config.nativeSkinIframe.style.height = largeUnit.clientHeight + 'px';
+            config.containerDiv.style.height = largeUnit.clientHeight + 'px';
+        });
+
+        // for correct positioning in flow
+        config.bus.addCallBack("onFlowStatusChange", function(val)
+        {
+            playerIframe.style.top = 'auto';
+            playerIframe.style.left = 'auto';
+
+            setTimeout(function()
+            {
+                if(!val)
+                {
+                    // reset absolute position of the player in skin when return from flow
+                    playerIframe.style.zIndex = 1;
+                    var rect = vidPlaceHolder.getBoundingClientRect();
+                    playerIframe.style.top = rect.top+'px';
+                    playerIframe.style.left = rect.left+'px';
+                }
+            },1)
+        });
+
+        config.bus.addCallBack("onPlayerResize", function(val)
+        {
+            if(config.flowStatus || config.FSservice.isFullscreen)return;
+            vidPlaceHolder.style.width = val.playerWidth +'px';
+            vidPlaceHolder.style.height = val.playerHeight +'px';
+            config.nativeSkinIframe.style.height = largeUnit.clientHeight + 'px';
+            config.containerDiv.style.height = largeUnit.clientHeight + 'px';
+        });
+
+        primisLogo.onclick = function()
+        {
+            window.top.open('https://www.primis.tech?utm_source='+config.domain+'&utm_medium='+config.nativeSkinType+'&utm_campaign=promoted', "_blank");
+        }
+        elm.onclick = function()
+        {
+            if (config.adIsPlaying)
+            {
+                return;
+            }
+            config.FSservice.request();
+        }
+
+        config.nativeSkinIframeWindow.mainReadMoreClick = function(e)
+        {
+            e.stopPropagation();
+            if(clkUrl && clkUrl.length)
+            {
+                config.bus.triggerNote('openContent', {value:clkUrl, fileId:fileId});
+            }
+        }
+    }
+</script><style type="text/css"> .Large-unit{background-color:#ffffff!important;} #titleContainer{color:#062242!important;} .thumbnail-title{color:#062242!important;font-size:14px;} #descriptionContainer{color:#000000!important;} .thumbnail-desc{color:#000000!important;font-size:12px;} .main-title{font-size:12px;} .title-box{font-size:16px;} .description-box{font-size:12px;} .read-more{font-size:10px;} .related-items{font-size:12px;} .thumbnail-read-more{font-size:10px;}</style></body></html>

@@ -1,0 +1,281 @@
+dbus-monitor
+signal time=1606256046.949658 sender=org.freedesktop.DBus -> destination=:1.123 serial=2 path=/org/freedesktop/DBus; interface=org.freedesktop.DBus; member=NameAcquired
+   string ":1.123"
+signal time=1606256046.949743 sender=org.freedesktop.DBus -> destination=:1.123 serial=4 path=/org/freedesktop/DBus; interface=org.freedesktop.DBus; member=NameLost
+   string ":1.123"
+signal time=1606256078.780367 sender=:1.56 -> destination=(null destination) serial=162 path=/com/canonical/indicator/power/desktop; interface=org.gtk.Menus; member=Changed
+   array [
+      struct {
+         uint32 1
+         uint32 0
+         uint32 0
+         uint32 1
+         array [
+         ]
+      }
+   ]
+signal time=1606256078.780495 sender=:1.56 -> destination=(null destination) serial=163 path=/com/canonical/indicator/power/desktop; interface=org.gtk.Menus; member=Changed
+   array [
+      struct {
+         uint32 1
+         uint32 42
+         uint32 0
+         uint32 0
+         array [
+            array [
+               dict entry(
+                  string "action"
+                  variant                      string "indicator.activate-statistics"
+               )
+               dict entry(
+                  string "x-canonical-type"
+                  variant                      string "com.canonical.indicator.basic"
+               )
+               dict entry(
+                  string "target"
+                  variant                      string "/org/freedesktop/UPower/devices/keyboard_hid_0018o04F3o279Fx0002_battery"
+               )
+               dict entry(
+                  string "label"
+                  variant                      string "Keyboard"
+               )
+               dict entry(
+                  string "icon"
+                  variant                      struct {
+                        string "themed"
+                        variant                            array [
+                              string "unity-keyboard-000"
+                              string "unity-gpm-keyboard-000"
+                              string "keyboard-000"
+                              string "gpm-keyboard-000"
+                              string "unity-keyboard-caution-symbolic"
+                              string "unity-keyboard-caution"
+                              string "keyboard-caution-symbolic"
+                              string "keyboard-caution"
+                              string "unity-keyboard-000-symbolic"
+                              string "unity-gpm-keyboard-000-symbolic"
+                              string "keyboard-000-symbolic"
+                              string "gpm-keyboard-000-symbolic"
+                           ]
+                     }
+               )
+            ]
+            array [
+               dict entry(
+                  string "action"
+                  variant                      string "indicator.activate-statistics"
+               )
+               dict entry(
+                  string "x-canonical-type"
+                  variant                      string "com.canonical.indicator.basic"
+               )
+               dict entry(
+                  string "target"
+                  variant                      string "/org/freedesktop/UPower/devices/battery_some_battery"
+               )
+               dict entry(
+                  string "label"
+                  variant                      string "Battery (9:14 left)"
+               )
+               dict entry(
+                  string "icon"
+                  variant                      struct {
+                        string "themed"
+                        variant                            array [
+                              string "unity-battery-060"
+                              string "unity-gpm-battery-060"
+                              string "battery-060"
+                              string "gpm-battery-060"
+                              string "unity-battery-good-symbolic"
+                              string "unity-battery-good"
+                              string "battery-good-symbolic"
+                              string "battery-good"
+                              string "unity-battery-060-symbolic"
+                              string "unity-gpm-battery-060-symbolic"
+                              string "battery-060-symbolic"
+                              string "gpm-battery-060-symbolic"
+                           ]
+                     }
+               )
+            ]
+         ]
+      }
+   ]
+signal time=1606256078.781247 sender=:1.56 -> destination=(null destination) serial=164 path=/com/canonical/indicator/power/desktop; interface=org.gtk.Menus; member=Changed
+   array [
+      struct {
+         uint32 1
+         uint32 0
+         uint32 0
+         uint32 0
+         array [
+            array [
+               dict entry(
+                  string ":section"
+                  variant                      struct {
+                        uint32 1
+                        uint32 42
+                     }
+               )
+            ]
+         ]
+      }
+   ]
+signal time=1606256078.781392 sender=:1.56 -> destination=(null destination) serial=165 path=/com/canonical/indicator/power; interface=org.gtk.Actions; member=Changed
+   array [
+   ]
+   array [
+   ]
+   array [
+      dict entry(
+         string "battery-level"
+         variant             uint32 58
+      )
+      dict entry(
+         string "device-state"
+         variant             string "discharging"
+      )
+      dict entry(
+         string "_header"
+         variant             array [
+               dict entry(
+                  string "title"
+                  variant                      string "Battery"
+               )
+               dict entry(
+                  string "visible"
+                  variant                      boolean true
+               )
+               dict entry(
+                  string "label"
+                  variant                      string "(9:14, 58%)"
+               )
+               dict entry(
+                  string "accessible-desc"
+                  variant                      string "Battery (9 hours 14 minutes left)"
+               )
+               dict entry(
+                  string "icon"
+                  variant                      struct {
+                        string "themed"
+                        variant                            array [
+                              string "unity-battery-060"
+                              string "unity-gpm-battery-060"
+                              string "battery-060"
+                              string "gpm-battery-060"
+                              string "unity-battery-good-symbolic"
+                              string "unity-battery-good"
+                              string "battery-good-symbolic"
+                              string "battery-good"
+                              string "unity-battery-060-symbolic"
+                              string "unity-gpm-battery-060-symbolic"
+                              string "battery-060-symbolic"
+                              string "gpm-battery-060-symbolic"
+                           ]
+                     }
+               )
+            ]
+      )
+   ]
+   array [
+   ]
+method call time=1606256078.782668 sender=:1.52 -> destination=org.mate.ScreenSaver serial=35 path=/; interface=org.mate.ScreenSaver; member=Throttle
+   string "Power screensaver"
+   string "On battery power"
+method return time=1606256078.783384 sender=:1.66 -> destination=:1.52 serial=17 reply_serial=35
+   uint32 1767456239
+method call time=1606256078.783639 sender=:1.52 -> destination=org.mate.ScreenSaver serial=36 path=/; interface=org.mate.ScreenSaver; member=SimulateUserActivity
+signal time=1606256100.005191 sender=:1.55 -> destination=(null destination) serial=184 path=/com/canonical/indicator/datetime; interface=org.gtk.Actions; member=Changed
+   array [
+   ]
+   array [
+   ]
+   array [
+      dict entry(
+         string "phone_greeter-header"
+         variant             array [
+               dict entry(
+                  string "title"
+                  variant                      string "Time & Date"
+               )
+               dict entry(
+                  string "visible"
+                  variant                      boolean true
+               )
+               dict entry(
+                  string "label"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "accessible-desc"
+                  variant                      string " 5:15 PM"
+               )
+            ]
+      )
+      dict entry(
+         string "desktop_greeter-header"
+         variant             array [
+               dict entry(
+                  string "accessible-desc"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "label"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "title"
+                  variant                      string "Date and Time"
+               )
+               dict entry(
+                  string "visible"
+                  variant                      boolean true
+               )
+            ]
+      )
+      dict entry(
+         string "desktop-header"
+         variant             array [
+               dict entry(
+                  string "accessible-desc"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "label"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "title"
+                  variant                      string "Date and Time"
+               )
+               dict entry(
+                  string "visible"
+                  variant                      boolean true
+               )
+            ]
+      )
+      dict entry(
+         string "phone-header"
+         variant             array [
+               dict entry(
+                  string "title"
+                  variant                      string "Time & Date"
+               )
+               dict entry(
+                  string "visible"
+                  variant                      boolean true
+               )
+               dict entry(
+                  string "label"
+                  variant                      string " 5:15 PM"
+               )
+               dict entry(
+                  string "accessible-desc"
+                  variant                      string " 5:15 PM"
+               )
+            ]
+      )
+   ]
+   array [
+   ]
+

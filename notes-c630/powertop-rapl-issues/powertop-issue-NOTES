@@ -1,0 +1,14 @@
+/bin/hciconfig hci0 up &> /dev/null &
+iw dev wlan0 set power_save off
+
+sudo echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+sudo echo 1766400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+
+
+sudo powertop
+modprobe cpufreq_stats failedLoaded 0 prior measurements
+RAPL device for cpu 0
+RAPL device for cpu 0
+glob returned GLOB_ABORTED
+Leaving PowerTOP
+

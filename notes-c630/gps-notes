@@ -1,0 +1,6 @@
+Start gpsd with 
+sudo gpsd -N -D9 -F /var/run/gpsd.sock 
+and connect to it with 
+sudo gpsdctl add pds://any
+and test with 
+sudo gpsmon

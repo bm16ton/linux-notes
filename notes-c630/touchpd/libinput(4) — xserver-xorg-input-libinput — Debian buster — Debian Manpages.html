@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>libinput(4) — xserver-xorg-input-libinput — Debian buster — Debian Manpages</title>
+<style type="text/css">
+@font-face {
+  font-family: 'Inconsolata';
+  src: local('Inconsolata'), url(/Inconsolata.woff2) format('woff2'), url(/Inconsolata.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto Regular'), local('Roboto-Regular'), url(/Roboto-Regular.woff2) format('woff2'), url(/Roboto-Regular.woff) format('woff');
+}
+
+body {
+	color: #000;
+	background-color: white;
+	background-image: linear-gradient(to bottom, #d7d9e2, #fff 70px);
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	font-family: sans-serif;
+	font-size: 100%;
+	line-height: 1.2;
+	letter-spacing: 0.15px;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	padding: 0 10px 0 52px;
+}
+
+#logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	width: 50px;
+	height: 5.07em;
+	min-height: 65px;
+}
+
+#logo a {
+	display: block;
+	height: 100%;
+}
+
+#logo img {
+	margin-top: 5px;
+	position: absolute;
+	bottom: 0.3em;
+	overflow: auto;
+	border: 0;
+}
+
+p.section {
+	margin: 0;
+	padding: 0 5px 0 5px;
+	font-size: 13px;
+	line-height: 16px;
+	color: white;
+	letter-spacing: 0.08em;
+	position: absolute;
+	top: 0px;
+	left: 52px;
+	background-color: #c70036;
+}
+
+p.section a {
+	color: white;
+	text-decoration: none;
+}
+
+.hidecss {
+	display: none;
+}
+
+#searchbox {
+	text-align:left;
+	line-height: 1;
+	margin: 0 10px 0 0.5em;
+	padding: 1px 0 1px 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: .75em;
+}
+
+#navbar {
+	border-bottom: 1px solid #c70036;
+}
+
+#navbar ul {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#navbar li {
+	list-style: none;
+	float: left;
+}
+
+#navbar a {
+	display: block;
+	padding: 1.75em .5em .25em .5em;
+	color: #0035c7;
+	text-decoration: none;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+}
+
+#navbar a:hover
+, #navbar a:visited:hover {
+	background-color: #f5f6f7;
+	border-left: 1px solid  #d2d3d7;
+	border-right: 1px solid #d2d3d7;
+	text-decoration: underline;
+}
+
+a:link {
+	color: #0035c7;
+}
+
+a:visited {
+	color: #54638c;
+}
+
+#breadcrumbs {
+	line-height: 2;
+	min-height: 20px;
+	margin: 0;
+	padding: 0;
+	font-size: 0.75em;
+	background-color: #f5f6f7;
+	border-bottom: 1px solid #d2d3d7;
+}
+
+#breadcrumbs:before {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+#content {
+    margin: 0 10px 0 52px;
+    display: flex;
+    flex-direction: row;
+}
+
+.paneljump {
+    background-color: #d70751;
+    padding: 0.5em;
+    border-radius: 3px;
+    margin-right: .5em;
+    display: none;
+}
+
+.paneljump a,
+.paneljump a:visited,
+.paneljump a:hover,
+.paneljump a:focus {
+    color: white;
+}
+
+@media all and (max-width: 800px) {
+    #content {
+	flex-direction: column;
+	margin: 0.5em;
+    }
+    .paneljump {
+	display: block;
+    }
+}
+
+.panels {
+    display: block;
+    order: 2;
+}
+
+.maincontent {
+    width: 100%;
+    max-width: 80ch;
+    order: 1;
+}
+
+.mandoc {
+    font-family: monospace;
+    font-size: 1.04rem;
+}
+
+.mandoc pre {
+    white-space: pre-wrap;
+}
+
+#footer {
+	border: 1px solid #dfdfe0;
+	border-left: 0;
+	border-right: 0;
+	background-color: #f5f6f7;
+	padding: 1em;
+	margin: 1em 10px 0 52px;
+	font-size: 0.75em;
+	line-height: 1.5em;
+}
+
+hr {
+	border-top: 1px solid #d2d3d7;
+	border-bottom: 1px solid white;
+	border-left: 0;
+	border-right: 0;
+	margin: 1.4375em 0 1.5em 0;
+	height: 0;
+	background-color: #bbb;
+}
+
+#content p {
+    padding-left: 1em;
+}
+
+ 
+
+a, a:hover, a:focus, a:visited {
+    color: #0530D7;
+    text-decoration: none;
+}
+
+ 
+.panel {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-heading, .panel details {
+  margin: -15px -15px 0px;
+  background-color: #d70751;
+  border-bottom: 1px solid #dddddd;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-heading, .panel summary {
+  padding: 5px 5px;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: #ffffff;
+  outline-style: none;
+}
+
+.panel summary {
+    padding-left: 7px;
+}
+
+summary, details {
+    display: block;
+}
+
+.panel details ul {
+  margin: 0;
+}
+
+.panel-footer {
+  padding: 5px 5px;
+  margin: 15px -15px -15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.panel-info {
+  border-color: #bce8f1;
+}
+
+.panel-info .panel-heading {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: -1px;
+  border: 1px solid #dddddd;
+}
+
+.list-group-item > .list-item-key {
+  min-width: 27%;
+  display: inline-block;
+}
+.list-group-item > .list-item-key.versions-repository {
+  min-width: 40%;
+}
+.list-group-item > .list-item-key.versioned-links-version {
+  min-width: 40%
+}
+
+
+.versioned-links-icon {
+  margin-right: 2px;
+}
+.versioned-links-icon a {
+  color: black;
+}
+.versioned-links-icon a:hover {
+  color: blue;
+}
+.versioned-links-icon-inactive {
+  opacity: 0.5;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+
+.list-group-item.active a {
+  z-index: 2;
+}
+
+.list-group-item.active {
+  background-color: #efefef;
+}
+
+.list-group-flush {
+  margin: 15px -15px -15px;
+}
+.panel .list-group-flush {
+  margin-top: -1px;
+}
+
+.list-group-flush .list-group-item {
+  border-width: 1px 0;
+}
+
+.list-group-flush .list-group-item:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.list-group-flush .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+ 
+
+.panel {
+float: right;
+clear: right;
+min-width: 200px;
+}
+
+.toc {
+     
+    width: 200px;
+}
+
+.toc li {
+    font-size: 98%;
+    letter-spacing: 0.02em;
+    display: flex;
+}
+
+.otherversions {
+     
+    width: 200px;
+}
+
+.otherversions li,
+.otherlangs li {
+    display: flex;
+}
+
+.otherversions a,
+.otherlangs a {
+    flex-shrink: 0;
+}
+
+.pkgversion,
+.pkgname,
+.toc a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.pkgversion,
+.pkgname {
+    margin-left: auto;
+    padding-left: 1em;
+}
+
+ 
+
+.mandoc {
+     
+    overflow: hidden;
+    margin-top: .5em;
+    margin-right: 45px;
+}
+table.head, table.foot {
+    width: 100%;
+}
+.head-vol {
+    text-align: center;
+}
+.head-rtitle {
+    text-align: right;
+}
+
+ 
+.spacer, .Pp {
+    min-height: 1em;
+}
+
+pre {
+    margin-left: 2em;
+}
+
+.anchor {
+    margin-left: .25em;
+    visibility: hidden;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    visibility: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: .07em;
+    margin-top: 1.5em;
+    margin-bottom: .35em;
+}
+
+h1 {
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 125%;
+}
+
+@media print {
+    #header, #footer, .panel, .anchor, .paneljump {
+	display: none;
+    }
+    #content {
+	margin: 0;
+    }
+    .mandoc {
+	margin: 0;
+    }
+}
+
+ 
+ 
+
+.Bd { }
+.Bd-indent {	margin-left: 3.8em; }
+
+.Bl-bullet {	list-style-type: disc;
+		padding-left: 1em; }
+.Bl-bullet > li { }
+.Bl-dash {	list-style-type: none;
+		padding-left: 0em; }
+.Bl-dash > li:before {
+		content: "\2014  "; }
+.Bl-item {	list-style-type: none;
+		padding-left: 0em; }
+.Bl-item > li { }
+.Bl-compact > li {
+		margin-top: 0em; }
+
+.Bl-enum {	padding-left: 2em; }
+.Bl-enum > li { }
+.Bl-compact > li {
+		margin-top: 0em; }
+
+.Bl-diag { }
+.Bl-diag > dt {
+		font-style: normal;
+		font-weight: bold; }
+.Bl-diag > dd {
+		margin-left: 0em; }
+.Bl-hang { }
+.Bl-hang > dt { }
+.Bl-hang > dd {
+		margin-left: 5.5em; }
+.Bl-inset { }
+.Bl-inset > dt { }
+.Bl-inset > dd {
+		margin-left: 0em; }
+.Bl-ohang { }
+.Bl-ohang > dt { }
+.Bl-ohang > dd {
+		margin-left: 0em; }
+.Bl-tag {	margin-left: 5.5em; }
+.Bl-tag > dt {
+		float: left;
+		margin-top: 0em;
+		margin-left: -5.5em;
+		padding-right: 1.2em;
+		vertical-align: top; }
+.Bl-tag > dd {
+		clear: right;
+		width: 100%;
+		margin-top: 0em;
+		margin-left: 0em;
+		vertical-align: top;
+		overflow: auto; }
+.Bl-compact > dt {
+		margin-top: 0em; }
+
+.Bl-column { }
+.Bl-column > tbody > tr { }
+.Bl-column > tbody > tr > td {
+		margin-top: 1em; }
+.Bl-compact > tbody > tr > td {
+		margin-top: 0em; }
+
+.Rs {		font-style: normal;
+		font-weight: normal; }
+.RsA { }
+.RsB {		font-style: italic;
+		font-weight: normal; }
+.RsC { }
+.RsD { }
+.RsI {		font-style: italic;
+		font-weight: normal; }
+.RsJ {		font-style: italic;
+		font-weight: normal; }
+.RsN { }
+.RsO { }
+.RsP { }
+.RsQ { }
+.RsR { }
+.RsT {		text-decoration: underline; }
+.RsU { }
+.RsV { }
+
+.eqn { }
+.tbl { }
+
+.HP {		margin-left: 3.8em;
+		text-indent: -3.8em; }
+
+ 
+
+table.Nm { }
+code.Nm {	font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Fl {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Cm {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Ar {		font-style: italic;
+		font-weight: normal; }
+.Op {		display: inline; }
+.Ic {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Ev {		font-style: normal;
+		font-weight: normal;
+		font-family: monospace; }
+.Pa {		font-style: italic;
+		font-weight: normal; }
+
+ 
+
+.Lb { }
+code.In {	font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+a.In { }
+.Fd {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Ft {		font-style: italic;
+		font-weight: normal; }
+.Fn {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Fa {		font-style: italic;
+		font-weight: normal; }
+.Vt {		font-style: italic;
+		font-weight: normal; }
+.Va {		font-style: italic;
+		font-weight: normal; }
+.Dv {		font-style: normal;
+		font-weight: normal;
+		font-family: monospace; }
+.Er {		font-style: normal;
+		font-weight: normal;
+		font-family: monospace; }
+
+ 
+
+.An { }
+.Lk { }
+.Mt { }
+.Cd {		font-style: normal;
+		font-weight: bold;
+		font-family: inherit; }
+.Ad {		font-style: italic;
+		font-weight: normal; }
+.Ms {		font-style: normal;
+		font-weight: bold; }
+.St { }
+.Ux { }
+
+ 
+
+.Bf {		display: inline; }
+.No {		font-style: normal;
+		font-weight: normal; }
+.Em {		font-style: italic;
+		font-weight: normal; }
+.Sy {		font-style: normal;
+		font-weight: bold; }
+.Li {		font-style: normal;
+		font-weight: normal;
+		font-family: monospace; }
+
+</style>
+<script type="text/javascript">
+if (!!document['fonts']) {
+        var r = "body{font-family:'Roboto',sans-serif;}";
+        var i = ".mandoc,.mandoc pre,.mandoc code,p.section{font-family:'Inconsolata',monospace;}";
+        var l = function(m) {
+                if (!document.body) {
+                        document.write("<style>"+m+"</style>");
+                } else {
+                        document.body.innerHTML+="<style>"+m+"</style>";
+                }
+        };
+         
+        new FontFace('Roboto', "local('Roboto'), local('Roboto Regular'), local('Roboto-Regular'), url(/Roboto-Regular.woff2) format('woff2'), url(/Roboto-Regular.woff) format('woff')")
+                .load().then(function() { l(r); });
+        new FontFace('Inconsolata', "local('Inconsolata'), url(/Inconsolata.woff2) format('woff2'), url(/Inconsolata.woff) format('woff')")
+                .load().then(function() { l(i); });
+} else {
+        var l = document.createElement('link');
+        l.rel = 'preload';
+        l.href = '/fonts-woff.css';
+        l.as = 'style';
+        l.onload = function() { this.rel = 'stylesheet'; };
+        document.head.appendChild(l);
+}
+</script><style>body{font-family:'Roboto',sans-serif;}</style>
+<link rel="search" title="Debian manpages" type="application/opensearchdescription+xml" href="https://manpages.debian.org/opensearch.xml">
+<noscript>
+  <style type="text/css">
+    body { font-family: 'Roboto', sans-serif; }
+    .mandoc, .mandoc pre, .mandoc code, p.section { font-family: 'Inconsolata', monospace; }
+  </style>
+</noscript>
+</head>
+<body>
+<div id="header">
+   <div id="upperheader">
+   <div id="logo">
+  <a href="https://www.debian.org/" title="Debian Home"><img src="libinput(4)%20%E2%80%94%20xserver-xorg-input-libinput%20%E2%80%94%20Debian%20buster%20%E2%80%94%20Debian%20Manpages_files/openlogo-50.svg" alt="Debian" width="50" height="61"></a>
+  </div>
+  <p class="section"><a href="https://manpages.debian.org/">MANPAGES</a></p>
+  <div id="searchbox">
+    <form action="https://dyn.manpages.debian.org/jump" method="get">
+      <input type="hidden" name="suite" value="buster">
+      <input type="hidden" name="binarypkg" value="xserver-xorg-input-libinput">
+      <input type="hidden" name="section" value="4">
+      <input type="hidden" name="language" value="en">
+      <input type="text" name="q" placeholder="manpage name" required="">
+      <input type="submit" value="Jump">
+    </form>
+  </div>
+ </div>
+<div id="navbar">
+<p class="hidecss"><a href="#content">Skip Quicknav</a></p>
+<ul>
+   <li><a href="https://manpages.debian.org/">Index</a></li>
+   <li><a href="https://manpages.debian.org/about.html">About Manpages</a></li>
+   <li><a href="https://manpages.debian.org/faq.html">FAQ</a></li>
+   <li><a href="https://wiki.debian.org/manpages.debian.org">Service Information</a></li>
+</ul>
+</div>
+   <p id="breadcrumbs">&nbsp;
+     
+     / <a href="https://manpages.debian.org/contents-buster.html">buster</a>
+     
+     
+     
+     / <a href="https://manpages.debian.org/buster/xserver-xorg-input-libinput/index.html">xserver-xorg-input-libinput</a>
+     
+     
+     
+     / libinput(4)
+     
+     </p>
+</div>
+<div id="content">
+
+
+<div class="panels" id="panels">
+<div class="panel" role="complementary">
+<div class="panel-heading" role="heading">
+links
+</div>
+<div class="panel-body">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<a href="https://manpages.debian.org/buster/xserver-xorg-input-libinput/libinput.4">language-indep link</a>
+</li>
+<li class="list-group-item">
+<a href="https://tracker.debian.org/pkg/xserver-xorg-input-libinput">package tracker</a>
+</li>
+<li class="list-group-item">
+<a href="https://manpages.debian.org/buster/xserver-xorg-input-libinput/libinput.4.en.gz">raw man page</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="panel toc" role="complementary" style="padding-bottom: 0">
+<details>
+<summary>
+table of contents
+</summary>
+<div class="panel-body">
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item">
+  <a class="toclink" href="#NAME" title="NAME">NAME</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#SYNOPSIS" title="SYNOPSIS">SYNOPSIS</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#NOTE" title="NOTE">NOTE</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#DESCRIPTION" title="DESCRIPTION">DESCRIPTION</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#CONFIGURATION_DETAILS" title="CONFIGURATION DETAILS">CONFIGURATION DETAILS</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#SUPPORTED_PROPERTIES" title="SUPPORTED PROPERTIES">SUPPORTED PROPERTIES</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#BUTTON_MAPPING" title="BUTTON MAPPING">BUTTON MAPPING</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#BUTTON_DRAG_LOCK" title="BUTTON DRAG LOCK">BUTTON DRAG LOCK</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#TABLET_TOOL_PRESSURECURVE" title="TABLET TOOL PRESSURECURVE">TABLET TOOL PRESSURECURVE</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#TABLET_TOOL_AREA_RATIO" title="TABLET TOOL AREA RATIO">TABLET TOOL AREA RATIO</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#BUGS" title="BUGS">BUGS</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#AUTHORS" title="AUTHORS">AUTHORS</a>
+</li>
+
+<li class="list-group-item">
+  <a class="toclink" href="#SEE_ALSO" title="SEE ALSO">SEE ALSO</a>
+</li>
+
+</ul>
+</div>
+</details>
+</div>
+
+<div class="panel otherversions" role="complementary">
+<div class="panel-heading" role="heading">
+other versions
+</div>
+<div class="panel-body">
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item active">
+<a href="https://manpages.debian.org/buster/xserver-xorg-input-libinput/libinput.4.en.html">buster</a> <span class="pkgversion" title="0.28.2-2">0.28.2-2</span>
+</li>
+
+<li class="list-group-item">
+<a href="https://manpages.debian.org/testing/xserver-xorg-input-libinput/libinput.4.en.html">testing</a> <span class="pkgversion" title="0.30.0-1">0.30.0-1</span>
+</li>
+
+<li class="list-group-item">
+<a href="https://manpages.debian.org/unstable/xserver-xorg-input-libinput/libinput.4.en.html">unstable</a> <span class="pkgversion" title="0.30.0-1">0.30.0-1</span>
+</li>
+
+</ul>
+</div>
+</div>
+
+
+
+
+<div class="panel" role="complementary">
+<div class="panel-heading" role="heading">
+other sections
+</div>
+<div class="panel-body">
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item">
+<a href="https://manpages.debian.org/buster/libinput-tools/libinput.1.en.html">1 (<span title="Executable programs or shell commands">progs</span>)</a>
+</li>
+
+<li class="list-group-item active">
+<a href="https://manpages.debian.org/buster/xserver-xorg-input-libinput/libinput.4.en.html">4 (<span title="Special files (usually found in /dev)">files</span>)</a>
+</li>
+
+</ul>
+</div>
+</div>
+
+
+
+</div>
+
+<div class="maincontent">
+<p class="paneljump"><a href="#panels">Scroll to navigation</a></p>
+<div class="mandoc">
+<table class="head">
+  <tbody><tr>
+    <td class="head-ltitle">LIBINPUT(4)</td>
+    <td class="head-vol">Device Drivers Manual</td>
+    <td class="head-rtitle">LIBINPUT(4)</td>
+  </tr>
+</tbody></table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME">NAME<a class="anchor" href="#NAME">¶</a></h1>
+libinput - libinput-based X.Org input driver
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS">SYNOPSIS<a class="anchor" href="#SYNOPSIS">¶</a></h1>
+<pre><b>Section "InputDevice"</b>
+<b>  Identifier "</b><i>devname</i><b>"</b>
+<b>  Driver "libinput"</b>
+<b>  Option "Device"   "</b><i>devpath</i><b>"</b>
+&nbsp;&nbsp;...
+<b>EndSection</b>
+</pre>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTE">NOTE<a class="anchor" href="#NOTE">¶</a></h1>
+This is the man page for the X input driver. If you are looking for the library
+  documentation, go to <b><a href="http://wayland.freedesktop.org/libinput/doc/">http://wayland.freedesktop.org/libinput/doc/</a></b>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION">DESCRIPTION<a class="anchor" href="#DESCRIPTION">¶</a></h1>
+<b>libinput</b> is an Xorg input driver based on libinput. It therefore supports
+  all input devices that libinput can handle, including most mice, keyboards,
+  tablets and touchscreens.
+<p class="Pp">It is recommended that <b>libinput</b> devices are configured
+    through the <b>InputClass</b> directive (refer to <a href="https://manpages.debian.org/buster/xserver-xorg-core/xorg.conf.5.en.html">xorg.conf(5)</a>) instead of
+    manual per-device configuration. Devices configured in the <a href="https://manpages.debian.org/buster/xserver-xorg-core/xorg.conf.5.en.html">xorg.conf(5)</a> are
+    not hot-plug capable.</p>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="CONFIGURATION_DETAILS">CONFIGURATION DETAILS<a class="anchor" href="#CONFIGURATION_DETAILS">¶</a></h1>
+Please refer to <a href="https://manpages.debian.org/buster/xserver-xorg-core/xorg.conf.5.en.html">xorg.conf(5)</a> for general configuration details and for options
+  that can be used with all input drivers. This section only covers
+  configuration details specific to this driver.
+<p class="Pp">The following driver <b>Options</b> are supported:</p>
+<dl class="Bl-tag">
+  <dt><b>Option "AccelProfile"
+    "</b><i>string</i><b>"</b></dt>
+  <dd>Sets the pointer acceleration profile to the given profile. Permitted
+      values are <b>adaptive,</b> <b>flat.</b> Not all devices support this
+      option or all profiles. If a profile is unsupported, the default profile
+      for this device is used. For a description on the profiles and their
+      behavior, see the libinput documentation.</dd>
+  <dt><b>Option "AccelSpeed" "</b><i>float</i><b>"</b></dt>
+  <dd>Sets the pointer acceleration speed within the range [-1, 1]</dd>
+  <dt><b>Option "ButtonMapping"
+    "</b><i>string</i><b>"</b></dt>
+  <dd>Sets the logical button mapping for this device, see
+      <a href="https://manpages.debian.org/buster/libx11-doc/XSetPointerMapping.3.en.html">XSetPointerMapping(3)</a>. The string must be a space-separated list of button
+      mappings in the order of the logical buttons on the device, starting with
+      button 1. The default mapping is "1 2 3 ... 32". A mapping of 0
+      deactivates the button. Multiple buttons can have the same mapping.
+      Invalid mapping strings are discarded and the default mapping is used for
+      all buttons. Buttons not specified in the user's mapping use the default
+      mapping. See section <b>BUTTON MAPPING</b> for more details.</dd>
+  <dt><b>Option "CalibrationMatrix"
+    "</b><i>string</i><b>"</b></dt>
+  <dd>A string of 9 space-separated floating point numbers, in the order "a
+      b c d e f g h i". Sets the calibration matrix to the 3x3 matrix where
+      the first row is (abc), the second row is (def) and the third row is
+      (ghi).</dd>
+  <dt><b>Option "ClickMethod"
+    "</b><i>string</i><b>"</b></dt>
+  <dd>Enables a click method. Permitted values are <b>none,</b>
+      <b>buttonareas,</b> <b>clickfinger.</b> Not all devices support all
+      methods, if an option is unsupported, the default click method for this
+      device is used.</dd>
+  <dt><b>Option "DisableWhileTyping"
+    "</b><i>bool</i><b>"</b></dt>
+  <dd>Indicates if the touchpad should be disabled while typing on the keyboard
+      (this does not apply to modifier keys such as Ctrl or Alt).</dd>
+  <dt><b>Option "Device" "</b><i>string</i><b>"</b></dt>
+  <dd>Specifies the device through which the device can be accessed. This will
+      generally be of the form "/dev/input/eventX", where X is some
+      integer. When using <b>InputClass</b> directives, this option is set by
+      the server. The mapping from device node to hardware is system-dependent.
+      Property: "Device Node" (read-only).</dd>
+  <dt><b>Option "DragLockButtons" "</b><i>L1 B1 L2 B2
+    ...</i><b>"</b></dt>
+  <dd>Sets "drag lock buttons" that simulate a button logically down
+      even when it has been physically released. To logically release a locked
+      button, a second click of the same button is required.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt></dt>
+  <dd>If the option is a single button number, that button acts as the
+      "meta" locking button for the next button number. See section
+      <b>BUTTON DRAG LOCK</b> for details.</dd>
+  <dt></dt>
+  <dd>If the option is a list of button number pairs, the first number of each
+      number pair is the lock button, the second number the logical button
+      number to be locked. See section <b>BUTTON DRAG LOCK</b> for details.</dd>
+  <dt></dt>
+  <dd>For both meta and button pair configuration, the button numbers are device
+      button numbers, i.e. the <b>ButtonMapping</b> applies after drag
+    lock.</dd>
+</dl>
+<dl class="Bl-tag">
+  <dt><b>Option "HorizontalScrolling"
+    "</b><i>bool</i><b>"</b></dt>
+  <dd>Disables horizontal scrolling. When disabled, this driver will discard any
+      horizontal scroll events from libinput. Note that this does not disable
+      horizontal scrolling, it merely discards the horizontal axis from any
+      scroll events.</dd>
+  <dt><b>Option "LeftHanded" "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables left-handed button orientation, i.e. swapping left and right
+      buttons.</dd>
+  <dt><b>Option "MiddleEmulation"
+    "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables middle button emulation. When enabled, pressing the left and right
+      buttons simultaneously produces a middle mouse button click.</dd>
+  <dt><b>Option "NaturalScrolling"
+    "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables or disables natural scrolling behavior.</dd>
+  <dt><b>Option "RotationAngle"
+    "</b><i>float</i><b>"</b></dt>
+  <dd>Sets the rotation angle of the device to the given angle, in degrees
+      clockwise. The angle must be between 0.0 (inclusive) and 360.0
+      (exclusive).</dd>
+  <dt><b>Option "ScrollButton" "</b><i>int</i><b>"</b></dt>
+  <dd>Designates a button as scroll button. If the <b>ScrollMethod</b> is
+      <b>button</b> and the button is logically held down, x/y axis movement is
+      converted into scroll events.</dd>
+  <dt><b>Option "ScrollMethod"
+    "</b><i>string</i><b>"</b></dt>
+  <dd>Enables a scroll method. Permitted values are <b>none,</b>
+      <b>twofinger,</b> <b>edge,</b> <b>button.</b> Not all devices support all
+      options, if an option is unsupported, the default scroll option for this
+      device is used.</dd>
+  <dt><b>Option "SendEventsMode"
+    "</b><i>(disabled|enabled|disabled-on-external-mouse)</i><b>"</b></dt>
+  <dd>Sets the send events mode to disabled, enabled, or "disable when an
+      external mouse is connected".</dd>
+  <dt><b>Option "TabletToolPressureCurve" "</b><i>x0/y0 x1/y1
+    x2/y2 x3/y3</i><b>"</b></dt>
+  <dd>Set the pressure curve for a tablet stylus to the bezier formed by the
+      four points. The respective x/y coordinate must be in the [0.0, 1.0]
+      range. For more information see section <b>TABLET STYLUS PRESSURE
+      CURVE.</b></dd>
+  <dt><b>Option "TabletToolAreaRatio"
+    "</b><i>w:h</i><b>"</b></dt>
+  <dd>Sets the area ratio for a tablet tool. The area always starts at the
+      origin (0/0) and expands to the largest available area with the specified
+      aspect ratio. Events outside this area are cropped to the area. The
+      special value "default" is used for the default mapping (i.e.
+      the device-native mapping). For more information see section <b>TABLET
+      TOOL AREA RATIO.</b></dd>
+  <dt><b>Option "Tapping" "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables or disables tap-to-click behavior.</dd>
+  <dt><b>Option "TappingButtonMap"
+    "</b><i>(lrm|lmr)</i><b>"</b></dt>
+  <dd>Set the button mapping for 1/2/3-finger taps to left/right/middle or
+      left/middle/right, respectively.</dd>
+  <dt><b>Option "TappingDrag" "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables or disables drag during tapping behavior
+      ("tap-and-drag"). When enabled, a tap followed by a finger held
+      down causes a single button down only, all motions of that finger thus
+      translate into dragging motion. Tap-and-drag requires option
+      <b>Tapping</b> to be enabled.</dd>
+  <dt><b>Option "TappingDragLock"
+    "</b><i>bool</i><b>"</b></dt>
+  <dd>Enables or disables drag lock during tapping behavior. When enabled, a
+      finger up during tap-and-drag will not immediately release the button. If
+      the finger is set down again within the timeout, the dragging process
+      continues.</dd>
+</dl>
+<p class="Pp">For all options, the options are only parsed if the device
+    supports that configuration option. For all options, the default value is
+    the one used by libinput. On configuration failure, the default value is
+    applied.</p>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SUPPORTED_PROPERTIES">SUPPORTED PROPERTIES<a class="anchor" href="#SUPPORTED_PROPERTIES">¶</a></h1>
+<b>libinput</b> exports runtime-configurable options as properties. If a
+  property listed below is not available, the matching configuration option is
+  not available on the device. This however does not imply that the feature is
+  not available on the device. The following properties are provided by the
+  <b>libinput</b> driver.
+<dl class="Bl-tag">
+  <dt><b>libinput Accel Profiles Available</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "adaptive",
+      "flat". Indicates which acceleration profiles are available on
+      this device.</dd>
+  <dt><b>libinput Accel Profile Enabled</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "adaptive",
+      "flat". Indicates which acceleration profile is currently
+      enabled on this device.</dd>
+  <dt><b>libinput Accel Speed</b></dt>
+  <dd>1 32-bit float value, defines the pointer speed. Value range -1, 1</dd>
+  <dt><b>libinput Button Scrolling Button</b></dt>
+  <dd>1 32-bit value. Sets the button number to use for button scrolling. This
+      setting is independent of the scroll method, to enable button scrolling
+      the method must be set to button-scrolling and a valid button must be
+    set.</dd>
+  <dt><b>libinput Calibration Matrix</b></dt>
+  <dd>9 32-bit float values, representing a 3x3 calibration matrix, order is row
+      1, row 2, row 3</dd>
+  <dt><b>libinput Click Methods Available</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "buttonareas",
+      "clickfinger". Indicates which click methods are available on
+      this device.</dd>
+  <dt><b>libinput Click Methods Enabled</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "buttonareas",
+      "clickfinger". Indicates which click methods are enabled on this
+      device.</dd>
+  <dt><b>libinput Drag Lock Buttons</b></dt>
+  <dd>Either one 8-bit value specifying the meta drag lock button, or a list of
+      button pairs. See section <b>BUTTON DRAG LOCK</b> for details.</dd>
+  <dt><b>libinput Horizontal Scrolling Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). Indicates whether horizontal scrolling
+      events are enabled or not.</dd>
+  <dt><b>libinput Left Handed Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). Indicates if left-handed mode is enabled
+      or disabled.</dd>
+  <dt><b>libinput Middle Emulation Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). Indicates if middle emulation is enabled
+      or disabled.</dd>
+  <dt><b>libinput Natural Scrolling Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). 1 enables natural scrolling</dd>
+  <dt><b>libinput Rotation Angle</b></dt>
+  <dd>1 32-bit float value [0.0 to 360.0). Sets the rotation angle of the
+      device, clockwise of its natural neutral position.</dd>
+  <dt><b>libinput Scroll Methods Available</b></dt>
+  <dd>3 boolean values (8 bit, 0 or 1), in order "two-finger",
+      "edge", "button". Indicates which scroll methods are
+      available on this device.</dd>
+  <dt><b>libinput Scroll Method Enabled</b></dt>
+  <dd>3 boolean values (8 bit, 0 or 1), in order "two-finger",
+      "edge", "button". Indicates which scroll method is
+      currently enabled on this device.</dd>
+  <dt><b>libinput Send Events Modes Available</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "disabled" and
+      "disabled-on-external-mouse". Indicates which send-event modes
+      are available on this device.</dd>
+  <dt><b>libinput Send Events Mode Enabled</b></dt>
+  <dd>2 boolean values (8 bit, 0 or 1), in order "disabled" and
+      "disabled-on-external-mouse". Indicates which send-event modes
+      is currently enabled on this device.</dd>
+  <dt><b>libinput Tablet Tool Pressurecurve</b></dt>
+  <dd>4 32-bit float values [0.0 to 1.0]. See section <b>TABLET TOOL PRESSURE
+      CURVE</b></dd>
+  <dt><b>libinput Tablet Tool Area Ratio</b></dt>
+  <dd>2 32-bit values, corresponding to width and height. Special value 0, 0
+      resets to the default ratio. See section <b>TABLET TOOL AREA RATIO</b> for
+      more information.</dd>
+  <dt><b>libinput Tapping Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). 1 enables tapping</dd>
+  <dt><b>libinput Tapping Button Mapping Enabled</b></dt>
+  <dd>2 boolean value (8 bit, 0 or 1), in order "lrm" and
+      "lmr". Indicates which button mapping is currently enabled on
+      this device.</dd>
+  <dt><b>libinput Tapping Drag Lock Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). 1 enables drag lock during tapping</dd>
+  <dt><b>libinput Disable While Typing Enabled</b></dt>
+  <dd>1 boolean value (8 bit, 0 or 1). Indicates if disable while typing is
+      enabled or disabled.</dd>
+</dl>
+<p class="Pp">Most properties have a <b>libinput &lt;property name&gt;
+    Default</b> equivalent that indicates the default value for this setting on
+    this device.</p>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUTTON_MAPPING">BUTTON MAPPING<a class="anchor" href="#BUTTON_MAPPING">¶</a></h1>
+X clients receive events with logical button numbers, where 1, 2, 3 are usually
+  interpreted as left, middle, right and logical buttons 4, 5, 6, 7 are usually
+  interpreted as scroll up, down, left, right. The fourth and fifth physical
+  buttons on a device will thus send logical buttons 8 and 9. The
+  <b>ButtonMapping</b> option adjusts the logical button mapping, it does not
+  affect how a physical button is mapped to a logical button.
+<p class="Pp">Traditionally, a device was set to left-handed button mode by
+    applying a button mapping of <b>"3 2 1 ..."</b> On systems using
+    the <b>libinput</b> Xorg input driver it is recommended to use the
+    <b>LeftHanded</b> option instead.</p>
+<p class="Pp">The <b>libinput</b> Xorg input driver does not use the button
+    mapping after setup. Use <a href="https://manpages.debian.org/buster/libx11-doc/XSetPointerMapping.3.en.html">XSetPointerMapping(3)</a> to modify the button mapping
+    at runtime.</p>
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUTTON_DRAG_LOCK">BUTTON DRAG LOCK<a class="anchor" href="#BUTTON_DRAG_LOCK">¶</a></h1>
+Button drag lock holds a button logically down even when the button itself has
+  been physically released since. Button drag lock comes in two modes.
+<p class="Pp">If in "meta" mode, a meta button click activates drag
+    lock for the next button press of any other button. A button click in the
+    future will keep that button held logically down until a subsequent click of
+    that same button. The meta button events themselves are discarded. A
+    separate meta button click is required each time a drag lock should be
+    activated for a button in the future.</p>
+<p class="Pp">If in "pairs" mode, each button can be assigned a target
+    locking button. On button click, the target lock button is held logically
+    down until the next click of the same button. The button events themselves
+    are discarded and only the target button events are sent.</p>
+<dl class="Bl-tag">
+  <dt>This feature is provided by this driver, not by libinput.</dt>
+  <dd>
+    <p class="Pp"></p>
+  </dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="TABLET_TOOL_PRESSURECURVE">TABLET TOOL PRESSURECURVE<a class="anchor" href="#TABLET_TOOL_PRESSURECURVE">¶</a></h1>
+The pressure curve affects how stylus pressure is reported. By default, the
+  hardware pressure is reported as-is. By setting a pressure curve, the feel of
+  the stylus can be adjusted to be more like e.g. a pencil or a brush.
+<p class="Pp">The pressure curve is a cubic Bezier curve, drawn within a
+    normalized range of 0.0 to 1.0 between the four points provided. This
+    normalized range is applied to the tablet's pressure input so that the
+    highest pressure maps to 1.0. The points must have increasing x coordinates,
+    if x0 is larger than 0.0 all pressure values lower than x0 are equivalent to
+    y0. If x3 is less than 1.0, all pressure values higher than x3 are
+    equivalent to y3.</p>
+<p class="Pp">The input for a linear curve (default) is "0.0/0.0 0.0/0.0
+    1.0/1.0 1.0/1.0"; a slightly depressed curve (firmer) might be
+    "0.0/0.0 0.05/0.0 1.0/0.95 1.0/1.0"; a slightly raised curve
+    (softer) might be "0.0/0.0 0.0/0.05 0.95/1.0 1.0/1.0".</p>
+<dl class="Bl-tag">
+  <dt>This feature is provided by this driver, not by libinput.</dt>
+  <dd>
+    <p class="Pp"></p>
+  </dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="TABLET_TOOL_AREA_RATIO">TABLET TOOL AREA RATIO<a class="anchor" href="#TABLET_TOOL_AREA_RATIO">¶</a></h1>
+By default, a tablet tool can access the whole sensor area and the tablet area
+  is mapped to the available screen area. For external tablets like the Wacom
+  Intuos series, the height:width ratio of the tablet may be different to that
+  of the monitor, causing the skew of input data.
+<p class="Pp">To avoid this skew of input data, an area ratio may be set to
+    match the ratio of the screen device. For example, a ratio of 4:3 will
+    reduce the available area of the tablet to the largest available area with a
+    ratio of 4:3. Events within this area will scale to the tablet's announced
+    axis range, the area ratio is thus transparent to the X server. Any events
+    outside this area will send events equal to the maximum value of that axis.
+    The area always starts at the device's origin in it's current rotation, i.e.
+    it takes left-handed-ness into account.</p>
+<dl class="Bl-tag">
+  <dt>This feature is provided by this driver, not by libinput.</dt>
+  <dd>
+    <p class="Pp"></p>
+  </dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="BUGS">BUGS<a class="anchor" href="#BUGS">¶</a></h1>
+This driver does not work with <b>Option "Device"</b> set to an event
+  node in <i>/dev/input/by-id</i> and <i>/dev/input/by-path</i>. This can be
+  usually be worked by using <b>Section "InputClass"</b> with an
+  appropriate <b>Match*</b> statement in the <a href="https://manpages.debian.org/buster/xserver-xorg-core/xorg.conf.5.en.html">xorg.conf(5)</a>.
+<p class="Pp"></p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="AUTHORS">AUTHORS<a class="anchor" href="#AUTHORS">¶</a></h1>
+Peter Hutterer
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO">SEE ALSO<a class="anchor" href="#SEE_ALSO">¶</a></h1>
+<a href="https://manpages.debian.org/buster/xserver-xorg-core/Xorg.1.en.html">Xorg(1)</a>, <a href="https://manpages.debian.org/buster/xserver-xorg-core/xorg.conf.5.en.html">xorg.conf(5)</a>, <a href="https://manpages.debian.org/buster/xserver-common/Xserver.1.en.html">Xserver(1)</a>, <a href="https://manpages.debian.org/buster/xorg-docs-core/X.7.en.html">X(7)</a>
+</section>
+</div>
+<table class="foot">
+  <tbody><tr>
+    <td class="foot-date">xf86-input-libinput 0.28.2</td>
+    <td class="foot-os">X Version 11</td>
+  </tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div id="footer">
+
+<p></p><table>
+<tbody><tr>
+<td>
+Source file:
+</td>
+<td>
+libinput.4.en.gz (from <a href="http://snapshot.debian.org/package/xserver-xorg-input-libinput/0.28.2-2/">xserver-xorg-input-libinput 0.28.2-2</a>)
+</td>
+</tr>
+
+<tr>
+<td>
+Source last updated:
+</td>
+<td>
+2019-03-31T01:56:52Z
+</td>
+</tr>
+
+<tr>
+<td>
+Converted to HTML:
+</td>
+<td>
+2020-11-12T15:29:17Z
+</td>
+</tr>
+</tbody></table><p></p>
+
+<hr>
+<div id="fineprint">
+<p>debiman 503568d, see <a href="https://github.com/Debian/debiman/">github.com/Debian/debiman</a>.
+Found a problem? See the <a href="https://manpages.debian.org/faq.html">FAQ</a>.</p>
+</div>
+</div>
+<script type="text/javascript">
+(function(a){"use strict";var b=function(b,c,d){var e=a.document;var f=e.createElement("link");var g;if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1];}var i=e.styleSheets;f.rel="stylesheet";f.href=b;f.media="only x";function j(a){if(e.body)return a();setTimeout(function(){j(a);});}j(function(){g.parentNode.insertBefore(f,(c?g:g.nextSibling));});var k=function(a){var b=f.href;var c=i.length;while(c--)if(i[c].href===b)return a();setTimeout(function(){k(a);});};function l(){if(f.addEventListener)f.removeEventListener("load",l);f.media=d||"all";}if(f.addEventListener)f.addEventListener("load",l);f.onloadcssdefined=k;k(l);return f;};if(typeof exports!=="undefined")exports.loadCSS=b;else a.loadCSS=b;}(typeof global!=="undefined"?global:this));
+(function(a){if(!a.loadCSS)return;var b=loadCSS.relpreload={};b.support=function(){try{return a.document.createElement("link").relList.supports("preload");}catch(b){return false;}};b.poly=function(){var b=a.document.getElementsByTagName("link");for(var c=0;c<b.length;c++){var d=b[c];if(d.rel==="preload"&&d.getAttribute("as")==="style"){a.loadCSS(d.href,d);d.rel=null;}}};if(!b.support()){b.poly();var c=a.setInterval(b.poly,300);if(a.addEventListener)a.addEventListener("load",function(){a.clearInterval(c);});if(a.attachEvent)a.attachEvent("onload",function(){a.clearInterval(c);});}}(this));
+</script>
+
+<script type="application/ld+json">
+"{\"@context\":\"http://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"Thing\",\"@id\":\"/contents-buster.html\",\"name\":\"buster\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"Thing\",\"@id\":\"/buster/xserver-xorg-input-libinput/index.html\",\"name\":\"xserver-xorg-input-libinput\"}},{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@type\":\"Thing\",\"@id\":\"\",\"name\":\"libinput(4)\"}}]}"
+</script>
+<style>.mandoc,.mandoc pre,.mandoc code,p.section{font-family:'Inconsolata',monospace;}</style></body></html>

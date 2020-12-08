@@ -1,0 +1,6 @@
+Resetting codecs
+
+The ALSA driver can fully reconfigure attached codecs (the parts of the sound system that actually process audio streams), by doing:
+
+# echo 1 > /sys/class/sound/card/reconfig
+
