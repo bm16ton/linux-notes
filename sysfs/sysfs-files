@@ -53,6 +53,10 @@ grep venus /proc/interrupts
                                 "ton of stuff"
                                 /hwflags
 
+
+/sys/kernel/debug/ieee80211/phy0# cat netdev\:wlan0/stations/b0\:98\:2b\:03\:53\:79/
+
+
 /sys/kernel/debug/ieee80211/phy0/hw_conf
                     	WMI_VDEV_TYPE_AP      = 1,  after setting monitor mode shows 1
 	                    WMI_VDEV_TYPE_STA     = 2,  reg managed mode operation shows 2
@@ -86,7 +90,7 @@ echo 0x1f > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
 echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
     powersave setting/reporting
 cat /sys/kernel/debug/ieee80211/phy0/ath10k/ps_state_enable
-echo Y > /sys/kernel/debug/ieee80211/phyc/ath10k/ps_state_enable
+echo Y > /sys/kernel/debug/ieee80211/phy0/ath10k/ps_state_enable
     Y = 0 to enable and Y = 1 to disable <-deprecated? use 0/1
 
 ######## THERMAL
@@ -182,8 +186,16 @@ cat /sys/kernel/debug/interconnect/interconnect_graph | \
 /sys/devices/platform/gpio-keys
 /sys/kernel/debug/gpio
 
+#########GPU
+/sys/bus/platform/devices/5000000.gpu/devfreq/5000000.gpu/
+/sys/bus/platform/devices/5000000.gpu/devfreq/5000000.gpu/trans_stat   time in each state
+/sys/class/devfreq/5000000.gpu/trans_stat  time in each state
 
+######### ADC
+/sys/bus/spi/drivers/adc0832/spi0.0/iio\:device0/in_voltage0_raw   plus a ton more, scales, triggers etc
 
-
-
+######### GYRO ACCELEROMTER
+/sys/bus/iio/devices/iio:device1
+/sys/bus/iio/devices/iio:device0
+echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
 

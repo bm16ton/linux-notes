@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html><head><script type="text/javascript" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/300lo.js"></script><script type="text/javascript" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/_ate.js"></script><script type="text/javascript" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/moatframe.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index,nofollow">
+
+<title>Documents/SeqFileHowTo - Linux Kernel Newbies</title>
+<script type="text/javascript" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" media="all" href="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/bootstrap.css">
+<link rel="stylesheet" type="text/css" media="all" href="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" media="all" href="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/memodump.css">
+<link rel="stylesheet" type="text/css" media="all" href="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/moinizer.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+<link rel="alternate" title="Linux Kernel Newbies: Documents/SeqFileHowTo" href="https://kernelnewbies.org/Documents/SeqFileHowTo?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Documents%2FSeqFileHowTo&amp;ddiffs=1" type="application/rss+xml">
+
+
+<link rel="Start" href="https://kernelnewbies.org/Linux_Kernel_Newbies">
+<link rel="Alternate" title="Wiki Markup" href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=print">
+<link rel="Up" href="https://kernelnewbies.org/Documents">
+<link rel="Search" href="https://kernelnewbies.org/FindPage">
+<link rel="Index" href="https://kernelnewbies.org/TitleIndex">
+<link rel="Glossary" href="https://kernelnewbies.org/WordIndex">
+<link rel="Help" href="https://kernelnewbies.org/HelpOnFormatting">
+<style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at_complete,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}#at15s,#at16p,#at16p form input,#at16p label,#at16p textarea,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{overflow:hidden;display:block;background-position:0 0;height:1pc;width:1pc;line-height:1pc!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001;position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#at_share{margin:0;padding:0}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at15s #at16pf a{top:1px}#_atssh{width:1px!important;height:1px!important;border:0!important}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}.body .wsb-social-share .wsb-social-share-button-vert{padding-top:0;padding-bottom:0}.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button{padding-top:40px}.body .wsb-social-share.addthis_counter_style .addthis_button_facebook_like.wsb-social-share-button{padding-top:21px}@media print{#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style></head>
+
+<body dir="ltr" lang="en">
+
+  <div id="outbox" class="sidebar-toggle">
+    <!-- Bootstrap navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+      <div class="container">
+
+        <!-- Navbar header -->
+        <div class="navbar-header">
+          <!-- Sidebar toggler -->
+          <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+            <span class="sr-only">Toggle sidebar</span>
+            <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+          </button>
+          <!-- Button to show navbar controls when collapsed -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Sitename -->
+
+          <div class="navbar-brand-wrapper">
+            <a class="navbar-brand" href="https://kernelnewbies.org/Linux_Kernel_Newbies"><img src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/kn-icon.png" alt="KernelNewbies"></a>
+          </div>
+          
+        </div> <!-- /.navbar-header -->
+
+        <!-- Body of navbar -->
+        <div class="collapse navbar-collapse">
+
+          <!-- Navbar elements -->
+          <ul class="nav navbar-nav navbar-right">
+
+            <!-- Comment toggle button -->
+
+            <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+              <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onclick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                <span class="hidden-sm">Comments</span>
+              </a>
+            </li>
+
+            <!-- Edit button -->
+
+            <li class="disabled">
+              <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+            </li>
+
+            <!-- Search form -->
+
+          <li>
+            <div class="navbar-form">
+              <form class="form-search" role="search" id="searchform" method="get" action="/Documents/SeqFileHowTo">
+                <input type="hidden" name="action" value="fullsearch">
+                <input type="hidden" name="context" value="180">
+                <div class="form-group">
+                  <label class="sr-only" for="searchinput">Search:</label>
+                  <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value">
+                </div>
+              </form>
+            </div>
+          </li>
+
+            <!-- Menu -->
+
+            <li class="dropdown">
+              <!-- Menu button -->
+              <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                Menu<span class="padding"></span><span class="caret"></span>
+              </a>
+              <!-- Dropdown contents -->
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Navigation</li>
+                <li><a href="https://kernelnewbies.org/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                <li><a href="https://kernelnewbies.org/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Help</li>
+                <li><a href="https://kernelnewbies.org/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                <li><a href="https://kernelnewbies.org/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Display</li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Edit</li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                <li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+              </ul>
+            </li> <!-- /dropdown -->
+
+            <!-- Login user -->
+
+            <li>
+              <a class="menu-nav-login" href="https://kernelnewbies.org/Documents/SeqFileHowTo?action=login" rel="nofollow">Login</a>
+            </li>
+
+
+          </ul> <!-- /.navbar-right -->
+
+        </div> <!-- /.collapse -->
+      </div> <!-- /.container -->
+    </div> <!-- /.navbar -->
+    <!-- End of navbar -->
+
+    <div class="container no-padding" id="pagebox">
+
+
+      <!-- Sidebar -->
+      <div class="sidebar-toggle" id="sidebar-curtain">
+        <div class="sidebar-toggle" id="sidebar-mover">
+          <div class="sidebar-toggle" id="sidebar" role="navigation">
+<!-- SideBar contents -->
+<div class="sidebar clearfix"><div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+<span class="anchor" id="SideBar.line-1"></span><p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span></p><ul><li><p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span></p></li></ul><p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span></p><ul><li><p class="line891"><a href="https://kernelnewbies.org/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span></p></li></ul><p class="line874">Community <span class="anchor" id="SideBar.line-17"></span></p><ul><li><p class="line891"><a href="https://kernelnewbies.org/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span></p></li></ul><p class="line874">References <span class="anchor" id="SideBar.line-23"></span></p><ul><li><p class="line891"><a href="https://kernelnewbies.org/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span></p></li></ul><p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span></p><ul><li><p class="line891"><a href="https://kernelnewbies.org/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-29"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-30"></span></p></li><li><p class="line891"><a class="https" href="https://kernelnewbies.org/stats/">Site statistics</a> <span class="anchor" id="SideBar.line-31"></span></p></li><li><p class="line891"><a href="https://kernelnewbies.org/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span></p></li><li><p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span></p></li></ul><span class="anchor" id="SideBar.bottom"></span></div></div>
+<!-- End of SideBar contents -->
+
+            <div>
+              <h4>Navigation</h4>
+              <ul id="navibar">
+                <li class="wikilink"><a href="https://kernelnewbies.org/RecentChanges">RecentChanges</a></li>                <li class="wikilink"><a href="https://kernelnewbies.org/FindPage">FindPage</a></li>                <li class="wikilink"><a href="https://kernelnewbies.org/HelpContents">HelpContents</a></li>
+              </ul>
+            </div>
+
+
+          </div> <!-- /#sidebar -->
+        </div> <!-- /#sidebar-mover -->
+      </div><div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+        <div id="location">
+<span id="interwiki"><a href="https://kernelnewbies.org/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+<ul id="pagelocation">
+<li><a href="https://kernelnewbies.org/Documents">Documents</a></li><li><a href="https://kernelnewbies.org/Documents/SeqFileHowTo">SeqFileHowTo</a></li>
+</ul>
+
+          <span class="lastupdate">Last updated at 2017-12-30 01:30:03</span>
+        </div>
+
+
+<!-- Page contents -->
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line862">Linux kernel <tt class="backtick">seq_file</tt> HOWTO <br>
+ <span class="anchor" id="line-2"></span>Randy Dunlap  &lt;<a class="mailto" href="mailto:rddunlap@osdl.org">rddunlap@osdl.org</a>&gt; <br>
+ <span class="anchor" id="line-3"></span>v0: 2003-02-22 <br>
+ <span class="anchor" id="line-4"></span>v1: 2003-03-14 <br>
+ <span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span></p><p class="line862">Parts of this <tt class="backtick">seq_file</tt> HOWTO were contributed by Andries Brouwer <span class="anchor" id="line-7"></span>(aeb%win!tue!nl). <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line862">[Another <tt class="backtick">seq_file</tt> reference is "Driver porting: The <tt class="backtick">seq_file</tt> interface" <span class="anchor" id="line-10"></span>at &lt;<a class="http" href="http://lwn.net/Articles/22355/">http://lwn.net/Articles/22355/</a>&gt;, which is part of the <span class="anchor" id="line-11"></span>LWN.net series "Porting Drivers to 2.5" that is located at <span class="anchor" id="line-12"></span>&lt;<a class="http" href="http://lwn.net/Articles/driver-porting/">http://lwn.net/Articles/driver-porting/</a>&gt;.] <span class="anchor" id="line-13"></span><span class="anchor" id="line-14"></span></p><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line867">
+</p><h2 id="Introduction">Introduction</h2>
+<span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><p class="line862">The "<tt class="backtick">seq_file</tt>" interface to the /proc filesystem was introduced in <span class="anchor" id="line-19"></span>Linux 2.4.15-pre3 and Linux 2.4.13-ac8.  It provides a safer interface <span class="anchor" id="line-20"></span>to the /proc filesystem than previous procfs methods because it protects <span class="anchor" id="line-21"></span>against overflow of the output buffer and easily handles procfs files <span class="anchor" id="line-22"></span>that are larger than one page.  It also provides methods for <span class="anchor" id="line-23"></span>traversing a list of kernel items and iterating on that list. <span class="anchor" id="line-24"></span>It provides procfs output facilities that are less error-prone than <span class="anchor" id="line-25"></span>the previous procfs interfaces. <span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></p><p class="line874">Overview:   <span class="anchor" id="line-28"></span></p><ul><li style="list-style-type:none"><p class="line891"><tt class="backtick">seq_file</tt>
+ operates by using "pull" methods, pulling or asking for data from 
+seq_file operations methods, whereas the previous procfs methods pushed 
+data into output buffers. <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span></p></li></ul><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span></p><p class="line867">
+</p><h2 id="seq_file_Creation_and_Data_Structures">seq_file Creation and Data Structures</h2>
+<span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><p class="line862">A seq_file-type /proc file is created by using <tt class="backtick">create_proc_entry()</tt> and setting the resulting <tt class="backtick">proc_dir_entry-&gt;proc_fops</tt> pointer to the desired struct file_operations.  E.g. (from linux/mm/swapfile.c): <span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span></p><p class="line867"><span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span></p><pre><span class="anchor" id="line-1"></span>static int __init procswaps_init(void)
+<span class="anchor" id="line-2"></span>{
+<span class="anchor" id="line-3"></span>        struct proc_dir_entry *entry;
+<span class="anchor" id="line-4"></span>
+<span class="anchor" id="line-5"></span>        entry = create_proc_entry("swaps", 0, NULL);
+<span class="anchor" id="line-6"></span>        if (entry)
+<span class="anchor" id="line-7"></span>                entry-&gt;proc_fops = &amp;proc_swaps_operations;
+<span class="anchor" id="line-8"></span>        return 0;
+<span class="anchor" id="line-9"></span>}</pre><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><p class="line867"><tt class="backtick">struct&nbsp;file_operations</tt> for the seq_file-type proc file describes 4 I/O methods, e.g.: <span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span></p><p class="line867"><span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span></p><pre><span class="anchor" id="line-1-1"></span>static struct file_operations proc_swaps_operations = {
+<span class="anchor" id="line-2-1"></span>        .open           = swaps_open,
+<span class="anchor" id="line-3-1"></span>        .read           = seq_read,
+<span class="anchor" id="line-4-1"></span>        .llseek         = seq_lseek,
+<span class="anchor" id="line-5-1"></span>        .release        = seq_release,
+<span class="anchor" id="line-6-1"></span>};</pre><span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><p class="line862">The last 3 are reusable seq_file-supplied methods.  The open method is what must be supplied for each proc file, and that <tt class="backtick">open()</tt> <span class="anchor" id="line-61"></span>function only needs to call <tt class="backtick">seq_open()</tt> with a pointer to a <tt class="backtick">struct&nbsp;seq_operations</tt> descriptor.  E.g. (still from linux/mm/swapfile.c): <span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span></p><p class="line867"><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></p><pre><span class="anchor" id="line-1-2"></span>static int swaps_open(struct inode *inode, struct file *file)
+<span class="anchor" id="line-2-2"></span>{
+<span class="anchor" id="line-3-2"></span>        return seq_open(file, &amp;swaps_op);
+<span class="anchor" id="line-4-2"></span>}</pre><span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><p class="line867"><tt class="backtick">struct&nbsp;seq_file&nbsp;seq_operations&nbsp;swaps_op</tt> supplies 4 methods for producing <tt class="backtick">seq_file</tt> output:  <tt class="backtick">start()</tt>, <tt class="backtick">next()</tt>, <tt class="backtick">stop()</tt>, and <tt class="backtick">show()</tt>. <span class="anchor" id="line-71"></span>These are described below.  The structure typically looks like: <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span></p><p class="line867"><span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span></p><pre><span class="anchor" id="line-1-3"></span>static struct seq_operations swaps_op = {
+<span class="anchor" id="line-2-3"></span>        .start =        swap_start,
+<span class="anchor" id="line-3-3"></span>        .next =         swap_next,
+<span class="anchor" id="line-4-3"></span>        .stop =         swap_stop,
+<span class="anchor" id="line-5-2"></span>        .show =         swap_show
+<span class="anchor" id="line-6-2"></span>};</pre><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span></p><p class="line867">
+</p><h2 id="seq_file_Methods">seq_file Methods</h2>
+<span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span><p class="line862">The <tt class="backtick">seq_file</tt> routines never take any locks between the <tt class="backtick">-&gt;open()</tt> and <tt class="backtick">-&gt;stop()</tt> functions, so <tt class="backtick">seq_file</tt> callers are free to use anything -- spinlocks, etc. <span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span></p><p class="line862">The <tt class="backtick">seq_file</tt> interface does require more data structures to be setup to point to methods that are used during <tt class="backtick">seq_file</tt> access.  In return for this, you (we) get much safer /proc output methods.  These four methods are in <tt class="backtick">struct&nbsp;seq_operations</tt>: <span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span></p><p class="line867"><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span></p><pre><span class="anchor" id="line-1-4"></span>struct seq_operations {
+<span class="anchor" id="line-2-4"></span>        void * (*start) (struct seq_file *m, loff_t *pos);
+<span class="anchor" id="line-3-4"></span>        void (*stop) (struct seq_file *m, void *v);
+<span class="anchor" id="line-4-4"></span>        void * (*next) (struct seq_file *m, void *v, loff_t *pos);
+<span class="anchor" id="line-5-3"></span>        int (*show) (struct seq_file *m, void *v);
+<span class="anchor" id="line-6-3"></span>};</pre><span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><p class="line862">The <tt class="backtick">.start</tt>
+ method is used to initialize data for walking through a list of kernel 
+items.  This list can be an array, a linked list, a hash table, etc.  
+Its actual data type doesn't matter.  This function should lock whatever
+ needs to be locked for safety and return an entry by number (0 for the 
+first entry).  This method should also honor file offset semantics by 
+using the "<tt class="backtick">loff_t&nbsp;*pos</tt>" (second) parameter. The "entry number" value is passed to the stop, next, and show methods as the "<tt class="backtick">void&nbsp;*v</tt>" parameter. <span class="anchor" id="line-100"></span>In case of error, <tt class="backtick">return&nbsp;ERR_PTR(error_code)</tt>. <span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span></p><p class="line862">If you need to show a header line or something, then <tt class="backtick">return&nbsp;SEQ_START_TOKEN</tt> in your <tt class="backtick">start()</tt> and recognise that in <tt class="backtick">next()</tt> and <span class="anchor" id="line-103"></span><tt class="backtick">show()</tt>. IOW, <tt class="backtick">pos&nbsp;==&nbsp;0</tt> will be the header line, and <tt class="backtick">pos&nbsp;==&nbsp;1</tt> will correspond to the first actual item on your list, and so on. <span class="anchor" id="line-104"></span>See net/netlink/af_netlink.c for a simple example. <span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span></p><p class="line862">If there is any locking that needs to be done to iterate through the kernel list, the lock(s) can be acquired in the <tt class="backtick">.start</tt> method.  However, if the <tt class="backtick">.show</tt> method is very time-consuming and the <tt class="backtick">.show</tt> method lends itself to locking there, that may be a better place for it. <span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span></p><p class="line867"><tt class="backtick">struct&nbsp;seq_file</tt> contains a "<tt class="backtick">void&nbsp;*private</tt>" that can be used by the <tt class="backtick">struct&nbsp;seq_operations</tt> functions to hold any private data that needs to be available to all of these related methods.  For example, the <tt class="backtick">.start</tt> method might allocate some memory and save its address in <tt class="backtick">seq_file.private</tt> so that the <tt class="backtick">.next</tt> and <tt class="backtick">.show</tt> methods can use it, then the <tt class="backtick">.stop</tt> method would free that memory. <span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span></p><p class="line862">The <tt class="backtick">.stop</tt>
+ method is called after the .next method has nothing more to do. This 
+method is used for cleanups, unlocking, freeing resources, etc. The <tt class="backtick">.stop</tt> method is always called if the <tt class="backtick">.start</tt> method was called, even if the <tt class="backtick">.start</tt> method fails, so that all cleanups can be done in <tt class="backtick">.stop</tt>. <span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span></p><p class="line862">The <tt class="backtick">.next</tt>
+ method is the iterator for the items (list, array, table, etc.) that is
+ being traversed for /proc file output.  It advances to the next item of
+ interest to be shown in the /proc output file and indicates when there 
+are no more items by returning NULL or an error (like <tt class="backtick">-ENOMEM</tt> or <tt class="backtick">-EACCES</tt>).  If there are more items to be shown, it returns the next element (entry) of the sequence by entry number. <span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span></p><p class="line862">The <tt class="backtick">.show</tt> method is used to show an entry (write output to the /proc file) by using <tt class="backtick">seq_...()</tt> as you would use stdio functions.  It can write static headings or variable data into the <tt class="backtick">seq_file</tt> output buffer. It uses <tt class="backtick">seq_{putc,&nbsp;puts,&nbsp;printf,&nbsp;...}</tt> to format the output (see below). In case of error, return a negative error_code; otherwise return 0. <span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span></p><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span></p><p class="line867">
+</p><h2 id="seq_file_Output_Routines">seq_file Output Routines</h2>
+<span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><p class="line862">The <tt class="backtick">seq_file</tt> output methods are: <span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span></p><p class="line867"><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span><span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span><span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span><span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span><span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span><span class="anchor" id="line-189"></span><span class="anchor" id="line-190"></span><span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span><span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span><span class="anchor" id="line-195"></span><span class="anchor" id="line-196"></span></p><pre><span class="anchor" id="line-1-5"></span>/*
+<span class="anchor" id="line-2-5"></span> * seq_putc:
+<span class="anchor" id="line-3-5"></span> * print one character to the seq_file output buffer
+<span class="anchor" id="line-4-5"></span> * returns 0 for success or -1 for error
+<span class="anchor" id="line-5-4"></span> */
+<span class="anchor" id="line-6-4"></span>int seq_putc(struct seq_file *m, char c);
+<span class="anchor" id="line-7-1"></span>
+<span class="anchor" id="line-8-1"></span>/*
+<span class="anchor" id="line-9-1"></span> * seq_puts:
+<span class="anchor" id="line-10"></span> * print a null-terminated string to the seq_file output buffer
+<span class="anchor" id="line-11"></span> * returns 0 for success or -1 for error
+<span class="anchor" id="line-12"></span> */
+<span class="anchor" id="line-13"></span>int seq_puts(struct seq_file *m, const char *s);
+<span class="anchor" id="line-14"></span>
+<span class="anchor" id="line-15"></span>/*
+<span class="anchor" id="line-16"></span> * seq_printf:
+<span class="anchor" id="line-17"></span> * print a formatted string and variable data to the seq_file output buffer
+<span class="anchor" id="line-18"></span> * returns 0 for success or -1 for error
+<span class="anchor" id="line-19"></span> */
+<span class="anchor" id="line-20"></span>int seq_printf(struct seq_file *m, const char *f, ...);
+<span class="anchor" id="line-21"></span>
+<span class="anchor" id="line-22"></span>/*
+<span class="anchor" id="line-23"></span> *      seq_open:       initialize sequential file
+<span class="anchor" id="line-24"></span> *      @file: file to initialize
+<span class="anchor" id="line-25"></span> *      @op: method table describing the sequence
+<span class="anchor" id="line-26"></span> *
+<span class="anchor" id="line-27"></span> *      seq_open() sets @file, associating it with a sequence described
+<span class="anchor" id="line-28"></span> *      by @op.  @op-&gt;start() sets the iterator up and returns the first
+<span class="anchor" id="line-29"></span> *      element of sequence. @op-&gt;stop() shuts it down.  @op-&gt;next()
+<span class="anchor" id="line-30"></span> *      returns the next element of sequence.  @op-&gt;show() prints element
+<span class="anchor" id="line-31"></span> *      into the buffer.  In case of error -&gt;start() and -&gt;next() return
+<span class="anchor" id="line-32"></span> *      ERR_PTR(error).  In the end of sequence they return %NULL. -&gt;show()
+<span class="anchor" id="line-33"></span> *      returns 0 in case of success and negative number in case of error.
+<span class="anchor" id="line-34"></span> */
+<span class="anchor" id="line-35"></span>int seq_open(struct file *file, struct seq_operations *op);
+<span class="anchor" id="line-36"></span>
+<span class="anchor" id="line-37"></span>/*
+<span class="anchor" id="line-38"></span> *      seq_read:       -&gt;read() method for sequential files.
+<span class="anchor" id="line-39"></span> *      @file, @buf, @size, @ppos: see file_operations method
+<span class="anchor" id="line-40"></span> *
+<span class="anchor" id="line-41"></span> *      Ready-made -&gt;f_op-&gt;read()
+<span class="anchor" id="line-42"></span> */
+<span class="anchor" id="line-43"></span>ssize_t seq_read(struct file *file, char *buf, size_t size, loff_t *ppos);
+<span class="anchor" id="line-44"></span>
+<span class="anchor" id="line-45"></span>/*
+<span class="anchor" id="line-46"></span> *      seq_lseek:      -&gt;llseek() method for sequential files.
+<span class="anchor" id="line-47"></span> *      @file, @offset, @origin: see file_operations method
+<span class="anchor" id="line-48"></span> *
+<span class="anchor" id="line-49"></span> *      Ready-made -&gt;f_op-&gt;llseek()
+<span class="anchor" id="line-50"></span> */
+<span class="anchor" id="line-51"></span>loff_t seq_lseek(struct file *file, loff_t offset, int origin);
+<span class="anchor" id="line-52"></span>
+<span class="anchor" id="line-53"></span>/*
+<span class="anchor" id="line-54"></span> *      seq_release:    free the structures associated with sequential file.
+<span class="anchor" id="line-55"></span> *      @file: file in question
+<span class="anchor" id="line-56"></span> *      @inode: file-&gt;f_dentry-&gt;d_inode
+<span class="anchor" id="line-57"></span> *
+<span class="anchor" id="line-58"></span> *      Frees the structures associated with sequential file; can be used
+<span class="anchor" id="line-59"></span> *      as -&gt;f_op-&gt;release() if you don't have private data to destroy.
+<span class="anchor" id="line-60"></span> */
+<span class="anchor" id="line-61"></span>int seq_release(struct inode *inode, struct file *file);
+<span class="anchor" id="line-62"></span>
+<span class="anchor" id="line-63"></span>/*
+<span class="anchor" id="line-64"></span> *      seq_escape: print string into buffer, escaping some characters
+<span class="anchor" id="line-65"></span> *      @m:     target buffer
+<span class="anchor" id="line-66"></span> *      @s:     string
+<span class="anchor" id="line-67"></span> *      @esc:   set of characters that need escaping
+<span class="anchor" id="line-68"></span> *
+<span class="anchor" id="line-69"></span> *      Puts string into buffer, replacing each occurence of character from
+<span class="anchor" id="line-70"></span> *      @esc with usual octal escape.  Returns 0 in case of success
+<span class="anchor" id="line-71"></span> *      or -1 in case of overflow.
+<span class="anchor" id="line-72"></span> */
+<span class="anchor" id="line-73"></span>int seq_escape(struct seq_file *m, const char *s, const char *esc);</pre><span class="anchor" id="line-197"></span><span class="anchor" id="line-198"></span><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-199"></span><span class="anchor" id="line-200"></span></p><p class="line867">
+</p><h2 id="Simplified_seq_file_Methods">Simplified seq_file Methods</h2>
+<span class="anchor" id="line-201"></span><span class="anchor" id="line-202"></span><p class="line862">If you only need a single function entry (call) to produce all the desired proc-fs output, just use <tt class="backtick">single_open()</tt> and <tt class="backtick">single_release()</tt>. <span class="anchor" id="line-203"></span><span class="anchor" id="line-204"></span></p><p class="line867"><tt class="backtick">single_open()</tt>
+ gets a parameter that is the "show" function for the data that is to be
+ written to /proc.  The "show" function does everything that is needed 
+to write the data, all in one function call.  This is useful either for 
+writing small amounts of data to /proc, for cases in which the output is
+ not iterative, or for cases in which recursion is more appropriate, 
+since the non-single methods don't fit well with recursive techniques.  
+Examples of appropriate uses of <tt class="backtick">single_open()</tt> "show" functions are: <span class="anchor" id="line-205"></span><span class="anchor" id="line-206"></span></p><p class="line867"><span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span></p><pre><span class="anchor" id="line-1-6"></span>  linux/kernel/dma.c::proc_dma_show() : small quantity of data to write
+<span class="anchor" id="line-2-6"></span>  linux/net/ipv4/proc.c::sockstat_seq_show() : non-iterative data
+<span class="anchor" id="line-3-6"></span>  linux/net/sunrpc/rpc_pipe.c::rpc_show_info() : non-iterative data</pre><span class="anchor" id="line-211"></span><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-212"></span><a href="https://kernelnewbies.org/CategoryDocs">CategoryDocs</a> <span class="anchor" id="line-213"></span><span class="anchor" id="bottom"></span></p></div>
+<!-- End of page contents -->
+        <div class="clearfix"></div>
+
+      </div> <!-- /#contentbox -->
+      <!-- End of content body -->
+    </div> <!-- /.container, #pagebox -->
+  </div> <!-- /#outbox -->
+
+  <!-- pageinfo -->
+  <div id="pageinfo-container">
+    <div class="container">
+      <p id="pageinfo" class="info" dir="ltr" lang="en">KernelNewbies: Documents/SeqFileHowTo  (last edited 2017-12-30 01:30:03 by <span title="??? @ localhost[127.0.0.1]">localhost</span>)</p>
+
+    </div>
+  </div>
+  <!-- End of pageinfo -->
+
+
+Tell others about this page:
+<!-- AddThis Button BEGIN -->
+<script type="text/javascript">addthis_pub  = 'rikvanriel';</script>
+<a href="https://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/button1-share.gif" alt="" width="125" height="16" border="0"></a><script type="text/javascript" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/addthis_widget.js"></script><div style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;" id="_atssh"><iframe id="_atssh848" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px none; left: 0px;" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/sh.html"></iframe></div><style id="service-icons-0"></style>
+<!-- AddThis Button END -->
+<br>
+<!-- wiki bottom -->
+<div align="center">
+<script async="" src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2148115774442744" data-ad-slot="8948122010" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+  <!-- Footer -->
+  <div id="footer">
+    <div class="container text-right text-muted">
+      <ul id="credits">
+<li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li><li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li><li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li><li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+</ul>
+
+      
+
+    </div> <!-- /.container -->
+  </div> <!-- /#footer -->
+  <!-- End of footer -->
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/bootstrap.js"></script>
+  <!-- toggle.js by dossist -->
+  <script src="Documents_SeqFileHowTo%20-%20Linux%20Kernel%20Newbies_files/toggle.js"></script>
+  <!-- Custom script -->
+
+  <script>
+    +function ($) {
+      // Toggle minified navbar under mobile landscape view
+      $('.navbar-collapse').on('show.bs.collapse', function () {
+        $('.navbar-mobile-toggle').togglejs('show');
+      });
+      $('.navbar-collapse').on('hidden.bs.collapse', function () {
+        $('.navbar-mobile-toggle').togglejs('hide');
+      });
+      
+      //Scroll position fix for hash anchors
+      var mdAnchorFix = {
+        escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+        escape: function (str) {
+          return str.replace(mdAnchorFix.escapeRe, '\\$&');
+        },
+        rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+        isTransparent: function (rgbstr) {
+          if (rgbstr === 'transparent') {
+            return true;
+          }
+          rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+          if (rgbMatch) {
+            return (Number(rgbMatch[2]) ? false : true);
+          }
+          return false;
+        },
+        navbarHeight: function () {
+          var height = 0;
+          var $navbar = $('.navbar');
+          if ( !mdAnchorFix.isTransparent($navbar.css('background-color'))
+               && ($navbar.css('display') !== 'none')
+               && ($navbar.css('visibility') !== 'hidden') ) {
+            height = $navbar.height();
+          }
+          return height;
+        },
+        jump: function () {
+          origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+          offset = mdAnchorFix.navbarHeight() + 15;
+          setTimeout(function () { window.scrollTo(0, origin - offset); }, 1);
+        },
+        clickWrapper: function () {
+          if ( ($(this).attr('href') === location.hash)
+               || !('onhashchange' in window.document.body) ) {
+            setTimeout(function () { $(window).trigger("hashchange"); }, 1);
+          }
+        },
+      };
+      $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+      $(window).on("hashchange", mdAnchorFix.jump);
+      if (location.hash) setTimeout(function () { mdAnchorFix.jump(); }, 100);
+    }(jQuery);
+  </script>
+
+  <!-- End of JavaScript -->
+
+
+
+</body></html>

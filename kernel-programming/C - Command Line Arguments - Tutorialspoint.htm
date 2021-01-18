@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.mui-textfield.mui-textfield--float-label > label {-webkit-transition:all .15s ease-out;-moz-transition:all .15s ease-out;-o-transition:all .15s ease-out;transition:all .15s ease-out;}</style><style type="text/css">@keyframes mui-btn-inserted{from{transform:none;}to{transform:none;}}.mui-btn{animation-duration:0.0001s;animation-name:mui-btn-inserted;}@keyframes mui-dropdown-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-dropdown-inserted;}@keyframes mui-btn-inserted,mui-dropdown-inserted{from{transform:none;}to{transform:none;}}.mui-btn[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-btn-inserted,mui-dropdown-inserted;}@keyframes mui-tab-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="tab"]{animation-duration:0.0001s;animation-name:mui-tab-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > input{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > textarea{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-select-inserted{from{transform:none;}to{transform:none;}}.mui-select > select{animation-duration:0.0001s;animation-name:mui-select-inserted;}@keyframes mui-node-inserted{from{transform:none;}to{transform:none;}}.mui-select > select ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-inserted;}@keyframes mui-node-disabled{from{transform:none;}to{transform:none;}}.mui-select > select:disabled ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-disabled;}</style>
+<title>C - Command Line Arguments - Tutorialspoint</title>
+<meta charset="utf-8">
+<meta name="description" content="C - Command Line Arguments - It is possible to pass some values from the command line to your C programs when they are executed. These values are called command line arguments and many time">
+<meta name="keywords" content="C, C++, Python, Java, HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Tutorials, Articles, Programming, training, learning, quiz, preferences, examples, code">
+<link rel="canonical" href="https://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<link rel="stylesheet" href="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/style-min-v1.css">
+<script type="text/javascript" async="" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/analytics.js"></script><script type="text/javascript" async="" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/js_002.js"></script><script async="" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/async-ads.js"></script><script src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/script-min-v1.js"></script><link rel="stylesheet" type="text/css" href="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/prettify.css">
+<script>
+function printPage() { window.print(); }
+function readCookie(name) {
+     var nameEQ = name + "=";
+     var ca = document.cookie.split(';');
+     for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+     }
+     return null;
+}
+</script>
+<script id="vi1" type="text/javascript" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/a" defer="defer" async=""></script>
+<script id="vi2">
+var vitag = vitag || {};
+vitag.outStreamConfig = { enablePC:false, enableMobile:false};
+vitag.smartBannerConfig = { enablePC: false, enableMobile: false, disableHorizontalPosition: "right left middle", disableVerticalPosition: "top middle" };
+</script>
+<script id="adp" data-cfasync="false" type="text/javascript">(function(w, d) {var cval = readCookie('subscription_purchased');if(cval == '1'){ return; } var s = d.createElement('script'); s.src = '//delivery.adrecover.com/18107/adRecover.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);
+</script><script src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/adRecover.js" type="text/javascript" async=""></script>
+<style>
+.butnn-save a{color:#fff;} .notes_msg{color:green; margin-left:20px; margin-top:15px;}
+.right-menu .mui-btn {
+    background-color:#c96a14;
+}
+a.demo {
+    background:#c96a14;
+}
+li.heading {
+    background:#c96a14;
+}
+.course-box{background:#c96a14}
+.home-intro-sub p{color:#c96a14}
+</style>
+<script src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/cse_element__en.js" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/defaulten.css"><link type="text/css" rel="stylesheet" href="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/default.css"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(233,233,233,1),rgba(233,233,233,0))}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-moz-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+<body>
+<header id="header" class="">
+<!-- pop-up -->
+<div class="pop-modal overlay-pop popdiv" style="display: none;">
+<div class="modal-window small">
+<span class="close" title="close">×</span>
+<div class="pop-content">
+</div>
+<span class="msg"></span>
+</div>
+</div>
+<div class="wrap_loader">
+<div class="imgLoader"><img src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/loader.gif" alt="Tutorialspoint" width="70" height="70"></div>
+</div>
+<input type="hidden" id="vu" name="vu" value="">
+<!-- pop-up -->
+
+<!-- Top sub-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid top-menu">
+<div class="mui-container">
+<div class="top-menu-item home">
+<a href="https://www.tutorialspoint.com/index.htm" target="_blank" title="TutorialsPoint - Home"><i class="fal fa-home"></i> <span>Home</span></a>
+</div>
+<div class="top-menu-item qa">
+<a href="https://www.tutorialspoint.com/about/about_careers.htm" target="_blank" title="Job @ Tutorials Point"><i class="fa fa-suitcase"></i> <span>Jobs</span></a>
+</div>
+<div class="top-menu-item tools">
+<a href="https://www.tutorialspoint.com/online_dev_tools.htm" target="_blank" title="Tools - Online Development and Testing Tools"><i class="fal fa-cogs"></i> <span>Tools</span></a>
+</div>
+<div class="top-menu-item coding-ground">
+<a href="https://www.tutorialspoint.com/codingground.htm" target="_blank" title="Coding Ground - Free Online IDE and Terminal"><i class="fal fa-code"></i> <span>Coding Ground </span></a> 
+</div>
+<div class="top-menu-item current-affairs">
+<a href="https://www.tutorialspoint.com/current_affairs.htm" target="_blank" title="Daily Current Affairs"><i class="fal fa-layer-plus"></i> <span>Current Affairs</span></a>
+</div>
+<div class="top-menu-item upsc-notes">
+<a href="https://www.tutorialspoint.com/upsc_ias_exams.htm" target="_blank" title="UPSC IAS Exams Notes - TutorialsPoint"><i class="fal fa-user-tie"></i> <span>UPSC Notes</span></a>
+</div>      
+<div class="top-menu-item articles">
+<a href="https://www.tutorialspoint.com/tutor_connect/index.php" target="_blank" title="Top Online Tutors - Tutor Connect"><i class="fal fa-user"></i> <span>Online Tutors</span></a>
+</div>
+<div class="top-menu-item whiteboard">
+<a href="https://www.tutorialspoint.com/whiteboard.htm" target="_blank" title="Free Online Whiteboard"><i class="fal fa-chalkboard"></i> <span>Whiteboard</span></a>
+</div>
+<div class="top-menu-item net-meeting">
+<a href="https://www.tutorialspoint.com/netmeeting.php" target="_blank" title="A free tool for online video conferencing"><i class="fal fa-chalkboard-teacher"></i> <span>Net Meeting</span></a> 
+</div>
+<div class="top-menu-item articles">
+<a href="https://www.tutorix.com/" target="_blank" title="Tutorx - The Best Learning App" rel="nofollow"><i class="fal fa-video"></i> <span>Tutorix</span></a> 
+</div>        
+<div class="top-menu-item qa login">
+<a href="https://www.tutorialspoint.com/videotutorials/login.php" target="_blank" title="Tutorials Point - Login"><i class="fa fa-sign-in-alt"></i> <span>Login</span></a> 
+</div>        
+<div class="top-menu-item qa login">
+<a href="https://www.tutorialspoint.com/videotutorials/subscription.php" target="_blank" title="Paid Package"><i class="fa fa-book-reader"></i> <span>Packages</span></a> 
+</div>        
+<div class="social-menu-item">
+<a href="https://www.facebook.com/tutorialspointindia" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Facebook"><i class="fab fa-facebook-f"></i></a> 
+<a href="https://www.twitter.com/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Linkedin"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint YouTube"><i class="fab fa-youtube"></i></a>
+</div>        
+</div>
+</div>
+<!-- Top sub-menu Ends Here -->
+<!-- Top main-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid mui--appbar-line-height mui--z1" id="logo-menu">
+<div class="mui-container">
+<div class="left-menu">
+<a href="https://www.tutorialspoint.com/index.htm" title="Tutorialspoint">
+<img class="tp-logo" alt="tutorialspoint" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/logo.png">
+</a>
+<div class="mui-dropdown">
+<a class="mui-btn mui-btn--primary categories" data-mui-toggle="dropdown"><i class="fa fa-th-large"></i> 
+<span>Categories <span class="mui-caret"></span></span></a>            
+<ul class="mui-dropdown__menu cat-menu">
+<li>
+<ul>
+<li><a href="https://www.tutorialspoint.com/academic_tutorials.htm"><i class="fa fa-caret-right"></i> Academic Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/big_data_tutorials.htm"><i class="fa fa-caret-right"></i> Big Data &amp; Analytics </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_programming_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Programming </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_science_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Science </a></li>
+<li><a href="https://www.tutorialspoint.com/database_tutorials.htm"><i class="fa fa-caret-right"></i> Databases </a></li>
+<li><a href="https://www.tutorialspoint.com/devops_tutorials.htm"><i class="fa fa-caret-right"></i> DevOps </a></li>
+<li><a href="https://www.tutorialspoint.com/digital_marketing_tutorials.htm"><i class="fa fa-caret-right"></i> Digital Marketing </a></li>
+<li><a href="https://www.tutorialspoint.com/engineering_tutorials.htm"><i class="fa fa-caret-right"></i> Engineering Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> Exams Syllabus </a></li>
+<li><a href="https://www.tutorialspoint.com/famous_monuments.htm"><i class="fa fa-caret-right"></i> Famous Monuments </a></li>
+<li><a href="https://www.tutorialspoint.com/gate_exams_tutorials.htm"><i class="fa fa-caret-right"></i> GATE Exams Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/latest_technologies.htm"><i class="fa fa-caret-right"></i> Latest Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/machine_learning_tutorials.htm"><i class="fa fa-caret-right"></i> Machine Learning </a></li>
+<li><a href="https://www.tutorialspoint.com/mainframe_tutorials.htm"><i class="fa fa-caret-right"></i> Mainframe Development </a></li>
+<li><a href="https://www.tutorialspoint.com/management_tutorials.htm"><i class="fa fa-caret-right"></i> Management Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/maths_tutorials.htm"><i class="fa fa-caret-right"></i> Mathematics Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/microsoft_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Microsoft Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/misc_tutorials.htm"><i class="fa fa-caret-right"></i> Misc tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/mobile_development_tutorials.htm"><i class="fa fa-caret-right"></i> Mobile Development </a></li>
+<li><a href="https://www.tutorialspoint.com/java_technology_tutorials.htm"><i class="fa fa-caret-right"></i> Java Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/python_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Python Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/sap_tutorials.htm"><i class="fa fa-caret-right"></i> SAP Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/scripting_lnaguage_tutorials.htm"><i class="fa fa-caret-right"></i>Programming Scripts </a></li>
+<li><a href="https://www.tutorialspoint.com/selected_reading.htm"><i class="fa fa-caret-right"></i> Selected Reading </a></li>
+<li><a href="https://www.tutorialspoint.com/software_quality_tutorials.htm"><i class="fa fa-caret-right"></i> Software Quality </a></li>
+<li><a href="https://www.tutorialspoint.com/soft_skill_tutorials.htm"><i class="fa fa-caret-right"></i> Soft Skills </a></li>
+<li><a href="https://www.tutorialspoint.com/telecom_tutorials.htm"><i class="fa fa-caret-right"></i> Telecom Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> UPSC IAS Exams </a></li>
+<li><a href="https://www.tutorialspoint.com/web_development_tutorials.htm"><i class="fa fa-caret-right"></i> Web Development </a></li>
+<li><a href="https://www.tutorialspoint.com/sports_tutorials.htm"><i class="fa fa-caret-right"></i> Sports Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/xml_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> XML Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/multi_language_tutorials.htm"><i class="fa fa-caret-right"></i> Multi-Language</a></li>
+<li><a href="https://www.tutorialspoint.com/questions_and_answers.htm"><i class="fa fa-caret-right"></i> Interview Questions</a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"></div>
+</div> 
+</div>
+<div class="right-menu">
+<div class="toc-toggle">
+<a href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+</div>
+<div class="mobile-search-btn">
+<a href="https://www.tutorialspoint.com/index.htm"><i class="fal fa-search"></i></a>
+</div>
+<div class="search-box">
+<script async="" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/cse.js"></script>
+<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table class="gsc-search-box" cellspacing="0" cellpadding="0"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table style="width: 100%; padding: 0px;" id="gs_id50" class="gstl_50 gsc-input" cellspacing="0" cellpadding="0"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" style="width: 100%; padding: 0px; border: medium none; margin: 0px; height: auto; background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) no-repeat scroll left center; outline: currentcolor none medium;" id="gsc-i-id1" dir="ltr" spellcheck="false"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;" title="Clear search box" role="button"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-overlay"><div class="gsc-results-close-btn" tabindex="0"></div><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><table class="gsc-above-wrapper-area-container" cellspacing="0" cellpadding="0"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div class="gsc-modal-background-image" tabindex="0"></div></div></div></div>
+</div>
+<div class="menu-btn library-btn">
+<a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a>
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/videotutorials/index.php"><i class="fal fa-video"></i> <span>Videos</span></a> 
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/questions/index.php"><i class="fa fa-location-arrow"></i> <span>Q/A</span></a>
+</div>
+<div class="menu-btn ebooks-btn">
+<a href="https://store.tutorialspoint.com/"><i class="fal fa-book"></i> <span>eBooks</span></a>
+</div>
+<div class="mui-dropdown">
+<button class="mui-btn mui-btn--primary mobile-menu" data-mui-toggle="dropdown" type="button">
+<span class="mui-caret"></span>
+</button>
+<ul class="mui-dropdown__menu">
+<li class="login"><a href="https://www.tutorialspoint.com/videotutorials/login.php"><i class="fal fa-sign-in-alt"></i> <span>Login</span></a></li>
+<li><a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a></li>
+<li><a href="https://www.tutorialspoint.com/videotutorials/index.php"><i class="fal fa-video"></i> <span>Videos</span></a></li>
+<li><a href="https://store.tutorialspoint.com/"><i class="fal fa-book"></i> <span>eBooks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Top main-menu Ends Here -->
+</header>
+<div class="mui-container-fluid content">
+<div class="mui-container">
+<!-- Tutorial ToC Starts Here -->
+<div class="mui-col-md-3 tutorial-toc">
+<!--<style>
+.ts{vertical-align:middle!important; text-align:center!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#f05c02; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #f05c02; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+pre.prettyprint {
+   border: 1px solid #d6d6d6;
+   background-color: #eee;
+   width: 98%;
+   border-radius: 0;
+   padding: 5px;
+   margin: 0;
+   margin-bottom: 10px; margin-top:15px;
+   font-size: 13px;
+   overflow: auto;}
+
+   .demo-view{width: 100%;
+    text-align: right;
+    position: relative;
+    top: 7px;}
+a.demo{font-family:"Open Sans",Arial,sans-serif;
+    background:#f05c02!important;
+    color: #fff;
+    font-size: 13px!important;
+    padding: 3px 10px;
+    border: 1px solid #f05c02;
+    position:relative!important;
+    right:unset!important;
+    margin: -6px 17px 0px 0px!important;}
+pre.prettyprint{margin-top:-5px!important;} 
+</style>-->
+<div class="mini-logo">
+<img src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/c-mini-logo.jpg" alt="CProgramming Tutorial">
+</div>
+<ul class="toc chapters">
+<li><a class="videolink" href="https://www.tutorialspoint.com/c_language_online_training/index.asp" target="_blank"><img src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/c-programming-video-tutorials.jpg" alt="C Programming Video Tutorials"></a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">C Programming Tutorial</li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/index.htm">C - Home</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_overview.htm">C - Overview</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_environment_setup.htm">C - Environment Setup</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_program_structure.htm">C - Program Structure</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_basic_syntax.htm">C - Basic Syntax</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_data_types.htm">C - Data Types</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_variables.htm">C - Variables</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_constants.htm">C - Constants</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_storage_classes.htm">C - Storage Classes</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_operators.htm">C - Operators</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_decision_making.htm">C - Decision Making</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_loops.htm">C - Loops</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_functions.htm">C - Functions</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_scope_rules.htm">C - Scope Rules</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_arrays.htm">C - Arrays</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_pointers.htm">C - Pointers</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_strings.htm">C - Strings</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_structures.htm">C - Structures</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_unions.htm">C - Unions</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_bit_fields.htm">C - Bit Fields</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_typedef.htm">C - Typedef</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_input_output.htm">C - Input &amp; Output</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_file_io.htm">C - File I/O</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_preprocessors.htm">C - Preprocessors</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_header_files.htm">C - Header Files</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_type_casting.htm">C - Type Casting</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_error_handling.htm">C - Error Handling</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_recursion.htm">C - Recursion</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_variable_arguments.htm">C - Variable Arguments</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_memory_management.htm">C - Memory Management</a></li>
+<li style="background-color: rgb(214, 214, 214);"><a href="https://www.tutorialspoint.com/cprogramming/c_command_line_arguments.htm">C - Command Line Arguments</a></li>
+<li class="heading">C Programming useful Resources</li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">C -  Questions &amp; Answers</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_quick_guide.htm">C -  Quick Guide</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/c_useful_resources.htm">C - Useful Resources</a></li>
+<li><a href="https://www.tutorialspoint.com/cprogramming/cprogramming_discussion.htm">C - Discussion</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<div id="stickyparent" style="position: sticky;">
+<div style="height:250px;width:300px;" id="sticky-ad">
+<div class="adsbyvli" data-ad-slot="vi_9012177"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_9012177")})</script>
+</div>
+<div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto;" id="_adr_abp_container_4" data-section="1c01c0744357ffb76525419d504c0a82" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 9px; text-transform: uppercase; color: rgb(128, 129, 143); background-color: rgba(255, 255, 255, 0.3); line-height: 10px; padding: 2px 4px; width: 98%; height: 8px;"><a style="border-bottom: 1px solid rgb(128, 129, 143); float: right; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);" target="_blank" href="https://adrecover.com/advertisers/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" class="pull-right advertise-here">Advertise On <strong>tutorialspoint</strong></a><a target="_blank" href="https://adrecover.com/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" style="float: left; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);">ads By AdRecover</a></div><div id="ad-container-1c01c0744357ffb76525419d504c0a82" style="height: 250px; width: 100%; margin: 0px auto; text-align: center; display: none;"></div><iframe name="1c01c0744357ffb76525419d504c0a82" style="width: 100%; height: 250px; margin: 0px; padding: 0px; border: medium none; display: block;" id="iframe-ad-container-1c01c0744357ffb76525419d504c0a82" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/recover_004.html" scrolling="no"></iframe></div></div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+<!-- Tutorial Content Starts Here -->
+<div class="mui-col-md-6 tutorial-content">
+<h1>C - Command Line Arguments</h1>
+<hr>
+<div id="google-top-ads">
+<div class="top-ad-heading">Advertisements</div>
+<div style="text-align:center" class="google-top-ads">
+<div id="vi_top_ads" style="text-align:center!important;min-height:90px!important"><div class="adsbyvli" data-ad-slot="vi_9012178"></div></div>
+   <script>
+     (function() {
+     var adPos = document.getElementById('vi_top_ads');
+     var ad_id_728 = "vi_9012178";
+     var ad_id_650 = "vi_9014435";
+     var ad_id_300 = "vi_9017967";
+     var width = window.innerWidth;
+     var ad_id = ad_id_728;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div class="adsbyvli" data-ad-slot="' + ad_id + '"></div>';
+     (vitag.displayInit = window.vitag.displayInit || []).push(function () {
+         viAPItag.display(ad_id);
+     });
+     }())
+   </script>
+</div>
+</div>
+<br>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/cprogramming/c_memory_management.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<p>It is possible to pass some values from the command line to your C programs when they are executed. These values are called <b>command line arguments</b>
+ and many times they are important for your program especially when you 
+want to control your program from outside instead of hard coding those 
+values inside the code.</p>
+<p>The command line arguments are handled using main() function arguments where <b>argc</b> refers to the number of arguments passed, and <b>argv[]</b>
+ is a pointer array which points to each argument passed to the program.
+ Following is a simple example which checks if there is any argument 
+supplied from the command line and take action accordingly −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> argc</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">argv</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">==</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"The argument supplied is %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"Too many arguments supplied.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"One argument expected.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>When the above code is compiled and executed with single argument, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln"> testing
+</span><span class="typ">The</span><span class="pln"> argument supplied </span><span class="kwd">is</span><span class="pln"> testing</span></pre>
+<p>When the above code is compiled and executed with a two arguments, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln"> testing1 testing2
+</span><span class="typ">Too</span><span class="pln"> many arguments supplied</span><span class="pun">.</span></pre>
+<p>When the above code is compiled and executed without passing any argument, it produces the following result.</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">$</span><span class="pun">./</span><span class="pln">a</span><span class="pun">.</span><span class="kwd">out</span><span class="pln">
+</span><span class="typ">One</span><span class="pln"> argument expected</span></pre>
+<p>It should be noted that <b>argv[0]</b> holds the name of the program itself and <b>argv[1]</b>
+ is a pointer to the first command line argument supplied, and *argv[n] 
+is the last argument. If no arguments are supplied, argc will be one, 
+and if you pass one argument then <b>argc</b> is set at 2.</p>
+<p>You pass all the command line arguments separated by a space, but if 
+argument itself has a space then you can pass such arguments by putting 
+them inside double quotes "" or single quotes ''. Let us re-write above 
+example once again where we will print program name and we also pass a 
+command line argument by putting inside double quotes −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> argc</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> </span><span class="pun">*</span><span class="pln">argv</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+
+   printf</span><span class="pun">(</span><span class="str">"Program name %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span><span class="pln">
+ 
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">==</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"The argument supplied is %s\n"</span><span class="pun">,</span><span class="pln"> argv</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> argc </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"Too many arguments supplied.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"One argument expected.\n"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>When the above code is compiled and executed with a single argument 
+separated by space but inside double quotes, it produces the following 
+result.</p>
+<pre class="result notranslate">$./a.out "testing1 testing2"
+
+Progranm name ./a.out
+The argument supplied is testing1 testing2
+</pre>
+<div class="mui-container-fluid button-borders show" id="bottom_navigation">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/cprogramming/c_memory_management.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a class="hide-on-mobile" href="javascript:printPage();"><i class="fa fa-print"></i> Print Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/cprogramming/cprogramming_questions_answers.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="space-bottom" style="margin-bottom:20px;"></div>
+<div class="google-bottom-ads" id="google-bottom-ads">
+<div>Advertisements</div>
+<div>
+<div id="vi_bottom_ads"><div class="adsbyvli" data-ad-slot="vi_9013190"></div></div>
+   <script>
+     (function() {
+     var adPos = document.getElementById('vi_bottom_ads');
+     var mobile_ad_id = "vi_9017967";
+     var desktop_ad_id = "vi_9013190";
+     var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+     adPos.innerHTML = '<div class="adsbyvli" data-ad-slot="' + ad_id + '"></div>';
+     (vitag.displayInit = window.vitag.displayInit || []).push(function () {
+         viAPItag.display(ad_id);
+     });
+     }())
+   </script>
+</div>
+<div class="space-bottom"></div>
+<div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto;" id="_adr_abp_container_1" data-section="fee7792ac38de35ba76d18ce65a196e9" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 9px; text-transform: uppercase; color: rgb(128, 129, 143); background-color: rgba(255, 255, 255, 0.3); line-height: 10px; padding: 2px 4px; width: 98%; height: 8px;"><a style="border-bottom: 1px solid rgb(128, 129, 143); float: right; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);" target="_blank" href="https://adrecover.com/advertisers/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" class="pull-right advertise-here">Advertise On <strong>tutorialspoint</strong></a><a target="_blank" href="https://adrecover.com/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" style="float: left; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);">ads By AdRecover</a></div><div id="ad-container-fee7792ac38de35ba76d18ce65a196e9" style="height: 250px; width: 100%; margin: 0px auto; text-align: center; display: none;"></div><iframe name="fee7792ac38de35ba76d18ce65a196e9" style="width: 100%; height: 250px; margin: 0px; padding: 0px; border: medium none; display: block;" id="iframe-ad-container-fee7792ac38de35ba76d18ce65a196e9" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/recover_004.html" scrolling="no"></iframe></div></div>
+</div>
+<!-- Tutorial Content Ends Here -->
+<!-- Right Column Starts Here -->
+<div class="mui-col-md-2 google-right-ads" id="chapter-menu" style="display: none;">
+<input type="hidden" id="vu" name="vu" value="">
+<div class="space-top"><div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto 10px;" id="_adr_abp_container_2" data-section="d44f300a0c3b51404b3aabb2fba19f04" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"></div></div><div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto;" id="_adr_abp_container_3" data-section="ea74549340d550a66ea0e5571fba1027" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"></div>
+<div class="mui-panel">
+<ul class="paid-menu" id="div-right-menu">
+<li><a class="hide-on-mobile" href="javascript:printPage();" title="Print this page"><i class="fa fa-print"></i> Print</a></li>
+<li><a href="javascript:void(0)" class="add_notes" title="Add Custom Notes" onclick="add_notes();"><i class="fa fa-edit"></i>&nbsp;Add Notes</a></li>
+<li><a href="javascript:void(0)" class="clsPage text-bookmark" id="text-bookmark" title="Add Bookmark" onclick="text_bookmark()"><i class="fal fa-bookmark"></i>&nbsp;Bookmark this page </a></li>
+<li><a href="javascript:void(0);" id="report_error_popup" onclick="report_error_popup();" title="Report Error"><i class="fal fa-bell"></i>&nbsp;Report Error</a></li>
+<li><a href="javascript:void(0);" id="suggestion_popup" title="Give Suggestions" onclick="suggestion_popup();"><i class="fal fa-badge-check"></i>&nbsp;Suggestions</a></li>
+</ul>
+<div class="profile-my-notes" id="text_notes_div" style="display:none;">
+<textarea rows="10" class="text_notes" id="text_notes" name="text_notes" placeholder="Enter your custom notes..."></textarea>
+<br>
+<a href="javascript:void(0);" id="submit_text_notes" class="butn-save" onclick="submit_text_notes();"> Save</a>
+<a href="javascript:void(0);" class="pop-no butn-cancel" onclick="notesClose();"> Close</a>
+<p class="notes_msg"></p>
+</div>
+<div class="bottom-menu">
+<button class="tp-btn"><i class="fal fa-box-up"></i> <a href="https://www.tutorialspoint.com/videotutorials/dashboard.php">Dashboard</a></button>
+<button class="tp-btn"><i class="fal fa-sign-out-alt"></i> <a href="https://www.tutorialspoint.com/videotutorials/userlogout.php">Logout</a></button>
+</div>
+</div>
+</div>
+<div class="mui-col-md-2 google-right-ads" id="google-right-ads">
+<div class="space-top"><div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto 10px;" id="_adr_abp_container_2" data-section="d44f300a0c3b51404b3aabb2fba19f04" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 9px; text-transform: uppercase; color: rgb(128, 129, 143); background-color: rgba(255, 255, 255, 0.3); line-height: 10px; padding: 2px 4px; width: 98%; height: 8px;"><a style="border-bottom: 1px solid rgb(128, 129, 143); float: right; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);" target="_blank" href="https://adrecover.com/advertisers/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" class="pull-right advertise-here">Advertise On <strong>tutorialspoint</strong></a><a target="_blank" href="https://adrecover.com/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" style="float: left; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);">ads By AdRecover</a></div><div id="ad-container-d44f300a0c3b51404b3aabb2fba19f04" style="height: 250px; width: 100%; margin: 0px auto; text-align: center; display: none;"></div><iframe name="d44f300a0c3b51404b3aabb2fba19f04" style="width: 100%; height: 250px; margin: 0px; padding: 0px; border: medium none; display: block;" id="iframe-ad-container-d44f300a0c3b51404b3aabb2fba19f04" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/recover_004.html" scrolling="no"></iframe></div></div><div style="display: block; clear: both; width: 300px; height: 264px; margin: 0px auto;" id="_adr_abp_container_3" data-section="ea74549340d550a66ea0e5571fba1027" data-packetid="00000001-42c80bb1-0c99-414f-9e19-1a02681c881a" class="_adr_abp_container"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 9px; text-transform: uppercase; color: rgb(128, 129, 143); background-color: rgba(255, 255, 255, 0.3); line-height: 10px; padding: 2px 4px; width: 98%; height: 8px;"><a style="border-bottom: 1px solid rgb(128, 129, 143); float: right; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);" target="_blank" href="https://adrecover.com/advertisers/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" class="pull-right advertise-here">Advertise On <strong>tutorialspoint</strong></a><a target="_blank" href="https://adrecover.com/?utm_campaign=ByAdRecover&amp;utm_source=www.tutorialspoint.com&amp;utm_medium=ByAdRecover-300" style="float: left; font-size: 9px; text-decoration: none; color: rgb(160, 160, 160);">ads By AdRecover</a></div><div id="ad-container-ea74549340d550a66ea0e5571fba1027" style="height: 250px; width: 100%; margin: 0px auto; text-align: center; display: none;"></div><iframe name="ea74549340d550a66ea0e5571fba1027" style="width: 100%; height: 250px; margin: 0px; padding: 0px; border: medium none; display: block;" id="iframe-ad-container-ea74549340d550a66ea0e5571fba1027" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/recover_004.html" scrolling="no"></iframe></div>
+<div class="google-right-ad" style="margin: 0px auto !important;margin-top:5px;min-height:250px!important">
+<div class="adsbyvli" data-ad-slot="vi_9017966"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_9017966")})</script>
+</div>
+<div class="google-right-ad" style="margin-top:16px;min-height:250px!important">
+<div class="adsbyvli" data-ad-slot="vi_9017967"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_9017967")})</script>
+</div>
+<div class="google-right-ad" style="margin-top:16px;margin-bottom:15px;min-height:600px!important">
+<div class="adsbyvli" data-ad-slot="vi_9013289"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_9013289")})</script>
+</div>
+<div class="space-bottom" style="margin-bottom:15px;"></div>
+</div>
+<!-- Right Column Ends Here -->
+</div>
+</div>
+<div class="clear"></div>
+<footer id="footer">
+<div class="mui--text-center">
+<div class="mui--text-caption mui--text-light">
+<a href="https://www.tutorialspoint.com/index.htm" class="logo"><img class="img-responsive" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/logo-black.png" alt="Tutorials Point" title="Tutorials Point"></a>
+</div>
+<ul class="mui-list--inline mui--text-body2 mui--text-light">
+<li><a href="https://www.tutorialspoint.com/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+<li><a href="https://www.tutorialspoint.com/about/return_refund_policy.htm"> <i class="fal fa-asterisk"></i> Refund Policy</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_terms_of_use.htm"><i class="fal fa-asterisk"></i> Terms of use</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_privacy.htm"> <i class="fal fa-shield-check"></i> Privacy Policy</a></li>
+<li><a href="https://www.tutorialspoint.com/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+<li><a href="https://www.tutorialspoint.com/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+</ul>
+<div class="mui--text-caption mui--text-light bottom-copyright-text">© Copyright 2020. All Rights Reserved.</div>
+</div>
+<script async="" src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/js.js"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-232293-6');
+</script>
+<script src="C%20-%20Command%20Line%20Arguments%20-%20Tutorialspoint_files/text_menu.js"></script>
+<script>
+$(document).ready(function (){
+    var cval = readCookie('subscription_purchased');
+    if(cval == '1'){
+          // logged in and purchased subscription.
+          $('#google-right-ads').remove();
+          $('#vi1').remove();
+          $('#vi2').remove();
+          $('#adp').remove();
+          $('#stickyparent').remove();
+          $('#google-top-ads').remove();
+          $('#google-bottom-ads').remove();
+          $('.tutorial-content hr').remove();
+          $('.login').remove();
+          $('#chapter-menu').show();
+          $('.content h1').css("border-bottom", "none");
+          $('.google-right-ads').css("padding-right", "0px");
+          $('.tutorial-content').css("border-radius", "10px");
+          $('#chapter-menu .mui-panel').css("border-radius", "10px");
+     }
+});
+</script>
+</footer>
+
+
+<table style="width: 128px; display: none; top: 116px; left: 1441px; position: absolute;" class="gstl_50 gssb_c" cellspacing="0" cellpadding="0"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>

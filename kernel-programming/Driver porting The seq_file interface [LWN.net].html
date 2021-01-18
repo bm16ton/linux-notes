@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Driver porting: The seq_file interface [LWN.net]</title>
+        <meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@lwnnet">
+<meta name="twitter:title" content="Driver porting: The seq_file interface">
+<meta name="twitter:description" content="
+This article is part of the LWN Porting Drivers to 2.6 series.
+
+
+There are numerous ways for a device driver (or other kernel component) to
+provide information to the user or system administrator.  One very useful
+technique is the creation of virtual files, in /proc or
+elsewhere.  Virtual files can provide human-readable output that is easy to
+get at without any special utility programs; they can also make life easier
+for script writers.  It is not surprising that the use of virtual files has
+grown over the years.
+">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="https://lwn.net/images/favicon.png" type="image/png">
+        <link rel="alternate" type="application/rss+xml" title="LWN.net headlines" href="https://lwn.net/headlines/newrss">
+<link rel="alternate" type="application/rss+xml" title="Comments posted to this article" href="https://lwn.net/headlines/22355/">
+        <link rel="stylesheet" href="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/lwn.css">
+<link rel="stylesheet" href="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/nosub.css">
+<link rel="stylesheet" href="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/pure-min.css">
+           <!--[if lte IE 8]>
+             <link rel="stylesheet" href="/CSS/grids-responsive-old-ie-min">
+           <![endif]-->
+           <!--[if gt IE 8]><!-->
+             <link rel="stylesheet" href="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/grids-responsive-min.css">
+           <!--<![endif]-->
+           <link rel="stylesheet" href="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/pure-lwn.css">
+           
+        
+<script type="text/javascript" async="" src="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/ados.js"></script><script type="text/javascript">var p="http",d="static";if(document.location.protocol=="https:"){p+="s";d="engine";}var z=document.createElement("script");z.type="text/javascript";z.async=true;z.src=p+"://"+d+".adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script type="text/javascript">
+var ados_keywords = ados_keywords || [];
+if( location.protocol=='https:' ) {
+        ados_keywords.push('T:SSL');
+} else {
+        ados_keywords.push('T:HTTP');
+}
+
+var ados = ados || {};
+ados.run = ados.run || [];
+ados.run.push(function() {
+
+ados_add_placement(4669, 20979, "azk13321_leaderboard", 4).setZone(16026);
+
+ados_add_placement(4669, 20979, "azk93271_right_zone", [5,10,6]).setZone(16027);
+
+ados_add_placement(4669, 20979, "azk31017_tracking", 20).setZone(20995);
+
+
+
+ados_setKeywords(ados_keywords.join(', ')); 
+ados_load();
+});</script>
+
+        </head>
+        <body vlink="Green" link="Blue" bgcolor="#ffffff" alink="Green">
+        <a name="t"></a>
+<div id="menu"><a href="https://lwn.net/"><img src="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/barepenguin-70.png" class="logo" alt="LWN.net Logo" border="0">
+           <font class="logo">LWN<br>.net</font>
+           <font class="logobl">News from the source</font></a>
+           <a href="https://lwn.net/"><img src="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/lcorner-ss.png" class="sslogo" alt="LWN" border="0"></a><div class="navmenu-container">
+           <ul class="navmenu">
+        <li><a class="navmenu" href="#t"><b>Content</b></a><ul><li><a href="https://lwn.net/current/">Weekly Edition</a></li><li><a href="https://lwn.net/Archives/">Archives</a></li><li><a href="https://lwn.net/Search/">Search</a></li><li><a href="https://lwn.net/Kernel/">Kernel</a></li><li><a href="https://lwn.net/Security/">Security</a></li><li><a href="https://lwn.net/Distributions/">Distributions</a></li><li><a href="https://lwn.net/Calendar/">Events calendar</a></li><li><a href="https://lwn.net/Comments/unread">Unread comments</a></li><li><hr></li><li><a href="https://lwn.net/op/FAQ.lwn">LWN FAQ</a></li><li><a href="https://lwn.net/op/AuthorGuide.lwn">Write for us</a></li></ul></li>
+</ul></div>
+</div> <!-- menu -->
+<div class="pure-g not-handset" style="margin-left: 10.5em">
+           <div class="not-print">
+             <div id="azk13321_leaderboard"></div>
+           </div>
+           </div>
+        <div class="topnav-container">
+<div class="not-handset"><form action="https://lwn.net/Login/" method="post" name="loginform" class="loginform">
+        <b>User:</b> <input type="text" name="Username" size="8"> <b>Password:</b> <input type="password" name="Password" size="8"> <input type="hidden" name="target" value="/Articles/22355/"> <input type="submit" name="submit" value="Log in"></form> |
+           <form action="https://lwn.net/subscribe/" method="post" class="loginform">
+           <input type="submit" name="submit" value="Subscribe">
+           </form> |
+           <form action="https://lwn.net/Login/newaccount" method="post" class="loginform">
+           <input type="submit" name="submit" value="Register">
+           </form>
+        </div>
+               <div class="handset-only">
+               <a href="https://lwn.net/subscribe/"><b>Subscribe</b></a> /
+               <a href="https://lwn.net/Login/"><b>Log in</b></a> /
+               <a href="https://lwn.net/Login/newaccount"><b>New account</b></a>
+               </div>
+               </div><div class="pure-grid maincolumn">
+<div class="lwn-u-1 pure-u-md-19-24">
+<div class="PageHeadline">
+<h1>Driver porting: The seq_file interface</h1>
+<div class="Byline">[Posted February 10, 2003 by corbet]
+               <p>
+               </p></div>
+</div>
+<div class="ArticleText">
+<table class="tlr">
+<tbody><tr><td>This article is part of the LWN <a href="https://lwn.net/Articles/driver-porting/">Porting Drivers to 2.6 series</a>.
+</td></tr></tbody></table>
+
+There are numerous ways for a device driver (or other kernel component) to
+provide information to the user or system administrator.  One very useful
+technique is the creation of virtual files, in <tt>/proc</tt> or
+elsewhere.  Virtual files can provide human-readable output that is easy to
+get at without any special utility programs; they can also make life easier
+for script writers.  It is not surprising that the use of virtual files has
+grown over the years.
+<p>
+Creating those files correctly has always been a bit of a challenge,
+however.  It is not that hard to make a <tt>/proc</tt> file which returns a
+string.  But life gets trickier if the output is long - anything greater
+than an application is likely to read in a single operation.  Handling
+multiple reads (and seeks) requires careful attention to the reader's
+position within the virtual file - that position is, likely as not, in the
+middle of a line of output.  The Linux kernel is full of <tt>/proc</tt>
+file implementations that get this wrong.
+</p><p>
+The 2.6 kernel contains a set of functions (implemented by Alexander Viro)
+which are designed to make it easy for virtual file creators to get it
+right.  This interface (called "seq_file") is not strictly a 2.6 feature -
+it was also merged into 2.4.15.  But 2.6 is where the feature is starting
+to see serious use, so it is worth describing here.
+</p><p>
+The seq_file interface is available via
+<tt>&lt;linux/seq_file.h&gt;</tt>.  There are three aspects to seq_file:
+</p><ul>
+<li> An iterator interface which lets a virtual file implementation step 
+     through the objects it is presenting.
+<p>
+</p></li><li> Some utility functions for formatting objects for output 
+     without needing to worry about things like output buffers.
+<p>
+</p></li><li> A set of canned <tt>file_operations</tt> which implement most
+     operations on the virtual file.
+</li></ul>
+<p>
+We'll look at the seq_file interface via an extremely simple example: a
+loadable module which creates a file called <tt>/proc/sequence</tt>.  The
+file, when read, simply produces a set of increasing integer values, one
+per line.  The sequence will continue until the user loses patience and
+finds something better to do.  The file is seekable, in that one can do
+something like the following:
+</p><p>
+</p><pre>    dd if=/proc/sequence of=out1 count=1
+    dd if=/proc/sequence skip=1 out=out2 count=1
+</pre>
+<p>
+Then concatenate the output files <tt>out1</tt> and <tt>out2</tt> and get
+the right result.  Yes, it is a thoroughly useless module, but the point is
+to show how the mechanism works without getting lost in other details.
+(Those wanting to see the full source for this module can find it <a href="https://lwn.net/Articles/22359/">here</a>). 
+
+</p><h2>The iterator interface</h2>
+
+Modules implementing a virtual file with seq_file must implement a simple
+iterator object that allows stepping through the data of interest.
+Iterators must be able to move to a specific position - like the file they
+implement - but the interpretation of that position is up to the iterator
+itself.  A seq_file implementation that is formatting firewall rules, for
+example, could interpret position <i>N</i> as the <i>N</i>th rule in the
+chain.  Positioning can thus be done in whatever way makes the most sense
+for the generator of the data, which need not be aware of how a position
+translates to an offset in the virtual file.  The one obvious exception is
+that a position of zero should indicate the beginning of the file.
+<p>
+The <tt>/proc/sequence</tt> iterator just uses the count of the next number
+it will output as its position.
+</p><p>
+Four functions must be implemented to make the iterator work.  The first,
+called <tt>start()</tt> takes a position as an argument and returns an iterator
+which will start reading at that position.  For our simple sequence
+example, the <tt>start()</tt> function looks like:
+</p><p>
+</p><pre>static void *ct_seq_start(struct seq_file *s, loff_t *pos)
+{
+	loff_t *spos = kmalloc(sizeof(loff_t), GFP_KERNEL);
+	if (! spos)
+		return NULL;
+	*spos = *pos;
+	return spos;
+}
+</pre>
+<p>
+The entire data structure for this iterator is a single <tt>loff_t</tt>
+value holding the current position.  There is no upper bound for the
+sequence iterator, but that will not be the case for most other seq_file
+implementations; in most cases the <tt>start()</tt> function should check
+for a "past end of file" condition and return <tt>NULL</tt> if need be.
+</p><p>
+For more complicated applications, the <tt>private</tt> field of the
+<tt>seq_file</tt> structure can be used.  There is also a special value
+whch can be returned by the <tt>start()</tt> function called
+<tt>SEQ_START_TOKEN</tt>; it can be used if you wish to instruct your
+<tt>show()</tt> function (described below) to print a header at the top of
+the output.  <tt>SEQ_START_TOKEN</tt> should only be used if the offset is
+zero, however.
+</p><p>
+The next function to implement is called, amazingly, <tt>next()</tt>; its
+job is to move the iterator forward to the next position in the sequence.
+The example module can simply increment the position by one; more useful
+modules will do what is needed to step through some data structure.  The
+<tt>next()</tt> function returns a new iterator, or <tt>NULL</tt> if the
+sequence is complete.  Here's the example version:
+</p><p>
+</p><pre>static void *ct_seq_next(struct seq_file *s, void *v, loff_t *pos)
+{
+	loff_t *spos = (loff_t *) v;
+	*pos = ++(*spos);
+	return spos;
+}
+</pre>
+<p>
+The <tt>stop()</tt> function is called when iteration is complete; its job,
+of course, is to clean up.  If dynamic memory is allocated for the
+iterator, <tt>stop()</tt> is the place to return it.
+</p><p>
+</p><pre>static void ct_seq_stop(struct seq_file *s, void *v)
+{
+	kfree (v);
+}
+</pre>
+<p>
+Finally, the <tt>show()</tt> function should format the object currently
+pointed to by the iterator for output.  It should return zero, or an error
+code if something goes wrong.  The example module's <tt>show()</tt>
+function is:
+</p><p>
+</p><pre>static int ct_seq_show(struct seq_file *s, void *v)
+{
+	loff_t *spos = (loff_t *) v;
+	seq_printf(s, "%Ld\n", *spos);
+	return 0;
+}
+</pre>
+<p>
+We will look at <tt>seq_printf()</tt> in a moment.  But first, the
+definition of the seq_file iterator is finished by creating a
+<tt>seq_operations</tt> structure with the four functions we have just
+defined:
+</p><p>
+</p><pre>static struct seq_operations ct_seq_ops = {
+	.start = ct_seq_start,
+	.next  = ct_seq_next,
+	.stop  = ct_seq_stop,
+	.show  = ct_seq_show
+};
+</pre>
+<p>
+This structure will be needed to tie our iterator to the <tt>/proc</tt>
+file in a little bit.
+</p><p>
+It's worth noting that the interator value returned by <tt>start()</tt> and
+manipulated by the other functions is considered to be completely opaque by
+the seq_file code.  It can thus be anything that is useful in stepping
+through the data to be output.  Counters can be useful, but it could also
+be a direct pointer into an array or linked list.  Anything goes, as long
+as the programmer is aware that things can happen between calls to the
+iterator function.  However, the seq_file code (by design) will not sleep
+between 
+the calls to <tt>start()</tt> and <tt>stop()</tt>, so holding a lock during
+that time is a reasonable thing to do.  The seq_file code will also avoid
+taking any other locks while the iterator is
+active. 
+
+
+</p><h2>Formatted output</h2>
+
+The seq_file code manages positioning within the output created by the
+iterator and getting it into the user's buffer.  But, for that to work,
+that output must be passed to the seq_file code.  Some utility functions
+have been defined which make this task easy.
+<p>
+Most code will simply use <tt>seq_printf()</tt>, which works pretty much
+like <tt>printk()</tt>, but which requires the <tt>seq_file</tt> pointer as
+an argument.  It is common to ignore the return value from
+<tt>seq_printf()</tt>, but a function producing complicated output may want
+to check that value and quit if something non-zero is returned; an error
+return means that the seq_file buffer has been filled and further output
+will be discarded.
+</p><p>
+For straight character output, the following functions may be used:
+</p><p>
+</p><pre>int seq_putc(struct seq_file *m, char c);
+int seq_puts(struct seq_file *m, const char *s);
+int seq_escape(struct seq_file *m, const char *s, const char *esc);
+</pre>
+<p>
+The first two output a single character and a string, just like one would
+expect.  <tt>seq_escape()</tt> is like <tt>seq_puts()</tt>, except that any
+character in <tt>s</tt> which is in the string <tt>esc</tt> will be
+represented in octal form in the output.
+</p><p>
+There is also a function for printing filenames:
+</p><p>
+</p><pre>int seq_path(struct seq_file *m, struct vfsmount *mnt, 
+	     struct dentry *dentry, char *esc);
+</pre>
+<p>
+Here, <tt>mnt</tt> and <tt>dentry</tt> indicate the file of interest, and
+<tt>esc</tt> is a set of characters which should be escaped in the output.
+This function is more suited to filesystem code than device drivers, however.
+
+</p><p>
+
+</p><h2>Making it all work</h2>
+
+So far, we have a nice set of functions which can produce output within the
+seq_file system, but we have not yet turned them into a file that a user
+can see.  Creating a file within the kernel requires, of course, the
+creation of a set of <tt>file_operations</tt> which implement the
+operations on that file.  The seq_file interface provides a set of canned
+operations which do most of the work.  The virtual file author still must
+implement the <tt>open()</tt> method, however, to hook everything up.  The
+open function is often a single line, as in the example module:
+<p>
+</p><pre>static int ct_open(struct inode *inode, struct file *file)
+{
+	return seq_open(file, &amp;ct_seq_ops);
+};
+</pre>
+<p>
+Here, the call to <tt>seq_open()</tt> takes the <tt>seq_operations</tt>
+structure we created before, and gets set up to iterate through the virtual
+file.  
+</p><p>
+On a successful open, <tt>seq_open()</tt> stores the <tt>struct
+seq_file</tt> pointer in <tt>file-&gt;private_data</tt>.  If you have an
+application where the same iterator can be used for more than one file, you
+can store an arbitrary pointer in the <tt>private</tt> field of the
+<tt>seq_file</tt> structure; that value can then be retrieved by the
+iterator functions.  
+</p><p>
+
+The other operations of interest - <tt>read()</tt>,
+<tt>llseek()</tt>, and <tt>release()</tt> - are all implemented by the
+seq_file code itself.  So a virtual file's <tt>file_operations</tt>
+structure will look like:
+</p><p>
+</p><pre>static struct file_operations ct_file_ops = {
+	.owner   = THIS_MODULE,
+	.open    = ct_open,
+	.read    = seq_read,
+	.llseek  = seq_lseek,
+	.release = seq_release
+};
+</pre>
+<p>
+The final step is the creation of the <tt>/proc</tt> file itself.  In the
+example code, that is done in the initialization code in the usual way:
+</p><p>
+</p><pre>static int ct_init(void)
+{
+	struct proc_dir_entry *entry;
+
+	entry = create_proc_entry("sequence", 0, NULL);
+	if (entry)
+		entry-&gt;proc_fops = &amp;ct_file_ops;
+	return 0;
+}
+
+module_init(ct_init);
+</pre>
+<p>
+And that is pretty much it.
+
+</p><h2>The extra-simple version</h2>
+
+For extremely simple virtual files, there is an even easier interface.  A
+module can define only the <tt>show()</tt> function, which should create
+all the output that the virtual file will contain.  The file's
+<tt>open()</tt> method then calls:
+<p>
+</p><pre>int single_open(struct file *file, 
+                int (*show)(struct seq_file *m, void *p), 
+		void *data);
+</pre>
+<p>
+When output time comes, the <tt>show()</tt> function will be called once.
+The <tt>data</tt> value given to <tt>single_open()</tt> can be found in the
+<tt>private</tt> field of the <tt>seq_file</tt> structure.  When using
+<tt>single_open()</tt>, the programmer should use <tt>single_release()</tt>
+instead of <tt>seq_release()</tt> in the <tt>file_operations</tt> structure
+to avoid a memory leak.<br clear="all"></p><hr width="60%" align="left">
+           (<a href="https://lwn.net/Login/?target=/Articles/22355/">Log in</a> to post comments)
+           <p>
+           
+</p></div> <!-- ArticleText -->
+<p><a name="Comments"></a>
+
+<a name="CommAnchor58355"></a>
+</p><div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Nov 14, 2003 13:13 UTC (Fri) by <b>laf0rge</b> (subscriber, #6469)
+       [<a href="https://lwn.net/Articles/58355/">Link</a>]
+    </p>
+    After using this article as an example to port the 
+/proc/net/ip_conntrack interface over to seq_file, and about 5 hours of 
+crashing/rebooting/debugging, I have to admit that there are some 
+shortcomings in it.<p>Some hints for other people, so they don't fall into the same pits as I did:</p><p>1)
+ If you allocate something in ct_seq_start(), the place to free it is 
+_NOT_ in ct_seq_stop().  This is because ct_seq_stop() is even called if
+ ct_seq_start() returns an error (Like ERR_PTR(-ENOMEM)). You would then
+ end up calling kfree(ERR_PTR(-ENOMEM)) which your mm subsystem doesn't 
+really like. I am now kfree()ing in ct_seq_next(), just before it 
+returns with NULL at the end of the table.</p><p>2) If you take a lock 
+in ct_seq_start(), do it unconditionally as the first thing.  Even if 
+ct_seq_start() fails, ct_seq_stop() is called.  In ct_seq_stop() you 
+have no idea of knowing if ct_seq_start() failed or not  - so you will 
+unconditionally unlock.<br>
+  </p></div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/58355/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+<div class="Comment">
+
+<a name="CommAnchor58438"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Nov 15, 2003 1:53 UTC (Sat) by <b>giraffedata</b> (subscriber, #1954)
+       [<a href="https://lwn.net/Articles/58438/">Link</a>]
+    </p>
+    <i>I am now kfree()ing in ct_seq_next(), just before it returns with NULL at the end of the table</i>
+<p>
+Seems like that would be a problem if the user chooses not to read all the way to EOF.
+</p><p>
+This just sounds like a basic bug in the seq_file interface.  If 
+ct_seq_start() fails, it should be ct_seq_start's responsibility to not 
+change any state, and thus ct_seq_stop doesn't need to be, and should 
+not be, called.  After all, does a POSIX program call close(-1) when 
+open() fails?
+
+  </p></div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/58438/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+</div>
+
+<a name="CommAnchor68942"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Jan 30, 2004 23:08 UTC (Fri) by <b>gcc</b> (guest, #19095)
+       [<a href="https://lwn.net/Articles/68942/">Link</a>]
+    </p>
+    Users should be clear about the difference between a position and an            
+iterator (this confused me for a while). The position is your means of            
+communication with the seq_file interface, telling it where you are, and            
+for it to tell you where to go.             
+            
+<p>The iterator is an opaque value, about which seq_file understands 
+nothing,            
+except that you return it from your <code>start</code> and            
+<code>next</code> handlers, and it will give it back to you in            
+<code>next</code>, <code>stop</code> and <code>show</code>.            
+            
+</p><p>Examples of iterators given in the article are a simple index (using            
+the pointer as an integer, i.e. it doesn't really point to anything), or            
+a pointer to a linked list entry or an array member. However, if you have            
+to navigate some more complex structure, such as              
+a hash table, it can be useful to have a struct which holds several              
+values, for example:              
+              
+</p><ul><pre>struct my_pos {              
+	my_hash_table *table;              
+	int hash;              
+	my_ht_entry *entry;              
+}              
+</pre></ul>           
+              
+This allows a single value (your iterator, <code>void *v</code>) to tell         
+you everything you              
+need to know in order to walk the hashtable. In this case, as in the         
+<code>/proc/sequence</code> example, <code>v</code>              
+remains the same throughout the walk.              
+              
+<p>On the other hand, the position, <code>loff_t *pos</code>, is a         
+strange beast. If you start reading the <code>/proc</code> file from the              
+beginning, then <code>start</code> will be called with position 0, 1, 2,              
+etc. until it returns NULL. At this point the user gets EOF, and they can              
+then seek around and start reading again, which results in your              
+<code>start</code> handler being called again.              
+              
+</p><p>However, if the user skips more than the length of the file, (e.g.              
+<code>dd if=/proc/my_file bs=1G skip=1</code>, then your code will be              
+called with position 0 twice! The user doesn't get what they were              
+expecting (an empty file), but the whole file, as if the seek never              
+happened. <code>strace</code> shows that the seek appears to succeed. I              
+think this behavious is wrong and constitutes a mental health hazard.              
+              
+</p><p>If you want to use the same set of operations for multiple files in              
+/proc, you need a way for them to distinguish what object they operate              
+on. The article mentions <code>s-&gt;private</code>, but you can only use    
+this after you have called seq_open, because the seq_file object doesn't    
+exist before that.               
+              
+On the 2.6 kernel, it appears that a good place to store this private              
+data is in the <code>struct inode *inode</code> which is passed to your              
+<code>open</code> handler:              
+              
+</p><ul><pre>static int my_open (struct inode *inode, struct file          
+*file)</pre></ul>          
+              
+In particular, 2.6 has a function called <code>PROC_I</code> which    
+converts your <code>struct inode</code> into a <code>struct              
+proc_inode</code>, which has a member called <code>pde</code>, which is              
+your <code>struct proc_dir_entry</code>.               
+              
+<p>So you can create the <code>proc_dir_entry</code>, initialise its              
+<code>data</code> member with a pointer to your private data, and then in              
+the <code>open</code> handler you can get to it from        
+<code>inode-&gt;pde</code>. For example:              
+              
+</p><ul><pre>// module init              
+static int __init init()              
+{              
+	my_proc_entry = create_proc_entry(filename, 0, NULL);              
+	/* ... check for failure ... */              
+	my_proc_entry-&gt;data = my_data;              
+}              
+              
+static int my_open (struct inode *inode, struct file *file)              
+{              
+	struct seq_file *s;       
+	result = seq_open(file, &amp;seq_ops);       
+	/* ... check for failure ... */       
+	/* file-&gt;private_data was initialised by seq_open */       
+	s = (struct seq_file *)file-&gt;private_data;       
+	my_data = PROC_I(inode)-&gt;pde-&gt;data;              
+	s-&gt;private = my_data;              
+}              
+              
+static int my_seq_start (...) {              
+	my_data = s-&gt;private;              
+}              
+</pre></ul>          
+              
+I'm still looking for a good way to do this on 2.4, which lacks   
+<code>PROC_I</code> and <code>struct proc_inode</code>. Can anyone help?      
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/68942/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+
+<a name="CommAnchor130184"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Apr 1, 2005 17:40 UTC (Fri) by <b>guest</b> (guest, #2027)
+       [<a href="https://lwn.net/Articles/130184/">Link</a>]
+    </p>
+    This article describes how to generate an infinite series of 
+integers. It would have been much more practical if this article had 
+talked about generating finite series of integers ... I had trouble 
+getting the seq_file iterator to stop calling my functions. <br>
+<p>
+I read this article and <a href="http://www.kernelnewbies.org/documents/seq_file_howto.txt">http://www.kernelnewbies.org/documents/seq_file_howto.txt</a>. Nevertheless, I still wasted a lot of time trying to get it to work. <br>
+</p><p>
+My notes:<br>
+</p><p>
+you write the routines your_start, your_stop, your_next, and your_show<br>
+</p><p>
+The pos parameter to your_start and your_next is an index into the set 
+of items that you wish to enumerate. your_next must increment this 
+index, as in ++*pos. <br>
+</p><p>
+your_start must know the number of items in your set so that it can 
+check the validity of *pos. your_start will be called again, even after 
+your_next returns NULL and your_stop has been called. <br>
+</p><p>
+Let's say that you want to count from 0 through 9. your_start is called 
+with *pos==0. It returns a pointer to your iterator data structure. 
+your_show is called, then your_next is called. This happens until 
+your_next returns NULL or ERR_PTR(some-negative-error-code). your_stop 
+is then called. At this point, your_start will be called *again*, with 
+*pos==10 ... seems strange to me, but that is the behavior. <br>
+</p><p>
+The iterator pointer returned by your_start/your_next can be whatever 
+you want, including integer values. However, be advised that the values 
+in the range -1000 &lt;= n &lt;= 0 are interpreted as error 
+conditions/NULL. Therefore, you probably want to return a pointer. <br>
+</p><p>
+The kernelnewbies.org seq_file_howto.txt document says your_start should
+ return error codes like EACCES if the *pos position is out of bounds. 
+Note that if you want to do this, then you must return -EACCES, not 
+EACCES. Maybe that was obvious to experienced kernel hackers, but it 
+certainly was not obvious to me. Do this by returning ERR_PTR(-EACCES). 
+If this value is not negative, then the seq_file code will assume that 
+you have returned a valid iterator pointer and it will call your_show. <br>
+</p><p>
+It is probably easier to simply return NULL on error conditions (like 
+*pos out of bounds) and not worry about it. When I tried to worry about 
+it and do the right thing, it just caused trouble for me. <br>
+</p><p>
+I spent some time looking at the seq_file code. Frankly, I was quite 
+disappointed ... the implementation looked pretty ugly to me. <br>
+</p><p>
+Michael<br>
+</p><p>
+  </p></div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/130184/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+<div class="Comment">
+
+<a name="CommAnchor264990"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Jan 14, 2008 10:04 UTC (Mon) by <b>arafel</b> (guest, #18557)
+       [<a href="https://lwn.net/Articles/264990/">Link</a>]
+    </p>
+    <div class="FormattedComment"><pre>Hi,
+
+Just wanted to say thanks for the comment. You've probably saved me a good few minutes trying
+to work out why seq_file kept calling my code.
+
+It must be said, the seq_file interface is one of the uglier APIs I've seen in the kernel.
+Clear and easy to use it is not.
+</pre></div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/264990/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+</div>
+
+<a name="CommAnchor311063"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 12, 2008 11:26 UTC (Fri) by <b>iw2lsi</b> (guest, #54769)
+       [<a href="https://lwn.net/Articles/311063/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+Hi all<br>
+<p>
+is it normal to have more than one stop while reading a seq file ?<br>
+</p><p>
+actually I have a list with 37 items but I get a "spontaneous" stop 
+while processing element nine, and than a new start with the element ten
+ (*pos=10).<br>
+</p><p>
+after some hours (ok, two day :D) of debugging, it's all working now.. 
+but it was really difficult for me to understand seq_file interface :D<br>
+</p><p>
+    thanks<br>
+</p><p>
+              Giampaolo<br>
+</p></div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/311063/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+<div class="Comment">
+
+<a name="CommAnchor577004"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 14, 2013 15:15 UTC (Sat) by <b>Lieta</b> (guest, #94383)
+       [<a href="https://lwn.net/Articles/577004/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+I think it calls stop at the end of every page (4 KB), followed by the start.<br>
+At the end of file it calls stop, then start, followed by one more stop.<br>
+So it works like this:<br>
+.start<br>
+.stop<br>
+---PAGE---<br>
+.start<br>
+.stop<br>
+---PAGE---<br>
+...<br>
+.stop<br>
+.start<br>
+.stop<br>
+---EOF---<br>
+Special case is when the file is empty. Then there are just two calls (not 4): one .start one .stop.<br>
+</div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/577004/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+<div class="Comment">
+
+<a name="CommAnchor577005"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 14, 2013 15:23 UTC (Sat) by <b>Lieta</b> (guest, #94383)
+       [<a href="https://lwn.net/Articles/577005/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+...<br>
+.stop(A)<br>
+.start<br>
+.stop(B)<br>
+---EOF---<br>
+There is a problem to differ the .stop(A) from .stop(B) when you have to
+ return some resource (e.g. semaphore), that has been taken in .start, 
+back at the end of sequence. The position counter is equal in both (A) 
+and (B), because you are at EOF.<br>
+<p>
+</p></div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/577005/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+</div>
+</div>
+
+<a name="CommAnchor399592"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Aug 11, 2010 16:06 UTC (Wed) by <b>rtwertw</b> (guest, #69510)
+       [<a href="https://lwn.net/Articles/399592/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+author need to learn to express his thoughts so not only himself, but 
+ppl around could understand it. After reading it i only got more 
+confused. Comments helped a bit. Thanks ppl. <br>
+</div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/399592/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+
+<a name="CommAnchor576317"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 10, 2013 9:03 UTC (Tue) by <b>Lieta</b> (guest, #94383)
+       [<a href="https://lwn.net/Articles/576317/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+How to ouput more than one page (4 KB) of data? If the amount reaches 
+one page, it simply quits calling the .next and .show functions.<br>
+</div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/576317/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+<div class="Comment">
+
+<a name="CommAnchor576319"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 10, 2013 9:35 UTC (Tue) by <b>Lieta</b> (guest, #94383)
+       [<a href="https://lwn.net/Articles/576319/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+I got it. .start is called on every new page. Previously I was returning NULL if *pos != 0 in .start function.<br>
+</div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/576319/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+</div>
+
+<a name="CommAnchor576320"></a>
+<div class="CommentBox">
+  <p class="CommentTitle">Driver porting: The seq_file interface</p>
+  <div class="CommentBody">
+    <p class="CommentPoster">Posted Dec 10, 2013 9:55 UTC (Tue) by <b>Lieta</b> (guest, #94383)
+       [<a href="https://lwn.net/Articles/576320/">Link</a>]
+    </p>
+    <div class="FormattedComment">
+If I want to disable interrupts (call local_irq_save/local_irq_restore) 
+during seq_file output. What is the correct way to do it, if I'm using 
+the same .start, .stop, .next, .show functions for many proc file 
+entries?<br>
+</div>
+
+  </div>
+  
+  <div class="CommentReplyButton">
+    <form action="/Articles/576320/comment" method="post">
+      <input type="submit" value="Reply to this comment">
+    </form>
+  </div>
+
+  <p>
+  
+</p></div>
+</div>
+<div class="lwn-u-1 pure-u-md-1-6 not-print">
+<div id="azk93271_right_zone"></div>
+</div>
+</div> <!-- pure-grid -->
+
+        <br clear="all">
+        <center>
+        <p>
+        <font size="-2">
+        Copyright © 2003, Eklektix, Inc.<br>
+        
+        Comments and public postings are copyrighted by their creators.<br>
+        Linux  is a registered trademark of Linus Torvalds<br>
+        </font>
+        </p></center>
+        
+            <script data-goatcounter="https://gc.lwn.net/count" async="" src="Driver%20porting%20The%20seq_file%20interface%20[LWN.net]_files/count.js"></script>
+            
+        
+        </body></html>

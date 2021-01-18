@@ -1,0 +1,17 @@
+    #start screen
+screen
+
+    #optionally name session
+screen -S session-name
+
+    #detach from session
+Use the key sequence Ctrl-a + Ctrl-d to detach from the screen session.
+
+    #connect to screen resume
+screen -r
+
+    #connect to specific screen
+screen -ls
+# example output; 10835.pts-0.linuxize-desktop   (Detached)
+screen -r 10835
+

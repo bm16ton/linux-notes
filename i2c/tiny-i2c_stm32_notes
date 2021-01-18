@@ -1,0 +1,42 @@
+Board connections:
+------------------
+
+  PA4   (optional LED)	LED connected via a current limiting resistor to GND
+  PA8	(button)	Switch, connected to GND, to enable loader
+  PB8	(hotplug)	1.5k resister connected to P2 pin 1 (next to push
+			switch). This connection is optional but avoids the
+			need to continually plug/unplug the board before and
+			after programming.
+  USB	(mini USB)	USB acting as device, connect to computer
+  B7    SDA I2C
+  B6    SCL I2C
+
+
+- B7: I2C bus SDA and B6: I2C bus SCL (don't forget pull up resistors)
+- [Optional; debug only] PA9: UART TX and PA10: UART RX
+
+
+#### I2C-TOOLS USERLAND SETUP
+
+kernel module/s +i2c_dev+ rquired before can use i2c-tools
+
+    $ i2cdetect -l
+    ...
+    i2c-7   unknown         i2c-tiny-usb at bus 001 device 031      N/A
+
+    $ i2cdetect -y 7
+
+To make Linux aware of I2C devices on the bus, use the following command:
+
+    $ echo tmp102 0x48 | sudo tee /sys/class/i2c-adapter/i2c-7/new_device
+
+Where +tmp102+ is the name of the kernel driver you want to associate with the
+I2C device, +0x48+ is the I2C device's 7-bit address, and +i2c-7+ is the bus
+number the kernel assigned to the i2c-star adapter (appears as +i2c-tiny-usb+
+in +dmesg+ and +i2cdetect+).
+
+
+echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
+
+echo mpu6050 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
+sudo modprobe i2c-tiny-usb devices=mpu6050@0x68
