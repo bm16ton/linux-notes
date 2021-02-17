@@ -1,0 +1,21 @@
+name -snrmv | tr -d '\n' > /dev/lcd0
+
+######clear screen go home
+echo "                                    " > tr -d '\n' > /dev/lcd0
+echo "" > tr -d '\n' > /dev/lcd0
+#### better way clear screen and go to home
+printf "\e[2J \r" > /dev/lcd0
+########### move cursor home no clear
+printf "\e[H" > /dev/lcd0
+###################
+
+ESC [ 	0x9B
+
+
+
+CSI n J 	ED 	Erase in Display 	Clears part of the screen. If n is 0 (or missing), clear from
+                                    cursor to end of screen. If n is 1, clear from cursor to
+                                    beginning of the screen. If n is 2, clear entire screen (and moves cursor to upper left on DOS ANSI.SYS).
+                                    If n is 3, clear entire screen and delete all lines saved in the scrollback buffer
+                                    (this feature was added for xterm and is supported by other terminal applications).
+

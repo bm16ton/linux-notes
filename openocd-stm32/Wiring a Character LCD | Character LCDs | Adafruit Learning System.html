@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="mask-icon" href="https://learn.adafruit.com/assets/adafruit_favicon-d77f206e6cc65b40101b6e5b8987f7c35cb6a283ea73c0adad50c37f7347c61a.svg" color="#000000">
+<link rel="shortcut icon" type="image/x-icon" href="https://learn.adafruit.com/assets/favicon-0c79bd4bc582e6d4cf3afe417bd1e28120527c09d92c08a6464690c5bf6b85f4.ico">
+<title>Wiring a Character LCD | Character LCDs | Adafruit Learning System</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="dgvfy7BG4OVlfZ52hsoUnj6sy1sO/b0A1pxj0C2q+I4OJXvxWF3l3RJaTUe95zWBYv3CdKdpNsf+NE53yoW29w==">
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="https://learn.adafruit.com/feed">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://learn.adafruit.com/feed.rss">
+<link rel="stylesheet" media="screen" href="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/application-bfda4a3f3685b62f905afc7c05aa8ca546d1f056acc43545.css" data-turbolinks-track="reload">
+<script type="text/javascript" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/308175db61"></script><script src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/nr-1194.js"></script><script type="text/javascript" async="" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/ec.js"></script><script type="text/javascript" async="" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/analytics.js"></script><script src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/js.js"></script>
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+<meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+
+<meta name="turbolinks-cache-control" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":1,"applicationTime":72,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"308175db61",applicationID:"54271218"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="guide-title" content="Character LCDs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adafruit">
+<meta name="twitter:title" content="Character LCDs">
+<meta name="twitter:description" content="Wiring up a character LCD to an Arduino">
+<meta name="twitter:image:src" content="https://cdn-learn.adafruit.com/guides/images/000/000/051/medium800/lcds___displays_LCDblue162ard.jpg">
+<meta name="twitter:domain" content="https://learn.adafruit.com">
+<meta property="og:title" content="Character LCDs">
+<meta property="og:description" content="We sell tons of lovely character LCDs for use with Arduino, they are extremely common and a fast way to have your project show status messages. This tutorial will show how you can easily connect a character LCD, either 16x2 or 20x4.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cdn-learn.adafruit.com/guides/images/000/000/051/medium800/lcds___displays_LCDblue162ard.jpg">
+<meta property="og:url" content="https://learn.adafruit.com/character-lcds/wiring-a-character-lcd">
+<meta property="og:site_name" content="Adafruit Learning System">
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://learn.adafruit.com/character-lcds/wiring-a-character-lcd",
+        "name": "Character LCDs",
+        "description": "We sell tons of lovely character LCDs for use with Arduino, they are extremely common and a fast way to have your project show status messages. This tutorial will show how you can easily connect a character LCD, either 16x2 or 20x4.",
+        "publisher": "Adafruit",
+        "datePublished": "2012-07-29T11:58:38-04:00",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://learn.adafruit.com/search?q={search_term}",
+          "query-input": "required name=search_term"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "lady ada"
+        }
+      }
+    </script>
+<!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+<script>
+    window.rails_env = 'production';
+  </script>
+<script src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/application-1efb28aef1950d059811.js" data-turbolinks-track="reload"></script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+<body class="application pages show">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPXBQ6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="outer-wrapper">
+<div id="inner-wrapper">
+<div id="messaging-wrapper" class="messages-container" data-load="https://www.adafruit.com/api/multi_message.php"><div role="alert" aria-labelledby="adafruit-message-101" class="messaging-container messaging-news"><div class="msg-container"><div id="adafruit-message-101" class="message" data-message-id="101">Adafruit is <a href="https://www.adafruit.com/opensafely">open</a> and shipping! Let's build back better, together!</div><i class="fa fa-times msg-close-btn"></i></div></div></div>
+<header id="adafruit-header" aria-label="Adafruit header">
+<div id="small-header">
+<div class="first-row">
+<nav aria-label="Adafruit applications menu">
+<ul class="application-links">
+<li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+<li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+<li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+<li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+<li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+<li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+<li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+</ul>
+</nav>
+</div>
+<div class="second-row">
+<div class="row-content">
+<div id="mobile-header-logo">
+<a href="https://learn.adafruit.com/">
+<img id="small-logo" alt="Adafruit Logo" title="Masks save lives" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/adafruit_logo_small_002.png" width="50" height="50">
+</a> </div>
+<button id="mobile-menu-button" class="c-hamburger c-hamburger--htx">
+<span>toggle menu</span>
+</button>
+<div id="mobile-search-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="mobile-search" style="display:none;">Search</label>
+<input id="mobile-search" type="text" name="q" autocomplete="off" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com" accesskey="f">
+<button type="submit"></button>
+</form>
+</div>
+<a id="mobile-header-cart" href="https://www.adafruit.com/shopping_cart">
+<span class="small-cart-count">0</span>
+<i class="fa fa-shopping-cart"></i>
+</a>
+</div>
+</div>
+<nav id="small-header-nav">
+<div id="small-menu">
+<ul>
+<li class="account-info">
+<a href="https://learn.adafruit.com/users/sign_in">Sign In</a> | <a href="https://accounts.adafruit.com/">Create Account</a>
+</li>
+<li><a href="https://learn.adafruit.com/guides/latest">New Guides</a></li>
+<li><a href="https://learn.adafruit.com/groups">Series</a></li>
+</ul>
+</div>
+<div id="mobile-search-results"></div>
+</nav>
+</div>
+<div id="large-header">
+<nav class="first-row" aria-label="Adafruit main site">
+<div class="row-content">
+<nav aria-label="Adafruit applications menu">
+<ul class="application-links">
+<li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+<li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+<li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+<li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+<li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+<li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+<li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+</ul>
+</nav>
+<div id="account">
+<span class="sign-out"><a href="https://learn.adafruit.com/users/sign_in">Sign In</a></span>
+<div class="cart">
+<a aria-label="Shopping Cart, 0 items" href="https://www.adafruit.com/shopping_cart"><i class="fa fa-shopping-cart"></i> 0</a> </div>
+</div>
+</div>
+</nav>
+<nav class="second-row" aria-label="Adafruit Learn application">
+<div class="row-content">
+<div class="left-content">
+<div id="logo">
+<a accesskey="h" title="Adafruit Learning System" href="https://learn.adafruit.com/">
+<img id="logo" alt="Adafruit Logo" title="Masks save lives" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/logo_2x.png">
+</a> </div>
+<ul class="main-nav-links">
+<li class="dropdown with-overlay nav-link">
+<button type="“button”" class="dropdown-label" aria-haspopup="true">Explore &amp; Learn</button>
+<div class="dropdown-container">
+<div class="dropdown-content" tabindex="-1">
+<div class="flyout">
+<div class="three-panels">
+<div class="first-column">
+<div class="content-header">
+<span class="title">Learn Categories</span><a class="view-all-count" href="https://learn.adafruit.com/search">view all</a>
+</div>
+<div class="categories">
+<ul>
+<li><a href="https://learn.adafruit.com/category/3d-printing">3D Printing</a></li>
+<li><a href="https://learn.adafruit.com/category/adabox">AdaBox</a></li>
+<li><a href="https://learn.adafruit.com/category/adafruit-products">Adafruit Products</a></li>
+<li><a href="https://learn.adafruit.com/category/arduino">Arduino Compatibles</a></li>
+<li><a href="https://learn.adafruit.com/category/breakout-boards">Breakout Boards</a></li>
+<li><a href="https://learn.adafruit.com/category/circuit-playground">Circuit Playground</a></li>
+<li><a href="https://learn.adafruit.com/category/circuitpython">CircuitPython</a></li>
+<li><a href="https://learn.adafruit.com/category/clue">CLUE</a></li>
+<li><a href="https://learn.adafruit.com/category/community-support">Community Support</a></li>
+<li><a href="https://learn.adafruit.com/category/components">Components</a></li>
+<li><a href="https://learn.adafruit.com/category/crickit">Crickit</a></li>
+<li><a href="https://learn.adafruit.com/category/customer-projects">Customer &amp; Partner Projects</a></li>
+<li><a href="https://learn.adafruit.com/category/development-boards">Development Boards</a></li>
+<li><a href="https://learn.adafruit.com/category/educators">Educators</a></li>
+<li><a href="https://learn.adafruit.com/category/el">EL Wire/Tape/Panel</a></li>
+<li><a href="https://learn.adafruit.com/category/feather">Feather</a></li>
+<li><a href="https://learn.adafruit.com/category/gaming-1">Gaming</a></li>
+<li><a href="https://learn.adafruit.com/category/hacks">Hacks</a></li>
+</ul>
+<ul>
+<li><a href="https://learn.adafruit.com/category/internet-of-things-iot">Internet of Things - IOT</a></li>
+<li><a href="https://learn.adafruit.com/category/lcds-and-displays">LCDs &amp; Displays</a></li>
+<li><a href="https://learn.adafruit.com/category/leds">LEDs</a></li>
+<li><a href="https://learn.adafruit.com/category/machine-learning">Machine Learning</a></li>
+<li><a href="https://learn.adafruit.com/category/makecode">MakeCode</a></li>
+<li><a href="https://learn.adafruit.com/category/maker-business">Maker Business</a></li>
+<li><a href="https://learn.adafruit.com/category/micro-bit">micro:bit</a></li>
+<li><a href="https://learn.adafruit.com/category/microcontrollers">Microcontrollers</a></li>
+<li><a href="https://learn.adafruit.com/category/programming">Programming</a></li>
+<li><a href="https://learn.adafruit.com/category/projects">Projects</a></li>
+<li><a href="https://learn.adafruit.com/category/raspberry-pi">Raspberry Pi</a></li>
+<li><a href="https://learn.adafruit.com/category/robotics">Robotics &amp; CNC</a></li>
+<li><a href="https://learn.adafruit.com/category/sensors">Sensors</a></li>
+<li><a href="https://learn.adafruit.com/category/stemma">STEMMA</a></li>
+<li><a href="https://learn.adafruit.com/category/tools">Tools</a></li>
+<li><a href="https://learn.adafruit.com/category/trellis">Trellis</a></li>
+<li><a href="https://learn.adafruit.com/category/wearables">Wearables</a></li>
+</ul>
+</div>
+</div>
+<div class="middle-column">
+<div class="content-header">
+<span class="title">Series</span><a class="view-all-count" href="https://learn.adafruit.com/groups">view all</a>
+</div>
+<ul class="links">
+<li>
+<a href="https://learn.adafruit.com/series/circuit-playground">Circuit Playground</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/series/adafruit-io-basics">Adafruit IO Basics</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/groups/collins-lab">Collin's Lab</a>
+</li>
+</ul>
+</div>
+<div class="last-column hide-md">
+<div class="image-content-card">
+<img class="lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/stemma-ef66e02164d57776f3c6e36b958d49e60e4697687c622dbe925c1.jpg" style="">
+<div class="text">
+<h1 class="main">
+<span>STEMMA</span>
+</h1>
+<div class="tagline">
+<span>Plug-n-play components</span>
+</div>
+</div>
+<div class="button">
+<a title="Plug-n-play components, STEMMA" href="https://learn.adafruit.com/category/stemma">Get connected</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-link">
+<a class="new-guides-link" href="https://learn.adafruit.com/guides/latest">New Guides</a>
+</li>
+</ul>
+</div>
+<div class="right-content">
+<div class="search-wrapper">
+<form action="/search" method="get" accesskey="s" role="search">
+<label for="search" style="display:none;">Search</label>
+<div id="search-info" type="text" name="q" autocomplete="off" data-page="" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com"></div>
+<div id="search"><div class="ais-SearchBox"><form action="" role="search" class="ais-SearchBox-form" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="512"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query." hidden=""><svg class="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40"> <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path> </svg></button><button class="ais-SearchBox-reset" type="reset" title="Clear the search query." hidden=""><svg class="ais-SearchBox-resetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10"> <path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"></path> </svg></button><span class="ais-SearchBox-loadingIndicator" hidden=""><svg class="ais-SearchBox-loadingIcon" width="16" height="16" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#444"> <g fill="none" fillrule="evenodd"> <g transform="translate(1 1)" strokewidth="2"> <circle strokeopacity=".5" cx="18" cy="18" r="18"></circle> <path d="M36 18c0-9.94-8.06-18-18-18"> <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"></animateTransform> </path> </g> </g> </svg></span></form></div></div>
+<i class="fa fa-search"></i>
+<input type="submit" style="visibility: hidden; position: fixed;">
+</form>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<div id="main-content-container">
+<div class="nav-bar ">
+<div class="content">
+<div class="left-content">
+<div class="breadcrumbs" aria-label="Breadcrumbs">
+<a href="https://learn.adafruit.com/"><i class="fa fa-home"></i></a>
+<i class="fa fa-chevron-right separator"></i>
+<a href="https://learn.adafruit.com/character-lcds">Character LCDs</a> <i class="fa fa-chevron-right separator"></i> Wiring a Character LCD
+</div>
+</div>
+<div class="right-content">
+</div>
+</div>
+</div>
+<div id="page-wrapper" class="">
+<article id="content-wrapper" class="double-sidebar-layout" data-page-id="235" data-guide-id="51">
+<aside class="sidebar-left-wrapper">
+<div class="sidebar-left-content" data-clampedwidth=".sidebar-left-wrapper">
+<div class="sidebar-left">
+<header aria-label="Guide information" class="title-bar">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_LCDblue162ard.jpg" style="">
+</div>
+<h1>Character LCDs</h1>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span id="author-name" class="name">lady ada</span>
+</a> </div>
+<div class="page-tagline" aria-label="Guide tagline">Wiring up a character LCD to an Arduino</div>
+</header>
+<nav aria-label="Guide navigation">
+<ul class="page-parent" aria-label="Guide pages">
+<li class="parent ">
+<a class="published" href="https://learn.adafruit.com/character-lcds/overview">Overview</a>
+</li>
+<li class="parent ">
+<a class="published" href="https://learn.adafruit.com/character-lcds/character-vs-graphical-lcds">Character vs. Graphical LCDs</a>
+</li>
+<li class="parent ">
+<a class="published" href="https://learn.adafruit.com/character-lcds/lcd-varieties">LCD Varieties</a>
+</li>
+<li class="parent active">
+<a class="published" href="https://learn.adafruit.com/character-lcds/wiring-a-character-lcd">Wiring a Character LCD</a>
+</li>
+<li class="parent ">
+<a data-toggle="collapse" class="collapsed-icon collapsed" href="#page-242-children"></a>
+<a class="published" href="https://learn.adafruit.com/character-lcds/arduino-code">Arduino Code</a>
+<ul id="page-242-children" class="collapse  page-child nav">
+<li class="published ">
+<a class="published" href="https://learn.adafruit.com/character-lcds/rgb-backlit-lcds">RGB Backlit LCDs</a>
+</li>
+</ul></li>
+<li class="parent ">
+<a data-toggle="collapse" class="collapsed-icon collapsed" href="#page-10853-children"></a>
+<a class="published" href="https://learn.adafruit.com/character-lcds/python-circuitpython">Python &amp; CircuitPython</a>
+<ul id="page-10853-children" class="collapse  page-child nav">
+<li class="published ">
+<a href="https://circuitpython.readthedocs.io/projects/charlcd/en/latest/" class="published">Python Docs <i class="fa fa-external-link"></i></a>
+</li>
+</ul></li>
+<li class="parent ">
+<a class="published" href="https://learn.adafruit.com/character-lcds/the-createchar-command">The createChar Command</a>
+</li>
+</ul>
+<div class="single-page-spacer"></div>
+<ul class="page-parent" aria-label="Guide resources">
+<li class="single-page-link ">
+<a href="https://learn.adafruit.com/character-lcds/featured_products">Featured Products</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/character-lcds?view=all">Single page</a>
+</li>
+<li><a href="https://cdn-learn.adafruit.com/downloads/pdf/character-lcds.pdf?timestamp=1611206625">Download PDF</a></li>
+</ul>
+</nav>
+<a class="feedback-link" title="Feedback? Corrections?" rel="nofollow" data-remote="true" data-method="get" href="https://learn.adafruit.com/feedback/new?page_id=235">
+Feedback? Corrections?
+</a>
+</div>
+</div>
+</aside>
+<section class="main-content" role="region" aria-label="Page content">
+<div class="page-header-wrapper">
+<h1 class="headline" aria-label="Page title">
+Wiring a Character LCD
+</h1>
+
+<div class="badges">
+<span id="guide-favorite">
+<a class="badge category right red" aria-label="Select to like this guide." data-remote="true" rel="nofollow" data-method="post" href="https://learn.adafruit.com/guides/51/favorites.js">
+<i class="fa fa-heart-o"></i> Like
+</a></span>
+</div>
+</div>
+<div class="page-content">
+<div class="" aria-role="region" aria-label="Page content">
+<div class="row-fluid build-text">
+<h2>
+<div class="anchor-anchor">
+<a href="#installing-the-header-pins-2973874-1" class="anchor-link"><span class="fa fa-link"></span></a><span id="installing-the-header-pins-2973874-1" class="anchor-link-target"></span>
+</div>Installing the Header Pins</h2>
+</div>
+<div class="row-fluid build-image" aria-label="Image: lcds___displays_parts.jpg">
+<a href="https://learn.adafruit.com/assets/922">
+<img class="922-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="lcds___displays_parts.jpg" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_parts_004.jpg" style="" srcset="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_parts_003.jpg 260w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_parts.jpg 640w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_parts_004.jpg 800w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_parts_002.jpg 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<span>OK now you've got your LCD, you'll also need a couple other 
+things. First is a 10K potentiometer. This will let you adjust the 
+contrast. Each LCD will have slightly different contrast settings so you
+ should try to get some sort of trimmer. You'll also need some 0.1" 
+header - 16 pins long.</span>
+</div>
+<div class="row-fluid build-image" aria-label="Image: lcds___displays_headersize.jpg">
+<a href="https://learn.adafruit.com/assets/923">
+<img class="923-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="lcds___displays_headersize.jpg" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_headersize_004.jpg" style="" srcset="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_headersize_003.jpg 260w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_headersize.jpg 640w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_headersize_004.jpg 800w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_headersize_002.jpg 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<p>If the header is too long, just cut/snap it short!</p>
+<p>Next you'll need to solder the header to the LCD.<strong>You must do this, it is not OK to just try to 'press fit' the LCD!</strong></p>
+<p>Also watch out not to apply too much heat, or you may melt the 
+underlying breadboard. You can try 'tacking' pin 1 and pin 16 and then 
+removing from the breadboard to finish the remaining solder points<strong><br></strong></p>
+</div>
+<div class="row-fluid build-image" aria-label="Image: lcds___displays_lcdbb.jpg">
+<a href="https://learn.adafruit.com/assets/924">
+<img class="924-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="lcds___displays_lcdbb.jpg" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb_004.jpg" style="" srcset="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb_003.jpg 260w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb.jpg 640w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb_004.jpg 800w, Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb_002.jpg 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid build-text">
+<span>The easiest way we know of doing this is sticking the header into a
+ breadboard and then sitting the LCD on top while soldering. this keeps 
+it steady.</span>
+</div>
+<div class="row-fluid build-text">
+<h2>
+<div class="anchor-anchor">
+<a href="#power-and-backlight-2973881-8" class="anchor-link"><span class="fa fa-link"></span></a><span id="power-and-backlight-2973881-8" class="anchor-link-target"></span>
+</div>Power and Backlight</h2>
+</div>
+<table class="build-table">
+<tbody><tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973882" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973882" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/925">
+<img class="925-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdbb2.jpg" alt="lcds___displays_lcdbb2.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>K now we're onto the interesting stuff! Get your LCD plugged into the breadboard.</span></div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973883" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973883" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/926">
+<img class="926-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_bbpower.jpg" alt="lcds___displays_bbpower.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>Now we'll provide power to the breadboard. Connect +5V to the red rail, and Ground to the blue rail.</span></div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973884" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973884" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/927">
+<img class="927-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_backlitepower.jpg" alt="lcds___displays_backlitepower.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">Next we'll connect up the 
+backlight for the LCD. Connect pin 16 to ground and pin 15 to +5V. On 
+the vast majority of LCDs (including ones from Adafruit) the LCD 
+includes a series resistor for the LED backlight.<br><br>If you happen 
+to have one that does not include a resistor, you'll need to add one 
+between 5V and pin 15. To calculate the value of the series resistor, 
+look up the maximum backlight current and the typical backlight voltage 
+drop from the data sheet. Subtract the voltage drop from 5 volts, then 
+divide by the maximum current, then round up to the next standard 
+resistor value. For example, if the backlight voltage drop is 3.5v 
+typical and the rated current is 16mA, then the resistor should be (5 - 
+3.5)/0.016 = 93.75 ohms, or 100 ohms when rounded up to a standard 
+value. If you can't find the data sheet, then it should be safe to use a
+ 220 ohm resistor, although a value this high may make the backlight 
+rather dim.</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973885" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973885" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/928">
+<img class="928-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_backlitetest.jpg" alt="lcds___displays_backlitetest.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>Connect the Arduino up to power, you'll notice the backlight lights up.</span></div></td>
+</tr>
+</tbody></table>
+<div class="row-fluid build-text">
+<span>Note that some low-cost LCDs dont come with a backlight. Obviously in this case you should just keep going.</span>
+</div>
+<div class="row-fluid build-text">
+<h2>
+<div class="anchor-anchor">
+<a href="#contrast-circuit-2973887-14" class="anchor-link"><span class="fa fa-link"></span></a><span id="contrast-circuit-2973887-14" class="anchor-link-target"></span>
+</div>Contrast Circuit</h2>
+</div>
+<table class="build-table">
+<tbody><tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973888" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973888" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/929">
+<img class="929-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_potplace.jpg" alt="lcds___displays_potplace.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>Next, lets place the contrast pot, it goes on the side near pin 1.</span></div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973889" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973889" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/930">
+<img class="930-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_potwire.jpg" alt="lcds___displays_potwire.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">Connect one side of the pot to 
++5V and the other to Ground (it doesn't matter which goes on what side).
+ The middle of the pot (wiper) connects to pin 3 of the LCD.</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973890" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973890" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/931">
+<img class="931-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_lcdpower.jpg" alt="lcds___displays_lcdpower.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>Now we'll wire up the logic of the LCD - this is seperate from the backlight! Pin 1 is ground and pin 2 is +5V.</span></div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973891" class="anchor-link"><span class="fa fa-link"></span></a>
+ </div>
+<span id="step-2973891" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/933">
+<img class="932-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_contrasttest.jpg" alt="lcds___displays_contrasttest1.jpg">
+</a></li>
+<li class="small-side">
+<a class="medium-side-image-link" href="https://learn.adafruit.com/assets/932">
+<img class="932-asset small-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_contrasttest1.jpg" alt="lcds___displays_contrasttest1.jpg">
+</a> </li>
+<li class="small-side">
+<a class="medium-side-image-link" href="https://learn.adafruit.com/assets/933">
+<img class="933-asset small-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_contrasttest_002.jpg" alt="lcds___displays_contrasttest.jpg">
+</a> </li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>Now turn on the Arduino, 
+you'll see the backlight light up (if there is one), and you can also 
+twist the pot to see the first line of rectangles appear.</span></div></td>
+</tr>
+</tbody></table>
+<div class="row-fluid build-text">
+<span>This means you've got the logic, backlight and contrast all worked out. Don't keep going unless you've got this figured out!</span>
+</div>
+<div class="row-fluid build-text">
+<h2>
+<div class="anchor-anchor">
+<a href="#bus-wiring-2973893-20" class="anchor-link"><span class="fa fa-link"></span></a><span id="bus-wiring-2973893-20" class="anchor-link-target"></span>
+</div>Bus Wiring</h2>Now we'll finish up the wiring by connecting the data lines. There are 11 bus lines:&nbsp;<strong>D0</strong>&nbsp;through&nbsp;<strong>D7</strong>&nbsp;(8 data lines) and&nbsp;<strong>RS</strong>,&nbsp;<strong>EN</strong>, and&nbsp;<strong>RW</strong>. D0-D7 are the pins that have the raw data we send to the display. The<strong>RS</strong>&nbsp;pin
+ lets the microcontroller tell the LCD whether it wants to display that 
+data (as in, an&nbsp;ASCII&nbsp;character) or whether it is a command 
+byte (like, change posistion of the cursor). The&nbsp;<strong>EN</strong>&nbsp;pin is the 'enable' line we use this to tell the LCD when data is ready for reading. The&nbsp;<strong>RW</strong>&nbsp;pin is used to set the direction - whether we want to write to the display (common) or read from it (less common)<p>The good news is that not all these pins are necessary for us to connect to the microcontroller (Arduino).&nbsp;<strong>RW</strong>&nbsp;for
+ example, is not needed if we're only writing to the display (which is 
+the most common thing to do anyways) so we can 'tie' it to ground. There
+ is also a way to talk to the LCD using only 4 data pins instead of 8. 
+This saves us 4 pins! Why would you ever want to use 8 when you could 
+use 4? We're not 100% sure but we think that in some cases its faster to
+ use 8 - it takes twice as long to use 4 - and that speed is important. 
+For us, the speed isn't so important so we'll save some pins!</p>
+<p>So to recap, we need 6 pins:&nbsp;<strong>RS, EN, D7, D6, D5,&nbsp;</strong>and&nbsp;<strong>D4</strong>&nbsp;to talk to the LCD.</p>
+<p>We'll be using the&nbsp;<strong>LiquidCrystal</strong>&nbsp;library 
+to talk to the LCD so a lot of the annoying work of setting pins and 
+such is taken care of. Another nice thing about this library is that you
+ can use&nbsp;<strong>any</strong>&nbsp;Arduino pin to connect to the 
+LCD pins. So after you go through this guide, you'll find it easy to 
+swap around the pins if necessary</p>
+</div>
+<table class="build-table">
+<tbody><tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973894" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973894" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/934">
+<img class="934-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_rwpin.jpg" alt="lcds___displays_rwpin.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">
+<span>As mentioned, we'll not be using the&nbsp;</span><strong>RW</strong><span>&nbsp;pin, so we can tie it go ground. That's pin 5 as shown here.</span>
+</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973895" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973895" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/935">
+<img class="935-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_rspin.jpg" alt="lcds___displays_rspin.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">
+<span>Next is the&nbsp;</span><strong>RS</strong><span>&nbsp;pin #4. We'll use a brown wire to connect it to Arduino's digital pin #</span><strong>7.</strong>
+</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973896" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973896" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/936">
+<img class="936-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_enpin.jpg" alt="lcds___displays_enpin.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">
+<span>Next is the&nbsp;</span><strong>EN</strong><span>&nbsp;pin #6, we'll use a white wire to connect it to Arduino digital #</span><strong>8.</strong>
+</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973897" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973897" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/937">
+<img class="937-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_db7pin.jpg" alt="lcds___displays_db7pin.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">
+<span>Now we will wire up the data pins.&nbsp;</span><strong>DB7</strong><span>&nbsp;is pin #14 on the LCD, and it connects with an orange wire to Arduino #</span><strong>12.</strong>
+</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973898" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973898" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/938">
+<img class="938-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_datapins.jpg" alt="lcds___displays_datapins.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text">Next are the remaining 3 data lines,&nbsp;<strong>DB6</strong>&nbsp;(pin #13 yellow)&nbsp;<strong>DB5</strong>&nbsp;(pin #12 green) and&nbsp;<strong>DB4</strong>&nbsp;(pin #11 blue) which we connect to Arduino #<strong>11, 10</strong>&nbsp;and&nbsp;<strong>9.<br><br>You should have four 'gap' pins on the LCD between the 4 data bus wires and the control wires.<br></strong>
+</div></td>
+</tr>
+<tr class="build-row">
+<td class="side-images">
+<div class="anchor-anchor">
+<a href="#step-2973899" class="anchor-link"><span class="fa fa-link"></span></a>
+</div>
+<span id="step-2973899" class="anchor-link-target"></span>
+<ul>
+<li class="medium-side">
+<a class="large-side-image-link" href="https://learn.adafruit.com/assets/939">
+<img class="939-asset medium-side-image img-responsive" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_bigpicture.jpg" alt="lcds___displays_bigpicture.jpg">
+</a></li>
+</ul>
+</td>
+<td class="side-text"><div class="text"><span>This is what you'll have on your desk.</span></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="page-navigation">
+<a class="previous-page btn-primary large" aria-label="Previous page" href="https://learn.adafruit.com/character-lcds/lcd-varieties">
+<i class="fa fa-chevron-left"></i>&nbsp;LCD Varieties
+</a> <a class="next-page btn-primary large" aria-label="Next page" href="https://learn.adafruit.com/character-lcds/arduino-code">
+Arduino Code&nbsp;<i class="fa fa-chevron-right"></i>
+</a> </div>
+<div class="page-last-updated">
+<p>
+This guide was first published on Jul 29, 2012. It was last
+updated on Jul 29, 2012.
+</p>
+<p>
+This page (Wiring a Character LCD) was last updated on Jan 20, 2021.
+</p>
+</div>
+</section>
+<aside class="sidebar-right-wrapper">
+<div class="sidebar-right-content">
+<section class="guide-metadata" aria-label="Guide metadata">
+<div class="metadata-group" aria-label="Skill level">
+<i class="fa fa-ellipsis-h" alt="Skill Level" title="Skill Level"></i>
+<div>Difficulty: Beginner</div>
+</div>
+<div class="metadata-group" aria-label="Guide type">
+<i class="fa fa-bars" alt="Guide type" title="Guide type"></i>
+<div>Guide Type: Tutorial</div>
+</div>
+<div class="metadata-group" aria-label="Guide contributors">
+<i class="fa fa-user" alt="contributors" title="contributors"></i>
+<div>Contributors: <a href="https://learn.adafruit.com/users/adafruit2">lady ada</a>, <a href="https://learn.adafruit.com/users/tdicola">Tony DiCola</a>, <a href="https://learn.adafruit.com/users/kattni">Kattni Rembor</a></div>
+</div>
+<div class="metadata-group" aria-label="Guide categories">
+<i class="fa fa-sitemap" alt="Categories" title="Categories"></i>
+<div>Categories: <a href="https://learn.adafruit.com/category/arduino">Arduino Compatibles</a><span class="category-link-spacer">/</span><a href="https://learn.adafruit.com/category/learn-arduino">Learn Arduino</a><br><a href="https://learn.adafruit.com/category/lcds-and-displays">LCDs &amp; Displays</a><span class="category-link-spacer">/</span><a href="https://learn.adafruit.com/category/character-displays">Character Displays</a><br><a href="https://learn.adafruit.com/category/lcds-and-displays">LCDs &amp; Displays</a><span class="category-link-spacer">/</span><a href="https://learn.adafruit.com/category/graphic-lcds">Graphic LCDs</a></div>
+</div>
+<div class="metadata-group" aria-label="Guide favorites count">
+<i class="fa fa-heart" alt="Favorites count" title="Favorites count"></i>
+<div>79 Likes</div>
+</div>
+</section>
+<section class="featured-products" role="region" aria-label="Featured products for Guide">
+<div class="data-header">
+Featured Products
+<span class="view-all">
+<a class="featured-products-link" href="https://learn.adafruit.com/character-lcds/featured_products">view all</a>
+</span>
+</div>
+<div class="products">
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/181-02.jpg" alt="Standard LCD 16x2 + extras" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/181">
+<div class="product-title">Standard LCD 16x2 + extras</div>
+</a> <div class="product-price">$9.95</div>
+<a id="181-product" class="product-buy btn-primary " data-pid="181" data-qty="1" data-name="Standard LCD 16x2 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/181">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/1447-02.jpg" alt="Assembled Standard LCD 16x2 + extras - White on Blue" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/1447">
+<div class="product-title">Assembled Standard LCD 16x2 + extras - White on Blue</div>
+</a> <div class="product-price">$10.95</div>
+<a id="1447-product" class="product-buy btn-primary " data-pid="1447" data-qty="1" data-name="Assembled Standard LCD 16x2 + extras - White on Blue" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/1447">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<video class="img img-responsive product-asset" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" poster="https://cdn-shop.adafruit.com/product-videos/640x480/398-06.jpg" data-error="/assets/missing%2Fmissing.png">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/398-06.mp4">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/398-06.webm" type="video/webm; codecs=vp8,vorbis">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/398-06.ogv" type="video/ogg; codecs=theora,vorbis">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/398">
+<div class="product-title">RGB backlight positive LCD 16x2 + extras</div>
+</a> <div class="product-price">$12.95</div>
+<a id="398-product" class="product-buy btn-primary " data-pid="398" data-qty="1" data-name="RGB backlight positive LCD 16x2 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/398">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<video class="img img-responsive product-asset" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" poster="https://cdn-shop.adafruit.com/product-videos/640x480/399-06.jpg" data-error="/assets/missing%2Fmissing.png">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/399-06.mp4">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/399-06.webm" type="video/webm; codecs=vp8,vorbis">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/399-06.ogv" type="video/ogg; codecs=theora,vorbis">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/399">
+<div class="product-title">RGB backlight negative LCD 16x2 + extras</div>
+</a> <div class="product-price">$13.95</div>
+<a id="399-product" class="product-buy btn-primary " data-pid="399" data-qty="1" data-name="RGB backlight negative LCD 16x2 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/399">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/198-02.jpg" alt="Standard LCD 20x4 + extras" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/198">
+<div class="product-title">Standard LCD 20x4 + extras</div>
+</a> <div class="product-price"></div>
+<a id="198-product" class="notify product-buy btn-primary " data-pid="198" data-qty="1" data-name="Standard LCD 20x4 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/198">Out of Stock</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<video class="img img-responsive product-asset" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" poster="https://cdn-shop.adafruit.com/product-videos/640x480/499-06.jpg" data-error="/assets/missing%2Fmissing.png">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/499-06.mp4">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/499-06.webm" type="video/webm; codecs=vp8,vorbis">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/499-06.ogv" type="video/ogg; codecs=theora,vorbis">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/499">
+<div class="product-title">RGB backlight positive LCD 20x4 + extras</div>
+</a> <div class="product-price">$24.95</div>
+<a id="499-product" class="product-buy btn-primary " data-pid="499" data-qty="1" data-name="RGB backlight positive LCD 20x4 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/499">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<video class="img img-responsive product-asset" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" poster="https://cdn-shop.adafruit.com/product-videos/640x480/498-06.jpg" data-error="/assets/missing%2Fmissing.png">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/498-06.mp4">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/498-06.webm" type="video/webm; codecs=vp8,vorbis">
+<source src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/498-06.ogv" type="video/ogg; codecs=theora,vorbis">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/498">
+<div class="product-title">RGB backlight negative LCD 20x4 + extras</div>
+</a> <div class="product-price">$24.95</div>
+<a id="498-product" class="product-buy btn-primary " data-pid="498" data-qty="1" data-name="RGB backlight negative LCD 20x4 + extras" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/498">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/50-09.jpg" alt="Adafruit METRO 328 Fully Assembled - Arduino IDE compatible" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/50">
+<div class="product-title">Adafruit METRO 328 Fully Assembled - Arduino IDE compatible</div>
+</a> <div class="product-price">$17.50</div>
+<a id="50-product" class="product-buy btn-primary " data-pid="50" data-qty="1" data-name="Adafruit METRO 328 Fully Assembled - Arduino IDE compatible" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/50">Add to Cart</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</aside>
+</article>
+<div class="related-guides-wrapper">
+<div class="content-card-group-preview">
+<div class="group-preview-headline">
+<h1 class="title">
+Related Guides
+</h1>
+</div>
+<a class="scroll-back"><i class="fa fa-angle-left"></i></a>
+<div class="content-card-group-container">
+<div class="content-card-group">
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/i2c-spi-lcd-backpack">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/lcds___displays_292-02.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/i2c-spi-lcd-backpack">i2c/SPI LCD Backpack</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span id="author-name" class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+28
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/reverse-geocache-engagement-box">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/propose.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/reverse-geocache-engagement-box">Reverse Geocache Box</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/tcooper">
+<span id="author-name" class="name">Tyler Cooper</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+42
+</div>
+<div class="badge skill-level-icons" title="Intermediate">
+Intermediate
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/adafruit-arduino-lesson-11-lcd-displays-1">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/overview.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/adafruit-arduino-lesson-11-lcd-displays-1">Arduino Lesson 11. LCD Displays - Part 1</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/simonmonk">
+<span id="author-name" class="name">Simon Monk</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+46
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/character-lcd-with-raspberry-pi-or-beaglebone-black">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/DSC00503_copy.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/character-lcd-with-raspberry-pi-or-beaglebone-black">Character LCD with Raspberry Pi or BeagleBone Black</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/tdicola">
+<span id="author-name" class="name">Tony DiCola</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+23
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/trinket-ultrasonic-rangefinder">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/Trinket_Maxbotix_Fritzing.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/trinket-ultrasonic-rangefinder">Trinket Ultrasonic Rangefinder</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/AnneBarela">
+<span id="author-name" class="name">Anne Barela</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+13
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/portable-solar-charging-tracker">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/assembled.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/portable-solar-charging-tracker">Portable Solar Charging Tracker</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span id="author-name" class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+28
+</div>
+<div class="badge skill-level-icons" title="Intermediate">
+Intermediate
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/ttl-serial-camera">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/397.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/ttl-serial-camera">TTL Serial Camera</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span id="author-name" class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+87
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a href="https://learn.adafruit.com/el-wire">
+<div class="image-container">
+<img aria-label="Main image for guide" class="image-preview lazy" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/EL_Wire.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/el-wire">EL Wire</a>
+<div class="author" aria-label="Guide author" aria-describedby="author-name">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span id="author-name" class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+75
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="scroll-forward"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+</div>
+<div class="modal fade" id="notify-modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a href="#" class="close" data-dismiss="modal">×</a>
+<h5>OUT OF STOCK NOTIFICATION</h5>
+</div>
+<div class="modal-body">
+<p class="notify-modal-form-header"></p>
+<div class="notify-modal-products"></div>
+<form id="notify-modal-form" name="back_in_stock_notification">
+<p class="notify-modal-form-notice"></p>
+<div class="notify-modal-break"></div>
+<div class="form-group">
+<label class="inputLabel" for="name">YOUR NAME</label>
+<input type="text" size="25" maxlength="64" name="name">
+</div>
+<div class="form-group">
+<label class="inputLabel" for="email">YOUR EMAIL</label>
+<input type="email" size="25" maxlength="96" name="email">
+</div>
+<input type="hidden" name="notify_me" value="true">
+</form>
+<div id="notify-modal-success" style="display:none">
+<p>You have been successfully subscribed to the Notification List for 
+this product and will therefore receive an e-mail from us when it is 
+back in stock!</p>
+<p>For security reasons, an e-mail has been sent to you acknowledging 
+your subscription. Please remember that this subscription will not 
+result in you receiving any e-mail from us about anything other than the
+ restocking of this item.</p>
+<p>If, for any reason, you would like to unsubscribe from the 
+Notification List for this product you will find details of how to do so
+ in the e-mail that has just been sent to you!</p>
+</div>
+</div>
+<div class="modal-footer">
+<a href="#" id="close-notify" style="display: none" data-dismiss="modal" data-target="#notify-modal">CLOSE</a>
+<a href="#" id="submit-notify" rel="nofollow" class="blue-button">NOTIFY ME</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="search-container">
+<div class="nav-bar">
+<div class="content">
+<div class="left-content">
+<div class="breadcrumbs">
+<a href="https://learn.adafruit.com/"><i class="fa fa-home"></i></a>
+<i class="fa fa-chevron-right separator"></i> Search <i class="fa fa-chevron-right separator"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-header">
+<div class="header-intro">
+<h1 class="title">Search</h1>
+<div class="breakdown">
+</div>
+</div>
+<div class="header-main-content-wrapper">
+<div class="header-main-content">
+<div id="search-refinements" class="breakdown"><div class="ais-CurrentRefinements"><ul class="ais-CurrentRefinements-list"></ul></div>
+</div>
+</div>
+</div>
+</div>
+<div class="search-content">
+<div>
+<div class="facets-wrapper">
+<h5 class="search-refinement-header">Categories</h5>
+<div id="search-categories"><div class="ais-HierarchicalMenu root ais-HierarchicalMenu--noRefinement"></div></div>
+</div>
+</div>
+<div>
+<div id="search-results"><div class="no-results">No results for query</div></div>
+<div id="search-pagination" class="pagination"><div class="ais-Pagination ais-Pagination--noRefinement"><ul class="ais-Pagination-list"><li class="ais-Pagination-item item ais-Pagination-item--firstPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">«</span></li><li class="ais-Pagination-item item ais-Pagination-item--previousPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">‹</span></li><li class="ais-Pagination-item item ais-Pagination-item--page ais-Pagination-item--selected selected"><a class="ais-Pagination-link link" aria-label="1" href="https://learn.adafruit.com/character-lcds/wiring-a-character-lcd">1</a></li><li class="ais-Pagination-item item ais-Pagination-item--nextPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">›</span></li><li class="ais-Pagination-item item ais-Pagination-item--lastPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">»</span></li></ul></div></div>
+</div>
+</div>
+</div>
+<div id="remote-modal"></div>
+<div id="main-content-overlay"></div>
+</main>
+<footer id="adafruit-footer">
+<div class="footer-container">
+<div class="application-support-link">
+<section>
+<ul>
+<li>
+<a href="https://www.adafruit.com/contact_us">Contact Us</a>
+</li>
+<li>
+<a href="https://forums.adafruit.com/">Tech Support Forums</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/faq">FAQs</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/shippinginfo">Shipping &amp; Returns</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/terms_of_service">Terms of Service</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/privacy">Privacy &amp; Legal</a>
+</li>
+</ul>
+</section>
+<section>
+<ul>
+<li>
+<a href="https://www.adafruit.com/about">About Us</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/press">Press</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/educators">Educators</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/distributors">Distributors</a>
+</li>
+<li>
+<a href="https://jobs.adafruit.com/">Jobs</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/category/14">Gift Cards</a>
+</li>
+</ul>
+</section>
+</div>
+<aside>
+<div class="quote">"Confusion and clutter are the failure of design, not the attributes of information"</div>
+<div class="quote-attribution"><a href="http://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a></div>
+</aside>
+</div>
+<div class="footer-container bottom">
+<a title="About Adafruit" id="footer-logo" href="https://learn.adafruit.com/">
+<img alt="Adafruit Logo" title="Masks save lives" src="Wiring%20a%20Character%20LCD%20|%20Character%20LCDs%20|%20Adafruit%20Learning%20System_files/adafruit_logo_small.png">
+</a>
+<div class="social-links">
+<a href="https://www.instagram.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+<a href="https://twitter.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="https://www.facebook.com/adafruitindustries" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a href="https://www.youtube.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on YouTube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+<a href="https://github.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Github"><i class="fa fa-github" aria-hidden="true"></i></a>
+<a class="tiktok-logo" aria-label="Adafruit on TikTok" href="https://www.tiktok.com/@adafruit" target="_blank" rel="noopener noreferrer"><svg viewBox="3 2 20 22" xmlns="http://www.w3.org/2000/svg"><path class="logo" d="M19.8059 7.50695C18.7771 7.50695 17.8278 7.16612 17.0655 6.59113C16.1912 5.93198 15.5631 4.9651 15.3412 3.85069C15.2863 3.57534 15.2567 3.29119 15.2539 3H12.3149V11.0308L12.3114 15.4297C12.3114 16.6057 11.5455 17.6029 10.4839 17.9536C10.1758 18.0553 9.8431 18.1036 9.49663 18.0846C9.05438 18.0603 8.63995 17.9268 8.27975 17.7113C7.51322 17.2529 6.99351 16.4212 6.97942 15.4698C6.95724 13.9829 8.15933 12.7706 9.64522 12.7706C9.93852 12.7706 10.2202 12.8185 10.4839 12.9054V10.7104V9.92134C10.2058 9.88015 9.92268 9.85867 9.63641 9.85867C8.01004 9.85867 6.48894 10.5347 5.40164 11.7526C4.57982 12.6731 4.08687 13.8473 4.01082 15.0786C3.91117 16.6962 4.50306 18.2339 5.65093 19.3683C5.81959 19.5349 5.9967 19.6895 6.1819 19.8321C7.16604 20.5894 8.36919 21 9.63641 21C9.92268 21 10.2058 20.9789 10.4839 20.9377C11.6677 20.7623 12.7599 20.2204 13.6219 19.3683C14.681 18.3215 15.2662 16.9318 15.2726 15.4526L15.2574 8.88369C15.7627 9.27347 16.3152 9.596 16.9081 9.84635C17.8303 10.2354 18.8081 10.4326 19.8144 10.4322V8.29814V7.50625C19.8151 7.50695 19.8066 7.50695 19.8059 7.50695Z" fill="currentColor"></path></svg></a>
+</div>
+<div class="footer-messaging">
+<a href="https://www.adafruit.com/about">A Minority and Woman-owned Business Enterprise (M/WBE)</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+
+</body></html>

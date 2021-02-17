@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>STM32H750VBT6 - Generic Development Board | STM32-base project</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="STM32H750VBT6 - Generic Development Board">
+<meta name="author" content="Thomas Gravekamp">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="The STM32-base project is meant for students and hobbyists. The goal of the STM32-base project is to provide a simple and easy to use base project for working with STM32 microcontrollers.">
+<meta property="og:description" content="The STM32-base project is meant for students and hobbyists. The goal of the STM32-base project is to provide a simple and easy to use base project for working with STM32 microcontrollers.">
+<link rel="canonical" href="https://stm32-base.org/boards/STM32H750VBT6-Generic-Development-Board.html">
+<meta property="og:url" content="https://stm32-base.org/boards/STM32H750VBT6-Generic-Development-Board.html">
+<meta property="og:site_name" content="STM32-base project">
+<script type="text/javascript" async="" defer="defer" src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/matomo.js"></script><script type="application/ld+json">
+{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://stm32-base.org/assets/img/logos/STM32-base_logo_no_text_transparent.png"},"name":"Thomas Gravekamp"},"headline":"STM32H750VBT6 - Generic Development Board","author":{"@type":"Person","name":"Thomas Gravekamp"},"url":"https://stm32-base.org/boards/STM32H750VBT6-Generic-Development-Board.html","description":"The STM32-base project is meant for students and hobbyists. The goal of the STM32-base project is to provide a simple and easy to use base project for working with STM32 microcontrollers.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+        <link rel="shortcut icon" href="https://stm32-base.org/assets/img/logos/favicon.ico" type="image/icon">
+        <link rel="stylesheet" href="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/style.css" type="text/css">
+        
+        <script type="text/javascript">
+            var _paq = window._paq || [];
+            _paq.push(['disableCookies']);
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u="https://analytics.stm32-base.org/";
+                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                _paq.push(['setSiteId', '1']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
+        
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="wrapper">
+                <div class="header-logo"><a href="https://stm32-base.org/"><img src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/STM32-base_logo_no_text_transparent.png" alt="STM32-base logo"></a></div>
+                <div class="header-title"><a href="https://stm32-base.org/">STM32-base</a></div>
+                <div id="hamburger" class="header-menu-toggle"><i class="fas fa-bars"></i></div>
+            </div>
+        </header>
+        <nav id="main-menu" class="site-navigation">
+            <div class="wrapper">
+                <menu class="main-menu"><li><a href="https://stm32-base.org/">Home</a></li><li><a href="https://stm32-base.org/guides">Guides</a></li><li><a href="https://stm32-base.org/concepts">Concepts</a></li><li><a href="https://stm32-base.org/boards">Boards</a></li><li><a href="https://stm32-base.org/cheatsheets">Cheatsheets</a></li><li><a href="https://github.com/STM32-base">Github</a></li></menu>
+            </div>
+        </nav>
+
+<main class="site-content">
+    <div class="wrapper">
+        
+<div class="board-header">
+    <h1>Generic Development Board</h1>
+    <p>STM32H750VBT6</p>
+    <hr>
+</div>
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-sticky-note"></i></div>
+                <h2>Board</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>Name</td><td>Generic Development Board</td></tr>
+                    <tr><td>Part</td><td>Unknown</td></tr>
+                    <tr><td>Brand</td><td>Unknown</td></tr>
+                    <tr><td>Origin</td><td>China</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-microchip"></i></div>
+                <h2>Microcontroller</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>Part</td><td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html">STM32H750VBT6</a></td></tr>
+                    <tr><td>Manufacturer</td><td><a href="https://www.st.com/content/st_com/en.html">ST-Microelectronics</a></td></tr>
+                    <tr><td>Core</td><td><a href="https://developer.arm.com/ip-products/processors/cortex-m/cortex-m7">Arm Cortex-M7</a></td></tr>
+                    <tr><td>Max. Clock Speed</td><td>400MHz</td></tr>
+                    <tr><td>Package</td><td><abbr title="Ultra Flat Quad Flat Pack No-lead">UFQFPN</abbr> 100 pins</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-memory"></i></div>
+                <h2>Internal memories</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>FLASH</td><td>128KiB</td></tr>
+                    <tr><td>SRAM</td><td>1024KiB</td></tr></tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-wave-square"></i></div>
+                <h2>Oscillators</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td><abbr title="High Speed Internal">HSI</abbr></td><td>64MHz</td></tr>
+                    <tr><td><abbr title="Low Speed Internal">LSI</abbr></td><td>32kHz</td></tr>
+                    <tr><td><abbr title="High Speed External">HSE</abbr></td><td>8MHz</td></tr>
+                    <tr><td><abbr title="Low Speed External">LSE</abbr></td><td>32.768kHz</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-bolt"></i></div>
+                <h2>Power</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>Sources</td><td><div>Any +3.3V pin (+3.3V)</div><div>Any +5V pin (+5V)</div><div>USB connector (+5V)</div></td></tr>
+                    <tr><td>V<sub>DDA</sub> pin</td><td>No</td></tr>
+                    <tr><td>V<sub>SSA</sub> pin</td><td>No</td></tr>
+                    <tr><td>V<sub>REF-</sub> pin</td><td>No</td></tr>
+                    <tr><td>V<sub>REF+</sub> pin</td><td>No</td></tr>
+                    <tr><td>Backup battery</td><td>Holder (12.5mm / 12)</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-random"></i></div>
+                <h2>Regulator</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>Manufacturer</td><td><a href="http://www.advanced-monolithic.com/">Advanced Monolithic Systems Inc.</a></td></tr>
+                    <tr><td>Part</td><td><a href="http://www.advanced-monolithic.com/products/voltreg.html#1117">AMS1117 (<code>AMS1117</code>)</a></td></tr>
+                    <tr><td>Package</td><td><abbr title="Small Outline Transistor">SOT223</abbr> 3 pins</td></tr>
+                    <tr><td>Input</td><td>+4.6V to +15V</td></tr>
+                    <tr><td>Output</td><td>+3.3V @ 1A</td></tr>
+                    <tr><td>Datasheet</td><td><a href="https://stm32-base.org/assets/pdf/regulators/AMS1117.pdf">AMS1117.pdf</a></td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-square"></i></div>
+                <h2>PCB</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr><td>Color</td><td>Blue</td></tr>
+                    <tr><td>Size (w x l)</td><td>55mm x 70mm</td></tr>
+                    <tr><td>Mounting</td><td>4x mounting hole (M3)</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exclamation-circle"></i></div>
+                <h2>Remarks</h2>
+            </div>
+            <div class="board-item-content">
+                <ul>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-image"></i></div>
+                <h2>Pictures</h2>
+            </div>
+            <div class="board-item-content">
+                
+                <figure>
+                    <img src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/STM32H750VBT6_Generic_Development_Board-1.jpg" alt="Generic Development Board: Perspective view" loading="lazy">
+                    <figcaption>Generic Development Board: Perspective view</figcaption>
+                </figure>
+                
+                <figure>
+                    <img src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/STM32H750VBT6_Generic_Development_Board-2.jpg" alt="Generic Development Board: Top view" loading="lazy">
+                    <figcaption>Generic Development Board: Top view</figcaption>
+                </figure>
+                
+                <figure>
+                    <img src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/STM32H750VBT6_Generic_Development_Board-3.jpg" alt="Generic Development Board: Bottom view" loading="lazy">
+                    <figcaption>Generic Development Board: Bottom view</figcaption>
+                </figure>
+                
+            </div>
+        </div>
+        
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-file"></i></div>
+                <h2>Resources</h2>
+            </div>
+            <div class="board-item-content">
+                <ul class="icon-list">
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-image"></i></span><a href="https://stm32-base.org/assets/img/boards/STM32H750VBT6_Generic_Development_Board-1.jpg">Perspective view</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-image"></i></span><a href="https://stm32-base.org/assets/img/boards/STM32H750VBT6_Generic_Development_Board-2.jpg">Top view</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-image"></i></span><a href="https://stm32-base.org/assets/img/boards/STM32H750VBT6_Generic_Development_Board-3.jpg">Bottom view</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="board-content with-colum-dividers">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-arrow-down"></i></div>
+                <h2>Inputs</h2>
+            </div>
+            <div class="board-item-content">
+                
+                <ul class="icon-list">
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-redo-alt"></i></span><a href="#Reset-button">Reset button</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-user"></i></span><a href="#User-button-1">User button 1</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-user"></i></span><a href="#User-button-2">User button 2</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-user"></i></span><a href="#User-button-3">User button 3</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-power-off"></i></span><a href="#Power-selection-switch">Power selection switch</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-arrow-up"></i></div>
+                <h2>Outputs</h2>
+            </div>
+            <div class="board-item-content">
+                
+                <ul class="icon-list">
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-power-off"></i></span><a href="#Power-LED">Power LED</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-user"></i></span><a href="#User-LED-1">User LED 1</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-user"></i></span><a href="#User-LED-2">User LED 2</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-ethernet"></i></div>
+                <h2>Connectors</h2>
+            </div>
+            <div class="board-item-content">
+                <ul class="icon-list">
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-exchange-alt"></i></span><a href="#Header-1">Header 1</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-exchange-alt"></i></span><a href="#Header-2">Header 2</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-exchange-alt"></i></span><a href="#SWD-header">SWD header</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fab fa-usb"></i></span><a href="#Serial-USB-connector">Serial USB connector</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-exchange-alt"></i></span><a href="#TFT-header">TFT header</a></li>
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-sd-card"></i></span><a href="#SD-card-connector">SD-card connector</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-microchip"></i></div>
+                <h2>Devices</h2>
+            </div>
+            <div class="board-item-content">
+                
+                <ul class="icon-list">
+                    
+                    
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-exchange-alt"></i></span><a href="#CH340">CH340</a></li>
+                    
+                    
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-database"></i></span><a href="#W25Q16JV">W25Q16JV</a></li>
+                    
+                    
+                    
+                    <li><span class="icon-list-icon"><i class="fas fa-database"></i></span><a href="#Generic-EEPROM">Generic EEPROM</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-header">
+    <h1>Inputs &amp; outputs</h1>
+    <hr>
+</div>
+<div class="board-content">
+    <div class="board-content-column">
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-redo-alt"></i></div>
+                <h2 id="Reset-button">Reset button</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>RESET</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Button</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>NRST</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Active low</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-user"></i></div>
+                <h2 id="User-button-1">User button 1</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>WK_UP</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Button</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>PA0</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Active high</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-user"></i></div>
+                <h2 id="User-button-2">User button 2</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>KEY0</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Button</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>PA1</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Active low</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-user"></i></div>
+                <h2 id="User-button-3">User button 3</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>KEY1</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Button</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>PA2</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Active low</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-power-off"></i></div>
+                <h2 id="Power-selection-switch">Power selection switch</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>SW5</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Switch</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>USB +5V to +5V rail</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>N.A.</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+    </div>
+    <div class="board-content-column">
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-power-off"></i></div>
+                <h2 id="Power-LED">Power LED</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>D6</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>LED</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>N.A.</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-user"></i></div>
+                <h2 id="User-LED-1">User LED 1</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>D4</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>LED</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>PB11</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Sink</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-user"></i></div>
+                <h2 id="User-LED-2">User LED 2</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>D5</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>LED</td>
+                    </tr>
+                    <tr>
+                        <td>Connected to</td>
+                        <td>PB10</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Sink</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<div class="board-header">
+    <h1>Connectors &amp; headers</h1>
+    <hr>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2 id="Header-1">Header 1 properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Pin header (2.54mm, 22x2, male)</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>Header 1 pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>E2</td>
+                        <td>-</td>
+                        <td>PE2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>E3</td>
+                        <td>-</td>
+                        <td>PE3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>E4</td>
+                        <td>-</td>
+                        <td>PE4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>E5</td>
+                        <td>-</td>
+                        <td>PE5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>E6</td>
+                        <td>-</td>
+                        <td>PE6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>C13</td>
+                        <td>-</td>
+                        <td>PC13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>C0</td>
+                        <td>-</td>
+                        <td>PC0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>C1</td>
+                        <td>-</td>
+                        <td>PC1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>C2</td>
+                        <td>-</td>
+                        <td>PC2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>10</td>
+                        <td>C3</td>
+                        <td>-</td>
+                        <td>PC3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>11</td>
+                        <td>A0</td>
+                        <td>-</td>
+                        <td>PA0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12</td>
+                        <td>A1</td>
+                        <td>-</td>
+                        <td>PA1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>13</td>
+                        <td>A2</td>
+                        <td>-</td>
+                        <td>PA2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>14</td>
+                        <td>A3</td>
+                        <td>-</td>
+                        <td>PA3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>15</td>
+                        <td>A4</td>
+                        <td>-</td>
+                        <td>PA4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>16</td>
+                        <td>A5</td>
+                        <td>-</td>
+                        <td>PA5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>17</td>
+                        <td>A6</td>
+                        <td>-</td>
+                        <td>PA6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>18</td>
+                        <td>A7</td>
+                        <td>-</td>
+                        <td>PA7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>19</td>
+                        <td>C4</td>
+                        <td>-</td>
+                        <td>PC4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>20</td>
+                        <td>C5</td>
+                        <td>-</td>
+                        <td>PC5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>21</td>
+                        <td>B0</td>
+                        <td>-</td>
+                        <td>PB0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>22</td>
+                        <td>B1</td>
+                        <td>-</td>
+                        <td>PB1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>23</td>
+                        <td>B2</td>
+                        <td>-</td>
+                        <td>PB2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>24</td>
+                        <td>E7</td>
+                        <td>-</td>
+                        <td>PE7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>25</td>
+                        <td>E8</td>
+                        <td>-</td>
+                        <td>PE8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>26</td>
+                        <td>E9</td>
+                        <td>-</td>
+                        <td>PE9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>27</td>
+                        <td>E10</td>
+                        <td>-</td>
+                        <td>PE10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>28</td>
+                        <td>E11</td>
+                        <td>-</td>
+                        <td>PE11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>29</td>
+                        <td>E12</td>
+                        <td>-</td>
+                        <td>PE12</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>30</td>
+                        <td>E13</td>
+                        <td>-</td>
+                        <td>PE13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>31</td>
+                        <td>E14</td>
+                        <td>-</td>
+                        <td>PE14</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>32</td>
+                        <td>E15</td>
+                        <td>-</td>
+                        <td>PE15</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>33</td>
+                        <td>B10</td>
+                        <td>-</td>
+                        <td>PB10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>34</td>
+                        <td>B11</td>
+                        <td>-</td>
+                        <td>PB11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>35</td>
+                        <td>B12</td>
+                        <td>-</td>
+                        <td>PB12</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>36</td>
+                        <td>B13</td>
+                        <td>-</td>
+                        <td>PB13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>37</td>
+                        <td>B14</td>
+                        <td>-</td>
+                        <td>PB14</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>38</td>
+                        <td>B15</td>
+                        <td>-</td>
+                        <td>PB15</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>39</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>40</td>
+                        <td>BOT0</td>
+                        <td>-</td>
+                        <td>BOOT0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>41</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>42</td>
+                        <td>3.3</td>
+                        <td>-</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>43</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>44</td>
+                        <td>5V</td>
+                        <td>-</td>
+                        <td>+5V rail</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2 id="Header-2">Header 2 properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Pin header (2.54mm, 22x2, male)</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>Header 2 pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>3.3</td>
+                        <td>-</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>3.3</td>
+                        <td>-</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>D8</td>
+                        <td>-</td>
+                        <td>D8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>D9</td>
+                        <td>-</td>
+                        <td>D9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>D10</td>
+                        <td>-</td>
+                        <td>D10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>D11</td>
+                        <td>-</td>
+                        <td>D11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>D12</td>
+                        <td>-</td>
+                        <td>D12</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>10</td>
+                        <td>D13</td>
+                        <td>-</td>
+                        <td>D13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>11</td>
+                        <td>D14</td>
+                        <td>-</td>
+                        <td>D14</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12</td>
+                        <td>D15</td>
+                        <td>-</td>
+                        <td>D15</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>13</td>
+                        <td>C6</td>
+                        <td>-</td>
+                        <td>C6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>14</td>
+                        <td>C7</td>
+                        <td>-</td>
+                        <td>C7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>15</td>
+                        <td>C8</td>
+                        <td>-</td>
+                        <td>C8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>16</td>
+                        <td>C9</td>
+                        <td>-</td>
+                        <td>C9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>17</td>
+                        <td>A8</td>
+                        <td>-</td>
+                        <td>A8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>18</td>
+                        <td>A9</td>
+                        <td>-</td>
+                        <td>A9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>19</td>
+                        <td>A10</td>
+                        <td>-</td>
+                        <td>A10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>20</td>
+                        <td>A11</td>
+                        <td>-</td>
+                        <td>A11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>21</td>
+                        <td>A12</td>
+                        <td>-</td>
+                        <td>A12</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>22</td>
+                        <td>A13</td>
+                        <td>-</td>
+                        <td>A13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>23</td>
+                        <td>A14</td>
+                        <td>-</td>
+                        <td>A14</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>24</td>
+                        <td>A15</td>
+                        <td>-</td>
+                        <td>A15</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>25</td>
+                        <td>C10</td>
+                        <td>-</td>
+                        <td>C10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>26</td>
+                        <td>C11</td>
+                        <td>-</td>
+                        <td>C11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>27</td>
+                        <td>C12</td>
+                        <td>-</td>
+                        <td>C12</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>28</td>
+                        <td>D0</td>
+                        <td>-</td>
+                        <td>D0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>29</td>
+                        <td>D1</td>
+                        <td>-</td>
+                        <td>D1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>30</td>
+                        <td>D2</td>
+                        <td>-</td>
+                        <td>D2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>31</td>
+                        <td>D3</td>
+                        <td>-</td>
+                        <td>D3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>32</td>
+                        <td>D4</td>
+                        <td>-</td>
+                        <td>D4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>33</td>
+                        <td>D5</td>
+                        <td>-</td>
+                        <td>D5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>34</td>
+                        <td>D6</td>
+                        <td>-</td>
+                        <td>D6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>35</td>
+                        <td>D7</td>
+                        <td>-</td>
+                        <td>D7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>36</td>
+                        <td>B3</td>
+                        <td>-</td>
+                        <td>B3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>37</td>
+                        <td>B4</td>
+                        <td>-</td>
+                        <td>B4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>38</td>
+                        <td>B5</td>
+                        <td>-</td>
+                        <td>B5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>39</td>
+                        <td>B6</td>
+                        <td>-</td>
+                        <td>B6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>40</td>
+                        <td>B7</td>
+                        <td>-</td>
+                        <td>B7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>41</td>
+                        <td>B8</td>
+                        <td>-</td>
+                        <td>B8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>42</td>
+                        <td>B9</td>
+                        <td>-</td>
+                        <td>B9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>43</td>
+                        <td>E0</td>
+                        <td>-</td>
+                        <td>E0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>44</td>
+                        <td>E1</td>
+                        <td>-</td>
+                        <td>E1</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2 id="SWD-header">SWD header properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>SWD PORT</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>J2</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Pin header (2.54mm, 22x2, male)</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>SWD header pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>VCC</td>
+                        <td>-</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>SWDIO</td>
+                        <td>-</td>
+                        <td>PA13</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>SWCLK</td>
+                        <td>-</td>
+                        <td>PA14</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fab fa-usb"></i></div>
+                <h2 id="Serial-USB-connector">Serial USB connector properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>USB Mini</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fab fa-usb"></i></div>
+                <h2>Serial USB connector pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>VCC</td>
+                        <td>+5V rail via SW5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>D-</td>
+                        <td>CH340 Pin 6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>D+</td>
+                        <td>CH340 Pin 5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>-</td>
+                        <td>ID</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>GND</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2 id="TFT-header">TFT header properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>DISPLAY PORT</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>J1</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Pin header (2.54mm, 11x1, female)</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>TFT header pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>GND</td>
+                        <td>-</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>3.3V</td>
+                        <td>-</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>PA5</td>
+                        <td>-</td>
+                        <td>PA5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>PA7</td>
+                        <td>-</td>
+                        <td>PA7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>PC4</td>
+                        <td>-</td>
+                        <td>PC4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>PC5</td>
+                        <td>-</td>
+                        <td>PC5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>PB0</td>
+                        <td>-</td>
+                        <td>PB0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>PB1</td>
+                        <td>-</td>
+                        <td>PB1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>PB2</td>
+                        <td>-</td>
+                        <td>PB2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>10</td>
+                        <td>PE7</td>
+                        <td>-</td>
+                        <td>PE7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>11</td>
+                        <td>PE8</td>
+                        <td>-</td>
+                        <td>PE8</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-sd-card"></i></div>
+                <h2 id="SD-card-connector">SD-card connector properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>microSD</td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-sd-card"></i></div>
+                <h2>SD-card connector pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>DAT2</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>CD/DAT3</td>
+                        <td>PC10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>CMD</td>
+                        <td>PC11</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>-</td>
+                        <td>VDD</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>CLK</td>
+                        <td>PD2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>-</td>
+                        <td>VSS</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>-</td>
+                        <td>DAT0</td>
+                        <td>PC8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>-</td>
+                        <td>DAT1</td>
+                        <td>PC9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>-</td>
+                        <td>CD</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>10</td>
+                        <td>-</td>
+                        <td>Body</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-header">
+    <h1>Devices</h1>
+    <hr>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>CH340 properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>U4</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer</td>
+                        <td><a href="http://wch.cn/">WCH</a></td>
+                    </tr>
+                    <tr>
+                        <td>Part</td>
+                        <td><a href="http://www.wch.cn/products/CH340.html">CH340</a></td>
+                    </tr>
+                    <tr>
+                        <td>Marking</td>
+                        <td>CH340G</td>
+                    </tr>
+                    <tr>
+                        <td>Datasheet</td>
+                        <td><a href="https://stm32-base.org/assets/pdf/devices/CH340.pdf">CH340.pdf</a></td>
+                    </tr>
+                    <tr>
+                        <td>Package</td>
+                        <td><abbr title="Shrink Small-Outline Package">SSOP</abbr> 16 pins</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>USB to Serial converter</td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2 id="CH340">CH340 pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>GND</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>TXD</td>
+                        <td>PA10</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>RXD</td>
+                        <td>PA9</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>-</td>
+                        <td>V3</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>UD+</td>
+                        <td>D+ pin on CN4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>-</td>
+                        <td>UD-</td>
+                        <td>D- pin on CN4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>-</td>
+                        <td>XI</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>-</td>
+                        <td>XO</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>-</td>
+                        <td>CTS#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>10</td>
+                        <td>-</td>
+                        <td>DSR#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>11</td>
+                        <td>-</td>
+                        <td>RI#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12</td>
+                        <td>-</td>
+                        <td>DCD#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>13</td>
+                        <td>-</td>
+                        <td>DTR#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>14</td>
+                        <td>-</td>
+                        <td>RTS#</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>15</td>
+                        <td>-</td>
+                        <td>R232</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>16</td>
+                        <td>-</td>
+                        <td>VCC</td>
+                        <td>N.C.</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-database"></i></div>
+                <h2>W25Q16JV properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>U11</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer</td>
+                        <td><a href="https://www.winbond.com/">Winbond Electronics Corporation</a></td>
+                    </tr>
+                    <tr>
+                        <td>Part</td>
+                        <td><a href="https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=en&amp;partNo=W25Q16JV">W25Q16JV</a></td>
+                    </tr>
+                    <tr>
+                        <td>Marking</td>
+                        <td>W25Q16JVSIQ</td>
+                    </tr>
+                    <tr>
+                        <td>Datasheet</td>
+                        <td><a href="https://stm32-base.org/assets/pdf/devices/W25Q16JV.pdf">W25Q16JV.pdf</a></td>
+                    </tr>
+                    <tr>
+                        <td>Package</td>
+                        <td><abbr title="Small-Outline Integrated Circuit">SOIC</abbr> 8 pins</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>2MiB Dual/Quad SPI FLASH</td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-database"></i></div>
+                <h2 id="W25Q16JV">W25Q16JV pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>/CS</td>
+                        <td>PA4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>DO</td>
+                        <td>PB4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>/WP</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>-</td>
+                        <td>GND</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>DI</td>
+                        <td>PB2</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>-</td>
+                        <td>CLK</td>
+                        <td>PB3</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>-</td>
+                        <td>/HOLD</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>-</td>
+                        <td>VCC</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="board-content">
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-database"></i></div>
+                <h2>Generic EEPROM properties</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="props-table">
+                    <tbody><tr>
+                        <td>Name</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td>U10</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Part</td>
+                        <td>Generic EEPROM</td>
+                    </tr>
+                    <tr>
+                        <td>Marking</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Datasheet</td>
+                        <td>Unavailable</td>
+                    </tr>
+                    <tr>
+                        <td>Package</td>
+                        <td><abbr title="Small-Outline Package">SOP</abbr> 8 pins</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>Generic I2C EEPROM</td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="board-content-column">
+        <div class="board-item">
+            <div class="board-item-header">
+                <div class="board-item-icon"><i class="fas fa-database"></i></div>
+                <h2 id="Generic-EEPROM">Generic EEPROM pins</h2>
+            </div>
+            <div class="board-item-content">
+                <table class="pin-table">
+                    <tbody><tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Function</th>
+                        <th>Connected to</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>A0</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>A1</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>A2</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td>
+                        <td>-</td>
+                        <td>GND</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>5</td>
+                        <td>-</td>
+                        <td>SDA</td>
+                        <td>PB7</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6</td>
+                        <td>-</td>
+                        <td>SCL</td>
+                        <td>PB6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>7</td>
+                        <td>-</td>
+                        <td>WP</td>
+                        <td>Ground plane</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>-</td>
+                        <td>VCC</td>
+                        <td>+3.3V rail</td>
+                    </tr>
+                    
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</main>
+
+
+        <footer class="site-footer">
+            <div class="wrapper">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <p>This is the <a href="https://stm32-base.org/">STM32-base project website</a>. Learn more <a href="https://stm32-base.org/general/about">about</a> the STM32-base project or check out this project on <a href="https://github.com/STM32-base">Github</a>. The STM32-base project is <i>in no way</i> affiliated with <a href="https://www.st.com/">STMicroelectronics</a>.</p>
+                    </div>
+                    <div class="footer-column">
+                        <p>This website is hosted on <a href="https://pages.github.com/">Github Pages</a>. This page is <a href="https://jeffhuang.com/designed_to_last/">designed to last</a>. Check out which <a href="https://stm32-base.org/general/license">licenses</a> apply to this website and its contents. Check out the <a href="https://stm32-base.org/general/privacy-policy">Privacy policy</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/scale.js"></script>
+        <script src="STM32H750VBT6%20-%20Generic%20Development%20Board%20|%20STM32-base%20project_files/menu.js"></script>
+    
+
+</body></html>

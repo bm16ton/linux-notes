@@ -1,0 +1,535 @@
+Calcolatori Elettronici e Sistemi Operativi
+
+HW
+Virtual board
+
+I2C driver
+for a temperature sensor
+
+MPCore
+
+rv_board
+CPU
+mptimer
+mp wdt
+
+Temperature sensor
+
+GIC
+I2C
+Memory
+
+usense
+
+Unix socket
+
+HOST
+
+Device
+I2C temperature sensor (virtual)
+connected to the i2c adapter of the rv_board
+
+Driver
+Register the device
+not performed in the board initialization code
+
+i2c address: 0x57
+
+Register a new i2c driver: usense
+
+temperature resolution: 0.1 °C
+
+On driver binding register a new char device
+
+data is sent as a 2-byte signed value (LSB first)
+default temperature read: 25 °C
+to change the “environment” temperature:
+send the string “TEMP:<value>” to the Unix socket “usense-sckt”
+value is a number in the [-100.0 , 100.0] range
+
+reading from char device returns the sensor temperature
+sensor is read with the function provided by the i2c
+subsystem:
+i2c_smbus_read_byte_data
+
+max 1 read operation / sec.
+i2c peripherals are slow
+
+usense.c: file structure
+
+usense.c: headers and macros
+#include
+#include
+#include
+#include
+#include
+
+Headers and macros
+Function prototypes
+
+<linux/module.h>
+<linux/init.h>
+<linux/slab.h>
+<linux/i2c.h>
+<linux/string.h>
+
+#include <linux/fs.h>
+#include <linux/cdev.h>
+#include <linux/uaccess.h>
+
+Device structure definition
+Globals and module parameters
+
+#define USENSE_I2C_ADDRESS
+
+0x57
+
+#define MODNAME
+
+"usense"
+
+Chardev interface (functions and structure)
+I2c interface (funcions and structure)
+Module initialization and cleanup
+Module authorship and license
+
+usense.c
+
+usense.c: function prototypes
+
+usense.c: device structure definition
+struct usense_device_descr {
+struct mutex
+mutex;
+struct cdev
+cdev;
+int
+major;
+struct i2c_client *client;
+int
+last_temperature;
+unsigned long
+last_read_time;
+int
+read;
+int
+first_read_req;
+};
+
+static
+int usense_open(struct inode *inode, struct file *file);
+static
+int usense_release(struct inode *inode, struct file *file);
+static
+ssize_t usense_read(struct file *file, char __user *buffer,
+size_t count, loff_t *offset);
+static
+int usense_read_temperature(struct i2c_client *client);
+
+static struct usense_device_descr usense_device;
+
+usense.c
+
+usense.c
+
+usense.c: module initialization and cleanup
+/* if HW info and registration is done in arch_initcall just use:
+module_i2c_driver(usense_driver);
+*/
+
+if (!usense_client) {
+pr_err(MODNAME ": Error registering i2c device\n");
+ret = -ENODEV;
+goto exit2;
+}
+
+static struct i2c_board_info usense_i2c_board_info = {
+I2C_BOARD_INFO("usense", USENSE_I2C_ADDRESS)
+};
+static struct i2c_client *usense_client;
+
+ret = i2c_add_driver(&usense_driver);
+if (ret < 0) {
+goto exit3;
+}
+
+/* Module init */
+static
+int __init usense_init_module(void)
+{
+struct i2c_adapter *adapter = i2c_get_adapter(0);
+int ret;
+
+i2c_put_adapter(adapter);
+return 0;
+exit3:
+i2c_unregister_device(usense_client);
+exit2:
+i2c_put_adapter(adapter);
+exit1:
+return ret;
+}
+
+if (!adapter) {
+pr_err(MODNAME ": Error getting i2c adapter\n");
+/* equivalent to: printk(KERN_ERR MODNAME ... */
+ret = -ENODEV;
+goto exit1;
+}
+usense_client = i2c_new_device(adapter, &usense_i2c_board_info);
+
+usense.c: module initialization and cleanup
+
+usense.c
+
+usense.c
+
+usense.c: module initialization and cleanup
+/* Module cleanup */
+static
+void __exit usense_cleanup_module(void)
+{
+i2c_del_driver(&usense_driver);
+i2c_unregister_device(usense_client);
+}
+
+usense.c: chardev interface
+static struct
+.owner
+.open
+.release
+.read
+};
+
+file_operations usense_fops = {
+=
+THIS_MODULE,
+=
+usense_open,
+=
+usense_release,
+=
+usense_read,
+
+module_init(usense_init_module);
+module_exit(usense_cleanup_module);
+
+usense.c
+
+usense.c
+
+usense.c: chardev interface
+
+usense.c: chardev interface
+
+static
+int usense_open(struct inode *inode, struct file *file)
+{
+struct usense_device_descr *dev;
+dev = container_of(inode->i_cdev, struct usense_device_descr, cdev);
+file->private_data = dev;
+dev->first_read_req = 1;
+return 0;
+
+/* Read */
+static
+ssize_t usense_read(struct file *file, char __user *buffer,
+size_t count, loff_t *offset)
+{
+struct usense_device_descr *dev = file->private_data;
+ssize_t ret = 0;
+int temperature;
+static char buff[10];
+int datalen;
+
+}
+if (mutex_lock_interruptible(&dev->mutex)) return -ERESTARTSYS;
+static
+int usense_release(struct inode *inode, struct file *file)
+{
+return 0;
+}
+
+if (!dev->read || dev->last_read_time + HZ < jiffies) {
+/* update data */
+temperature = usense_read_temperature(dev->client);
+dev->last_temperature = temperature;
+dev->last_read_time = jiffies;
+dev->read = 1;
+}
+
+usense.c
+
+usense.c: chardev interface
+
+usense.c
+
+usense.c: i2c interface
+
+if (dev->first_read_req) {
+sprintf(buff, "%d.%d\n", dev->last_temperature / 10,
+dev->last_temperature % 10);
+datalen = strlen(buff);
+if (copy_to_user(buffer, buff, datalen)) {
+ret = -EFAULT;
+} else {
+*offset += datalen;
+ret = datalen;
+dev->first_read_req = 0;
+}
+} else {
+/* signal EOF */
+ret = 0;
+dev->first_read_req = 1;
+}
+
+static const struct i2c_device_id usense_id[] = {
+{ "usense",
+/* name */
+USENSE_I2C_ADDRESS
+/* driver_data: data private to the driver */
+},
+{ } /* empty */
+};
+MODULE_DEVICE_TABLE(i2c, usense_id);
+static struct i2c_driver usense_driver = {
+.driver = {
+.name
+= "usense",
+.owner = THIS_MODULE,
+},
+.probe
+= usense_probe,
+.remove
+= usense_remove,
+.id_table
+= usense_id,
+};
+
+mutex_unlock(&dev->mutex);
+return ret;
+}
+
+usense.c
+
+usense.c
+
+usense.c: i2c interface
+
+usense.c: i2c interface
+
+/* called by kernel: just register a char interface to query the usense device */
+static
+int usense_probe(struct i2c_client *client, const struct i2c_device_id *id)
+{
+dev_t devid = 0;
+int err, devno;
+struct usense_device_descr *dev;
+
+err = alloc_chrdev_region(&devid, 0 /* minor */, 1, MODNAME);
+dev->major = MAJOR(devid);
+if (err < 0) {
+pr_warning(KERN_WARNING MODNAME ": can't get major %d\n", dev->major);
+return err;
+}
+devno = MKDEV(dev->major, 0);
+
+if (client->addr != id->driver_data) {
+pr_err(MODNAME ": wrong address (is %d)\n", client->addr);
+return -ENODEV;
+}
+
+mutex_init(&dev->mutex);
+cdev_init(&dev->cdev, &usense_fops);
+err = cdev_add(&dev->cdev, devno, 1);
+if (err) {
+/* registration failed */
+pr_err(MODNAME ": Error %d adding device\n", err);
+unregister_chrdev_region(devno, 1);
+return err;
+}
+
+memset(&usense_device, 0, sizeof(usense_device));
+dev = &usense_device;
+/* or use dynamic allocation */
+i2c_set_clientdata(client, dev);
+dev->client = client;
+
+return 0;
+}
+
+usense.c
+
+usense.c
+
+usense.c: i2c interface
+
+usense.c: i2c interface
+
+static
+int usense_remove(struct i2c_client *client)
+{
+struct usense_device_descr *dev = i2c_get_clientdata(client);
+int devno;
+
+static
+int usense_read_temperature(struct i2c_client *client)
+{
+int ret;
+int temperature;
+int8_t t;
+
+if (dev) {
+i2c_set_clientdata(client, NULL);
+cdev_del(&dev->cdev);
+devno = MKDEV(dev->major, 0 /* minor */);
+unregister_chrdev_region(devno, 1);
+}
+return 0;
+
+ret = i2c_smbus_read_byte_data(client, 0); /* temperature_lo */
+if (ret < 0) {
+pr_warn(MODNAME ": Error %d reading from device\n", ret);
+return -1;
+}
+temperature = (int8_t)ret;
+
+}
+
+ret = i2c_smbus_read_byte_data(client, 1); /* temperature_hi */
+if (ret < 0) {
+pr_warn(MODNAME ": Error %d reading from device\n", ret);
+return -1;
+}
+t = (int8_t)ret;
+temperature |= (t << 8);
+return temperature;
+
+usense.c
+
+}
+
+usense.c
+
+usense.c: module authorship and license
+
+Makefile
+# If KERNELRELEASE is defined, we've been invoked from the
+# kernel build system and can use its language.
+ifneq ($(KERNELRELEASE),)
+obj-m := usense.o
+
+MODULE_AUTHOR("Calcolatori Elettronici e Sistemi Operativi (uniud)");
+MODULE_DESCRIPTION("Example for i2c");
+MODULE_VERSION("1.0");
+MODULE_LICENSE("Dual BSD/GPL");
+
+# Otherwise we were called directly from the command
+# line; invoke the kernel build system.
+else
+KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+default:
+$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+endif
+
+Tabulation (mandatory)
+
+usense.c
+
+Makefile
+
+changetemp.c
+#define SOCKETNAME
+
+"usense-sckt"
+
+#define COMMAND_TEMP
+#define COMMAND_TEMP_LEN
+
+"TEMP:"
+sizeof(COMMAND_TEMP)
+
+#include
+#include
+#include
+#include
+#include
+#include
+#include
+
+changetemp.c
+#define TIMEOUT 10
+
+int main(int argc, char **argv)
+{
+char *socketname = SOCKETNAME;
+int main_socket;
+struct sockaddr_un address_un;
+char buf[512] = COMMAND_TEMP;
+int count;
+int i;
+int res;
+
+<unistd.h>
+<sys/types.h>
+<sys/socket.h>
+<sys/un.h>
+<stdio.h>
+<stdlib.h>
+<errno.h>
+
+if (argc > 1) {
+strncat(buf, argv[1], sizeof(buf) - COMMAND_TEMP_LEN - 1);
+} else {
+return 1;
+}
+count = strlen(buf);
+main_socket = socket(PF_UNIX, SOCK_DGRAM, 0);
+if (main_socket < 0) return -1;
+
+changetemp.c
+
+changetemp.c
+
+changetemp.c
+
+changetemp.c
+
+address_un.sun_family = AF_UNIX;
+memset(address_un.sun_path, 0, sizeof(address_un.sun_path));
+
+for (i = 0 ; i < count ; i += res) {
+res = write(main_socket, ((char*)buf) + i, count - i);
+if (res <= 0) {
+if ((errno == EAGAIN) || (errno == ENOMEM) || (errno == EINTR)) {
+continue;
+} else {
+close(main_socket);
+return res;
+}
+}
+}
+
+/* use the unix abstract namespace */
+strncpy(address_un.sun_path+1, socketname, sizeof(address_un.sun_path)-1-1);
+for (i = 0 ; i < TIMEOUT ; i++) {
+if (connect(main_socket, (void*)&address_un, sizeof(address_un)) >= 0) {
+break;
+} else {
+sleep(1);
+}
+}
+if (i == TIMEOUT) {
+return -1;
+}
+
+changetemp.c
+
+close(main_socket);
+return 0;
+}
+
+changetemp.c
+
+

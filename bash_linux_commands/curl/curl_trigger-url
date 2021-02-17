@@ -1,0 +1,30 @@
+curl --insecure https://192.168.1.196/ledsw
+
+
+
+You can also specify timeout using -m option as shown below:
+This request will timeout in 2 seconds if it doesn't receive any response.
+
+$ curl -m 2 http://api.openweathermap.org/data/2.5/weather
+                    ?q=London,uk&appid=bd82977b86bf27fb59a04b61b657fb6f
+
+
+You can also use curl to send HTTP post requests. All you need to do is use the --data option to specify the data you want to POST to web service e.g.
+
+$ curl --data "param1=value1&param2=value2" http://locahost:8080/weather
+
+
+if you want to send data from file to web service, you can also use the following command:
+
+$ curl -X POST -d @filename http://locahost:8080/weather
+
+
+Similarly, if you're going to upload a file, you can do so by executing the following command:
+
+$ curl --form "fileupload=@filename.txt" http://locahost:8080/weather
+
+
+
+
+
+

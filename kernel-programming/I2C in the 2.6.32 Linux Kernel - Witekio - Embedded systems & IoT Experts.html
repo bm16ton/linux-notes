@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<title>I2C in the 2.6.32 Linux Kernel - Witekio - Embedded systems &amp; IoT Experts</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<link rel="icon" type="image/png" href="https://witekio.com/wp-content/themes/witekio/fav/favicon.png">
+
+	<script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/uwt.js"></script><script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/insight.js"></script><script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/conversion_async.js"></script><script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/analytics.js"></script><script type="text/javascript" id="www-widgetapi-script" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/www-widgetapi.js" async=""></script><script src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/iframe_api"></script><script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/munchkin.js"></script><script src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/lftracker_v1_lYNOR8x061Y8WQJZ.js"></script><script src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/autosize.js"></script>
+	<script type="text/javascript"> var tarteaucitronForceLanguage = "en"; </script>
+	<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/tarteaucitron.js"></script>
+	<script type="text/javascript">
+	    tarteaucitron.init({
+		  "privacyUrl": "", /* Privacy policy url */
+
+		  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+		  "cookieName": "tartaucitron", /* Cookie name */
+
+		  "orientation": "bottom", /* Banner position (top - bottom) */
+		  "showAlertSmall": true, /* Show the small banner on bottom right */
+		  "cookieslist": true, /* Show the cookie list */
+
+		  "adblocker": false, /* Show a Warning if an adblocker is detected */
+		  "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+		  "highPrivacy": false, /* Disable auto consent */
+		  "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+		  "removeCredit": true, /* Remove credit link */
+		  "moreInfoLink": true, /* Show more info link */
+		  "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+
+		  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+	                      
+		  "readmoreLink": "" /* Change the default readmore link */
+	    });
+    </script>
+	<script>(function () {
+        window.ldfdr = window.ldfdr || {};
+        (function (d, s, ss, fs) {
+            fs = d.getElementsByTagName(s)[0];
+
+            function ce(src) {
+                var cs = d.createElement(s);
+                cs.src = src;
+                setTimeout(function () {
+                    fs.parentNode.insertBefore(cs, fs)
+                }, 1);
+            }
+            ce(ss);
+        })(document, 'script', 'https://sc.lfeeder.com/lftracker_v1_lYNOR8x061Y8WQJZ.js');})(); </script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v14.6.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="This articles investigates the I2C framework and provides a brief guide to writing an I2C slave device driver in the Linux kernel.">
+	<meta name="robots" content="index, follow">
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="I2C in the 2.6.32 Linux Kernel - Witekio - Embedded systems &amp; IoT Experts">
+	<meta property="og:description" content="This articles investigates the I2C framework and provides a brief guide to writing an I2C slave device driver in the Linux kernel.">
+	<meta property="og:url" content="https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/">
+	<meta property="og:site_name" content="Witekio - Embedded systems &amp; IoT Experts">
+	<meta property="article:published_time" content="2017-05-12T13:09:59+00:00">
+	<meta property="article:modified_time" content="2021-01-19T15:42:42+00:00">
+	<meta property="og:image" content="https://witekio.com/wp-content/uploads/2017/05/Article_I2Cinthe2632Linuxkernel_keyvisual.jpg">
+	<meta property="og:image:width" content="500">
+	<meta property="og:image:height" content="500">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://witekio.com/#website","url":"https://witekio.com/","name":"Witekio - Embedded systems &amp; IoT Experts","description":"We are an international team of embedded system software and IoT experts. Since 2002 we help high tech device makers build great software.","potentialAction":[{"@type":"SearchAction","target":"https://witekio.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/#primaryimage","inLanguage":"en-US","url":"https://witekio.com/wp-content/uploads/2017/05/Article_I2Cinthe2632Linuxkernel_keyvisual.jpg","width":500,"height":500,"caption":"Witekio blog I2C in the Linux Kernel"},{"@type":"WebPage","@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/#webpage","url":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/","name":"I2C in the 2.6.32 Linux Kernel - Witekio - Embedded systems &amp; IoT Experts","isPartOf":{"@id":"https://witekio.com/#website"},"primaryImageOfPage":{"@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/#primaryimage"},"datePublished":"2017-05-12T13:09:59+00:00","dateModified":"2021-01-19T15:42:42+00:00","author":{"@id":"https://witekio.com/#/schema/person/8b60be456d0ac7e59707f684ed45c1ec"},"description":"This articles investigates the I2C framework and provides a brief guide to writing an I2C slave device driver in the Linux kernel.","breadcrumb":{"@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/"]}]},{"@type":"BreadcrumbList","@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://witekio.com/","url":"https://witekio.com/","name":"Homepage"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/","url":"https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/","name":"I2C in the 2.6.32 Linux Kernel"}}]},{"@type":["Person"],"@id":"https://witekio.com/#/schema/person/8b60be456d0ac7e59707f684ed45c1ec","name":"Andrew Murray","image":{"@type":"ImageObject","@id":"https://witekio.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/06d9044f84501388bab8943b92a18c29?s=96&d=mm&r=g","caption":"Andrew Murray"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Witekio - Embedded systems &amp; IoT Experts » Feed" href="https://witekio.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Witekio - Embedded systems &amp; IoT Experts » Comments Feed" href="https://witekio.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Witekio - Embedded systems &amp; IoT Experts » I2C in the 2.6.32 Linux Kernel Comments Feed" href="https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-email-spam-blocker-css" href="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/contact-form-7-email-spam-blocker-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpml-tm-admin-bar-css" href="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/admin-bar-style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bones-stylesheet-css" href="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/jquery.js"></script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/contact-form-7-email-spam-blocker-public.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/lazysizes.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WP_ajax = {"ajax_url":"https:\/\/witekio.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/scripts_002.js"></script>
+<link rel="https://api.w.org/" href="https://witekio.com/wp-json/">
+<link rel="shortlink" href="https://witekio.com/?p=1118">
+<link rel="alternate" type="application/json+oembed" href="https://witekio.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://witekio.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.3.16 stt:1,4,3;">
+<noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><link rel="icon" href="https://witekio.com/wp-content/uploads/2020/08/cropped-imageonline-co-whitebackgroundremoved-32x32.png" sizes="32x32">
+<link rel="icon" href="https://witekio.com/wp-content/uploads/2020/08/cropped-imageonline-co-whitebackgroundremoved-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://witekio.com/wp-content/uploads/2020/08/cropped-imageonline-co-whitebackgroundremoved-180x180.png">
+<meta name="msapplication-TileImage" content="https://witekio.com/wp-content/uploads/2020/08/cropped-imageonline-co-whitebackgroundremoved-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			.home .cbo-main .companies-inner .companies-slider .owl-item .slider-el a.el-wrap {
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.home .cbo-main .companies-inner .companies-slider .owl-item .slider-el a.el-wrap img {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}		</style>
+		
+<script type="text/javascript" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/munchkin-beta.js"></script><link rel="stylesheet" type="text/css" href="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/tarteaucitron.css"><script type="text/javascript" id="" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/tarteaucitron_002.js"></script><script type="text/javascript" id="" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/tarteaucitron_003.js"></script><script type="text/javascript" id="" async="" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/gtm.js"></script><script src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/a"></script></head>
+
+
+<body class="post-template-default single single-post postid-1118 single-format-standard body--headernormal body--scroll" style="padding-bottom: 517px;">
+<div class="cbo-global">
+
+	<header class="cbo-header">
+		<button class="header-burger">
+			<span></span>
+		</button>
+		<a href="https://witekio.com/" class="header-logo" data-wpel-link="internal">
+			<img src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/logo-full-blue.svg" class="dark lazyloaded" alt="Witekio – Embedded systems &amp; IoT Experts" data-src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full-blue.svg" loading="lazy"><noscript><img src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full-blue.svg" class="dark" alt="Witekio &#8211; Embedded systems &amp; IoT Experts" data-eio="l" /></noscript>
+			<img src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/logo-full-white.svg" class="light lazyloaded" alt="Witekio – Embedded systems &amp; IoT Experts" data-src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full-white.svg" loading="lazy"><noscript><img src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full-white.svg" class="light" alt="Witekio &#8211; Embedded systems &amp; IoT Experts" data-eio="l" /></noscript>
+		</a>
+		<button class="header-search">
+			<i class="icon icon--search"></i>
+		</button>
+		<div class="header-searchform">
+			<div class="searchform-inner cbo-container container--small">
+				<button type="button" class="searchform-close">
+					<i class="icon icon--cross"></i>
+				</button>
+				<form class="searchform-form" method="get" action="https://witekio.com/">
+					<div class="form-field">
+						<i class="icon icon--search"></i>
+						<textarea name="s" placeholder="Enter your search" id="search" style="overflow: hidden; overflow-wrap: break-word; height: 120px;"></textarea>
+					</div>
+					<button type="submit" class="cbo-button">
+						<span>Search</span>
+					</button>
+				</form>
+			</div>
+		</div>
+		<ul class="header-links">
+						<li><a href="https://witekio.com/contact/" data-wpel-link="internal">Contact us</a></li>
+									<li><a href="https://witekio.com/category/case-studies/" data-wpel-link="internal">Case Studies</a></li>
+						<li><a href="https://witekio.com/blog/" data-wpel-link="internal">Blog</a></li>
+			<li class="links-languages">
+									<a href="https://witekio.com/blog/i2c-in-the-2-6-32-linux-kernel-3/" data-wpel-link="internal">
+						<img src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/en.png" alt="" data-src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" loading="lazy" class=" lazyloaded"><noscript><img src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="" data-eio="l" /></noscript>
+						<i class="icon icon--angle"></i>
+					</a>
+								<ul>
+											<li><a href="https://witekio.com/fr/blog-fr/i2c-in-the-2-6-32-linux-kernel-3/" data-wpel-link="internal">
+							<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" loading="lazy" class="lazyload"><noscript><img src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="" data-eio="l" /></noscript>
+						</a></li>
+											<li><a href="https://witekio.com/de/blog-de/i2c-in-the-2-6-32-linux-kernel-3/" data-wpel-link="internal">
+							<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png" loading="lazy" class="lazyload"><noscript><img src="https://witekio.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png" alt="" data-eio="l" /></noscript>
+						</a></li>
+									</ul>
+			</li>
+		</ul>
+		<nav class="header-nav cbo-nav">
+			<div class="nav-inner">
+				<div class="nav-wrapper">
+					<div class="nav-main">
+						<ul id="menu-menu-principal" class=""><li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-238"><a href="https://witekio.com/software-service/" data-wpel-link="internal">Software Service</a>
+<ul class="sub-menu">
+	<li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="https://witekio.com/software-service/system-design/" data-wpel-link="internal">System Design</a></li>
+	<li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="https://witekio.com/software-service/software-development/" data-wpel-link="internal">Software Development</a></li>
+	<li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="https://witekio.com/software-service/connectivity/" data-wpel-link="internal">Connectivity</a></li>
+	<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="https://witekio.com/software-service/iot-embedded-security/" data-wpel-link="internal">IoT &amp; Embedded Security</a></li>
+	<li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="https://witekio.com/software-service/migration/" data-wpel-link="internal">Migration</a></li>
+	<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="https://witekio.com/software-service/optimization/" data-wpel-link="internal">Optimization</a></li>
+</ul>
+</li>
+<li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-245"><a href="https://witekio.com/ensuring-success/" data-wpel-link="internal">Drivers of Innovation</a>
+<ul class="sub-menu">
+	<li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="https://witekio.com/ensuring-success/ux-design-our-user-centric-approach/" data-wpel-link="internal">UX Design: our user centric approach</a></li>
+	<li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="https://witekio.com/ensuring-success/software-workshops-share-our-knowledge/" data-wpel-link="internal">Software workshops: share our knowledge</a></li>
+	<li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="https://witekio.com/ensuring-success/software-factory-high-quality-software/" data-wpel-link="internal">Software factory: high quality software</a></li>
+</ul>
+</li>
+<li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-249"><a href="https://witekio.com/software-bricks/" data-wpel-link="internal">Software Tooling</a>
+<ul class="sub-menu">
+	<li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="https://witekio.com/software-bricks/board-support-package/" data-wpel-link="internal">Board Support Package</a></li>
+	<li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-252"><a href="https://witekio.com/software-bricks/fullmetalupdate/" data-wpel-link="internal">OTA Update</a></li>
+	<li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250"><a href="https://witekio.com/software-bricks/automation-lab/" data-wpel-link="internal">Test Automation</a></li>
+</ul>
+</li>
+<li id="menu-item-42955" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-42955"><a href="https://witekio.com/category/case-studies/" data-wpel-link="internal">Success Stories</a>
+<ul class="sub-menu">
+	<li id="menu-item-46468" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-46468"><a href="https://witekio.com/blog/" data-wpel-link="internal">Blog</a></li>
+	<li id="menu-item-46462" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-46462"><a href="https://witekio.com/category/case-studies/" data-wpel-link="internal">Case studies</a></li>
+	<li id="menu-item-46463" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-46463"><a href="https://witekio.com/category/market-cases/" data-wpel-link="internal">Market cases</a></li>
+	<li id="menu-item-46464" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46464"><a href="https://witekio.com/our-white-papers/" data-wpel-link="internal">White papers</a></li>
+</ul>
+</li>
+<li id="menu-item-254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-254"><a href="https://witekio.com/about-us/" data-wpel-link="internal">About us</a>
+<ul class="sub-menu">
+	<li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a href="https://witekio.com/about-us/our-values-and-beliefs/" data-wpel-link="internal">Our values and beliefs</a></li>
+	<li id="menu-item-44624" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44624"><a href="https://witekio.com/about-us/partners/" data-wpel-link="internal">Our Partners</a></li>
+	<li id="menu-item-43864" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43864"><a href="https://witekio.com/an-avnet-company/" data-wpel-link="internal">An Avnet Company</a></li>
+	<li id="menu-item-46595" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46595"><a href="https://witekio.com/join-us/" data-wpel-link="internal">Join us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-46596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46596"><a href="https://witekio.com/join-us/jobs-offers/" data-wpel-link="internal">Jobs offers</a></li>
+	</ul>
+</li>
+	<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-257"><a href="https://witekio.com/blog/" data-wpel-link="internal">Our IoT and embedded blog</a></li>
+</ul>
+</li>
+<li id="menu-item-2476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2476"><a href="https://witekio.com/contact/" data-wpel-link="internal">Contact</a></li>
+</ul>					</div>
+					<div class="nav-secondary">
+						<ul id="menu-menu-secondaire" class=""><li id="menu-item-2477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2477"><a href="https://witekio.com/join-us/" data-wpel-link="internal">Join us</a></li>
+</ul>					</div>
+					<div class="nav-social">
+						<a href="#" class="social-switch"><i class="icon icon--circle-network"></i></a>
+												<a href="https://www.facebook.com/Witekio/" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-facebook"></i></a>
+																		<a href="https://twitter.com/Witekio_int" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-twitter"></i></a>
+																		<a href="https://www.youtube.com/channel/UC0Zd6if6-ukK3VaXSMEG2yQ" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-youtube"></i></a>
+																		<a href="https://www.linkedin.com/company/witekio" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-linkedin"></i></a>
+																	</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="cbo-main">
+
+<section class="cbo-hero hero--single">
+	<div class="hero-inner cbo-container container--small">
+
+				<div>
+						<a href="https://witekio.com/category/blog/operating-systems/" class="hero-category cbo-smalltitle" data-wpel-link="internal">
+				Operating Systems			</a>
+						<a href="https://witekio.com/category/blog/tools-methods/" class="hero-category cbo-smalltitle" data-wpel-link="internal">
+				Tools &amp; methods			</a>
+					</div>
+		
+		<h1 class="hero-title cbo-title-1">
+			I2C in the 2.6.32 Linux Kernel		</h1>
+
+		<div class="hero-breadcrumbs"><span><span><a href="https://witekio.com/" data-wpel-link="internal">Homepage</a> <i class="icon icon--angle"></i> <span class="breadcrumb_last" aria-current="page">I2C in the 2.6.32 Linux Kernel</span></span></span></div>
+		<div class="hero-picture">
+			<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src="https://witekio.com/wp-content/uploads/2017/05/Article_I2Cinthe2632Linuxkernel_keyvisual.jpg" loading="lazy" class="lazyload"><noscript><img src="https://witekio.com/wp-content/uploads/2017/05/Article_I2Cinthe2632Linuxkernel_keyvisual.jpg" alt="" data-eio="l" /></noscript>
+		</div>
+
+	</div>
+</section>
+
+<div class="cbo-single">
+
+	<div class="single-sidebar" style="margin-top: -135px;">
+				<div class="sidebar-author">
+			<div class="author-picture">
+				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src="https://witekio.com/wp-content/uploads/2020/09/0.jpg" loading="lazy" class="lazyload"><noscript><img src="https://witekio.com/wp-content/uploads/2020/09/0.jpg" alt="" data-eio="l" /></noscript>
+			</div>
+			<div class="author-name">
+				By				<strong>Andrew Murray</strong>
+			</div>
+			<div class="author-role">
+				UK Managing Director			</div>
+		</div>
+				<div class="sidebar-share cbo-share">
+			<div class="share-title">Share</div>
+			<a href="#" class="share-linkedin" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+				<i class="icon icon--circle-linkedin"></i>
+			</a>
+			<a href="#" class="share-facebook" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+				<i class="icon icon--circle-facebook"></i>
+			</a>
+			<a href="#" class="share-twitter" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+				<i class="icon icon--circle-twitter"></i>
+			</a>
+		</div>
+		<div class="sidebar-nav">
+			<div class="nav-inner is-affixed" style="height: 269px; position: relative;"><div class="inner-wrapper-sticky" style="position: fixed; top: 120px; left: 40px; width: 190px;">
+				<div class="nav-links"><a href="#cboTitle0"><span></span>Let’s dive into the Linux kernel I2C buses and devices</a><a href="#cboTitle1" class="current"><span style="height: 54.8057px;"></span>6 simple steps to write an I2C slave device driver in the 2.6.32 Linux kernel</a></div>
+								<div class="nav-contact">
+					<a href="https://witekio.com/contact/" class="cbo-button" data-wpel-link="internal">
+						A new project ?					</a>
+				</div>
+							</div></div>
+			<div class="nav-fake"></div>
+		</div>
+	</div>
+
+	<div class="cbo-flexblocks">
+<section class="cbo-text">
+	<div class="text-inner cbo-container container--normal">
+		<div class="text-content cbo-cms">
+			<p>The other day I <a href="http://lxr.linux.no/linux+v2.6.31/Documentation/i2c/upgrading-clients" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">forward-ported</a>
+ an old and abandoned touch-screen driver to the shiny new 2.6.32 Linux 
+kernel. A small portion of the work was to bring the driver in-line with
+ the latest I2C framework (notably due the removal of detach_client from
+ struct i2c_driver <a href="https://www.mail-archive.com/linux-i2c@vger.kernel.org/msg00942.html" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">since 2.6.31 </a>in
+ favour of the new device driver binding model).&nbsp;This post shares 
+my new-found understanding of the I2C framework and provides a very 
+brief guide to writing an I2C slave device driver.</p>
+<p>In a nutshell, <a href="http://en.wikipedia.org/wiki/I%C2%B2C" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">I2C</a>
+ is a simple serial bus that is often used to communicate with devices 
+such as EEPROMs and peripherals such as touchscreens – there is also <a href="http://en.wikipedia.org/wiki/System_Management_Bus" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">SMBus</a>
+ which can sometimes be considered a subset of I2C. The Linux kernel 
+breaks down I2C into ‘Buses’ and ‘Devices’, and then further breaks down
+ buses into ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L308" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">Algorithms</a>‘ and ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L331" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">Adapters</a>‘, and devices into ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L99" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">Drivers</a>‘ and ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L172" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">Clients</a>‘. We’ll take a look at these in a little more detail.</p>
+<h2 id="cboTitle0" class="cbo-wavy wavy--ready"><span class="wavy-letters"><span class="wavy-inner active"><span class="word"><span class="letter">L</span><span class="letter">e</span><span class="letter">t</span><span class="letter">’</span><span class="letter">s</span></span> <span class="word"><span class="letter">d</span><span class="letter">i</span><span class="letter">v</span><span class="letter">e</span></span> <span class="word"><span class="letter">i</span><span class="letter">n</span><span class="letter">t</span><span class="letter">o</span></span> <span class="word"><span class="letter">t</span><span class="letter">h</span><span class="letter">e</span></span> <span class="word"><span class="letter">L</span><span class="letter">i</span><span class="letter">n</span><span class="letter">u</span><span class="letter">x</span></span> <span class="word"><span class="letter">k</span><span class="letter">e</span><span class="letter">r</span><span class="letter">n</span><span class="letter">e</span><span class="letter">l</span></span> <span class="word"><span class="letter">I</span><span class="letter">2</span><span class="letter">C</span></span> <span class="word"><span class="letter">b</span><span class="letter">u</span><span class="letter">s</span><span class="letter">e</span><span class="letter">s</span></span> <span class="word"><span class="letter">a</span><span class="letter">n</span><span class="letter">d</span></span> <span class="word"><span class="letter">d</span><span class="letter">e</span><span class="letter">v</span><span class="letter">i</span><span class="letter">c</span><span class="letter">e</span><span class="letter">s</span></span></span></span></h2>
+<h3>Algorithms</h3>
+<p>An Algorithm performs the actual reading and writing of I2C messages 
+to the hardware – this may involve bit banging GPIO lines or writing to 
+an I2C controller chip. An Algorithm is&nbsp;represented by the very 
+straight-foward ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L308" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">struct i2c_algorithm</a>‘
+ structure and allows you to define function pointers to functions that 
+can write I2C messages (master_xfer) or SMBus messages (smbus_xfer).</p>
+<h3>Adapters</h3>
+<p>An Adapter effectively represents a bus – it is used to tie up a 
+particular I2C/SMBus with an algorithm and bus number. It is represented
+ by the ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L331" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">struct i2c_adapter</a>‘
+ structure. If you imagine a system where there are many I2C buses – 
+perhaps two controlled by a controller chip and one bit-banged – then 
+you would expect to see 3 instances of an i2c_adapter and 2 instances of
+ an i2c_algorithm.</p>
+<h3>Clients</h3>
+<p>A Client represents a chip (slave) on the I2C/SMBus such as a Touchscreen peripheral and is represented by a ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L172" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">struct i2c_client</a>‘ structure. This includes various members such as chip address, name and pointers to the adapter and driver.</p>
+<h3>Drivers</h3>
+<p>Finally, a driver, represented by a ‘<a href="http://lxr.linux.no/linux+v2.6.31/include/linux/i2c.h#L99" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">struct i2c_driver</a>‘
+ structure represents the device driver for a particular class of 
+I2C/SMBus slave devices, e.g. a touchscreen driver. The structure 
+contains a bunch of function pointers – the ones of interest to us are 
+the ‘probe’ and ‘remove’ pointers – which we’ll shortly come onto.</p>
+<h2 id="cboTitle1" class="cbo-wavy wavy--ready anim-cbo-wavy"><span class="wavy-letters"><span class="wavy-inner active"><span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">6</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">s</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">m</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">p</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">l</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">s</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">t</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">p</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">s</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">t</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">o</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">w</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">r</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">t</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">a</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">n</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">I</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">2</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">C</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">s</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">l</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">a</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">v</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">d</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">v</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">c</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">d</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">r</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">v</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">r</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">n</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">t</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">h</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">2</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">.</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">6</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">.</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">3</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">2</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">L</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">i</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">n</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">u</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">x</span></span> <span class="word"><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">k</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">r</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">n</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">e</span><span class="letter" style="transform: translateY(0em) translateZ(0px) rotateZ(0deg); opacity: 1;">l</span></span></span></span></h2>
+<p>So where do we start with writing an I2C slave device driver?</p>
+<p>We start by populating a ‘struct i2c_driver’ structure. In this 
+tutorial we’ll populate just the ‘driver’, ‘id_table’, ‘probe’, and 
+‘remove’ members. We’ll also use the ‘<a href="http://lxr.linux.no/linux+v2.6.31/drivers/input/touchscreen/migor_ts.c" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">migor_ts.c</a>‘ touchscreen driver as reference code.</p>
+<table style="width: 450px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 41.5625px; text-align: center; height: 29px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 524.896px; height: 29px;"><span style="color: #003c69;">static struct</span> i2c_driver migor_ts_driver = {</td>
+</tr>
+<tr style="height: 34px;">
+<td style="width: 41.5625px; text-align: center; height: 34px;"><span style="color: #00ff00;"><strong>2</strong></span></td>
+<td style="width: 524.896px; height: 34px;">&nbsp; &nbsp; &nbsp; .driver = {</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><strong>3</strong></span></td>
+<td style="width: 524.896px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .name = <span style="color: #0000ff;">“migor_ts”</span> ,</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>4</b></span></td>
+<td style="width: 524.896px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp;},</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>5</b></span></td>
+<td style="width: 524.896px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp;.probe = migor_ts_probe,</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>6</b></span></td>
+<td style="width: 524.896px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp;.<span style="color: #ff00ff;">remove</span> = migor_ts_remove,</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>7</b></span></td>
+<td style="width: 524.896px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp;.id_table = migor_ts_id,</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 41.5625px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>8</b></span></td>
+<td style="width: 524.896px; height: 28px;">};</td>
+</tr>
+</tbody>
+</table>
+<p>We tell the Linux kernel about our I2C slave driver by registering 
+the ‘struct i2c_driver’ structure with the I2C core – we do this with a 
+call to ‘i2c_add_driver’ in our __init function as follows:</p>
+<table style="width: 553px; height: 180px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 37px; text-align: center; height: 29px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 485px; height: 29px;"><span style="color: #003c69;">static <span style="color: #808080;">int</span> <span style="color: #000000;">_&nbsp;init migor_ts_init (<span style="color: #003c69;">void</span>)</span></span></td>
+</tr>
+<tr style="height: 34px;">
+<td style="width: 37px; text-align: center; height: 34px;"><span style="color: #00ff00;"><strong>2</strong></span></td>
+<td style="width: 485px; height: 34px;">{</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><strong>3</strong></span></td>
+<td style="width: 485px; height: 28px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #003c69;">return</span> i2c_add_driver(&amp;migor_ts_driver);</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>4</b></span></td>
+<td style="width: 485px; height: 28px;">}</td>
+</tr>
+</tbody>
+</table>
+<p>Back to our ‘struct i2c_driver’ structure – the id_table member 
+allows us to tell the framework which I2C slaves chips we support – 
+id_table is simply an array of ‘struct i2c_device_id’ – here’s the 
+migors:</p>
+<table style="width: 553px; height: 180px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 37px; text-align: center; height: 29px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 485px; height: 29px;"><span style="color: #003c69;">static struct</span> i2c_device_id migor_ts_id[] = {</td>
+</tr>
+<tr style="height: 34px;">
+<td style="width: 37px; text-align: center; height: 34px;"><span style="color: #00ff00;"><strong>2</strong></span></td>
+<td style="width: 485px; height: 34px;">{ “<span style="color: #0000ff;">migor_ts</span>“, 0 } ,</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><strong>3</strong></span></td>
+<td style="width: 485px; height: 28px;">{ }</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>4</b></span></td>
+<td style="width: 485px; height: 28px;">};</td>
+</tr>
+</tbody>
+</table>
+<p>So in this case we’re saying that we only support a slave chip named 
+‘migor_ts’. This makes us wonder – how does the Linux kernel know which 
+slave chips are present and what they’re called? – we know the chip 
+doesn’t contain such friendly naming strings and I2C doesn’t support 
+enumeration. There is no magic –<a href="http://lxr.linux.no/linux+v2.6.31/Documentation/i2c/instantiating-devices" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external"> there are a number of mechanisms to discover and name an I2C slave</a>
+ – the most common in embedded devices is to define in your board set up
+ file what slave devices you expect to see, their address and name. For 
+example in the <a href="http://lxr.linux.no/linux+v2.6.31/arch/sh/boards/mach-migor/setup.c" target="_blank" rel="nofollow noopener external noreferrer" data-wpel-link="external">arch/sh/boards/mach-migor/setup.c</a> file we see the following:</p>
+<table style="width: 553px; height: 180px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 37px; text-align: center; height: 29px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 485px; height: 29px;"><span style="color: #003c69;">static</span>&nbsp;<span style="color: #003c69;">struct <span style="color: #000000;">i2c_board_info migor_i2c_devices[] = {</span></span></td>
+</tr>
+<tr style="height: 34px;">
+<td style="width: 37px; text-align: center; height: 34px;"><span style="color: #00ff00;"><strong>2</strong></span></td>
+<td style="width: 485px; height: 34px;">{</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><strong>3</strong></span></td>
+<td style="width: 485px; height: 28px;">I2C_BOARD_INFO(<span style="color: #0000ff;">“migor_ts”</span> , 0x51),</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>4</b></span></td>
+<td style="width: 485px; height: 28px;">.irq = 38, <span style="color: #008000;">/* IRQ6 */</span></td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>5</b></span></td>
+<td style="width: 485px; height: 28px;">},</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>6</b></span></td>
+<td style="width: 485px; height: 28px;">};</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>7</b></span></td>
+<td style="width: 485px; height: 28px;"></td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>8</b></span></td>
+<td style="width: 485px; height: 28px;">i2c_register_board_info(0, migor_i2c_devices, ARRAY_SIZE(migor_i2c_devices));</td>
+</tr>
+</tbody>
+</table>
+<p>Without going into too much detail here – we populate a ‘struct 
+i2c_board_info’ structure with the help of a I2C_BOARD_INFO macro 
+–&nbsp;crucially&nbsp;we include a made up name for the slave chip and 
+it’s I2C bus address.</p>
+<p>So back to the migor driver. During boot, thanks to the 
+‘i2c_register_board_info’ call, the kernel will try to find any I2C 
+driver which supports the ‘migor_ts’ name we provided. Upon finding such
+ a driver, the Linux kernel will call it’s ‘probe’ function. The idea 
+being that the Linux kernel believes it has found an I2C slave and would
+ like us to probe to make sure that we are a suitable driver (It’s worth
+ noting that the kernel won’t attempt to communicate with this device in
+ any way).</p>
+<p>So if all is well – upon start up the Linux kernel should call our probe function – let’s take a look.</p>
+<table style="width: 552px; height: 180px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 37px; text-align: center; height: 29px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 485px; height: 29px;"><span style="color: #003c69;">static <span style="color: #999999;">int <span style="color: #000000;">migor_ts_probe(<span style="color: #003c69;">struct</span> i2c_client * client, <span style="color: #003c69;">construct</span> i2c_device_id*idp)</span></span></span></td>
+</tr>
+<tr style="height: 34px;">
+<td style="width: 37px; text-align: center; height: 34px;"><span style="color: #00ff00;"><strong>2</strong></span></td>
+<td style="width: 485px; height: 34px;">{</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><strong>3</strong></span></td>
+<td style="width: 485px; height: 28px;">…</td>
+</tr>
+<tr style="height: 28px;">
+<td style="width: 37px; text-align: center; height: 28px;"><span style="color: #00ff00;"><b>4</b></span></td>
+<td style="width: 485px; height: 28px;">}</td>
+</tr>
+</tbody>
+</table>
+<p>Passed along as a parameter to the probe function is a ‘struct 
+i2c_client’ structure – this represents our I2C slave chip. Typically a 
+probe function where possible will communicate with the device to ensure
+ it really is the device we think it is – this can be done by reading 
+values from a revision ID register or the like. We can communicate with 
+the slave by calling the ‘i2c_master_send’ function with a pointer to 
+our ‘struct i2c_client’ – e.g:</p>
+<table style="width: 546px; height: 68px;">
+<tbody>
+<tr style="height: 11px;">
+<td style="width: 36px; text-align: center; height: 11px;"><span style="color: #00ff00;"><strong>1</strong></span></td>
+<td style="width: 479px; height: 11px;">i2c_master_send(client, buf, 1);</td>
+</tr>
+</tbody>
+</table>
+<p>With regards to driver initialisation this is the last we’ll here 
+from the Linux kernel – so the probe function should also register with 
+the input layer (assuming an input device) and perhaps set up an 
+interrupt/timer. It’s also a good idea to make a note of the i2c_client 
+for use later on. Now you can talk to your I2C slave device – what else 
+goes on really depends on the type of device which is being supported.</p>
+<p>First Publication date: 12/2009 by Embedded Bits</p>
+		</div>
+	</div>
+</section><section class="cbo-pusharticle cbo-container container--small scale-up">
+	<div class="pusharticle-inner">
+		<div class="pusharticle-title">
+			You might also like...		</div>
+		<div class="pusharticle-content">
+			<div class="content-picture">
+				<div class="picture-file">
+					<img data-src="https://witekio.com/wp-content/uploads/2017/07/cat-procmeminfo-MemTotal-key-visual-1.png" class="lazy loaded" alt="cat /proc/meminfo : MemTotal" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/cat-procmeminfo-MemTotal-key-visual-1.png" data-was-processed="true">
+				</div>
+			</div>
+			<div class="content-cms cbo-cms">
+				<p>
+					<strong class="title">cat /proc/meminfo : MemTotal</strong>
+					<small>Linux manages its physical memory in clever and often 
+efficient ways – as a result, it’s not uncommon to only think about how 
+the memory in your system is being used when we run into performance 
+issues. And this is where the frustration can begin – without fully 
+understanding how memory is managed, it can be very difficult to answer 
+some seemingly straight-forward questions like ‘How much free memory do I
+ have?‘ or ‘How much memory is this process taking?‘. There are a lot of
+ complications and as a result, performance monitoring can be a 
+challenge.
+Read my article to learn more</small>
+				</p>
+				<a href="https://witekio.com/blog/cat-proc-meminfo-memtotal/" class="cbo-link" data-wpel-link="internal">
+					Read more					<i class="icon icon--arrow"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</section></div>	
+
+	<div class="single-author cbo-container">
+		<div class="author-inner">
+						<div class="author-picture">
+				<img src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/0.jpg" alt="" data-src="https://witekio.com/wp-content/uploads/2020/09/0.jpg" loading="lazy" class=" lazyloading"><noscript><img src="https://witekio.com/wp-content/uploads/2020/09/0.jpg" alt="" data-eio="l" /></noscript>
+			</div>
+			<div class="author-infos">
+				<strong class="name">Andrew Murray</strong>
+				- UK Managing Director				<div class="date">12 May 2017</div>
+			</div>
+						<div class="author-share">
+				<div class="share-title">Share</div>
+				<a href="#" class="share-linkedin" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+					<i class="icon icon--circle-linkedin"></i>
+				</a>
+				<a href="#" class="share-facebook" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+					<i class="icon icon--circle-facebook"></i>
+				</a>
+				<a href="#" class="share-twitter" data-url="https%3A%2F%2Fwitekio.com%2Fblog%2Fi2c-in-the-2-6-32-linux-kernel-3%2F" data-title="I2C in the 2.6.32 Linux Kernel">
+					<i class="icon icon--circle-twitter"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+	<div class="main-footer">
+
+		<section class="cbo-pushbuttons">
+			<div class="pushbuttons-bars">
+				<div class="bars-el" data-parallax="" data-effect="translateY" data-coeff="0.2">
+					<div></div>
+				</div>
+				<div class="bars-el" data-parallax="" data-effect="translateY" data-coeff="0.3">
+					<div></div>
+				</div>
+			</div>
+			<div class="pushbuttons-inner cbo-container">
+				<h2 class="pushbuttons-title cbo-title-2">
+					<strong>We help high tech makers</strong><br>build great software				</h2>
+				<div class="pushbuttons-buttons">
+					<a href="https://witekio.com/contact/" class="cbo-button button--border button--white" data-wpel-link="internal">
+						A new project						<i class="icon icon--arrow"></i>
+					</a>
+										<a href="https://witekio.com/our-white-papers/" class="cbo-button button--white" data-wpel-link="internal">
+						Discover our white papers					</a>
+									</div>
+			</div>
+		</section>
+
+		<section class="cbo-newsletter">
+			<div class="newsletter-inner cbo-container">
+				<h2 class="newsletter-title cbo-title-2">
+					<div class="title-count custom-effect">1</div>
+					<strong>Newsletter</strong><br>Signup				</h2>
+				<div class="newsletter-form">
+					<script>(function() {
+	window.mc4wp = window.mc4wp || {
+		listeners: [],
+		forms: {
+			on: function(evt, cb) {
+				window.mc4wp.listeners.push(
+					{
+						event   : evt,
+						callback: cb
+					}
+				);
+			}
+		}
+	}
+})();
+</script><!-- Mailchimp for WordPress v4.8 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-280" method="post" data-id="280" data-name="Inscription à la newsletter"><div class="mc4wp-form-fields"><input name="EMAIL" required="" type="email" placeholder="Your email address">
+<button class="cbo-button button--border" type="submit">
+Send
+<i class="icon icon--arrow"></i>
+</button></div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" tabindex="-1" autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp" value="1611432218"><input type="hidden" name="_mc4wp_form_id" value="280"><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1"><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin -->				</div>
+			</div>
+		</section>
+
+	</div>
+</main></div>
+
+<footer class="cbo-footer">
+	<div class="footer-inner">
+
+		<section class="footer-main cbo-container">
+			<div class="main-inner">
+				<div class="main-infos">
+					<div class="infos-logo">
+						<img src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/logo-full.png" alt="Witekio – Embedded systems &amp; IoT Experts" data-src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full.png" loading="lazy" class=" lazyloaded"><noscript><img src="https://witekio.com/wp-content/themes/witekio/library/images/logo-full.png"  alt="Witekio &#8211; Embedded systems &amp; IoT Experts" data-eio="l" /></noscript>
+					</div>
+					<div class="infos-social">
+												<a href="https://www.facebook.com/Witekio/" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-facebook"></i></a>
+																		<a href="https://twitter.com/Witekio_int" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-twitter"></i></a>
+																		<a href="https://www.youtube.com/channel/UC0Zd6if6-ukK3VaXSMEG2yQ" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-youtube"></i></a>
+																		<a href="https://www.linkedin.com/company/witekio" target="_blank" data-wpel-link="external" rel="external noopener noreferrer"><i class="icon icon--circle-linkedin"></i></a>
+																	</div>
+										<div class="infos-button">
+						<a href="https://witekio.com/contact/" class="cbo-button" data-wpel-link="internal">
+							Contact						</a>
+					</div>
+									</div>
+				<nav class="main-nav">
+					<ul id="menu-menu-footer" class=""><li id="menu-item-297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-297"><a href="https://witekio.com/software-service/" data-wpel-link="internal">Software Service</a>
+<ul class="sub-menu">
+	<li id="menu-item-303" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-303"><a href="https://witekio.com/software-service/system-design/" data-wpel-link="internal">System Design</a></li>
+	<li id="menu-item-302" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-302"><a href="https://witekio.com/software-service/software-development/" data-wpel-link="internal">Software Development</a></li>
+	<li id="menu-item-299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-299"><a href="https://witekio.com/software-service/iot-embedded-security/" data-wpel-link="internal">IoT &amp; Embedded Security</a></li>
+	<li id="menu-item-300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-300"><a href="https://witekio.com/software-service/migration/" data-wpel-link="internal">Migration</a></li>
+	<li id="menu-item-298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-298"><a href="https://witekio.com/software-service/connectivity/" data-wpel-link="internal">Connectivity</a></li>
+	<li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a href="https://witekio.com/software-service/optimization/" data-wpel-link="internal">Optimization</a></li>
+</ul>
+</li>
+<li id="menu-item-312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-312"><a href="https://witekio.com/software-bricks/" data-wpel-link="internal">Software Tooling</a>
+<ul class="sub-menu">
+	<li id="menu-item-313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-313"><a href="https://witekio.com/software-bricks/automation-lab/" data-wpel-link="internal">Test Automation</a></li>
+	<li id="menu-item-314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-314"><a href="https://witekio.com/software-bricks/board-support-package/" data-wpel-link="internal">Board Support Package</a></li>
+	<li id="menu-item-315" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-315"><a href="https://witekio.com/software-bricks/fullmetalupdate/" data-wpel-link="internal">OTA Update</a></li>
+</ul>
+</li>
+<li id="menu-item-304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-304"><a href="https://witekio.com/ensuring-success/" data-wpel-link="internal">Drivers of Innovation</a>
+<ul class="sub-menu">
+	<li id="menu-item-305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-305"><a href="https://witekio.com/ensuring-success/software-factory-high-quality-software/" data-wpel-link="internal">Software factory: high quality software</a></li>
+	<li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="https://witekio.com/ensuring-success/software-workshops-share-our-knowledge/" data-wpel-link="internal">Software workshops: share our knowledge</a></li>
+	<li id="menu-item-307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-307"><a href="https://witekio.com/ensuring-success/ux-design-our-user-centric-approach/" data-wpel-link="internal">UX Design: our user centric approach</a></li>
+</ul>
+</li>
+<li id="menu-item-309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-309"><a href="https://witekio.com/join-us/" data-wpel-link="internal">Join us</a>
+<ul class="sub-menu">
+	<li id="menu-item-310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-310"><a href="https://witekio.com/join-us/jobs-offers/" data-wpel-link="internal">Jobs offers</a></li>
+</ul>
+</li>
+</ul>				</nav>
+				<div class="main-credits">
+					<div>
+						<span>Website by</span>
+						<i class="icon icon--mayflower"></i>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="footer-bottom">
+			<div class="bottom-inner cbo-container">
+				
+				<div class="bottom-copyright">
+					©  Witekio
+				</div>
+
+				<nav class="bottom-nav">
+					<ul id="menu-menu-bas" class=""><li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="https://witekio.com/privacy-policy/" data-wpel-link="internal">Privacy policy</a></li>
+<li id="menu-item-338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-338"><a href="https://witekio.com/legal-notices/" data-wpel-link="internal">Legal notices</a></li>
+</ul>					<ul>
+						<li> - <a href="#" onclick="tarteaucitron.userInterface.openPanel();">Cookies</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</section>
+
+	</div>
+</footer>
+
+<script type="text/javascript">
+tarteaucitron.user.googletagmanagerId = 'GTM-PPCS5JT';
+(tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+</script>
+
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('730-NST-988', {"wsInfo":"j09NccM%3D"});
+    }
+  }
+
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin-beta.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+
+<script>(function() {function maybePrefixUrlField() {
+	if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
+		this.value = "http://" + this.value;
+	}
+}
+
+var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+if (urlFields) {
+	for (var j=0; j < urlFields.length; j++) {
+		urlFields[j].addEventListener('blur', maybePrefixUrlField);
+	}
+}
+})();</script><script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/witekio.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/scripts.js"></script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/wp-embed.js"></script>
+<script type="text/javascript" src="I2C%20in%20the%202.6.32%20Linux%20Kernel%20-%20Witekio%20-%20Embedded%20systems%20&amp;%20IoT%20Experts_files/forms.js"></script>
+
+
+
+<div id="tarteaucitronRoot"><div id="tarteaucitronPremium"></div><button type="button" id="tarteaucitronBack" aria-label="Close"></button><div id="tarteaucitron" role="dialog" aria-labelledby="dialogTitle">   <button type="button" id="tarteaucitronClosePanel">       Close   </button>   <div id="tarteaucitronServices">      <div class="tarteaucitronLine tarteaucitronMainLine tarteaucitronIsAllowed" id="tarteaucitronMainLineOffset">         <span class="tarteaucitronH1" role="heading" aria-level="1" id="dialogTitle">Cookies management panel</span>         <div id="tarteaucitronInfo">
+         By allowing these third party services, you accept their 
+cookies and the use of tracking technologies necessary for their proper 
+functioning.         </div>         <div class="tarteaucitronName">            <span class="tarteaucitronH2" role="heading" aria-level="2">Preference for all services</span>         </div>         <div class="tarteaucitronAsk" id="tarteaucitronScrollbarAdjust">            <button type="button" id="tarteaucitronAllAllowed" class="tarteaucitronAllow tarteaucitronIsSelected">               <span class="tarteaucitronCheck"></span> Allow all cookies            </button>             <button type="button" id="tarteaucitronAllDenied" class="tarteaucitronDeny">               <span class="tarteaucitronCross"></span> Deny all cookies            </button>         </div>      </div>      <div class="tarteaucitronBorder">         <div class="clear"></div><ul><li id="tarteaucitronServicesTitle_mandatory"><div class="tarteaucitronTitle">   <button type="button" tabindex="-1">&nbsp; undefined</button></div><ul id="tarteaucitronServices_mandatory"><li class="tarteaucitronLine">   <div class="tarteaucitronName">       <span class="tarteaucitronH3" role="heading" aria-level="3">undefined</span>       <span class="tarteaucitronListCookies"></span><br>   </div>   <div class="tarteaucitronAsk">       <button type="button" class="tarteaucitronAllow" tabindex="-1">           <span class="tarteaucitronCheck"></span> Allow       </button>        <button type="button" class="tarteaucitronDeny" style="visibility:hidden" tabindex="-1">           <span class="tarteaucitronCross"></span> Deny       </button>    </div></li></ul></li>         <li id="tarteaucitronServicesTitle_api" class="tarteaucitronHidden" style="display: block;">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailsapi" data-index="0"><span class="tarteaucitronPlus"></span> APIs</button>            </div>            <div id="tarteaucitronDetailsapi" class="tarteaucitronDetails tarteaucitronInfoBox">               APIs are used to load scripts: geolocation, search engines, translations, ...            </div>         <ul id="tarteaucitronServices_api"><li id="googletagmanagerLine" class="tarteaucitronLine tarteaucitronIsAllowed">   <div class="tarteaucitronName">       <span class="tarteaucitronH3" role="heading" aria-level="3">Google Tag Manager</span>       <span id="tacCLgoogletagmanager" class="tarteaucitronListCookies">This service has installed 2 cookies.</span><br>       <a href="https://tarteaucitron.io/service/googletagmanager/" target="_blank" rel="noreferrer noopener nofollow" title="Cookie detail for Google Tag Manager on our site (new window)">           Read more       </a>        -        <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer noopener" title="Google Tag Manager (new window)">           View the official website       </a>   </div>   <div class="tarteaucitronAsk">       <button type="button" id="googletagmanagerAllowed" class="tarteaucitronAllow">           <span class="tarteaucitronCheck"></span> Allow       </button>        <button type="button" id="googletagmanagerDenied" class="tarteaucitronDeny">           <span class="tarteaucitronCross"></span> Deny       </button>   </div></li></ul></li>         <li id="tarteaucitronServicesTitle_ads" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailsads" data-index="1"><span class="tarteaucitronPlus"></span> Advertising network</button>            </div>            <div id="tarteaucitronDetailsads" class="tarteaucitronDetails tarteaucitronInfoBox">               Ad networks can generate revenue by selling advertising space on the site.            </div>         <ul id="tarteaucitronServices_ads"></ul></li>         <li id="tarteaucitronServicesTitle_analytic" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailsanalytic" data-index="2"><span class="tarteaucitronPlus"></span> Audience measurement</button>            </div>            <div id="tarteaucitronDetailsanalytic" class="tarteaucitronDetails tarteaucitronInfoBox">               The audience measurement services used to generate useful statistics attendance to improve the site.            </div>         <ul id="tarteaucitronServices_analytic"></ul></li>         <li id="tarteaucitronServicesTitle_comment" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailscomment" data-index="3"><span class="tarteaucitronPlus"></span> Comments</button>            </div>            <div id="tarteaucitronDetailscomment" class="tarteaucitronDetails tarteaucitronInfoBox">               Comments managers facilitate the filing of comments and fight against spam.            </div>         <ul id="tarteaucitronServices_comment"></ul></li>         <li id="tarteaucitronServicesTitle_other" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailsother" data-index="4"><span class="tarteaucitronPlus"></span> Other</button>            </div>            <div id="tarteaucitronDetailsother" class="tarteaucitronDetails tarteaucitronInfoBox">               Services to display web content.            </div>         <ul id="tarteaucitronServices_other"></ul></li>         <li id="tarteaucitronServicesTitle_social" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailssocial" data-index="5"><span class="tarteaucitronPlus"></span> Social networks</button>            </div>            <div id="tarteaucitronDetailssocial" class="tarteaucitronDetails tarteaucitronInfoBox">               Social networks can improve the usability of the site and help to promote it via the shares.            </div>         <ul id="tarteaucitronServices_social"></ul></li>         <li id="tarteaucitronServicesTitle_support" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailssupport" data-index="6"><span class="tarteaucitronPlus"></span> Support</button>            </div>            <div id="tarteaucitronDetailssupport" class="tarteaucitronDetails tarteaucitronInfoBox">               Support services allow you to get in touch with the site team and help to improve it.            </div>         <ul id="tarteaucitronServices_support"></ul></li>         <li id="tarteaucitronServicesTitle_video" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <button type="button" class="catToggleBtn" data-cat="tarteaucitronDetailsvideo" data-index="7"><span class="tarteaucitronPlus"></span> Videos</button>            </div>            <div id="tarteaucitronDetailsvideo" class="tarteaucitronDetails tarteaucitronInfoBox">               Video sharing services help to add rich media on the site and increase its visibility.            </div>         <ul id="tarteaucitronServices_video"></ul></li>             <li id="tarteaucitronNoServicesTitle" class="tarteaucitronLine" style="display: none;">undefined</li>         </ul>         <div class="tarteaucitronHidden spacer-20" id="tarteaucitronScrollbarChild"></div>       </div>   </div></div><div id="tarteaucitronAlertBig" class="tarteaucitronAlertBigBottom" style="opacity: 0; display: none;">   <span id="tarteaucitronDisclaimerAlert">       If you continue to browse this website, you are allowing all third-party services   </span>   <button type="button" class="tarteaucitronCTAButton tarteaucitronAllow" id="tarteaucitronPersonalize2">       <span class="tarteaucitronCheck"></span> OK, accept all   </button>   <button type="button" class="tarteaucitronCTAButton tarteaucitronDeny" id="tarteaucitronAllDenied2">       <span class="tarteaucitronCross"></span> Deny all cookies   </button>   <button type="button" id="tarteaucitronCloseAlert">       Personalize   </button></div><div id="tarteaucitronPercentage" style="display: none;"></div><div id="tarteaucitronIcon" class="tarteaucitronIconBottomRight" style="display: block;">   <button type="button" id="tarteaucitronManager">       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAGA0lEQVRoge1a207bWBRdBtJwLYZhKDMVmlSK1LxNkPo+ZH6g8B6p5AuALwC+APoFoVLeoT8whPeRSt+CZKmZVu3AiIsRlEtCktGyjy8xzuXYhvahS0JJHJ/4rLP3XnuffcAPfGdQ7mM6jRLSAF4BxqsbewB2lRS2o35mpEQaJcwCyANIdLi1DGBNSWEzqmdHRqRRwjqAJclhtExOSUEP+/xIiDRKhhUWfL7ShTtBuJnqcw+/z4Ql0xNmMEwSSz4kuNIzSgpjSsqYJP/GeE185wYJroedRyiLNEpGLLzzrHSuk+83SgbxvOcyyRaDziWsRVZkSRDinpzPbwVGWIucuohsKynMS47fAQyls/BMSRmKJo3AFhG5wm2N1wF+Zs3zebbFfR0RxrXcJHQlgH+LMW616pR/WiIMEXfW3mtzXyeEGWsjKot8c4TOI98L+iKaR5PS6IUk88RLAO9F8UjrbYoYMOosNavpfmODIiwRXRR/G3ohaWVo1RU/c30jV8ab2mV8qVGzHWBOLyTLZiWs5Rolg/C3ySOi0tXP/k4aEwOwSBKPJs7Rp16ABJTe+p1xVX0It/owqqdDEMRoqd3RFxqDPh20Ig6VEPVC0i5RSCD+6wl6HlW7GksSlUMV11/GrUs5NasFLusDE9ELSVphXemtJwaT/8JyIRvxNNCfBmIiNdR04LII3DSrbe0yjqvyJF/ppptqVlt+MCLCEh/oOkPPP6N38Mb5cnQBGFsEqmXg5j3QMwoMzwGnr4HYbybBq13gZAOom/FO63zdf2qQArCsZrUN2TlJy69eSDKYV+6Q4MpP75ivHzPA53ngaBW4eGuSOt0A/lsGPmXMz0+3TFJcTfFbPfFbfnwlhON+iQhlWmA82CQ4ocQ7c6KcfL3DHuls0yT6Sx4YnLXJDCQOIRRv5yGIJBgP8Sdisj2qubpc5UGJmo+W49ifVmzL8HcpGhQPvZCUKiCliIhEN0tr2OCqHuSA8gwQ/92MkU7gxEmeVqGrTTgpxPXbUrtGWYus0I9thRIraagRQUIDf7Qn4yZhKRiFQIyhfMfUr3yblokVWSJ6k8xSnc7eNN/RjowfCYiFoDUFer1S3gW6JiJ8Nt30EMbEhU+vzSIztuRYjRLsR8IHLjlf7HZ+MrWWEXxNmbvapt4jGSqZRYSkGUetSNTPzHsui5YMQ2ajJUNks6mw4wT54Ok2ShnzzIPCUGshzawCRKy5FqvrTZe0RWzQGvw79m67XZjKmxJrLsICjtZa55gxXy+6F4sYsEtxTqhXdRTLC8ulSDaWoCLsolfN+8YUhOsJV709H7Cudr0LlVEtzqBcN+shEyThdR941OnAbF8pirKJqXyupTRTtQSReiVmXW1j7oBErB0d9xM2WEd5J9ZKYtuR4WKwwBSoORbpGrJ5ZI9lt71irJmGX1px0JYE26uNErawr2zfIcP4OHEKXm66PA3wjpCNEfpJunI4muifPjKvsFCkGjExTq63yxMJsZNMYF/J4HmDC5A3Yq36jy0ClePHVhwuu/b1HSFlEfHD5ZtD1bEK44Qu1mWys6tbWmZyPWckzlPTGiRw/XHCuk+q4Rek+mVrVL/UppwrdDEGNV2kpyuhccgc5Oxm9vWnn+19vJrVpLor0kTUrGacMplb1CfOFyTD4o9uNrHqr2Z+ZMSp1c2XcVSORnh9Q81q3k599ETgkNnjg0nGzi10K7rX+bZpHbrblPcY5A4Zxk2xcjzCvTpd9027Aa0QtouyyrKFRR6D/04DwkFGvHPXM3Qda/Jb4nPgI7hQLVM1q5HIBt2MzQNa57Z1DiiLAGa5Mi+O4Sz3Mpp6laPHO6InII3ITnX1QtI+EOX+m9ZxleOZ/j9PiuKoLi3aqXPuEoSye/Vhkm+LalbLtHhMS0R6zu7aZ3vP2jOjL7QVv4McxhcDnZIelAQibGIbULOapf3PuE1Vs9qeaOTdkVKr00gCQiw4NlBzDvf1Lxx+uP5r3Dgv5KQZRzWn+GRwz8jmDS8itUg7iB6vLuJCF5Uty4A9mVKkFR6MiJDachST/oHvHgD+B4SoUIitpF05AAAAAElFTkSuQmCC" alt="Cookies">   </button></div><div id="tarteaucitronAlertSmall" class="tarteaucitronAlertSmallBottom" style="display: block;">   <button type="button" id="tarteaucitronManager">       Manage services       <span id="tarteaucitronDot">           <span id="tarteaucitronDotGreen" style="width: 100%;"></span>           <span id="tarteaucitronDotYellow" style="width: 0%;"></span>           <span id="tarteaucitronDotRed" style="width: 0%;"></span>       </span>   </button><!-- @whitespace   --><button type="button" id="tarteaucitronCookiesNumber" style="padding: 0px 10px;">5</button>   <div id="tarteaucitronCookiesListContainer">       <button type="button" id="tarteaucitronClosePanelCookie">           Close       </button>       <div class="tarteaucitronCookiesListMain" id="tarteaucitronCookiesTitle">            <span class="tarteaucitronH2" role="heading" aria-level="2" id="tarteaucitronCookiesNumberBis">5 cookies</span>       </div>       <div id="tarteaucitronCookiesList"><div class="tarteaucitronHidden">     <span class="tarteaucitronTitle tarteaucitronH3" role="heading" aria-level="3">        witekio.com    </span></div><ul class="cookie-list"><li class="tarteaucitronCookiesListMain">    <div class="tarteaucitronCookiesListLeft"><button type="button" class="purgeBtn" data-cookie=" _gid"><strong>×</strong></button> <strong>_gid</strong>    </div>    <div class="tarteaucitronCookiesListRight">GA1.2.1879324985.1611432227</div></li><li class="tarteaucitronCookiesListMain">    <div class="tarteaucitronCookiesListLeft"><button type="button" class="purgeBtn" data-cookie=" _lfa"><strong>×</strong></button> <strong>_lfa</strong>    </div>    <div class="tarteaucitronCookiesListRight">LF1.1.cf8ebd960546c71b.1611432220030</div></li><li class="tarteaucitronCookiesListMain">    <div class="tarteaucitronCookiesListLeft"><button type="button" class="purgeBtn" data-cookie=" _mkto_trk"><strong>×</strong></button> <strong>_mkto_trk</strong>    </div>    <div class="tarteaucitronCookiesListRight">id:730-NST-988&amp;token:_mch-witekio.com-1611432221006-51941</div></li><li class="tarteaucitronCookiesListMain">    <div class="tarteaucitronCookiesListLeft"><button type="button" class="purgeBtn" data-cookie="tartaucitron"><strong>×</strong></button> <strong>tartaucitron</strong>    </div>    <div class="tarteaucitronCookiesListRight">!googletagmanager=true</div></li><div class="tarteaucitronHidden">     <span class="tarteaucitronTitle tarteaucitronH3" role="heading" aria-level="3">        Google Tag Manager    </span></div><ul class="cookie-list"><li class="tarteaucitronCookiesListMain">    <div class="tarteaucitronCookiesListLeft"><button type="button" class="purgeBtn" data-cookie=" _ga"><strong>×</strong></button> <strong>_ga</strong>    </div>    <div class="tarteaucitronCookiesListRight">GA1.2.299453434.1611432227</div></li></ul><div class="tarteaucitronHidden spacer-20"></div></ul></div>    </div></div></div></body></html>

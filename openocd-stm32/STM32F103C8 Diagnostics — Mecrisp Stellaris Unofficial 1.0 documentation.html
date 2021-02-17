@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>STM32F103C8 Diagnostics — Mecrisp Stellaris Unofficial 1.0 documentation</title>
+    <link rel="stylesheet" href="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/classic.css" type="text/css">
+    <link rel="stylesheet" href="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/pygments.css" type="text/css">
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/doctools.js"></script>
+    <link rel="index" title="Index" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/genindex.html">
+    <link rel="search" title="Search" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/search.html"> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/index.html">Mecrisp Stellaris Unofficial 1.0 documentation</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stm32f103c8-diagnostics">
+<span id="stm32f103c8-diags"></span><span id="index-0"></span><h1>STM32F103C8 Diagnostics<a class="headerlink" href="#stm32f103c8-diagnostics" title="Permalink to this headline">¶</a></h1>
+<p>This is the older <strong>obsolete</strong> version of <a class="reference internal" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/stm32f1xx-diagnostics.html#stm32f103xx-diagnostics"><span class="std std-ref">STM32F103XX-DIAGNOSTICS</span></a> which has many improvements as regards MCU type detection. This is the recommended binary to use with the Blue Pill etc.</p>
+<img alt="_images/stm32f103c8-diags.jpg" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/stm32f103c8-diags.jpg">
+<p><strong>STM32F103C8</strong> datasheets specify the on board Flash memory as being 64kB, and this is corroborated by the on chip “Flash Size Register”
+having a value of 65536 Bytes, however it seems these chips actually have a “hidden” second 64kB Block, making a total of <strong>128kB of Flash
+onboard!</strong></p>
+<p>Many theories abound, did STM simply use the same die for both the 
+more expensive 128kB Flash STM32F103CB and the cheaper STM32F103C8 to 
+save costs,
+but configure the STM32F103C8 to show only 64kB ?</p>
+<p>Perhaps STM ran out of STM32F103C8’s and simply used modified STM32F103CB units instead ?</p>
+<p>Or maybe STM32F103CB units with a faulty memory location in the 
+second Flash block were sold as STM32F103C8’s and the”Flash Size 
+Register” set to 65536 Bytes ?</p>
+<p>The STM32F103C8 MCU is found in many cheap Chinese boards including the very popular <a class="reference internal" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/rants.html#rant-blue-pill"><span class="std std-ref">Bluepill Board</span></a> which means that many owners may not be aware they actually have <em>DOUBLE the Flash</em> they thought they had.</p>
+<div class="section" id="this-project">
+<h2>This Project<a class="headerlink" href="#this-project" title="Permalink to this headline">¶</a></h2>
+<p>This is a bootable diagnostic program test kit. The size is under 64kB so that it can be flashed by OpenOCD.</p>
+<p>The purpose of this kit is to physically test the “hidden” 64kB 
+second Flash block present on many of these chips and determine if it 
+exists and if it is reliable. It does this by flashing all the bits from
+ one to zero and back again.</p>
+<p id="download-stm32f103c8-diagnostics-bin">Download the <strong>OBSOLETE</strong> <em>STM32F103C8-DIAGNOSTICS.bin</em> here: <a class="reference external" href="https://sourceforge.net/projects/mecrisp-stellaris-folkdoc/files/STM32F103C8-DIAGNOSTICS.bin/download">https://sourceforge.net/projects/mecrisp-stellaris-folkdoc/files/STM32F103C8-DIAGNOSTICS.bin/download</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">STM32F103C8-DIAGNOSTICS.bin has been replaced by <a class="reference internal" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/stm32f1xx-diagnostics.html#stm32f103xx-diagnostics"><span class="std std-ref">STM32F103XX-DIAGNOSTICS</span></a> which has many improvements as regards MCU type detection. This is the recommended binary to use with the Blue Pill etc.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Flash the STM32F103C8-DIAGNOSTICS.bin image to your board with OpenOCD or whatever you normally use. See <a class="reference internal" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/flashing-mecrisp_stellaris.html#flashing-methods"><span class="std std-ref">Flashing Methods</span></a>, but basically you flash this binary exactly as you would flash any STM32Fxx binary. .i.e
+a. “st-flash erase”
+b. “st-flash write STM32F103C8-DIAGNOSTICS.bin 0x08000000”</li>
+<li>Plug in a USB cable to the “Blue Pill” board and run a <a class="reference internal" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/serial-terminals.html#serialterm"><span class="std std-ref">serial terminal program</span></a> on your PC. This will also power the board.</li>
+<li>Connect the terminal to the ‘“Mecrisp STM32F10x Forth Serial Port’ 
+USB device now created on your PC. Any speed is ok, I use 460800 Baud 
+myself.</li>
+<li>Enter “?” at the prompt to obtain the menu.</li>
+<li>The “t” key runs the all important Flash test, but there are other menu functions available as listed below.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The first few versions had a garbled USB device ID string, this was corrected in V1.2 and should look something like this.</p>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>umodem1: &lt;Mecrisp STM32F10x Forth Serial Port, class 2/0, rev 2.00/2.00, addr 15&gt; on usbus0
+</pre></div>
+</div>
+</div>
+<div class="section" id="menu">
+<h2>Menu<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h2>
+<p>Enter ? for the menu</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">-</span> <span class="n">Menu</span><span class="p">:</span> <span class="n">STM32F103R8</span> <span class="n">Test</span> <span class="n">Kit</span> <span class="n">v1</span><span class="o">.</span><span class="mi">2</span> <span class="mi">24</span><span class="n">Dec2019</span>
+<span class="n">i</span> <span class="o">-</span> <span class="n">Device</span> <span class="n">ID</span><span class="p">,</span> <span class="n">unique</span> <span class="k">for</span> <span class="n">every</span> <span class="n">chip</span>
+<span class="n">b</span> <span class="o">-</span> <span class="n">Device</span> <span class="n">Reported</span> <span class="n">Flash</span> <span class="n">Size</span> <span class="ow">in</span> <span class="n">Bytes</span>
+<span class="n">t</span> <span class="o">-</span> <span class="n">TEST</span> <span class="n">second</span> <span class="mi">64</span><span class="n">kB</span> <span class="n">Flash</span> <span class="n">Memory</span> <span class="n">block</span><span class="p">:</span> <span class="mh">0x10000</span> <span class="o">-</span> <span class="mh">0x1FFFF</span>
+<span class="n">d</span> <span class="o">-</span> <span class="n">View</span> <span class="n">second</span> <span class="mi">64</span><span class="n">kB</span> <span class="n">Flash</span> <span class="n">Memory</span> <span class="n">block</span><span class="p">:</span> <span class="mh">0x10000</span> <span class="o">-</span> <span class="mh">0x1FFFF</span>
+<span class="n">e</span> <span class="o">-</span> <span class="n">View</span> <span class="n">first</span>  <span class="mi">64</span><span class="n">kB</span> <span class="n">Flash</span> <span class="n">Memory</span> <span class="n">block</span><span class="p">:</span> <span class="mh">0x00000</span> <span class="o">-</span> <span class="mh">0x10000</span>
+<span class="n">f</span> <span class="o">-</span> <span class="n">FAQ</span>
+<span class="n">c</span> <span class="o">-</span> <span class="n">Credits</span>
+<span class="n">l</span> <span class="o">-</span> <span class="n">License</span>
+<span class="n">q</span> <span class="o">-</span> <span class="n">Quit</span>
+</pre></div>
+</div>
+<div class="section" id="i">
+<h3>i<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">stm32id</span>
+<span class="n">Die</span> <span class="n">xy</span> <span class="n">coords</span><span class="p">:</span> <span class="mi">108003155</span>
+<span class="n">Wafer</span> <span class="n">Number</span><span class="p">:</span> <span class="mi">80</span>
+<span class="n">Lot_num</span> <span class="n">ascii</span> <span class="n">encoded</span>  <span class="p">[</span><span class="mi">23</span><span class="p">:</span><span class="mi">0</span><span class="p">]:</span> <span class="mh">0x00555071</span>  <span class="o">|</span> <span class="n">U</span> <span class="n">P</span> <span class="n">q</span>
+<span class="n">Lot_num</span> <span class="n">ascii</span> <span class="n">encoded</span> <span class="p">[</span><span class="mi">55</span><span class="p">:</span><span class="mi">24</span><span class="p">]:</span> <span class="mh">0x87042957</span>  <span class="o">|</span> <span class="o">.</span> <span class="o">.</span> <span class="p">)</span> <span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="b">
+<h3>b<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Flash</span> <span class="n">Size</span> <span class="n">Register</span> <span class="o">=</span> <span class="mi">65536</span> <span class="n">Bytes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="t">
+<h3>t<a class="headerlink" href="#t" title="Permalink to this headline">¶</a></h3>
+<p>This tests every bit of the <em>‘hidden’</em> flash block at 0x10000 -
+ 0x1FFFF by writing alternating ones and zero’s, checking they have been
+ saved and then erasing them. If you don’t see this result, or see error
+ messages instead, then the <em>‘hidden’</em> flash block at 0x10000 - 0x1FFFF has a problem and probably is not available for use.</p>
+<p>A successful test looks like this. Note: there are only three Block 
+erasures and two block flashes when this test is run, so the Flash wear 
+is negligible.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Testing</span> <span class="mi">64</span><span class="n">kB</span> <span class="n">Flash</span> <span class="n">block</span><span class="p">:</span> <span class="mh">0x10000</span> <span class="o">-</span> <span class="mh">0x1FFFF</span>
+<span class="n">Erasing</span>
+<span class="n">Flash</span> <span class="k">with</span> <span class="mi">1010101010101010</span> <span class="p">(</span><span class="mh">0xAA</span><span class="p">)</span>
+<span class="n">Testing</span> <span class="k">for</span> <span class="mh">0xAA</span> <span class="o">-</span> <span class="n">OK</span>
+<span class="n">Erasing</span>
+<span class="n">Flash</span> <span class="k">with</span> <span class="mi">0101010101010101</span> <span class="p">(</span><span class="mh">0x55</span><span class="p">)</span>
+<span class="n">Testing</span> <span class="k">for</span> <span class="mh">0x55</span> <span class="o">-</span> <span class="n">OK</span>
+<span class="n">Erasing</span>
+<span class="o">~~~~~</span> <span class="n">ALL</span> <span class="n">TESTS</span> <span class="n">PASSED</span> <span class="o">~~~~~</span>
+</pre></div>
+</div>
+<p>If test <em>“b”</em> shows 65536 Bytes yet this test passes as above,
+ then you have a “hidden” extra 64kB of Flash which cannot be flashed by
+ OpenOCD unless it is modified.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you try to flash a binary image of OVER 64kB into a STM32F103C8 for which the MCU <em>“Flash Size Register”</em> = 65536 Bytes, a standard OpenOCD will ONLY flash the first 64kB of your image. See below for how to utilise the full 128kB.</p>
+</div>
+<div class="section" id="sample-openocd-modification-to-allow-flashing-the-hidden-extra-64kb-of-flash">
+<span id="kb-stm32f103c8-mod"></span><h4>Sample OpenOCD modification to allow flashing the “hidden” extra 64kB of Flash<a class="headerlink" href="#sample-openocd-modification-to-allow-flashing-the-hidden-extra-64kb-of-flash" title="Permalink to this headline">¶</a></h4>
+<p>stm32f1x.cfg Modification</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span># flash size will be probed
+set _FLASHNAME $_CHIPNAME.flash
+# flash bank $_FLASHNAME stm32f1x 0x08000000 0 0 0 $_TARGETNAME        &lt;---- comment this line out, add the line below:
+flash bank $_FLASHNAME stm32f1x 0x08000000 0x20000 0 0 $_TARGETNAME
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Forth doesn’t care about the Flash Size Register value and will use all 128kB of flash in this case.</p>
+</div>
+</div>
+</div>
+<div class="section" id="d">
+<h3>d<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h3>
+<p>This dumps the entire 64kB Flash block: 0x10000 - 0x1FFFF showing the binary and ascii contents.</p>
+</div>
+<div class="section" id="e">
+<h3>e<a class="headerlink" href="#e" title="Permalink to this headline">¶</a></h3>
+<p>This dumps the entire 64kB Flash block: 0x00000 - 0x10000 showing the binary and ascii contents.</p>
+</div>
+<div class="section" id="f">
+<h3>f<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Will this work with non STM32F103R8 chips  &lt;&lt; Not guaranteed</li>
+<li>How many times can the ‘t’ test be safely run  &lt;&lt; 1000 times at least</li>
+<li>The Flash Data View is too fast  &lt;&lt; Use your terminal loging facility &amp; capture it</li>
+<li>Will this test harm my chip  &lt;&lt; No</li>
+<li>How can I view the current chip memory status  &lt;&lt; Quit the Menu and enter ‘free’</li>
+<li>What was the Test Kit made with  &lt;&lt; The Forth Programming Language</li>
+<li>How do I find other programs I can run  &lt;&lt; Quit the Menu and enter ‘words4’. (Some of these Words can erase the Flash)</li>
+<li>Can I write other programs, blink a LED  &lt;&lt; Yes, quit the Menu
+ and enter ‘gpioc.’ (This is a demo of the built in register read/write 
+facility.)</li>
+<li>Learn more  &lt;&lt; <a class="reference external" href="https://mecrisp-stellaris-folkdoc.sourceforge.io/quickstart.html">https://mecrisp-stellaris-folkdoc.sourceforge.io/quickstart.html</a></li>
+</ul>
+</div>
+<div class="section" id="c">
+<h3>c<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<p>Credits</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">diagnostic</span> <span class="n">program</span> <span class="n">written</span> <span class="n">by</span> <span class="n">Terry</span> <span class="n">Porter</span> <span class="o">&lt;</span><span class="n">terry</span><span class="nd">@tjporter</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">au</span><span class="o">&gt;</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mecrisp</span><span class="o">-</span><span class="n">stellaris</span><span class="o">-</span><span class="n">folkdoc</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">stm32f103c8</span><span class="o">-</span><span class="n">diags</span><span class="o">.</span><span class="n">html</span>
+<span class="n">Get</span> <span class="n">Mecrisp</span><span class="o">-</span><span class="n">Stellaris</span> <span class="n">Forth</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mecrisp</span><span class="o">-</span><span class="n">stellaris</span><span class="o">-</span><span class="n">folkdoc</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">io</span>
+<span class="n">Mecrisp</span><span class="o">-</span><span class="n">Stellaris</span> <span class="n">created</span> <span class="n">by</span> <span class="n">Matthias</span> <span class="n">Koch</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l">
+<h3>l<a class="headerlink" href="#l" title="Permalink to this headline">¶</a></h3>
+<p>License</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Mecrisp</span><span class="o">-</span><span class="n">Stellaris</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">:</span> <span class="n">you</span> <span class="n">can</span> <span class="n">redistribute</span> <span class="n">it</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">modify</span>
+<span class="n">it</span> <span class="n">under</span> <span class="n">the</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GNU</span> <span class="n">General</span> <span class="n">Public</span> <span class="n">License</span> <span class="k">as</span> <span class="n">published</span> <span class="n">by</span>
+<span class="n">the</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">either</span> <span class="n">version</span> <span class="mi">3</span> <span class="n">of</span> <span class="n">the</span> <span class="n">License</span><span class="p">,</span> <span class="ow">or</span>
+<span class="p">(</span><span class="n">at</span> <span class="n">your</span> <span class="n">option</span><span class="p">)</span> <span class="nb">any</span> <span class="n">later</span> <span class="n">version</span><span class="o">.</span>
+
+<span class="n">This</span> <span class="n">program</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">hope</span> <span class="n">that</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">useful</span><span class="p">,</span>
+<span class="n">but</span> <span class="n">WITHOUT</span> <span class="n">ANY</span> <span class="n">WARRANTY</span><span class="p">;</span> <span class="n">without</span> <span class="n">even</span> <span class="n">the</span> <span class="n">implied</span> <span class="n">warranty</span> <span class="n">of</span>
+<span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>  <span class="n">See</span> <span class="n">the</span>
+<span class="n">GNU</span> <span class="n">General</span> <span class="n">Public</span> <span class="n">License</span> <span class="k">for</span> <span class="n">more</span> <span class="n">details</span><span class="o">.</span>
+
+<span class="n">You</span> <span class="n">should</span> <span class="n">have</span> <span class="n">received</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GNU</span> <span class="n">General</span> <span class="n">Public</span> <span class="n">License</span>
+<span class="n">along</span> <span class="k">with</span> <span class="n">this</span> <span class="n">program</span><span class="o">.</span>  <span class="n">If</span> <span class="ow">not</span><span class="p">,</span> <span class="n">see</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/&gt;.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="q">
+<h3>q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h3>
+<p>Quit the menu.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a full Cortex-M3 Forth and can be used from the terminal command line. If your chip fails test <em>“t”</em> don’t use more than 64kB of your flash with the on-board Forth or it will crash.</p>
+</div>
+<p>Developed on a STM32F103C8 board (with the “hidden” second 64kB Flash
+ block present) which is identical to a “Blue Pill”, so it should work 
+on all such boards.</p>
+</div>
+</div>
+<div class="section" id="stm32f103-spec-sheet">
+<h2>STM32F103 Spec Sheet<a class="headerlink" href="#stm32f103-spec-sheet" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/STM32F103Cx-memspec.jpg" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/STM32F103Cx-memspec.jpg">
+</div>
+<div class="section" id="how-does-this-all-work">
+<h2>How does this all work?<a class="headerlink" href="#how-does-this-all-work" title="Permalink to this headline">¶</a></h2>
+<p>The fact that my 10 tested STM32F103C8’s had a second hidden 64kB 
+block doesn’t alter the STM spec above because any flashing software 
+must check the MCU internal “Flash Size Register” first, will read that 
+the STM32F103C8 has only 64kB and ignore that second block, it doesn’t 
+have any other choice.</p>
+<p>Reading the MCU “Flash Size Register” first is essential for a few 
+reasons one of which is the MCU will throw an exception if a program 
+attempts to do anything to Flash that’s not actually there.</p>
+<p>My St-Link would program any size image up to 64kB on the 
+STM32F103C8. If the Image was 100kB, it stopped at 64kB and threw an 
+error as expected.</p>
+<p>St-Link reads the MCU “Flash Size Register” and acts accordingly as it must.  It can be <a class="reference internal" href="#kb-stm32f103c8-mod"><span class="std std-ref">reconfigured so it thinks the STM32F103C8 has 128kB of Flash</span></a>,
+ which is what I had to do to flash binaries over 64kB but under 128kB 
+on a STM32F103C8 which actually had the ‘hidden second 64kB Flash 
+Block”.</p>
+<p>My Olimex-P103 has a STM32F103CB with 128kB as shown in the Factory 
+Datasheet above, so St-Link would program a 100kB image without 
+complaint because the STM32F103CB MCU “Flash Size Register” indicates 
+the chip has 128kB of Flash.</p>
+<p>This is how it all works This “STM32F103C8 Diagnostics” bootable 
+binary is designed to run on any STM32F103Cx as it is under 64kB and 
+reveal all the above.</p>
+</div>
+<div class="section" id="chip-id-data">
+<h2>Chip ID Data<a class="headerlink" href="#chip-id-data" title="Permalink to this headline">¶</a></h2>
+<p>Can we tell from the chip ID data if a chip is a fake ?</p>
+<p>I think so as genuine STM chip Lot Numbers are in DECIMAL, CS32F103C8T6 chip Lot Numbers are in Hexadecimal.</p>
+<table class="docutils" border="1">
+<colgroup>
+<col width="21%">
+<col width="11%">
+<col width="15%">
+<col width="53%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Chip</th>
+<th class="head">Lot Numbers</th>
+<th class="head">Example</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Genuine STM</td>
+<td>decimal</td>
+<td>0x00565283</td>
+<td>Only contains digits 0 - 9</td>
+</tr>
+<tr class="row-odd"><td>CS32F103C8T6</td>
+<td>hexadecimal</td>
+<td>0x004D3512</td>
+<td>Contains digits 0 - 9 AND characters A,B,C,D,E,F</td>
+</tr>
+<tr class="row-even"><td>GD32F103C8T6</td>
+<td>?</td>
+<td>&nbsp;</td>
+<td>I have no data yet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="good-chip-reports">
+<h2>Good Chip Reports<a class="headerlink" href="#good-chip-reports" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>107741012/72<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>stm32id
+Die xy coords: 107741012
+Wafer Number: 72
+Lot_num ascii encoded  [23:0]: 0x00565283  | V R .
+Lot_num ascii encoded [55:24]: 0x87242040  | . $   @
+
+Flash Size Register = 65536 Bytes
+~~~~~ ALL TESTS PASSED ~~~~~
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>107872085/72<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">stm32id</span>
+<span class="n">Die</span> <span class="n">xy</span> <span class="n">coords</span><span class="p">:</span> <span class="mi">107872085</span>
+<span class="n">Wafer</span> <span class="n">Number</span><span class="p">:</span> <span class="mi">72</span>
+<span class="n">Lot_num</span> <span class="n">ascii</span> <span class="n">encoded</span>  <span class="p">[</span><span class="mi">23</span><span class="p">:</span><span class="mi">0</span><span class="p">]:</span> <span class="mh">0x00555787</span>  <span class="o">|</span> <span class="n">U</span> <span class="n">W</span> <span class="o">.</span>
+<span class="n">Lot_num</span> <span class="n">ascii</span> <span class="n">encoded</span> <span class="p">[</span><span class="mi">55</span><span class="p">:</span><span class="mi">24</span><span class="p">]:</span> <span class="mh">0x87061320</span>  <span class="o">|</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+
+<span class="n">Flash</span> <span class="n">Size</span> <span class="n">Register</span> <span class="o">=</span> <span class="mi">65536</span> <span class="n">Bytes</span>
+<span class="o">~~~~~</span> <span class="n">ALL</span> <span class="n">TESTS</span> <span class="n">PASSED</span> <span class="o">~~~~~</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bad-chip-reports">
+<h2>Bad Chip Reports<a class="headerlink" href="#bad-chip-reports" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cks-cs32f103c8t6">
+<h3>CKS CS32F103C8T6<a class="headerlink" href="#cks-cs32f103c8t6" title="Permalink to this headline">¶</a></h3>
+<p>Rhodges from EEVblog reports a CKS CS32F103C8T6 that an ebay seller 
+sold as a ST part (oops!) failed the test with 0x10000 - 0x1FFFF 
+appearing to be a read-only mirror of 0x00000 - 0x10000</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>stm32id
+Die xy coords: 16917299
+Wafer Number: 50
+Lot_num ascii encoded  [23:0]: 0x004D3712  | M 7 .
+Lot_num ascii encoded [55:24]: 0x004E4B43  | . N K C
+
+Flash Size Register = 65536 Bytes
+
+Testing 64kB Flash block: 0x10000 - 0x1FFFF
+Erasing
+FAILTEST: $10000  Data = $8C
+FAILTEST: $10001  Data = $03
+... all the way to
+FAILTEST: $1CDE5  Data = $BD
+FAILTEST: $1CDE6  Data = $00
+FAILTEST: $1CDE7  Data = $00
+blank check FAILTEST
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/index.html">
+              <img class="logo" src="STM32F103C8%20Diagnostics%20%E2%80%94%20Mecrisp%20Stellaris%20Unofficial%201.0%20documentation_files/techman-001.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">STM32F103C8 Diagnostics</a><ul>
+<li><a class="reference internal" href="#this-project">This Project</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#menu">Menu</a><ul>
+<li><a class="reference internal" href="#i">i</a></li>
+<li><a class="reference internal" href="#b">b</a></li>
+<li><a class="reference internal" href="#t">t</a><ul>
+<li><a class="reference internal" href="#sample-openocd-modification-to-allow-flashing-the-hidden-extra-64kb-of-flash">Sample OpenOCD modification to allow flashing the “hidden” extra 64kB of Flash</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#d">d</a></li>
+<li><a class="reference internal" href="#e">e</a></li>
+<li><a class="reference internal" href="#f">f</a></li>
+<li><a class="reference internal" href="#c">c</a></li>
+<li><a class="reference internal" href="#l">l</a></li>
+<li><a class="reference internal" href="#q">q</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stm32f103-spec-sheet">STM32F103 Spec Sheet</a></li>
+<li><a class="reference internal" href="#how-does-this-all-work">How does this all work?</a></li>
+<li><a class="reference internal" href="#chip-id-data">Chip ID Data</a></li>
+<li><a class="reference internal" href="#good-chip-reports">Good Chip Reports</a><ul>
+<li><a class="reference internal" href="#id1">107741012/72</a></li>
+<li><a class="reference internal" href="#id2">107872085/72</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bad-chip-reports">Bad Chip Reports</a><ul>
+<li><a class="reference internal" href="#cks-cs32f103c8t6">CKS CS32F103C8T6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/_sources/stm32f103c8-diags.rst.txt" rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q"></div>
+      <div><input type="submit" value="Go"></div>
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/genindex.html" title="General Index">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://mecrisp-stellaris-folkdoc.sourceforge.io/index.html">Mecrisp Stellaris Unofficial 1.0 documentation</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2016-2020, Terry Porter, released under the GPL V3.
+      Last updated on Nov 02, 2020.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  
+</body></html>

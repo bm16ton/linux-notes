@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+<script type="text/javascript" async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/lio.js"></script><script type="text/javascript" async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/analytics.js"></script><script type="text/javascript" async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/js.js"></script><script async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/icons.js"></script><script async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/gtm.js"></script><script async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/page.js"></script><script>
+var cat_target='0690df7ad248de8537655053630b3f0e, knowledge_share, microcontroller-projects, ros';
+
+</script>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="fb:admins" content="1140409510">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="fb:admins" content="107031532675062">
+	<meta name="msvalidate.01" content="40BA1B879066C83CDFCA374CA4B490C3">
+	
+	<!-- This site is optimized with the Yoast SEO plugin v15.6.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Character Lcd 8x1, 8x2, 8x4, 16x1, 16x2 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Pinout and Working</title>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Character Lcd 8x1, 8x2, 8x4, 16x1, 16x2 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Pinout and Working">
+	<meta property="og:description" content="In this tutorial I am going to explain about the pin out, working and control systems of character lcd’s. Character lcd’s comes in many sizes for example &nbsp;8×1, 8×2, 8×4, 16×1, 16×2, 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2 and 40×4. In these MxN dimensions, M represents number of coulombs &amp; N…">
+	<meta property="og:url" content="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/">
+	<meta property="og:site_name" content="Engineers Garage">
+	<meta property="article:publisher" content="https://www.facebook.com/engineersgarage">
+	<meta property="article:published_time" content="2019-04-28T05:12:33+00:00">
+	<meta property="og:image" content="https://www.engineersgarage.com/wp-content/uploads/2019/10/5919393_orig-1.jpg">
+	<meta property="og:image:width" content="595">
+	<meta property="og:image:height" content="434">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@EngineersGarage">
+	<meta name="twitter:site" content="@EngineersGarage">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="EG Projects">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="6 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.engineersgarage.com/#organization","name":"Engineer's Garage - WTWH Media","url":"https://www.engineersgarage.com/","sameAs":["https://www.facebook.com/engineersgarage","https://www.youtube.com/channel/UC0VITh11JSYk-UW7toLebUw","https://twitter.com/EngineersGarage"],"logo":{"@type":"ImageObject","@id":"https://www.engineersgarage.com/#logo","inLanguage":"en-US","url":"https://www.engineersgarage.com/wp-content/uploads/2019/08/EGlogo.png","width":372,"height":52,"caption":"Engineer's Garage - WTWH Media"},"image":{"@id":"https://www.engineersgarage.com/#logo"}},{"@type":"WebSite","@id":"https://www.engineersgarage.com/#website","url":"https://www.engineersgarage.com/","name":"Engineers Garage","description":"Electronic Projects, Electrical Engineering Resources, Makers Articles and Product News","publisher":{"@id":"https://www.engineersgarage.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.engineersgarage.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#primaryimage","inLanguage":"en-US","url":"https://www.engineersgarage.com/wp-content/uploads/2019/10/5919393_orig-1.jpg","width":595,"height":434},{"@type":"WebPage","@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#webpage","url":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/","name":"Character Lcd 8x1, 8x2, 8x4, 16x1, 16x2 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Pinout and Working","isPartOf":{"@id":"https://www.engineersgarage.com/#website"},"primaryImageOfPage":{"@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#primaryimage"},"datePublished":"2019-04-28T05:12:33+00:00","dateModified":"2019-04-28T05:12:33+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/"]}]},{"@type":"Article","@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#article","isPartOf":{"@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#webpage"},"author":{"@id":"https://www.engineersgarage.com/#/schema/person/46bbd53b9db1c5d1580cd604e3d6a2f2"},"headline":"Character Lcd 8&#215;1, 8&#215;2, 8&#215;4, 16&#215;1, 16&#215;2 20&#215;1, 20&#215;2, 20&#215;4, 24&#215;1, 24&#215;2, 24&#215;4, 32&#215;1, 32&#215;2, 40&#215;1, 40&#215;2, 40&#215;4 Pinout and Working","datePublished":"2019-04-28T05:12:33+00:00","dateModified":"2019-04-28T05:12:33+00:00","mainEntityOfPage":{"@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#webpage"},"commentCount":0,"publisher":{"@id":"https://www.engineersgarage.com/#organization"},"image":{"@id":"https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#primaryimage"},"articleSection":"Knowledge Share,Microcontroller Projects","inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/#respond"]}]},{"@type":"Person","@id":"https://www.engineersgarage.com/#/schema/person/46bbd53b9db1c5d1580cd604e3d6a2f2","name":"EG Projects","image":{"@type":"ImageObject","@id":"https://www.engineersgarage.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/264c79ff01f1e1fa75cc432c73ea709f?s=96&d=mm&r=g","caption":"EG Projects"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Engineers Garage » Feed" href="https://www.engineersgarage.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Engineers Garage » Comments Feed" href="https://www.engineersgarage.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Engineers Garage » Character Lcd 8×1, 8×2, 8×4, 16×1, 16×2 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Pinout and Working Comments Feed" href="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.engineersgarage.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="atomic-blocks-fontawesome-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/all_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-blocks-fontawesome-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/all.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-simple-share-plugin-css-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/share.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-simple-share-genericons-css-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="engineers-garage-2019-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="atomic-blocks-style-css-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/blocks.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-blocks-style-css-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/blocks_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="ea-fonts-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="ea-style-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/main.css" type="text/css" media="all">
+<link rel="stylesheet" id="simple-social-icons-font-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/style_004.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" id="addtoany-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/addtoany.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-tabs-stylesheet-css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/style_003.css" type="text/css" media="all">
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/jquery.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/jquery-migrate.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/jquery_002.js" id="genesis-simple-share-plugin-js-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/waypoints.js" id="genesis-simple-share-waypoint-js-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/addtoany.js" id="addtoany-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/svgxuse.js" id="svg-x-use-js"></script>
+<link rel="https://api.w.org/" href="https://www.engineersgarage.com/wp-json/"><link rel="alternate" type="application/json" href="https://www.engineersgarage.com/wp-json/wp/v2/posts/60115"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.engineersgarage.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://www.engineersgarage.com/?p=60115">
+<link rel="alternate" type="application/json+oembed" href="https://www.engineersgarage.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.engineersgarage.com%2Fknowledge_share%2Fcharacter-lcd-pinout-working%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.engineersgarage.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.engineersgarage.com%2Fknowledge_share%2Fcharacter-lcd-pinout-working%2F&amp;format=xml">
+
+<script data-cfasync="false">
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};
+a2a_config.track_links = 'bitly';
+a2a_config.track_links_key = 'addtoany|R_cc6a4017b0274d1d86f2397771b70136'; // username|API key delimited by |
+a2a_config.templates = {
+    twitter: "${title} ${link} via @EngineersGarage"
+};
+(function(d,s,a,b){a=d.createElement(s);b=d.getElementsByTagName(s)[0];a.async=1;a.src="https://static.addtoany.com/menu/page.js";b.parentNode.insertBefore(a,b);})(document,"script");
+</script>
+<style>
+		#category-posts-2-internal ul {padding: 0;}
+#category-posts-2-internal .cat-post-item img {max-width: initial; max-height: initial; margin: initial;}
+#category-posts-2-internal .cat-post-author {margin-bottom: 0;}
+#category-posts-2-internal .cat-post-thumbnail {margin: 5px 10px 5px 0;}
+#category-posts-2-internal .cat-post-item:before {content: ""; clear: both;}
+#category-posts-2-internal .cat-post-excerpt-more {display: inline-block;}
+#category-posts-2-internal .cat-post-item {list-style: none; margin: 3px 0 10px; padding: 3px 0;}
+#category-posts-2-internal .cat-post-current .cat-post-title {font-weight: bold; text-transform: uppercase;}
+#category-posts-2-internal [class*=cat-post-tax] {font-size: 0.85em;}
+#category-posts-2-internal [class*=cat-post-tax] * {display:inline-block;}
+#category-posts-2-internal .cat-post-item:after {content: ""; display: table;	clear: both;}
+#category-posts-2-internal .cat-post-item .cat-post-title {overflow: hidden;text-overflow: ellipsis;white-space: initial;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;padding-bottom: 0 !important;}
+#category-posts-2-internal .cat-post-item:after {content: ""; display: table;	clear: both;}
+#category-posts-2-internal .cat-post-thumbnail {display:block; float:left; margin:5px 10px 5px 0;}
+#category-posts-2-internal .cat-post-crop {overflow:hidden;display:block;}
+#category-posts-2-internal p {margin:5px 0 0 0}
+#category-posts-2-internal li > div {margin:5px 0 0 0; clear:both;}
+#category-posts-2-internal .dashicons {vertical-align:middle;}
+#category-posts-2-internal .cat-post-thumbnail .cat-post-crop img {height: 95px;}
+#category-posts-2-internal .cat-post-thumbnail .cat-post-crop img {object-fit: cover; max-width: 100%; display: block;}
+#category-posts-2-internal .cat-post-thumbnail .cat-post-crop-not-supported img {width: 100%;}
+#category-posts-2-internal .cat-post-thumbnail {max-width:100%;}
+#category-posts-2-internal .cat-post-item img {margin: initial;}
+#category-posts-2-internal .cat-post-dark img {padding-bottom: 0 !important; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -ms-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease;}
+#category-posts-2-internal .cat-post-dark:hover img {-webkit-filter: brightness(75%); -moz-filter: brightness(75%); -ms-filter: brightness(75%); -o-filter: brightness(75%); filter: brightness(75%);}
+</style>
+		<link rel="pingback" href="https://www.engineersgarage.com/xmlrpc.php">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJMRR6Z');</script>
+<!-- End Google Tag Manager -->
+
+
+<script async="" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/gpt.js"></script>
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    var pathParts = window.location.pathname.substr(1).split('/');
+
+	    var mapHeader = googletag.sizeMapping()
+	        .addSize([768, 200], [728, 90])
+	    	  .addSize([0, 0], [300, 250])
+	        .build();
+	        
+	    var mapLargeHeader = googletag.sizeMapping()
+	        .addSize([1024, 200], [[970, 90], [970, 250]])
+	        .addSize([0, 0], [300, 250])
+	        .build();
+	
+	    var mapInterstitial = googletag.sizeMapping()
+	        .addSize([1024, 500], [640, 480])
+	        .addSize([0, 0], [])
+	        .build();
+
+	    var mapWallpaper = googletag.sizeMapping()
+	        .addSize([1024, 500], [[1, 1]])
+	        .addSize([0, 0], [])
+	        .build();
+
+
+    
+    var gptSlots = [];
+       
+   gptSlots[0] = googletag.defineSlot('/5272491/ee_network/eg_header', [[300, 250], [728, 90]], 'div-gpt-eg-header')
+        .defineSizeMapping(mapHeader)
+        .addService(googletag.pubads());
+
+    gptSlots[1] = googletag.defineSlot('/5272491/ee_network/eg_largeleader', [[970, 90], [970, 250]], 'div-gpt-eg_largeleader')
+        .defineSizeMapping(mapLargeHeader)
+        .addService(googletag.pubads());
+        
+    gptSlots[2] = googletag.defineSlot('/5272491/ee_network/eg_interstitial', [[640, 480]], 'div-gpt-eg_interstitial')
+       .defineSizeMapping(mapInterstitial)	  
+       .addService(googletag.pubads());
+       
+		gptSlots[3] = googletag.defineSlot('/5272491/ee_network/eg_wallpaper', [[1, 1]], 'div-gpt-eg_wallpaper')
+	    .defineSizeMapping(mapWallpaper)	  
+		  .addService(googletag.pubads());
+		  
+		                
+        
+    googletag.defineSlot('/5272491/ee_network/eg_sidebar1', [[300, 250], [300, 600]], 'div-gpt-eg_sidebar1').addService(googletag.pubads());
+    googletag.defineSlot('/5272491/ee_network/eg_sidebarbottom', [[300, 250], [300, 600]], 'div-gpt-eg_sidebarbottom').addService(googletag.pubads());
+    googletag.defineSlot('/5272491/ee_network/eg_storeribbon', [[728, 90]], 'div-gpt-eg_storeribbon').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting('articletitle', pathParts[0] ? pathParts[0]: 'home-page').setTargeting('cat_target', [cat_target]);
+    googletag.enableServices();
+  });
+</script>
+
+
+
+
+<link rel="icon" href="https://www.engineersgarage.com/wp-content/uploads/2019/08/cropped-eg-favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.engineersgarage.com/wp-content/uploads/2019/08/cropped-eg-favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.engineersgarage.com/wp-content/uploads/2019/08/cropped-eg-favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.engineersgarage.com/wp-content/uploads/2019/08/cropped-eg-favicon-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			/*** TERM AND CATEGORY POST ***/
+.widget_recent_entries a {
+  font-weight: bold;
+  color: #333333;
+}
+
+.widget_recent_entries a:hover {
+	color: #1c85c8;
+  text-decoration: none;
+}
+
+.widget_recent_entries li {
+  padding: 5px 0px 5px 20px;
+	line-height: 20px;
+}
+
+.widget_recent_entries ul {
+  list-style: none;
+}
+
+ 
+/*** LYTICS IMAGE RESIZE ***/
+
+.pf-widget.pf-widget-variant-2.image-widget, .pf-widget-img {
+  border-radius: 0px !important;
+  width: 100% !important;
+  height: auto !important;
+  top: 0px !important;
+  left: 0px !important;
+  margin: 0px !important;
+}
+
+.pf-widget.pf-widget-variant-2.image-widget, .pf-widget-content, .pf-widget-headline {
+  margin-top: 100px;
+}
+
+.pf-widget.pf-widget-variant-2.image-widget .pf-widget-img {
+  z-index: 0;
+}
+
+.pf-widget.image-widget, .pf-widget-close {
+  color: white !important;
+  z-index: 1;
+}
+
+/*** END LYTICS IMAGE RESIZE ***/
+
+
+/*** TERM AND CATEGORY POST ***/
+a.cat-post-title {
+  font-weight: bold;
+  color: #333333;
+	margin-left:20px;	
+}
+
+a:hover.cat-post-title {
+	color: #337ab7;
+  text-decoration: none;
+}
+
+.cat-post-thumbnail {
+  padding: 5px 5px 5px 20px;
+}
+
+.cat-post-item {
+	line-height: 20px;
+}
+
+/*** RSS ***/
+.widget_rss a {
+  font-weight: bold;
+  color: #333333;
+}
+
+.widget_rss a:hover {
+	color: #1c85c8;
+  text-decoration: none;
+}
+
+.widget_rss li {
+  padding: 5px 0px 5px 20px;
+	line-height: 20px;
+}
+
+.widget_rss ul {
+  list-style: none;
+}
+
+/*Featured Tutorials Center
+/* @media only screen and (min-width: 1000px) {
+#category-posts-pro-2-internal .cat-post-item {
+	margin-left: 18%;
+}
+	}*/		</style>
+		<style type="text/css">.a2a_menu,.a2a_menu *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;float:none;margin:0;padding:0;position:static;height:auto;width:auto}.a2a_menu{border-radius:6px;display:none;direction:ltr;background:#FFF;font:16px sans-serif-light,HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Arial,Helvetica,"Liberation Sans",sans-serif;color:#000;line-height:12px;border:1px solid #CCC;vertical-align:baseline;overflow:hidden}.a2a_mini{min-width:200px;position:absolute;width:300px;z-index:9999997}.a2a_overlay{display:none;background:#616c7d;_height:expression( ((e=document.documentElement.clientHeight)?e:document.body.clientHeight)+"px" );_width:expression( ((e=document.documentElement.clientWidth)?e:document.body.clientWidth)+"px" );filter:alpha(opacity=90);opacity:.92;backdrop-filter:blur(8px);position:fixed;_position:absolute;top:0;right:0;left:0;bottom:0;z-index:9999998;-webkit-tap-highlight-color:rgba(0,0,0,0);transition:opacity .14s,backdrop-filter .14s}.a2a_full{background:#FFF;border:1px solid #FFF;height:auto;height:calc(320px);top:15%;_top:expression(40+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+"px");left:50%;margin-left:-320px;position:fixed;_position:absolute;text-align:center;width:640px;z-index:9999999;transition:transform .14s,opacity .14s}.a2a_full_footer,.a2a_full_header,.a2a_full_services{border:0;margin:0;padding:12px;box-sizing:border-box}.a2a_full_header{padding-bottom:8px}.a2a_full_services{height:280px;overflow-y:scroll;padding:0 12px;-webkit-overflow-scrolling:touch}.a2a_full_services .a2a_i{display:inline-block;float:none;width:181px;width:calc(33.334% - 18px)}div.a2a_full_footer{font-size:12px;text-align:center;padding:8px 14px}div.a2a_full_footer a,div.a2a_full_footer a:visited{display:inline;font-size:12px;line-height:14px;padding:8px 14px}div.a2a_full_footer a:focus,div.a2a_full_footer a:hover{background:0 0;border:0;color:#0166FF}div.a2a_full_footer a span.a2a_s_a2a,div.a2a_full_footer a span.a2a_w_a2a{background-size:14px;border-radius:3px;display:inline-block;height:14px;line-height:14px;margin:0 3px 0 0;vertical-align:top;*vertical-align:middle;width:14px}.a2a_modal{height:0;left:50%;margin-left:-320px;position:fixed;_position:absolute;text-align:center;top:15%;_top:expression(40+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+"px");width:640px;z-index:9999999;transition:transform .14s,opacity .14s;-webkit-tap-highlight-color:rgba(0,0,0,0)}.a2a_modal_body{background:0 0;border:0;font:24px sans-serif-light,HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Arial,Helvetica,"Liberation Sans",sans-serif;position:relative;height:auto;width:auto}.a2a_thanks{color:#fff;height:auto;margin-top:20px;width:auto}.a2a_thanks>div:first-child{margin:0 0 40px 0}.a2a_thanks div *{height:inherit}#a2a_copy_link{background:#FFF;border:1px solid #FFF;margin-top:15%}span.a2a_s_link#a2a_copy_link_icon,span.a2a_w_link#a2a_copy_link_icon{background-size:48px;border-radius:0;display:inline-block;height:48px;left:0;line-height:48px;margin:0 3px 0 0;position:absolute;vertical-align:top;*vertical-align:middle;width:48px}#a2a_modal input#a2a_copy_link_text{background-color:transparent;_background-color:#FFF;border:0;color:#2A2A2A;font:inherit;height:48px;left:62px;max-width:initial;padding:0;position:relative;width:564px;width:calc(100% - 76px)}#a2a_copy_link_copied{background-color:#0166ff;color:#fff;display:none;font:inherit;font-size:16px;margin-top:1px;padding:3px 8px}@media (prefers-color-scheme:dark){.a2a_menu a,.a2a_menu a.a2a_i,.a2a_menu a.a2a_i:visited,.a2a_menu a.a2a_more,i.a2a_i{border-color:#2a2a2a!important;color:#fff!important}.a2a_menu a.a2a_i:active,.a2a_menu a.a2a_i:focus,.a2a_menu a.a2a_i:hover,.a2a_menu a.a2a_more:active,.a2a_menu a.a2a_more:focus,.a2a_menu a.a2a_more:hover,.a2a_menu_find_container{border-color:#444!important;background-color:#444!important}.a2a_menu{background-color:#2a2a2a;border-color:#2a2a2a}.a2a_menu_find{color:#fff!important}.a2a_menu span.a2a_s_find svg{background-color:transparent!important}.a2a_menu span.a2a_s_find svg path{fill:#fff!important}}@media print{.a2a_floating_style,.a2a_menu,.a2a_overlay{visibility:hidden}}@keyframes a2aFadeIn{from{opacity:0}to{opacity:1}}.a2a_starting{opacity:0}.a2a_starting.a2a_full,.a2a_starting.a2a_modal{transform:scale(.8)}@media (max-width:639px){.a2a_full{border-radius:0;top:15%;left:0;margin-left:auto;width:100%}.a2a_modal{left:0;margin-left:10px;width:calc(100% - 20px)}}@media (min-width:318px) and (max-width:437px){.a2a_full .a2a_full_services .a2a_i{width:calc(50% - 18px)}}@media (max-width:317px){.a2a_full .a2a_full_services .a2a_i{width:calc(100% - 18px)}}@media (max-height:436px){.a2a_full{bottom:40px;height:auto;top:40px}}@media (max-height:550px){.a2a_modal{top:30px}}@media (max-height:360px){.a2a_modal{top:20px}.a2a_thanks>div:first-child{margin-bottom:20px}}.a2a_menu a{color:#0166FF;text-decoration:none;font:16px sans-serif-light,HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Arial,Helvetica,"Liberation Sans",sans-serif;line-height:14px;height:auto;width:auto;outline:0}.a2a_menu a.a2a_i:visited,.a2a_menu a.a2a_more{color:#0166FF}.a2a_menu a.a2a_i:active,.a2a_menu a.a2a_i:focus,.a2a_menu a.a2a_i:hover,.a2a_menu a.a2a_more:active,.a2a_menu a.a2a_more:focus,.a2a_menu a.a2a_more:hover{color:#2A2A2A;border-color:#EEE;border-style:solid;background-color:#EEE;text-decoration:none}.a2a_menu span.a2a_s_find{background-size:24px;height:24px;left:8px;position:absolute;top:7px;width:24px}.a2a_menu span.a2a_s_find svg{background-color:#FFF}.a2a_menu span.a2a_s_find svg path{fill:#CCC}#a2a_menu_container{display:inline-block}#a2a_menu_container{_display:inline}.a2a_menu_find_container{border:1px solid #CCC;border-radius:6px;padding:2px 24px 2px 0;position:relative;text-align:left}.a2a_cols_container .a2a_col1{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}#a2a_modal input,#a2a_modal input[type=text],.a2a_menu input,.a2a_menu input[type=text]{display:block;background-image:none;box-shadow:none;line-height:100%;margin:0;outline:0;overflow:hidden;padding:0;-moz-box-shadow:none;-webkit-box-shadow:none;-webkit-appearance:none}#a2apage_find_container input,#a2apage_find_container input[type=text]{background-color:transparent;_background-color:#FFF;border:0;box-sizing:content-box;color:#2A2A2A;font:inherit;font-size:16px;height:28px;line-height:20px;left:38px;outline:0;margin:0;max-width:initial;padding:2px 0;position:relative;width:99%}.a2a_clear{clear:both} .a2a_svg{background-repeat:no-repeat;display:block;overflow:hidden;height:32px;line-height:32px;padding:0;width:32px}.a2a_svg svg{background-repeat:no-repeat;background-position:50% 50%;border:none;display:block;left:0;margin:0 auto;overflow:hidden;padding:0;position:relative;top:0;width:auto;height:auto}a.a2a_i,i.a2a_i{display:block;float:left;border:1px solid #FFF;line-height:24px;padding:6px 8px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:132px}a.a2a_i span,a.a2a_more span{display:inline-block;overflow:hidden;vertical-align:top;*vertical-align:middle}a.a2a_i .a2a_svg{margin:0 6px 0 0}a.a2a_i .a2a_svg,a.a2a_more .a2a_svg{background-size:24px;height:24px;line-height:24px;width:24px}a.a2a_sss:hover{border-left:1px solid #CCC}a.a2a_menu_show_more_less{border-bottom:1px solid #FFF;border-left:0;border-right:0;line-height:24px;margin:6px 0 0;padding:6px;-webkit-touch-callout:none}a.a2a_menu_show_more_less span{display:inline-block;height:24px;margin:0 6px 0 0}.a2a_kit .a2a_svg{background-repeat:repeat}.a2a_default_style a{float:left;line-height:16px;padding:0 2px}.a2a_default_style a:hover .a2a_svg,.a2a_floating_style a:hover .a2a_svg,.a2a_overlay_style a:hover .a2a_svg svg{opacity:.7}.a2a_overlay_style.a2a_default_style a:hover .a2a_svg{opacity:1}.a2a_default_style .a2a_count,.a2a_default_style .a2a_svg,.a2a_floating_style .a2a_svg,.a2a_menu .a2a_svg,.a2a_vertical_style .a2a_count,.a2a_vertical_style .a2a_svg{border-radius:4px}.a2a_default_style .a2a_counter img,.a2a_default_style .a2a_dd,.a2a_default_style .a2a_svg{float:left}.a2a_default_style .a2a_img_text{margin-right:4px}.a2a_default_style .a2a_divider{border-left:1px solid #000;display:inline;float:left;height:16px;line-height:16px;margin:0 5px}.a2a_kit a{cursor:pointer}.a2a_floating_style{background-color:#fff;border-radius:6px;position:fixed;z-index:9999995}.a2a_overlay_style{z-index:2147483647}.a2a_floating_style,.a2a_overlay_style{animation:a2aFadeIn .2s ease-in;padding:4px}.a2a_vertical_style a{clear:left;display:block;overflow:hidden;padding:4px;text-decoration:none}.a2a_floating_style.a2a_default_style{bottom:0}.a2a_floating_style.a2a_default_style a,.a2a_overlay_style.a2a_default_style a{padding:4px}.a2a_count{background-color:#fff;border:1px solid #ccc;box-sizing:border-box;color:#2a2a2a;display:block;float:left;font:12px Arial,Helvetica,sans-serif;height:16px;margin-left:4px;position:relative;text-align:center;width:50px}.a2a_count:after,.a2a_count:before{border:solid transparent;border-width:4px 4px 4px 0;content:"";height:0;left:0;line-height:0;margin:-4px 0 0 -4px;position:absolute;top:50%;width:0}.a2a_count:before{border-right-color:#ccc}.a2a_count:after{border-right-color:#fff;margin-left:-3px}.a2a_count span{animation:a2aFadeIn .14s ease-in}.a2a_vertical_style .a2a_counter img{display:block}.a2a_vertical_style .a2a_count{float:none;margin-left:0;margin-top:6px}.a2a_vertical_style .a2a_count:after,.a2a_vertical_style .a2a_count:before{border:solid transparent;border-width:0 4px 4px 4px;content:"";height:0;left:50%;line-height:0;margin:-4px 0 0 -4px;position:absolute;top:0;width:0}.a2a_vertical_style .a2a_count:before{border-bottom-color:#ccc}.a2a_vertical_style .a2a_count:after{border-bottom-color:#fff;margin-top:-3px}.a2a_nowrap{white-space:nowrap}.a2a_note{margin:0 auto;padding:9px;font-size:12px;text-align:center}.a2a_note .a2a_note_note{margin:0;color:#2A2A2A}.a2a_wide a{display:block;margin-top:3px;border-top:1px solid #EEE;text-align:center}.a2a_label{position:absolute!important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:polygon(0 0,0 0,0 0);-webkit-clip-path:polygon(0 0,0 0,0 0);overflow:hidden;height:1px;width:1px}.a2a_kit,.a2a_menu,.a2a_modal,.a2a_overlay{-ms-touch-action:manipulation;touch-action:manipulation;outline:0}.a2a_dd img{border:0}.a2a_button_facebook_like iframe{max-width:none}</style><meta http-equiv="origin-trial" content="A2shzsdPO+RKe83bUqT9oVkYwGZN6j9O7nrcOASNFPuQz8HefgVYb9qAqn6coNCSDIRtXoi6ybCrjEsYh3caFgIAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MTM0OTU4NjgsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/pubads_impl_2021011203.js" async=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preload" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/integrator.js" as="script"><script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/integrator.js"></script><script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/io.js"></script><link rel="prefetch" href="https://bb5155d7742455c8aaa1b2cb8de2d44a.safeframe.googlesyndication.com/safeframe/1-0-37/html/container.html"><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"><script async="" type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/pathfora.js"></script><style type="text/css">[data-pftrigger], [data-pfrecommend]{ display: none; }</style><link rel="stylesheet" type="text/css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/pathfora.css"><link rel="stylesheet" type="text/css" href="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/wtwh-lytics-custom.css"></head>
+<body class="post-template-default single single-post postid-60115 single-format-standard header-image content-sidebar genesis-breadcrumbs-hidden small-header"><div class="site-container"><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="https://www.engineersgarage.com/">Engineers Garage</a></p></div><div class="widget-area header-widget-area"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div id="div-gpt-eg-header">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg-header'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_header_0__container__" style="border: 0pt none; width: 728px; height: 90px;"></div></div>
+
+</div></div></section>
+</div><div class="mobile-toggles"><a href="#" class="search-toggle"><i class="icon-search"></i></a><a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i></a></div></div></header><nav class="nav-primary" aria-label="Main" style=""><div class="wrap"><ul id="menu-main-nav" class="menu genesis-nav-menu menu-primary"><li id="menu-item-61908" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/projects-and-tutorials/"><span>Projects and Tutorials</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-56096" class="menu-item"><a href="https://www.engineersgarage.com/circuit_design/"><span>Circuit Design</span></a></li>
+	<li id="menu-item-39808" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/electronic-projects/"><span>Electronic Projects</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-55860" class="menu-item"><a href="https://www.engineersgarage.com/8051-microcontroller/"><span>8051</span></a></li>
+		<li id="menu-item-55863" class="menu-item"><a href="https://www.engineersgarage.com/arduino/"><span>Arduino</span></a></li>
+		<li id="menu-item-55864" class="menu-item"><a href="https://www.engineersgarage.com/arm/"><span>ARM</span></a></li>
+		<li id="menu-item-55866" class="menu-item"><a href="https://www.engineersgarage.com/avr-microcontroller/"><span>AVR</span></a></li>
+		<li id="menu-item-55865" class="menu-item"><a href="https://www.engineersgarage.com/pic-microcontroller/"><span>PIC</span></a></li>
+		<li id="menu-item-55862" class="menu-item"><a href="https://www.engineersgarage.com/raspberrypi/"><span>Raspberry pi</span></a></li>
+		<li id="menu-item-60239" class="menu-item"><a href="https://www.engineersgarage.com/stm32/"><span>STM32</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7268" class="menu-item"><a href="https://www.engineersgarage.com/tutorials/"><span>Tutorials</span></a></li>
+	<li id="menu-item-7269" class="menu-item"><a href="https://www.engineersgarage.com/components/"><span>Components</span></a></li>
+</ul>
+</li>
+<li id="menu-item-39810" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/article_page/"><span>Articles</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-55971" class="menu-item"><a href="https://www.engineersgarage.com/egblog/"><span>EG Blogs</span></a></li>
+	<li id="menu-item-13371" class="menu-item"><a href="https://www.engineersgarage.com/insight/"><span>Insight</span></a></li>
+	<li id="menu-item-13399" class="menu-item"><a href="https://www.engineersgarage.com/invention-stories/"><span>Invention Stories</span></a></li>
+	<li id="menu-item-13326" class="menu-item"><a href="https://www.engineersgarage.com/how_to/"><span>How to</span></a></li>
+	<li id="menu-item-59366" class="menu-item"><a href="https://www.engineersgarage.com/what_is/"><span>What Is</span></a></li>
+	<li id="menu-item-1863" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="#"><span>News</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-39809" class="menu-item"><a href="https://www.engineersgarage.com/news/"><span>EE Design News</span></a></li>
+		<li id="menu-item-14489" class="menu-item"><a href="https://www.engineersgarage.com/reviews/"><span>DIY Reviews</span></a></li>
+		<li id="menu-item-14287" class="menu-item"><a href="https://www.engineersgarage.com/guest_post/"><span>Guest Post</span></a></li>
+		<li id="menu-item-14617" class="menu-item"><a href="https://www.engineersgarage.com/sponsored_post/"><span>Sponsored Content</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-55871" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a><span>Forums</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-55870" class="menu-item"><a href="https://www.edaboard.com/"><span>EDABoard.com</span></a></li>
+	<li id="menu-item-55869" class="menu-item"><a href="https://www.electro-tech-online.com/"><span>Electro-Tech-Online</span></a></li>
+	<li id="menu-item-1851" class="menu-item"><a href="https://forums.engineersgarage.com/"><span>EG Forum Archive</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1868" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114157;205282942;x?https://www.digikey.com/products/semiconductors/en"><span>Digi-Key Store</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1869" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107959;205282942;j?https://www.digikey.com/products/cables-wires/en"><span>Cables, Wires</span></a></li>
+	<li id="menu-item-1870" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405138225;205282942;z?https://www.digikey.com/en/resources/connectors/index"><span>Connectors, Interconnect</span></a></li>
+	<li id="menu-item-1871" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107974;205282942;g?https://www.digikey.com/products/discrete-semiconductors/en"><span>Discrete</span></a></li>
+	<li id="menu-item-1872" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136545;205282942;c?https://www.digikey.com/products/electromechanical/en"><span>Electromechanical</span></a></li>
+	<li id="menu-item-1873" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114172;205282942;u?https://www.digikey.com/products/embedded-computers/en"><span>Embedded Computers</span></a></li>
+	<li id="menu-item-1874" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136872;205282942;f?https://www.digikey.com/products/enclosures-hardware-office/en"><span>Enclosures, Hardware, Office</span></a></li>
+	<li id="menu-item-1875" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107986;205282942;j?https://www.digikey.com/products/ics/en"><span>Integrated Circuits (ICs)</span></a></li>
+	<li id="menu-item-1876" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134514;205282942;w?https://www.digikey.com/products/isolators/en"><span>Isolators</span></a></li>
+	<li id="menu-item-1877" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136602;205282942;w?https://www.digikey.com/products/leds-optoelectronics/en"><span>LED/Optoelectronics</span></a></li>
+	<li id="menu-item-1878" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107950;205282942;a?https://www.digikey.com/products/passives/en"><span>Passive</span></a></li>
+	<li id="menu-item-1879" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134481;205282942;z?https://www.digikey.com/products/power-circuit-protection/en"><span>Power, Circuit Protection</span></a></li>
+	<li id="menu-item-1880" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136875;205282942;i?https://www.digikey.com/products/development-systems-programmers/en"><span>Programmers</span></a></li>
+	<li id="menu-item-1881" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134517;205282942;z?https://www.digikey.com/products/rf-wireless/en"><span>RF, Wireless</span></a></li>
+	<li id="menu-item-1882" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114157;205282942;x?https://www.digikey.com/products/semiconductors/en"><span>Semiconductors</span></a></li>
+	<li id="menu-item-1883" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114196;205282942;a?https://www.digikey.com/products/sensors-transducers/en"><span>Sensors, Transducers</span></a></li>
+	<li id="menu-item-1884" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114562;205282942;x?https://www.digikey.com/products/test-products/en"><span>Test Products</span></a></li>
+	<li id="menu-item-1885" class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114565;205282942;a?https://www.digikey.com/products/tools/en"><span>Tools</span></a></li>
+</ul>
+</li>
+<li id="menu-item-55895" class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a><span>EE Resources</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-55896" class="menu-item"><a href="https://www.designfast.com/"><span>DesignFast</span></a></li>
+	<li id="menu-item-55899" class="menu-item"><a href="https://www.eeworldonline.com/leadership-in-engineering-achievement-program-leap-awards/"><span>LEAP Awards</span></a></li>
+	<li id="menu-item-55897" class="menu-item"><a href="http://products.designworldonline.com/oscilloscopes.html"><span>Oscilloscope Product Finder</span></a></li>
+	<li id="menu-item-62725" class="menu-item"><a target="_blank" rel="noopener" href="https://www.youtube.com/user/engineersgarage"><span>Video</span></a></li>
+	<li id="menu-item-55898" class="menu-item"><a href="http://www.engineeringwhitepapers.com/category/electricalelectronic/"><span>White Papers</span></a></li>
+	<li id="menu-item-56169" class="menu-item"><a href="https://www.engineersgarage.com/webinars/"><span>Webinars</span></a></li>
+</ul>
+</li>
+<li id="menu-item-56062" class="menu-item"><a href="https://www.eeworldonline.com/learning-center"><span>EE Learning Center</span></a></li>
+<li id="menu-item-62203" class="menu-item"><a href="https://www.eeworldonline.com/category/women-in-engineering/"><span>Women in Engineering</span></a></li>
+<li class="menu-item search"><a href="#" class="search-toggle"><i class="icon-search"></i></a></li></ul></div></nav><div style="padding-top:10px;text-align:center">				
+<div id="div-gpt-eg_largeleader">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg_largeleader'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_largeleader_0__container__" style="border: 0pt none; width: 970px; height: 90px;"></div></div>
+
+			</div><div class="site-inner"><div class="wrap"><div class="content-sidebar-wrap"><main class="content"><article class="type-post entry" aria-label="Character Lcd 8×1, 8×2, 8×4, 16×1, 16×2 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Pinout and Working"><header class="entry-header"><h1 class="entry-title">Character Lcd 8×1, 8×2, 8×4, 16×1, 16×2 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Pinout and Working</h1>
+<p class="entry-meta"><time class="entry-time">April 28, 2019</time> By <span class="entry-author"><a href="https://www.engineersgarage.com/author/eg-projects/" class="entry-author-link" rel="author"><span class="entry-author-name">EG Projects</span></a></span>  </p></header><div class="entry-content"><div class="addtoany_share_save_container addtoany_content addtoany_content_top"><div class="a2a_kit a2a_kit_size_16 addtoany_list" data-a2a-url="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/" data-a2a-title="Character Lcd 8×1, 8×2, 8×4, 16×1, 16×2 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Pinout and Working" style="line-height: 16px;"><a class="a2a_button_facebook" href="https://www.engineersgarage.com/#facebook" title="Facebook" rel="nofollow noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_facebook" style="background-color: rgb(24, 119, 242); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#FFF" d="M17.78 27.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99 2.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123 0-5.26 1.905-5.26 5.405v3.016h-3.53v4.09h3.53V27.5h4.223z"></path></svg></span><span class="a2a_label">Facebook</span></a><a class="a2a_button_twitter" href="https://www.engineersgarage.com/#twitter" title="Twitter" rel="nofollow noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_twitter" style="background-color: rgb(85, 172, 238); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#FFF" d="M28 8.557a9.913 9.913 0 0 1-2.828.775 4.93 4.93 0 0 0 2.166-2.725 9.738 9.738 0 0 1-3.13 1.194 4.92 4.92 0 0 0-3.593-1.55 4.924 4.924 0 0 0-4.794 6.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942 4.942 0 0 0-.665 2.477c0 1.71.87 3.214 2.19 4.1a4.968 4.968 0 0 1-2.23-.616v.06c0 2.39 1.7 4.38 3.952 4.83-.414.115-.85.174-1.297.174-.318 0-.626-.03-.928-.086a4.935 4.935 0 0 0 4.6 3.42 9.893 9.893 0 0 1-6.114 2.107c-.398 0-.79-.023-1.175-.068a13.953 13.953 0 0 0 7.55 2.213c9.056 0 14.01-7.507 14.01-14.013 0-.213-.005-.426-.015-.637.96-.695 1.795-1.56 2.455-2.55z"></path></svg></span><span class="a2a_label">Twitter</span></a><a class="a2a_button_linkedin" href="https://www.engineersgarage.com/#linkedin" title="LinkedIn" rel="nofollow noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_linkedin" style="background-color: rgb(0, 123, 181); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M6.227 12.61h4.19v13.48h-4.19V12.61zm2.095-6.7a2.43 2.43 0 0 1 0 4.86c-1.344 0-2.428-1.09-2.428-2.43s1.084-2.43 2.428-2.43m4.72 6.7h4.02v1.84h.058c.56-1.058 1.927-2.176 3.965-2.176 4.238 0 5.02 2.792 5.02 6.42v7.395h-4.183v-6.56c0-1.564-.03-3.574-2.178-3.574-2.18 0-2.514 1.7-2.514 3.46v6.668h-4.187V12.61z" fill="#FFF"></path></svg></span><span class="a2a_label">LinkedIn</span></a><a class="a2a_button_reddit" href="https://www.engineersgarage.com/#reddit" title="Reddit" rel="nofollow noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_reddit" style="background-color: rgb(255, 69, 0); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M28.543 15.774a2.953 2.953 0 0 0-2.951-2.949 2.882 2.882 0 0 0-1.9.713 14.075 14.075 0 0 0-6.85-2.044l1.38-4.349 3.768.884a2.452 2.452 0 1 0 .24-1.176l-4.274-1a.6.6 0 0 0-.709.4l-1.659 5.224a14.314 14.314 0 0 0-7.316 2.029 2.908 2.908 0 0 0-1.872-.681 2.942 2.942 0 0 0-1.618 5.4 5.109 5.109 0 0 0-.062.765c0 4.158 5.037 7.541 11.229 7.541s11.22-3.383 11.22-7.541a5.2 5.2 0 0 0-.053-.706 2.963 2.963 0 0 0 1.427-2.51zm-18.008 1.88a1.753 1.753 0 0 1 1.73-1.74 1.73 1.73 0 0 1 1.709 1.74 1.709 1.709 0 0 1-1.709 1.711 1.733 1.733 0 0 1-1.73-1.711zm9.565 4.968a5.573 5.573 0 0 1-4.081 1.272h-.032a5.576 5.576 0 0 1-4.087-1.272.6.6 0 0 1 .844-.854 4.5 4.5 0 0 0 3.238.927h.032a4.5 4.5 0 0 0 3.237-.927.6.6 0 1 1 .844.854zm-.331-3.256a1.726 1.726 0 1 1 1.709-1.712 1.717 1.717 0 0 1-1.712 1.712z" fill="#fff"></path></svg></span><span class="a2a_label">Reddit</span></a><a class="a2a_button_pinterest" href="https://www.engineersgarage.com/#pinterest" title="Pinterest" rel="nofollow noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pinterest" style="background-color: rgb(189, 8, 28); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#FFF" d="M16.539 4.5c-6.277 0-9.442 4.5-9.442 8.253 0 2.272.86 4.293 2.705 5.046.303.125.574.005.662-.33.061-.231.205-.816.27-1.06.088-.331.053-.447-.191-.736-.532-.627-.873-1.439-.873-2.591 0-3.338 2.498-6.327 6.505-6.327 3.548 0 5.497 2.168 5.497 5.062 0 3.81-1.686 7.025-4.188 7.025-1.382 0-2.416-1.142-2.085-2.545.397-1.674 1.166-3.48 1.166-4.689 0-1.081-.581-1.983-1.782-1.983-1.413 0-2.548 1.462-2.548 3.419 0 1.247.421 2.091.421 2.091l-1.699 7.199c-.505 2.137-.076 4.755-.039 5.019.021.158.223.196.314.077.13-.17 1.813-2.247 2.384-4.324.162-.587.929-3.631.929-3.631.46.876 1.801 1.646 3.227 1.646 4.247 0 7.128-3.871 7.128-9.053.003-3.918-3.317-7.568-8.361-7.568z"></path></svg></span><span class="a2a_label">Pinterest</span></a><a class="a2a_dd addtoany_share_save addtoany_share" href="https://www.addtoany.com/share#url=https%3A%2F%2Fwww.engineersgarage.com%2Fknowledge_share%2Fcharacter-lcd-pinout-working%2F&amp;title=Character%20Lcd%208%C3%971%2C%208%C3%972%2C%208%C3%974%2C%2016%C3%971%2C%2016%C3%972%2020%C3%971%2C%2020%C3%972%2C%2020%C3%974%2C%2024%C3%971%2C%2024%C3%972%2C%2024%C3%974%2C%2032%C3%971%2C%2032%C3%972%2C%2040%C3%971%2C%2040%C3%972%2C%2040%C3%974%20Pinout%20and%20Working"><span class="a2a_svg a2a_s__default a2a_s_a2a" style="background-color: rgb(1, 102, 255); width: 16px; line-height: 16px; height: 16px; background-size: 16px; border-radius: 2px;"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="#FFF"><path d="M14 7h4v18h-4z"></path><path d="M7 14h18v4H7z"></path></g></svg></span><span class="a2a_label a2a_localize" data-a2a-localize="inner,Share">Share</span></a></div></div><div id="content">
+<div id="wsite-content" class="wsite-elements wsite-not-footer">
+<div>
+<div id="544503812111601481" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left"><input type="hidden" name="IL_IN_TAG" value="2"></div>
+<p></p></div>
+<div> </div>
+<div class="paragraph" style="text-align:justify;"><span style="color:rgb(42, 42, 42)"><font size="3">In
+ this tutorial I am going to explain about the pin out, working and 
+control systems of character lcd’s. Character lcd’s comes in many sizes 
+for example &nbsp;8×1, 8×2, 8×4, 16×1, 16×2, 20×1, 20×2, 20×4, 24×1, 
+24×2, 24×4, 32×1, 32×2, 40×1, 40×2 and 40×4. In these MxN dimensions, M 
+represents number of coulombs &amp; N represents number of rows.&nbsp;</font></span></div>
+<div>
+<div id="264777205371700562" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h3>Similarity in character lcd’s</h3>
+</div></div>
+<div>
+<div class="wsite-multicol">
+<div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+<table class="wsite-multicol-table">
+<tbody class="wsite-multicol-tbody">
+<tr class="wsite-multicol-tr">
+<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">  </td>
+<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+<div class="paragraph" style="text-align:justify;"><font style="" size="3">All
+ these Lcd’s available in market have 14 or 16 pins depending on the 
+vendor/supplier. Also they all contains a same lcd controller in them 
+which controls all their activities. Talks to external peripherals(like 
+microcontrollers) receives data from external devices and displays them 
+on lcd display screen. Generally every character lcd has HD44780 
+controller in it which controls&nbsp;every operation of character lcd. 
+Some variants and competitors of HD44780 also placed step in embedded 
+market but they are not popular for example&nbsp;</font><font size="3"><span style="color:rgb(47, 47, 47)">AIP31066 , KS0066 , SPLC780 and ST7066 lcd controller.&nbsp;</span><font style="color:rgb(42, 42, 42)">&nbsp;&nbsp;</font></font></div>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div>
+<div id="512802381806472968" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h3>Character lcd’s Pin names and functions</h3>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">In these 14 pins, 8 are data pins(From </font><strong>DB-0</strong><font size="3"> to </font><strong>DB-7</strong><font size="3">). Three are lcd control pins </font><strong>RS</strong><font size="3">(Register Select), </font><strong>R/W</strong><font size="3">(Read-Write) &amp; </font><strong>En</strong><font size="3">(Enable). Two are lcd power pins </font><strong>Vcc</strong><font size="3">(+5v) </font><strong>Vss</strong><font size="3">(Gnd). The last pin is</font><font size="4">&nbsp;lcd contrast pin</font><font size="3">(V0).<p></p>
+</font><p><font size="3">If lcd contains 16 pins than the extra 2 pins are <strong>LED+</strong> and <strong>LED-</strong> pins. <strong>LED+</strong> and <strong>LED-</strong> are for lcd’s back light, if you want to switch on the back light of lcd then use these pins other wise leave them void.</font></p></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/5919393_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/5919393_orig.jpg" alt="8x1, 8x2, 8x4, 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Lcd Pinout." style="width:auto;max-width:595px"> </a> <p></p>
+<div style="display:block;font-size:90%">8×1, 8×2, 8×4, 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Lcd Pinout.</div>
+<p></p></div>
+</div>
+<div>
+<div id="159448201945759739" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h3>Character Lcd’s coming in a square female header</h3>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">Character
+ lcd’s which have pins arranged in two lines like headers, 
+their&nbsp;pin-out&nbsp;is given below. Female 
+header&nbsp;pin-out&nbsp;is shown below. Vendors for ease pre-solder the
+ lcd pins and provide a female header for connections.</font></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center"> <a> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/1411136510.jpg" alt="8x1, 8x2, 8x4, 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Lcd pinout in Bus header form." style="width:auto;max-width:100%"> </a> <p></p>
+<div style="display:block;font-size:90%">8×1, 8×2, 8×4, 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Lcd pinout in Bus header form.</div>
+<p></p></div>
+</div>
+<div>
+<div id="365247400344185144" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center">Characters lcd’s with slightly different pin out</h1>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">Mostly
+ character lcds contains HD44780U lcd controller in them. HD44780 was 
+developed by Hitachi. A single HD44780 can handle up to 80 characters. 
+In 40×4 lcd display total characters which we can display on lcd are 
+40×4=160. So to control 160 characters we need two HD44780 controllers. 
+To work with two HD44780 controllers we need an extra pin to energize 
+the second controller.&nbsp;<p></p>
+</font><p><font size="3">The only difference in 40×4 display and sizes greater than this is two extra pins. <strong>NC</strong> and an extra <strong>En</strong> pin.</font></p>
+<ul>
+<li><font size="3"><span>&nbsp; <strong>NC</strong>=&nbsp;Is simply no connection. Leave it untouched or apply negative voltage.</span></font></li>
+<li><font size="3"><span>&nbsp; <strong>E1 &amp; E2</strong>=&nbsp;<strong>E1</strong> controls (Enables) the upper two rows of 40×4 character lcd. <strong>E2</strong> controls&nbsp;(Enables) the Lower 2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; rows of 40×4 display.</span></font></li>
+</ul>
+<p><font size="3">Take a simple look on the diagram below from the datasheet of 40×4 character lcd.&nbsp;</font></p></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/3250976_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/3250976_orig.jpg" alt="40x4 and sizes grater than it lcd controller." style="width:auto;max-width:616px"> </a> <p></p>
+<div style="display:block;font-size:90%">40×4 and sizes grater than it lcd controller schematic.</div>
+<p></p></div>
+</div>
+<div>
+<div id="902591406645619225" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h3>Pin out of 40×4 character lcd display </h3>
+</div></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/1508528_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/1508528_orig.jpg" alt="40x4 Lcd pinout" style="width:auto;max-width:571px"> </a> <p></p>
+<div style="display:block;font-size:90%">40×4 Lcd pinout</div>
+<p></p></div>
+</div>
+<div>
+<div id="169285766647849362" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h3>40×4 display pin out in header format</h3>
+</div></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/9313481_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/9313481_orig.jpg" alt="40x4 lcd pinout in bus Header package" style="width:auto;max-width:738px"> </a> <p></p>
+<div style="display:block;font-size:90%">40×4 lcd pinout in bus Header package</div>
+<p></p></div>
+</div>
+<div>
+<div id="253655825341105931" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center">What is lcd contrast Pin?</h1>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">Lcd 
+contrast pin is same like fine tuning your television. In televisions we
+ fine tune stations using remote but in character lcd’s we have to 
+manually do it by varying the resistance. Varying the resistance means 
+we control the input current to lcd. Varying resistance will fade or 
+brighten the characters or data appearing on lcd screen.</font></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/variable-resitor-potentiometer-with-16x2-lcd-contrast-pin-settings_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/variable-resitor-potentiometer-with-16x2-lcd-contrast-pin-se.jpg" alt="Variable resistor potentiometer with 16x2 lcd contrast pin settings" style="width:auto;max-width:100%"> </a> <p></p>
+<div style="display:block;font-size:90%">Variable resistor potentiometer with 16×2 lcd contrast pin settings</div>
+<p></p></div>
+</div>
+<div>
+<div id="734078412511611109" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center">Character lcd operation modes </h1>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">Character Lcd’s can be interfaced in 8-bit and 4-bit mode with external&nbsp;controllers. In 8-bit mode all the data lines(<strong>DB0-DB7</strong>) of lcd are utilized. In 4-bit mode only four data pins of lcd are utilized (<strong>DB7-DB4</strong>).
+ In 4-bit mode first the 8-bit ASCII&nbsp;value is divided in to two 
+nibbles, first the upper nibble is send on data line and then the lower 
+nibble. 4-bit mode is used when we want to save GPIO pins of our 
+external device like microcontoller. An example of lcd connection with 
+remote controller is shown in the picture below.<p></p>
+</font><p><font size="3">I prepared a good tutorial on interfacing 
+character lcd in 8-bit and 4-bit mode with microcontrollers. Demo codes 
+are also presented and explained in the post. Click the below button to 
+take the tutorial.</font></p></div>
+<p></p></div>
+<div style="text-align:center;">
+<div style="height: 10px; overflow: hidden;"></div>
+<p> <a class="wsite-button wsite-button-small wsite-button-normal" href="https://www.engineersgarage.com/lcd-in-4-bit-mode-and-8-bit-mode.html" target="_blank" rel="noopener noreferrer"> <span class="wsite-button-inner">Difference between 8-bit and 4-bit mode lcd interfacing mode</span> </a> </p>
+<div style="height: 10px; overflow: hidden;"></div>
+</div>
+<div>
+<div class="wsite-multicol">
+<div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+<table class="wsite-multicol-table">
+<tbody class="wsite-multicol-tbody">
+<tr class="wsite-multicol-tr">
+<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+<div>
+<div id="238483859660292786" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center">Lcd interfaced in 4-bit mode</h1>
+</div></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/lcd-inerfaced-in-4-bit-mode_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/lcd-inerfaced-in-4-bit-mode_orig.jpg" alt="8x1, 8x2, 8x4, 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Lcd Connection with Microcontroller in 8-bit mode." style="width:auto;max-width:100%"> </a> <p></p>
+<div style="display:block;font-size:90%">8×1, 8×2, 8×4, 20×1, 20×2, 
+20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Lcd Connection with
+ Microcontroller in 4-bit mode.</div>
+<p></p></div>
+</div>
+</td>
+<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+<div>
+<div id="151214437664403607" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center">Lcd interfaced in 8-bit mode</h1>
+</div></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/9044183_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/9044183.jpg" alt="8x1, 8x2, 8x4, 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Lcd Connection with Microcontroller." style="width:410;max-width:100%"> </a> <p></p>
+<div style="display:block;font-size:90%">8×1, 8×2, 8×4, 20×1, 20×2, 
+20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Lcd Connection with
+ Microcontroller in 8-bit mode.</div>
+<p></p></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div>
+<div id="377895571352683072" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left">
+<h1 align="center"> Character lcd Individual Pin Functions</h1>
+</div></div>
+<div class="paragraph" style="text-align:justify;"><font size="3"><strong>DB0-DB7</strong><br>These
+ are eight bit data pins. We send our data and command to lcd using 
+these lines. Data is directly accepted by the hd44780 lcd controller.<p></p>
+</font><p><font size="3"><strong>R/W(Read-Write)</strong><br>This pin 
+selects if we want to read or write some instruction (Data-Command) to 
+lcd. Signals notifies the lcd controller about potential read write 
+operation.</font></p>
+<ul>
+<li><font size="3"><span>If R/W=0 Write operation is selected.</span></font></li>
+<li><font size="3"><span>If R/W=1 Read operation is selected.</span></font></li>
+</ul>
+<p><font size="3"><strong>En(Enable)</strong><br>This pin is a push data
+ present on data lines of lcd. Generally it remains low. But when we 
+want to display data on lcd screen or send lcd settings command we make 
+this pin high for some milli seconds and then back again low. This small
+ push sends the data present on lcd data lines straight&nbsp;&nbsp;to 
+the HD44780 lcd controller&nbsp; &nbsp;</font><br><font size="3"><strong>Note:</strong> 40×4 and sizes greater than it has two enable pins E1 and E2.</font></p><font size="3">
+</font><p><font size="3"><strong>RS(Register Select)</strong><br>This pin selects the lcd register. Each character lcd has two registers Data and Command.</font></p>
+<ul>
+<li><font size="3"><strong><font color="#508d24">&nbsp;</font>Data Register</strong></font></li>
+</ul>
+<p> <font size="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; To display data on
+ lcd we have to select data register of lcd. Send data to data register.
+ Now To make this data&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp;appear on lcd we have to made En(Enable) pin high.</font><br><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font><font size="3">If RS=1 Data Register is selected</font><font size="2">.</font></p>
+<ul>
+<li><font size="3"><strong><font color="#508d24">&nbsp;</font>Command Register</strong></font></li>
+</ul>
+<p> <font size="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Before using lcd we
+ have to set some parameters for lcd. Like the font size of data that we
+ want to display on lcd.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cursor 
+blinking or still settings etc.&nbsp;</font><br><span>&nbsp;<font size="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If RS=0 Command register is selected.</font></span><font size="3">​</font></p><font size="3">
+</font><p><font size="3"></font><span style="color:rgb(42, 42, 42)"><font size="3">Standard lcd commands and their functions are given below.</font></span></p></div>
+<div>
+<div class="wsite-image wsite-image-border-none " style="padding-top:5px;padding-bottom:10px;margin-left:0;margin-right:10px;text-align:center"> <a href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/7599057_orig.jpg" rel="lightbox" onclick="if (!lightboxLoaded) return false"> <img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/7599057_orig.jpg" alt="8x1, 8x2, 8x4, 20x1, 20x2, 20x4, 24x1, 24x2, 24x4, 32x1, 32x2, 40x1, 40x2, 40x4 Lcd Initializing Commands" style="width:auto;max-width:422px"> </a> <p></p>
+<div style="display:block;font-size:90%">8×1, 8×2, 8×4, 20×1, 20×2, 20×4, 24×1, 24×2, 24×4, 32×1, 32×2, 40×1, 40×2, 40×4 Lcd Initializing Commands</div>
+<p></p></div>
+</div>
+<div class="paragraph" style="text-align:justify;"><font size="3"><strong>V0</strong><br>V0
+ sets the contrast for lcd. Attach a variable resistor, potentiometer to
+ this pin and set the exact contrast which makes the text visible to 
+naked eye.<p></p>
+<p><strong>LED+ &amp; LED-</strong><br>To display the back light of lcd. Supply +5v to LED+ and ground LED-.</p>
+</font><p><font size="3"><strong>Vss &amp; Vdd</strong><br>Make Vss pin ground and apply +5v to vdd to switch on the lcd.</font></p></div>
+<div class="paragraph" style="text-align:justify;"><font size="3">Some 
+projects that are created by use using 16×2 lcd and various 
+microcontrollers. Visit them below. Each project contains free source 
+code and project circuit diagram.</font></div>
+<div style="text-align:center;">
+<div style="height: 10px; overflow: hidden;"></div>
+<p> <a class="wsite-button wsite-button-small wsite-button-normal" href="https://www.engineersgarage.com/programmable-logic-controller-with-pic16f877a.html" target="_blank" rel="noopener noreferrer"> <span class="wsite-button-inner">PLC with Pic microcontroller</span> </a> </p>
+<div style="height: 10px; overflow: hidden;"></div>
+</div>
+<div style="text-align:center;">
+<div style="height: 10px; overflow: hidden;"></div>
+<p> <a class="wsite-button wsite-button-small wsite-button-normal" href="https://www.engineersgarage.com/calculator-using-arduino.html" target="_blank" rel="noopener noreferrer"> <span class="wsite-button-inner">Calculator with Arduino, 16×2 lcd and 4×4 keypad</span> </a> </p>
+<div style="height: 10px; overflow: hidden;"></div>
+</div>
+<div style="text-align:center;">
+<div style="height: 10px; overflow: hidden;"></div>
+<p> <a class="wsite-button wsite-button-small wsite-button-normal" href="https://www.engineersgarage.com/name-on-lcd-with-8051-microcontroller.html" target="_blank" rel="noopener noreferrer"> <span class="wsite-button-inner">Display your name on lcd using 8051 microcontroller</span> </a> </p>
+<div style="height: 10px; overflow: hidden;"></div>
+</div>
+<div>
+<div id="620354521730361321" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left"><font size="3">Download the pdf document of the post.</font></div>
+<p></p></div>
+<div>
+<div id="488698291919783623" style="width: 100%; overflow-y: hidden;" class="wcustomhtml" align="left"><input type="hidden" name="IL_IN_TAG" value="2"></div>
+<p></p></div>
+<div>
+<div style="margin: 10px 0 0 -10px"> <a title="Download file: 8x1_8x2_8x4_20x1_20x2_20x4_24x1_24x2_24x4_32x1_32x2_40x1_40x2_40x4_pinout_and_working_.pdf" download="" href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/8x1_8x2_8x4_20x1_20x2_20x4_24x1_24x2_24x4_32x1_32x2_40x1_40x2_40x4_pinout_and_working_.pdf"><img loading="lazy" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/pdf.png" style="float: left; position: relative; left: 0px; top: 0px; margin: 0 15px 15px 0; border: 0;" width="36" height="36"></a><p></p>
+<div style="float: left; text-align: left; position: relative;">
+<table style="font-size: 12px; font-family: tahoma; line-height: .9;">
+<tbody><tr>
+<td colspan="2"><b> 8x1_8x2_8x4_20x1_20x2_20x4_24x1_24x2_24x4_32x1_32x2_40x1_40x2_40x4_pinout_and_working_.pdf</b></td>
+</tr>
+<tr style="display: none;">
+<td>File Size: </td>
+<td>423 kb</td>
+</tr>
+<tr style="display: none;">
+<td>File Type: </td>
+<td> pdf</td>
+</tr>
+</tbody></table>
+<p><a title="Download file: 8x1_8x2_8x4_20x1_20x2_20x4_24x1_24x2_24x4_32x1_32x2_40x1_40x2_40x4_pinout_and_working_.pdf" download="" href="https://www.engineersgarage.com/wp-content/uploads/2/2/1/5/22159166/8x1_8x2_8x4_20x1_20x2_20x4_24x1_24x2_24x4_32x1_32x2_40x1_40x2_40x4_pinout_and_working_.pdf" style="font-weight: bold;">Download File</a></p></div>
+<p></p></div>
+<hr style="clear: both; width: 100%; visibility: hidden"></div>
+<p></p></div>
+<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/"
+    dc:identifier="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/"
+    dc:title="Character Lcd 8&#215;1, 8&#215;2, 8&#215;4, 16&#215;1, 16&#215;2 20&#215;1, 20&#215;2, 20&#215;4, 24&#215;1, 24&#215;2, 24&#215;4, 32&#215;1, 32&#215;2, 40&#215;1, 40&#215;2, 40&#215;4 Pinout and Working"
+    trackback:ping="https://www.engineersgarage.com/knowledge_share/character-lcd-pinout-working/trackback/" />
+</rdf:RDF>-->
+</div><footer class="entry-footer"></footer></article><div class="related-articles"><h4 class="block-header">Related Articles <a href="https://www.engineersgarage.com/microcontroller-projects/">Read More &gt;</a></h4><div class="article-listing"><div class="row"><article class="entry-summary"><a href="https://www.engineersgarage.com/featured-contributions/a-bluetooth-controlled-datalogger-robot/" class="entry-image-link"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rotator-2-268x170.jpg" class="attachment-ea_summary size-ea_summary wp-image-61288 wp-post-image" alt="" loading="lazy" width="268" height="170"></a><h5 class="entry-title"><a href="https://www.engineersgarage.com/featured-contributions/a-bluetooth-controlled-datalogger-robot/">A Bluetooth-controlled datalogger robot</a></h5></article><article class="entry-summary"><a href="https://www.engineersgarage.com/arduino/arduino-touchless-bell-push-hc-sr04-buzzer/" class="entry-image-link"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rotator-268x170.jpg" class="attachment-ea_summary size-ea_summary wp-image-62661 wp-post-image" alt="touch bell push" loading="lazy" width="268" height="170"></a><h5 class="entry-title"><a href="https://www.engineersgarage.com/arduino/arduino-touchless-bell-push-hc-sr04-buzzer/">How to design a touchless bell push using Arduino</a></h5></article><article class="entry-summary"><a href="https://www.engineersgarage.com/arduino/sms-enabled-scrolling-message-board-using-arduino/" class="entry-image-link"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rotator-6-268x170.jpg" class="attachment-ea_summary size-ea_summary wp-image-61936 wp-post-image" alt="" loading="lazy" width="268" height="170"></a><h5 class="entry-title"><a href="https://www.engineersgarage.com/arduino/sms-enabled-scrolling-message-board-using-arduino/">SMS-enabled scrolling message board using Arduino</a></h5></article><article class="entry-summary"><a href="https://www.engineersgarage.com/electronic-projects/stepper-motor-with-8051/" class="entry-image-link"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/nema-17-stepper-motor-1-268x170.jpg" class="attachment-ea_summary size-ea_summary wp-image-60168 wp-post-image" alt="" loading="lazy" width="268" height="170"></a><h5 class="entry-title"><a href="https://www.engineersgarage.com/electronic-projects/stepper-motor-with-8051/">Interfacing stepper motor with 8051(89c51,89c52 ) microcontroller</a></h5></article></div></div></div><section id="custom_html-7" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><!-- need GAM TAG --></div></div></section>
+</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar"><section id="category-posts-2" class="widget cat-post-widget"><div class="widget-wrap"><h4 class="widget-title widgettitle">Featured Tutorials</h4>
+<ul id="category-posts-2-internal" class="category-posts-internal">
+<li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-linux-operating-system-raspbian/" title="RPi Python Programming 03: Raspberry Pi as Linux System"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rasperry-Pi-and-Linux-03-Figure-1.jpg" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60406 wp-post-image" alt="Screenshot of Raspbian OS on Raspberry Pi" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rasperry-Pi-and-Linux-03-Figure-1.jpg 890w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rasperry-Pi-and-Linux-03-Figure-1-300x169.jpg 300w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rasperry-Pi-and-Linux-03-Figure-1-768x431.jpg 768w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Rasperry-Pi-and-Linux-03-Figure-1-368x207.jpg 368w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-linux-operating-system-raspbian/" rel="bookmark">RPi Python Programming 03: Raspberry Pi as Linux System</a></div></li><li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-models-2019/" title="RPI Python Programming 02: Raspberry Pi Models"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/02-02-Raspberry-Pi-1-Model-A-600x600.jpg" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60364 wp-post-image" alt="Raspberry Pi Models" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/02-02-Raspberry-Pi-1-Model-A-600x600.jpg 600w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/02-02-Raspberry-Pi-1-Model-A-150x150.jpg 150w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-models-2019/" rel="bookmark">RPI Python Programming 02: Raspberry Pi Models</a></div></li><li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-python-sbc-os-languages-applications/" title="RPi Python Programming 01: Introduction to Raspberry Pi 4"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-4-01-fig-1-featured.jpg" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60264 wp-post-image" alt="Raspberry Pi 4" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-4-01-fig-1-featured.jpg 708w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-4-01-fig-1-featured-300x195.jpg 300w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-4-01-fig-1-featured-366x238.jpg 366w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-python-sbc-os-languages-applications/" rel="bookmark">RPi Python Programming 01: Introduction to Raspberry Pi 4</a></div></li><li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-05-introduction-to-python/" title="RPi Python Programming 05: Introduction to Python"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-05-featured.jpg" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60485 wp-post-image" alt="" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-05-featured.jpg 770w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-05-featured-300x169.jpg 300w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-05-featured-768x432.jpg 768w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Raspberry-Pi-05-featured-368x207.jpg 368w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-05-introduction-to-python/" rel="bookmark">RPi Python Programming 05: Introduction to Python</a></div></li><li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-04-setting-up-raspberry-pi-linux-computer/" title="RPi Python programming 04: Setting up Raspberry Pi Linux computer"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Featured-04-PI-4.jpg" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60466 wp-post-image" alt="RPi Python programming 04" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Featured-04-PI-4.jpg 770w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Featured-04-PI-4-300x175.jpg 300w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Featured-04-PI-4-768x447.jpg 768w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/Featured-04-PI-4-368x214.jpg 368w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-04-setting-up-raspberry-pi-linux-computer/" rel="bookmark">RPi Python programming 04: Setting up Raspberry Pi Linux computer</a></div></li><li class="cat-post-item"><div><a class="cat-post-thumbnail cat-post-dark" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-06-python-basics/" title="RPi Python Programming 06: Python basics"><span class="cat-post-crop cat-post-format cat-post-format-standard"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/code-1084923_1280-600x600.png" class="attachment-150x150x1x151x151 size-150x150x1x151x151 wp-image-60508 wp-post-image" alt="Python Basics" loading="lazy" data-cat-posts-width="150" data-cat-posts-height="95" srcset="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/code-1084923_1280-600x600.png 600w, Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/code-1084923_1280-150x150.png 150w" sizes="(max-width: 150px) 100vw, 150px" width="150" height="95"></span></a> <a class="cat-post-title" href="https://www.engineersgarage.com/featured-contributions/rpi-python-programming-06-python-basics/" rel="bookmark">RPi Python Programming 06: Python basics</a></div></li></ul>
+</div></section>
+<section id="custom_html-5" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget">
+	
+<div id="div-gpt-eg_sidebar1">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg_sidebar1'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_sidebar1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+</div></div></section>
+<section id="custom_html-8" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h4 class="widget-title widgettitle">Stay Up To Date</h4>
+<div class="textwidget custom-html-widget"><div align="center">
+	<a href="https://www.engineersgarage.com/subscribe-engineers-garage-newsletter/">
+<img alt="Newsletter Signup" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/eg-enews-sign-up.jpg">
+</a>
+</div></div></div></section>
+<section id="custom_html-14" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h4 class="widget-title widgettitle">EE Training Center Classrooms</h4>
+<div class="textwidget custom-html-widget"><center><a href="https://www.eeworldonline.com/thermal-design-classroom" target="_blank" rel="noopener"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/SidebarTemplateThermal.jpg" alt="“ee" classroom”=""></a></center>
+<br>
+<center><a href="https://www.eeworldonline.com/5g-classroom" target="_blank" rel="noopener"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/5Gsidebar.jpg" alt="“ee" classroom”=""></a></center>
+<br>
+<center><a href="https://www.eeworldonline.com/inductors-magnetics" target="_blank" rel="noopener"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/rf-coilcraft.jpg" alt="“ee" classroom”=""></a></center>
+<br>
+<center><a href="https://www.eeworldonline.com/testing-classroom" target="_blank" rel="noopener"><img src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/TestBasics-sidebar.jpg" alt="“ee" classroom”=""></a></center>
+</div></div></section>
+
+		<section id="recent-posts-2" class="widget widget_recent_entries"><div class="widget-wrap">
+		<h4 class="widget-title widgettitle">Recent Articles</h4>
+
+		<ul>
+											<li>
+					<a href="https://www.engineersgarage.com/news/new-lab-on-the-cloud-offers-instant-access-to-renesas-solutions/">New “Lab on the Cloud” offers instant access to Renesas’ solutions</a>
+									</li>
+											<li>
+					<a href="https://www.engineersgarage.com/news/infineon-offers-multi-functional-employee-id-card-with-mastercard/">Infineon offers multi-functional employee ID card with Mastercard</a>
+									</li>
+											<li>
+					<a href="https://www.engineersgarage.com/news/nordic-makes-ai-machine-learning-more-accessible-with-new-partnership/">Nordic makes AI &amp; machine learning more accessible with new partnership</a>
+									</li>
+											<li>
+					<a href="https://www.engineersgarage.com/news/renesas-offers-new-rf-devices-and-industrys-first-quad-channel-tx-vga/">Renesas launches new RF devices and industry’s first quad-channel TX VGA</a>
+									</li>
+											<li>
+					<a href="https://www.engineersgarage.com/featured-contributions/articles-raspberry-pi-linux-operating-system-raspbian/">RPi Python Programming 03: Raspberry Pi as Linux System</a>
+									</li>
+					</ul>
+
+		</div></section>
+<section id="custom_html-3" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget">				
+<div id="div-gpt-eg_sidebarbottom">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg_sidebarbottom'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_sidebarbottom_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+...</div></div></section>
+<section id="rss-2" class="widget widget_rss"><div class="widget-wrap"><h4 class="widget-title widgettitle"><a class="rsswidget" href="http://www.edaboard.com/external.php?type=RSS"><img class="rss-widget-icon" style="border:0" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/rss.png" alt="RSS" width="14" height="14"></a> <a class="rsswidget" href="https://www.edaboard.com/">EDABOARD.com Discussions</a></h4>
+<ul><li><a class="rsswidget" href="https://www.edaboard.com/threads/capacitor-polarity-question.396563/">capacitor polarity question</a></li><li><a class="rsswidget" href="https://www.edaboard.com/threads/deviation-of-dain-current-of-pa-between-simulation-and-measurement.396557/">Deviation of dain current of PA between simulation and measurement</a></li><li><a class="rsswidget" href="https://www.edaboard.com/threads/pcb-simulation-package.396569/">PCB simulation package</a></li><li><a class="rsswidget" href="https://www.edaboard.com/threads/ads-em-simulation.396560/">ADS EM simulation</a></li><li><a class="rsswidget" href="https://www.edaboard.com/threads/dma-direct-memory-access.396566/">DMA (Direct memory access)</a></li></ul></div></section>
+<section id="rss-3" class="widget widget_rss"><div class="widget-wrap"><h4 class="widget-title widgettitle"><a class="rsswidget" href="https://www.electro-tech-online.com/forums/-/index.rss"><img class="rss-widget-icon" style="border:0" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/rss.png" alt="RSS" width="14" height="14"></a> <a class="rsswidget" href="https://www.electro-tech-online.com/">Electro-Tech-Online.com Discussions</a></h4>
+<ul><li><a class="rsswidget" href="https://www.electro-tech-online.com/threads/blinking-led-issue.159740/">Blinking led issue.</a></li><li><a class="rsswidget" href="https://www.electro-tech-online.com/threads/what-i-did-today.160696/">What I did today...</a></li><li><a class="rsswidget" href="https://www.electro-tech-online.com/threads/jons-imaginarium-%E2%80%93-new-product-raspberry-pi-pico-4.160708/">Jon's Imaginarium – New Product: Raspberry Pi Pico, $4!</a></li><li><a class="rsswidget" href="https://www.electro-tech-online.com/threads/simple-class-a-amplifier-how-it-works.160706/">Simple class A amplifier how it works</a></li><li><a class="rsswidget" href="https://www.electro-tech-online.com/threads/new-to-ardunio-but-trying-to-compile.160649/">new to Ardunio but trying to compile</a></li></ul></div></section>
+</aside></div></div></div><div class="footer-socials"><div class="wrap"><label style="color:#ffffff">Connect with Engineers Garage on Social Media</label> <a href="https://twitter.com/EngineersGarage" target="_blank" rel="noopener noreferrer"><i class="icon-twitter"></i></a><a href="https://www.facebook.com/engineersgarage" target="_blank" rel="noopener noreferrer"><i class="icon-facebook"></i></a></div></div><footer class="site-footer"><div class="wrap"><div class="row"><div class="footer-logo"><a href="https://www.engineersgarage.com/">Engineers Garage</a></div><div class="footer-menu"><div class="menu-footer-nav-container"><ul id="menu-footer-nav" class="menu"><li id="menu-item-55876" class="menu-item"><a target="_blank" rel="noopener" href="http://www.analogictips.com/">Analog IC TIps</a></li>
+<li id="menu-item-55877" class="menu-item"><a target="_blank" rel="noopener" href="https://www.connectortips.com/">Connector Tips</a></li>
+<li id="menu-item-55872" class="menu-item"><a target="_blank" rel="noopener" href="https://www.designfast.com/">DesignFast</a></li>
+<li id="menu-item-55873" class="menu-item"><a target="_blank" rel="noopener" href="http://www.edaboard.com/">EDABoard Forums</a></li>
+<li id="menu-item-55881" class="menu-item"><a target="_blank" rel="noopener" href="https://www.eeworldonline.com/">EE World Online</a></li>
+<li id="menu-item-55874" class="menu-item"><a target="_blank" rel="noopener" href="http://www.electro-tech-online.com/">Electro-Tech-Online Forums</a></li>
+<li id="menu-item-55875" class="menu-item"><a target="_blank" rel="noopener" href="http://www.microcontrollertips.com/">Microcontroller Tips</a></li>
+<li id="menu-item-55878" class="menu-item"><a target="_blank" rel="noopener" href="http://www.powerelectronictips.com/">Power Electronic Tips</a></li>
+<li id="menu-item-55879" class="menu-item"><a target="_blank" rel="noopener" href="http://www.sensortips.com/">Sensor Tips</a></li>
+<li id="menu-item-55880" class="menu-item"><a target="_blank" rel="noopener" href="http://www.testandmeasurementtips.com/">Test and Measurement Tips</a></li>
+<li id="menu-item-60429" class="menu-item"><a target="_blank" rel="noopener" href="https://www.5gtechnologyworld.com/">5G Technology World</a></li>
+<li id="menu-item-55885" class="menu-item"><a href="https://www.engineersgarage.com/about-us/">About Us</a></li>
+<li id="menu-item-55886" class="menu-item"><a href="https://www.engineersgarage.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-55887" class="menu-item"><a href="https://marketing.wtwhmedia.com/2020-ee-world-online-media-guide/">Advertise</a></li>
+</ul></div></div><div class="footer-copyright"><p>Copyright © 2021 WTWH 
+Media LLC. All Rights Reserved. The material on this site may not be 
+reproduced, distributed, transmitted, cached or otherwise used, except 
+with the prior written permission of WTWH Media<br> <a href="http://www.wtwhmedia.com/privacy-policy/" target="_blank">Privacy Policy</a>  | <a href="https://marketing.wtwhmedia.com/2020-ee-world-online-media-guide/" target="_blank">Advertising</a>  | <a href="https://www.engineersgarage.com/about-us">About Us</a> </p></div></div></div></footer></div><div class="site-search"><div class="wrap"><div class="search-inner"><h2>Search Engineers Garage</h2><form class="search-form" method="get" action="https://www.engineersgarage.com/" role="search"><input class="search-form-input" type="search" name="s" id="searchform-1" placeholder="Search this website"><input class="search-form-submit" type="submit" value="GO"><meta content="https://www.engineersgarage.com/?s={s}"></form></div></div></div>	<script type="text/javascript">
+		function atomicBlocksShare( url, title, w, h ){
+			var left = ( window.innerWidth / 2 )-( w / 2 );
+			var top  = ( window.innerHeight / 2 )-( h / 2 );
+			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=600, top='+top+', left='+left);
+		}
+	</script>
+		<script type="text/javascript">
+		function genesisBlocksShare( url, title, w, h ){
+			var left = ( window.innerWidth / 2 )-( w / 2 );
+			var top  = ( window.innerHeight / 2 )-( h / 2 );
+			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=600, top='+top+', left='+left);
+		}
+	</script>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJMRR6Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+				
+<div id="div-gpt-eg_wallpaper">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg_wallpaper'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_wallpaper_0__container__" style="border: 0pt none; width: 1px; height: 1px;"></div></div>
+
+	
+<div id="div-gpt-eg_interstitial">
+	<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-eg_interstitial'); });
+  </script>
+<div id="google_ads_iframe_/5272491/ee_network/eg_interstitial_0__container__" style="border: 0pt none; width: 640px; height: 480px;"></div></div>
+<div id="sidr-mobile-menu" class="sidr right" style="transition: right 0.2s ease 0s;"><a class="sidr-menu-close" href="#"><i class="icon-close"></i></a><div class="menu-main-nav-container"><ul id="menu-main-nav-1" class="menu"><li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/projects-and-tutorials/">Projects and Tutorials</a>
+<ul class="sub-menu">
+	<li class="menu-item"><a href="https://www.engineersgarage.com/circuit_design/">Circuit Design</a></li>
+	<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/electronic-projects/">Electronic Projects</a>
+	<ul class="sub-menu">
+		<li class="menu-item"><a href="https://www.engineersgarage.com/8051-microcontroller/">8051</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/arduino/">Arduino</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/arm/">ARM</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/avr-microcontroller/">AVR</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/pic-microcontroller/">PIC</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/raspberrypi/">Raspberry pi</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/stm32/">STM32</a></li>
+	</ul>
+</li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/tutorials/">Tutorials</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/components/">Components</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="https://www.engineersgarage.com/article_page/">Articles</a>
+<ul class="sub-menu">
+	<li class="menu-item"><a href="https://www.engineersgarage.com/egblog/">EG Blogs</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/insight/">Insight</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/invention-stories/">Invention Stories</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/how_to/">How to</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/what_is/">What Is</a></li>
+	<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a href="#">News</a>
+	<ul class="sub-menu">
+		<li class="menu-item"><a href="https://www.engineersgarage.com/news/">EE Design News</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/reviews/">DIY Reviews</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/guest_post/">Guest Post</a></li>
+		<li class="menu-item"><a href="https://www.engineersgarage.com/sponsored_post/">Sponsored Content</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a>Forums</a>
+<ul class="sub-menu">
+	<li class="menu-item"><a href="https://www.edaboard.com/">EDABoard.com</a></li>
+	<li class="menu-item"><a href="https://www.electro-tech-online.com/">Electro-Tech-Online</a></li>
+	<li class="menu-item"><a href="https://forums.engineersgarage.com/">EG Forum Archive</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114157;205282942;x?https://www.digikey.com/products/semiconductors/en">Digi-Key Store</a>
+<ul class="sub-menu">
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107959;205282942;j?https://www.digikey.com/products/cables-wires/en">Cables, Wires</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405138225;205282942;z?https://www.digikey.com/en/resources/connectors/index">Connectors, Interconnect</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107974;205282942;g?https://www.digikey.com/products/discrete-semiconductors/en">Discrete</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136545;205282942;c?https://www.digikey.com/products/electromechanical/en">Electromechanical</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114172;205282942;u?https://www.digikey.com/products/embedded-computers/en">Embedded Computers</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136872;205282942;f?https://www.digikey.com/products/enclosures-hardware-office/en">Enclosures, Hardware, Office</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107986;205282942;j?https://www.digikey.com/products/ics/en">Integrated Circuits (ICs)</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134514;205282942;w?https://www.digikey.com/products/isolators/en">Isolators</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136602;205282942;w?https://www.digikey.com/products/leds-optoelectronics/en">LED/Optoelectronics</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405107950;205282942;a?https://www.digikey.com/products/passives/en">Passive</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134481;205282942;z?https://www.digikey.com/products/power-circuit-protection/en">Power, Circuit Protection</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405136875;205282942;i?https://www.digikey.com/products/development-systems-programmers/en">Programmers</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405134517;205282942;z?https://www.digikey.com/products/rf-wireless/en">RF, Wireless</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114157;205282942;x?https://www.digikey.com/products/semiconductors/en">Semiconductors</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114196;205282942;a?https://www.digikey.com/products/sensors-transducers/en">Sensors, Transducers</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114562;205282942;x?https://www.digikey.com/products/test-products/en">Test Products</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://ad.doubleclick.net/ddm/clk/405114565;205282942;a?https://www.digikey.com/products/tools/en">Tools</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><span class="submenu-toggle"></span><a>EE Resources</a>
+<ul class="sub-menu">
+	<li class="menu-item"><a href="https://www.designfast.com/">DesignFast</a></li>
+	<li class="menu-item"><a href="https://www.eeworldonline.com/leadership-in-engineering-achievement-program-leap-awards/">LEAP Awards</a></li>
+	<li class="menu-item"><a href="http://products.designworldonline.com/oscilloscopes.html">Oscilloscope Product Finder</a></li>
+	<li class="menu-item"><a target="_blank" rel="noopener" href="https://www.youtube.com/user/engineersgarage">Video</a></li>
+	<li class="menu-item"><a href="http://www.engineeringwhitepapers.com/category/electricalelectronic/">White Papers</a></li>
+	<li class="menu-item"><a href="https://www.engineersgarage.com/webinars/">Webinars</a></li>
+</ul>
+</li>
+<li class="menu-item"><a href="https://www.eeworldonline.com/learning-center">EE Learning Center</a></li>
+<li class="menu-item"><a href="https://www.eeworldonline.com/category/women-in-engineering/">Women in Engineering</a></li>
+</ul></div></div><style type="text/css" media="screen"></style><script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/dismiss_002.js" id="atomic-blocks-dismiss-js-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/dismiss.js" id="genesis-blocks-dismiss-js-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/comment-reply.js" id="comment-reply-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/global-min.js" id="ea-global-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/core.js" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/tabs.js" id="jquery-ui-tabs-js"></script>
+<script type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/wp-embed.js" id="wp-embed-js"></script>
+<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>
+<script>"undefined"!=typeof jQuery&&jQuery(document).ready(function(){"objectFit"in document.documentElement.style==!1&&(jQuery(".cat-post-item figure").removeClass("cat-post-crop"),jQuery(".cat-post-item figure").addClass("cat-post-crop-not-supported")),(document.documentMode||/Edge/.test(navigator.userAgent))&&(jQuery(".cat-post-item figure img").height("+=1"),window.setTimeout(function(){jQuery(".cat-post-item figure img").height("-=1")},0))});</script>		<script type="text/javascript">
+			if (typeof jQuery !== 'undefined') {
+
+				var cat_posts_namespace              = window.cat_posts_namespace || {};
+				cat_posts_namespace.layout_wrap_text = cat_posts_namespace.layout_wrap_text || {};
+				cat_posts_namespace.layout_img_size  = cat_posts_namespace.layout_img_size || {};
+
+				cat_posts_namespace.layout_wrap_text = {
+					
+					preWrap : function (widget) {
+						// var _widget = jQuery(widget);
+						jQuery(widget).find('.cat-post-item').each(function(){
+							var _that = jQuery(this);
+							_that.find('p.cpwp-excerpt-text').addClass('cpwp-wrap-text');
+							_that.find('p.cpwp-excerpt-text').closest('div').wrap('<div class="cpwp-wrap-text-stage"></div>');;
+						});
+						return;
+					},
+					
+					add : function(_this){
+						var _that = jQuery(_this);
+						if (_that.find('p.cpwp-excerpt-text').height() < _that.find('.cat-post-thumbnail').height()) { 
+							_that.find('p.cpwp-excerpt-text').closest('.cpwp-wrap-text-stage').removeClass( "cpwp-wrap-text" );
+							_that.find('p.cpwp-excerpt-text').addClass( "cpwp-wrap-text" ); 
+						}else{ 
+							_that.find('p.cpwp-excerpt-text').removeClass( "cpwp-wrap-text" );
+							_that.find('p.cpwp-excerpt-text').closest('.cpwp-wrap-text-stage').addClass( "cpwp-wrap-text" ); 
+						}
+						return;
+					},
+					
+					handleLazyLoading : function(_this) {
+						var width = jQuery(_this).find('img').width();
+						
+						if( 0 !== width ){
+							cat_posts_namespace.layout_wrap_text.add(_this);
+						} else {
+							jQuery(_this).find('img').one("load", function(){
+								cat_posts_namespace.layout_wrap_text.add(_this);
+							});
+						}
+						return;
+					},
+					
+					setClass : function (widget) {
+						// var _widget = jQuery(widget);
+						jQuery(widget).find('.cat-post-item').each(function(){
+							cat_posts_namespace.layout_wrap_text.handleLazyLoading(this);
+						});
+						return;
+					}
+				}
+				cat_posts_namespace.layout_img_size = {
+					
+					replace : function(_this){
+						var _that = jQuery(_this),
+						resp_w = _that.width(),
+						resp_h = _that.height(),
+						orig_w = _that.data('cat-posts-width'),
+						orig_h = _that.data('cat-posts-height');
+						
+						if( resp_w < orig_w ){
+							_that.height( resp_w * orig_h / orig_w );
+						} else {
+							_that.height( '' );
+						}
+						return;
+					},
+					
+					handleLazyLoading : function(_this) {
+						var width = jQuery(_this).width();
+						
+						if( 0 !== width ){
+							cat_posts_namespace.layout_img_size.replace(_this);
+						} else {
+							jQuery(_this).one("load", function(){
+								cat_posts_namespace.layout_img_size.replace(_this);
+							});
+						}
+						return;
+					},
+					setHeight : function (widget) {
+						jQuery(widget).find('.cat-post-item img').each(function(){
+							cat_posts_namespace.layout_img_size.handleLazyLoading(this);
+						});
+						return;
+					}
+				}
+
+				jQuery( document ).ready(function () {
+					var widget = jQuery('#category-posts-2-internal');
+
+					
+					cat_posts_namespace.layout_wrap_text.preWrap(widget);
+
+					
+					jQuery(window).on('load resize', function() {
+						cat_posts_namespace.layout_wrap_text.setClass(widget);
+						
+						
+							cat_posts_namespace.layout_img_size.setHeight(widget);
+						
+					});
+				});
+			}
+		</script>
+		
+<div style="position: static;"><div class="a2a_overlay" id="a2a_overlay"></div><div id="a2a_modal" class="a2a_modal" role="dialog" tabindex="-1" aria-label="" style="display:none"><div class="a2a_modal_body a2a_menu" id="a2a_copy_link" style="display:none"><span id="a2a_copy_link_icon" class="a2a_svg a2a_s_link" style="background-color:#0166ff"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#FFF" d="M24.4 21.18c0-.36-.1-.67-.36-.92l-2.8-2.8a1.24 1.24 0 0 0-.92-.38c-.38 0-.7.14-.97.43.02.04.1.12.25.26l.3.3.2.24c.08.12.14.24.17.35.03.1.05.23.05.37 0 .36-.13.66-.38.92a1.25 1.25 0 0 1-.92.37 1.4 1.4 0 0 1-.37-.03 1.06 1.06 0 0 1-.35-.18 2.27 2.27 0 0 1-.25-.2 6.82 6.82 0 0 1-.3-.3l-.24-.25c-.3.28-.44.6-.44.98 0 .36.13.66.38.92l2.78 2.8c.24.23.54.35.9.35.37 0 .68-.12.93-.35l1.98-1.97c.26-.25.38-.55.38-.9zm-9.46-9.5c0-.37-.13-.67-.38-.92l-2.78-2.8a1.24 1.24 0 0 0-.9-.37c-.36 0-.67.1-.93.35L7.97 9.92c-.26.25-.38.55-.38.9 0 .36.1.67.37.92l2.8 2.8c.24.25.55.37.92.37.36 0 .7-.13.96-.4-.03-.04-.1-.12-.26-.26s-.24-.23-.3-.3a2.67 2.67 0 0 1-.2-.24 1.05 1.05 0 0 1-.17-.35 1.4 1.4 0 0 1-.04-.37c0-.36.1-.66.36-.9.26-.26.56-.4.92-.4.14 0 .26.03.37.06.12.03.23.1.35.17.1.1.2.16.25.2l.3.3.24.26c.3-.28.44-.6.44-.98zM27 21.17c0 1.07-.38 2-1.15 2.73l-1.98 1.98c-.74.75-1.66 1.12-2.73 1.12-1.1 0-2-.38-2.75-1.14l-2.8-2.8c-.74-.74-1.1-1.65-1.1-2.73 0-1.1.38-2.04 1.17-2.82l-1.18-1.17c-.8.8-1.72 1.18-2.82 1.18-1.08 0-2-.36-2.75-1.12l-2.8-2.8C5.38 12.8 5 11.9 5 10.82c0-1.08.38-2 1.15-2.74L8.13 6.1C8.87 5.37 9.78 5 10.86 5c1.1 0 2 .38 2.75 1.15l2.8 2.8c.74.73 1.1 1.65 1.1 2.72 0 1.1-.38 2.05-1.17 2.82l1.18 1.18c.8-.8 1.72-1.2 2.82-1.2 1.08 0 2 .4 2.75 1.14l2.8 2.8c.76.76 1.13 1.68 1.13 2.76z"></path></svg></span><input id="a2a_copy_link_text" type="text" title="Copy link" readonly="readonly"><div id="a2a_copy_link_copied">✓</div></div><div class="a2a_modal_body a2a_menu a2a_thanks" id="a2a_thanks" style="display:none"><div class="a2a_localize" data-a2a-localize="inner,ThanksForSharing">Thanks for sharing!</div></div></div><div class="a2a_menu a2a_full a2a_localize" id="a2apage_full" role="dialog" tabindex="-1" aria-label="Share" data-a2a-localize="title,Share"><div class="a2a_full_header"><div id="a2apage_find_container" class="a2a_menu_find_container"><input id="a2apage_find" class="a2a_menu_find a2a_localize" type="text" autocomplete="off" title="Find any service" data-a2a-localize="title,FindAnyServiceToAddTo"><span id="a2apage_find_icon" class="a2a_svg a2a_s_find"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#CCC" d="M19.7 18.2l-4.5-4.5c.7-1.1 1.2-2.3 1.2-3.6 0-3.5-2.8-6.3-6.3-6.3s-6.3 2.8-6.3 6.3 2.8 6.3 6.3 6.3c1.4 0 2.6-.4 3.6-1.2l4.5 4.5c.6.6 1.3.7 1.7.2.5-.4.4-1.1-.2-1.7zm-9.6-3.6c-2.5 0-4.5-2.1-4.5-4.5 0-2.5 2.1-4.5 4.5-4.5 2.5 0 4.5 2.1 4.5 4.5s-2 4.5-4.5 4.5z"></path></svg></span></div></div><div class="a2a_full_services" id="a2apage_full_services" role="presentation"></div><div class="a2a_full_footer"><a href="https://www.addtoany.com/" title="Share Buttons" rel="noopener" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_a2a" style="background-color:#0166ff"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="#FFF"><path d="M14 7h4v18h-4z"></path><path d="M7 14h18v4H7z"></path></g></svg></span>AddToAny</a></div></div><div id="a2apage_dropdown" class="a2a_menu a2a_mini a2a_localize" tabindex="-1" aria-label="Share" data-a2a-localize="label,Share" style="display:none"><div id="a2apage_title_container" class="a2a_menu_title_container" style="display:none"><div id="a2apage_title" class="a2a_menu_title"></div></div><div class="a2a_mini_services" id="a2apage_mini_services"></div><div id="a2apage_cols_container" class="a2a_cols_container"><div class="a2a_col1" id="a2apage_col1"></div><div id="a2apage_2_col1" style="display:none"></div><div class="a2a_clear"></div></div><div class="a2apage_wide a2a_wide"><a href="" id="a2apage_show_more_less" class="a2a_menu_show_more_less a2a_more a2a_localize" title="Show all" data-a2a-localize="title,ShowAll"><span class="a2a_svg a2a_s__default a2a_s_a2a" style="background-color:#0166ff"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="#FFF"><path d="M14 7h4v18h-4z"></path><path d="M7 14h18v4H7z"></path></g></svg></span><span class="a2a_localize" data-a2a-localize="inner,More">More…</span></a></div></div></div><script type="text/javascript" id="">window.jstag=function(){function d(a){return function(){return a.apply(this,arguments),this}}function c(){var a=["ready"].concat(e.call(arguments));return d(function(){a.push(e.call(arguments));this._q.push(a)})}var a={_q:[],_c:{},ts:(new Date).getTime(),ver:"2.0.0"},e=Array.prototype.slice;return a.init=function(b){return a._c=b,b.synchronous||a.loadtagmgr(b),this},a.loadtagmgr=function(a){var b=document.createElement("script");b.type="text/javascript";b.async=!0;b.src=a.url+"/api/tag/"+a.cid+"/lio.js";
+a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)},a.ready=c(),a.send=c("send"),a.mock=c("mock"),a.identify=c("identify"),a.pageView=c("pageView"),a.bind=d(function(b){a._q.push([b,e.call(arguments,1)])}),a.block=d(function(){a._c.blockload=!0}),a.unblock=d(function(){a._c.blockload=!1}),a}();window.jstag.init({cid:"29a292ff0c468198153eeecb63d02097",url:"//c.lytics.io",min:!0,loadid:!0});</script><script async="" type="text/javascript" src="Character%20Lcd%208x1,%208x2,%208x4,%2016x1,%2016x2%2020x1,%2020x2,%2020x4,%2024x1,%2024x2,%2024x4,%2032x1,%2032x2,%2040x1,%2040x2,%2040x4%20Pinout%20and%20Working_files/config.js"></script></body></html>

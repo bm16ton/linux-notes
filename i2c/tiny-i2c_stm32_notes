@@ -36,7 +36,12 @@ number the kernel assigned to the i2c-star adapter (appears as +i2c-tiny-usb+
 in +dmesg+ and +i2cdetect+).
 
 
-echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
-
 echo mpu6050 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
+echo 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/delete_device
+sudo modprobe -r inv_mpu6050_i2c inv_mpu6050
+
 sudo modprobe i2c-tiny-usb devices=mpu6050@0x68
+
+echo $(echo "($(cat /sys/bus/iio/devices/iio:device1/in_temp_raw) / 340) + 36.53" |bc)"c ""$(echo "scale=2;((9/5) * $(cat /sys/bus/iio/devices/iio:device1/in_temp_raw) / 340) + 36.53 + 32" |bc)"
+
+echo $(echo "($(cat /sys/bus/iio/devices/iio:device1/in_temp_raw) / 340) + 36.53" |bc)"c ""$(echo "scale=2;((9/5) * $(cat /sys/bus/iio/devices/iio:device1/in_temp_raw) / 340) + 98.53" |bc)"

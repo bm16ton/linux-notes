@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - event.keyCode tester</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="DltsK7BFcD1+K33n1gF+6e6XDdpcx82MVef/IBEpUi/JgJnv/diyiYCdtpXOJ5Q1MszdaHYEHq32F7bm8/q1bw==">
+<link rel="stylesheet" media="all" href="bgZxod_data/embed-309e09885c1aa9602f409897b4a4e60ce0e4a2eb1a23faf4f1785c.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #28282a;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #28282a;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #424242;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #212121;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #ff8a00;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #a9a9a9;
+    }
+
+    .embed-nav svg {
+      stroke: #a9a9a9 !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="mPgoYJ_data/highcontrast-dark-6fac7534892153b41a69be61dcfbd27dacbe6f3359.css">
+<link rel="stylesheet" href="mPgoYJ_data/maVRwd.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #39231b; --borderWidth: 1px;" class="codepen-embed-body static results-active">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="#css-box" role="button" aria-pressed="false">
+SCSS
+</a>
+</li>
+<li class="code-type">
+<a id="js-link" href="#js-box" role="button" aria-pressed="false">
+Babel
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/chriscoyier/pen/mPgoYJ" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default">Click in here
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">br</span><span class="cm-tag cm-bracket">&gt;</span>
+and press a key.</code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="text/x-scss" id="actual-css-code" class=" cm-s-default"><span class="cm-tag">html</span> {
+  <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+  <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">justify-content</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">background</span>: <span class="cm-atom">#FFCC80</span>;
+  <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">font-family</span>: <span class="cm-atom">monospace</span>;
+  <span class="cm-property">line-height</span>: <span class="cm-number">1.4</span>;
+  <span class="cm-property">font-size</span>: <span class="cm-number">25px</span>;
+}
+<span class="cm-tag">pre</span> {
+  <span class="cm-property">text-align</span>: <span class="cm-atom">left</span>;
+}</code></pre>
+<a href="#0" id="view-css-compiled-button" class="action-button bottom right view-compiled-button" data-type="css">
+View Compiled
+</a>
+</div>
+<div id="js-box" class="code-wrap code-box box " role="region" aria-label="JS">
+<pre tabindex="0"><code data-lang="jsx" id="actual-js-code" class=" cm-s-default"><span class="cm-variable">document</span>.<span class="cm-property">addEventListener</span>(<span class="cm-string">"keydown"</span>, <span class="cm-keyword">function</span>(<span class="cm-def">event</span>) {
+  
+  <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable-2">event</span>);
+    
+  <span class="cm-variable">document</span>.<span class="cm-property">body</span>.<span class="cm-property">innerHTML</span> <span class="cm-operator">=</span> <span class="cm-string-2">`</span>
+    <span class="cm-string-2">&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;which: ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">which</span><span class="cm-string-2">}</span><span class="cm-string-2">&lt;/b&gt;</span>
+    <span class="cm-string-2">&lt;br&gt;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;keyCode:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">keyCode</span><span class="cm-string-2">}</span>
+    <span class="cm-string-2">&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;shiftKey:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">shiftKey</span><span class="cm-string-2">}</span>
+    <span class="cm-string-2">&lt;/br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;altKey:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">altKey</span><span class="cm-string-2">}</span>
+    <span class="cm-string-2">&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;ctrlKey:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">ctrlKey</span><span class="cm-string-2">}</span>
+    <span class="cm-string-2">&lt;br&gt;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;metaKey:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">metaKey</span><span class="cm-string-2">}</span>
+    <span class="cm-string-2">&lt;br&gt;&amp;nbsp;&amp;nbsp;</span>
+    <span class="cm-string-2">&lt;b&gt;key:&lt;/b&gt; ${</span><span class="cm-variable-2">event</span>.<span class="cm-property">key</span><span class="cm-string-2">}</span>
+  <span class="cm-string-2">`</span>;
+  
+});</code></pre>
+<a href="#0" id="view-js-compiled-button" class="action-button bottom right view-compiled-button" data-type="js">
+View Compiled
+</a>
+</div>
+<div id="result-box" class="code-box active zoom-1" role="region" aria-label="Result">
+<iframe allow="camera; geolocation; microphone" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe  " id="result-iframe" name="CodePen Preview for event.keyCode tester" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for event.keyCode tester" data-src="https://cdpn.io/chriscoyier/fullembedgrid/mPgoYJ?animations=run&amp;type=embed" src="mPgoYJ_data/mPgoYJ.html" frameborder="0">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/chriscoyier" target="_blank" rel="noopener"><img src="mPgoYJ_data/default.webp" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/chriscoyier" target="_blank" rel="noopener">Chris Coyier </a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/chriscoyier" target="_blank" rel="noopener" class="about-user-more">
+See more by @chriscoyier on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<p>
+This Pen doesn't use any external CSS resources.
+</p>
+<h3>External JavaScript</h3>
+<p>
+This Pen doesn't use any external JavaScript resources.
+</p>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button" id="zoom-button-1">1×</button></li>
+<li><button class="action-button" id="zoom-button-05">0.5×</button></li>
+<li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script nonce="">
+    __processedPen = {"html":"Click in here\n&lt;br&gt;\nand press a key.","css":"html {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  background: #FFCC80;\n  text-align: center;\n  font-family: monospace;\n  line-height: 1.4;\n  font-size: 25px;\n}\n\npre {\n  text-align: left;\n}","js":"document.addEventListener(&quot;keydown&quot;, function (event) {\n\n  console.log(event);\n\n  document.body.innerHTML = `\n    &amp;nbsp;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;which: ${event.which}&lt;/b&gt;\n    &lt;br&gt;&amp;nbsp;\n    &lt;b&gt;keyCode:&lt;/b&gt; ${event.keyCode}\n    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;shiftKey:&lt;/b&gt; ${event.shiftKey}\n    &lt;/br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;altKey:&lt;/b&gt; ${event.altKey}\n    &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;ctrlKey:&lt;/b&gt; ${event.ctrlKey}\n    &lt;br&gt;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;metaKey:&lt;/b&gt; ${event.metaKey}\n    &lt;br&gt;&amp;nbsp;&amp;nbsp;\n    &lt;b&gt;key:&lt;/b&gt; ${event.key}\n  `;\n\n});"};
+    __preprocessors = {
+      "html": "none",
+      "css": "scss",
+      "js": "babel"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "SCSS",
+      "js": "Babel"
+    };
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="bgZxod_data/embed-3690985ea2a3216737903c1e943e37377719fb52620886c141f0584.js"></script>
+
+
+</body></html>
