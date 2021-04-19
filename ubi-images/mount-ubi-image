@@ -1,0 +1,7 @@
+modprobe mtdblock
+modprobe ubi
+modprobe nandsim first_id_byte=0x01 second_id_byte=0xf1 third_id_byte=0x00 fourth_id_byte=0x1d
+dd if=app-rootfs.ubi of=/dev/mtdblock0 bs=2048
+ubiattach /dev/ubi_ctrl -m 0 -O 2048
+mkdir /media/ubifs
+mount -t ubifs ubi0_0 /media/ubifs

@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo modprobe -r ath10k_snoc ath10k_core ath

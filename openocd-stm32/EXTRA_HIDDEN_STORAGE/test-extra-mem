@@ -1,0 +1,23 @@
+dd if=/dev/urandom of=random_512k.bin bs=1k count=512
+st-flash --flash=512k --reset read original_512k.bin 0x8000000 0x80000
+
+st-info --probe
+
+Found 1 stlink programmers
+  version:    V2J32S22
+  serial:     303636424646353135363532383434383837323035363332
+  hla-serial: "\x30\x36\x36\x42\x46\x46\x35\x31\x35\x36\x35\x32\x38\x34\x34\x38\x38\x37\x32\x30\x35\x36\x33\x32"
+  flash:      262144 (pagesize: 2048)
+  sram:       65536
+  chipid:     0x0414
+  descr:      F1xx High-density
+
+st-flash --flash=512k --reset erase
+st-flash --flash=512k --reset write random_512k.bin 0x8000000
+st-flash --flash=512k --reset read random_512k_from_board.bin 0x8000000 0x80000
+
+md5sum *
+
+73c9bbc99807f09c5de082710ebec6c3  random_512k.bin
+73c9bbc99807f09c5de082710ebec6c3  random_512k_from_board.bin
+

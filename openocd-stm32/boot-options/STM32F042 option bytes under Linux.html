@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>STM32F042 option bytes under Linux</title>
+  <meta name="description" content="These are instructions that worked for me when faced with a problem of modifying option bytes in stm32f042. The thing I was trying to do was to turn off BOOT0 pin support (PB8 in my chip) which then would eliminate the need to pull it. Then I could use this pin for something else, for example as a CANbus canRx input.">
+  
+
+  <link rel="stylesheet" href="STM32F042%20option%20bytes%20under%20Linux_files/main.css">
+  <link rel="canonical" href="http://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="Iwasz" href="http://iwasz.pl/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="STM32F042 option bytes under Linux">
+  <meta property="og:site_name" content="Iwasz">
+  <meta property="og:url" content="http://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/">
+  <meta property="og:description" content="These are instructions that worked for me when faced with a problem of modifying option bytes in stm32f042. The thing I was trying to do was to turn off BOOT0 pin support (PB8 in my chip) which then would eliminate the need to pull it. Then I could use this pin for something else, for example as a CANbus canRx input.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="STM32F042 option bytes under Linux">
+  <meta name="twitter:description" content="These are instructions that worked for me when faced with a problem of modifying option bytes in stm32f042. The thing I was trying to do was to turn off BOOT0 pin support (PB8 in my chip) which the...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="STM32F042%20option%20bytes%20under%20Linux_files/css.css" rel="stylesheet">
+
+  
+
+<link rel="stylesheet" href="STM32F042%20option%20bytes%20under%20Linux_files/comments.css" type="text/css"><link rel="alternate" href="https://iwasz.pl/hashover/api/rss.php?url=http%3A%2F%2Fiwasz.pl%2Felectronics%2F2020-07-29-stm32f042-option-bytes-linux%2F" type="application/rss+xml" title="Comments"></head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="https://iwasz.pl/">Iwasz</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="https://iwasz.pl/about/">About</a>
+      
+        
+        <a class="page-link" href="https://iwasz.pl/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://github.com/iwasz">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <style>
+    @font-face {
+      font-family: 'monaco';
+      src: url('http://iwasz.pl/fonts/monaco-webfont.woff2') format('woff2'),
+        url('http://iwasz.pl/fonts/monaco/monaco-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+
+  <script type="text/javascript" src="STM32F042%20option%20bytes%20under%20Linux_files/comments.js"></script>
+
+  <header class="post-header">
+    
+    <h1 class="post-title" itemprop="name headline">STM32F042 option bytes under Linux</h1>
+    
+    <p class="post-meta"><time datetime="2020-07-29T00:00:00+00:00" itemprop="datePublished">Jul 29, 2020</time> •
+  
+    
+    
+      
+    
+      
+    
+      
+        <a href="https://iwasz.pl/categories/electronics/">electronics</a>
+      
+    
+  
+
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>These are instructions that worked for me when faced with a 
+problem of modifying option bytes in stm32f042. The thing I was trying 
+to do was to turn off BOOT0 pin support (PB8 in my chip) which then 
+would eliminate the need to pull it. Then I could use this pin for 
+something else, for example as a <code class="highlighter-rouge">CANbus</code> <code class="highlighter-rouge">canRx</code> input.</p>
+
+<p>A bunch of useful links:</p>
+<ul>
+  <li><a href="https://stackoverflow.com/questions/48927028/openocd-how-to-write-option-bytes-to-stm32f4">Stack overflow question</a> which put me on the right track.</li>
+  <li><a href="http://openocd.org/doc/html/General-Commands.html">Openocd manual</a></li>
+  <li>Reference manual of whatever chip you are using. The chapters of interest are entitled:
+    <ul>
+      <li>3.2.2 Flash program and erase operation
+        <ul>
+          <li>Unlocking the Flash memory</li>
+          <li>Option byte programming</li>
+        </ul>
+      </li>
+      <li>4 Option byte</li>
+      <li>A.2.5 Option byte unlocking sequence code example</li>
+      <li>A.2.6 Option byte programming sequence code example</li>
+      <li>A.2.7 Option byte erasing sequence code example</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="tldr">TL;DR</h1>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openocd <span class="nt">-f</span> /home/iwasz/local/share/openocd/scripts/interface/stlink.cfg <span class="nt">-f</span> /home/iwasz/local/share/openocd/scripts/target/stm32f0x.cfg <span class="nt">-c</span> <span class="s1">'init; mww 0x40022004 0x45670123; mww 0x40022004 0xCDEF89AB; mww 0x40022008 0x45670123; mww 0x40022008 0xCDEF89AB; mww 0x40022010 0x00000220; mww 0x40022010 0x00000260; mww 0x40022010 0x00000210; mwh 0x1ffff800 0x55AA; mwh 0x1ffff802 0x807f; mdw 0x1ffff800'</span>
+</code></pre></div></div>
+
+<h1 id="preparation">Preparation</h1>
+<p>Turn the power on. Run the <code class="highlighter-rouge">openocd</code> (mind the paths):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openocd <span class="nt">-f</span> /home/iwasz/local/share/openocd/scripts/interface/stlink.cfg <span class="nt">-f</span> /home/iwasz/local/share/openocd/scripts/target/stm32f0x.cfg 
+</code></pre></div></div>
+
+<p>Connect to the running <code class="highlighter-rouge">openocd</code> to get access to the interactive shell:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet localhost 4444
+</code></pre></div></div>
+
+<p>Verify that the <strong>FLASH_CR.LOCK</strong> is set, meaning that the entire flash is locked. Flash base address is : 0x40022000 which tells that <strong>FLASH_OPTKEYR</strong> address is 0x40022008 and <strong>FLASH_CR</strong> address is 0x40022010. Read FLASH_CR as so (00000080 means the <strong>LOCK</strong> flag is set):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mdw 0x40022010
+0x40022010: 00000080 
+</code></pre></div></div>
+
+<h1 id="unlock-the-flash-and-option-bytes">Unlock the flash and option bytes</h1>
+<p>Unlock the flash directly performing the unlocking sequence on the <strong>FLASH_KEYR</strong> (0x40022004) register. The procedure is described in the Reference Manual in the chapter <em>Flash program and erase operation</em>, and also in the examples section as a source code snippet. You simply write two values to the same <strong>FLASH_KEYR</strong> register:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mww 0x40022004 0x45670123
+mww 0x40022004 0xCDEF89AB
+</code></pre></div></div>
+
+<p>Reassure that the flash is unlocked. Read the <strong>FLASH_CR</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mdw 0x40022010
+0x40022010: 00000000 
+</code></pre></div></div>
+
+<p>This means that flash is unlocked, and <strong>LOCK</strong> is 0 (and all other flags are 0 as well).</p>
+
+<p>Unlock option bytes for writing (which is described in the reference manual as <em>setting the OPTWRE bit in the FLASH_CR</em>).
+ The sequence is basically the same as in the previous step, with the 
+only difference that this time we write the magic unlocking values to <strong>FLASH_OPTKEYR</strong> (0x40022008):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mww 0x40022008 0x45670123
+mww 0x40022008 0xCDEF89AB
+mdw 0x40022010           
+0x40022010: 00000200 
+</code></pre></div></div>
+
+<p>Now instead <code class="highlighter-rouge">00000000</code> we see <code class="highlighter-rouge">00000200</code> which means that <strong>OPTWRE</strong> flag is set.</p>
+
+<h1 id="clear-the-option-bytes">Clear the option bytes</h1>
+<p>Clear option bytes (they are stored in the FLASH after all). This is done by first setting <strong>FLASH_CR.OPTER</strong> (erase), and then <strong>FLASH_CR.STRT</strong> (start operation). Note that <strong>FLASH_CR.OPTWRE</strong> must be still set:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mww 0x40022010 0x00000220
+mww 0x40022010 0x00000260
+</code></pre></div></div>
+
+<p>All (?) option bytes should now read 0xffffffff.</p>
+
+<h1 id="modify-the-option-byte">Modify the option byte</h1>
+<p>Enable programming by setting <strong>FLASH_CR.OPTPG</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mww 0x40022010 0x00000210
+mdw 0x40022010
+0x40022010: 00000210
+</code></pre></div></div>
+
+<p>Store a value (only half-words). In this example, I am modifying the <em>User and read protection option byte</em> (0x1FFFF800). In particular, I’m setting the <strong>BOOT_SEL</strong> flag.</p>
+
+<p>What is described as a <em>User and read protection option byte</em> 
+is in fact a 32bit word containing the user option byte [23:16] (and its
+ “complement”), and the RDP option byte [7:0] (and its “complement”).</p>
+
+<p>So wanting to change the <strong>BOOT_SEL</strong> we calculate, that
+ the proper value of the user option byte [23:16] is 0x7f, and thus its 
+“complement” byte (a negation) should be 0x80.</p>
+
+<p>Also, I wanted to restore the RDP to its factory value, because it got lost for some reason.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set read protection option byte to 0xaa which denotes level 0 (the default) </span>
+mwh 0x1ffff800 0x55AA
+<span class="c"># Set BOOT_SEL to 1 to ignore BOOT0 pin. </span>
+mwh 0x1ffff802 0x807f
+<span class="c"># Verify</span>
+mdw 0x1ffff800
+</code></pre></div></div>
+
+  </div>
+
+  
+  <div class="post-comments" itemprop="comment">
+    <div id="hashover" class="hashover hashover-desktop hashover-raster hashover-logged-out" style=""><div id="comments"></div>
+
+<div id="hashover-comments-section" class="hashover-comments-section"><div id="hashover-count-wrapper" class="hashover-count-sort hashover-dashed-title">
+	<span id="hashover-count" class="hashover-count">
+		1 Comment (2 counting reply)
+	</span>
+	
+	<span id="hashover-sort" class="hashover-select-wrapper hashover-sort-select">
+		<select id="hashover-sort-select" name="sort" size="1" title="Sort">
+			<option value="ascending" selected="selected">In order</option>
+			
+			<option value="descending">In reverse order</option>
+			
+			<option value="by-date">Newest first</option>
+			
+			<option value="by-likes">By likes</option>
+			
+			<option value="by-replies">By replies</option>
+			
+			<option value="by-name">By commenter</option>
+			
+			<optgroup label="&nbsp;"></optgroup>
+			
+			<optgroup label="Threads">
+				<option value="threaded-descending">In reverse order</option>
+				
+				<option value="threaded-by-date">Newest first</option>
+				
+				<option value="threaded-by-likes">By likes</option>
+				
+				<option value="by-popularity">By popularity</option>
+				
+				<option value="by-discussion">By discussion</option>
+				
+				<option value="threaded-by-name">By commenter</option>
+			</optgroup>
+		</select>
+	</span>
+</div>
+
+<div id="hashover-sort-section" class="hashover-sort-section"><div id="hashover-c1" class="hashover-comment hashover-has-replies"><div class="hashover-header">
+	<span class="hashover-avatar"><div style="background-image: url('https://secure.gravatar.com/avatar/ba3551f31213a74b3446b669cf859e5f.png?r=pg&amp;s=45&amp;d=https%3A%2F%2Fiwasz.pl%2Fhashover%2Fimages%2Favatar-45.png');"></div></span><span class="hashover-comment-name hashover-name-plain"><span id="hashover-name-c1">Vilém</span></span>
+	
+</div>
+
+<div class="hashover-balloon">
+	<div id="hashover-content-c1" class="hashover-content">
+		<p>Hello, i tried to follow you but i have one problem. The procedure 
+works to point where you clear the option byte (i can read 0x1fff f800 =
+ 0xffff ffff). After this point a can't program my values. It doesn't 
+print any error but bit are still 0xffff ffff. My procesor is stm32f091.
+ Do you think where could be a problem?<br>Thank you for your answer.</p>
+
+	</div>
+
+	<div class="hashover-footer">
+		<span class="hashover-date">
+			<a rel="nofollow" href="https://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/#hashover-c1" class="hashover-date-permalink" title="Permalink - January 20, 2021 - 10:31 AM">1 month ago</a>
+			<span id="hashover-likes-c1" class="hashover-likes"></span>
+			
+		</span>
+
+		<span class="hashover-buttons">
+			<a rel="nofollow" href="#" id="hashover-like-c1" class="hashover-like" title="Like this comment">Like</a>
+			
+			
+			<a rel="nofollow" href="https://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/?hashover-reply=c1#hashover-reply-c1" id="hashover-reply-link-c1" class="hashover-comment-reply hashover-has-email" title="Reply to comment - Vilém will be notified via e-mail">Reply</a>
+		</span>
+	</div>
+
+	<span id="hashover-placeholder-edit-form-c1">
+		
+	</span>
+</div>
+
+<span id="hashover-placeholder-reply-form-c1">
+	
+</span><div id="hashover-c1r1" class="hashover-comment hashover-reply"><div class="hashover-header">
+	<span class="hashover-avatar"><div style="background-image: url('https://secure.gravatar.com/avatar/b48df17302f1e0341c8f758839ad04b1.png?r=pg&amp;s=45&amp;d=https%3A%2F%2Fiwasz.pl%2Fhashover%2Fimages%2Favatar-45.png');"></div></span><span class="hashover-comment-name hashover-name-plain"><span id="hashover-name-c1r1">iwasz</span></span>
+	<a rel="nofollownofollow" href="https://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/#hashover-c1" id="hashover-thread-link-c1r1" class="hashover-thread-link" title="Jump to top of thread">In reply to Vilém</a>
+</div>
+
+<div class="hashover-balloon">
+	<div id="hashover-content-c1r1" class="hashover-content">
+		<p>I tried to reproduce your problem on stm32f072 which should have 
+the same flash layout as your board, and it happened when I didn't 
+enabled programming by setting FLASH_CR.OPTPG. Try mww 0x40022010 
+0x00000210 after clearing option bytes, and program them afterwards.</p>
+
+	</div>
+
+	<div class="hashover-footer">
+		<span class="hashover-date">
+			<a rel="nofollow" href="https://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/#hashover-c1r1" class="hashover-date-permalink" title="Permalink - January 22, 2021 - 5:16 AM">1 month ago</a>
+			<span id="hashover-likes-c1r1" class="hashover-likes"></span>
+			
+		</span>
+
+		<span class="hashover-buttons">
+			<a rel="nofollow" href="#" id="hashover-like-c1r1" class="hashover-like" title="Like this comment">Like</a>
+			
+			
+			<a rel="nofollow" href="https://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/?hashover-reply=c1r1#hashover-reply-c1r1" id="hashover-reply-link-c1r1" class="hashover-comment-reply hashover-has-email" title="Reply to comment - iwasz will be notified via e-mail">Reply</a>
+		</span>
+	</div>
+
+	<span id="hashover-placeholder-edit-form-c1r1">
+		
+	</span>
+</div>
+
+<span id="hashover-placeholder-reply-form-c1r1">
+	
+</span></div></div></div></div>
+
+<div id="hashover-form-section" class="hashover-form-section">
+	<span class="hashover-title hashover-main-title hashover-dashed-title">
+		Post a Comment
+	</span>
+	
+	<div id="hashover-message-container" class="hashover-title hashover-message">
+		<div id="hashover-message" class="hashover-main-message"></div>
+	</div>
+	
+	<form id="hashover-form" class="hashover-form hashover-balloon" name="hashover-form" action="/hashover/backend/form-actions.php" method="post">
+		<div class="hashover-inputs">
+			<div class="hashover-avatar-image">
+				<div style="background-image: url('/hashover/images/first-comment.png');"></div>
+			</div>
+			
+			<div class="hashover-input-cell">
+				<div class="hashover-name-input">
+					<input id="hashover-main-name" class="hashover-input-info" type="text" name="name" title="Name (optional)" placeholder="Name">
+				</div>
+			</div>
+			
+			<div class="hashover-input-cell">
+				<div class="hashover-password-input">
+					<input id="hashover-main-password" class="hashover-input-info" type="password" name="password" value="" title="Password (optional, allows you to edit or delete this comment)" placeholder="Password">
+				</div>
+			</div>
+			
+			<div class="hashover-input-cell">
+				<div class="hashover-email-input">
+					<input id="hashover-main-email" class="hashover-input-info" type="email" name="email" title="E-mail Address (optional, for e-mail notifications)" placeholder="E-mail Address">
+				</div>
+			</div>
+			
+			<div class="hashover-input-cell">
+				<div class="hashover-website-input">
+					<input id="hashover-main-website" class="hashover-input-info" type="url" name="website" title="Website (optional)" placeholder="Website">
+				</div>
+			</div>
+		</div>
+		
+		<div class="hashover-required-fields">
+			<input type="text" name="summary">
+			
+			<input type="hidden" name="age" value="">
+			
+			<input type="text" name="lastname">
+			
+			<input type="text" name="address">
+			
+			<input type="hidden" name="zip" value="">
+		</div>
+		
+		<textarea id="hashover-main-comment" class="hashover-textarea hashover-main-textarea" cols="63" name="comment" rows="6" title="Type comment here..." placeholder="Type comment here..."></textarea>
+		
+		<div id="hashover-main-formatting-message" class="hashover-formatting-message">
+			<div class="hashover-formatting-table">
+				<div>
+					<p class="hashover-title">
+						Allowed HTML
+					</p>
+					
+					<p>
+						&lt;b&gt;, &lt;strong&gt;, &lt;u&gt;, &lt;i&gt;, &lt;em&gt;, 
+&lt;s&gt;, &lt;big&gt;, &lt;small&gt;, &lt;sup&gt;, &lt;sub&gt;, 
+&lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, 
+&lt;code&gt; escapes HTML, URLs automagically become links, and [img]URL
+ here[/img] will display an external image.
+					</p>
+				</div>
+				
+				<div>
+					<p class="hashover-title">
+						Markdown Format
+					</p>
+					
+					<p>
+						**Bold**, _underline_, *italic*, ~~strikethrough~~, `highlight`, 
+```code``` escapes HTML. HTML and Markdown may be used together in your 
+comment.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<input type="hidden" name="url" value="http://iwasz.pl/electronics/2020-07-29-stm32f042-option-bytes-linux/">
+		
+		<input type="hidden" name="thread" value="electronics-2020-07-29-stm32f042-option-bytes-linux">
+		
+		<input type="hidden" name="title" value="STM32F042 option bytes under Linux">
+		
+		<div class="hashover-form-footer">
+			<span class="hashover-form-links">
+				<label for="hashover-main-subscribe" class="hashover-main-label" title="Subscribe to e-mail notifications">
+					<input id="hashover-main-subscribe" type="checkbox" name="subscribe" checked="checked">
+					
+					Notify me of replies
+				</label>
+				
+				<span id="hashover-main-formatting" class="hashover-fake-link hashover-formatting" title="Formatting">
+					Formatting
+				</span>
+			</span>
+			
+			<span class="hashover-form-buttons">
+				<input id="hashover-login-button" class="hashover-submit hashover-login" type="submit" name="login" value="Login" title="Login (optional)">
+				
+				<input id="hashover-post-button" class="hashover-submit hashover-post-button" type="submit" name="post" value="Post Comment" title="Post Comment">
+			</span>
+		</div>
+	</form>
+</div>
+
+<div id="hashover-end-links" class="hashover-end-links">
+	<a rel="nofollow" href="https://www.barkdull.org/software/hashover" class="hashover-home-link" target="_blank" title="HashOver Comments">HashOver Comments</a> ‒
+	
+	<a href="https://iwasz.pl/hashover/api/rss.php?url=http%3A%2F%2Fiwasz.pl%2Felectronics%2F2020-07-29-stm32f042-option-bytes-linux%2F" class="hashover-rss-link" rel="nofollow" target="_blank" title="RSS Feed">RSS Feed</a> ·
+	<a rel="nofollow" href="https://iwasz.pl/hashover/backend/source-viewer.php" class="hashover-source-link" target="_blank" title="Source Code">Source Code</a> ·
+	<a rel="nofollow" href="https://iwasz.pl/hashover/comments.php" class="hashover-javascript-link" target="_blank" title="JavaScript">JavaScript</a>
+</div></div>
+  </div>
+  
+
+</article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+©  - Powered by <a href="https://jekyllrb.com/">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="http://iwasz.pl/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  
+
+
+</body></html>

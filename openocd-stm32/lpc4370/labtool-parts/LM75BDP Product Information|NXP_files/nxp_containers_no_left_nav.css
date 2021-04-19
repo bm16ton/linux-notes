@@ -1,0 +1,78 @@
+/* Build time:: Wed, Jan 6, 2021, 11:01 PM CST from dev branch */
+.container-fluid > .row > [class*='col-'] {
+  min-height: 0;
+}
+
+.iw_viewport-wrapper > .container-fluid:first-of-type, .iw_viewport-wrapper > .container-fluid:nth-of-type(2), .iw_viewport-wrapper > .container-fluid:last-of-type {
+  width: 100% !important;
+}
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid {
+    width: 750px !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper > .container-fluid {
+    width: 970px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper > .container-fluid {
+    width: 1170px !important;
+  }
+}
+
+.iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+    display: block;
+    float: left;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-9 {
+    float: left;
+    width: calc(100% - 250px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-9 {
+    width: calc(100% - 300px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-12 .buyselector #product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 735px) / 2 * -1);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-12 .buyselector #product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 955px) / 2 * -1);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-12 .buyselector #product-selector-component {
+    width: 97vw;
+    margin-left: calc((100vw - 1155px) / 2 * -1);
+  }
+}

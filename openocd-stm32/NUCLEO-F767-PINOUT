@@ -1,0 +1,33 @@
+#define LED_BUILTIN             PB0
+#define LED_GREEN               LED_BUILTIN
+#define LED_BLUE                PB7
+#define LED_RED                 PB14
+
+// On-board user button
+#define USER_BTN                PC13
+
+
+#define PB0  33 // LED_GREEN
+#define PB7  73 // LED_BLUE
+#define PB14 74 // LED_RED
+#define PC13 75 // USER_BTN
+#define PD9  76 // Serial Rx
+#define PD8  77 // Serial Tx
+
+
+#define PIN_SERIAL_RX           PD9
+#define PIN_SERIAL_TX           PD8
+
+//i2c
+#define PIN_WIRE_SDA                     PB9
+#define PIN_WIRE_SCL                     PB8
+
+  {PA_1,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_REF_CLK|ETH_RX_CLK
+  {PA_2,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_MDIO
+    {PA_7,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_CRS_DV|ETH_RX_DV
+  {PB_13, ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_TXD1
+  {PC_1,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_MDC
+  {PC_4,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_RXD0
+  {PC_5,  ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_RXD1
+  {PG_11, ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_TX_EN
+  {PG_13, ETH, STM_PIN_DATA(STM_MODE_AF_PP, GPIO_PULLUP, GPIO_AF11_ETH)}, // ETH_TXD0

@@ -1,0 +1,66 @@
+/* Hamshield
+ * Example: SSTV
+ * This program will transmit a test pattern. You will need 
+ * SSTV equipment to test the output.
+ * Connect the HamShield to your Arduino. Screw the antenna 
+ * into the HamShield RF jack. Connect the Arduino to wall 
+ * power and then to your computer via USB. After uploading 
+ * this program to your Arduino, open the Serial Monitor to 
+ * view the status of the program. Tune your SSTV to 
+ * 446MHz to receive the image output.
+*/
+
+#define MIC_PIN 3
+#define RESET_PIN A3
+#define SWITCH_PIN 2
+
+#define DOT 100
+#define CALLSIGN "1ZZ9ZZ/B"
+
+/* Standard libraries and variable init */
+
+#include <HamShield.h>
+
+HamShield radio;
+int16_t rssi;
+
+/* get our radio ready */
+
+void setup() {
+  // NOTE: if not using PWM out, it should be held low to avoid tx noise
+  pinMode(MIC_PIN, OUTPUT);
+  digitalWrite(MIC_PIN, LOW);
+  
+  // prep the switch
+  pinMode(SWITCH_PIN, INPUT_PULLUP);
+  
+  // set up the reset control pin
+  // NOTE: HamShieldMini doesn't have a reset pin, so this has no effect
+  pinMode(RESET_PIN, OUTPUT);
+  digitalWrite(RESET_PIN, HIGH);
+  delay(5); // wait for device to come up
+  
+  Serial.begin(9600);
+  Serial.print("Radio status: ");
+  int result = radio.testConnection();
+  Serial.println(result);
+  radio.initialize();
+  radio.frequency(446000);
+  radio.setModeReceive();
+}
+
+/* main program loop */
+
+
+void loop() {
+     if(radio.waitForChannel(1000,2000, -90)) {        // Wait forever for calling frequency to open, then wait 2 seconds for breakers 
+       radio.setModeTransmit();                   // Turn on the transmitter
+       delay(250);                               // Wait a moment
+       radio.SSTVTestPattern(MARTIN1);            // send a MARTIN1 test pattern
+       delay(250);
+       radio.setModeReceive();                    // Turn off the transmitter
+     } else { delay(30000); }                     // someone broke in fast after prior transmission, was it an emergency? wait 30 secs.
+     
+     delay(60000);                                // Wait a minute
+}
+

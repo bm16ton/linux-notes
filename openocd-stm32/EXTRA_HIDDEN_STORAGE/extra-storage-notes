@@ -1,0 +1,29 @@
+
+https://github.com/MarlinFirmware/Marlin/pull/15890
+
+
+I compared the binary of the bootloader from my V1.0 with the published V1.2 bootloader binary. There is a difference of about 300 bytes. Mine V1.0 bootloader had a lock wich locks the upload of binaries greater than 228kb. But I have patched the bootloader. You have just to search for the value 0x08004000 and change it to 0x08008000. I did this task by using radare2. I cannot, whether all V1.0 have this lock. There might be more different versions of the bootloader.
+
+Haven't tested it yet, but I assume that the V1.2 bootloader will run on a V1.0.
+
+    Otherwise I guess the only option is to get an ST-Link?
+
+For patching the bootloader or writing the V1.2 bootloader, you will need a JTAG/SWD debugger.
+
+
+
+
+    So it would be really nice if you would provide the patch, or a short guide on how to do this with radare2. :)
+
+I'll just provide my patched bootloader plus my custom firmware (sorry, I haven't truncated this file):
+bootloader.zip
+
+For anybody, who want's to figure out, what I have done: I looked for places, where the values 0x08007000 (start address of application) and 0x08040000 (end address of memory) are located. Then I looked where the addresses of that places are used and disassembled the source in that locations. I saw that 0x08040000 was subtracted by 0x08007000. So I assumed that this is a length calculation. Changing the value 0x08040000 to 0x08080000 unlocked flashing up to 512kb. That was quite easy.
+
+I don't write down, what commands I have used in radare2. You can look them up in the r2 manual.
+
+With STlink I was able to find that near address 0x000012B8 the value was set to 08040000 (256kB), so I changed that to 08080000 (512kB), saved and programmed. Took a firmware.bin at 230kb and it loaded as per normal. Not sure if this is a valid way, but it was interesting.
+
+
+
+

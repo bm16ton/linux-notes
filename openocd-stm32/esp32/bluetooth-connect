@@ -1,0 +1,23 @@
+# To install/connect
+sudo bluetoothctl
+    power on
+    agent on
+    scan on
+    pair 84:CC:A8:61:74:46  (use your esp32s bt mac address thisone is mine and wont work)
+        yes   (response o key)
+    trust 84:CC:A8:61:74:46 (use your esp32s bt mac address thisone is mine and wont work)
+    exit
+sudo rfcomm connect /dev/rfcomm0 84:CC:A8:61:74:46 1 (add & to end to run in background)
+
+# To remove and try again
+if it dont work
+sudo bluetoothctl
+    remove sudo bluetoothctl
+    power off
+    power on
+    exit
+sudo killall rfcomm (may error if rfcomm already died)
+sudo rfcomm release 0 (may error if rfcomm already died)
+   # you can try the connect command from above or try binding
+sudo rfcomm bind 0 84:CC:A8:61:74:46 (If it didnt work repeat the remove and try again commands but ommit binding and then ry the connect commands again, use your esp32s bt mac address thisone is mine and wont work)
+

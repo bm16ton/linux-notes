@@ -1,0 +1,25 @@
+Here's my little hack for this:
+
+diff --git INDEX/src/stlink-common.c WORKDIR/src/stlink-common.c
+index 972c9f3..9f62252 100644
+--- INDEX/src/stlink-common.c
++++ WORKDIR/src/stlink-common.c
+@@ -475,6 +475,9 @@ int stlink_load_device_params(stlink_t *sl) {
+         }
+     } else {
+         sl->flash_size = flash_size * 1024;
++        /* HACK for STM21F103C8T6 */
++        if (sl->flash_size == 64 * 1024 && getenv("C8T6HACK"))
++          sl->flash_size = 128 * 1024;
+     }
+     sl->flash_pgsz = params->flash_pagesize;
+     sl->sram_size = params->sram_size;
+
+So you call e.g., st-util as
+
+C8T6HACK= st-util
+
+and magically you get
+
+INFO src/stlink-common.c: SRAM size: 0x5000 bytes (20 KiB), Flash: 0x20000 bytes (128 KiB) in pages of 1024 bytes
+

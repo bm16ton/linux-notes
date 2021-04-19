@@ -1,0 +1,70 @@
+stm32f413  libopencm3 this board is lowered from 100mhz to 84 for usb
+
+    MAKEFILE;
+
+
+DEFS += -DF_CPU=100000000
+DEFS += -DF_APB1=30000000
+
+AND IN RCC.C
+
+const struct rcc_clock_scale rcc_hsi_configs[RCC_CLOCK_3V3_END] = {
+	{ /* 84MHz */
+		.pllm = 16,
+		.plln = 336,
+		.pllp = 4,
+		.pllq = 7,
+		.pllr = 0,
+		.pll_source = RCC_CFGR_PLLSRC_HSI_CLK,
+		.hpre = RCC_CFGR_HPRE_NODIV,
+		.ppre1 = RCC_CFGR_PPRE_DIV2,
+		.ppre2 = RCC_CFGR_PPRE_NODIV,
+		.voltage_scale = PWR_SCALE1,
+		.flash_config = FLASH_ACR_DCEN | FLASH_ACR_ICEN |
+				FLASH_ACR_LATENCY_2WS,
+		.ahb_frequency  = 84000000,
+		.apb1_frequency = 42000000,
+		.apb2_frequency = 84000000,
+	},
+
+const struct rcc_clock_scale rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_END] = {
+	{ /* 84MHz */
+		.pllm = 8,
+		.plln = 336,
+		.pllp = 4,
+		.pllq = 7,
+		.pllr = 0,
+		.pll_source = RCC_CFGR_PLLSRC_HSE_CLK,
+		.hpre = RCC_CFGR_HPRE_NODIV,
+		.ppre1 = RCC_CFGR_PPRE_DIV2,
+		.ppre2 = RCC_CFGR_PPRE_NODIV,
+		.voltage_scale = PWR_SCALE1,
+		.flash_config = FLASH_ACR_DCEN | FLASH_ACR_ICEN |
+				FLASH_ACR_LATENCY_2WS,
+		.ahb_frequency  = 84000000,
+		.apb1_frequency = 42000000,
+		.apb2_frequency = 84000000,
+	},
+
+
+AND IN MAIN.c
+
+
+
+	/* take the DAC out of reset (so there is something in the bus) */
+//	rcc_periph_clock_enable(RCC_GPIOD);
+//	gpio_mode_setup(GPIOD, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO4);
+//	gpio_set(GPIOD, GPIO4);
+}
+
+int main(void)
+{
+	int i;
+
+        //rcc_clock_setup_pll(&rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_168MHZ]);
+        rcc_clock_setup_pll(&rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_84MHZ]);
+
+	rcc_periph_clock_enable(RCC_GPIOA);
+
+
+

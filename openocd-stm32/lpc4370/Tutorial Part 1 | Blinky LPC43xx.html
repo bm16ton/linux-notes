@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Tutorial Part 1 | Blinky LPC43xx</title>
+<meta name="generator" content="Jekyll v3.7.4">
+<meta property="og:title" content="Tutorial Part 1">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Blinky and tutorials for developing on the LPC43xx platform">
+<meta property="og:description" content="Blinky and tutorials for developing on the LPC43xx platform">
+<link rel="canonical" href="https://blinky101.github.io/blinky_lpc43xx/tutorial_part1.html">
+<meta property="og:url" content="https://blinky101.github.io/blinky_lpc43xx/tutorial_part1.html">
+<meta property="og:site_name" content="Blinky LPC43xx">
+<script type="application/ld+json">
+{"@type":"WebPage","url":"https://blinky101.github.io/blinky_lpc43xx/tutorial_part1.html","description":"Blinky and tutorials for developing on the LPC43xx platform","headline":"Tutorial Part 1","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="Tutorial%20Part%201%20|%20Blinky%20LPC43xx_files/style.css">
+    <script src="Tutorial%20Part%201%20|%20Blinky%20LPC43xx_files/jquery-3.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="Tutorial%20Part%201%20|%20Blinky%20LPC43xx_files/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <a href="https://blinky101.github.io/"><img src="Tutorial%20Part%201%20|%20Blinky%20LPC43xx_files/blinky101_yellowled_100h.png" height="44px"></a>
+        <!-- <a href="/"><h1>Blinky LPC43xx</h1></a> -->
+        <!-- <p>Blinky and tutorials for developing on the LPC43xx platform</p> -->
+        <p>Blinky projects and tutorials for Cortex-M microcontrollers </p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+        <div class="breadcrumb">
+            <ul>
+              <li><a href="https://blinky101.github.io/" class="breadcrumb-section">Blinky101</a></li>
+              <li><span class="breadcrumb-sep">➤</span></li>
+              <li><a href="https://blinky101.github.io/blinky_lpc43xx" class="breadcrumb-section">Blinky LPC43xx</a></li>
+              
+                <li><span class="breadcrumb-sep">➤</span></li>
+                <li><a class="breadcrumb-section">Tutorial Part 1</a></li>
+              
+            </ul>
+          </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul><li class="tag-h1 active"><a href="#tutorial-blinky-lpc43xx">Tutorial blinky lpc43xx</a></li><li class="tag-h2"><a href="#step-0-requirements">Step 0: Requirements</a></li><li class="tag-h2"><a href="#step-1-create-your-project">Step 1: Create your project</a></li><li class="tag-h2"><a href="#step-2-writing-the-code">Step 2: Writing the code</a></li><li class="tag-h3"><a href="#pin-multiplexing">Pin multiplexing</a></li><li class="tag-h3"><a href="#translating-pin-numbers-to-gpio-numbers">Translating pin numbers to GPIO numbers</a></li><li class="tag-h3"><a href="#gpio-configuration">GPIO configuration</a></li><li class="tag-h3"><a href="#toggling-the-pin-high-and-low">Toggling the pin high and low</a></li><li class="tag-h2"><a href="#step-3-linker-file-and-interrupt-vector-table">Step 3: Linker File and Interrupt Vector Table</a></li><li class="tag-h2"><a href="#compile-and-link-and-flash">Compile and link and flash</a></li></ul>
+      </nav>
+      <section style="height: auto;">
+        <h1 id="tutorial-blinky-lpc43xx">Tutorial blinky lpc43xx</h1>
+
+<p>This tutorials shows you how to create a blinky project for the 
+lpc4337 microcontroller from scratch without any software dependencies. 
+This tutorial should work for all flash-based lpc43xx parts.</p>
+
+<p>In this tutorial we will learn about</p>
+
+<ul>
+  <li>Pin multiplexing</li>
+  <li>Pin vs GPIO numbers</li>
+  <li>Peripheral registers for gpio</li>
+  <li>Interrupt vector table</li>
+  <li>Linker file</li>
+</ul>
+
+<h2 id="step-0-requirements">Step 0: Requirements</h2>
+
+<ul>
+  <li>GNU Arm Embedded Toolchain</li>
+  <li>Black Magic Probe for flashing the firmware</li>
+</ul>
+
+<!-- See [link] for installation instructions -->
+
+<h2 id="step-1-create-your-project">Step 1: Create your project</h2>
+
+<p>Create a directory</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir blinky_lpc43xx
+cd blinky_lpc43xx
+</code></pre></div></div>
+
+<p>To start we will need 2 files. the code will reside in <code class="highlighter-rouge">main.c</code> and <code class="highlighter-rouge">link.ld</code> will be needed by the linker for building the binaries.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch main.c link.ld
+</code></pre></div></div>
+<p>This will create the (empty) files in the required directory.</p>
+
+<h2 id="step-2-writing-the-code">Step 2: Writing the code</h2>
+
+<p>Remember, our goal, and our only goal is to blink the LED on pin 
+P2_12. Toggling a pin is done through the GPIO perihperal. But first we 
+need to make sure that the pin is available for the GPIO peripheral. 
+This is usually called pin multiplexing. The more complex a 
+microcontroller is, the more functions are available per pin.</p>
+
+<h3 id="pin-multiplexing">Pin multiplexing</h3>
+
+<p>We will need information from the <a href="https://www.nxp.com/docs/en/user-guide/UM10503.pdf">manual (UM10503)</a>. In <code class="highlighter-rouge">Chapter 17 System Control Unit / IO Configuration</code> we can find the relevant information. More specifically section <code class="highlighter-rouge">17.4 table 190</code> shows the adresses of the pins, <code class="highlighter-rouge">17.4.1 table 191</code> shows the settings that are applicable to pin P2_12.
+The first 3 bits <code class="highlighter-rouge">2:0 FUNC</code> determine the selected function of the pin. The available options for each pin are listed in <code class="highlighter-rouge">Chapter 17.3.11 table 189</code> (see also <code class="highlighter-rouge">Chapter 16.2.3 table 187</code>):</p>
+
+<ul>
+  <li><code class="highlighter-rouge">0x0: GPIO1[12]</code> - use the pin as GPIO 1_12. This is what we need.</li>
+  <li><code class="highlighter-rouge">0x1: CTOUT_4</code> - SCT peripheral: output 4</li>
+  <li><code class="highlighter-rouge">0x2: R</code> - Reserved</li>
+  <li><code class="highlighter-rouge">0x3: EMC_A3</code> - External memory peripheral: address line 3.</li>
+  <li><code class="highlighter-rouge">0x4: R</code> - Reserved</li>
+  <li><code class="highlighter-rouge">0x5: R</code> - Reserved</li>
+  <li><code class="highlighter-rouge">0x6: R</code> - Reserved</li>
+  <li><code class="highlighter-rouge">0x7: U2_UCLK</code> - USART2 peripheral: clock (for synchronous mode).</li>
+</ul>
+
+<p>The other fields of this register we can ignore for now. Because we want the pin to be a GPIO pin, we need to write <code class="highlighter-rouge">0b00</code> to the first 2 bits of the register. The manual shows that the <code class="highlighter-rouge">P2_12 register</code> is located at memory address <code class="highlighter-rouge">0x4008 6130</code>.
+This results in our first line of c code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// configure P2_12 pin function as GPIO1[12]
+(*(volatile unsigned int *)(0x40086130)) = 0;
+</code></pre></div></div>
+<p>What this does: First we cast the address to an <em>int pointer</em>: <code class="highlighter-rouge">(volatile unsigned int *)(0x40086130)</code>. Then we dereference it and write a zero to the memory location <code class="highlighter-rouge">0x4008 6130</code> (which is not actually memory: it is a specific IO configuration register, which is memory-mapped at that address).</p>
+
+<p><em>Note that it is not very good practice to write (anything) to 
+reserved register values, since it can have unintended side effects, but
+ in this case it is harmless. The better way is to first read the value,
+ then only set or clear the bits you want to change and then write the 
+value back.</em></p>
+
+<h3 id="translating-pin-numbers-to-gpio-numbers">Translating pin numbers to GPIO numbers</h3>
+
+<p>As you may have noticed in the previous section, pin <code class="highlighter-rouge">P2_12</code> is configured as GPIO <code class="highlighter-rouge">1_12</code>. On simpler platforms such as the <a href="https://blinky101.github.io/blinky_lpc11uxx">lpc11uxx</a>,
+ the pin and GPIO numbers are usually the same. On this chip however, 
+the GPIO numbers are different from the pin numbers (which are different
+ from the physical footprint pin numbers). Two similar GPIO numbers may 
+map to completely different pin numbers! To avoid confusing, we always 
+prefix <strong>P</strong>in numbers with a <strong>P</strong>.</p>
+
+<h3 id="gpio-configuration">GPIO configuration</h3>
+
+<p>Now that the pin belongs to the GPIO peripheral, we can configure it as an output pin.</p>
+
+<p><strong>TODO register offset for port 1</strong>
+This is done using the <code class="highlighter-rouge">GPIO port direction registers</code> located at address <code class="highlighter-rouge">0x400F 6000</code> (see <code class="highlighter-rouge">chapter 19.5.3.3</code> of the manual). We are going to set GPIO <code class="highlighter-rouge">1_1</code>, which means pin 1 on port 1, so we need the DOR register for port 1 at <code class="highlighter-rouge">0x400F 6004</code>. This 32-bit register defines a <code class="highlighter-rouge">DIR</code>-bit for every pin in GPIO Port 1. So, bit 0 corresponds with GPIO <code class="highlighter-rouge">1_0</code>, bit 1 with GPIO <code class="highlighter-rouge">1_1</code>, etc. Thus we need to set bit 12 to control the direction of GPIO <code class="highlighter-rouge">1_12</code>. Our second line of code is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// configure GPIO direction
+(*(volatile unsigned int *)(0x400F6004)) |= (1 &lt;&lt; 12);
+</code></pre></div></div>
+
+<h3 id="toggling-the-pin-high-and-low">Toggling the pin high and low</h3>
+
+<p>Now that we did all the preparations we can finally do do the real 
+blinking. We need to toggle the pin between a high state (3.3V) and a 
+low state (0V). There are multiple ways to do this, but for this 
+tutorial we will use the <code class="highlighter-rouge">GPIO port set</code> and <code class="highlighter-rouge">GPIO port clear</code> registers. See sections <code class="highlighter-rouge">19.5.3.7</code> and <code class="highlighter-rouge">19.5.3.8</code>
+ of the manual. Similarly to the GPIO direction register, we should now 
+write to the 12th bit of the CLEAR and SET registers for port 1:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// set LED GPIO low
+(*(volatile unsigned int *)(0x400F6284)) = (1 &lt;&lt; 12);
+
+
+// set LED GPIO high
+(*(volatile unsigned int *)(0x400F6204)) = (1 &lt;&lt; 12);
+</code></pre></div></div>
+
+<p>Don’t forget to add some delay <code class="highlighter-rouge">for (int i = 0; i &lt; 100000; ++i) __asm__("nop");</code>so that our slow human eyes can actually see the blinking. The delay is just a for loop that does noting (<code class="highlighter-rouge">__asm__("nop")</code> is the assembly nop operator, which means no-operation) during 100000 loops</p>
+
+<p>And finally we wrap it in a <code class="highlighter-rouge">while(1)</code> loop so that it will go on forever:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while(1) {
+
+    // set LED GPIO low
+    (*(volatile unsigned int *)(0x400F6284)) = (1 &lt;&lt; 12);
+    for (int i = 0; i &lt; 100000; ++i) __asm__("nop");
+
+    // set LED GPIO high
+    (*(volatile unsigned int *)(0x400F6204)) = (1 &lt;&lt; 12);
+    for (int i = 0; i &lt; 100000; ++i) __asm__("nop");
+}
+</code></pre></div></div>
+
+<p>Putting all our code inside a function <code class="highlighter-rouge">blinky()</code> in the main.c file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blinky(void)
+{
+    // configure P2_12 pin function as GPIO1[12]
+    (*(volatile unsigned int *)(0x40086130)) = 0;
+
+    // configure GPIO direction
+    (*(volatile unsigned int *)(0x400F6004)) |= (1 &lt;&lt; 12);
+
+    while(1) {
+
+        // set LED GPIO low
+        (*(volatile unsigned int *)(0x400F6284)) = (1 &lt;&lt; 12);
+        for (int i = 0; i &lt; 100000; ++i) __asm__("nop");
+
+        // set LED GPIO high
+        (*(volatile unsigned int *)(0x400F6204)) = (1 &lt;&lt; 12);
+        for (int i = 0; i &lt; 100000; ++i) __asm__("nop");
+    }
+}
+</code></pre></div></div>
+
+<p>Now we can try to compile it with the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arm-none-eabi-gcc -Wall -Wextra -g3 -O0 -MD -mcpu=cortex-m4 -mthumb -c -o main.o main.c
+</code></pre></div></div>
+<p>If everything went OK we didn’t get any warning or errors and now we have a <code class="highlighter-rouge">main.o</code> object file in our directory. Unfortunately, we’re not quite ready to run this code on our hardware.</p>
+
+<p>We still need to tell the compiler and our microcontroller where to place the code and where to find it. That’s where the <code class="highlighter-rouge">link.ld</code> file we created earlier comes into play.</p>
+
+<h2 id="step-3-linker-file-and-interrupt-vector-table">Step 3: Linker File and Interrupt Vector Table</h2>
+
+<p>[General intro to linkerfile?]</p>
+
+<p>The linker file basically does two things. Define the available memory, and define what should be put into it.</p>
+
+<p>For this project, the minimum viable linker file is as follows</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+MEMORY
+{
+  /* common memory layout for all flash-based 43xx parts */
+  Flash (rx) : ORIGIN = 0x1a000000, LENGTH = 0x40000 /* 256kB */
+  RAM (rwx) : ORIGIN = 0x10080000, LENGTH = 0xA000 /* 40kB */
+}
+
+/* Define a symbol for the top of each memory region */
+__top_RAM = ORIGIN(RAM) + LENGTH(RAM);
+
+/* reset_vector is the entry point of the program */
+ENTRY(blinky)
+
+SECTIONS
+{
+    .text : ALIGN(4)
+    {
+        FILL(0xff)
+        KEEP(*(.interrupt_vector_table))
+         *(.text*)
+
+    } &gt; Flash
+
+
+    /* Pointer to top of the stack */
+    PROVIDE(_vStackTop = __top_RAM - 0);
+
+    /* Calculate the usercode checksum as per the LPC43xx user manual:
+     * UM10503, chapter 6.4.4.1 "Criterion for Valid User Code".
+     */
+    PROVIDE(__valid_user_code_checksum = 0 -
+        (_vStackTop
+        + (blinky + 1)
+        + (0)
+        + (0)
+        + (0)
+        + (0)
+        + (0)
+        )
+    );
+}
+
+
+</code></pre></div></div>
+<p>We can just copy this to <code class="highlighter-rouge">link.ld</code>.</p>
+
+<h4 id="memory-section">Memory section</h4>
+
+<p>The linker file starts with a memory section. This section defines 
+all the memory available, which for the flash-based LPC43xx is Flash and
+ RAM. If we take a look at the memory map in chapter 3.5 of the manual, 
+we see that there is on-chip flash starting at address <code class="highlighter-rouge">0x1a00 0000</code>
+ which has a size of at least 256 kB (depending on the exact model, the 
+lpc4337 has the most: 2x512 kB). Additionally, there are multiple blocks
+ of RAM. For now, we only use the 40kB of RAM located at address <code class="highlighter-rouge">0x1008 0000</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MEMORY
+{
+  /* common memory layout for all flash-based 43xx parts */
+  Flash (rx) : ORIGIN = 0x1a000000, LENGTH = 0x40000 /* 256kB */
+  RAM (rwx) : ORIGIN = 0x10080000, LENGTH = 0xA000 /* 40kB */
+}
+</code></pre></div></div>
+
+<h4 id="sections-section">Sections section</h4>
+
+<p>The rest of the linker file, which consists mostly of the <code class="highlighter-rouge">SECTIONS</code> section, tells the compiler where the code needs to be and where the Interrupt vector table should be.</p>
+
+<h4 id="interrupt-vector-table">Interrupt Vector Table</h4>
+
+<p>Finally we need to add this code to <code class="highlighter-rouge">main.c</code>. The special compiler attribute <code class="highlighter-rouge">__attribute__ ((section(".interrupt_vector_table")))</code> makes sure that the following <code class="highlighter-rouge">interrupt_vector_table</code>
+ struct will be placed at the correct memory address as defined in the 
+linker file.
+This table is defined by the Cortex-M4 architecture. It will always 
+start with the stack pointer followed by the reset interrupt vector. We 
+have pointed the <code class="highlighter-rouge">.reset</code> to our blinky function so that the microcontroller will start code execution there.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// these symbols are defined in the linker script
+extern unsigned int __valid_user_code_checksum;
+extern unsigned int _vStackTop;
+
+// setup the interrupt vector table
+__attribute__ ((section(".interrupt_vector_table")))
+struct {
+    void *stack;
+    void (*reset)(void);
+    void *_unused_m4[5];
+    unsigned int checksum;
+    void *__unused_m4[8];
+    void *__unused_chip[53];
+} interrupt_vector_table = {
+
+    .stack = &amp;_vStackTop,
+    .reset = blinky,
+    .checksum =  (unsigned int)&amp;__valid_user_code_checksum,
+};
+</code></pre></div></div>
+
+<h4 id="checksum">Checksum</h4>
+
+<p>The checksum is a special LPC feature which is used by the onboard 
+LPC bootloader to determine whether a valid program exists in flash 
+memory: if the checksum does not match, the bootloader will refuse to 
+start our program. The linker file calculates the correct value and the 
+interrupt vector table makes sure it is placed at the correct location. 
+See chapter <code class="highlighter-rouge">6.4.4.1</code> of the user manual.</p>
+
+<h2 id="compile-and-link-and-flash">Compile and link and flash</h2>
+
+<p>Now we have everything to run our code. Issue the following commands to compile and link our code respectively.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arm-none-eabi-gcc -Wall -Wextra -g3 -O0 -MD -mcpu=cortex-m4 -mthumb -c -o main.o main.c
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -nostartfiles -Wl,-T,link.ld -o blinky.elf main.o -lc -lnosys
+</code></pre></div></div>
+
+<p>After this we should have a <code class="highlighter-rouge">blinky.elf</code> file. We can flash our code to the board using the Black Magic Probe:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arm-none-eabi-gdb -nx --batch \
+-ex 'target extended-remote /dev/ttyACM0' \
+-ex 'monitor swdp_scan' \
+-ex 'attach 1' \
+-ex 'load' \
+-ex 'set mem inaccessible-by-default off' \
+-ex 'compare-sections' \
+-ex 'kill' \
+blinky.elf
+</code></pre></div></div>
+
+<!--  See [TODO] for more detailed information about flashing your target board. -->
+
+<blockquote>
+  <p><strong>Note: The completed project can be downloaded from the <a href="https://github.com/blinky101/blinky_lpc43xx/tree/master/bare-metal/">blinky_lpc43xx repository</a>.</strong></p>
+</blockquote>
+
+<div class="tutorial_nav">
+  <a class="left" href="https://blinky101.github.io/blinky_lpc43xx/getting_started">◀ Getting Started</a>
+  <a class="right" href="https://blinky101.github.io/blinky_lpc43xx/tutorial_part2">Tutorial Part 2 ▶</a>
+</div>
+
+
+
+      </section>
+      <footer>
+        
+          <p>Blinky101 is a project by <a href="https://jitter.company/">Jitter</a></p>
+        
+      </footer>
+    </div>
+
+    
+  
+
+</body></html>

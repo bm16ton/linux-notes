@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>
+Multicore debugging with OpenOCD + GDB | Into the depths of electronics and computer science	</title>
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://aax.se/wp-content/themes/twentyeleven-child/style.css?ver=20190507" />
+<link rel="pingback" href="https://aax.se/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://aax.se/wp-content/themes/twentyeleven/js/html5.js?ver=3.7.0" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Into the depths of electronics and computer science &raquo; Feed" href="https://aax.se/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Into the depths of electronics and computer science &raquo; Comments Feed" href="https://aax.se/comments/feed/" />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v7.16.2 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+		<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+					<!-- No UA code set -->
+				<!-- / Google Analytics by MonsterInsights -->
+				<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/aax.se\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://aax.se/wp-includes/css/dist/block-library/style.min.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='https://aax.se/wp-includes/css/dist/block-library/theme.min.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='monsterinsights-popular-posts-style-css'  href='https://aax.se/wp-content/plugins/google-analytics-for-wordpress/assets/css/frontend.min.css?ver=7.16.2' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css'  href='https://aax.se/wp-content/themes/twentyeleven/style.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='child-style-css'  href='https://aax.se/wp-content/themes/twentyeleven-child/style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyeleven-block-style-css'  href='https://aax.se/wp-content/themes/twentyeleven/blocks.css?ver=20190102' type='text/css' media='all' />
+<link rel="https://api.w.org/" href="https://aax.se/wp-json/" /><link rel="alternate" type="application/json" href="https://aax.se/wp-json/wp/v2/posts/200" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://aax.se/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://aax.se/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6.2" />
+<link rel="canonical" href="https://aax.se/2016/11/21/multicore-debugging-with-openocd-gdb/" />
+<link rel='shortlink' href='https://aax.se/?p=200' />
+<link rel="alternate" type="application/json+oembed" href="https://aax.se/wp-json/oembed/1.0/embed?url=https%3A%2F%2Faax.se%2F2016%2F11%2F21%2Fmulticore-debugging-with-openocd-gdb%2F" />
+<script src='https://Blog.BrokenBrain.se/?dm=275baf63961b8e676ac3853f455d42eb&amp;action=load&amp;blogid=6&amp;siteid=1&amp;t=563771155&amp;back=https%3A%2F%2Faax.se%2F2016%2F11%2F21%2Fmulticore-debugging-with-openocd-gdb%2F' type='text/javascript'></script></head>
+
+<body class="post-template-default single single-post postid-200 single-format-standard wp-embed-responsive single-author singular two-column right-sidebar">
+<div class="skip-link"><a class="assistive-text" href="#content">Skip to primary content</a></div><div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://aax.se/" rel="home">Into the depths of electronics and computer science</a></span></h1>
+				<h2 id="site-description">Just another Blog.brokenbrain.se site</h2>
+			</hgroup>
+
+						<a href="https://aax.se/">
+									<img src="https://aax.se/wp-content/themes/twentyeleven/images/headers/wheel.jpg" width="1000" height="288" alt="Into the depths of electronics and computer science" />
+								</a>
+			
+									<form method="get" id="searchform" action="https://aax.se/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+				<div class="menu"><ul>
+<li ><a href="https://aax.se/">Home</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://aax.se/2016/10/16/enabling-ipmi-using-ipmiutil/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://aax.se/2017/02/27/deadbugging/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-200" class="post-200 post type-post status-publish format-standard hentry category-embedded-systems">
+	<header class="entry-header">
+		<h1 class="entry-title">Multicore debugging with OpenOCD + GDB</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://aax.se/2016/11/21/multicore-debugging-with-openocd-gdb/" title="13:51" rel="bookmark"><time class="entry-date" datetime="2016-11-21T13:51:50+00:00">November 21, 2016</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://aax.se/author/admin/" title="View all posts by Belgarion" rel="author">Belgarion</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>When using openocd with a MCU with multiple targets, openocd will listen on multiple ports (one per core) for gdb to connect to.<br />
+So for example a LPC4370 with the following openocd config:</p>
+<pre>
+swj_newdap lpc4370 m4 -irlen 4 -ircapture 0x1 -irmask 0xf -expected-id 0x4ba00477
+jtag newtap lpc4370 m0sub -irlen 4 -ircapture 0x1 -irmask 0xf -expected-id 0x0ba01477
+jtag newtap lpc4370 m0app -irlen 4 -ircapture 0x1 -irmask 0xf -expected-id 0x0ba01477
+
+target create lpc4370.m4 cortex_m -chain-position lpc4370.m4
+target create lpc4370.m0sub cortex_m -chain-position lpc4370.m0sub
+target create lpc4370.m0app cortex_m -chain-position lpc4370.m0app
+
+lpc4370.m4 configure -work-area-phys 0x10000000 \
+                        -work-area-size 0x20000 -work-area-backup 0
+lpc4370.m0sub configure -work-area-phys 0x18000000 \
+                         -work-area-size 0x4800 -work-area-backup 0
+lpc4370.m0app configure -work-area-phys 0x10080000 \
+                         -work-area-size 0x92000 -work-area-backup 0
+targets lpc4370.m4
+</pre>
+<p>The main m4 core will be available as usual by connecting with gdb> target remote localhost:3333 , and m0app will be debuggable by connecting with gdb> target remote localhost:3335 .</p>
+<p>The m0app and m0sub cores are a bit special in that they must be started from the m4 core, and any attempts to start them from gdb will result in warnings and the core will still be in reset state, until started by the m4 core.</p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://aax.se/category/embedded-systems/" rel="category tag">Embedded systems</a> by <a href="https://aax.se/author/admin/">Belgarion</a>. Bookmark the <a href="https://aax.se/2016/11/21/multicore-debugging-with-openocd-gdb/" title="Permalink to Multicore debugging with OpenOCD + GDB" rel="bookmark">permalink</a>.
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-200 -->
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog-post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2418760668936161"
+     data-ad-slot="5892454556"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	<br />
+
+						<div id="comments">
+	
+	
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+												<a href="https://wordpress.org/" class="imprint" title="Semantic Personal Publishing Platform">
+					Proudly powered by WordPress				</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<link rel='stylesheet' id='basecss-css'  href='https://aax.se/wp-content/plugins/eu-cookie-law/css/style.css?ver=5.6.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://aax.se/wp-includes/js/comment-reply.min.js?ver=5.6.2' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://aax.se/wp-includes/js/wp-embed.min.js?ver=5.6.2' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://aax.se/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://aax.se/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='eucookielaw-scripts-js-extra'>
+/* <![CDATA[ */
+var eucookielaw_data = {"euCookieSet":"","autoBlock":"0","expireTimer":"360","scrollConsent":"0","networkShareURL":"","isCookiePage":"","isRefererWebsite":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://aax.se/wp-content/plugins/eu-cookie-law/js/scripts.js?ver=3.1.6' id='eucookielaw-scripts-js'></script>
+<!-- Eu Cookie Law 3.1.6 --><div class="pea_cook_wrapper pea_cook_bottomright" style="color:#FFFFFF;background:rgb(0,0,0);background: rgba(0,0,0,0.85);"><p>By continuing to use the site, you agree to the use of cookies. <a style="color:#FFFFFF;" href="#" id="fom">more information</a> <button id="pea_cook_btn" class="pea_cook_btn">Accept</button></p></div><div class="pea_cook_more_info_popover"><div class="pea_cook_more_info_popover_inner" style="color:#FFFFFF;background-color: rgba(0,0,0,0.9);"><p>The cookie settings on this website are set to "allow cookies" to give you the best browsing experience possible. If you continue to use this website without changing your cookie settings or you click "Accept" below then you are consenting to this.</p><p><a style="color:#FFFFFF;" href="#" id="pea_close">Close</a></p></div></div>
+</body>
+</html>

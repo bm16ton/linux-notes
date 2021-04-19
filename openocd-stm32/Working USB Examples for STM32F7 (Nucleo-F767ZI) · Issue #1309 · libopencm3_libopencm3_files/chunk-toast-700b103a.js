@@ -1,0 +1,2 @@
+System.register([],(function(e){"use strict";return{execute:function(){let t;function n(){return!!t&&(t.remove(),t=null,!0)}e("t",(function(e){if(n(),!e)return;const o=document.createElement("div");o.innerHTML=e,document.body&&document.body.append(o);const c=o.querySelector("button");c&&c.addEventListener("click",n,{once:!0});document.addEventListener("keydown",(e=>{"Escape"===e.key&&n()&&e.stopImmediatePropagation()})),t=o}))}}}));
+//# sourceMappingURL=chunk-toast-3737fe0b.js.map

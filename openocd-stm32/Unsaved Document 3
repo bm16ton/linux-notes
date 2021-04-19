@@ -1,0 +1,14 @@
+st-info --flash
+0x0
+
+st-info --chipid
+0x074b
+
+flash build/stm32f1.bin
+st-flash 1.6.0
+2021-04-14T23:31:03 INFO common.c: Loading device parameters....
+2021-04-14T23:31:03 WARN common.c: Invalid flash type, please check device declaration
+  core status: unknown
+Unknown memory region
+
+while true; do st-flash --flash=512 erase ; done

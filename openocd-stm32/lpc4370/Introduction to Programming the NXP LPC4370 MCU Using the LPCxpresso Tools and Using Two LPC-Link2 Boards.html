@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+    <!-- tpw <head> MOBILE ADDONS ===================================================================================== -->
+    <!--tpw added bootstrap from http://getbootstrap.com to use <img class="img-responsive" and <table class="table" -->
+    <link rel="stylesheet" href="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/bootstrap.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- end tpw <head> MOBILE ADDONS ===================================================================================== -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Introduction to Programming the NXP LPC4370 MCU Using the
+      LPCxpresso Tools and Using Two LPC-Link2 Boards</title>
+  </head>
+  <body>
+    <div align="center"><b>A Brief Introduction to Programming the NXP
+        LPC4370 </b><b>MCU</b><br>
+      <b>Using the LPCXpresso IDE and </b><b>Using Two LPC-Link2 Boards</b><br>
+    </div>
+    <br>
+    <div align="center">Copyright 2014 by Thomas Weldon<br>
+    </div>
+    <br>
+    <br>
+    The following&nbsp; provides a brief introduction to programming the
+    NXP LPC4370 MCU (microprogrammed control unit) using the NXP
+    LPCXpresso development tools and two&nbsp; Embedded Artists AB
+    LPC-Link2 development boards.&nbsp;&nbsp; One of the LPC-Link2
+    boards is connected to the computer running LPCXpresso IDE
+    (integrated development environment) and acts as the JTAG
+    programmer.&nbsp; The second LPC-Link2 board is used as the target
+    board for programming the LPC4370.&nbsp; The following introduction
+    was based on LPCXpresso&nbsp; v7.3.0 [Build 186] [2014-07-09] on a
+    13-inch MAC laptop with OS X 10.8.5.<br>
+    <br>
+    The sections below include:<br>
+    <ul>
+      <li><a href="#Preliminaries">Preliminaries</a>: setup and install
+        hardware and software<br>
+      </li>
+      <li><a href="#TenBlinks_Example:_Create_a_Workspace">TenBlinks
+          Example</a>: Create a Workspace and Project To Make LED Blink
+        10 Times</li>
+      <li><a href="#RampDAC_Example:_Find_Clock_Speeds_and_">RampDAC
+          Example</a>: Find Clock Speeds and Use GPIO to Drive a DAC
+        (digital to analog converter) <br>
+      </li>
+    </ul>
+    <br>
+    <h3><a name="Preliminaries"></a> <b>Preliminaries</b></h3>
+    <b> </b>
+    <ol>
+      <li> Obtain and Install LPCXpresso IDE from <a href="http://www.lpcware.com/lpcxpresso">http://www.lpcware.com/lpcxpresso</a>
+        .&nbsp;&nbsp; Register for the <br>
+        <br>
+      </li>
+      <li>Purchase two LPC-Link2 boards&nbsp; <a href="http://www.nxp.com/demoboard/om13054.html">http://www.nxp.com/demoboard/om13054.html</a>
+        (NXP order code OM13054).<br>
+        <br>
+      </li>
+      <li>Download the LCPOpen software for the board
+        (lpcopen_2_12_lpcxpresso_nxp_lpclink2_4370.zip) from the
+        LPC-Link2 (LPC4370) board Software Download link on the LPCOpen
+        Software Development Platform (LPC43xx packages) webpage
+        at&nbsp; <a href="http://www.lpcware.com/content/nxpfile/lpcopen-software-development-platform-lpc43xx-packages">http://www.lpcware.com/content/nxpfile/lpcopen-software-development-platform-lpc43xx-packages</a>
+        .<br>
+        <br>
+      </li>
+    </ol>
+    <h3><a name="TenBlinks_Example:_Create_a_Workspace"></a> <b>TenBlinks
+
+
+
+        Example: Create a Workspace and Project To Make LED Blink 10
+        Times<br>
+      </b></h3>
+    &nbsp;&nbsp;&nbsp; The following steps create a workspace in the
+    LPCXpresso IDEthat contains the LPCOpen libraries, LPC-Link2/LPC4370
+    library, and the "tenBlinks demo C program that will blink the LED
+    on the LPC-Link2 target board.&nbsp;&nbsp; The example below uses a
+    MAC computer.<br>
+    <ol>
+      <li>As illustrated below, run LPCXpresso, and browse to a
+        directory where you would like to store your workspaces and
+        projects, and enter the name of your new workspace.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a01newWorkspace.jpg" width="580" height="444"><br>
+        <br>
+      </li>
+      <li>As illustrated below in LPCXpresso, click the "NewProject"
+        button (lower left red arrow), and on the popup selectan LPC43xx
+        Cortex-M4 basic LPCOpen-C Project.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a02newProject.jpg" width="862" height="526"><br>
+        <br>
+      </li>
+      <li>Enter the name of your new C code project as shown below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a03projectName.jpg" width="668" height="216"><br>
+        <br>
+      </li>
+      <li>As shown below, select the LPC4370 MCU target.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a04targetMcu.jpg" width="575" height="463"><br>
+        <br>
+      </li>
+      <li>As illustrated below, import the LCPOpen software for the
+        LPC-Link2 board (lpcopen_2_12_lpcxpresso_nxp_lpclink2_4370.zip).<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a05importLPCopenLPClink.jpg" width="744" height="658"><br>
+        <br>
+      </li>
+      <li>Select all the components for import as shown below .<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a06importLPClinkPopup.jpg" width="741" height="420"><br>
+        <br>
+      </li>
+      <li>As shown below, choose the lpc_chip_43xx Chip and the
+        lpc_board_nxp_lpclink2_4370 board.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a07newProjChipAndBoard.jpg" width="646" height="483"><br>
+        <br>
+      </li>
+      <li>As illustrated below, choose "none" for CMSIS DSP library.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a08newProjCmsisNone.jpg" width="531" height="326"><br>
+        <br>
+      </li>
+      <li>Enable softABI as shown below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a09newProjSoftABI.jpg" width="533" height="240"><br>
+        <br>
+      </li>
+      <li>As shown below, disable CRP and create inc directory.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a10newProjOtherOpts.jpg" width="443" height="369"><br>
+        <br>
+      </li>
+      <li>As illustrated below, leave External memory blank (we will fix
+        this later).<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a11newProjMemory.jpg" width="636" height="230"><br>
+        <br>
+      </li>
+      <li>Use non-float printf as shown below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a12newProjPrintfFinish.jpg" width="707" height="496"><br>
+        <br>
+      </li>
+      <li>As shown below, open your new project directory, find your
+        mew-proct.c file, and double-click to open it.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a13NewProjectBlankCode.jpg" width="876" height="509"><br>
+        <br>
+      </li>
+      <li>As illustrated below, edit the project properties.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a14editProjProps1.jpg" width="699" height="329"><br>
+        <br>
+      </li>
+      <li>In the project properties popup as shown below, select MCU
+        settings, and click to edit the memory configuration.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a15editMcuSettingsMemory1.jpg" width="867" height="542"><br>
+        <br>
+      </li>
+      <li>As shown below, edit the memort by first clicking "add flash"
+        (red arrow), editing the fields (blue arrows), moving it to top
+        of list (black arrow), adding the flash driver by browsing
+        (purple arrow), and saving the configuration (yellow
+        arrow).&nbsp; Click OK to save everything .<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a16editMcuSettingsMemoryAddFlash.jpg" width="873" height="521"><br>
+        <br>
+      </li>
+      <li>As illustrated below, build your project.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a17buildProject.jpg" width="808" height="506"><br>
+        <br>
+      </li>
+      <li>After the project is built, make sure there are no errors as
+        shown below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a18checkBuildErrors.jpg" width="881" height="573"><br>
+        <br>
+      </li>
+      <li>As shown below, attach the JTAG to your LPCXpresso computer
+        using the USB port, and use a JTAG cable to connect to the
+        target board.&nbsp; As shown below, power from the LPC-Link2
+        JTAG board is supplied to the LPC-Link2 Target board by
+        connecting jumper JP1 on the JTAG board only. &nbsp; All other
+        jumpers are disconnected on both boards .<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a19PCboards2.jpg" width="800" height="480"><br>
+        <br>
+      </li>
+      <li>As illustrated below, debug as a C NXP MCU Application.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a20DebugAsNxp.jpg" width="759" height="637"><br>
+        <br>
+      </li>
+      <li>You should see a prompt to select the redlink server, as shown
+        below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a21redLink.jpg" width="814" height="477"><br>
+        <br>
+      </li>
+      <li>As shown below, choose the Cortex-M4 JTAG .<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a22jtagCoresightDP.jpg" width="774" height="473"><br>
+        <br>
+      </li>
+      <li>As illustrated below, click the icon&nbsp; to run the code on
+        the target board.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a23runCode.jpg" width="907" height="539"><br>
+        <br>
+      </li>
+      <li>Click the yellow-double-bar icon to halt the program, as shown
+        below.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a24HaltCode.jpg" width="907" height="539"><br>
+        <br>
+      </li>
+      <li>As shown below, add the disassembly view to see assembly
+        language .<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a25dissassembly.jpg" width="913" height="571"><br>
+        <br>
+      </li>
+      <li>As illustrated below, terminate the debug session.<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a26terminate.jpg" width="944" height="558"><br>
+        <br>
+      </li>
+      <li>Add the source code in main() to blink the LED ten times on
+        the target board, as shown below.
+        <pre>    // TODO: insert code here
+    volatile int aa = 0, bb=0 ;
+    for(aa=0;aa&lt;10;aa++)
+    {
+        Board_LED_Set(0, false);
+        for(bb=0;bb&lt;8000000;bb++);
+        Board_LED_Set(0, true);
+        for(bb=0;bb&lt;8000000;bb++);
+    }
+    Board_LED_Set(0, false);
+</pre>
+        <br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a27tenBlinks.jpg" width="1033" height="571"><br clear="all">
+        <br>
+      </li>
+      <li>Rebuild the code, and rerun the code.&nbsp; The target board
+        LED should blink 10 times, then turn off, as shown in the movie
+        below, with the target board on the right.<br>
+        <br>
+        <video controls="controls"> <source src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/tenBlinksIMG_6404.mp4" type="video/mp4"> </video> <br>
+        <br>
+      </li>
+      <li>Halt the program, and terminate the debug session..<br>
+        <br>
+      </li>
+      <li>Unplug the usb from your laptp computer for the JTAG board to
+        power down.<br>
+        <br>
+      </li>
+    </ol>
+    <h3> </h3>
+    <h3><a name="RampDAC_Example:_Find_Clock_Speeds_and_"></a>RampDAC
+      Example: Find Clock Speeds and Use GPIO to Drive a DAC (digital to
+      analog converter) <br>
+    </h3>
+    <ol>
+      <li>Make a copy of your "tenBlinks" project by right-clicking the
+        project, copy, paste, and renaming it "rampDAC"<br>
+        <br>
+      </li>
+      <li>The following project will drive a DAC (digital to analog
+        converter) on GPIO port 1 from connector J9 on the target the
+        LPC-Link2 board.&nbsp; LPC-Link2 digital outputs on connector J9
+        provide access to GPIO1 pins 0-4, 12, and 13.&nbsp; So we will
+        use GPIO1_0 as LSB (least significant bit) and GPIO1_13 as MSB
+        for the DAC. Connect your favorite DAC to the LPC-Link2
+        connector J9 as illustrated below, with the blue arrow pointing
+        to the DAC prototype board. <br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a30PCboards3.jpg" width="400" height="240"><br>
+        <br>
+      </li>
+      <li>Edit the new "rampDAC" project by replacing the prior code in
+        main with the following new code:
+        <pre>    // TODO: insert code here
+
+    //===========================================================
+    //begin tpw code
+    //===========================================================
+
+    //blink LED 3 times and turn off
+    volatile int aa = 0, bb=0 ;
+    for(aa=0;aa&lt;3;aa++)
+    {
+        Board_LED_Set(0, false);
+        for(bb=0;bb&lt;8000000;bb++);
+        Board_LED_Set(0, true);
+        for(bb=0;bb&lt;8000000;bb++);
+    }
+    Board_LED_Set(0, false);
+
+    //find rates of various clocks
+    //it is useful to know your clock rates in driving your DAC
+    //to see the values on your chip, halt the program and read these variables
+		volatile static long int sysCoreClk=0,maxSysClk=MAX_CLOCK_FREQ,mainPllClk=0;
+		volatile static long int chipBaseClk=0,mainPllDivisor=0,xtalClk=0;
+		volatile static long int periphBaseClk=0,spifiBaseClk=0,hsadcBaseClk=0,usbBaseClk=0;
+		volatile static long int spifiClk=0,hsadcClk=0,usbClk=0,gpioClk=0;
+		uint32_t sysCoreClk1=0;
+		sysCoreClk1 = Chip_Clock_GetRate(CLK_MX_MXCORE);
+		sysCoreClk=(long int)sysCoreClk1;
+		mainPllClk=(long int)Chip_Clock_GetMainPLLHz();
+		chipBaseClk=(long int)Chip_Clock_GetBaseClocktHz(CLKIN_CLKIN);
+		mainPllDivisor=(long int)Chip_Clock_GetDividerDivisor(CLKIN_MAINPLL);
+		xtalClk=(long int)Chip_Clock_GetClockInputHz(CLKIN_CRYSTAL);
+		periphBaseClk=(long int)Chip_Clock_GetBaseClocktHz(CLK_BASE_PERIPH);
+		spifiBaseClk=(long int)Chip_Clock_GetBaseClocktHz(CLK_BASE_SPIFI);
+		spifiClk=Chip_Clock_GetRate(CLK_MX_SPIFI);
+		hsadcBaseClk=(long int)Chip_Clock_GetBaseClocktHz(CLK_BASE_ADCHS);
+		hsadcClk=Chip_Clock_GetRate(CLK_MX_ADCHS);
+		usbBaseClk=(long int)Chip_Clock_GetBaseClocktHz(CLK_BASE_ADCHS);
+		usbClk=Chip_Clock_GetRate(CLK_MX_USB0);
+		gpioClk=Chip_Clock_GetRate(CLK_MX_GPIO);
+
+
+    //use LPC-Link2 digital outputs to drive your favorite DAC
+    //on connector J9 GPIO1 pins 0-4 and 12, 13 are available
+    //so we use GPIO1_0 as LSB and GPIO1_13 as MSB
+    //below we clear GPIO1 then set each bit in succession
+	volatile static int nn = 0 ;
+    volatile static int icnt = 0 ;
+    volatile static int kk = 0 ;
+	//first configure pins as fast output pins
+	for(nn=0; nn&lt;5;nn++)
+		{
+		Chip_SCU_PinMuxSet((uint8_t) 1, (uint8_t)(nn), SCU_PINIO_FAST);
+		Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, (uint8_t) 1, (uint8_t)(nn));
+		}
+		Chip_SCU_PinMuxSet((uint8_t) 1, (uint8_t)(12), SCU_PINIO_FAST);
+		Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, (uint8_t) 1, (uint8_t)(12));
+		Chip_SCU_PinMuxSet((uint8_t) 1, (uint8_t)(13), SCU_PINIO_FAST);
+		Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, (uint8_t) 1, (uint8_t)(13));
+	//create infinite loop of DAC output
+	while(1)
+	{
+	//clear the output data on port GPIO1
+	Chip_GPIO_SetPortValue(PC_GPIO_PORT,(uint8_t) 1, (uint32_t)(0) );
+	//mark the beginning of the loop by setting a bit high
+	Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(1&lt;&lt;4) );
+	//use for loop for a short time pause
+	for(kk=0; kk&lt;2;kk++);
+	Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(0) );
+	for(kk=0; kk&lt;2;kk++);
+	for(nn=0; nn&lt;5;nn++)
+		{
+		{
+		Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(1&lt;&lt;nn) );
+		for(kk=0; kk&lt;2;kk++);
+		}
+	Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(1&lt;&lt;12) );
+	for(kk=0; kk&lt;2;kk++);
+	//set GPIO1_13 as MSB
+	Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(1&lt;&lt;13) );
+	for(kk=0; kk&lt;2;kk++);
+	//clear the port data
+	Chip_GPIO_SetPortValue(LPC_GPIO_PORT,(uint8_t) 1, (uint32_t)(0) );
+	for(kk=0; kk&lt;4;kk++);
+
+    icnt++ ;
+ }
+
+
+    //===========================================================
+    //end tpw code
+    //===========================================================
+
+         </pre>
+        as shown below: <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a30dacCode.jpg" width="806" height="644"><br>
+        <br>
+      </li>
+      <li>Build and run the code as in the "tenBlinks" example
+        above.&nbsp; Halt the program to observe the varibles.&nbsp; The
+        speed of the waveforms is determined by the clocks on your
+        LPC-Link2 board.&nbsp; These can observed in the variables tab
+        as shown at the red arrow below.&nbsp; Also note the
+        disssssembly at the blue arrow below.<img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a31dacClockVariablesDissassembly.jpg" width="1098" height="673"><br>
+        <br>
+      </li>
+      <li>When the "rampDAC" is running, you should observe DAC outputs
+        changing as follows:<br>
+        <br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a32dacRampIMG_6408.jpg" width="400" height="306"><br>
+        <br>
+        and zooming in to observe the response time of the DAC:<br>
+        <img alt="" src="Introduction%20to%20Programming%20the%20NXP%20LPC4370%20MCU%20Using%20the%20LPCxpresso%20Tools%20and%20Using%20Two%20LPC-Link2%20Boards_files/a33dacRampIMG_6411.jpg" width="400" height="310"><br>
+        <br>
+      </li>
+      <li>When you finish your measurements, halt the program, terminate
+        the debug session, and unplug the usb from your laptp computer
+        to power down the JTAG board.</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    Notice: All referenced brands, product names, service names and
+    trademarks are property of their respective owners.
+    LPCXpresso_Getting_Started_Guide ARM and Cortex are trademarks of
+    ARM Limited.&nbsp; NXP is a registered trademark of NXP
+    Semiconductors. LPCXpresso is a trademark of NXP Semiconductors. All
+    other brands or product names are the property of their respective
+    holders.&nbsp; Mac and OS X are trademarks of Apple Inc.<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+
+</body></html>

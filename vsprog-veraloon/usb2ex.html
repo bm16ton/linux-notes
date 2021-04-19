@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><script src="usb2ex_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app104.us.archive.org';v.server_ms=345;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="usb2ex_files/playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="usb2ex_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.versaloon.com:80/doc/versaloon/doc_versaloon_script.html","20151107061107","https://web.archive.org/","web","/_static/",
+	      "1446876667");
+</script>
+<link rel="stylesheet" type="text/css" href="usb2ex_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="usb2ex_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Versaloon Platform</title>
+<link rel="stylesheet" href="usb2ex_files/styles.css" type="text/css">
+</head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" style="display: block; direction: ltr;" lang="en">
+</div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="usb2ex_files/donate.html" scrolling="no" style="width:100%; height:100%" frameborder="0">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(650,27,25,2,"web","http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html","20151107061107",1996,"/_static/",["/_static/css/banner-styles.css?v=bsmaklHF","/_static/css/iconochive.css?v=qtvMKcIJ"]);
+  __wm.rw(1);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<div class="wrapper">
+	<div class="top">
+		<div class="header">
+			<!-- TITLE -->
+			<h1>
+			<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/index.html">
+			<img alt="" src="usb2ex_files/Versaloon_Logo.png" class="noborder" width="250" height="52"><em>Platform</em></a></h1>
+			<h2>Full open-source(GPLv3) platform for multiple applications, 
+			including programmer, debugger, logic tester, logic analyzer, simple 
+			oscilloscope and so on.</h2>
+			<div class="clear"></div>
+			<!-- END TITLE -->
+		</div>
+		<div class="menu">
+			<ul>
+				<!-- MENU -->
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/index.html">Home</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/news.html">News</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/products.html">Products</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/document.html">Document</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/bbs">Forum</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/shop.html">Shop</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/contact.html">Contact</a></li>
+				<!-- END MENU -->
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="page-content">
+			<p><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/index.html">Home</a>&gt;<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/document.html">Document</a>&gt;<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/document.html#doc_Versaloon">Versaloon</a>&gt;<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com:80/doc/versaloon/doc_versaloon_script.html">Script</a></p>
+			<!-- CONTENT -->
+			<h3><a name="doc_Versaloon_Script_Menu">Menu</a></h3>
+			<ul>
+				<li><h4><a href="#doc_Versaloon_Script_About">About Script</a></h4></li>
+				<li><h4><a href="#doc_Versaloon_Script_Parameters">Script Parameters</a></h4></li>
+				<li><h4><a href="#doc_Versaloon_Script_Generic">Scripts for Generic Purposes</a></h4></li>
+				<li><h4><a href="#doc_Versaloon_Script_Programmer">Scripts for Programmer</a></h4></li>
+				<li><h4><a href="#doc_Versaloon_Script_Interfaces">Scripts for Interfaces</a></h4></li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_Versaloon_Script_About">About Script</a></h3>
+			<p>There is a simple script support in vsprog, which could be used to do a series of operations 
+			automatically. For example, you could do the IIC test after 
+			programming the target chip. Actually, all options of vsprog command 
+			line is processed by the script sub-system.<br>
+			Command format is simple:<br>
+			<code>[@]COMMAND [PARA0] [PARA1]......</code><br>
+			The leading '@' is used to indicate that the current command will 
+			not be displayed on the screen.<br>
+			Of course, you can use 'quiet' or 'q' command so that all the 
+			commands afterwards will not be displayed.<br>
+			If 'quiet' command itself should not be displayed, use '@quiet'.<br>
+			There shouldn't be spaces(including tabs) in one parameter, you can 
+			use "" if spaces are not avoidable.<br>
+			Extention of script files is .vts, means Versaloon Text Script.
+			</p>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_Versaloon_Script_Parameters">Script Parameters</a></h3>
+			<ul>
+				<li><h4>exit_on_fail: whether to exit vsprog when failure is issued when running the script</h4></li>
+				<li><h4>no_commit: do not commit on write scripts</h4></li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_Versaloon_Script_Generic">Scripts for Generic Purposes</a></h3>
+			<ul>
+				<li>
+					<h4><a name="doc_Versaloon_Script_param">param</a> PARAM VALUE: set value to Script Parameters</h4>
+					<code>param exit_on_fail 0<br>
+					param no_commit 1</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_misc_help">misc-help</a>: print all supported commands</h4>
+					<code>msic-help</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_shell">shell</a>: run a new shell, shells are nestable.</h4>
+					<code>shell</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_run">run</a> SCRIPT_FILE [quiet]: run a script file.</h4>
+					<code>run test.vts quiet</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_loop">loop</a> LOOP_CNT: set the loop count of next valid command.</h4>
+					<code>loop 100<br>
+					run test_once.vts quiet</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_exit">exit</a>: exit current shell.</h4>
+					<code>exit</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_close">close</a>: exit vsprog.</h4>
+					<code>close</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_log_info">log_info</a> TEXT: display TEXT on the screen.</h4>
+					<code>log_info "processing finished!!!"</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_getchar">getchar</a>: wait for input from keyboard.</h4>
+					<code>log_info "Press Enter to continue..."<br>
+					getchar</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_sleep">sleep</a> MS: sleep defined MS.</h4>
+					<code>sleep 100</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_quiet">quiet</a>: enter into quiet mode, succeeding commands will not be displayed 
+					on the screen.</h4>
+					<code>@quiet</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_free_all">free-all</a>: free everything allocated before.</h4>
+					<code>free-all</code>
+				</li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_Versaloon_Script_Programmer">Scripts for Programmer</a></h3>
+			<ul>
+				<li>
+					<h4><a name="doc_Versaloon_Script_o">o</a> &lt;e|w|v|r&gt;[<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com:80/doc/versaloon/doc_versaloon_programmer_platform.html#doc_versaloon_programmer_target_area">TARGET_AREA_STRING</a>]: define the operation to perform on target</h4>
+					e for erase operation; w for write operation; v for verify operation; r for read operation<br>
+					If TARGET_AREA_STRING is not defined, all valid target area 
+					is sellected.<br>
+					<code>o e<br>
+					o wful<br>
+					o vfe<br>
+					o ru</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_s">s</a>: define the 
+					series of the target chip</h4>
+					<code>s stm32</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_c">c</a>: define the 
+					module of the target chip</h4>
+					<code>c stm32f103c8</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_t">t</a> 
+					<a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com:80/doc/versaloon/doc_versaloon_programmer_platform.html#doc_versaloon_programmer_target_area">TARGET_AREA_CHAR</a> VALUE: define the 
+					value of the specified target area, no space between TARGET_AREA_CHAR and VALUE</h4>
+					<code>t u0x5682FF</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UF">F</a> SPEED: define the 
+					speed of the programming interface</h4>
+					<code>F 9000</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_m">m</a> MODE: define the 
+					mode of the programming interface</h4>
+					<code>m i</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_x">x</a> ADDR: define the 
+					address to execute after programming</h4>
+					<code>x 0x08002000</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UC">C</a> COM_ATTR: define the 
+					comm port attribute, see below</h4>
+					<code>C COM4<br>
+					C COM4_115200<br>
+					C COM4_115200_8N1<br>
+					C /dev/ttyACM0_115200_8O1<br>
+					C usbtocomm_115200_8E1</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UJ">J</a> UNITS_BEFORE 
+					UNITS_AFTER BITS_BEFORE BITS_AFTER: define the 
+					daisy chain of JTAG interface</h4>
+					<code>J 1 0 4 0</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UK">K</a> KERNEL_FREQ: define the 
+					frequency of kernel</h4>
+					<code>K 60</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UW">W</a> WAIT_STATE: define the wait state.</h4>
+					<code>W 1</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UA">A</a>: define the auto-adjust feature.</h4>
+					<code>A</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UI">I</a> INPUT_FILE_NAME[@SEG,ADDR]: define the input file.</h4>
+					<code>I /home/project_avr_eeprom.bin@2,0<br>
+					I cpld_programming.svf</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UO">O</a> OUTPUT_FILE_NAME[@SEG,ADDR]: define the output file.</h4>
+					<code>O avr_eeprom.bin@2,0</code>
+				</li>
+				<li>
+					<h4><a name="doc_Versaloon_Script_operate">operate</a>: do the programming defined by previous commands</h4>
+					<code>operate</code>
+				</li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_Versaloon_Script_Interfaces">Scripts for Interfaces</a></h3>
+			<ul>
+				<li>
+					<h4><a name="doc_Versaloon_Script_UL">L</a>: list dongle 
+					hardwares available</h4>
+				</li>
+				
+				<li>
+					<h4><a name="doc_Versaloon_Script_p">p</a>: select dongle 
+					hardware</h4>
+					<code>p versaloon</code>
+				</li>
+				
+				<li>
+					<h4>Target Voltage</h4>
+					<ul>
+						<li>
+							<h4><a name="doc_Versaloon_Script_get_tvcc">get_tvcc</a>: get target voltage</h4>
+							<code>get_tvcc</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_set_tvcc">set_tvcc</a> MV: set target voltage</h4>
+							<code>set_tvcc 3300<br>
+							set_tvcc 0</code>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<h4>GPIO</h4>
+					<ul>
+						<li>
+							<h4><a name="doc_Versaloon_Script_gpio_init">gpio_init</a>: initialize gpio module</h4>
+							<code>gpio_init</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_gpio_fini">gpio_fini</a>: finalize gpio module</h4>
+							<code>gpio_fini</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_gpio_config">gpio_config</a> MASK INOUT VALUE: finalize gpio module</h4>
+							MASK is used to define the GPIO port affected by the command.<br>
+							INOUT is used to define the masked direction of the gpio, 1 for output, 0 for input.<br>
+							VALUE is used to define the masked input pull status or output value.<br>
+							<code>gpio_config 1 0 1</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_gpio_out">gpio_out</a> MASK VALUE: output on gpio port</h4>
+							<code>gpio_out 1 0</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_gpio_in">gpio_in</a> MASK: read input on gpio port</h4>
+							<code>gpio_in 1</code>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<h4>SPI</h4>
+					<ul>
+						<li>
+							<h4><a name="doc_Versaloon_Script_spi_init">spi_init</a>: initialize spi module</h4>
+							<code>spi_init</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_spi_fini">spi_fini</a>: finalize spi module</h4>
+							<code>spi_fini</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_spi_config">spi_config</a> KHZ CPOL CPHA FIRSTBIT: configure spi module</h4>
+							FIRSTBIT is used to define MSB first or LSB first, 1 for MSB first, 0 for LSB first.
+							<code>spi_config 1000 1 1 1</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_spi_io">spi_io</a> SIZE DATA...: do spi transact</h4>
+							<code>spi_io 4 0xAC 0x53 0x00 0x00</code>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<h4>IIC</h4>
+					<ul>
+						<li>
+							<h4><a name="doc_Versaloon_Script_iic_init">iic_init</a>: initialize iic module</h4>
+							<code>iic_init</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_iic_fini">iic_fini</a>: finalize iic module</h4>
+							<code>iic_fini</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_iic_config">iic_config</a> KHZ MAX_TIMEOUT_US: configure iic module</h4>
+							<code>iic_config 100 20000</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_iic_read">iic_read</a> ADDR SIZE: read data form iic slave</h4>
+							<code>iic_read 0x22 10</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_iic_write">iic_write</a> ADDR SIZE DATA...: write data to iic slave</h4>
+							<code>iic_write 0x22 2 0x01 0x00</code>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<h4>Delay</h4>
+					<ul>
+						<li>
+							<h4><a name="doc_Versaloon_Script_delayms">delayms</a> MS: delay defined MS</h4>
+							<code>delayms 100</code>
+						</li>
+						<li>
+							<h4><a name="doc_Versaloon_Script_delayus">delayus</a> US: delay defined US</h4>
+							<code>delayus 1</code>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<h4><a name="doc_Versaloon_Script_commit">commit</a>: do the uncommited operations</h4>
+					<code>commit</code>
+				</li>
+			</ul>
+			
+			<br>
+			
+			<!-- END CONTENT -->
+		</div>
+	</div>
+	<div class="sidebar">
+		
+		<!-- SIDEBAR -->
+		<ul>
+			<li>
+			<h4>Versaloon</h4>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/doc/versaloon/doc_versaloon_install_update.html">Install and Update</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/doc/versaloon/doc_versaloon_openocd_urjtag.html">OpenOCD and UrJTAG</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/doc/versaloon/doc_versaloon_programmer_platform.html">Programmer Platform -- vsprog/vsgui</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/doc/versaloon/doc_versaloon_debugger_platform.html">Debugger Platform</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/doc/versaloon/doc_versaloon_application_platform.html">Application Platform</a></li>
+			</ul>
+			</li>
+			
+			<li>
+			<h4>Latest News</h4>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/news.html#news_BDM_support">BDM support for HCS08 and HCS12(X)</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/news.html#news_UrJTAG_support">UrJTAG support</a></li>
+				<li><a href="https://web.archive.org/web/20151107061107/http://www.versaloon.com/news.html#news_SWD_support_in_OpenOCD">SWD support in OpenOCD</a></li>
+			</ul>
+			</li>
+		</ul>
+		<!-- SIDEBAR -->
+		
+	</div>
+	
+	<div class="clear"></div>
+	
+	<p class="footer" style="text-align: center">
+		<a href="https://web.archive.org/web/20151107061107/http://validator.w3.org/check/referer" title="valid XHTML">XHTML</a> | <a href="https://web.archive.org/web/20151107061107/http://jigsaw.w3.org/css-validator/check/referer" title="valid CSS">CSS</a> &nbsp;&nbsp; © 
+		VersaloonPlatform. Design: <a href="https://web.archive.org/web/20151107061107/http://www.spyka.net/">Free CSS Templates</a> | <a href="https://web.archive.org/web/20151107061107/http://www.justfreetemplates.com/">Free Web Templates</a> 
+	</p>
+</div>
+
+
+
+</body></html>
+<!--
+     FILE ARCHIVED ON 06:11:07 Nov 07, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:34:44 Mar 16, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  exclusion.robots: 0.39
+  captures_list: 249.524
+  LoadShardBlock: 193.481 (3)
+  RedisCDXSource: 30.89
+  PetaboxLoader3.datanode: 207.004 (4)
+  esindex: 0.018
+  PetaboxLoader3.resolve: 58.41
+  exclusion.robots.policy: 0.372
+  CDXLines.iter: 20.556 (3)
+  load_resource: 75.94
+-->

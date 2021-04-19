@@ -1,0 +1,11 @@
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/ablic/\">ABLIC汽车IC</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/microchip/\">Microchip</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/mps/auto/\">MPS汽车系统方案黑科技</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/stm32/\">ST MCU技术子站</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/stpower/\">ST Power技术子站</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/TDK/\">TDK技术子站</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//edu.21ic.com/\">TI在线培训</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//21ic.antdsp.com/c?m=21ic&v=192.3749.6177&fc=1&l=https://www.21ic.com/toshiba/?utm_source=21ic&utm_medium=insite&utm_term=place8\">TOSHIBA技术社区</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/yuden/\">太阳诱电技术子站</a></dd>");
+document.writeln("<dd><a target=\"_blank\" href=\"//www.21ic.com/we/\">WE技术子站</a></dd>");
+document.writeln("<h3><a target=\"_blank\" href=\"//www.21ic.com/changshang/\">厂商动态</a></h3>");

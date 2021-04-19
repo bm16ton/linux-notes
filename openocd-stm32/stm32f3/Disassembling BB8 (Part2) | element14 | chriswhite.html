@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html country="US" lang="en"><head><script async="" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/munchkin.js"></script><meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett"><link rel="dns-prefetch" href="https://files1.element14.com/"><link rel="preconnect" href="https://files1.element14.com/"><link rel="canonical" href="https://www.element14.com/community/blogs/linker/2015/09/17/disassembling-bb8-part2"><meta property="og:url" content="https://www.element14.com/community/blogs/linker/2015/09/17/disassembling-bb8-part2"><meta property="og:type" content="article"><meta property="article:published_time" content="2015-09-17T20:12:23Z"><meta property="article:modified_time" content="2015-09-30T16:51:24Z"><meta name="title" content="Disassembling BB8 (Part2) | element14 | chriswhite"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@e14Community"><meta name="twitter:creator" content="@e14Community"><meta name="twitter:title" content="Disassembling BB8 (Part2)"><meta property="og:title" content="Disassembling BB8 (Part2)"><meta name="keywords" content="bb8, ble, embedded.fm, motor, reverse_engineering, sphero"><meta name="description" content="Read about 'Disassembling BB8 (Part2)' on element14.com. Written by Elecia White.   In Part 1, I left you with a puzzle: given the chip markings what can you tell about the BB8's internals? I've done very little"><meta property="og:description" content="Written by Elecia White.   In Part 1, I left you with a puzzle: given the chip markings what can you tell about the BB8's internals? I've done very little"><meta name="twitter:description" content="Written by Elecia White.   In Part 1, I left you with a puzzle: given the chip markings what can you tell about the BB8's internals? I've done very little"><link rel="apple-touch-icon" sizes="57x57" href="https://www.element14.com/community/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://www.element14.com/community/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://www.element14.com/community/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://www.element14.com/community/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://www.element14.com/community/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://www.element14.com/community/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://www.element14.com/community/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://www.element14.com/community/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://www.element14.com/community/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-194x194.png" sizes="194x194"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="https://www.element14.com/community/android-chrome-192x192.png" sizes="192x192"><link rel="manifest" href="https://www.element14.com/community/manifest.json"><link rel="mask-icon" href="https://www.element14.com/community/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#2b5797"><meta name="msapplication-TileImage" content="/community/mstile-144x144.png"><meta name="theme-color" content="#ffffff"><meta property="fb:app_id" content="354647788222159"><title>Disassembling BB8 (Part2) | element14 | chriswhite</title><meta name="viewport" content="user-scalable=0, initial-scale=1.0"><!--[if IE]><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/styles/jive.ie.css?v=2021-03-12 00:26" type="text/css" media="all"/><![endif]--><!--[if !IE]> --><link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/jive.css" type="text/css" media="all"><!-- <![endif]--><link rel="search" href="https://www.element14.com/community/opensearch.xml" title="element14 Community" type="application/opensearchdescription+xml"><link rel="shortcut icon" type="image/x-icon" href="https://www.element14.com/community/favicon.ico"><!--[if lt IE 9]><script src="//files1.element14.com/community/9.0.5.998b920/resources/scripts/vendor/html5shiv.min.js"></script><![endif]--><script type="text/javascript" async="" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/insight.js"></script><script async="" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/uwt.js"></script><script async="" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/analytics.js"></script><script async="" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/fbevents.js"></script><script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/50225fed4a637f913683755a41f599b4.js"></script>
+<script>console.log('e14-global.soy loading'); var e14Country = 'US'; var e14ServerProperties = {buyGoesToCart:  false , botOptimsation: false, conversant:  true , cookieDirectiveCountryList: 'AT,BE,BG,CZ,DK,EE,FI,FR,DE,HU,IE,IT,LV,LT,NL,PL,PT,RO,SK,SI,ES,SE,UK,EXPORT,ZA,GR,RS', cookieDirectiveVersion: '', cssCompressed:  true ,dtssAuthorUsers: 'dtss-publish,e14dtts', dtssStaticVersion: '13', eventPopupGlobalSwitch: 'true', eventPopupIntervalInMillis: '86400000', eventPopupWebinarContainerID: '2413', eventPopupWebinarContainerRecursive:  true , eventPopupWebinarContainerType: '14', feedbackDSURL: 'https:\/\/element14.eu.qualtrics.com\/SE\/?SID\x3dSV_3dV7Sl41sK5CQap', feedbackTab:  false , feedbackURL: 'https:\/\/element14.eu.qualtrics.com\/SE\/?SID\x3dSV_ex5DNLnpewqc7k1', fbPixel:  true , fbSDK:  false , gPixel:  true , gAnal:  true , gAnalEvt:  true , gOpt:  true , gOptAF:  false , gRecapLogin:  true , gRecapReg:  true , gRecapKey: '6LfklvoUAAAAAIpvjAS2BE9xpC0jP0-EE0A56TGP', isMobile: false, jsErrorSendLimit: parseInt('5'), jsErrorSentCount: 0, jsLoadingTest: 'default', lazyLoadImages:  true || true , lazyLoadChromeEnabled:  true , lPixel:  true , marketoJSLib: '\/\/app-lon08.marketo.com\/js\/forms2\/js\/forms2.min.js', marketoURL: '\/\/app-lon08.marketo.com', marketoAccountID: '059-JXI-597', liveAgentEnabled:  true , marketo:  true , masheryURL: 'https:\/\/api.element14.com\/catalog\/products', masheryKey: '6ayk7fwykyakewdebxfewehr\x26cachebuster\x3d2', omnitureRSID: 'pfcommunity', omnitureHierarchy: 'FILLED IN LATER BY e14ParseBreadcrumbTrail()', omnitureChannel: 'FILLED IN LATER BY e14CallOmniture()', pimageddonURL: '', pimageddonCPCURL: '', pimageddonMCMURL: '', productSearchEngineSKU: '1000', productSearchEngineSKUMulti: '1008', productSearchEngineSKUs: '1005', resourceVersion: '2021-03-12 00:26', resourceDomain: '\/\/files1.element14.com\/community', runningInIFrame: (window.location.href.indexOf('iframe_me')>-1), smartPanelsEnabled:  true , storePreview:  false , storePreviewThrottle: parseInt('10'), tPixel:  true }; if ( true ) {var botUserAgents = [ 'googlebot', 'google-structured-data-testing-tool', 'bingbot', 'linkedinbot', 'mediapartners-google' ]; if (new RegExp(botUserAgents.join("|")).test(navigator.userAgent)) e14ServerProperties.botOptimsation=true;}var e14CurrentObject = {id:  21335.0 , objectType:  38.0 }; var e14CurrentContainer = {name: 'element14',id:  318066.0 , objectType:  2020.0 }; var e14JSErrorArray = []; window.onerror = function(message, filePath, line) {var file = filePath.substring(filePath.lastIndexOf('/')+1); var errorText = 'jsError-**BROWSER**-L'+line+'-'+file+'-'+message; if (e14ServerProperties.omnitureReady!=true) {e14JSErrorArray.push(errorText);} else {e14LogJSErrors(errorText);}};</script><!-- plugin javascript --><!-- end plugin javascript --><script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/44048e73000b86d699d282201980af1e.js"></script>
+
+    
+	<meta name="titleEscaped" content="true">
+
+	
+        <link rel="alternate" type="application/rss+xml" title="Recent Posts Feed" href="https://www.element14.com/community/blogs/linker/feeds/posts">
+
+        <link rel="alternate" type="application/rss+xml" title="Recent Comments Feed" href="https://www.element14.com/community/blogs/linker/feeds/comments">
+
+        <link rel="alternate" type="application/rss+xml" title="Recent Comments Feed For 'Disassembling BB8 (Part2)'" href="https://www.element14.com/community/blogs/linker/feeds/comments?blogPost=21335">
+
+	
+	<link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/content.css" type="text/css" media="all">
+    <link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/jive-content.css" type="text/css" media="all">
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/jive-responsive.css" type="text/css" media="all"><link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/theme-min.css" type="text/css" media="all"><link rel="stylesheet" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/override-newark.css" type="text/css" media="all"><noscript><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/plugins/gamification/resources/styles/n4jive.concat.css?v=2021-03-12%2000%3A26" type="text/css" media="all"/><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/resources/styles/exobjects-icons/jive-exobjects-icons.css?v=2021-03-12%2000%3A26" type="text/css" media="all"/></noscript><script>bazadebezolkohpepadr="1468160586"</script><script type="text/javascript" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/578259c1" defer="defer"></script><link rel="stylesheet" type="text/css" media="all" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/n4jive.css"><link rel="stylesheet" type="text/css" media="all" href="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/jive-exobjects-icons.css"><style type="text/css">#j-create-link-project {display:none}</style></head><body class="jive-body-content j-blog  j-header-mode-custom  j-simple-homepage newarkBody j-responsive-md" style="overflow: auto;"><noscript aria-hidden="false"><img src="http://premierfarnell.112.2o7.net/b/ss/pfcommunity/1/H.26.1--NS/0" height="1" width="1" style="display:none" /><img src="https://www.facebook.com/tr?id=1412227485705966&ev=PageView&noscript=1&dpo=LDU&dpoco=0&dpost=0" height="1" width="1" style="display:none" /></noscript><a id="top" aria-hidden="false"></a><a href="#j-main" class="j-skip-nav" aria-hidden="false">Skip navigation</a><div id="j-header-wrap" data-company-name="" data-no-user-bar="false" role="banner" aria-hidden="false"><header id="j-header" class="clearfix"><div id="j-basic-wrap"><h5 id="logo"><a role="img" href="https://www.element14.com/community/welcome" class="j-header-logo">element14</a></h5></div><div id="j-search"><div id="j-spotlight-search" role="search" data-mode="custom"><span class="j-ui-elem j-search-left"><span id="searchpopupanchor"></span></span><span><label for="autosearch" class="j-508-label" style="display:none;">Search</label><input data-spotlight-enabled="true" id="autosearch" class="j-ui-elem" data-component="autosearch" data-popup-anchor="searchpopupanchor" placeholder="Search" type="search" role="combobox" aria-labelledby="autosearch" aria-expanded="false" data-hidetypes="bookmarks frequent recent " data-community-name="element14 Community" data-filters="" data-origin="spotlight" aria-hidden="false" aria-busy="false"><a href="#" id="mob-spotlight-cancel">Cancel</a></span><span class="j-ui-elem j-search-right"></span><span class="jive-icon-sml jive-glyph-delete" data-component="button" data-type="clear" data-field="autosearch"></span><button data-component="button" data-type="search" data-field="autosearch"></button></div></div><div id="j-links"><ul class="j-globalNav"><li class="j-guest j-globalNav-li"><span class="j-user-welcome">Welcome, &nbsp;</span><span class="j-user-name j-navLabel">Guest</span></li><li class="j-nav-create j-nav-user j-globalNav-li js-satellite-nav-container js-satellite-nav-container-anon" aria-haspopup="true"><ul id="j-satNav"><li class="login"><a href="#" class="login" id="navLogin" title="Log in">Log in</a></li><li class="register"><a href="https://www.element14.com/community/create-account.jspa" class="register" title="Register" id="jive-nav-link-reg">Register</a></li></ul><div id="j-satNav-menu" class="clearfix" style="display:none;"></div><span data-count="0" class="j-js-update-indicator j-update-count zero  j-navbadge-count j-ui-elem" style="display:none;">0<span class="j-508-label" aria-hidden="true">Unread inbox items</span></span></li><li class="j-activity j-globalNav-li"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem"><span class="nav-link j-ui-elem">Activity</span></a></li><li id="google_translate_element" class="j-translate j-globalNav-li"><span id="loading" style="display:none"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/ajax-loader-small-circleball.gif"></span><a id="translateActivate" href="javascript:void(0)" onclick="e14InitGoogleTranslateLoader();" class="j-globalNavLink"><span class="nav-link j-ui-elem"><span class="custom-icon google-translate"></span> Translate</span></a></li><li class="j-locale j-globalNav-li"><a href="https://www.element14.com/community/guest-preferences!input.jspa" id="localeQuickConfigLink" class="j-globalNavLink j-ui-elem" title=" English : US"><span class="nav-link j-ui-elem"><span class="flag-icon us"></span><span class="jive-icon-glyph icon-arrow-down2"></span></span></a></li><li id="mobile-search" class="j-globalNav-li mobile-tool"><a class="j-globalNavLink" title="Search" aria-label="Search" href="#"></a></li></ul></div><!-- Navigational buttons/links --><nav id="j-globalNav-bg" role="navigation" aria-label="element14" data-mode="custom"><ul id="j-globalNav" role="menubar" class="j-globalNav"><li id="mobile-menu" class="mobile-tool"><a class="j-globalNavLink" title="Browse" aria-label="Browse" href="#"></a></li><li id="jive-nav-link-home" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/welcome" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Home</span></a></li><li id="jive-navbar-link-news" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Activity</span></a></li><li id="jive-nav-link-conx" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/people" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">People</span></a></li><li id="custom-nav-link-content" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/content" data-icid="menubar_content_all" data-menu="#custom-nav-menu-content"><span class="nav-link">Content <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-content" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[blogpost]" data-icid="menubar_content_blogs">Blog Posts</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[document]" data-icid="menubar_content_docs">Documents</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[thread]" data-icid="menubar_content_discussions">Discussions</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[poll]" data-icid="menubar_content_polls">Polls</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[video]" data-icid="menubar_content_videos">Videos</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[event]" data-icid="menubar_content_events">Events</a></li><li><a href="https://www.element14.com/community/community/members#status-updates" data-icid="menubar_content_statusupdates">Status Updates</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/content" data-icid="menubar_content_all">More&nbsp;Content<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-participate" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/docs/DOC-74927" data-icid="menubar_participate" data-menu="#custom-nav-menu-participate"><span class="nav-link">Participate<span class="jive-icon-glyph icon-arrow-down2" style="padding-left: 5px;"></span></span></a><section id="custom-nav-menu-participate" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li style="font-weight: bold;"><a href="https://www.element14.com/community/docs/DOC-74927" data-icid="menubar_participate_whyjoin">Why Join?</a></li><li><a href="https://www.element14.com/community/docs/DOC-53274" data-icid="menubar_participate_achievements-levels">Achievement Levels</a></li><li><a href="https://www.element14.com/community/community/support" data-icid="menubar_participate_feedback">Feedback &amp; Support</a></li><li><a href="https://www.element14.com/community/community/members" data-icid="menubar_participate_member-hub">Member Hub</a></li><li><a href="https://www.element14.com/community/groups/top-members" data-icid="menubar_participate_halloffame">Top Members</a></li><li><a href="https://www.element14.com/community/community/members/thisweekoncommunity" data-icid="menubar_participate_whatsnew">What's New? </a></li></ul></div></section></li><li id="custom-nav-link-learn" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="menubar_learn" data-menu="#custom-nav-menu-learn"><span class="nav-link">Learn <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-learn" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/arduino/arduino-tutorials" data-icid="menubar_learn_arduino-tutorials">Arduino Tutorials</a></li><li><a href="https://www.element14.com/community/community/businessofengineering" data-icid="menubar_learn_busofengineering">Business of Engineering</a></li><li><a href="https://www.element14.com/community/community/publications/ebooks" data-icid="menubar_learn_ebooks">eBooks</a></li><li><a href="https://www.element14.com/community/community/element14-presents" data-icid="menubar_build_element14presents">element14 presents</a></li><li><a href="https://www.element14.com/community/community/learning-center/online-learning/essentials" data-icid="menubar_learn_essentials">Essentials</a></li><li><a href="https://www.element14.com/community/groups/internet-of-things" data-icid="menubar_learn_iot">Internet of Things</a></li><li><a href="https://www.element14.com/community/community/learning-center" data-icid="menubar_learn_learningcenter">Learning Center</a></li><li><a href="https://www.element14.com/community/community/manufacturers" data-icid="menubar_learn_manufacturers">Manufacturers</a></li><li><a href="https://www.element14.com/community/community/stem-academy" data-icid="menubar_learn_stemacademy">STEM Academy</a></li><li><a href="https://www.element14.com/community/community/experts/benheck" data-icid="menubar_learn_benheck">The Ben Heck Show</a></li><li><a href="https://www.element14.com/community/community/events" data-icid="menubar_learn_webinars">Webinars &amp; Training</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="menubar_learn_all">More<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-discuss" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="menubar_discuss_all" data-menu="#custom-nav-menu-discuss"><span class="nav-link">Discuss <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-discuss" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/manufacturers/altium" data-icid="menubar_discuss_altium">Altium CircuitStudio</a></li><li><a href="https://www.element14.com/community/community/arduino" data-icid="menubar_discuss_arduino">Arduino</a></li><li><a href="https://www.element14.com/community/community/eagle" data-icid="menubar_discuss_autodesk-eagle">Autodesk Eagle</a></li><li><a href="https://www.element14.com/community/community/designcenter/single-board-computers/next-gen_beaglebone" data-icid="menubar_discuss_beagleboneblack">BeagleBoard</a></li><li><a href="https://www.element14.com/community/groups/Embedded" data-icid="menubar_discuss_embedded">Embedded </a></li><li><a href="https://www.element14.com/community/groups/fpga-group" title="FPGA" onclick="return e14HrefICID(this, 'menubar_topics_arduino');">FPGA</a></li><li><a href="https://www.element14.com/community/community/applications/industrial-automation-space" data-icid="menubar_discuss_industrial">Industrial Automation </a></li><li><a href="https://www.element14.com/community/groups/power-management" data-icid="menubar_discuss_power-energy">Power &amp; Energy</a></li><li><a href="https://www.element14.com/community/community/raspberry-pi" data-icid="menubar_discuss_rpi">Raspberry Pi</a></li><li><a href="https://www.element14.com/community/community/designcenter/single-board-computers" data-icid="menubar_discuss_singleboardcomputers">Single-Board Computers</a></li><li><a href="https://www.element14.com/community/groups/test-and-measurement" data-icid="menubar_discuss_test-tools">Test &amp; Tools</a></li><li><a href="https://www.element14.com/community/community/designcenter/zedboardcommunity/zedboard-forums" data-icid="menubar_designcenter_zedboard">Zedboard Forums</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="menubar_learn_all">More<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-build" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="menubar_build" data-menu="#custom-nav-menu-build"><span class="nav-link">Build <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-build" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/arduino/arduino-projects" data-icid="menubar_build_arduinoprojects">Arduino Projects</a></li><li><a href="https://www.element14.com/community/community/members/contests-giveaways" data-icid="menubar_build_contests-giveaways">Contests &amp; Giveaways </a></li><li><a href="https://www.element14.com/community/community/design-challenges" data-icid="menubar_build_designchallenges">Design Challenges</a></li><li><a href="https://www.element14.com/community/community/designforacause" data-icid="menubar_build_designforacause">Design for a Cause</a></li><li><a href="https://www.element14.com/community/community/element14-presents" data-icid="menubar_build_element14presents">element14 presents</a></li><li><a href="https://www.element14.com/community/community/stem-academy/microbit" data-icid="menubar_build_element14presents">micro:bit Projects</a></li><li><a href="https://www.element14.com/community/community/project14" data-icid="menubar_build_project14">Project14 Competitions</a></li><li><a href="https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects" data-icid="menubar_build_raspiprojects">Raspberry Pi Projects</a></li><li><a href="https://www.element14.com/community/groups/roadtest" data-icid="menubar_build_roadtest-reviews">RoadTests &amp; Reviews</a></li><li><a href="https://www.element14.com/community/community/experts/benheck" data-icid="menubar_build_benheck">The Ben Heck Show</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="menubar_learn_all">More<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-designcenter" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/community/designcenter" data-icid="menubar_designcenter" data-menu="#custom-nav-menu-designcenter"><span class="nav-link">Find Products  <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-designcenter" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/designcenter" data-icid="menubar_designcenter_product-search"><strong>Product Search </strong></a></li><li><a href="https://www.element14.com/community/docs/DOC-77184" data-icid="menubar_designcenter_design-manufacturing">Design &amp; Manufacturing </a></li><li><a href="https://www.element14.com/community/designcenter" data-icid="menubar_designcenter_devkits-tools">Dev Kits &amp; Tools</a></li><li><a href="https://www.element14.com/community/docs/DOC-74659" data-icid="menubar_designcenter_PCB-Design">PCB Design </a></li><li><a href="https://www.element14.com/community/community/designcenter/software" data-icid="menubar_designcenter_software">Software</a></li><li><a href="https://www.element14.com/community/community/designcenter/zedboardcommunity" data-icid="menubar_designcenter_zedboard">Zedboard Community</a></li></ul></div></section></li><li id="custom-nav-link-store" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="#" onclick="return false;" data-menu="#custom-nav-menu-store"><span class="nav-link">Store <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-store" class="menu j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.newark.com/?COM=element14_store_AllPeople" target="_blank" rel="noopener" id="custom-nav-link-store-url"><span class="nav-link-label" title="Looking for fast delivery on over 500,000 products? Visit our Newark element14 store. " style="margin-left: -2px; font-weight:bold;">Visit Your Store <span class="flag-icon us">United States</span></span><span class="custom-icon newark" title="Looking for fast delivery on over 500,000 products? Visit our Newark element14 store. "></span></a></li><li id="e14-countries-dropdown"><span style="display: inline-block; padding: 0 0 10px 15px;"> <a href="http://grh.premierfarnell.com/?COM=TheLinker" target="_blank" rel="noopener">Choose Another Store</a></span><span class="custom-icon e14" style="margin-left: 20px; margin-bottom: 10px;  display:inline-block; margin-top: -3px;" title=" Looking for fast delivery on over 500,000 products? Visit our Newark element14 store. "></span><div class="e14-countries-dropdown-content"><div style="padding: 10px 10px 0 10px;"><ul><li style="padding-bottom: 10px;"><strong>Europe</strong></li>	<li><a href="http://at.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon at"></span>&nbsp;Austria<span class="e14-lang">(German)</span></a></li>	<li><a href="http://be.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon be"></span>&nbsp;Belgium<span class="e14-lang">(Dutch, French)</span></a></li>	<li><a href="http://bg.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon bg"></span>&nbsp;Bulgaria<span class="e14-lang">(Bulgarian)</span></a></li>	<li><a href="http://cz.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon cz"></span>&nbsp;Czech Republic<span class="e14-lang">(Czech)</span></a></li>	<li><a href="http://dk.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon dk"></span>&nbsp;Denmark<span class="e14-lang">(Danish)</span></a></li>	<li><a href="http://ee.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ee"></span>&nbsp;Estonia<span class="e14-lang">(Estonian)</span></a></li>	<li><a href="http://fi.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon fi"></span>&nbsp;Finland<span class="e14-lang">(Finnish)</span></a></li>	<li><a href="http://fr.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon fr"></span>&nbsp;France<span class="e14-lang">(French)</span></a></li>	<li><a href="http://de.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon de"></span>&nbsp;Germany<span class="e14-lang">(German)</span></a></li>	<li><a href="http://hu.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon hu"></span>&nbsp;Hungary<span class="e14-lang">(Hungarian)</span></a></li>	<li><a href="http://ie.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ie"></span>&nbsp;Ireland</a></li>	<li><a href="http://il.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon il"></span>&nbsp;Israel</a></li>	<li><a href="http://it.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon it"></span>&nbsp;Italy<span class="e14-lang">(Italian)</span></a></li>	<li><a href="http://lv.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon lv"></span>&nbsp;Latvia<span class="e14-lang">(Latvian)</span></a></li></ul></div><div style="padding-left: 10px; vertical-align: top; margin-top: 10px; width: 210px;"><ul><li>&nbsp;</li>	<li><a href="http://lt.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon lt"></span>&nbsp;Lithuania<span class="e14-lang">(Lithuanian)</span></a></li>	<li><a href="http://nl.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon nl"></span>&nbsp;Netherlands<span class="e14-lang">(Dutch)</span></a></li>	<li><a href="http://no.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon no"></span>&nbsp;Norway<span class="e14-lang">(Norwegian)</span></a></li>	<li><a href="http://pl.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon pl"></span>&nbsp;Poland<span class="e14-lang">(Polish)</span></a></li>	<li><a href="http://pt.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon pt"></span>&nbsp;Portugal<span class="e14-lang">(Portuguese)</span></a></li>	<li><a href="http://ro.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ro"></span>&nbsp;Romania<span class="e14-lang">(Romanian)</span></a></li>	<li><a href="http://ru.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ru"></span>&nbsp;Russia<span class="e14-lang">(Russian)</span></a></li>	<li><a href="http://sk.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon sk"></span>&nbsp;Slovakia<span class="e14-lang">(Slovak)</span></a></li>	<li><a href="http://si.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon si"></span>&nbsp;Slovenia<span class="e14-lang">(Slovenian)</span></a></li>	<li><a href="http://es.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon es"></span>&nbsp;Spain<span class="e14-lang">(Spanish)</span></a></li>	<li><a href="http://se.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon se"></span>&nbsp;Sweden<span class="e14-lang">(Swedish)</span></a></li>	<li><a href="http://ch.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ch"></span>&nbsp;Switzerland<span class="e14-lang">(German, French)</span></a></li>	<li><a href="http://tr.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon tr"></span>&nbsp;Turkey<span class="e14-lang">(Turkish)</span></a></li>	<li><a href="http://uk.farnell.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon uk"></span>&nbsp;United Kingdom</a></li></ul></div><div style="margin: 10px 25px 0 7px; padding-left:5px; vertical-align: top;"><ul><li style="padding-bottom: 10px;padding-right: 50px;"><strong>Asia Pacific</strong></li>	<li><a href="http://au.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon au"></span>&nbsp;Australia</a></li>	<li><a href="http://cn.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon cn"></span>&nbsp;China</a></li>	<li><a href="http://hk.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon hk"></span>&nbsp;Hong Kong</a></li>	<li><a href="http://in.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon in"></span>&nbsp;India</a></li>	<li><a href="http://kr.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon kr"></span>&nbsp;Korea<span class="e14-lang">(Korean)</span></a></li>	<li><a href="http://my.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon my"></span>&nbsp;Malaysia</a></li>	<li><a href="http://nz.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon nz"></span>&nbsp;New Zealand</a></li>	<li><a href="http://ph.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ph"></span>&nbsp;Philippines</a></li>	<li><a href="http://sg.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon sg"></span>&nbsp;Singapore</a></li>	<li><a href="http://tw.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon tw"></span>&nbsp;Taiwan</a></li>	<li><a href="http://th.element14.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon th"></span>&nbsp;Thailand<span class="e14-lang">(Thai)</span></a></li></ul></div><div style="margin-top: 10px;margin-left: 7px; padding-left: 5px; vertical-align: top;"><ul><li style="padding-bottom: 10px;"><strong>Americas</strong></li>	<li><a href="http://www.newark.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon br"></span>&nbsp;Brazil<span class="e14-lang">(Portuguese)</span></a></li>	<li><a href="http://canada.newark.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon ca"></span>&nbsp;Canada</a></li>	<li><a href="http://mexico.newark.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon mx"></span>&nbsp;Mexico<span class="e14-lang">(Spanish)</span></a></li>	<li><a href="http://www.newark.com/?COM=TheLinker" target="_blank" rel="noopener"><span class="flag-icon us"></span>&nbsp;United States</a></li></ul></div><div class="e14-other-country"><span class="flag-icon export"></span>Can't find the country/region you're looking for? Visit our <a href="https://export.farnell.com/?COM=TheLinker" target="_blank" rel="noopener">export site</a> or find a <a href="http://grh.premierfarnell.com/?COM=TheLinker" target="_blank" rel="noopener">local distributor</a>.</div></div></li></ul></div></section></li><li id="custom-nav-link-activity" class="j-globalNav-li j-ui-elem j-actvity j-globalNav-li"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem"><span class="nav-link j-ui-elem">Activity</span></a></li><li id="custom-nav-link-translate" class="j-globalNav-li j-ui-elem j-translate j-globalNav-li"><span id="loading" style="display:none"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/ajax-loader-small-circleball.gif"></span><a id="translateActivate" href="javascript:void(0)" onclick="e14InitGoogleTranslateLoader();" class="j-globalNavLink"><span class="nav-link j-ui-elem"><span class="custom-icon google-translate"></span> Translate</span></a></li></ul></nav></header><noscript><div style="color:red" align="center">Error: You don't have JavaScript enabled. This tool uses JavaScript and much of it will not work correctly without it enabled. Please turn JavaScript back on and reload this page.</div></noscript></div><div id="mobile-overlay" aria-hidden="false"></div><div id="j-main-wrapper" aria-hidden="false"><section id="j-main" class="clearfix"><div id="jive-body" class="clearfix">
+<div id="jive-breadcrumb"><span><span class="e14-breadcrumb"><a href="https://www.element14.com/community/people"><span>All People</span></a></span> &gt; <span class="e14-breadcrumb"><a href="https://www.element14.com/community/people/chriswhite"><span>chriswhite</span></a></span> &gt; <span class="e14-breadcrumb"><a href="https://www.element14.com/community/blogs/linker"><span>The Linker</span></a></span> &gt;                 <a href="https://www.element14.com/community/blogs/linker/2015">2015</a> &gt;
+                <a href="https://www.element14.com/community/blogs/linker/2015/09">September</a> &gt;
+                <a class="jive-breadcrumb-last" href="https://www.element14.com/community/blogs/linker/2015/09/17" title="Thursday">17</a>
+<span id="js-place-link-breadcrumb" data-place-link-count="0" data-linked-content-id="21335" data-linked-content-type="38" data-is-usercontainer="true" data-legacy="true" data-place="true" data-parents="true"></span></span></div>    
+
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main" class="j-layout j-layout-ls clearfix">
+
+
+    <!-- BEGIN main body column -->
+    <div class="j-column-wrap-l">
+        <div class="j-column j-column-l lg-margin">
+
+
+            <div id="object-follow-notify" class="jive-success-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+
+
+
+
+            <div class="jive-blog-info">
+                <h3><a href="https://www.element14.com/community/blogs/linker" class="font-color-normal"><span class="jive-icon-med jive-icon-blog"></span>The Linker</a></h3>
+                <span class="jive-blog-info-details font-color-meta-light">
+                    <strong></strong>
+                </span>
+                <span class="j-pagination">
+                    <span class="j-pagination-prevnext">
+                            <a href="https://www.element14.com/community/blogs/linker/2015/09/16/disassembling-bb8-part-1" rel="prev" title="Previous post" class="j-pagination-prev">Previous post</a>
+                            <a href="https://www.element14.com/community/blogs/linker/2015/09/22/cheating-on-tests" rel="next" title="Next post" class="j-pagination-next">Next post</a>
+                    </span>
+                </span>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- BEGIN guided nav -->
+<div class="j-guided-nav js-guided-nav j-rc4" style="display: none;"><div class="j-header js-header j-rc4 j-rc-none-bottom"></div><div class="j-navbar js-navbar"></div></div>            <!-- END guided nav -->
+
+             <div class="jive-content jive-content-blog js-tlo js-ed-38-21335" role="article" aria-labelledby="heading-21335" data-object-type="38" data-object-id="21335">
+
+
+
+                 <header class="jive-blog-post-subject-header">
+                    <div>
+
+
+<a href="https://www.element14.com/community/people/chriswhite" data-externalid="" data-username="chriswhite" data-avatarid="1057" class="j-avatar jiveTT-hover-user " data-userid="324686" data-presence="null">
+    <img class="jive-avatar" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/46.png" data-avatarid="1057" data-username="chriswhite" data-height="46" alt="chriswhite" width="46" height="46" border="0">
+    </a>
+                        <h1 id="heading-21335"><a href="https://www.element14.com/community/blogs/linker/2015/09/17/disassembling-bb8-part2" class="font-color-normal">Disassembling BB8 (Part2)</a></h1>
+                        <span class="jive-blog-post-subject-stats font-color-meta">
+                            Posted by <a href="https://www.element14.com/community/people/chriswhite" data-externalid="" data-username="chriswhite" data-avatarid="1057" id="jive-32468629318720257733812" data-userid="324686" data-presence="null" class="jiveTT-hover-user jive-username-link">chriswhite</a> in <a href="https://www.element14.com/community/blogs/linker">The Linker</a> on Sep 17, 2015 5:48:35 PM
+                        </span>
+                    </div>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-38-21335 j-outcome-tlo-badge-container" data-object-type="38" data-object-id="21335" aria-label="Outcome badges" aria-live="polite"></ul>                </header>
+                
+                <section class="jive-content-body" role="main">
+                    <!--[if IE]><div class="ie"><![endif]-->
+                    <div class="jive-blog-post-message"><!-- [DocumentBodyStart:a80626de-a656-4469-a6ed-d7729a3879f0] --><div class="jive-rendered-content"><p>Written by <a class="jive-link-external-small" href="http://www.element14.com/community/people/elecia" target="_blank">Elecia White</a>.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>In <a class="jive-link-blog-small" data-containerid="14939" data-containertype="37" data-objectid="21319" data-objecttype="38" href="https://www.element14.com/community/blogs/linker/2015/09/16/disassembling-bb8-part-1">Part 1</a>,
+ I left you with a puzzle: given the chip markings what can you tell 
+about the BB8's internals? I've done very little reverse engineering 
+before so this was quite a challenging.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230160/IMG_0465.JPG"><img alt="Board image" class="image-3 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230160/437-292/IMG_0465.JPG" style="width: 436.902px; float: left;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/IMG_0465.JPG" width="437" height="292"></a></p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230161/Slide15.PNG"><img alt="Board with package markings highlighted" class="image-2 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230161/395-297/Slide15.PNG" style="width: 395.338px; float: none;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/Slide15.PNG" width="395" height="297"></a></p><p>There
+ are a few SMD databases and the eevblog forum is a good site for 
+package translation. Typing random numbers and letters into a search 
+engine leads to strange, occasionally useful results. It was a 
+try-everything sort of time (and ask anyone who might possibly know: 
+thank you to Andrei from the Great White North, Stuart McAndrew from 
+Down Under, and Philip Freidin of <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Ffliptronics.com%2F" rel="nofollow ugc noopener" target="_blank">Fliptronics</a>).</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h1>BLE Chip</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Let's start on the left side with the blue box labeled <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Fwww.csrsupport.com%2Fdownload%2F39359%2FCSR1010%2520Data%2520Sheet%2520CS-231985-DS.pdf" rel="nofollow ugc noopener" target="_blank">CSR1010</a>.
+ It is a single-chip BLE (4.1) solution that includes a 16-bit 
+microprocessor with 64k RAM and 64k flash (50k in user space). The 
+possible interfaces include I2C, SPI, and UART. It is low power, with an
+ idle current of about 1mA and various sleep modes under 5uA.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230162/IMG_0460.JPG"><img alt="CSR1010" class="jive-image image-4 lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230162/IMG_0460.JPG" style="height: 413px; width: 620px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/IMG_0460.JPG" width="1350" height="900"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>U5 in that picture is the <a class="jive-link-external-small" href="http://www.newark.com/stmicroelectronics/m24512-wmw6g/serial-eeprom-512kbit-1mhz-soic/dp/93K7319?COM=TheLinker" target="_blank">STM2451</a>. It is an I2C EEPROM (512kbit, 64K x 8bit). I found the pinout to be helpful.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230163/U5.png"><img alt="I2C EEPROM pinout" class="lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230163/352-224/U5.png" style="float: right; width:352px; height: 223.86px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/U5.png" width="352" height="224"></a></p><p>The
+ left side is connected to ground (I spent a lot of time listening to my
+ voltmeter beep). The I2C signals (SDA and SCL) are not connected to the
+ test points labeled I2C_SDA and I2C_SCL, they are connected to the 
+aforementioned BLE chip. Section 6.2 of its datasheet (link above) 
+explicitly suggests an I2C EEPROM holds the code. That seems like a safe
+ bet. The write control was also grounded so the chip is writeable all 
+the time. While it is likely a repository for the CSR's user code, I 
+wonder if it is used for another purpose as well (though the CSR 
+datasheet recommends the connection).</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>There
+ is an unpopulated header next to the I2C EEPROM on U5. I initially 
+thought this was a programming header for the EEPROM but it ohms out to 
+the SPI test points on the other side.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230165/P9.png"><img alt="Unpopulated connector" class="image-5 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230165/P9.png" style="height: auto; float: left;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/P9.png" width="186" height="272"></a><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230166/spiTestPoints.png"><img alt="SPI test points" class="image-6 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230166/spiTestPoints.png" style="height: auto; float: none;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/spiTestPoints.png" width="335" height="380"></a></p><p>That
+ these test points do not seem to go anywhere other than the BLE chip 
+(and the P9 connector). I suspect they program the CSR flash via the 
+debug SPI flash. (The debug SPI pins are different from the chip's 
+shared SPI/I2C port. The test point marked SPI connects to the BLE's 
+special pin to enable debug SPI (pin 26). The test points are likely 
+used with pogo pins in manufacturing to program the board.)</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h1>Main Processor</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Moving
+ along the board clockwise, there is a header that doesn't plug into 
+anything. All of the other populated headers go down into the charging 
+and motor control mechanics. This one has a header but notches into a 
+cavity in the body.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230167/serialPortPins.png"><img alt="Serial port pins" class="image-7 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230167/serialPortPins.png" style="height: auto;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/serialPortPins.png" width="390" height="251"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>As
+ a developer, I spend a lot of time explaining why a debug port is 
+handy, even in manufacturing. I might have salivated a little on pins 
+marked RX and TX. These aren't a debug port (or aren't only a debug 
+port), they connect the BLE chip to the other processor on the board.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230168/IMG_0457.JPG"><img alt="Main processor" class="jive-image image-8 lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230168/IMG_0457.JPG" style="height: 413px; width: 620px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/IMG_0457.JPG" width="1350" height="900"></a></p><p>The <a class="jive-link-external-small" href="http://www.newark.com/stmicroelectronics/stm32f373cct6/mcu-32bit-cortex-m4f-72mhz-lqfp/dp/46W2195?COM=TheLinker" target="_blank">STM32F373</a>
+ is a burly processor: 72MHz Cortex-M4, floating point unit, 32k RAM, up
+ to 256k flash. It has plenty of IOs even in the 48 pin package on the 
+board. There is even a memory protection unit (MPU). You could do a lot 
+with that processor. I wonder what they are doing.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The
+ P6 in the picture is another unpopulated connector. Careful Ohm'ng out 
+under a microscope shows the processor pin connections to be a standard 
+Serial wire JTAG debug port (SWJ-DP). The temptation to plug in my <a class="jive-link-external-small" href="http://www.newark.com/stmicroelectronics/st-link-v2-isol/debugger-programmer-stm8-stm32/dp/89W1428?COM=TheLinker" target="_blank">ST-Link</a> is high.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h1>Inertial Measurement Unit (IMU)</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Moving
+ along on the hardware connections, the STM processor does connect to 
+the I2C test points. And those test points connect to U11 with pin 
+markings “134 A1426 095”.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230170/imuchip.png"><img alt="IMU chip" class="image-9 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230170/imuchip.png" style="height: auto;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/imuchip.png" width="508" height="338"></a></p><p>This
+ chip was my nemesis. It was over near the BLE chip. The pins didn't 
+seem to go anywhere (and they were stubby so difficult to connect with).
+ The package was odd: 7 pins on each long side and 1 pin on each short 
+side). By laborious and uncertain process of elimination, I knew it had 
+to be an inertial sensor, probably accelerometers and gyros (6 DOF). (A 
+9DOF with magnetometers was a possibility as well.)<a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230172/BMI055.png"><img alt="BMI055 pinout" class="image-10 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230172/BMI055.png" style="height: 346px; width: 465px; float: right;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/BMI055.png" width="624" height="464"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>It is the Bosch <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Fwww.bosch-sensortec.com%2Fen%2Fhomepage%2Fproducts_3%2F6_axis_sensors_2%2Finertial_measurement_unit_1%2Fbmi055_1%2Fbmi055" rel="nofollow ugc noopener" target="_blank">BMI055</a>, a small, low power 6DOF inertial sensor. At first, I thought this was the <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Fwww.bosch-sensortec.com%2Fen%2Fhomepage%2Fproducts_3%2F9_axis_sensors_5%2Fecompass_2%2Fbno055_3%2Fbno055_4" rel="nofollow ugc noopener" target="_blank">BNO055</a> which has the fusion algorithm in the chip (the <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Fwww.adafruit.com%2Fproducts%2F2472" rel="nofollow ugc noopener" target="_blank">Adafruit breakout board</a> and <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Flearn.adafruit.com%2Fadafruit-bno055-absolute-orientation-sensor" rel="nofollow ugc noopener" target="_blank">calibration instructions</a>
+ are excellent). Sadly, this is a sensor-only package so the STM32 must 
+be running a sensor fusion algorithm (which is why they need floating 
+point hardware). Nonetheless, I recommend reading those calibration 
+instructions because this sensor won't be nearly as effective without 
+them.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>One of 
+the issues you must solve when working with inertial sensors is the 
+problem of inertial frame: where are you with respect to the sensor? For
+ BB8, this is an especially difficult problem, he's been rolling around 
+and you can't see into the shell to figure out which way the sensor is 
+mounted. Which way is forward? For you, probably it is the direction you
+ are facing. Intuitively, whichever why BB8's head is facing is forward.
+ However, BB8's head may not be on (remember it has no real function to 
+the robot).</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230173/Slide25.PNG"><img alt="BB8 app sneaky inertial orientation" class="lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230173/483-362/Slide25.PNG" style="width:483px; height: 362.25px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/Slide25.PNG" width="483" height="362"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The
+ solution is to put a blue LED on the edge of the board (D1 in the 
+picture of the STM32). In the application, there is a feature to spin 
+BB8 (in place), pointing the blue LED toward you, thereby (grossly) 
+aligning your inertial frames and letting you drive the robot about. 
+This blue LED is a common Sphero technique and is called the 
+“taillight”.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>There are two other LEDs on the board, RGB LEDs (like <a class="jive-link-external-small" href="http://www.newark.com/kingbright/kaaf-5050rgbs-13/led-smd-rgb-1400mcd-1400-420/dp/96W6906?COM=TheLinker" target="_blank">these</a>)
+ that are in sync and PWM controlled from the main processor. These 
+indicate collision detection, BLE connection and loss, and user 
+feedback.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230174/U13.png"><img alt="Motor driver image" class="image-11 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230174/382-254/U13.png" style="font-size: 13.3333px; float: right;  width: 382.016px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/U13.png" width="382" height="254"></a></p><h1>Motor Driver</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Also connected to the main processor is the motor driver. I believe it is a <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Fwww.toshiba.com%2Ftaec%2Fcomponents2%2FDatasheet_Sync%2F201110%2FDST_TB6552FN-TDE_EN_3628.pdf" rel="nofollow ugc noopener" style="font-size: 13.3333px;" target="_blank">Toshiba TB6552FNG</a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I
+ was adamantly certain that the motors were steppers. There are 6 pins 
+going to each motor.&nbsp; One of the motor connectors is in the picture
+ above, the other is 180 degrees away on the round board.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The pins going to each motor are labeled:</p><p style="padding-left: 30px;">Mx1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ex1</p><p style="padding-left: 30px;">GND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PWR</p><p style="padding-left: 30px;">Ex2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mx2</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230175/MotorDriverPinout.png"><img alt="Motor driver pinout" class="image-12 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230175/240-178/MotorDriverPinout.png" style="height: 177.978px; width:240px; float: right;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/MotorDriverPinout.png" width="240" height="178"></a></p><p>Where
+ x is L or R depending on left or right. It only takes two pins to drive
+ a DC, so these must be stepper motors, right? No. My simple rule of 
+thumb doesn't work when I fail think it all the way through. This is a 
+consumer product and doesn't need to be precise. It makes sense to use 
+the IMU for feedback as the system doesn't care about accuracy, only 
+that it is spinning at about the right speed. Looking at the driver, 
+though, only two pins drive each motor. (Also, for those of you who want
+ to know about my inability to read the obvious, the chip's datasheet 
+title is "DUAL-BRIDGE DRIVER IC FOR DC MOTORS".)</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The
+ M lines connect to the motor driver. The E lines connect to the STM 
+processor. It would make sense that those be feedback. E for encoder 
+makes sense; two lines would indicate a <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FRotary_encoder%23Incremental_rotary_encoder" rel="nofollow ugc noopener" target="_blank">quadrature encoder</a>. That would be interesting on a scope (but I'm pulling that out for next week's post so I'll leave it at speculation for now).</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h1>Power Subsystem</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Two
+ LiPo batteries are connected in serial. This gives a higher voltage 
+potential, making it easier to run the motors. For efficiency, I suspect
+ the 3.3V that runs the main processor, BLE, and inertial chips is taken
+ from the midpoint. This causes an uneven load on the batteries (they 
+tell you not to do that to batteries in serial because it is BAD™ but 
+with the tiny draw of those components compared to the huge draw of the 
+motors, well, it is how I would do it.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230176/Slide29.PNG"><img alt="Battery image and schematic" class="image-13 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230176/Slide29.PNG" style="height: 465px; width: 620px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/Slide29.PNG" width="960" height="720"></a></p><p>The other parts of the power subsystem include a <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Fwww.huatai-ic.com%2Fadmin%2Fuppic%2F201112795406.pdf" rel="nofollow ugc noopener" target="_blank">Li-ion charge controller</a>, a <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Fwww.belling.com.cn%2F2013p%2FBL8591SPEC_V1.4.pdf" rel="nofollow ugc noopener" target="_blank">3.3V regulator</a>
+ (marked JA033, found by Stuart McAndrew), another voltage regulator 
+(package completely unmarked but Philip Freidin identified it from the 
+passives on the back, it likely has something to do with the inductive 
+charge), and <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=http%3A%2F%2Fwww.unisonic.com.tw%2Fdatasheet%2FLM358.pdf" rel="nofollow ugc noopener" target="_blank">dual op amp</a> (UTC LM358G).</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h1>Hardware Summary</h1><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Going back to the board view, I can swap out the chip package marking for their functions.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230177/BoardTopChipFunctions.png"><img alt="Functional board view" class="image-14 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230177/BoardTopChipFunctions.png" style="height: 654px; width: 620px;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/BoardTopChipFunctions.png" width="852" height="900"></a></p><p>From a sea of parts, the board begins to form into a recognizable system.</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-21335-230179/SW+block+diagram.jpg"><img alt="Software Block Diagram" class="image-15 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-21335-230179/SW+block+diagram.jpg" style="height: auto;" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/SWblockdiagram.jpg" width="448" height="348"></a></p><p>The next step is to look at this from a software perspective: What are the two processors saying to each other? <a class="jive-link-blog-small" data-containerid="14939" data-containertype="37" data-objectid="21427" data-objecttype="38" href="https://www.element14.com/community/blogs/linker/2015/09/29/an-example-of-motor-control-bb8-part-3">What is the feedback from the motors?</a>
+ What can I find out about the connection to the inertial sensor? And is
+ the BLE interface easy to look at? Is it as programmable as the Sphero 
+SPRK?</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>All of these questions will be addressed soon (or hit the link above to see the related post).</p></div><!-- [DocumentBodyEnd:a80626de-a656-4469-a6ed-d7729a3879f0] --></div>
+                    <!--[if IE]></div><![endif]-->
+
+                    <!-- BEGIN attachments -->
+                    <!-- END attachments -->
+                </section>
+
+<div class="j-content j-rc4 ">
+                 <footer class="font-color-meta">
+                     <ul class="clearfix">
+
+                         <li class="j-footer-left font-color-meta">
+     
+        <span class="jive-content-footer-item">
+            7681&nbsp;Views
+        </span>
+
+                         </li>
+
+                        <!-- Start TagSets/Categories -->
+
+
+                         <li class="j-footer-left font-color-meta">
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+            <span class="jive-icon-sml jive-icon-tag"></span>Tags: <span id="jive-edit-inline-add-none" style="display:none;">none</span> <span style="display:none;" id="jive-edit-inline-placeholder"> (<a href="#" class="jive-edit-inline-tags-link">add</a>)</span>
+
+            <span class="jive-thread-post-details-tags" id="jive-thread-post-details-tags_PV4g5A">
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=motor" title="Content tagged with motor" aria-label="Content tagged with motor"><span role="presentation" aria-hidden="true">motor</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=reverse_engineering" title="Content tagged with reverse_engineering" aria-label="Content tagged with reverse_engineering"><span role="presentation" aria-hidden="true">reverse_engineering</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=sphero" title="Content tagged with sphero" aria-label="Content tagged with sphero"><span role="presentation" aria-hidden="true">sphero</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=ble" title="Content tagged with ble" aria-label="Content tagged with ble"><span role="presentation" aria-hidden="true">ble</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=stm32f7" title="Content tagged with stm32f7" aria-label="Content tagged with stm32f7"><span role="presentation" aria-hidden="true">stm32f7</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=embedded.fm" title="Content tagged with embedded.fm" aria-label="Content tagged with embedded.fm"><span role="presentation" aria-hidden="true">embedded.fm</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=thelinker" title="Content tagged with thelinker" aria-label="Content tagged with thelinker"><span role="presentation" aria-hidden="true">thelinker</span></a>,
+                <a href="https://www.element14.com/community/blogs/linker/tags#/?tags=bb8" title="Content tagged with bb8" aria-label="Content tagged with bb8"><span role="presentation" aria-hidden="true">bb8</span></a>
+            </span>
+    </span>
+    <!-- END view/add/edit tags -->
+                         </li>
+
+
+                     </ul>
+                 </footer>
+             </div>
+                </div>
+
+        <div class="jive-content-rating j-rc5 clearfix" data-guid="FJE3ZUDMYNQA00ZQZVGO96OAQ7ZKGOIW">
+
+<script type="text/javascript">
+    $j(document).ready(function() {
+
+        var i18n = {
+            avgUserRatingTitlei18n : "Average User Rating",
+            avgUserRatingLabeli18n : "Average User Rating",
+            rateRatingLabel : "rating",
+            myRatingLabel : "Your Rating:",
+            rateRatingsLabel : "ratings",
+            ratingSavingText : "Saving...",
+            rateSavedText : "Saved.",
+            rateRatingSaved : "Rating Saved!",
+            writeAReview : "Write a review",
+            commentOnRating : "Comment on your rating",
+            formSubmitPleaseWait:'Please Wait ...'
+        };
+        var rteOptions = {
+            preset        : "mini-w-quote",
+            preferredMode : "advanced",
+            startMode     : "advanced",
+            mobileUI      : false,
+            communityName : 'element14 Community',
+            height        : 200
+        };
+
+
+        new jive.Rate(2020, 318066, 38, 21335, 'blog', i18n, true, 'FJE3ZUDMYNQA00ZQZVGO96OAQ7ZKGOIW', rteOptions);
+    });
+
+</script>
+
+        <div class="jive-content-avgrating" tabindex="0" aria-labelledby="j-rating-score"><span class="j-508-label" id="j-rating-score">Average User Rating: No ratings (0 ratings)</span><div class="jive-content-avgrating-title">Average User Rating</div><div class="jive-content-avgrating-score" title="Average User Rating: 0 of 5"><span class="j-508-label">No ratings</span><span class="jive-icon-avgrating-1 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-2 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-3 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-4 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-5 jive-icon-med jive-icon-rate-avg-off"></span></div><div class="jive-content-rating-print" style="display: none;">0</div><div class="jive-content-avgrating-count">(0 ratings)</div></div><div class="jive-content-userrating jive-content-myrating-print"><div class="j-rating-container clearfix"><div class="j-rating clearfix"><div class="jive-content-userrating-title">Your Rating: <span class="jive-content-userrating-desc"></span></div><div class="jive-content-userrating-score"><a href="javascript:void(0);" class="jive-icon-userrating-1 jive-icon-med jive-icon-rate-usr-off" aria-labelledby="button-score-label-1" role="button" aria-pressed="false"><span id="button-score-label-1" class="j-508-label">Rate Poor(1 of 5)</span></a><a href="javascript:void(0);" class="jive-icon-userrating-2 jive-icon-med jive-icon-rate-usr-off" aria-labelledby="button-score-label-2" role="button" aria-pressed="false"><span id="button-score-label-2" class="j-508-label">Rate Below Average(2 of 5)</span></a><a href="javascript:void(0);" class="jive-icon-userrating-3 jive-icon-med jive-icon-rate-usr-off" aria-labelledby="button-score-label-3" role="button" aria-pressed="false"><span id="button-score-label-3" class="j-508-label">Rate Average(3 of 5)</span></a><a href="javascript:void(0);" class="jive-icon-userrating-4 jive-icon-med jive-icon-rate-usr-off" aria-labelledby="button-score-label-4" role="button" aria-pressed="false"><span id="button-score-label-4" class="j-508-label">Rate Above Average(4 of 5)</span></a><a href="javascript:void(0);" class="jive-icon-userrating-5 jive-icon-med jive-icon-rate-usr-off" aria-labelledby="button-score-label-5" role="button" aria-pressed="false"><span id="button-score-label-5" class="j-508-label">Rate Exceptional(5 of 5)</span></a><div class="jive-content-userrating-saved" style="display: none;" role="status"></div></div></div><div class="j-rating-comment-instruct"><p class="font-color-okay" role="status"><strong>Rating Saved!</strong></p></div></div></div><div class="j-rating-comment"><ul class="jive-comment"><li><div class="jive-comment-arrow"></div><div class="jive-comment-content"><p class="jive-comment-meta font-color-meta-light">Comment on your rating</p><div class="jive-rating-comment-body"> </div></div></li></ul></div></div>
+
+<ul id="js-outcome-summary-container-38-21335" class="js-outcome-summary-container j-outcome-summary-container js-ed-38-21335" data-object-type="38" data-object-id="21335" aria-label="Outcome summary" role="group"></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="jive-rolled-up-comments" class="j-so-finalized-rollup j-rc4" style="display:none">
+        This content has been marked as final.&nbsp;
+        <a id="jive-unroll-comments" class="j-so-finalized-unroll j-comment-count" href="#">
+Show                     2 comments
+        </a>
+    </div>
+
+    <div id="jive-comment-tabs" class="j-comment-wrapper" xmlns="http://www.w3.org/1999/html">
+
+        <!-- BEGIN tabs -->
+        <header>
+            <h3>Comments</h3>
+        </header>
+
+        <ul class="j-comment-options">
+                <li id="jive-comments-tab" class="jive-body-tab j-tab-selected">
+                    <a href="#">
+                            <span id="jive-comments-count" class="j-comment-count">2</span> Comments
+                    </a>
+                </li>
+
+        </ul>
+        <!-- END tabs -->
+
+            <div id="jive-comments"><a name="comments" id="comments"></a>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    if ('comments' == 'comments') {
+       $j('#jive-comments-count').text('2');
+       $j('#jive-comments').prepend('<a name="comments" id="comments"></a>')
+    }
+
+	e14CommentsLoadedHook(); 
+	
+</script>
+
+
+<a name="comments"></a>
+<!-- Display comment bar depending on comment type -->
+<!-- Author comments tab (Doc specific) -->
+        <!-- Regular Comments tab, non-document content types use this -->
+        <div class="j-comment-action-bar j-rc4 clearfix">
+		
+				<p class="jive-icon-med jive-icon-comment"><strong><a href="https://www.element14.com/community/login.jspa" onclick="$j('#navLogin').trigger('click'); return false;">Login</a> or <a href="https://www.element14.com/community/create-account.jspa">Register</a> to comment</strong></p>
+		
+        </div>
+    <!-- End comment bar -->
+
+    <!-- moderation feedback message -->
+    <div id="success-moderation-edit" class="jive-content-moderation-box" style="display:none"></div>
+
+    <!-- Wire up the treewalker and comments to iterate over -->
+            <!-- Begin regular comments and backchannel comments list -->
+            <div class="jive-comment-container clearfix j-rc4">
+<!-- parentId == -1 when the comment does not have a parent -->
+<!-- Begin Comment 66706-->
+
+
+
+    <ul class="jive-comment jive-comment-threaded jive-comment-indent-0">
+    <li class="reply j-anchor-target" id="comment-66706" data-object-type="105" data-object-id="66706">
+
+
+
+<a href="https://www.element14.com/community/people/Workshopshed" data-externalid="" data-username="Workshopshed" data-avatarid="13804" class="j-avatar jiveTT-hover-user " data-userid="93851" data-presence="null">
+    <img class="jive-avatar" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/32_002.png" data-avatarid="13804" data-username="Workshopshed" data-height="32" alt="Andy Clark (Workshopshed)" width="32" height="32" border="0">
+    <span class="j-status-levels j-gamification-status-level"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/level_9_icon.gif" alt="Level 9: Hertz" title="Level 9: Hertz"></span></a>
+                <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+            <div class="j-comment-header">
+
+                <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                    <a href="https://www.element14.com/community/people/Workshopshed" data-externalid="" data-username="Workshopshed" data-avatarid="13804" id="jive-9385129318723213187202" data-userid="93851" data-presence="null" class="jiveTT-hover-user jive-username-link">Andy Clark (Workshopshed)</a>
+<img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/roleBadge-4-1053-1488568535350.png" title="Top Member" alt="Top Member" class="j-role-badge" width="16" height="16">
+                    </span>
+                    <a href="#comment-66706" id="comment-modDate-66706" class="font-color-meta-light">Sep 18, 2015 9:54 AM</a>
+                </p>
+
+            </div>
+            <div id="comment-body-66706">
+
+                        <!-- [DocumentBodyStart:2e7709be-8d37-44fb-a479-2bba8b37934f] --><div class="jive-rendered-content"><p>&gt;What are the two processors saying to each other?</p><p>&nbsp;&nbsp;&nbsp;&nbsp; "Does it feel drafty to you?"</p><p>&nbsp;&nbsp;&nbsp;&nbsp; "Hey dude, we just got disassembled!"</p></div><!-- [DocumentBodyEnd:2e7709be-8d37-44fb-a479-2bba8b37934f] -->
+            </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="66706" data-helpful-count="0" data-overall-count="0" data-display-overall="true"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-66706" data-object-type="105" data-object-id="66706" data-parent-object-type="38" data-parent-object-id="21335" aria-label="Outcome badges" aria-live="polite"></ul>
+            <ul class="j-comment-footer js-comment-footer clearfix">
+                <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="66706">
+
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-66706" class="acclaim-container"><span id="jive-acclaim-like-container-105-66706" data-acclaim-count="1" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like <a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="66706" data-object-type="105" data-count="1" href="#" role="link" aria-label="Show 1 Likes" title="Show 1 Likes">(1)</a> </span></span></span></span>
+
+                </li>
+                <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="66706" data-dom-actions="[]" data-parent-id="-1" data-root-community="element14 Community">Actions <span class="j-ui-elem j-action-down-arrow"></span></a>                </li>
+            </ul>
+        </div>
+
+        <!-- End Comment -->
+
+    </li>
+    
+<!-- parentId == -1 when the comment does not have a parent -->
+<!-- Begin Comment 66723-->
+
+
+
+    <li class="reply j-anchor-target" id="comment-66723" data-object-type="105" data-object-id="66723">
+
+
+
+<a href="https://www.element14.com/community/people/DAB" data-externalid="" data-username="DAB" data-avatarid="20058" class="j-avatar jiveTT-hover-user " data-userid="52282" data-presence="null">
+    <img class="jive-avatar" src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/32.png" data-avatarid="20058" data-username="DAB" data-height="32" alt="DAB" width="32" height="32" border="0">
+    <span class="j-status-levels j-gamification-status-level"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/level_icon-25194144.png" alt="Level 10: Turing" title="Level 10: Turing"></span></a>
+                <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+            <div class="j-comment-header">
+
+                <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                    <a href="https://www.element14.com/community/people/DAB" data-externalid="" data-username="DAB" data-avatarid="20058" id="jive-5228229318723310193701" data-userid="52282" data-presence="null" class="jiveTT-hover-user jive-username-link">DAB</a>
+<img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/roleBadge-4-1053-1488568535350.png" title="Top Member" alt="Top Member" class="j-role-badge" width="16" height="16">
+                    </span>
+                    <a href="#comment-66723" id="comment-modDate-66723" class="font-color-meta-light">Sep 18, 2015 1:24 PM</a>
+                </p>
+
+            </div>
+            <div id="comment-body-66723">
+
+                        <!-- [DocumentBodyStart:2bcaa098-a435-409a-bcd5-697aae004adf] --><div class="jive-rendered-content"><p>Nice job of circuit sleuthing.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>It
+ has been a while since I did anything like this, but one thing is 
+obvious, the job is much more difficult with SMT and highly integrated 
+circuits.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Very interesting, I look forward to the next post.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>DAB</p></div><!-- [DocumentBodyEnd:2bcaa098-a435-409a-bcd5-697aae004adf] -->
+            </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="66723" data-helpful-count="0" data-overall-count="0" data-display-overall="true"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-66723" data-object-type="105" data-object-id="66723" data-parent-object-type="38" data-parent-object-id="21335" aria-label="Outcome badges" aria-live="polite"></ul>
+            <ul class="j-comment-footer js-comment-footer clearfix">
+                <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="66723">
+
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-66723" class="acclaim-container"><span id="jive-acclaim-like-container-105-66723" data-acclaim-count="1" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like <a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="66723" data-object-type="105" data-count="1" href="#" role="link" aria-label="Show 1 Likes" title="Show 1 Likes">(1)</a> </span></span></span></span>
+
+                </li>
+                <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="66723" data-dom-actions="[]" data-parent-id="-1" data-root-community="element14 Community">Actions <span class="j-ui-elem j-action-down-arrow"></span></a>                </li>
+            </ul>
+        </div>
+
+        <!-- End Comment -->
+
+    </li>
+    </ul>
+    
+                <div class="j-addComment-bottom clearfix">
+                </div>
+
+            </div>
+
+        <script type="text/javascript">
+            $j(function(){
+                jive.localexchange.emit("renderedContent");
+            });
+        </script>
+
+
+</div>
+
+        <div style="display:none;" id="jive-comment-post-block">
+
+            <!-- moderation warning -->
+            <!-- end moderation warning -->
+
+            <form method="post" action="javascript:void(0);" name="jive-comment-post-form" class="j-comment-form">
+                <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                    <p class="jive-error-message" id="jive-comment-error" style="display:none"></p>
+                </div>
+                    <div class="jive-comment-post-anonymous" id="jive-comment-post-anonymous">
+                        <div>
+                            <input id="comment-author" name="commentGuestName">
+                            <label for="comment-author">Name</label>
+                        </div>
+                        <div>
+                            <input id="comment-email" name="commentGuestEmail">
+                            <label for="comment-email">Email Address</label>
+                        </div>
+                        <div>
+                            <input id="comment-url" name="commentGuestUrl">
+                            <label for="comment-url">Website Address</label>
+                        </div>
+                    </div>
+
+                <input type="hidden" class="js-outcome-attachment" value="">
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea" aria-label="Write"></textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                <div class="jive-form-buttons">
+                    <input type="submit" name="post" class="j-btn-callout" value="Add Comment">
+                    <input type="button" name="cancel" value="Cancel">
+                </div>
+
+            </form>
+        </div>
+
+        <div style="display:none;" id="jive-comment-edit-block">
+            <form method="post" action="javascript:void(0);" name="jive-comment-edit-form" class="j-comment-form">
+                <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                    <p class="jive-error-text" id="jive-comment-error" style="display:none"></p>
+                </div>
+                <div class="jive-comment-post-anonymous" id="jive-comment-edit-anonymous">
+                    <div>
+                        <input id="name">
+                        <label for="name">Name
+                            <span>(Required)</span></label>
+                    </div>
+                    <div>
+                        <input id="email">
+                        <label for="email">Email Address
+                            <span>(Required, will not be published)</span></label>
+                    </div>
+                    <div>
+                        <input id="url">
+                        <label for="url">Website Address</label>
+                    </div>
+                </div>
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea" aria-labelledby="jive-comment-edit-anonymous">&lt;%= commentBody %&gt;</textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                <div class="jive-form-buttons">
+                    <input type="submit" name="post" class="j-btn-callout" value="Save">
+                    <input type="button" name="cancel" value="Cancel">
+                </div>
+
+            </form>
+        </div>
+    </div> <!-- / .jive-comment-wrapper -->
+
+
+
+<!-- draft deps -->
+
+
+
+
+
+        </div>
+    </div>
+    <!-- END large column -->
+
+
+
+ <!-- BEGIN small column -->
+<div class="j-column-wrap-s">
+ <div id="jive-body-sidebarcol-container" class="j-column j-column-s j-content-extras j-loaded">
+    
+
+    <a href="#" id="mobile-sidenav-btn" title="Browse" aria-label="Browse"></a>
+
+    <div class="j-box j-social-actions">
+        <ul class="j-icon-list clearfix" role="toolbar" aria-label="Social Actions">
+				<li class="j-js-follow-controls">
+					<a id="jive-link-blogpost-startFollowing" href="#" onclick="$j('#navLogin').trigger('click');return false;" class="j-social-action">
+						<span class="jive-icon-glyph icon-pulse"></span>
+Follow					</a>
+				</li>
+
+                <li>
+                    <a href="#" class="j-social-action" data-command="share" data-object-id="21335" data-object-type="38">
+                        <span>
+                            <span class="jive-icon-glyph icon-share2"></span>
+Share                        </span>
+                    <a class="pf-widget-map pf-ic-share-li-16 " style="float:right; margin-top:1px" onclick="$j('.j-social-action[data-command=share]').click();return false;"></a><span style="float:right; width:2px">&nbsp;</span><a class="pf-widget-map pf-ic-share-tw-16 " style="float:right; margin-top:1px" onclick="$j('.j-social-action[data-command=share]').click();return false;"></a><span style="float:right; width:2px">&nbsp;</span><a class="pf-widget-map pf-ic-share-fb-16 " style="float:right; margin-top:1px" onclick="$j('.j-social-action[data-command=share]').click();return false;"></a><span style="float:right; width:2px">&nbsp;</span></a>
+                </li>
+
+
+
+
+            <script>
+                $j(function() {
+                    /*
+                    * Oh how I wish I didn't have to do it this way.
+                    *
+                    * it's JS instead of CSS because the hovered element affects the parent.
+                    * it's delegate instead of simple event binding because the bookmark element gets replaced when the user takes action.
+                    *
+                     */
+                    $j('.j-social-actions').delegate('a.j-social-action', 'mouseover', function() {
+                        $j(this).closest('li').addClass('hover');
+                    }).delegate('a.j-social-action', 'mouseout', function() {
+                        $j(this).closest('li').removeClass('hover');
+                    }).delegate('a.j-social-action', 'mousedown', function() {
+                        $j(this).closest('li').addClass('active');
+                    }).delegate('a.j-social-action', 'mouseup', function() {
+                        $j(this).closest('li').removeClass('active');
+                    })
+
+
+                })
+            </script>
+
+        </ul>
+    </div>
+
+
+<div class="j-box j-box-actions" role="toolbar" aria-labelledby="jive-action-sidebar-tab-header_blog-actions-tab" style="display: none;">
+
+    <header>
+        <h4 id="jive-action-sidebar-tab-header_blog-actions-tab">Actions</h4>
+    </header>
+    <div id="jive-action-sidebar_blog-actions-tab" class="j-box-body">
+
+        <div id="jive-action-sidebar-tab-_blog-actions-tab" class="jive-action-sidebar-tab-first">
+
+
+
+            <ul id="jive-action-sidebar-tab-list_blog-actions-tab" class=" j-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="anonymous-jive-link-abuse" style=""><a href="#" rel="nofollow" onclick="$j('#navLogin').trigger('click');return false;" target="" title="">
+<span class="jive-icon-glyph icon-notification2"></span>
+Report to Moderator
+</a></li>
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+
+    </div>
+    </div>
+
+
+<!-- /.j-box-actions -->
+
+
+
+    <div id="blog-nav-filters" class="j-box">
+    <header>
+        <h4>Filter Blog</h4>
+    </header>
+    <div class="j-box-body">
+
+            <strong>By date:</strong>
+            
+
+            
+
+
+                <ul class="j-simple-list">
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/11">November 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/10">October 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/09">September 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/08">August 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/07">July 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/06">June 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/05">May 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/04">April 2015 </a></li>
+                    
+                    <li><a href="https://www.element14.com/community/blogs/linker/2015/03">March 2015 </a></li>
+                    
+                </ul>
+        
+
+
+
+    <strong>By tag:</strong>
+    <ul class="jive-tagcloud-list jive-sidebar-populartags">
+            <li class="jive-tagset-popularity1"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=arduino" title="Used 5 times">arduino</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=bb8" title="Used 3 times">bb8</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=cats" title="Used 3 times">cats</a></li>
+            <li class="jive-tagset-popularity2"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=education" title="Used 6 times">education</a></li>
+            <li class="jive-tagset-popularity9"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=embedded.fm" title="Used 19 times">embedded.fm</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=iot" title="Used 3 times">iot</a></li>
+            <li class="jive-tagset-popularity1"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=linker" title="Used 5 times">linker</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=photon" title="Used 2 times">photon</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=programming" title="Used 2 times">programming</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=reverse_engineering" title="Used 2 times">reverse_engineering</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=sensor" title="Used 2 times">sensor</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=software" title="Used 3 times">software</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=spark.io" title="Used 2 times">spark.io</a></li>
+            <li class="jive-tagset-popularity8"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=thelinker" title="Used 17 times">thelinker</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/blogs/linker/tags#/?tags=tinkering" title="Used 2 times">tinkering</a></li>
+    </ul>
+
+        
+    </div>
+    </div>
+
+            <div class="j-box" id="blog-nav-recent-posts">
+                <header>
+                    <h4>Recent Posts</h4>
+                </header>
+                <div class="j-box-body">
+                        <ul class="j-simple-list">
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/11/02/blinking-an-led-or-three">Blinking an LED or Three</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/10/07/wifi-platform-comparison-things-vs-photon">WiFi Platform Comparison: Things vs Photon</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/29/an-example-of-motor-control-bb8-part-3">An Example of Motor Control (BB8 Part 3)</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/22/cheating-on-tests">Cheating on Tests</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/17/disassembling-bb8-part2">Disassembling BB8 (Part2)</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/16/disassembling-bb8-part-1">Disassembling BB8 (Part 1)</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/07/wifi-datalogger-and-mouse-feeder">WiFi Datalogger and Mouse Feeder</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/09/02/reverse-engineering-information">Reverse Engineering Information</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/08/26/error-handling">Error Handling</a></li>
+                                <li><a href="https://www.element14.com/community/blogs/linker/2015/08/19/conference-musings">Conference Musings</a></li>
+                        </ul>
+
+                </div>
+            </div>
+
+             
+             
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="j-box e14-related-content">
+    <header>
+        <h4>Incoming Links</h4>
+    </header>
+    <div class="j-box-body">
+        <ul class="j-icon-list">
+                    <li>
+                        <a href="https://www.element14.com/community/blogs/linker/2015/09/16/disassembling-bb8-part-1#comment-67072">
+            <span class="jive-icon-med jive-icon-blog-comment" title=""></span>
+Comment on 'Disassembling BB8 (Part 1)'                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.element14.com/community/blogs/linker/2015/09/16/disassembling-bb8-part-1">
+            <span class="jive-icon-med jive-icon-blog" title=""></span>
+                            Disassembling BB8 (Part 1)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+ </div>
+</div>
+ <!-- END small column -->
+
+</div>
+<!-- BEGIN layout -->
+
+</div></section>
+    <div class="webinarPopup webinarPopup5765 maximised"><p class="controlsBox"><span id="minimiseButton" class="jive-icon-glyph minmaxButton icon-minus-circle" onclick="e14ContentPopups.minimise(5765);"></span><span class="jive-icon-glyph icon-cancel-circle" onclick="e14ContentPopups.notInterested(5765);"></span></p><p class="popupTitle"><a href="https://www.element14.com/community/events/5765/l/horticulture-webinar-series-lighting-accelerated">Horticulture Webinar Series: Lighting Accelerated</a></p><span class="e14-button-secondary e14-button-medium joinButton hideOnMaximise"><a onclick="e14ContentPopups.joinWebinar(5765);" title="Join Webinar">Join Webinar</a></span><span class="clockLabel">Webinar starts in: <div id="countdown5765"><div id="Stage_jbeeb_3" style="padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 100%; vertical-align: top; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: default; transform-origin: 0px 0px 0px; left: 0px; top: 0px; height: 32px; width: 160px; box-shadow: none; position: relative; display: block; clear: both; overflow: visible;"><div id="Container_jbeeb_6" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 100%; vertical-align: baseline; outline: currentcolor none 0px; background-color: rgb(54, 93, 139); background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 2.66667px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 0;"><div id="TextBox_jbeeb_7" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 18.6667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; z-index: 0;"><span style="font-family: Arial;">00</span></div></div><div id="TextBox_jbeeb_8" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 10.2667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 0px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; z-index: 1;"><span style="font-family: Arial, _sans;">HOURS</span></div><div id="Container_jbeeb_9" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 100%; vertical-align: baseline; outline: currentcolor none 0px; background-color: rgb(54, 93, 139); background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 56px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 2;"><div id="TextBox_jbeeb_10" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 18.6667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; z-index: 0;"><span style="font-family: Arial;">00</span></div></div><div id="TextBox_jbeeb_11" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 10.2667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 53.3333px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; z-index: 3;"><span style="font-family: Arial, _sans;">MINS</span></div><div id="Container_jbeeb_12" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 100%; vertical-align: baseline; outline: currentcolor none 0px; background-color: rgb(54, 93, 139); background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 109.333px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 4;"><div id="TextBox_jbeeb_13" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 18.6667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; z-index: 0;"><span style="font-family: Arial;">00</span></div></div><div id="TextBox_jbeeb_14" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: none 100% / 1 / 0 stretch; font-size: 10.2667px; vertical-align: baseline; outline: currentcolor none 0px; background-attachment: scroll; background-image: none; background-origin: padding-box; background-clip: padding-box; user-select: none; cursor: inherit; transform-origin: 0px 0px 0px; left: 106.667px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; z-index: 5;"><span style="font-family: Arial, _sans;">SECS</span></div></div></div></span><br><div class="webinarPopup5765 eventPopupHideOnMinimise"><a onclick="e14ContentPopups.joinWebinar(5765); return false;"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/Lighting_horticulture_LinkedIn-1200x628.jpg"></a><p><span class="notInterested" onclick="e14ContentPopups.notInterested(5765);">Not Interested</span></p><p class="neverTellMeAgain"><input type="checkbox" onclick="$j('#navLogin').trigger('click');return false;">Never tell me about upcoming webinars again</p></div></div><div id="j-footer-wrap" class="j-js-footer-wrap"><footer id="j-footer" role="contentinfo"><section class="col-ends"><span class="logo"></span><p class="logo-text j-hidden-mobile">element14
+ is the first online community specifically for engineers.  Connect with
+ your peers and get expert answers to your questions.</p></section><section class="col-ends go-right"><h3 class="j-hidden-mobile">Follow element14</h3><ul class="social"><li><a href="https://www.facebook.com/e14community/" target="_blank" rel="nofollow noopener" class="social-icon facebook default">Facebook</a></li><li><a href="https://twitter.com/E14Community" target="_blank" rel="nofollow noopener" class="social-icon twitter default">Twitter</a></li><li><a href="https://www.linkedin.com/company/newark-element14/" target="_blank" rel="nofollow noopener" class="social-icon linkedin default">pf.footer.follow.linkedin.link</a></li><li><a href="https://www.youtube.com/user/element14" target="_blank" rel="nofollow noopener" class="social-icon youtube default">YouTube</a></li></ul></section><section class="col-middle"><ul class="footer-list"><li id="footer-nav-link-content"><a href="https://www.element14.com/community/content" data-icid="footer_content_all"><span>Content</span></a></li><li id="footer-nav-link-participate"><a href="https://www.element14.com/community/docs/DOC-74927" data-icid="footer_participate"><span>Participate</span></a></li><li id="footer-nav-link-learn"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="footer_learn"><span>Learn</span></a></li><li id="footer-nav-link-discuss"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="footer_discuss"><span>Discuss</span></a></li><li id="footer-nav-link-build"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="footer_build"><span>Build</span></a></li><li id="footer-nav-link-designcenter"><a href="https://www.element14.com/community/community/designcenter" data-icid="footer_members_all"><span>Find Products </span></a></li><li id="footer-nav-link-store"><a href="https://www.newark.com/?COM=element14_store_AllPeople" id="footer-nav-link-store-url" target="_blank"><span>Store</span></a></li></ul><ul class="footer-list sm-list"><li id="footer-nav-link-about"><a href="https://www.element14.com/community/static/about" data-icid="footer_aboutus"><span>About Us</span></a></li><li id="footer-nav-link-support"><a href="https://www.element14.com/community/community/support" data-icid="footer_support"><span>Feedback &amp; Support</span></a></li><li id="footer-nav-link-faq"><a href="https://www.element14.com/community/docs/DOC-1071" data-icid="footer_FAQ"><span>FAQs</span></a></li><li id="footer-nav-link-terms"><a href="https://www.element14.com/community/static/legal/e14fullterms" data-icid="footer_terms"><span>Terms of Use</span></a></li><li id="footer-nav-link-privacy"><a href="https://www.element14.com/community/static/legal/e14fullterms#privacy" data-icid="footer_privacy"><span>Privacy Policy</span></a></li><li id="footer-nav-link-Cookies"><a href="https://www.element14.com/community/static/about_cookies" data-icid="footer_cookies"><span>Cookies</span></a></li><li id="footer-nav-link-sitemap"><a href="https://www.element14.com/community/community/support/sitemap" data-icid="footer_sitemap"><span>Sitemap</span></a></li></ul><div class="copyright"><p>A Premier Farnell Company</p><p>© 2009-2021 Premier Farnell Ltd. All Rights Reserved. ICP 备案号 10220084.</p><p>Premier Farnell Ltd, registered in England and Wales (no 00876412), registered office: Farnell House, Forge Lane, Leeds LS12 2NE</p></div></section><div id="j-poweredBy-wrap"><div id="j-footer-poweredBy"><a class="font-color-meta" href="https://www.jivesoftware.com/poweredby/" target="_blank" rel="nofollow noopener"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/powered_by_Jive.png" alt="Powered by Jive. Customised and maintained by an awesome team in element14 :)" loading="lazy"></a></div></div><div class="j-footer-jiveVersion font-color-meta">element14 Software Version: 9.0.5.10 jx, revision: 20190618211432.998b920.lithium_9.0.5.x-jx</div><span id="speakSpan" class="j-508-label" role="marquee" aria-live="assertive" aria-relevant="all"></span></footer></div></div><div id="jiveTT-note" class="jive-tooltip2 notedefault snp-mouseoffset" role="tooltip" aria-hidden="false"><div class="jive-tooltip2-mid j-mini-modal j-mini-modal-place"><div class="jive-tooltip2-mid-padding j-modal-content clearfix j-js-note-body" id="jive-note-body"></div></div></div><div id="jiveTT-note-additems" class="jive-tooltip2 notedefault snp-mouseoffset" aria-hidden="false"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-additems-body"></div></div></div><div id="jiveTT-note-checkpoint" class="jive-tooltip2 notedefault snp-mouseoffset" aria-hidden="false"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-checkpoint-body"></div></div></div><div id="jiveTT-note-tasks" class="jive-tooltip2 notedefault snp-mouseoffset" aria-hidden="false"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-tasks-body"></div></div></div><div class="j-alert-container" role="alert" aria-live="polite" aria-atomic="true" aria-hidden="false"></div><script aria-hidden="false">(function() {var prepareUrl = function(url) {if (url.indexOf(";") > 0) {url = url.substring(0, url.indexOf(";"));}if (url.charAt(url.length - 1) == '/') {url = url.substring(0, url.length - 1);}return url}; if (typeof(window._jive_base_url) == "undefined") {window._jive_base_url = prepareUrl("\/community\/")}if (typeof(window._jive_base_absolute_url) == "undefined") {window._jive_base_absolute_url = prepareUrl("https:\/\/www.element14.com\/community")}if (typeof(window._jive_resource_url) == "undefined") {window._jive_resource_url = prepareUrl("\/\/files1.element14.com\/community\/9.0.5.998b920\/")}if (typeof(window._jive_theme_url) == "undefined") {window._jive_theme_url = prepareUrl("\/community\/themes\/e14\/")}if (typeof(window._jive_current_user) == "undefined") {window._jive_current_user = {anonymous: true, partner: false, visible: true, username: 'ANONYMOUS', ID: '-1', enabled: true, avatarID: '-1', displayName: 'ANONYMOUS'};}})(); var _jive_effective_user_id = "-1"; var _jive_auth_token ="no-user"; var _jive_locale = "en"; var _jive_translation_language = "en"; var _jive_browser_event = {"providers":["activityStream.poll","appAlert.create","inboxCount.poll"],"since":1616625607585}; var _jive_browser_event_polling_delay =  30000.0 ; var _jive_socket_events = {"socketEvents":["activityStream.push","tiledata.push"]}; var _jive_realtime_push_enabled =  false ; var _jive_allstream_counts_enabled =  false ;var _jive_timezoneoffset =  -5.0 ; var _jive_server_timezoneoffset =  0.0 ; var _jive_enable_browserdb =  false ; var _jive_i18n_should_minify =  false ; var _jive_nitro_call_delay =  0.0 ; var jive = jive || {}; jive.global = jive.global || {}; jive.global.instanceID = '244fe2dc-e6cf-4df0-9616-b477494e32bd'; jive.global.containerType = '2020'; jive.global.containerID = '318066';jive.global.containerBrowseId = '949881';jive.global.subdomain = {}; jive.global.subdomain.mode = 'none'; jive.global.subdomain.template = 'https:\/\/www.element14.com\/community%path%'; jive.global.extensions = {}; window.SPELL_LANGS = "English (Canada)\x3den_ca,+English (United Kingdom)\x3den_gb,English (United States)\x3den_us,French\x3dfr,French (Canada)\x3dfr_ca,German\x3dde,Italian\x3dit,Spanish\x3des"; window.CS_BASE_URL = "\/community"; window.CS_RESOURCE_BASE_URL = "\/\/files1.element14.com\/community\/9.0.5.998b920"; window.tinyMCEPreInit = {suffix : "_src", base : CS_BASE_URL + "/resources/scripts/tiny_mce3"}; if (typeof(_jive_project_i18n) == "undefined") {var _jive_project_i18n = new Array(); _jive_project_i18n['project.calendar.task'] = "Task"; _jive_project_i18n['project.calendar.tasks'] = "Tasks"; _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint"; _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints"; _jive_project_i18n['global.edit'] = "Edit"; _jive_project_i18n['global.delete'] = "Delete"; _jive_project_i18n['project.task.mark.complete'] = "Mark complete"; _jive_project_i18n['project.task.assign.to.me'] = "Assign to me"; _jive_project_i18n['task.incomplete.link'] = "Incomplete"; _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint"; _jive_project_i18n['project.task.create.link'] = "Create a task";}_jive_current_user.email = 'null'; _jive_current_user.external =  false ;</script><script aria-hidden="false">$j(function() {require(['jive/responsive'], function(responsive) { responsive.init(); });});</script><script aria-hidden="false">var containerShortUrl = "\/community\/container-short.jspa"; var videoShortUrl = "\/community\/view-video-short.jspa"; var profileShortUrl = "\/community\/profile-short.jspa"; var profileLoadingTooltip = "Loading user profile"; var profileErrorTooltip = "There was an error loading that profile information."; var followErrorMessage = "An internal error occurred while following the object."; var ajaxErrorMessage = "An unexpected error has occurred. Please make sure that your session did not expire while viewing this page."; var ajaxNotFoundMessage = "The specified item was not found.";; var ajaxUnauthorizedMessage = "You are not authorized to perform this operation. If you are not logged in please log in and try again.";
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();
+        </script><script aria-hidden="false">
+reg(["osapi","shindig","gadgets"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d595abb5b65b57b74888dd75782b09ff.js"],function() {
+define('gadgets', gadgets); define('shindig', shindig); define('osapi', osapi);
+
+
+});
+</script><script type="text/javascript" aria-hidden="false">window.appsMarketEnabled =  false ; window.anyAppsEnabled =  true ; window.appUUIDs = ""; $j(document).ready(function() {require(['appContainer'], function(appContainer) {});});</script><script aria-hidden="false">
+reg(["JAF","appContainer","syntheticAppContainer"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/95917e93947942b78dd9082f15c4d624.js"],function() {
+define('JAF', ['osapi'], function(osapi) {return {};});
+
+$j(document).ready(function() {define('appContainer', ['jive/app/core_container/'+'main', 'jive/app/core_container/'+'common_container'], function(C) {var c = new C(); c.initActionLinkContext({coreAPIType: 'osapi.jive.core.Post', id: 21335  }); return c;}); define('syntheticAppContainer', ['appContainer'], function(c) {return c;});});
+
+
+});
+</script><script type="text/javascript" aria-hidden="false">if (window.jQuery) window.jQuery.migrateMute = true;</script><script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/4001e21ec7e7ff0c3d092997146e07b1.js" aria-hidden="false"></script>
+<script aria-hidden="false">
+jive.rte.defaultStyles = ["\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/gamification_9.0.5.0\/resources\/styles\/n4jive.concat.css?v\x3d2021-03-12 00:26","\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/javascript-libraries_1.8.0 2021-01-15@18:04 e14comm-release-2021-1-f7e35ca\/..\/..\/..\/themes\/e14\/styles\/theme-min.css?v\x3d2021-03-12 00:26","\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/javascript-libraries_1.8.0 2021-01-15@18:04 e14comm-release-2021-1-f7e35ca\/..\/..\/..\/themes\/images\/temp\/newtheme\/styles\/overrides\/override-newark.css?v\x3d2021-03-12 00:26"];
+
+jive.observable = jive.conc.observable; jive.rte.mobileUI = false;
+
+jive.global.typeToNumeric = {"embedded_video":1100,"webhook":1224013431,"placeTemplateEntity":1567134318,"dm":109016030,"project":600,"discussion":1,"poll":18,"profileImage":501,"blog":37,"space":14,"post":38,"roadTest":582441006,"announcement":22,"group":700,"2901":2901,"image":111,"placeTemplateCategory":955999628,"static":1140061448,"securityGroup":4,"externalStreamInstance":1094237539,"task":602,"system":-2,"roadTestReview":293607990,"slide":1606291040,"person":3,"extprop":-1840153649,"extStreamActivity":-960826044,"page":-2106121635,"contentVersion":120,"favorite":800,"streamEntry":1501,"document":102,"designChallenge":764276805,"update":1464927464,"video":1100,"carousel":1527402675,"mention":550,"file":102,"attachment":13,"stream":-891990144,"share":109400031,"tileInstance":1094237539,"profileField":500,"event":96891546,"outcome":2700,"tileDefinition":1803367074,"message":2,"roadTestApp":167932143,"url":801,"collaboration":2800,"privateprop":987082157,"interaction":2801,"comment":105,"invite":350,"user":2020,"extStreamDefinition":1803367074}; jive.global.typeToMacroName = {"embedded_video":"videolink","document":"document","designChallenge":"designChallenge","project":"project","update":"microblog","discussion":"thread","poll":"polls","video":"videolink","blog":"blog","message":"message","roadTestApp":"roadTestApp","space":"community","url":"external-site","task":"task","file":"document","post":"blogpost","roadTestReview":"roadTestReview","person":"user","roadTest":"roadTest","extStreamActivity":"tilestream","event":"event","group":"group"};
+
+$j.ajaxSettings.traditional = true;
+
+$j(function(){define('documentReady',document);});
+
+require(['tAMD/hooks'], function(h) {h.on('define', 'Zapatec.Calendar', function(id, deps, factory, next) {reg(['Zapatec.Calendar.translations'], ['\/\/files1.element14.com\/community\/9.0.5.998b920\/resources\/scripts\/zapatec\/zpcal\/lang\/calendar-en.js'], function() {define('Zapatec.Calendar.translations', {});}); require(['Zapatec.Calendar.translations'], $j.noop); next(id, deps.concat('Zapatec.Calendar.translations'), factory);}); h.on('publish', 'Zapatec.Calendar', function(id, Calendar, next) {Calendar._TT["DEF_DATE_FORMAT"] = "%m\/%d\/%Y"; next(id, Calendar);});});
+
+$j(document).ready(function() {var followView = new jive.FollowUserApp.ProfileFollowView({i18n: {startFollowingMessage: '<p>You are now following {0}.</p>', stopFollowingMessage:  '<p>You have stopped following {0}.</p>', pendingConnectionMessage: '<p>Note: {0} will need to approve your request</p>'}, bidirectional: false}); var jiveUserFollow = new jive.FollowUserApp.Main({followView: followView}); $j("input[placeholder]").placeHeld();});
+
+</script>
+<script aria-hidden="false">var containerType = '2020'; var containerID = '318066';var spotlightSearchURL = "spotlight-search";</script><script aria-hidden="false">window._jive_images_enabled = false; window._jive_video_module_enabled = false;</script><script aria-hidden="false">
+reg(["jive.rte"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/b788c6c2a21d656615d0e4dfc00b8c30.js"],function() {
+window.errorHandlerMessage = "An error occurred:";
+            window.editorErrorHandler = function(message, exception) {
+              // if the message is something other than a timeout, show the message plus the error code
+              if (message.indexOf('Timeout') == -1) {
+                  $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+                  $j('#dwr-error-table').fadeIn();
+                  setTimeout(function() {
+                      $j('#dwr-error-table').fadeOut();
+                  }, 10000);
+              }
+            };
+            if(typeof(tinyMCE) != "undefined"){tinyMCE.addI18n('en.jivemacros',{"unused.jive.key" : "nothing."});}
+          window.RawHTMLSaveFunction = function(element_id, html, body){
+              var text = $j('#'+element_id);
+              if (text.is(':not(:visible)')) {
+                  return html;
+              }else{
+                  return text.val();
+              }
+          }
+          jive.rte.multiRTE = new Array();
+  
+          //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+          window.refreshLinks = function() {
+              jive.rte.multiRTE.forEach(function(rteID) {
+                  if ($j('#' + rteID + '_parent').length < 1) {
+                      // safari 2, text only
+                      $j('#' + rteID + '_toggle_html').hide();
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                      return;
+                  }
+  
+                  if(currentMode == 'rawhtml') {
+                      $j('#' + rteID + '_toggle_html').css('display', 'block');
+                  }else{
+                      $j('#' + rteID + '_toggle_html').hide();
+                  }
+  
+                  if (preferredMode == currentMode) {
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                  } else {
+                      $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                  }
+              });
+          }
+  
+          window.editor = new jive.ext.y.HashTable();
+          
+
+
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]}], [{name: "__default_attr",value: ["java","plain","xml","html","sql"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tag","tags/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "tag",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "name",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","people/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "username",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("alert","","TEXT", false, true, [{ name: "success", deleteAll: true, params: [{ name: "__default_attr", value :"success"} ,{ name: "alert", value :"success"} ]},{ name: "info", deleteAll: true, params: [{ name: "__default_attr", value :"info"} ,{ name: "alert", value :"info"} ]},{ name: "warning", deleteAll: true, params: [{ name: "__default_attr", value :"warning"} ,{ name: "alert", value :"warning"} ]},{ name: "danger", deleteAll: true, params: [{ name: "__default_attr", value :"danger"} ,{ name: "alert", value :"danger"} ]}], [{name: "__default_attr",value: ""},{name: "alert",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("flag","","INLINE", false, true, [{ name: "new", deleteAll: true, params: [{ name: "flag", value :"new"} ]},{ name: "updated", deleteAll: true, params: [{ name: "flag", value :"updated"} ]}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("kaltura","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""},{name: "partnerID",value: ""},{name: "playerColor",value: "#FFFFFF"},{name: "sourcedomain",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("brightcove","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("brightcoveext","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("showandshare","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerColor",value: "#000000"},{name: "sourcedomain",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("application","","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "__title",value: ""},{name: "__view",value: ""},{name: "__params",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("appEmbeddedView","","INLINE", true, false, [], [{name: "_default_attr",value: ""},{name: "_appuuid",value: ""},{name: "_title",value: ""},{name: "_view",value: ""},{name: "_context",value: ""},{name: "_url",value: ""},{name: "_previewimage",value: ""},{name: "_icon",value: ""},{name: "_action_id",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tilestream","external/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("videomacro","?container=14939&containerType=37","IMAGE", true, false, [], [{name: "__default_attr",value: ""},{name: "videoid",value: ""},{name: "imageURL",value: ""},{name: "width",value: ""},{name: "src",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("videolink","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("event","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTest","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTestApp","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTestReview","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("Equation Editor","/plugins/rte-extension/resources/templates/eqed.htm","INLINE", true, true, [], [], true,true));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEProductLink","/e14-product-linker.jspa","INLINE", true, true, [{ name: "Product Link", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEImageGalleryLink","/plugins/rte-extension/resources/templates/image-gallery.html","INLINE", true, true, [{ name: "Image Gallery", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTETabbedContentLink","/plugins/rte-extension/resources/templates/tabbed-content.html","INLINE", true, true, [{ name: "Tabbed Content", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEFilteredTableLink","/plugins/rte-extension/resources/templates/filtered-table.html","INLINE", true, true, [{ name: "Filtered Table", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEGitHubLink","/plugins/rte-extension/resources/templates/github-gist.htm","INLINE", true, true, [{ name: "GitHub Gist", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RegionalContextInjector","/e14-regional-context.jspa","INLINE", true, true, [{ name: "Conditional Content", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEButtonCreator","/e14-button-creator.jspa","INLINE", true, true, [{ name: "Button Creator", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEProduct360","/e14-product-360.jspa","INLINE", true, true, [{ name: "Product 360", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEMicroPoll","/e14-micro-poll.jspa","INLINE", true, true, [{ name: "Poll", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTESocialMediaPost","/e14-social-media-post.jspa","INLINE", true, true, [{ name: "Twitter Post", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEPodcast","/e14-podcast.jspa","INLINE", true, true, [{ name: "Podbean Podcast", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("productLink","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "farnellcode", value :""} ,{ name: "newarkcode", value :""} ,{ name: "linkstyle", value :""} ,{ name: "comcode", value :""} ]}], [{name: "farnellcode",value: ""},{name: "newarkcode",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "linkstyle",value: ""},{name: "comcode",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Button","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "buttonurl", value :""} ,{ name: "buttonid", value :""} ,{ name: "buttontype", value :""} ,{ name: "buttonsize", value :""} ,{ name: "buttontarget", value :""} ,{ name: "buttononclick", value :""} ]}], [{name: "buttontype",value: ""},{name: "buttonid",value: ""},{name: "buttononclick",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "buttonurl",value: ""},{name: "buttontarget",value: ""},{name: "jivemacro_uid",value: ""},{name: "buttonsize",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Product360","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "snippet", value :""} ,{ name: "displaytype", value :""} ,{ name: "logo", value :""} ]}], [{name: "snippet",value: ""},{name: "displaytype",value: ""},{name: "logo",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("gist","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "gist_id", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "gist_id",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14MicroPoll","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "title", value :""} ,{ name: "pollid", value :""} ,{ name: "pollname", value :""} ,{ name: "afterpoll", value :""} ]}], [{name: "pollname",value: ""},{name: "afterpoll",value: ""},{name: "pollid",value: ""},{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14SocialMediaPost","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "post_url", value :""} ,{ name: "post_width", value :""} ,{ name: "post_body", value :""} ,{ name: "post_author", value :""} ,{ name: "post_show_media", value :""} ,{ name: "post_type", value :""} ]}], [{name: "post_show_media",value: ""},{name: "post_author",value: ""},{name: "post_url",value: ""},{name: "post_width",value: ""},{name: "post_type",value: ""},{name: "id",value: ""},{name: "post_body",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Podcast","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "podcast_id", value :""} ,{ name: "podcast_type", value :""} ]}], [{name: "podcast_id",value: ""},{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "podcast_type",value: ""}], true,false));
+define('jive.rte', jive.rte);
+
+
+});
+</script><script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/bundle_en.js" aria-hidden="false"></script><script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/1d619af2f57dc6da354ff38524019aea.js" aria-hidden="false"></script>
+<script aria-hidden="false">
+        var _editor_lang = "en";
+        var _jive_video_picker__url = "?container=318066&containerType=2020"
+        var _jive_comment_images_enabled = false;
+
+
+reg(["apps/userpicker/views/select_skill_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/caf3ff9a0e03fd561f7c94084f14b211.js"]);
+
+reg(["apps/static_files/static_file_modal"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/4bb4fd40255f2208bb9410c4391ee535.js"]);
+
+reg(["apps/shared/views/date_picker_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/25ee87e113c267fb063bd0d187892dad.js"]);
+
+reg(["apps/places/actions/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/2c98ea277fede5ea5016b99f1b149482.js"]);
+
+reg(["soy!jive.UserPicker.soy.renderModalSkillSearchButton"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/5b806c2c503854628fc119806e54c9ee.js"]);
+
+reg(["apps/places/manage/views/archive_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7183b22c5a0d7d13d1f7f00383ebd952.js"]);
+
+reg(["soy!jive.extended_invitation.warn_bar"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/11213ee71ff01675ce6e198e842ec410.js"]);
+
+reg(["apps/contentplace_relationship/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/4205684e9a7a83f698416fc3c554cdc1.js"]);
+
+reg(["apps/shared/models/lazy_corev3"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/9088924a6cca41a7bbbbac2563b71173.js"]);
+
+reg(["apps/invitation/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/dfd0fe93a1fd3bfc3c9060a628109196.js"]);
+
+reg(["apps/movecontent/main"],[]);
+
+reg(["apps/share/main"],[]);
+
+reg(["apps/places/manage/views/author_by_email_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/960d835c6f8579f6aa1c2f9dbd3568f9.js"]);
+
+reg(["apps/places/manage/views/category_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/3b90e4ba6226cb3b5ef03c1ddb426d35.js"]);
+
+reg(["jive/dispatcher"],[]);
+
+reg(["soy!jive.error.rest.soy.errorFinding"],[]);
+
+        var jiveMembership = new jive.MembershipApp.Main({objectID:318066});
+        var jiveMoveContent = new jive.Move.Content.Main({
+                objectType: 38,
+                objectID: 21335,
+                personalContainerTitleKey:'nav.bar.create.personal_container.title.blogpost',
+                personalContainerCaptionKey:'nav.bar.create.personal_container.caption.blogpost',
+                searchPlaceholderKey:'place.picker.move.search.blogpost',
+                containerID: 318066,
+                containerType: 2020});
+        var jiveReportAbuse = new jive.Modalizer.Main({triggers:['#jive-link-abuse a'],liveTriggers:['.js-link-abuse'], width: 'medium'});
+        $j(function() { new jive.EmailNotification.Main(21335, 38); });
+
+
+    
+    function toggleFeatured() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 38 +"/"+ 21335+"/"+318066+"/"+2020))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature').hide();
+                    $j('#featured-toggle-unfeature').show();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+    function toggleFeaturedOnProfile() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 38 +"/"+ 21335))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature-onprofile').hide();
+                    $j('#featured-toggle-unfeature-onprofile').show();
+                } else {
+                    $j('#featured-toggle-unfeature-onprofile').hide();
+                    $j('#featured-toggle-feature-onprofile').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+
+$j(function() {require(['apps/guided_navigation/main'], function(M) {var main = new M();});});
+
+reg(["soy!jive.rate.soy.renderRating"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/4afa6f90aab7321c83454bdac0a7c214.js"]);
+
+reg(["apps/rate/main"],[]);
+
+        define("commentMacroApps", ['apps/comment_app/main'], function(CommentAppMain) {
+        var options = {
+        resourceType:       38,
+        resourceID:         21335,
+
+        containerType:      2020,
+        containerID:        318066,
+
+        keepAliveEnabled:   true,
+
+        contentObject: {
+            object:            21335,
+            contentObjectType: 38
+        },
+
+            listAction:         "/community/comment-list.jspa",
+
+        isAnonymous:        true,
+        isThreaded:         true,
+        isFinalized:        false,
+
+        paginate:           true,
+
+        pageSize:           25,
+        isPrintPreview:     false,
+        rteOptions : {
+        preset        : "mini-w-quote",
+        preferredMode : "advanced",
+        startMode     : "advanced",
+        mobileUI      : false,
+        toggleText    : 'Show Full Editor',
+        alwaysUseTabText : 'Always use this editor',
+        editDisabledText : 'You are using a device that only enables you to add content.',
+        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
+        communityName : 'element14 Community',
+        height        : 200,
+        images_enabled: window._jive_comment_images_enabled
+
+        },
+        i18n: {
+        confirmDeleteComment:    'Are you sure you want to delete this comment?',
+        postSuccessText:         'Please note: your comment was added successfully, but a moderator needs to approve it before it can be posted.',
+        cmntEditingTitle:        'Editing comment',
+        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
+        replyToTitle:            'Reply to {0}',
+        formSubmitPleaseWait:    'Please Wait ...',
+        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.',
+        loading:				 'Loading...'
+        }
+        };
+
+
+        // Create a separate CommentApp instance for each tab.
+            jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
+
+
+        return jive.CommentApp;
+        });
+
+
+
+reg(["apps/onboarding/views/add_document_collaborator"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/02acba80c26f9c3c95d47cb8cf10bb86.js"]);
+
+reg(["apps/onboarding/views/fill_out_profile"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/8a57e98e64325ad8b73d27b2e69c50c4.js"]);
+
+reg(["apps/onboarding/views/like_content"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0c19d6b68b2028f0dde96d54324d5e36.js"]);
+
+reg(["apps/onboarding/views/about_you"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/6c21e94d71ec9c98756c7868bf83fea8.js"]);
+
+reg(["apps/navbar/menu/satellite/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/6fc6c5c5dfdfed34230d9ebe55cf0571.js"]);
+
+reg(["apps/onboarding/views/learn_system"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ec43e883d9e8585c7bb5fe6aec82b220.js"]);
+
+reg(["apps/metric/models/metric_source"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7ea164d5b59f5f0c0bcc72df826059a5.js"]);
+
+reg(["apps/onboarding/views/create_blogpost"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/34b47eb1cbe2a698ed9ac85d2e2e32bf.js"]);
+
+reg(["apps/onboarding/views/jive_for_outlook"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/527b0930fb1503b135625c8acc7af8c4.js"]);
+
+reg(["apps/trial/views/trial_tip_helper"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/98380221bea51330622fe8de544ce901.js"]);
+
+reg(["apps/onboarding/views/create_or_set_shared_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/6cbb2d3d607478fb9116c823c7da1195.js"]);
+
+reg(["jive/rte/syntax/SyntaxHighlighter"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/098de0e6a1b20917c33bef88f10c7f46.js"]);
+
+reg(["apps/shared/controllers/browser_events"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/da2f1b542992538f52248c066d09fe51.js"]);
+
+reg(["apps/onboarding/views/create_or_join_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ef18770f08b8567cc893d82c2d3895ff.js"]);
+
+reg(["jive/app/core_container/views/rtc_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/f96c121d7bf2b722ecbbddff228aa291.js"]);
+
+reg(["ui-modules/spotlight/scripts/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/edf7389cddb4192da19e1c82e86a81b8.js"]);
+
+reg(["apps/social_sharing/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/04b10aeafb73a036dd30415370f0fbd5.js"]);
+
+reg(["jive/app/core_container/mock"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0ea4dc8e0c02e2279268b40938d76d69.js"]);
+
+reg(["apps/shared/controllers/socket_holder"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/b9d84515fda7f5f5fa58ed268d893185.js"]);
+
+reg(["apps/microblogging/status_input_mb_controller"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/923834dbb0d82b3b4bf43c99364960e4.js"]);
+
+reg(["apps/onboarding/views/create_wall_entry"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7ae014a4ac3afea92c071434c643fe09.js"]);
+
+reg(["apps/onboarding/views/create_comment_or_message"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/8993564421971bfa97c811d6259c977f.js"]);
+
+reg(["apps/direct_messaging/factory"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/2ed51f9359f516b1f9b331cc109118b4.js"]);
+
+reg(["apps/onboarding/views/jive_anywhere"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/f0852c6eedc068e31ac60d2d3872ef14.js"]);
+
+reg(["apps/onboarding/views/create_private_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/300ea1fac83828dc6d5ac4d35c3dc163.js"]);
+
+reg(["apps/onboarding/views/create_project"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/22473a2f8992c2b1444a3a26ba9a4f80.js"]);
+
+reg(["apps/onboarding/views/invite_to_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/f3e61cc33207d0c2e004b9bfed3456eb.js"]);
+
+reg(["soy!jive.integration.tiles.view.embeddedExperience"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/17e87dd7a39c82a339cd541dcfa1b77a.js"]);
+
+reg(["apps/filters/view/item_grid_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/b1485b90b95842908429f1f9e7c1162b.js"]);
+
+reg(["apps/onboarding/views/jive_for_office"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a2e2a35eadf2b56f58d1ab4ab25c7653.js"]);
+
+reg(["apps/onboarding/views/connect_colleagues"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ed4f2c7ae78dcfd752b88ac13249690d.js"]);
+
+reg(["apps/onboarding/views/mobile_login"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/3d5a77b4fdab0f796dc684e25d960ed3.js"]);
+
+reg(["apps/tile/embedded_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ab1a64c0098b1022c0f80c5206c6ab08.js"]);
+
+reg(["apps/onboarding/views/create_thread"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/71b8eedc1295ee4ac5c3bd59af9d9cf6.js"]);
+
+reg(["jive/app/core_container/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/6d6ebb5f519da9b30cc7d72f4a2ff006.js"]);
+
+reg(["apps/autosearch/lightbox"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/c8eb681064cc15dac4d4f97814bd68f3.js"]);
+
+reg(["apps/trial/models/trial_panel_source"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/1f2a9edb937239361a395d3642273ffa.js"]);
+
+reg(["apps/onboarding/views/create_document"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/5ef303549a26791d8efc3a1d3df78cdb.js"]);
+
+reg(["jive/app/core_container/common_container"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/23b21e7ef7965665beaa8edd31556a4f.js"]);
+
+reg(["Zapatec.Calendar"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/054387eb5f076daa205be1cd2f7086fa.js"]);
+
+reg(["apps/onboarding/views/invite_users"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/2e3cec93592c0778995d40ce83b24e05.js"]);
+
+reg(["apps/onboarding/views/invite_external_users"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/85c39c936d109e28bceff0b78b92a43f.js"]);
+
+reg(["apps/onboarding/views/follow_user"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/bc1d9fc33967781b3af912a30a317d1d.js"]);
+
+reg(["apps/onboarding/views/upload_or_move_file"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/892048ffae7fb5d497e0dbdaf382db4f.js"]);
+
+reg(["apps/tile/integrations/carousel"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/1e0c015f7be13750755c45edb860fc6e.js"]);
+
+reg(["apps/trial/views/trial_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/22f8f8b805895086c3d911dfd32eaae0.js"]);
+
+reg(["apps/onboarding/views/tour_ui"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d7e29bea36f1f93b64ae164c5e061a5c.js"]);
+
+$j(function() {require(['apps/google_oidc_login/main'], function(Main) {window.jiveGoogleOidcLogin = new Main({jiveTokenName: "jive.googleoidc.login", jiveTokenGUID: "1616625252768-67ABI95QM9CI6NGE86A5KHEL3LBVN1DU", clientID: "null", openIDRealm: "null", redirectURI: "https://www.element14.com/community/googleoidc/sso"});});});
+
+$j(document).ready(function() {new jive.nitro.content.Main({apiKey: "db6a4bacb9d94f89911a8b141a149489", timeStamp: "1616625607", signature: "57db4037d6c47a06515b3deee2f0f5c7", server: "https://solutions.nitro.bunchball.net/nitro/json", userID: "-1", localizationEnabled: false});});
+
+$j(function() {require(['apps/tips/main'], function(Tips) {var tipsApp = new Tips({tipGroups:[], skippedTipGroupIDs: []});});});
+
+
+                        require(['jquery'], function($) {
+                            $('#navLogin').on('click', function(e) {
+                                var fragment = '';
+                                if (window.location.hash.length > 1){
+                                    fragment = "?fragment=" + window.location.hash.substring(1);
+                                }
+                                $('#navLogin').attr("href", jive.app.url({ path: '/login.jspa' }) + fragment);
+                           });
+                        });
+                        
+
+$j(function(){jive.namespace('Navbar.Menu.Home'); require(['apps/navbar/menu/home/navbar_menu_home_main'], function(Main) {jive.Navbar.Menu.Home.GlobalController = new Main('#j-satNav-indicator');});});
+
+require([ 'apps/activity_stream/activity_notifier', 'apps/activity_stream/models/activity_stream_source', 'apps/shared/controllers/switchboard', 'documentReady', 'jive/responsive' ], function(ActivityNotifier, ActivityStreamSource) {}); require([ 'documentReady' ], function() {jive.onLoadEventComplete = true;});
+
+var authSource = new jive.Authentication.Source({forceSecure: false});var loginApp = new jive.Authentication.Main({authenticationSource: authSource, rememberMe: true, passwordReset: true, forgotUsername: true, externalLoginEnabled: false, showRegisterForm: true, externalLogins: [], facebookEnabled: false, facebookApplicationID: 'blank', usernameIsEmail: false});
+
+reg(["apps/microblogging/status_input_drop_down"],[]);
+
+reg(["apps/tags/tags_controller"],[]);
+
+reg(["apps/microblogging/link_builder"],[]);
+
+reg(["jive/app/rte/artifacts"],[]);
+
+reg(["apps/shared/models/meta_source"],[]);
+
+window.tinyMCE_GZ = { loaded: true };
+
+</script>
+<script src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/db20bd5c00d595a481b92c9f421f91f4.js" aria-hidden="false"></script>
+<noscript aria-hidden="false"><img src="https://www.element14.com/akam/11/pixel_578259c1?a=dD1lZTMzYzdmNGJkMmQ5NmRkYjllYjU2NzhjMmQyN2JhYTJlNmJlYWQyJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript><script type="application/ld+json" aria-hidden="false">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://www.element14.com/community/people","name":"All People"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.element14.com/community/people/chriswhite","name":"chriswhite"}},{"@type":"ListItem","position":3,"item":{"@id":"https://www.element14.com/community/blogs/linker","name":"The Linker"}}]}</script><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/a" style="display: none !important;" aria-hidden="false" width="1" hidden="" height="1"><img src="Disassembling%20BB8%20(Part2)%20|%20element14%20|%20chriswhite_files/a_002" style="display: none !important;" aria-hidden="false" width="1" hidden="" height="1"><div style="display: none;" id="dtmdiv" aria-hidden="false"></div></body></html>

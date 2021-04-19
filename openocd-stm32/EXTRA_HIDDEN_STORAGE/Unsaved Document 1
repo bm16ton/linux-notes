@@ -1,0 +1,11 @@
+I have same problem with F100C6T6 which should have 4KB of RAM (and don't have TIM4) like written in datasheet. But he have 8KB RAM and TIM4. stlink detects this chip like Low-density with 4KB RAM and i can't access addresses higher than 0x20000FA0 in gdb.
+
+I recompile source without this commit and it solved my problem.
+d04fcf5
+
+
+
+same issue with a device id 0x413 rev Z, (STM32F407VG), it report 512kB, but from datasheet, websist and testing, it is both 512kB and 1MB flash. (program and verify from stllink utility ignore the flash size and report a successful flash, so despite both program reporting 512kB flash, it is 1MB).
+
+
+
