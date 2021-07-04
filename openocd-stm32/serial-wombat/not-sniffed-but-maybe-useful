@@ -1,0 +1,12 @@
+      if self.dataList[0] == 0x21:
+            outstr = outstr + self.echo()
+        if self.dataList[0] == 0x52:
+            outstr = outstr + self.reset()
+        elif self.dataList[0] == 0x56:
+            outstr = outstr + self.version()
+        elif self.dataList[0] == 0x81:
+            outstr = outstr + self.readPin()
+        elif self.dataList[0] == 0x82:
+            outstr = outstr + self.writePin()
+        elif (self.dataList[0] >= 0xC8 and self.dataList[0] <= 0xDA):
+            outstr = outstr + self.configurePin()

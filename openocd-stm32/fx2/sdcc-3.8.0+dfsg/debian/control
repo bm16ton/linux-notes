@@ -1,0 +1,79 @@
+Source: sdcc
+Section: electronics
+Priority: optional
+Maintainer: Debian Electronics Packaging Team <pkg-electronics-devel@alioth-lists.debian.net>
+Uploaders: Gudjon I. Gudjonsson <gudjon@gudjon.org>,
+	Jonathan McDowell <noodles@earth.li>
+Build-Depends: bison,
+               debhelper (>= 10),
+               dpkg-dev (>= 1.16.1~),
+               flex,
+               gputils,
+               libboost-dev,
+               libncurses5-dev,
+               libtool,
+               texinfo,
+               zlib1g-dev
+Build-Depends-Indep: ghostscript,
+                     graphicsmagick-imagemagick-compat,
+                     lyx,
+                     texlive-fonts-recommended,
+                     texlive-font-utils,
+                     texlive-plain-generic,
+                     texlive-latex-recommended,
+                     texlive-latex-extra,
+                     gsfonts,
+                     inkscape
+Standards-Version: 4.4.1
+Homepage: http://sdcc.sourceforge.net
+Vcs-Git: https://salsa.debian.org/electronics-team/sdcc.git
+Vcs-Browser: https://salsa.debian.org/electronics-team/sdcc
+
+Package: sdcc
+Architecture: any
+Depends: sdcc-libraries (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: sdcc-doc
+Suggests: python, sdcc-ucsim
+Breaks: sdcc-ucsim (<< 3.5.0)
+Replaces: sdcc-ucsim (<< 3.5.0)
+Description: Small Device C Compiler
+ SDCC is a C compiler for the Intel MCS51 family, HC08, PIC,
+ GameBoy Z80, DS80S390, Z80, Z180 and STM8 microcontrollers.
+ .
+ This package includes the compiler, assemblers and linkers.
+
+Package: sdcc-libraries
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: gputils
+Description: Small Device C Compiler (libraries)
+ SDCC is a C compiler for the Intel MCS51 family, HC08, PIC,
+ GameBoy Z80, DS80S390, Z80, Z180 and STM8 microcontrollers.
+ .
+ This package contains the core library for SDCC.
+
+Package: sdcc-ucsim
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Suggests: sdcc
+Replaces: sdcc-ucsim-snapshot
+Description: Micro-controller simulator for SDCC
+ uCsim is a microcontroller simulator. It is extensible to support
+ different microcontroller families. It currently supports Intel
+ MCS51 family, HC08 and Z80 microcontrollers.
+
+Package: sdcc-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Suggests: sdcc
+Description: Small Device C Compiler (documentation)
+ SDCC is a C compiler for the Intel MCS51 family, HC08, PIC,
+ GameBoy Z80, DS80S390, Z80, Z180 and STM8 microcontrollers.
+ .
+ This package provides the documentation and examples for the
+ SDCC compiler.

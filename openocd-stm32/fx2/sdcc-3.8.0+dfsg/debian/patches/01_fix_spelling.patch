@@ -1,0 +1,155 @@
+Description: Fix spelling errors in source and binaries
+Author: Gudjon I. Gudjonsson <gudjon@gudjon.org>
+
+--- a/sdas/linksrc/lklibr.c
++++ b/sdas/linksrc/lklibr.c
+@@ -124,7 +124,7 @@
+ 
+ /*)Function VOID    addlib()
+  *
+- *  The function addlib() tests for the existance of a
++ *  The function addlib() tests for the existence of a
+  *  library path structure to determine the method of
+  *  adding this library file to the library search structure.
+  *
+--- a/sim/ucsim/sim.src/hw.cc
++++ b/sim/ucsim/sim.src/hw.cc
+@@ -338,7 +338,7 @@
+       break;
+     case 't'-'a'+1:
+       uc->reset();
+-      io->dd_printf("CPU reseted.");
++      io->dd_printf("CPU reset.");
+       break;
+     case 'q'-'a'+1:
+       uc->sim->state|= SIM_QUIT;
+--- a/sim/ucsim/sim.src/serial_hw.cc
++++ b/sim/ucsim/sim.src/serial_hw.cc
+@@ -317,7 +317,7 @@
+ 		case 'T':
+ 		  uc->reset();
+ 		  menu= 0;
+-		  io->dd_printf("CPU reseted.\n");
++		  io->dd_printf("CPU reset.\n");
+ 		  break;
+ 		case 'q': case 'Q': case 'q'-'a'+1:
+ 		  // kill
+--- a/sim/ucsim/sim.src/simifcl.h
++++ b/sim/ucsim/sim.src/simifcl.h
+@@ -174,7 +174,7 @@
+ public:
+   cl_sif_detect(class cl_simulator_interface *the_sif):
+     cl_sif_command(SIFCM_DETECT, "if_detect",
+-		   "Detect existance of interface",
++		   "Detect existence of interface",
+ 		   SIFAT_BYTE, 0, the_sif)
+   {}
+   virtual void produce_answer(void) { set_answer(t_mem(DETECT_SIGN)); }
+--- a/support/sdbinutils/ChangeLog
++++ b/support/sdbinutils/ChangeLog
+@@ -15399,8 +15399,8 @@
+ 
+ Wed Apr 22 14:38:34 1992  Fred Fish  (fnf@cygnus.com)
+ 
+-	* configure:  Test for existance of files before trying to mv
+-	them, to avoid numerous non-existance messages.
++	* configure:  Test for existence of files before trying to mv
++	them, to avoid numerous non-existence messages.
+ 
+ Tue Apr 21 12:31:33 1992  K. Richard Pixley  (rich@cygnus.com)
+ 
+--- a/support/sdbinutils/bfd/ChangeLog-2016
++++ b/support/sdbinutils/bfd/ChangeLog-2016
+@@ -2226,7 +2226,7 @@
+ 2016-06-24  Joel Brobecker  <brobecker@adacore.com>
+ 
+ 	* elflink.c: Check the value of BFD_SUPPORTS_PLUGINS rather
+-	than its existance.
++	than its existence.
+ 
+ 2016-06-24  Alan Modra  <amodra@gmail.com>
+ 
+--- a/support/sdbinutils/bfd/ChangeLog-2006
++++ b/support/sdbinutils/bfd/ChangeLog-2006
+@@ -1375,7 +1375,7 @@
+ 
+ 	PR ld/2729
+ 	* peXXigen.c (_bfd_XXi_final_link_postscript): Check for the
+-	existance of output sections before putting their entries into the
++	existence of output sections before putting their entries into the
+ 	DataDictionary.
+ 
+ 2006-07-20  Thiemo Seufer  <ths@mips.com>
+--- a/support/sdbinutils/bfd/elfcode.h
++++ b/support/sdbinutils/bfd/elfcode.h
+@@ -751,7 +751,7 @@
+ 	{
+ 	  /* PR 2257:
+ 	     We used to just goto got_wrong_format_error here
+-	     but there are binaries in existance for which this test
++	     but there are binaries in existence for which this test
+ 	     will prevent the binutils from working with them at all.
+ 	     So we are kind, and reset the string index value to 0
+ 	     so that at least some processing can be done.  */
+--- a/sim/ucsim/cmd.src/command.cc
++++ b/sim/ucsim/cmd.src/command.cc
+@@ -269,7 +269,7 @@
+   if (*dot == '\0')
+     {
+       bit= 0;
+-      con->dd_printf("Uncomplete bit address\n");
++      con->dd_printf("Incomplete bit address\n");
+       delete sfr;
+     }
+   else
+@@ -310,7 +310,7 @@
+   if (*dot == '\0')
+     {
+       aname= 0;
+-      con->dd_printf("Uncomplete array\n");
++      con->dd_printf("Incomplete array\n");
+     }
+   else
+     {
+@@ -326,7 +326,7 @@
+        *p= '\0';
+       if (strlen(dot) == 0)
+        {
+-         con->dd_printf("Uncomplete array index\n");
++         con->dd_printf("Incomplete array index\n");
+          delete aname;
+        }
+       else    
+--- a/sim/ucsim/cmd.src/cmd_uc.cc
++++ b/sim/ucsim/cmd.src/cmd_uc.cc
+@@ -77,7 +77,7 @@
+   con->dd_printf("Max value of stack pointer= 0x%06x, avg= 0x%06x\n",
+ 		 uc->sp_max, uc->sp_avg);
+   con->dd_printf("Simulation: %s\n",
+-		 (uc->sim->state & SIM_GO)?"runnig":"stopped");
++		 (uc->sim->state & SIM_GO)?"running":"stopped");
+   return(0);
+ }
+ 
+--- a/src/SDCCerr.c
++++ b/src/SDCCerr.c
+@@ -542,7 +542,7 @@
+   { E_STATIC_ARRAY_PARAM_C99, ERROR_LEVEL_ERROR,
+     "static in array parameters requires ISO C99 or later", 0},
+   { E_INT_MULTIPLE, ERROR_LEVEL_ERROR,
+-    "mutiple interrupt numbers for '%s'", 0},
++    "multiple interrupt numbers for '%s'", 0},
+   { W_INCOMPAT_PTYPES, ERROR_LEVEL_WARNING,
+      "pointer types incompatible ", 0 },
+   { E_STATIC_ASSERTION_C2X, ERROR_LEVEL_ERROR,
+--- a/src/SDCCerr.h
++++ b/src/SDCCerr.h
+@@ -269,7 +269,7 @@
+   E_QUALIFIED_ARRAY_PARAM_C99   = 240, /* qualifiers in array parameters require ISO C99 or later */
+   E_QUALIFIED_ARRAY_NOPARAM     = 241, /* qualifier or static in array declarator that is not a parameter */
+   E_STATIC_ARRAY_PARAM_C99      = 242, /* static in array parameters requires ISO C99 or later */
+-  E_INT_MULTIPLE                = 243, /* mutiple interrupt numbers */
++  E_INT_MULTIPLE                = 243, /* multiple interrupt numbers */
+   W_INCOMPAT_PTYPES             = 244, /* incompatible pointer assignment (not allowed by the standard, but allowed in SDCC) */
+   E_STATIC_ASSERTION_C2X        = 245, /* static assertion with one argument requires C2X or later */
+   W_STATIC_ASSERTION_2          = 246, /* static assertion failed */

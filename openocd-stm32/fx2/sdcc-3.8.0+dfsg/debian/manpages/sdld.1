@@ -1,0 +1,173 @@
+.TH ASLINK 1 
+.SH NAME
+SDLD \- companion linker for the ASxxxx assemblers.
+.SH SYNOPSIS
+.B sdld
+.I "[-Options] [-Option with arg] file"
+.br
+.B sdld
+.I "[-Options] [-Option with arg] outfile file1 [file2 ...]"
+.br
+.B sdldgb
+.I "[-Options] [-Option with arg] file"
+.br
+.B sdldgb
+.I "[-Options] [-Option with arg] outfile file1 [file2 ...]"
+.br
+.B sdldz80
+.I "[-Options] [-Option with arg] file"
+.br
+.B sdldz80
+.I "[-Options] [-Option with arg] outfile file1 [file2 ...]"
+.br
+.B sdld6808
+.I "[-Options] [-Option with arg] file"
+.br
+.B sdld6808
+.I "[-Options] [-Option with arg] outfile file1 [file2 ...]"
+.br
+.SH WARNING
+The information in this man page is an extract from the full
+documentation of 
+.B SDCC\c
+\&, and is limited to the meaning of the options.
+.PP
+For complete and current documentation, refer to the
+.B
+ASxxxx Cross Assembler Documentation\c
+\&, available in /usr/share/doc/sdcc-doc/aslink.
+.SH "DESCRIPTION"
+The
+.B ASLINK\c
+\& is general relocating companion linker for the 
+.B ASxxx\c
+\& assemblers.
+.PP
+.B MCS51\c
+\& family is supported by 
+.B sdld\c
+\&.
+.br
+.B Z80\c 
+\&family is supported by
+.B sdldz80\c
+\&.
+.br
+.B GBZ80\c
+\& (GameBoy Z80-like CPU) is supported by
+.B sdldgb\c
+\&.
+.br
+.B Motorola 6808\c
+\& family is supported by
+.B sdld6808\c
+\&.
+.SH OPTIONS
+The linker may run in the command line mode or command file modes.  The 
+allowed startup linker commands are:  
+.TP 
+.BI "\-c/\-f"
+command line / command file modes 
+.TP
+.BI "\-p/\-n"
+enable/disable echo file.lnk input to stdout 
+.PP
+If command line mode is selected, all linker commands come from stdin, if the 
+command file mode is selected the commands are input from the specified 
+file (extension must be .lnk). 
+.PP
+After invoking the linker the valid options are:
+.B Libraries
+.TP
+.BI "-k " "library directory path" " (one  definition  per line)"
+This specifies one possible path to an object library.  More than one path is
+allowed.  
+.TP
+.BI "-l " "library file specification" " (one  definition  per  line)"
+This specifies a possible library file.  More than one file is allowed.  
+.PP
+.B Relocation
+.TP
+.BI "-b " "area base address = expression" " (one definition per line)"
+This specifies an area base address where the expression may contain constants 
+and/or defined symbols from the linked files.  
+.TP
+.BI "-g "  "global symbol = expression" " (one definition per line)" 
+This specifies the value for the symbol where the expression may contain 
+constants and/or defined symbols from the linked files.  
+.PP
+.B Map format:
+.TP
+.BI "\-m"
+Generate a map file (file.map). This file contains a list of the symbols 
+(by area) with absolute addresses, sizes of linked areas, and other linking
+information.  
+.TP
+.BI "\-w"
+Specifies that a wide listing format be used for the map file.  
+.TP
+.BI "\-x"
+Hexadecimal (default).
+.TP
+.BI "\-d"
+Decimal. 
+.TP
+.BI "\-q"
+Octal.  
+.PP
+.B Output:
+.TP
+.BI "\-i"
+Intel Hex (file.ihx) image output file.
+.TP
+.BI "\-s"
+Motorola S19 (file.s19) image output file.
+.TP
+.BI "\-j"
+Produce NoICE debug as file (file.noi)
+.TP
+.BI "\-z"
+Produce SDCdb debug as file (file.cdb).
+.PP
+.B Lists:
+.TP
+.BI "\-u"
+Generate an updated listing file (file.rst) derived from the relocated 
+addresses and data from the linker.
+.PP
+.B Miscellaneous:
+.TP
+.BI "\-a"
+[iram-size] Check for internal RAM overflow.
+.TP
+.BI "\-v"
+[xram-size] Check for external RAM overflow.
+.TP
+.BI "\-w"
+[code-size] Check for code overflow.
+.TP
+.BI "\-y"
+Generate memory usage summary file (file.mem).
+.TP
+.BI "\-Y"
+Pack internal ram.
+.TP
+.BI "\-A"
+[stack-size] Allocate space for stack.
+.PP
+.B End:
+.TP
+.BI "-e "
+or null line, terminates input to the linker.
+.PP
+.TP
+.BI "fileN"
+Files to be linked. Files may be on the same line as the above options or on a 
+separate line(s) one file  per line or multiple files separated by spaces or
+tabs.
+
+.SH SEE ALSO
+sdcc(1), asxxxx(1), sdldz80(1), sdldgb(1), sdld6808(1).
+.SH AUTHOR
+This manual page was written by Aurelien Jarno <aurel32@debian.org>,
+for the Debian GNU/Linux system (but may be used by others).

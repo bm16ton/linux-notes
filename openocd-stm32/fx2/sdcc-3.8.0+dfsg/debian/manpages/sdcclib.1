@@ -1,0 +1,46 @@
+.TH SDCCLIB 1 
+.SH NAME
+sdcclib \- SDCC librarian
+.SH SYNOPSIS
+.B sdcclib
+.I " [-options] library relfile"
+.SH WARNING
+The information in this man page is an extract from the full
+documentation of SDCC, and is limited to the meaning of the
+options.
+.PP
+For complete and current documentation, refer to the
+.B
+SDCC Compiler User Guide\c
+\&.
+.SH DESCRIPTION
+sdcclib can be used to embed all the modules belonging to a library in the 
+library file itself. This results in a larger library file, but it greatly
+reduces the number of disk files accessed by the linker.
+.SH OPTIONS
+.TP
+.B "\-a"
+Adds relfile to library. If relfile exists, replaces it.
+.TP
+.B "\-d"
+Deletes relfile from library.
+.TP
+.B "\-e"
+Extracts relfile from library.
+.TP
+.B "\-s"
+Dumps symbols of library.
+.TP
+.B "\-m"
+Dumps modules of library.
+.TP
+.B "\-v"
+Displays program version.
+.TP
+.B "\-h"
+Displays help.
+.SH SEE ALSO
+sdcc(1).
+.SH AUTHOR
+This manual page was written by Aurelien Jarno <aurel32@debian.org>,
+for the Debian GNU/Linux system (but may be used by others).

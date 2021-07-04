@@ -1,0 +1,5 @@
+/sys/bus/usb/drivers/ftdi_sio
+echo "1-1.1.2:1.0" > unbind
+echo -n "1-1.1.2:1.0" > unbind
+echo -n $(ls /sys/bus/usb/drivers/ftdi_sio | grep .0) | sudo tee -a /sys/bus/usb/drivers/ftdi_sio/unbind
+sudo modprobe ft232h-intf

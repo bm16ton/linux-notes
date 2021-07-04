@@ -1,0 +1,12 @@
+Upstream includes some non-free components and must be repacked to be included
+in Debian.
+
+For 3.7.0 this involved:
+
+* Delete device/non-free
+* Delete support/sdbinutils/bfd/doc/*.texi*
+* Modify support/sdbinutils/bfd/doc/Makefile.{am,in} to not reference texi files.
+* chmod 644 device/lib/is{nan,inf}.c
+
+This git repo was created with
+  gbp import-dscs --pristine-tar --debsnap --ignore-repo-config sdcc

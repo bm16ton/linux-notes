@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js wf-lettergothicstd-n7-active wf-proximanova-n7-active wf-proximanova-i7-active wf-proximanova-i4-active wf-proximanova-n4-active wf-proximanova-n3-active wf-proximanova-i3-active wf-active" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    
+
+<title>Notes on converting Keil 8051 C to SDCC C | Details | Hackaday.io</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#333333">
+<link rel="apple-touch-icon-precomposed" href="https://hackaday.io/apple-touch-icon.png">
+<link rel="stylesheet" href="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/style.css">
+<script async="" src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/analytics.js"></script><script type="text/javascript" src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/ymb0lgk.js"></script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-letter-gothic-std{font-family:"letter-gothic-std",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-proxima-nova-n7;src:url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i7;src:url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:tk-proxima-nova-n4;src:url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i4;src:url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:tk-proxima-nova-n3;src:url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i3;src:url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/l?subset_id=2&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/d?subset_id=2&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/a?subset_id=2&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-display:auto;}@font-face{font-family:tk-letter-gothic-std-n7;src:url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}</style><script type="text/javascript">try{Typekit.load({ async: true });}catch(e){}</script>
+
+        <script type="text/javascript">
+        function getCommentIdFromUrl() {
+            if(window.location.hash) {
+                var hash = window.location.hash.substring(1);
+                var commentId = parseInt(hash.replace('j-discussion-', ''));
+                if (commentId) {
+                    return commentId;
+                }
+            }
+            return null;
+        }
+
+        var commentId = getCommentIdFromUrl();
+        if (commentId) {
+            var url = window.location.href;
+            if (url.indexOf('?') > -1) {
+                url = url.substring(0, url.indexOf('?'));
+            }
+            if (url.indexOf('#') > -1) {
+                url = url.substring(0, url.indexOf('#'));
+            }
+            url += '/discussion-' + commentId;
+            window.location.href = url;
+        }
+    </script>
+    
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:site" content="@hackadayio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notes on converting Keil 8051 C to SDCC C | Details | Hackaday.io">
+<meta name="twitter:description" content="&lt;p&gt;After having converted 30 odd sample programs from Keil C to SDCC, here is a summary of the differences I encountered.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Keil uses sbit to declare special bit registers using for example P0^7 to refer to port 0 bit 7. SDCC uses __sbit and a different syntax. But since most of the special registers are defined in SDCC includes, usually it suffices define your symbol to be the same as say P0_7.&lt;/li&gt;&lt;li&gt;Putting large constants, e.g. tables, in the RO code area in Keil is done with the qualifier code after the type declaration, e.g. uchar code table{] = &amp;#x2026;. In SDCC it&amp;apos;s declared thus: __code uchar table[] = &amp;#x2026;.&lt;/li&gt;&lt;li&gt;Keil uses for example: &lt;em&gt;interrupt 1 using 1&lt;/em&gt; to qualify an interrupt service routine (ISR) as hooking to interrupt vector 1 and using register bank 1. SDCC uses the syntax: &lt;em&gt;__interrupt(1) __using(1)&lt;/em&gt;. Note that Keil makes &lt;em&gt;interrupt&lt;/em&gt; and &lt;em&gt;using&lt;/em&gt; unavailable for symbols. Ditto for &lt;em&gt;sbit&lt;/em&gt; and &lt;em&gt;code&lt;/em&gt;. Oh and remember that in SDCC the ISRs (or at least a prototype) must appear in the file containing &lt;em&gt;main()&lt;/em&gt; or the vectors won&amp;apos;t get initialised. This wasn&amp;apos;t an issue for the sample programs as each was in a single C file.&lt;/li&gt;&lt;li&gt;Keil has a data type">
+<meta name="twitter:image" content="https://cdn.hackaday.io/images/744191585018724733.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:type" content="website">
+
+
+    <meta property="og:url" content="https://hackaday.io/project/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c">
+
+<meta property="og:title" content="Notes on converting Keil 8051 C to SDCC C | Details | Hackaday.io">
+<meta property="og:description" content="&lt;p&gt;After having converted 30 odd sample programs from Keil C to SDCC, here is a summary of the differences I encountered.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Keil uses sbit to declare special bit registers using for example P0^7 to refer to port 0 bit 7. SDCC uses __sbit and a different syntax. But since most of the special registers are defined in SDCC includes, usually it suffices define your symbol to be the same as say P0_7.&lt;/li&gt;&lt;li&gt;Putting large constants, e.g. tables, in the RO code area in Keil is done with the qualifier code after the type declaration, e.g. uchar code table{] = &amp;#x2026;. In SDCC it&amp;apos;s declared thus: __code uchar table[] = &amp;#x2026;.&lt;/li&gt;&lt;li&gt;Keil uses for example: &lt;em&gt;interrupt 1 using 1&lt;/em&gt; to qualify an interrupt service routine (ISR) as hooking to interrupt vector 1 and using register bank 1. SDCC uses the syntax: &lt;em&gt;__interrupt(1) __using(1)&lt;/em&gt;. Note that Keil makes &lt;em&gt;interrupt&lt;/em&gt; and &lt;em&gt;using&lt;/em&gt; unavailable for symbols. Ditto for &lt;em&gt;sbit&lt;/em&gt; and &lt;em&gt;code&lt;/em&gt;. Oh and remember that in SDCC the ISRs (or at least a prototype) must appear in the file containing &lt;em&gt;main()&lt;/em&gt; or the vectors won&amp;apos;t get initialised. This wasn&amp;apos;t an issue for the sample programs as each was in a single C file.&lt;/li&gt;&lt;li&gt;Keil has a data type">
+<meta property="og:image" content="https://cdn.hackaday.io/images/744191585018724733.jpg">
+
+<style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/l?subset_id=2&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/d?subset_id=2&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/a?subset_id=2&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-display:auto;}@font-face{font-family:letter-gothic-std;src:url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}</style><style class="redactor-placeholder-style-tag">#redactor-uuid-0.redactor-placeholder::after { top: 10px; left: 10px; }</style></head>
+<body>
+    
+
+<div class="header hfr-has-background-black" id="header">
+
+    
+
+    <div class="hfr-container hfr-is-max-widescreen">
+
+        <nav class="hfr-navbar" role="navigation" aria-label="main navigation">
+
+            <div class="hfr-navbar-brand">
+                <a href="https://hackaday.io/" title="Hackaday.io Home" class="hfr-navbar-item logo">
+                    <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/logo-squares.png" alt="Hackaday.io" class="hfr-is-hidden-touch hfr-is-hidden-widescreen" width="33px" height="23px">
+                    <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/hackaday-logo.svg" alt="Hackaday.io" class="hfr-is-hidden-desktop-only" width="138px" height="17px">
+                </a>
+
+                <a role="button" class="hfr-navbar-burger hfr-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="hfr-navbar-menu">
+                
+                <div class="hfr-navbar-start">
+                    <div class="hfr-navbar-item hfr-has-dropdown hfr-is-hoverable">
+                        <a href="https://hackaday.io/projects" class="hfr-navbar-link hfr-is-arrowless hfr-is-family-secondary">Projects 
+
+
+
+
+    <div class="icon hfr-icon hfr-ml-3 hfr-has-text-grey hfr-is-hidden-touch">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 9.702l4.79-4.79a.707.707 0 111 .999l-5.14 5.14a.705.705 0 01-.652.197.712.712 0 01-.646-.196l-5.14-5.14a.703.703 0 01-.004-1.002.708.708 0 011.003.004L8 9.702z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+</a>
+                        <div class="hfr-navbar-dropdown hfr-is-hidden-touch">
+                            <a href="https://hackaday.io/projects?sort=updated" class="hfr-navbar-item">Recently Updated</a>
+                            <a href="https://hackaday.io/projects?sort=skulls" class="hfr-navbar-item">Most Likes</a>
+                            <a href="https://hackaday.io/projects?sort=date" class="hfr-navbar-item">Newest</a>
+                            <a href="https://hackaday.io/lists" class="hfr-navbar-item">Project Lists</a>
+                        </div>
+                    </div>
+                    <a href="https://hackaday.io/discover" class="hfr-navbar-item hfr-is-family-secondary ">Discover</a>
+                    <a href="https://hackaday.io/contests" class="hfr-navbar-item hfr-is-family-secondary ">Contests</a>
+                    <a href="https://hackaday.io/courses" class="hfr-navbar-item hfr-is-family-secondary hfr-is-hidden-desktop-only ">Courses</a>
+                    <a href="https://hackaday.io/stack" class="hfr-navbar-item hfr-is-family-secondary ">Stack</a>
+                    <div class="hfr-navbar-item hfr-has-dropdown hfr-is-hoverable">
+                        <a class="hfr-navbar-link hfr-is-arrowless hfr-is-family-secondary">More 
+
+
+
+
+    <div class="icon hfr-icon hfr-ml-3 hfr-has-text-grey hfr-is-hidden-touch">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 9.702l4.79-4.79a.707.707 0 111 .999l-5.14 5.14a.705.705 0 01-.652.197.712.712 0 01-.646-.196l-5.14-5.14a.703.703 0 01-.004-1.002.708.708 0 011.003.004L8 9.702z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+</a>
+                        <div class="hfr-navbar-dropdown">
+                            <a href="https://hackaday.io/courses" class="hfr-navbar-item hfr-is-hidden-touch hfr-is-hidden-widescreen">Courses</a>
+                            <a href="https://hackaday.io/list/159729" class="hfr-navbar-item">Tutorials</a>
+                            <a href="https://hackaday.io/events" class="hfr-navbar-item">Events</a>
+                            <a href="https://hackaday.io/hackerspaces" class="hfr-navbar-item">Hackerspaces</a>
+                            <a href="https://hackaday.io/hackers" class="hfr-navbar-item">Profiles</a>
+                            <a href="https://hackaday.com/" target="_blank" rel="noopener noreferrer" class="hfr-navbar-item">Hackaday.com</a>
+                            <a href="https://www.tindie.com/" target="_blank" rel="noopener noreferrer" class="hfr-navbar-item j-store-tracking">Tindie Marketplace</a>
+                        </div>
+                    </div>
+                    <div class="hfr-navbar-item nav search-holder" style="border-left: 1px solid #272727;">
+                        
+<form id="search-form" class="hfr-field hfr-has-addons" action="/search" onsubmit="return submitSearch();" method="GET">
+    <div class="hfr-control">
+        <input type="text" placeholder="Find projects and more" name="term" class="hfr-input hfr-is-static j-add-search t-input-search" id="add-search" autocomplete="off" pattern=".{2,}" required="" title="2 characters minimum">
+    </div>
+    <div class="control">
+        <button type="submit" class="hfr-button button-search" title="Search">
+            
+
+
+
+
+    <div class="icon hfr-icon hfr-is-medium">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M10.542 9.368a4.547 4.547 0 10-1.015 1.079c.04.086.094.166.165.237l2.727 2.727a.8.8 0 001.137.006.801.801 0 00-.006-1.136l-2.726-2.727a.812.812 0 00-.282-.185zm-1.72-.473a2.91 2.91 0 10-4.114-4.116 2.91 2.91 0 004.114 4.117z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+        </button>
+    </div>
+</form>
+
+                    </div>
+                </div>
+
+                
+
+                    <div class="hfr-navbar-end">
+                        <div class="hfr-navbar-item">
+                            <div class="hfr-buttons">
+                                <a href="https://hackaday.io/signup" class="hfr-button hfr-is-primary hfr-is-outlined">Sign up</a>
+                                <a href="https://hackaday.io/signin?returnUrl=%2Fproject%2F170540-adventures-with-a-stc89c52-development-board%2Flog%2F177065-notes-on-converting-keil-8051-c-to-sdcc-c" class="hfr-button hfr-is-text">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+
+                
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div id="topMessage" class="alert small hide">
+    <span class="j-top-content"></span>
+    <a href="javascript:void(0);" class="alert-close j-top-message-close" title="Close">
+        
+
+
+
+
+    <div class="icon icon-close-circle">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M10.047 10.658a.562.562 0 01-.398-.165L7.984 8.828 6.32 10.493a.562.562 0 01-.961-.398.56.56 0 01.164-.398L7.19 8.033 5.523 6.368a.561.561 0 11.795-.796l1.665 1.665L9.65 5.572a.563.563 0 01.795.796L8.78 8.033l1.665 1.664a.562.562 0 01-.398.961zm-2.062-7.5a4.875 4.875 0 10.002 9.75 4.875 4.875 0 00-.004-9.75zm0 10.875a6 6 0 110-12 6 6 0 010 12z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+ Close
+    </a>
+</div>
+
+
+
+
+<script>
+    var HIO = HIO || {};
+</script>
+
+
+    
+
+    
+        <div class="headline">
+    <div class="container">
+        
+            
+            <h1>Notes on converting Keil 8051 C to SDCC C</h1>
+            <p class="description-title">A project log for <a href="https://hackaday.io/project/170540">Adventures with a STC89C52 development board</a></p>
+            <p class="description-summary">Quick way to start with MCUs</p>
+            <div class="description-metainfo">
+                
+                    <span class="identity-card" data-id="344094"><a href="https://hackaday.io/hacker/344094-ken-yap"><img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/4879601597584952123_002.jpg" alt="Ken Yap">Ken Yap</a></span>
+                    <span class="bull">•</span>
+                
+                
+                <span class="time-card" style="margin: 0" title="a year ago">05/06/2020 at 23:56</span><span class="bull">•</span><a href="#discussion-list" title="See Comments"><span id="comment_count">5</span> Comments</a>
+            </div>
+        
+
+    </div>
+</div>
+
+
+        <div class="container post-content ">
+            <p>After having converted 30 odd sample programs from Keil C to SDCC, here is a summary of the differences I encountered.</p><ul><li>Keil
+ uses sbit to declare special bit registers using for example P0^7 to 
+refer to port 0 bit 7. SDCC uses __sbit and a different syntax. But 
+since most of the special registers are defined in SDCC includes, 
+usually it suffices define your symbol to be the same as say P0_7.</li><li>Putting
+ large constants, e.g. tables, in the RO code area in Keil is done with 
+the qualifier code after the type declaration, e.g. uchar code table{] =
+ …. In SDCC it's declared thus: __code uchar table[] = ….</li><li>Keil uses for example: <em>interrupt 1 using 1</em>
+ to qualify an interrupt service routine (ISR) as hooking to interrupt 
+vector 1 and using register bank 1. SDCC uses the syntax: <em>__interrupt(1) __using(1)</em>. Note that Keil makes <em>interrupt</em> and <em>using</em> unavailable for symbols. Ditto for <em>sbit</em> and <em>code</em>. Oh and remember that in SDCC the ISRs (or at least a prototype) must appear in the file containing <em>main()</em> or the vectors won't get initialised. This wasn't an issue for the sample programs as each was in a single C file.</li><li>Keil
+ has a data type called bit, usually used for booleans. I didn't see any
+ advantage so I converted those to char (which is actually uchar for the
+ 8051 architecture).</li><li>The standard include in Keil C appears to 
+be reg52.h. In SDCC it's 8051.h. Keil has additional includes like 
+intrins.h and math.h, but these are not needed for SDCC. stdlib.h should
+ be included if you use <em>abs()</em> with SDCC. stdio.h should be 
+included if you use printf and the ilk for the serial port, and in the 
+case of SDCC you need to implement <em>int putchar(int)</em> whereas 
+it's supplied in the Keil library. If you have a MCU with more special 
+registers then you should include the definitions for those. You may 
+need to create your own if somebody hasn't done it already.</li><li>Keil appears to define a special function called <em>_nop_()</em>. For SDCC just <em>#define</em> that to <em>__asm__("nop").</em></li><li>Not
+ really a compiler difference but since Keil runs on a case insensitive 
+OS, you can get away with #include &lt;reg52.H&gt; but you must respect 
+the filename case on Linux.</li><li>Again not a compiler difference but the sample programs often used defines like <em>#define uchar unsigned char</em>. I prefer to use typedefs.</li><li>Keil lets you get away with a mix of old style and new style function headers, like <em>int fun(int a,b)</em>, whereas you should use the standard <em>int fun(int a, int b)</em> in SDCC.</li><li>In
+ one initialisation of a structure, Keil let the programmer get away 
+with not properly nesting braces for a struct element. It was something 
+like this:</li></ul><pre class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fontentry</span> {</span>
+    uchar[<span class="hljs-number">3</span>];
+    uchar[<span class="hljs-number">16</span>];
+} f = { <span class="hljs-string">"AB"</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x01</span>, … };</pre><p>&nbsp;The initialisers for the second uchar array needs to be surrounded by braces according to the standard.<br></p><p>If I remember any other differences I'll edit this log.<br></p>
+        </div>
+
+        
+    <div class="container post-pagination">
+        <section class="section">
+            
+                <div class="prevnext-log-link">
+                    <a class="gray-link" href="https://hackaday.io/project/170540/log/177039#discussion-list">
+                        
+
+
+
+
+    <div class="icon icon-long-arrow-left">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M2.023 8.03l3.232-3.245v2.688h1.107v1.11H5.255v2.69L2.023 8.028zm5.506-.557h1.383v1.11H7.53v-1.11zm2.558 0h1.384v1.11h-1.384v-1.11zm2.55 0h1.385v1.11H12.64v-1.11z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+                    </a>
+                    <div class="prev-log-link-wrap">
+                        <span class="hfr-is-capitalized">Previous log</span>
+                        <h3 class="element-title">
+                            <a href="https://hackaday.io/project/170540/log/177039">
+                                Converted the charset of the sample programs
+                            </a>
+                        </h3>
+                        <small class="authorship"><span class="time-card" style="margin: 0" title="a year ago">05/06/2020 at 13:45</span>  •
+                            <a class="gray-link" href="https://hackaday.io/project/170540/log/177039#discussion-list">
+                                0 comments
+                            </a>
+                        </small>
+                    </div>
+                </div>
+            
+
+            
+                <div class="prevnext-log-link next-log-link">
+                    <a class="gray-link" href="https://hackaday.io/project/170540/log/177115#discussion-list">
+                        
+
+
+
+
+    <div class="icon icon-long-arrow-right">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M14.023 8.03L10.79 4.784v2.688H9.685v1.11h1.107v2.69l3.233-3.244zm-5.506-.557H7.133v1.11h1.384v-1.11zm-2.56 0H4.575v1.11h1.384v-1.11zm-2.55 0H2.023v1.11h1.384v-1.11z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+                    </a>
+                    <div class="next-log-link-wrap">
+                        <span class="hfr-is-capitalized">Next log</span>
+                        <h3 class="element-title">
+                            <a href="https://hackaday.io/project/170540/log/177115">
+                                Ran sample programs through translator
+                            </a>
+                        </h3>
+                        <small class="authorship"><span class="time-card" style="margin: 0" title="a year ago">05/08/2020 at 01:33</span>  •
+                            <a class="gray-link" href="https://hackaday.io/project/170540/log/177115#discussion-list">
+                                0 comments
+                            </a>
+                        </small>
+                    </div>
+                </div>
+            
+        </section>
+    </div>
+
+
+
+        
+            <div class="container post-content post-comments" id="post-comments">
+                <section class="section last">
+    <h2 id="j-discussions-title" class="section-title">Discussions</h2>
+
+    <form id="j-discussion-add-top" action="/discussions/add" name="add-comment" method="POST" class="skip-global-form discussion-form j-discussion-add hide">
+
+        <div class="redactor-box" role="application" dir="ltr"><span class="redactor-voice-label" id="redactor-voice-0" aria-hidden="false">Rich text editor</span><div class="redactor-layer redactor-styles redactor-layer-img-edit redactor-in redactor-relative redactor-placeholder" aria-labelledby="redactor-voice-0" role="presentation" id="redactor-uuid-0" spellcheck="true" dir="ltr" style="min-height: 78px;" placeholder="Add your comment" contenteditable="true"><p>​</p></div><textarea placeholder="Add your comment" name="comment" class="redactor-comment textarea-field" style="display: none;"></textarea></div>
+
+        <div class="error-message alert-danger hide" id="addCommentErrorMessageTop"></div>
+
+        <input type="hidden" name="categoryId" value="177065">
+        <input type="hidden" name="category" value="log">
+        <input type="hidden" name="_csrf" value="yK8dWTXn-rZ2IH3kWJa6t5PZx_ly-rFbcPWc">
+        <input type="hidden" name="replyTo" value="0">
+
+        <input type="submit" class="button-grey-gold-medium" value="Post comment">
+    </form>
+
+    <div id="discussion-list" class="discussion-list">
+        
+<p>
+    </p><div class="signup-holder textarea-holder">
+        <textarea placeholder="Log In or become a member to leave your comment" name="comment" class="editable input-comment" style="height: 72.6px;"></textarea>
+    </div>
+    <a href="#" class="button-grey-gold-small login-comment login-button">Log In/Sign up to comment</a>
+<p></p>
+<div class="modal-content-holder onboarding-modal login-modal" id="login-modal">
+        <div class="onboarding-signup">
+        <div class="onboarding-top">
+    <div class="submissions-close modal-close">
+        
+
+
+
+
+    <div class="icon icon-close">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 6.99L4.767 3.76a.714.714 0 10-1.01 1.01L6.992 8 3.76 11.233a.714.714 0 101.01 1.01L8 9.008l3.233 3.232a.714.714 0 101.01-1.01L9.008 8l3.232-3.233a.714.714 0 10-1.01-1.01L8 6.992z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+    </div>
+
+    <div class="onboarding-holder">
+        <div class="headline">
+            <h1 class="title text-center">
+                Become a Hackaday.io Member
+            </h1>
+            <p class="text-center">
+                <span>Create an account to leave a comment.</span>
+                <span>Already have an account?</span>
+                <a href="https://hackaday.io/signin" class="should-link">Log In</a>.
+            </p>
+        </div>
+        <div class="onboarding-content signin-holder">
+            <div class="signin-left">
+                <a href="https://hackaday.io/auth/github" class="sign-in-with-github-button button j-dialog-auth-window">
+                    
+
+
+
+
+    <div class="icon icon-github--signin">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M3.643 7.513c-.158-.45-.228-.967-.228-1.543 0-1.024.33-1.41.77-1.955-.337-1.167.122-1.965.122-1.965s.71-.142 2.05.79c.728-.303 2.666-.328 3.584-.068.563-.36 1.593-.873 2.008-.73.113.176.355.688.147 1.813.14.247.874.772.877 2.258-.012.548-.07 1.01-.18 1.402.02 0-.14.485-.177.484C12.13 9.034 11.13 9.42 9.52 9.58c.522.32.672.72.672 1.802 0 1.083-.015 1.23-.012 1.478.006.408.623.604.6.736-.023.13-.517.11-.747.032-.654-.22-.588-.75-.588-.75l-.022-1.447s.044-.78-.253-.78v2.37c0 .516.372.672.372.863 0 .327-.68-.03-.888-.235-.32-.31-.283-.97-.275-1.49.006-.502-.006-1.603-.006-1.603l-.216.005s.088 2.403-.114 2.84c-.263.563-1.054.757-1.054.5 0-.172.194-.117.302-.503.093-.33.06-2.78.06-2.78s-.253.146-.253.605c0 .21-.007 1.41-.007 1.767 0 .45-.657.705-.973.705-.16 0-.36-.008-.36-.09 0-.208.602-.33.602-.762 0-.375-.008-1.34-.008-1.34s-.304.052-.736.052c-1.09 0-1.435-.675-1.6-1.053a1.859 1.859 0 00-.784-.908c-.18-.113-.222-.247-.013-.285.966-.175 1.212 1.063 1.857 1.26.46.14 1.052.08 1.346-.105.04-.378.32-.705.554-.877-1.64-.153-2.612-.705-3.116-1.593-.005 0-.236-.482-.217-.482z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+                    <span>Sign up with Github</span>
+                </a>
+                <a href="https://hackaday.io/auth/twitter" class="sign-in-with-twitter-button button j-dialog-auth-window">
+                    
+
+
+
+
+    <div class="icon icon-twitter--signin">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M10.725 2.04c1.2-.022 1.837.406 2.447.946.517-.044 1.19-.324 1.586-.52.128-.07.256-.138.385-.207-.226.595-.533 1.062-1.004 1.416-.106.08-.21.186-.34.237v.007c.67-.007 1.225-.304 1.75-.463v.007c-.276.428-.65.863-1.05 1.175l-.482.374c.008.692-.01 1.355-.144 1.94-.773 3.388-2.82 5.688-6.064 6.674-1.165.355-3.046.5-4.38.175-.662-.16-1.26-.34-1.82-.58a7.252 7.252 0 01-.877-.44l-.272-.162c.302.01.654.09.99.038.305-.048.604-.035.884-.094.7-.15 1.322-.35 1.858-.653.26-.15.654-.324.838-.537a2.706 2.706 0 01-.92-.16c-1.002-.346-1.585-.98-1.964-1.933.303.032 1.177.11 1.38-.058-.38-.02-.748-.236-1.01-.397C1.71 8.333 1.053 7.51 1.058 6.24c.106.048.21.1.317.147.202.083.408.127.65.177.102.02.305.078.423.037h-.015c-.156-.176-.41-.296-.567-.484-.517-.628-1-1.592-.695-2.74.08-.29.202-.55.334-.785l.015.007c.06.122.193.214.278.316.264.32.59.607.92.86 1.132.862 2.15 1.39 3.785 1.784.415.1.894.175 1.39.177-.14-.395-.095-1.035.015-1.42.275-.96.874-1.654 1.752-2.025a3.8 3.8 0 01.687-.208c.126-.013.252-.027.378-.043" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+                    <span>Sign up with Twitter</span>
+                </a>
+                <span class="or-separator">OR</span>
+            </div>
+                
+            <div class="signin-right">
+                <form id="onboarding-ga" action="/signupfast" method="POST">
+                <input type="text" class="input-field" placeholder="Enter your email address" required="" name="email">
+                <input type="password" class="input-field" placeholder="Pick a secure password" required="" name="password">
+                
+                <input id="captchaInput" type="text" class="input-field onboarding-modal-captcha" placeholder="Enter captcha" name="captcha" autocomplete="new-password" style="width: -webkit-calc(100% - 115px);">
+                <a href="https://hackaday.io/captcha.jpg#1619735618977" target="_blank"><img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/captcha.svg" id="captchaUrl" style="vertical-align: middle;" class="onboarding-modal-captcha"></a>
+                <input type="hidden" name="okay_to_redirect" value="true">
+
+                <input type="hidden" name="source" value="/project : alternate modal">
+                <button class="gold-gold-button button-signin" type="submit">Sign up</button>
+                <input type="hidden" name="_csrf" value="yK8dWTXn-rZ2IH3kWJa6t5PZx_ly-rFbcPWc">
+                <input type="hidden" class="input-field" placeholder="Invitation Code" required="" name="invitation_code" value="5Ad0ix2-b96J">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+</div>
+
+
+
+
+
+    
+    
+
+    <div id="j-discussion-144740" data-level="1" class="discussions-item" style="margin-left: 0px;">
+        <div class="discussions-item-image">
+
+            <a href="https://hackaday.io/hacker/173240">
+                <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/1716821486850835333.jpg" alt="">
+            </a>
+
+            
+        </div>
+        <div class="discussions-item-body">
+            <small class="authorship">
+
+                <span class="identity-card" data-id="173240"><a href="https://hackaday.io/hacker/173240-thomas">Thomas</a></span>
+
+                wrote <a class="gray-link" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c/discussion-144740"><span class="time-card" style="margin: 0" title="a year ago">05/10/2020 at 09:29</span></a>
+
+                <span id="comment-points-holder-144740" class="hide">
+                    • <span id="comment-points-144740">
+                         point
+                    </span>
+                </span>
+
+            </small>
+            <div class="comment-content">
+                <div id="comment-144740-content">
+                    <p>Thanks for the useful summary :-) I've done my 
+share of Keil C programming, and I told myself not to touch MCS51 
+anymore. But hey, with all the Nuvoton N76E003AT20 chips from modules 
+converted to STM8S003F3P6 lying around I might as well solder one to a 
+breakout board and try if SDCC MCS51 programming is any better ;-)<br></p>
+                </div>
+                <p id="comment-144740-editor" class="hide"></p>
+            </div>
+            <p>
+                <span class="comment-actions" id="actions-144740">
+                    
+                    
+                    &nbsp;
+                </span>
+                <span class="delete-confirm hide"><span class="delete-q">Are you sure?</span> <a href="#" class="delete-yes">yes</a> | <a href="#" class="delete-no">no</a></span>
+            </p>
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <div id="j-discussion-144910" data-level="2" class="discussions-item" style="margin-left: 25px;">
+        <div class="discussions-item-image">
+
+            <a href="https://hackaday.io/hacker/344094">
+                <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/4879601597584952123.jpg" alt="">
+            </a>
+
+            
+        </div>
+        <div class="discussions-item-body">
+            <small class="authorship">
+
+                <span class="identity-card" data-id="344094"><a href="https://hackaday.io/hacker/344094-ken-yap">Ken Yap</a></span>
+
+                wrote <a class="gray-link" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c/discussion-144910"><span class="time-card" style="margin: 0" title="a year ago">05/14/2020 at 01:04</span></a>
+
+                <span id="comment-points-holder-144910" class="hide">
+                    • <span id="comment-points-144910">
+                         point
+                    </span>
+                </span>
+
+            </small>
+            <div class="comment-content">
+                <div id="comment-144910-content">
+                    <p>I'd be interested in how you progress. As you may remember I investigated the Nuvoton MCS51 descendants a while back at <a target="_blank" rel="noopener noreferrer" href="https://hackaday.io/project/161242-board-development-for-nuvoton-n76e003">https://hackaday.io/project/161242-board-development-for-nuvoton-n76e003</a>
+ and concluded that the development tools weren't as cost effective and 
+convenient as those for the STM8. A NU-Link programmer, similar to the 
+ST-Link one is needed, and there is no open source equivalent to 
+stm8flash, though the Nuvoton ICP tool works under Wine. On the other 
+hand the STC chips can be programmed using the onboard serial loader.<br></p><p>Chinese
+ manufacturers make a lot of cheap MCUs (I'm still interested in those 
+3¢ Padauk MCUs) but it's a pity they don't leverage the power of open 
+software and hardware to disseminate their products wider. I guess they 
+have a sizeable domestic market.<br></p>
+                </div>
+                <p id="comment-144910-editor" class="hide"></p>
+            </div>
+            <p>
+                <span class="comment-actions" id="actions-144910">
+                    
+                    
+                    &nbsp;
+                </span>
+                <span class="delete-confirm hide"><span class="delete-q">Are you sure?</span> <a href="#" class="delete-yes">yes</a> | <a href="#" class="delete-no">no</a></span>
+            </p>
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <div id="j-discussion-144920" data-level="3" class="discussions-item" style="margin-left: 50px;">
+        <div class="discussions-item-image">
+
+            <a href="https://hackaday.io/hacker/173240">
+                <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/1716821486850835333.jpg" alt="">
+            </a>
+
+            
+        </div>
+        <div class="discussions-item-body">
+            <small class="authorship">
+
+                <span class="identity-card" data-id="173240"><a href="https://hackaday.io/hacker/173240-thomas">Thomas</a></span>
+
+                wrote <a class="gray-link" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c/discussion-144920"><span class="time-card" style="margin: 0" title="a year ago">05/14/2020 at 06:05</span></a>
+
+                <span id="comment-points-holder-144920" class="hide">
+                    • <span id="comment-points-144920">
+                         point
+                    </span>
+                </span>
+
+            </small>
+            <div class="comment-content">
+                <div id="comment-144920-content">
+                    <p>Well, I didn't progress any further than you did -
+ there is no open source way to replace a programmer that uses a 
+microcontroller's 2nd UART for programming. Normally the process of 
+recording and replaying serial data shouldn't be that complicated, 
+provided that it's not encrypted, requires an elusive timing or actually
+ isn't serial port data. Buying yet another programming box would maybe 
+be OK but using a miserable Windows GUI tool for playing with those 
+chips? Now way Jose!<br></p><p>Padauk: their take on building a 
+controller is really interesting. Their IDE not. SDCC has initial 
+support but the interesting architecture of the controller makes the 
+task of building a standard-compliant C compiler also "interesting" :-) 
+It might be something for Forth but the clean Harvard architecture and 
+the lack of self-programming capabilities makes limits it to 
+non-interactive programming.<br></p>
+                </div>
+                <p id="comment-144920-editor" class="hide"></p>
+            </div>
+            <p>
+                <span class="comment-actions" id="actions-144920">
+                    
+                    
+                    &nbsp;
+                </span>
+                <span class="delete-confirm hide"><span class="delete-q">Are you sure?</span> <a href="#" class="delete-yes">yes</a> | <a href="#" class="delete-no">no</a></span>
+            </p>
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <div id="j-discussion-144924" data-level="2" class="discussions-item" style="margin-left: 25px;">
+        <div class="discussions-item-image">
+
+            <a href="https://hackaday.io/hacker/344094">
+                <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/4879601597584952123.jpg" alt="">
+            </a>
+
+            
+        </div>
+        <div class="discussions-item-body">
+            <small class="authorship">
+
+                <span class="identity-card" data-id="344094"><a href="https://hackaday.io/hacker/344094-ken-yap">Ken Yap</a></span>
+
+                wrote <a class="gray-link" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c/discussion-144924"><span class="time-card" style="margin: 0" title="a year ago">05/14/2020 at 08:46</span></a>
+
+                <span id="comment-points-holder-144924" class="hide">
+                    • <span id="comment-points-144924">
+                         point
+                    </span>
+                </span>
+
+            </small>
+            <div class="comment-content">
+                <div id="comment-144924-content">
+                    <p>From what I understand SDCC for Padauk is closer 
+to C than the Padauk's own offering, which is more like a glorified 
+macro processor, doesn't even have a real for statement. I think SDCC 
+used the same trick as for MCS51 small model, put local variables in a 
+private static area, ruling out recursive calls, not a big loss. The 
+freepdk devs still have to nut out the code that's tuned to each OTP 
+unit.<br></p><p>Anyway enough of MCS51 for now for me. Time to pivot to other round tuits. Pandemic time can be productive time. :)<br></p>
+                </div>
+                <p id="comment-144924-editor" class="hide"></p>
+            </div>
+            <p>
+                <span class="comment-actions" id="actions-144924">
+                    
+                    
+                    &nbsp;
+                </span>
+                <span class="delete-confirm hide"><span class="delete-q">Are you sure?</span> <a href="#" class="delete-yes">yes</a> | <a href="#" class="delete-no">no</a></span>
+            </p>
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <div id="j-discussion-144967" data-level="3" class="discussions-item" style="margin-left: 50px;">
+        <div class="discussions-item-image">
+
+            <a href="https://hackaday.io/hacker/173240">
+                <img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/1716821486850835333.jpg" alt="">
+            </a>
+
+            
+        </div>
+        <div class="discussions-item-body">
+            <small class="authorship">
+
+                <span class="identity-card" data-id="173240"><a href="https://hackaday.io/hacker/173240-thomas">Thomas</a></span>
+
+                wrote <a class="gray-link" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c/discussion-144967"><span class="time-card" style="margin: 0" title="a year ago">05/15/2020 at 06:02</span></a>
+
+                <span id="comment-points-holder-144967" class="hide">
+                    • <span id="comment-points-144967">
+                         point
+                    </span>
+                </span>
+
+            </small>
+            <div class="comment-content">
+                <div id="comment-144967-content">
+                    <p>Yes, SDCC is as standard compliant as it gets 
+considering the constraints of the target. When programming something 
+like the MCS51 the data flow gets intractable fast when a Keil-C 
+"Fortran style" memory management approach is combined with "smart" 
+mapping of RAM to the bit addressable IRAM area (I've worked with one 
+old-hand programmer who had a habit of moving memory between XRAM and 
+that area at the begin of a routine/task/whatever so that he had a 
+choice of the addressing modes BIT, IRAM, IRAM indirect, XRAM and XRAM 
+with the DP of the MCS51-variant-of-the-day. Try cleaning up that mess 
+;-)<br></p>
+                </div>
+                <p id="comment-144967-editor" class="hide"></p>
+            </div>
+            <p>
+                <span class="comment-actions" id="actions-144967">
+                    
+                    
+                    &nbsp;
+                </span>
+                <span class="delete-confirm hide"><span class="delete-q">Are you sure?</span> <a href="#" class="delete-yes">yes</a> | <a href="#" class="delete-no">no</a></span>
+            </p>
+        </div>
+    </div>
+
+    
+
+
+
+
+<script type="text/javascript">
+
+    var pageIndex = 0;
+
+
+</script>
+    </div>
+
+    
+
+</section>
+
+
+
+
+            </div>
+        
+    
+
+    
+<div class="j-modal-confirmation modal-background"></div>
+<div class="j-modal-confirmation modal-content-holder">
+    <div class="close"><a href="" id="modal-cancel" title="Close"><span class="modal-close">
+        
+
+
+
+
+    <div class="icon icon-close">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 6.99L4.767 3.76a.714.714 0 10-1.01 1.01L6.992 8 3.76 11.233a.714.714 0 101.01 1.01L8 9.008l3.233 3.232a.714.714 0 101.01-1.01L9.008 8l3.232-3.233a.714.714 0 10-1.01-1.01L8 6.992z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+    </span></a></div>
+    <p class="text-center" id="modal-message"></p>
+    <p class="text-center">
+        <a class="grey-grey-button" id="modal-yes" href="javascript:void(0);" data-projecttype="project" data-projectid="170540" data-pageid="177065" data-pagetype="log">Yes, delete it</a>
+        <a class="gold-gold-button" id="modal-cancel" href="">Cancel</a>
+    </p>
+</div>
+
+    
+
+
+    <script>
+        var usersFromComments = '[{"id":173240,"username":"TG9541","screen_name":"Thomas","avatar_url":"https://cdn.hackaday.io/images/1716821486850835333.jpg"},{"id":344094,"username":"retiredfeline","screen_name":"Ken Yap","avatar_url":"https://cdn.hackaday.io/images/4879601597584952123.jpg"}]';
+    </script>
+
+
+
+    <div id="footer" class="footer ">
+    
+        <a href="#header" class="back-to-top">
+            
+
+
+
+
+    <div class="icon icon-long-arrow-up">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8.023 2.03L4.78 5.26h2.688v1.11h1.11V5.26h2.688L8.023 2.03zm-.555 5.505V8.92h1.11V7.534H7.47zm0 2.56v1.383h1.11v-1.384H7.47zm0 2.55v1.384h1.11v-1.385H7.47z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+ Going up?
+        </a>
+    
+    <p>
+        <a href="https://hackaday.com/about/">About Us</a>
+        <a href="mailto:projects-contact@hackaday.com">Contact Hackaday.io</a>
+        <a href="https://hackaday.io/project/37">Give Feedback</a> <a href="https://hackaday.io/tos">Terms of Use</a>
+        <a href="https://supplyframe.com/company/privacy">Privacy Policy</a>
+        <a href="https://dev.hackaday.io/" target="_blank" rel="noopener noreferrer">Hackaday API</a>
+    </p>
+    <p><a id="footer--home" href="https://hackaday.io/">© 2021 Hackaday</a></p>
+
+    
+</div>
+
+
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47229708-1', 'auto');
+
+    var dimensionValue = 'nonregistered';
+    ga('set', 'dimension1', dimensionValue);
+    ga('require', 'displayfeatures');
+
+    ga('send', 'pageview');
+</script>
+
+<script>
+    var csrftoken = 'yK8dWTXn-rZ2IH3kWJa6t5PZx_ly-rFbcPWc';
+</script>
+
+
+<img src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/impression" alt="" class="sf-impression" style="display: none !important;" hidden="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="Notes%20on%20converting%20Keil%208051%20C%20to%20SDCC%20C%20|%20Details%20|%20Hackaday.io_files/OkhhCeSBz5ZLBE4f7QZBTswUbzMyssop5H1caXZkXKImKPN7fCv0BjjjDWylH.js"></script>
+
+
+</body></html>

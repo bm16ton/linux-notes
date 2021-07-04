@@ -1,0 +1,75 @@
+/* Menú CSS, basado en www.meyerweb.com/eric/css/edge/menus/demo.html
+Extendido para dar margen de error al apuntar: aunque el ratón se salga 30px del borde, el menú no desaparace.
+
+Úsalo como quieras.  2004-2008. Daniel Clemente. 
+
+ */
+/*
+Notas sueltas:
+- Lo del margen de error al apuntar también sale en http://www.cssplay.co.uk/menus/flyout_4level.html
+- Otro estilo, en horizontal: http://www.cssplay.co.uk/menus/dd_valid_2.html
+*/
+
+/*
+Mi estructura:
+- div#menu
+ - ul#top
+  - li.sub: „menú“, ul:
+   - li: „índice“
+   - li: „Servidores“, ul:
+    - li: „Servidor instituto“
+    - li: „Mi servidor“
+    - ...
+   - li: „Internet“, ul:
+    - li: „Popup para IE“
+    - ...
+
+*/
+#menu ul {padding: 0; margin: 0;
+/*border-bottom: 1px solid silver;*/
+  font: 1em sans-serif;
+/*position:absolute;*/
+
+
+}
+
+#menu ul li {list-style-type: none; border: 1px solid silver;
+  border-width: 1px 1px 1px 3px;
+  position: relative;
+  z-index: 2; /* va porque tiene position ¬static. Esto es para que salga por encima de las pestañitas de idioma en portada */
+  margin: 0; padding: 0; 
+  text-indent:0px;
+
+}
+#menu ul ul {display: none; width: 10em; 
+ top:-30px; left:-30px; padding:30px;
+
+}
+#menu ul li:hover > ul {display: block;
+position: absolute;
+/* top: -1px; left: 100%; */
+top: -30px; left: 8em;
+}
+#menu li a {display: block; padding: 7px 9px; text-decoration: underline;
+  background: #FFE;}
+#menu ul#top li a:hover {background: #ffa500;}
+#menu li.sub > a {font-weight: bold; background: #FFC url(derecha.png) right no-repeat;
+  text-decoration: none; }
+#menu ul#top > li > a {background: #FFC url(abajo.png) right no-repeat; }
+
+#menu ul#top {width: 6em;}
+#menu ul#top > li:hover > ul {width: 10em;
+/*top: 1.7em; left: -3px;*/
+top: -30px; left:-30px;
+}
+#menu ul#top > li > a:hover {background: #0ee; text-transform:uppercase;}
+
+/* Estos colores sólo han de afectar al menú, no a toda la página */
+#menu li.sub > a {color:black;}
+#menu a[href]:link {color:blue;}
+#menu a[href]:visited {color:#007;}
+#menu a[href]:hover {color:red;}
+#menu * {font-size:100%; font-family:sans-serif; }
+
+/* Reglas globales para todas mis páginas: */
+body {margin:4%;}

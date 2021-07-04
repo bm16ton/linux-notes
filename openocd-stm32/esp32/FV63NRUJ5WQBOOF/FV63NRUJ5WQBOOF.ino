@@ -37,9 +37,9 @@ SSD1306 display (OLED_I2C_ADDR, OLED_SDA, OLED_SCL);
  * TODO: Change the following keys
  * NwkSKey: network session key, AppSKey: application session key, and DevAddr: end-device address
  *************************************/
-static u1_t NWKSKEY[16] = { .... };  // Paste here the key in MSB format
+static unsigned long NWKSKEY[16] = { 01234567891011121 };  // Paste here the key in MSB format
 
-static u1_t APPSKEY[16] = { .... };  // Paste here the key in MSB format
+static u1_t APPSKEY[16] = { 01234567891011121 };  // Paste here the key in MSB format
 
 static u4_t DEVADDR = 0x00000000;   // Put here the device id in hexadecimal form.
 

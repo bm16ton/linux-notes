@@ -1,0 +1,19 @@
+After puling pull-up resistors while hot the i2cscan.py instead of all zeros would show
+variations of
+
+    0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+ 0: W  W  W  W  W  W  W  W  W  W  W  W  W  W  W  W
+ 1: W  W  W  W  W  W  W  W  W  W  W  W  W  W  W  W
+ 2: W  W  W  W  W  W  W  W  W  W  W  W  W  W  W  W
+ 3: R  R  R  R  R  R  R  R  W  W  W  W  W  W  W  W
+ 4: W  W  W  W  W  W  W  W  W  W  W  W  W  W  W  W
+ 5: R  R  R  R  R  R  R  R  R  R  R  R  R  R  R  R
+ 6: W  W  W  W  W  W  W  W  W  W  W  W  W  W  W  W
+ 7: W  W  W  W  W  W  W  W  W
+
+after running that pyftdi i2c test would show in sniffer
+
+
+sudo i2cscan.py ftdi://ftdi:4232:16ton/1
+	~/src/pyftdi/pyftdi/tests
+i2c.py

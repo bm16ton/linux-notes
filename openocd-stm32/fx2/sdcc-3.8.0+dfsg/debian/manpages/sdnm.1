@@ -1,0 +1,119 @@
+.TH SDNM 1
+.SH NAME
+sdnm \- list symbols from object files. A part of SDCC
+.SH SYNOPSIS
+.B sdnm
+[\fI\,option(s)\/\fR] [\fI\,file(s)\/\fR]
+.SH DESCRIPTION
+.IP
+List symbols in [file(s)] (a.out by default).
+The options are:
+.TP
+\fB\-a\fR, \fB\-\-debug\-syms\fR
+Display debugger\-only symbols
+.TP
+\fB\-A\fR, \fB\-\-print\-file\-name\fR
+Print name of the input file before every symbol
+.TP
+\fB\-B\fR
+Same as \fB\-\-format\fR=\fI\,bsd\/\fR
+.TP
+\fB\-C\fR, \fB\-\-demangle\fR[=\fI\,STYLE\/\fR] Decode low\-level symbol names into user\-level names
+The STYLE, if specified, can be `auto' (the default),
+`gnu', `lucid', `arm', `hp', `edg', `gnu\-v3', `java'
+or `gnat'
+.TP
+\fB\-\-no\-demangle\fR
+Do not demangle low\-level symbol names
+.TP
+\fB\-D\fR, \fB\-\-dynamic\fR
+Display dynamic symbols instead of normal symbols
+.TP
+\fB\-\-defined\-only\fR
+Display only defined symbols
+.TP
+\fB\-e\fR
+(ignored)
+.TP
+\fB\-f\fR, \fB\-\-format\fR=\fI\,FORMAT\/\fR
+Use the output format FORMAT.  FORMAT can be `bsd',
+`sysv' or `posix'.  The default is `bsd'
+.TP
+\fB\-g\fR, \fB\-\-extern\-only\fR
+Display only external symbols
+.TP
+\fB\-l\fR, \fB\-\-line\-numbers\fR
+Use debugging information to find a filename and
+line number for each symbol
+.TP
+\fB\-n\fR, \fB\-\-numeric\-sort\fR
+Sort symbols numerically by address
+.TP
+\fB\-o\fR
+Same as \fB\-A\fR
+.TP
+\fB\-p\fR, \fB\-\-no\-sort\fR
+Do not sort the symbols
+.TP
+\fB\-P\fR, \fB\-\-portability\fR
+Same as \fB\-\-format\fR=\fI\,posix\/\fR
+.TP
+\fB\-r\fR, \fB\-\-reverse\-sort\fR
+Reverse the sense of the sort
+.TP
+\fB\-S\fR, \fB\-\-print\-size\fR
+Print size of defined symbols
+.TP
+\fB\-s\fR, \fB\-\-print\-armap\fR
+Include index for symbols from archive members
+.TP
+\fB\-\-size\-sort\fR
+Sort symbols by size
+.TP
+\fB\-\-special\-syms\fR
+Include special symbols in the output
+.TP
+\fB\-\-synthetic\fR
+Display synthetic symbols as well
+.TP
+\fB\-t\fR, \fB\-\-radix\fR=\fI\,RADIX\/\fR
+Use RADIX for printing symbol values
+.TP
+\fB\-\-target\fR=\fI\,BFDNAME\/\fR
+Specify the target object format as BFDNAME
+.TP
+\fB\-u\fR, \fB\-\-undefined\-only\fR
+Display only undefined symbols
+.TP
+\fB\-X\fR 32_64
+(ignored)
+.TP
+@FILE
+Read options from FILE
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display this information
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Display this program's version number
+.PP
+/usr/bin/sdnm: supported targets: asxxxx srec symbolsrec binary ihex
+.SH "REPORTING BUGS"
+Report bugs to <http://sourceforge.net/tracker/?group_id=599@report_bugs_to@atid=100599>.
+.SH COPYRIGHT
+Copyright 2012 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+.SH "SEE ALSO"
+The full documentation for
+.B nm
+is maintained as a Texinfo manual.  If the
+.B info
+and
+.B nm
+programs are properly installed at your site, the command
+.IP
+.B info nm
+.PP
+should give you access to the complete manual.

@@ -1,0 +1,278 @@
+.TH OBJCOPY 1
+.SH NAME
+sdobjcopy \- copy and translate object files. A part of SDCC
+.SH SYNOPSIS
+.B sdobjcopy
+[\fI\,option(s)\/\fR] \fI\,in-file \/\fR[\fI\,out-file\/\fR]
+.SH DESCRIPTION
+.IP
+Copies a binary file, possibly transforming it in the process
+The options are:
+.TP
+\fB\-I\fR \fB\-\-input\-target\fR <bfdname>
+Assume input file is in format <bfdname>
+.TP
+\fB\-O\fR \fB\-\-output\-target\fR <bfdname>
+Create an output file in format <bfdname>
+.TP
+\fB\-B\fR \fB\-\-binary\-architecture\fR <arch>
+Set output arch, when input is arch\-less
+.TP
+\fB\-F\fR \fB\-\-target\fR <bfdname>
+Set both input and output format to <bfdname>
+.TP
+\fB\-\-debugging\fR
+Convert debugging information, if possible
+.TP
+\fB\-p\fR \fB\-\-preserve\-dates\fR
+Copy modified/access timestamps to the output
+.TP
+\fB\-D\fR \fB\-\-enable\-deterministic\-archives\fR
+Produce deterministic output when stripping archives
+.TP
+\fB\-U\fR \fB\-\-disable\-deterministic\-archives\fR
+Disable \fB\-D\fR behavior (default)
+.TP
+\fB\-j\fR \fB\-\-only\-section\fR <name>
+Only copy section <name> into the output
+.TP
+\fB\-\-add\-gnu\-debuglink=\fR<file>
+Add section .gnu_debuglink linking to <file>
+.TP
+\fB\-R\fR \fB\-\-remove\-section\fR <name>
+Remove section <name> from the output
+.TP
+\fB\-S\fR \fB\-\-strip\-all\fR
+Remove all symbol and relocation information
+.TP
+\fB\-g\fR \fB\-\-strip\-debug\fR
+Remove all debugging symbols & sections
+.TP
+\fB\-\-strip\-dwo\fR
+Remove all DWO sections
+.TP
+\fB\-\-strip\-unneeded\fR
+Remove all symbols not needed by relocations
+.TP
+\fB\-N\fR \fB\-\-strip\-symbol\fR <name>
+Do not copy symbol <name>
+.TP
+\fB\-\-strip\-unneeded\-symbol\fR <name>
+Do not copy symbol <name> unless needed by
+.IP
+relocations
+.TP
+\fB\-\-only\-keep\-debug\fR
+Strip everything but the debug information
+.TP
+\fB\-\-extract\-dwo\fR
+Copy only DWO sections
+.TP
+\fB\-\-extract\-symbol\fR
+Remove section contents but keep symbols
+.TP
+\fB\-K\fR \fB\-\-keep\-symbol\fR <name>
+Do not strip symbol <name>
+.TP
+\fB\-\-keep\-file\-symbols\fR
+Do not strip file symbol(s)
+.TP
+\fB\-\-localize\-hidden\fR
+Turn all ELF hidden symbols into locals
+.TP
+\fB\-L\fR \fB\-\-localize\-symbol\fR <name>
+Force symbol <name> to be marked as a local
+.TP
+\fB\-\-globalize\-symbol\fR <name>
+Force symbol <name> to be marked as a global
+.TP
+\fB\-G\fR \fB\-\-keep\-global\-symbol\fR <name>
+Localize all symbols except <name>
+.TP
+\fB\-W\fR \fB\-\-weaken\-symbol\fR <name>
+Force symbol <name> to be marked as a weak
+.TP
+\fB\-\-weaken\fR
+Force all global symbols to be marked as weak
+.TP
+\fB\-w\fR \fB\-\-wildcard\fR
+Permit wildcard in symbol comparison
+.TP
+\fB\-x\fR \fB\-\-discard\-all\fR
+Remove all non\-global symbols
+.TP
+\fB\-X\fR \fB\-\-discard\-locals\fR
+Remove any compiler\-generated symbols
+.TP
+\fB\-i\fR \fB\-\-interleave\fR [<number>]
+Only copy N out of every <number> bytes
+.TP
+\fB\-\-interleave\-width\fR <number>
+Set N for \fB\-\-interleave\fR
+.TP
+\fB\-b\fR \fB\-\-byte\fR <num>
+Select byte <num> in every interleaved block
+.TP
+\fB\-\-gap\-fill\fR <val>
+Fill gaps between sections with <val>
+.TP
+\fB\-\-pad\-to\fR <addr>
+Pad the last section up to address <addr>
+.TP
+\fB\-\-set\-start\fR <addr>
+Set the start address to <addr>
+.TP
+{\-\-change\-start|\-\-adjust\-start} <incr>
+Add <incr> to the start address
+.TP
+{\-\-change\-addresses|\-\-adjust\-vma} <incr>
+Add <incr> to LMA, VMA and start addresses
+.TP
+{\-\-change\-section\-address|\-\-adjust\-section\-vma} <name>{=|+|\-}<val>
+Change LMA and VMA of section <name> by <val>
+.TP
+\fB\-\-change\-section\-lma\fR <name>{=|+|\-}<val>
+Change the LMA of section <name> by <val>
+.TP
+\fB\-\-change\-section\-vma\fR <name>{=|+|\-}<val>
+Change the VMA of section <name> by <val>
+.TP
+{\-\-[no\-]change\-warnings|\-\-[no\-]adjust\-warnings}
+Warn if a named section does not exist
+.TP
+\fB\-\-set\-section\-flags\fR <name>=<flags>
+Set section <name>'s properties to <flags>
+.TP
+\fB\-\-add\-section\fR <name>=<file>
+Add section <name> found in <file> to output
+.HP
+\fB\-\-rename\-section\fR <old>=<new>[,<flags>] Rename section <old> to <new>
+.TP
+\fB\-\-long\-section\-names\fR {enable|disable|keep}
+Handle long section names in Coff objects.
+.TP
+\fB\-\-change\-leading\-char\fR
+Force output format's leading character style
+.TP
+\fB\-\-remove\-leading\-char\fR
+Remove leading character from global symbols
+.TP
+\fB\-\-reverse\-bytes=\fR<num>
+Reverse <num> bytes at a time, in output sections with content
+.TP
+\fB\-\-redefine\-sym\fR <old>=<new>
+Redefine symbol name <old> to <new>
+.TP
+\fB\-\-redefine\-syms\fR <file>        \fB\-\-redefine\-sym\fR for all symbol pairs
+listed in <file>
+.TP
+\fB\-\-srec\-len\fR <number>
+Restrict the length of generated Srecords
+.TP
+\fB\-\-srec\-forceS3\fR
+Restrict the type of generated Srecords to S3
+.HP
+\fB\-\-strip\-symbols\fR <file>        \fB\-N\fR for all symbols listed in <file>
+.TP
+\fB\-\-strip\-unneeded\-symbols\fR <file>
+\fB\-\-strip\-unneeded\-symbol\fR for all symbols listed
+.IP
+in <file>
+.HP
+\fB\-\-keep\-symbols\fR <file>         \fB\-K\fR for all symbols listed in <file>
+.HP
+\fB\-\-localize\-symbols\fR <file>     \fB\-L\fR for all symbols listed in <file>
+.HP
+\fB\-\-globalize\-symbols\fR <file>    \fB\-\-globalize\-symbol\fR for all in <file>
+.HP
+\fB\-\-keep\-global\-symbols\fR <file>  \fB\-G\fR for all symbols listed in <file>
+.HP
+\fB\-\-weaken\-symbols\fR <file>       \fB\-W\fR for all symbols listed in <file>
+.TP
+\fB\-\-alt\-machine\-code\fR <index>
+Use the target's <index>'th alternative machine
+.TP
+\fB\-\-writable\-text\fR
+Mark the output text as writable
+.TP
+\fB\-\-readonly\-text\fR
+Make the output text write protected
+.TP
+\fB\-\-pure\fR
+Mark the output file as demand paged
+.TP
+\fB\-\-impure\fR
+Mark the output file as impure
+.TP
+\fB\-\-prefix\-symbols\fR <prefix>
+Add <prefix> to start of every symbol name
+.TP
+\fB\-\-prefix\-sections\fR <prefix>
+Add <prefix> to start of every section name
+.TP
+\fB\-\-prefix\-alloc\-sections\fR <prefix>
+Add <prefix> to start of every allocatable
+.IP
+section name
+.TP
+\fB\-\-file\-alignment\fR <num>
+Set PE file alignment to <num>
+.TP
+\fB\-\-heap\fR <reserve>[,<commit>]
+Set PE reserve/commit heap to <reserve>/
+<commit>
+.TP
+\fB\-\-image\-base\fR <address>
+Set PE image base to <address>
+.TP
+\fB\-\-section\-alignment\fR <num>
+Set PE section alignment to <num>
+.TP
+\fB\-\-stack\fR <reserve>[,<commit>]
+Set PE reserve/commit stack to <reserve>/
+<commit>
+.TP
+\fB\-\-subsystem\fR <name>[:<version>]
+Set PE subsystem to <name> [& <version>]
+.TP
+\fB\-\-compress\-debug\-sections\fR
+Compress DWARF debug sections using zlib
+.TP
+\fB\-\-decompress\-debug\-sections\fR
+Decompress DWARF debug sections using zlib
+.TP
+\fB\-v\fR \fB\-\-verbose\fR
+List all object files modified
+.TP
+@<file>
+Read options from <file>
+.TP
+\fB\-V\fR \fB\-\-version\fR
+Display this program's version number
+.TP
+\fB\-h\fR \fB\-\-help\fR
+Display this output
+.TP
+\fB\-\-info\fR
+List object formats & architectures supported
+.PP
+/usr/bin/sdobjcopy: supported targets: asxxxx srec symbolsrec binary ihex
+.SH "REPORTING BUGS"
+Report bugs to <http://sourceforge.net/tracker/?group_id=599@report_bugs_to@atid=100599>
+.SH COPYRIGHT
+Copyright 2012 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+.SH "SEE ALSO"
+The full documentation for
+.B objcopy
+is maintained as a Texinfo manual.  If the
+.B info
+and
+.B objcopy
+programs are properly installed at your site, the command
+.IP
+.B info objcopy
+.PP
+should give you access to the complete manual.

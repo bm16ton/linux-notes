@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html id="ie7" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Programming the ATtiny10 « irq5.io</title>
+<script id="twitter-wjs" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/widgets.js"></script><script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/fRHNVcaiae4VoU9pweXu4u0IReE.js"></script><link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://irq5.io/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/quintus/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<meta name="robots" content="max-image-preview:large">
+<meta name="google-site-verification" content="DZBbiJJGkXDCI_GriBuGM1M0cdw5zobXC_VZfM3yo4Y">
+
+
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://irq5.wordpress.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="dns-prefetch" href="https://a.teads.tv/">
+<link rel="dns-prefetch" href="https://prebid.media.net/">
+<link rel="dns-prefetch" href="https://adserver-us.adtech.advertising.com/">
+<link rel="dns-prefetch" href="https://fastlane.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://prebid-server.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://hb-api.omnitagjs.com/">
+<link rel="dns-prefetch" href="https://mtrx.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://apex.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://u.openx.net/">
+<link rel="alternate" type="application/rss+xml" title="irq5.io » Feed" href="https://irq5.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="irq5.io » Comments Feed" href="https://irq5.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="irq5.io » Programming the ATtiny10 Comments Feed" href="https://irq5.io/2010/07/15/programming-the-attiny10/feed/">
+<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1612197847h&ver=5.7.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a_004.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css">
+.has-text-align-justify {
+	text-align:justify;
+}
+</style>
+<link crossorigin="anonymous" rel="stylesheet" id="lato-css" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/css.css" media="all">
+<link rel="stylesheet" id="all-css-2-1" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-3-1" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/global-print.css" type="text/css" media="print">
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<link rel="stylesheet" id="all-css-6-1" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a_002.css" type="text/css" media="all">
+<script id="wpcom-actionbar-placeholder-js-extra">
+var actionbardata = {"siteID":"13419449","siteName":"irq5.io","siteURL":"https:\/\/irq5.io","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/quintus","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Firq5.io%252F2010%252F07%252F15%252Fprogramming-the-attiny10%252F","themeURL":"","xhrURL":"https:\/\/irq5.io\/wp-admin\/admin-ajax.php","nonce":"885ae70d11","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"e8b5c6c6e6\" \/>","referer":"https:\/\/irq5.io\/2010\/07\/15\/programming-the-attiny10\/","canFollow":"1","feedID":"12177958","statusMessage":"","customizeLink":"https:\/\/irq5.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Firq5.wordpress.com%2F2010%2F07%2F15%2Fprogramming-the-attiny10%2F","postID":"87","shortlink":"https:\/\/wp.me\/pUj0J-1p","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/irq5.io\/87","statsLink":"https:\/\/wordpress.com\/stats\/post\/87\/irq5.io","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Quintus","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 86 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Firq5.io%252F2010%252F07%252F15%252Fprogramming-the-attiny10%252F\">Log in now.<\/a>","stats":"Stats"}};
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a_002.js"></script>
+<script type="text/javascript">
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+</script>
+<link rel="stylesheet" id="all-css-0-2" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://irq5.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://irq5.io/2010/07/15/programming-the-attiny10/">
+<link rel="shortlink" href="https://wp.me/pUj0J-1p">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Firq5.io%2F2010%2F07%2F15%2Fprogramming-the-attiny10%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Firq5.io%2F2010%2F07%2F15%2Fprogramming-the-attiny10%2F&amp;for=wpcom-auto-discovery">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programming the ATtiny10">
+<meta property="og:url" content="https://irq5.io/2010/07/15/programming-the-attiny10/">
+<meta property="og:description" content="Recently I wanted to use a really tiny, low pin-count microcontroller for a project, so I decided to buy a few Atmel ATtiny10 to experiment with. To get it working, I would need a compiler and a pr…">
+<meta property="article:published_time" content="2010-07-15T14:03:56+00:00">
+<meta property="article:modified_time" content="2017-09-09T03:30:59+00:00">
+<meta property="og:site_name" content="irq5.io">
+<meta property="og:image" content="https://irq5.files.wordpress.com/2010/07/p1090680.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="400">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:creator" content="@zxcvgm">
+<meta name="twitter:site" content="@zxcvgm">
+<meta name="twitter:text:title" content="Programming the ATtiny10">
+<meta name="twitter:image" content="https://irq5.files.wordpress.com/2010/07/p1090680.jpg?w=640">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon" href="https://s2.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://irq5.io/?openidserver=1">
+<link rel="openid.delegate" href="https://irq5.io/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://irq5.io/osd.xml" title="irq5.io">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="application-name" content="irq5.io"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="adventures of an electronics &amp; software guy"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://irq5.io/feed/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="description" content="Recently I wanted to use a really tiny, low pin-count microcontroller for a project, so I decided to buy a few Atmel ATtiny10 to experiment with. To get it working, I would need a compiler and a programmer. I like working with Atmel chips because they have cross-platform development tools. The Arduino IDE that I've…">
+<style type="text/css">
+		.blog-header {
+			background: #181818 url(https://irq5.files.wordpress.com/2012/01/cropped-p1090420.jpg) no-repeat top center !important;
+			text-align: center;
+		}
+		.blog-header .site-branding {
+			background: url(https://s2.wp.com/wp-content/themes/pub/quintus/images/header.jpg) repeat;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			display: inline-block;
+			margin: 0 auto;
+			padding: 0 40px;
+		}
+		#site-title, #site-description {
+			display: block;
+		}
+		#site-title a:hover {
+			border-top-color: transparent;
+		}
+			</style>
+<script type="text/javascript">
+
+			window.doNotSellCallback = function() {
+
+				var linkElements = [
+					'a[href="https://wordpress.com/?ref=footer_blog"]',
+					'a[href="https://wordpress.com/?ref=footer_website"]',
+					'a[href="https://wordpress.com/?ref=vertical_footer"]',
+					'a[href^="https://wordpress.com/?ref=footer_segment_"]',
+				].join(',');
+
+				var dnsLink = document.createElement( 'a' );
+				dnsLink.href = 'https://wordpress.com/advertising-program-optout';
+				dnsLink.classList.add( 'do-not-sell-link' );
+				dnsLink.rel = 'nofollow';
+				dnsLink.style.marginLeft = '0.5em';
+				dnsLink.textContent = 'Do Not Sell My Personal Information';
+
+				var creditLinks = document.querySelectorAll( linkElements );
+
+				if ( 0 === creditLinks.length ) {
+					return false;
+				}
+
+				Array.prototype.forEach.call( creditLinks, function( el ) {
+					el.insertAdjacentElement( 'afterend', dnsLink );
+				});
+
+				return true;
+			};
+
+		</script>
+<script type="text/javascript">
+		function __ATA_CC() {var v = document.cookie.match('(^|;) ?personalized-ads-consent=([^;]*)(;|$)');return v ? 1 : 0;}
+		var __ATA_PP = { 'pt': 1, 'ht': 0, 'tn': 'quintus', 'amp': false, 'consent': __ATA_CC(), 'gdpr_applies': false, 'ad': { 'label': { 'text': 'Advertisements' }, 'reportAd': { 'text': 'Report this ad' } }, 'siteid': 8982, 'blogid': 13419449 };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+<script type="text/javascript">
+		(function(){var g=Date.now||function(){return+new Date};function h(a,b){a:{for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"==typeof a?a.charAt(b):a[b]};function k(a,b,c){c=null!=c?"="+encodeURIComponent(String(c)):"";if(b+=c){c=a.indexOf("#");0>c&&(c=a.length);var d=a.indexOf("?");if(0>d||d>c){d=c;var e=""}else e=a.substring(d+1,c);a=[a.substr(0,d),e,a.substr(c)];c=a[1];a[1]=b?c?c+"&"+b:b:c;a=a[0]+(a[1]?"?"+a[1]:"")+a[2]}return a};var l=0;function m(a,b){var c=document.createElement("script");c.src=a;c.onload=function(){b&&b(void 0)};c.onerror=function(){b&&b("error")};a=document.getElementsByTagName("head");var d;a&&0!==a.length?d=a[0]:d=document.documentElement;d.appendChild(c)}function n(a){var b=void 0===b?document.cookie:b;return(b=h(b.split("; "),function(c){return-1!=c.indexOf(a+"=")}))?b.split("=")[1]:""}function p(a){return"string"==typeof a&&0<a.length}
+		function r(a,b,c){b=void 0===b?"":b;c=void 0===c?".":c;var d=[];Object.keys(a).forEach(function(e){var f=a[e],q=typeof f;"object"==q&&null!=f||"function"==q?d.push(r(f,b+e+c)):null!==f&&void 0!==f&&(e=encodeURIComponent(b+e),d.push(e+"="+encodeURIComponent(f)))});return d.filter(p).join("&")}function t(a,b){a||((window.__ATA||{}).config=b.c,m(b.url))}var u=Math.floor(1E13*Math.random()),v=window.__ATA||{};window.__ATA=v;window.__ATA.cmd=v.cmd||[];v.rid=u;v.createdAt=g();var w=window.__ATA||{},x="s.pubmine.com";
+		w&&w.serverDomain&&(x=w.serverDomain);var y="//"+x+"/conf",z=window.top===window,A=window.__ATA_PP&&window.__ATA_PP.gdpr_applies,B="boolean"===typeof A?Number(A):null,C=window.__ATA_PP||null,D=z?document.referrer?document.referrer:null:null,E=z?window.location.href:document.referrer?document.referrer:null,F,G=n("__ATA_tuuid");F=G?G:null;var H=window.innerWidth+"x"+window.innerHeight,I=n("usprivacy"),J=r({gdpr:B,pp:C,rid:u,src:D,ref:E,tuuid:F,vp:H,us_privacy:I?I:null},"",".");
+		(function(a){var b=void 0===b?"cb":b;l++;var c="callback__"+g().toString(36)+"_"+l.toString(36);a=k(a,b,c);window[c]=function(d){t(void 0,d)};m(a,function(d){d&&t(d)})})(y+"?"+J);}).call(this);
+		</script><script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/conf"></script><link rel="amphtml" href="https://irq5.io/2010/07/15/programming-the-attiny10/amp/"><script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_gat._anonymizeIp']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ga.js"></script>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/services.css"><link href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/actionbar.css" type="text/css" rel="stylesheet"><script charset="utf-8" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/button.js"></script></head>
+<body class="post-template-default single single-post postid-87 single-format-standard customizer-styles-applied color-default highlander-enabled highlander-light">
+<div id="page" class="hfeed">
+<header class="blog-header" role="banner">
+<div class="site-branding">
+<h1 id="site-title"><a href="https://irq5.io/" title="irq5.io" rel="home">irq5.io</a></h1>
+<h2 id="site-description">adventures of an electronics &amp; software guy</h2>
+</div>
+</header>
+<nav id="access" role="navigation">
+<form method="get" id="searchform" action="https://irq5.io/">
+<input type="text" class="field" name="s" id="s" placeholder="Search">
+<label for="s" class="assistive-text">Search</label>
+<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+</form> <div class="menu-topnav-container"><ul id="menu-topnav" class="menu"><li id="menu-item-422" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-422"><a href="https://irq5.io/">Home</a></li>
+<li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427"><a href="https://irq5.io/about/">About</a></li>
+<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1338"><a title="Twitter" target="_blank" rel="author" href="https://twitter.com/zxcvgm">@zxcvgm</a></li>
+</ul></div> </nav>
+<div id="main">
+<div id="primary">
+<div class="content" id="content" role="main">
+<nav id="nav-above">
+<span class="permalink">
+Bookmark the <a href="https://irq5.io/2010/07/15/programming-the-attiny10/" title="Permalink to Programming the ATtiny10" rel="bookmark">permalink</a>. </span>
+</nav>
+<article id="post-87" class="post-87 post type-post status-publish format-standard hentry category-electronics tag-atmel tag-attiny tag-microcontrollers">
+<header class="entry-header">
+<h1 class="entry-title">Programming the ATtiny10</h1>
+<div class="entry-meta">
+<a class="entry-date" title="July 15 2010" href="https://irq5.io/2010/07/15/programming-the-attiny10/">
+<time datetime="2010-07-15T22:03:56+08:00">Jul<b>15</b></time>
+</a>
+<span class="entry-byline">
+by <span class="author vcard"><a class="url fn n" href="https://irq5.io/author/irq5/" title="View all posts by darell tan">darell tan</a></span> </span>
+</div>
+</header>
+<div class="entry-content">
+<p>Recently I wanted to use a really tiny, low pin-count microcontroller for a project, so I decided to buy a few <strong>Atmel ATtiny10</strong> to experiment with.</p>
+<p>To get it working, I would need a compiler and a programmer. I like 
+working with Atmel chips because they have cross-platform development 
+tools. The Arduino IDE that I’ve been using comes with <em>avr-gcc</em> and <em>avrdude</em>,
+ both of which are really awesome open source tools for compiling and 
+uploading code to the microcontrollers. If you just want the tools 
+without the Arduino IDE, you can get the WinAVR package.</p>
+<p>However both of these tools do not work with the ATtiny10 yet. I do 
+not expect a C compiler, but even the GNU assembler that comes with 
+avr-gcc still doesn’t support this chip. avrdude recently added support 
+for uploading to the ATtiny10, but only through the STK or AVRISP 
+programmer, which I didn’t want to fork out money to buy.</p>
+<p><span id="more-87"></span>The compiler problem was solved by downloading <a href="http://www.atmel.com/dyn/products/tools_card.asp?tool_id=2725" target="_blank">AVR Studio 4.18 SP2</a>
+ (download is free but requires registration), which comes with a 
+command-line assembler that supports the ATtiny10. I decided to solve 
+the avrdude problem by writing the bitbang code myself. <strong>(Update: this is now included in the avrdude 5.11 release)</strong></p>
+<p>I spent a couple of hours reading the existing avrdude code, and 
+thinking how I can properly integrate the code that talks the TPI 
+protocol instead of the usual serial downloading protocols used by the 
+more common ATmega’s.</p>
+<p>I made my own breakout board for the microcontroller, which I then hooked up to the <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=718" target="_blank">SparkFun FT232RL breakout board</a>.</p>
+<p><img data-attachment-id="88" data-permalink="https://irq5.io/2010/07/15/programming-the-attiny10/_p1090680/" data-orig-file="https://irq5.files.wordpress.com/2010/07/p1090680.jpg" data-orig-size="600,400" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;DMC-LX3&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1279222397&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;5.1&quot;,&quot;iso&quot;:&quot;80&quot;,&quot;shutter_speed&quot;:&quot;0.01&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="attiny10 bitbang programmer" data-image-description="" data-medium-file="https://irq5.files.wordpress.com/2010/07/p1090680.jpg?w=300" data-large-file="https://irq5.files.wordpress.com/2010/07/p1090680.jpg?w=600" class="aligncenter size-full wp-image-88" title="attiny10 bitbang programmer" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/p1090680.webp" alt="" srcset="https://irq5.files.wordpress.com/2010/07/p1090680.jpg 600w, https://irq5.files.wordpress.com/2010/07/p1090680.jpg?w=150 150w, https://irq5.files.wordpress.com/2010/07/p1090680.jpg?w=300 300w" sizes="(max-width: 600px) 100vw, 600px"></p>
+<p><img data-attachment-id="89" data-permalink="https://irq5.io/2010/07/15/programming-the-attiny10/attiny10-bitbang-prog/" data-orig-file="https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png" data-orig-size="387,248" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="attiny10 bitbang prog schematic" data-image-description="" data-medium-file="https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png?w=300" data-large-file="https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png?w=387" class="aligncenter size-full wp-image-89" title="attiny10 bitbang prog schematic" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/attiny10-bitbang-prog.png" alt="" srcset="https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png 387w, https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png?w=150 150w, https://irq5.files.wordpress.com/2010/07/attiny10-bitbang-prog.png?w=300 300w" sizes="(max-width: 387px) 100vw, 387px">The
+ FTDI breakout board is very handy, as it provides 5V power, as well as 
+all the signals required to program the chip. I’m using the board with 
+the VCCIO pin tied to the 3V3OUT pin and it works fine.</p>
+<p>I decided to use the same connections as a “dasa” programmer, which is documented in the <em>avrdude.conf</em>
+ file. One very important thing to take note when using the FTDI chip is
+ that the pins are all inverted, so my avrdude programmer definition 
+looks like this:</p>
+<pre>programmer
+  id    = "dasaftdi";
+  desc  = "FTDI serial port banging, reset=rts sck=dtr mosi=txd miso=cts";
+  type  = serbb;
+  reset = ~7;
+  sck   = ~4;
+  mosi  = ~3;
+  miso  = ~8;
+;</pre>
+<p>You can see that all the pin numbers have a tilde character in front 
+of them, to indicate that the polarity is inverted. I spent several days
+ of head scratching after I wrote the initial code to enable the TPI 
+interface and it didn’t work at all.</p>
+<p>After implementing the TPI protocol that uses the serial bit-bang 
+programer for avrdude, I finally got a simple program uploaded and 
+working.</p>
+<p>I will see if I can get the TPI bit-bang code integrated into the main avrdude tree so that other people may benefit from it.</p>
+<p><strong>Update</strong>: if you need to program an ATtiny4/5/9/10 right now, you can use the patch (against avrdude 5.10) that I’ve <a href="https://savannah.nongnu.org/patch/index.php?7244">submitted on the project patch tracker</a>.</p>
+<p><strong>Update 1-Sep-2011</strong>: Good news everyone! After about a year (from this post), <a href="https://savannah.nongnu.org/forum/forum.php?forum_id=6916" target="_blank">avrdude 5.11 has been released</a>
+ and it now has, among other things, the TPI bitbang implementation 
+included. Now we just need to wait until WinAVR releases Windows 
+binaries for Windows users.</p>
+<p><strong>Update 9-Sep-2017:</strong> The second part to this series, written some 7 years later, is <a href="https://irq5.io/2017/09/09/writing-code-for-the-attiny10/">now here</a>. It covers writing code for the ATtiny10 as well as other programming options.</p>
+<div id="atatags-370373-60c5357cd9c9d">
+<script type="text/javascript">
+            __ATA.cmd.push(function() {
+                __ATA.initVideoSlot('atatags-370373-60c5357cd9c9d', {
+                    sectionId: '370373',
+                    format: 'inread'
+                });
+            });
+        </script>
+</div> <div id="atatags-26942-60c5357cd9ccf"></div>
+<script>
+				__ATA.cmd.push(function() {
+					__ATA.initDynamicSlot({
+						id: 'atatags-26942-60c5357cd9ccf',
+						location: 120,
+						formFactor: '001',
+						label: {
+							text: 'Advertisements',
+						},
+						creative: {
+							reportAd: {
+								text: 'Report this ad',
+							},
+							privacySettings: {
+								text: 'Privacy',
+								
+							}
+						}
+					});
+				});
+			</script><div id="jp-post-flair" class="sharedaddy sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-official sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul data-sharing-events-added="true"><li class="share-twitter"><iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/tweet_button.html" data-url="https://irq5.io/2010/07/15/programming-the-attiny10/" frameborder="0"></iframe></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="1268" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://irq5.io/2017/09/09/writing-code-for-the-attiny10/" title="Writing Code for the ATtiny10" data-origin="87" data-position="0">Writing Code for the ATtiny10</a></span><time class="jp-relatedposts-post-date" datetime="9 Sep 2017" style="display: block;">9 Sep 2017</time><span class="jp-relatedposts-post-context">In "code"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="1245" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://irq5.io/2017/07/25/making-usbasp-chinese-clones-usable/" title="Making USBasp Chinese Clones Usable" data-origin="87" data-position="1">Making USBasp Chinese Clones Usable</a></span><time class="jp-relatedposts-post-date" datetime="25 Jul 2017" style="display: block;">25 Jul 2017</time><span class="jp-relatedposts-post-context">In "electronics"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="523" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://irq5.io/2012/03/24/diy-optical-slave-flash/" title="DIY Optical Slave Flash" data-origin="87" data-position="2">DIY Optical Slave Flash</a></span><time class="jp-relatedposts-post-date" datetime="24 Mar 2012" style="display: block;">24 Mar 2012</time><span class="jp-relatedposts-post-context">In "electronics"</span></p></div></div></div> </div>
+<footer class="entry-meta">
+This entry was posted in <a href="https://irq5.io/category/electronics/" rel="category tag">electronics</a> and tagged <a href="https://irq5.io/tag/atmel/" rel="tag">atmel</a>, <a href="https://irq5.io/tag/attiny/" rel="tag">attiny</a>, <a href="https://irq5.io/tag/microcontrollers/" rel="tag">microcontrollers</a>.
+</footer>
+</article>
+<nav id="nav-below">
+<h1 class="section-heading">Post navigation</h1>
+<div class="nav-previous"><a href="https://irq5.io/2010/07/09/prototyping-artwork/" rel="prev"><span class="meta-nav">←</span> Prototyping Artwork</a></div>
+<div class="nav-next"><a href="https://irq5.io/2010/07/26/drag-drop-in-windows-7-doesnt-work/" rel="next">Drag &amp; drop in Windows 7 doesn’t&nbsp;work <span class="meta-nav">→</span></a></div>
+</nav>
+<div id="comments">
+<h2 id="comments-title">
+29 comments on “<span>Programming the ATtiny10</span>” </h2>
+<ol class="commentlist">
+<li class="comment even thread-even depth-1 parent highlander-comment" id="comment-6">
+<div id="div-comment-6" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/547bc7ffea5667a1349a29467061e3bc.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-547bc7ffea5667a1349a29467061e3bc-0" width="32" height="32"> <cite class="fn">Artem</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-6">1 Oct 2010 at 12:18 am</a> </div>
+<p>Hello from russia)<br>
+Can i use simply com port to programm Tiny10?<br>
+What software me need to use for programm Attiny10, and where to place avrdude-tpi-bb.patch</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=6#respond" data-commentid="6" data-postid="87" data-belowelement="div-comment-6" data-respondelement="respond" data-replyto="Reply to Artem" aria-label="Reply to Artem">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor odd alt depth-2 highlander-comment" id="comment-7">
+<div id="div-comment-7" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-0" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-7">1 Oct 2010 at 10:59 pm</a> </div>
+<p>you cannot use the com port directly as the voltages are too high for
+ the attiny10. to use the com port, you need a “dumb” serial port 
+programmer, for example the DASA programmer here: <a href="https://www.adafruit.com/index.php?main_page=product_info&amp;cPath=16&amp;products_id=26" rel="nofollow ugc">http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=16&amp;products_id=26</a></p>
+<p>to program the attiny10, i used a modified version of avrdude. you 
+need to download the source for avrdude 5.10, then apply the patch to 
+the source code with a command like “patch -p1 &lt; 
+avrdude-tpi-bb.patch". you then need to compile the patched avrdude.</p>
+<p>ladyada has very nice tutorials on how to compile avrdude for linux/unix and mac os x here: <a href="http://www.ladyada.net/learn/avr/setup-unix.html" rel="nofollow ugc">http://www.ladyada.net/learn/avr/setup-unix.html</a></p>
+<p>this whole setup is not an easy way to program the attiny10, but it 
+is the cheapest way without buying extra hardware (other than the 
+Sparkfun breakout board).</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=7#respond" data-commentid="7" data-postid="87" data-belowelement="div-comment-7" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-odd thread-alt depth-1 parent highlander-comment" id="comment-8">
+<div id="div-comment-8" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/547bc7ffea5667a1349a29467061e3bc.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-547bc7ffea5667a1349a29467061e3bc-1" width="32" height="32"> <cite class="fn">Artem</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-8">2 Oct 2010 at 3:49 am</a> </div>
+<p>Thanks for answer! But i win user only.. can you help me?</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=8#respond" data-commentid="8" data-postid="87" data-belowelement="div-comment-8" data-respondelement="respond" data-replyto="Reply to Artem" aria-label="Reply to Artem">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor odd alt depth-2 highlander-comment" id="comment-10">
+<div id="div-comment-10" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-1" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-10">2 Oct 2010 at 10:52 am</a> </div>
+<p>unfortunately not. this process can be done on Windows but it is 
+quite troublesome and personally i’m using a Mac, which is more 
+convenient for compiling such software.</p>
+<p>you can either setup the whole compilation environment for Windows to
+ patch and compile avrdude, or you can wait until the patch is accepted 
+into the main avrdude tree (not anytime soon i think) and they will 
+release Windows binaries.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=10#respond" data-commentid="10" data-postid="87" data-belowelement="div-comment-10" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-even depth-1 parent highlander-comment" id="comment-11">
+<div id="div-comment-11" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/d448f3f887a50244e6ddcba475a02131.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-d448f3f887a50244e6ddcba475a02131-0" width="32" height="32"> <cite class="fn">PRosendahl</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-11">2 Oct 2010 at 10:28 pm</a> </div>
+<p>Hi,<br>
+I have done an USB-based TPI-programmer for the ATTiny10 family here:</p>
+<p><a href="http://www.avrfreaks.net/index.php?module=Freaks%20Academy&amp;func=viewItem&amp;item_type=project&amp;item_id=2461" rel="nofollow ugc">http://www.avrfreaks.net/index.php?module=Freaks%20Academy&amp;func=viewItem&amp;item_type=project&amp;item_id=2461</a></p>
+<p>It is based on VUSB-firmware and an ATTiny25.<br>
+Best,<br>
+PRosendahl</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=11#respond" data-commentid="11" data-postid="87" data-belowelement="div-comment-11" data-respondelement="respond" data-replyto="Reply to PRosendahl" aria-label="Reply to PRosendahl">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor odd alt depth-2 parent highlander-comment" id="comment-12">
+<div id="div-comment-12" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-2" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-12">3 Oct 2010 at 12:37 am</a> </div>
+<p>actually i did see your programmer when i was looking around for a 
+way to program my ATtiny10, but i guess writing the bitbang code would 
+be simpler in terms of hardware and easier to debug too.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=12#respond" data-commentid="12" data-postid="87" data-belowelement="div-comment-12" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment even depth-3 highlander-comment" id="comment-17">
+<div id="div-comment-17" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/d448f3f887a50244e6ddcba475a02131.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-d448f3f887a50244e6ddcba475a02131-1" width="32" height="32"> <cite class="fn">PRosendahl</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-17">17 Oct 2010 at 7:32 am</a> </div>
+<p>true <img draggable="false" role="img" class="emoji" alt="🙂" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/1f642.svg"><br>
+it was actually quite a bit of work to get the firmware into that little
+ chip ( = messy ), plus avr-gcc-bugs, plus no debugging with v-usb 
+firmware.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=17#respond" data-commentid="17" data-postid="87" data-belowelement="div-comment-17" data-respondelement="respond" data-replyto="Reply to PRosendahl" aria-label="Reply to PRosendahl">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-29">
+<div id="div-comment-29" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/3da29f489f183ab43a5199b29cf10b3a.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-3da29f489f183ab43a5199b29cf10b3a-0" width="32" height="32"> <cite class="fn">Archis Bhave</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-29">12 Dec 2010 at 3:08 am</a> </div>
+<p>Dear Darell</p>
+<p>This tutorial was a fantastic discovery, especially since ATTiny10 
+programming material is so sparse. However, could you please update the 
+FT232RL pins shown above to reflect what is used in the software 
+distributed on avrfreaks.net? My discovery was:<br>
+ATTiny10 Pin = FT232RL Pin<br>
+1) RESET = Tx<br>
+2) TPICLK = RTS<br>
+3) TPIDATA = RI (And pulled up to DTR)<br>
+I was able to program the device using the software provided. Being a 
+Linux user, I will try and port it to Python (The D2XX drivers work, 
+from previous experience).</p>
+<p>Thank you once again.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=29#respond" data-commentid="29" data-postid="87" data-belowelement="div-comment-29" data-respondelement="respond" data-replyto="Reply to Archis Bhave" aria-label="Reply to Archis Bhave">Reply</a></div>
+</div>
+</li>
+<li class="comment even thread-even depth-1 parent highlander-comment" id="comment-30">
+<div id="div-comment-30" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/3da29f489f183ab43a5199b29cf10b3a.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-3da29f489f183ab43a5199b29cf10b3a-1" width="32" height="32"> <cite class="fn">archis bhave</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-30">12 Dec 2010 at 5:02 am</a> </div>
+<p>Dear Darell</p>
+<p>The TinyProg software hangs while reading / writing flash at a byte 
+count of around 632. Is it possible that this is a bug in the FT232RL 
+driver? I am using a FT232RL driver that is one version older.</p>
+<p>Thank you.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=30#respond" data-commentid="30" data-postid="87" data-belowelement="div-comment-30" data-respondelement="respond" data-replyto="Reply to archis bhave" aria-label="Reply to archis bhave">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor odd alt depth-2 highlander-comment" id="comment-31">
+<div id="div-comment-31" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-3" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-31">14 Dec 2010 at 11:23 pm</a> </div>
+<p>bitbang methods are not the most reliable. </p>
+<p>i personally have not encountered any errors, but you may want to try
+ slowing down the speed by passing the -i (ISP clock delay) flag to 
+avrdude, or lower the baud rate using the -b flag.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=31#respond" data-commentid="31" data-postid="87" data-belowelement="div-comment-31" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="pingback even thread-odd thread-alt depth-1 highlander-comment" id="comment-107">
+<div id="div-comment-107" class="comment-body">
+<div class="comment-author vcard">
+<cite class="fn"><a href="http://www.nycresistor.com/2011/11/12/attiny10/" rel="external nofollow ugc" class="url">ATTiny10 playtime » NYC Resistor » Electronics, Hacking, Classes, and Workspace.</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-107">13 Nov 2011 at 12:54 pm</a> </div>
+<p>[…] Darrel Tan’s Programming the ATTiny10 instructions and a SOT-23 
+breakout board by Raphael, I was able to flash one of these very small 
+MCU chips. […]</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=107#respond" data-commentid="107" data-postid="87" data-belowelement="div-comment-107" data-respondelement="respond" data-replyto="Reply to ATTiny10 playtime » NYC Resistor » Electronics, Hacking, Classes, and Workspace." aria-label="Reply to ATTiny10 playtime » NYC Resistor » Electronics, Hacking, Classes, and Workspace.">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt thread-even depth-1 parent highlander-comment" id="comment-148">
+<div id="div-comment-148" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad203a1d72fc3ef0cad0d565b080ea26.jpeg" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-ad203a1d72fc3ef0cad0d565b080ea26-0" width="32" height="32"> <cite class="fn">Rick Shear</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-148">2 Feb 2012 at 7:51 pm</a> </div>
+<p>Just a note in case you weren’t aware, avrdude 5.11 Windows binary is now available in the arduino 1.0 release.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=148#respond" data-commentid="148" data-postid="87" data-belowelement="div-comment-148" data-respondelement="respond" data-replyto="Reply to Rick Shear" aria-label="Reply to Rick Shear">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-2 highlander-comment" id="comment-151">
+<div id="div-comment-151" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-4" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-151">8 Feb 2012 at 2:48 am</a> </div>
+<p>great! thanks for letting me know. wonder what happened to WinAVR releases.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=151#respond" data-commentid="151" data-postid="87" data-belowelement="div-comment-151" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1 parent highlander-comment" id="comment-186">
+<div id="div-comment-186" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/12e2b4b31358063f629f463e8d7bc978.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-12e2b4b31358063f629f463e8d7bc978-0" width="32" height="32"> <cite class="fn">matt venn</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-186">29 Jun 2012 at 9:29 pm</a> </div>
+<p>can you share your avrdude command line? I’m using avrdude 5.11:<br>
+./bin/avrdude -p attiny10 -c dasaftdi -P /dev/ttyUSB0 -U flash:w:test.hex -v -v -F<br>
+isn’t giving me what I expect on a scope. Am I missing something?</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=186#respond" data-commentid="186" data-postid="87" data-belowelement="div-comment-186" data-respondelement="respond" data-replyto="Reply to matt venn" aria-label="Reply to matt venn">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-2 highlander-comment" id="comment-187">
+<div id="div-comment-187" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-5" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-187">29 Jun 2012 at 9:43 pm</a> </div>
+<p>The command line is pretty standard, similar to what you have. The 
+part id should be “t10” though, unless you modified your avrdude.conf. 
+Also, it’s not good to ignore the device signature. </p>
+<p>If you still can’t get it to work, please let me know. I’d like to see this work for as many people as possible.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=187#respond" data-commentid="187" data-postid="87" data-belowelement="div-comment-187" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt depth-2 parent highlander-comment" id="comment-188">
+<div id="div-comment-188" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/12e2b4b31358063f629f463e8d7bc978.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-12e2b4b31358063f629f463e8d7bc978-1" width="32" height="32"> <cite class="fn">matt venn</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-188">29 Jun 2012 at 10:30 pm</a> </div>
+<p>I’ve now got lots of data visible on the mosi/miso line, a regular clock, but avrdude fails with avr device not responding…</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=188#respond" data-commentid="188" data-postid="87" data-belowelement="div-comment-188" data-respondelement="respond" data-replyto="Reply to matt venn" aria-label="Reply to matt venn">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-3 highlander-comment" id="comment-189">
+<div id="div-comment-189" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-6" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-189">29 Jun 2012 at 10:50 pm</a> </div>
+<p>Hmmm interesting… where does it fail? Do you mind sharing your log with all the bitbang_cmd_tpi debug output?</p>
+<p>You <em>are</em> using 5V right? That is the programming voltage required.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=189#respond" data-commentid="189" data-postid="87" data-belowelement="div-comment-189" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1 parent highlander-comment" id="comment-281">
+<div id="div-comment-281" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/7d08b531525102c9c5e59f201e3b893f.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-7d08b531525102c9c5e59f201e3b893f-0" width="32" height="32"> <cite class="fn">Steve Houtchen</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-281">10 Sep 2012 at 4:55 am</a> </div>
+<p>Darell,</p>
+<p>Does this programmer use the HVP method and apply 12v or the RST pin, so it will erase the<br>
+RSTDISBL fuse in the attiny chip inf PB3 is used fo I/O and the reset function has to be disabled?</p>
+<p>SteveH</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=281#respond" data-commentid="281" data-postid="87" data-belowelement="div-comment-281" data-respondelement="respond" data-replyto="Reply to Steve Houtchen" aria-label="Reply to Steve Houtchen">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-2 highlander-comment" id="comment-282">
+<div id="div-comment-282" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-7" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-282">11 Sep 2012 at 12:31 am</a> </div>
+<p>Hi Steve, this method uses 5V from the FTDI for the programming 
+voltage. You could however add a transistor on the RTS line (in this 
+case) to control a 12V supply to the RESET line instead for HV 
+programming – the TPI protocol is the same. As you’ve mentioned, it is 
+only necessary when the RSTDISBL fuse has been programmed.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=282#respond" data-commentid="282" data-postid="87" data-belowelement="div-comment-282" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1 parent highlander-comment" id="comment-283">
+<div id="div-comment-283" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/7d08b531525102c9c5e59f201e3b893f.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-7d08b531525102c9c5e59f201e3b893f-1" width="32" height="32"> <cite class="fn">Steve Houtchen</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-283">12 Sep 2012 at 9:42 am</a> </div>
+<p>darel</p>
+<p>have you tried this?, do i need to use any special commands in avrdude for this?<br>
+i read somewhere the timing of the programming algorithm is a little different<br>
+if you use hvp and put 12v on the rest pin.</p>
+<p>steveH</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=283#respond" data-commentid="283" data-postid="87" data-belowelement="div-comment-283" data-respondelement="respond" data-replyto="Reply to Steve Houtchen" aria-label="Reply to Steve Houtchen">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-2 parent highlander-comment" id="comment-284">
+<div id="div-comment-284" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-8" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-284">12 Sep 2012 at 11:53 pm</a> </div>
+<p>I have not tried this but there is no (significant) difference in the
+ timing. Refer to the ATtiny4/5/9/10 datasheet, section 14.3.1. You 
+require 5V on Vcc, and either 12V on the RESET pin or pull RESET low 
+after t<sub>TOUT</sub>. avrdude has no problems doing the latter, so 12V <i>shouldn’t</i> be a problem.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=284#respond" data-commentid="284" data-postid="87" data-belowelement="div-comment-284" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3 highlander-comment" id="comment-4529">
+<div id="div-comment-4529" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/b849691b80e6a43559c9f8f57e183a00.jpeg" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-b849691b80e6a43559c9f8f57e183a00-0" width="32" height="32"> <cite class="fn"><a href="https://gravatar.com/olliv3r" rel="external nofollow ugc" class="url">olliv3rliver</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-4529">30 Aug 2014 at 11:49 pm</a> </div>
+<p>Hey Darell,</p>
+<p>2 years later, and TPI info is still light. I am not very experienced with Attiny10 parts and TPI or HVP in general.</p>
+<p>So how would we do HVP using a buspirate (and a 12V supply) to clear 
+the reset fuse? With a chip this tiny, the reset pin is quite usefull.</p>
+<p>Maybe an updated blog post, using avrdude, a BP and normal + HV programming?</p>
+<p>Thanks for this in any case!</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=4529#respond" data-commentid="4529" data-postid="87" data-belowelement="div-comment-4529" data-respondelement="respond" data-replyto="Reply to olliv3rliver" aria-label="Reply to olliv3rliver">Reply</a></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment even thread-even depth-1 highlander-comment" id="comment-457">
+<div id="div-comment-457" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/0074cf30a101387be5853ae7771de5bf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-0074cf30a101387be5853ae7771de5bf-0" width="32" height="32"> <cite class="fn">Matt</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-457">9 Apr 2013 at 10:41 am</a> </div>
+<p>Thanks for taking the time to post these instructions… they worked perfectly for me, and saved me a lot of headache!</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=457#respond" data-commentid="457" data-postid="87" data-belowelement="div-comment-457" data-respondelement="respond" data-replyto="Reply to Matt" aria-label="Reply to Matt">Reply</a></div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1 parent highlander-comment" id="comment-4086">
+<div id="div-comment-4086" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/3469e43ce5f566a7dbf3493f929f025b.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-3469e43ce5f566a7dbf3493f929f025b-0" width="32" height="32"> <cite class="fn">Murn</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-4086">15 Aug 2014 at 8:23 pm</a> </div>
+<p>Hi,<br>
+my question is, did you used the ‘SparkFun FT232RL breakout board’ as an
+ AVRISP to programm the ATtiny10? But how could that work with TPI?</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=4086#respond" data-commentid="4086" data-postid="87" data-belowelement="div-comment-4086" data-respondelement="respond" data-replyto="Reply to Murn" aria-label="Reply to Murn">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-2 parent highlander-comment" id="comment-4101">
+<div id="div-comment-4101" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-9" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-4101">17 Aug 2014 at 1:51 pm</a> </div>
+<p>Yes that’s correct. Bit-bang type programmers have been around since 
+the DOS days with parallel and serial port programmers. The FT232RL acts
+ like a serial port. I just wrote the software part into avrdude to 
+communicate using the TPI protocol. </p>
+<p>Hope that answers your question.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=4101#respond" data-commentid="4101" data-postid="87" data-belowelement="div-comment-4101" data-respondelement="respond" data-replyto="Reply to darell tan" aria-label="Reply to darell tan">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3 parent highlander-comment" id="comment-4113">
+<div id="div-comment-4113" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/3469e43ce5f566a7dbf3493f929f025b.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-3469e43ce5f566a7dbf3493f929f025b-1" width="32" height="32"> <cite class="fn">Murn</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-4113">18 Aug 2014 at 7:18 am</a> </div>
+<p>Thanks for your answer but how does the avrdude software part looks like? If its ok.</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=4113#respond" data-commentid="4113" data-postid="87" data-belowelement="div-comment-4113" data-respondelement="respond" data-replyto="Reply to Murn" aria-label="Reply to Murn">Reply</a></div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-irq5 bypostauthor even depth-4 highlander-comment" id="comment-4121">
+<div id="div-comment-4121" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/dc261e29c2244c157a5e26214ec87faf.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-dc261e29c2244c157a5e26214ec87faf-10" width="32" height="32"> <cite class="fn"><a href="https://irq5.wordpress.com/" rel="external nofollow ugc" class="url">darell tan</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-4121">19 Aug 2014 at 12:04 am</a> </div>
+<p>Hi Murn, avrdude is open-source so you can download the source code 
+to take a look. If you are interested only in the part specific to TPI, I
+ have also linked to the patch tracker where you can find the patch. 
+Everything is linked in the article above.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1 highlander-comment" id="comment-14157">
+<div id="div-comment-14157" class="comment-body">
+<div class="comment-author vcard">
+<img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/11a7fd380a1bf99fcb75f6ba96646401.png" class="avatar avatar-32 grav-hashed grav-hijack" id="grav-11a7fd380a1bf99fcb75f6ba96646401-0" width="32" height="32"> <cite class="fn">David Mosberger</cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-14157">5 Mar 2016 at 10:44 am</a> </div>
+<p>To program an ATtiny9 using avrdude and either the linuxgpio driver 
+(e.g., on Raspberry Pi) or the usbtiny programmer (aka Sparkfun AVR 
+Pocket Programmer), the following patches can be used:</p>
+<p>– linuxgpio bug fix: <a href="https://savannah.nongnu.org/patch/?8922" rel="nofollow ugc">https://savannah.nongnu.org/patch/?8922</a><br>
+– linuxgpio TPI support: <a href="https://savannah.nongnu.org/patch/?8923" rel="nofollow ugc">https://savannah.nongnu.org/patch/?8923</a><br>
+– usbtiny TPI support: <a href="https://savannah.nongnu.org/patch/?8924" rel="nofollow ugc">https://savannah.nongnu.org/patch/?8924</a></p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=14157#respond" data-commentid="14157" data-postid="87" data-belowelement="div-comment-14157" data-respondelement="respond" data-replyto="Reply to David Mosberger" aria-label="Reply to David Mosberger">Reply</a></div>
+</div>
+</li>
+<li class="pingback even thread-odd thread-alt depth-1 highlander-comment" id="comment-116611">
+<div id="div-comment-116611" class="comment-body">
+<div class="comment-author vcard">
+<cite class="fn"><a href="https://www.cambiadeso.es/entradas/programando-el-attiny40-con-tpi-y-usbasp/" rel="external nofollow ugc" class="url">Programando el ATTiny40 con TPI y USBasp | Cambia de SO</a></cite> <span class="says">says:</span> </div>
+<div class="comment-meta commentmetadata">
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/#comment-116611">15 Apr 2021 at 6:03 pm</a> </div>
+<p>[…] artículos donde hablan de cómo desarrollar software para él, o 
+donde han creado un tipo de firmware para un adaptador USB-TTL, y lo que
+ mejor pinta tenía: un sketch de arduino que simulaba la interfaz TPI 
+para el […]</p>
+<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/?replytocom=116611#respond" data-commentid="116611" data-postid="87" data-belowelement="div-comment-116611" data-respondelement="respond" data-replyto="Reply to Programando el ATTiny40 con TPI y USBasp | Cambia de SO" aria-label="Reply to Programando el ATTiny40 con TPI y USBasp | Cambia de SO">Reply</a></div>
+</div>
+</li>
+</ol>
+<div id="respond" class="comment-respond js">
+<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://irq5.io/2010/07/15/programming-the-attiny10/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://irq5.io/wp-comments-post.php" method="post" id="commentform" class="comment-form"><input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="bb170db25e"><input type="hidden" name="_wp_http_referer" value="/2010/07/15/programming-the-attiny10/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+<div class="comment-form-field comment-textarea">
+
+<div id="comment-form-comment"><textarea aria-hidden="true" tabindex="-1" style="position: absolute; inset: -999px auto auto 0px; border: 0px none; padding: 0px; box-sizing: content-box; overflow-wrap: break-word; height: 0px !important; min-height: 0px !important; overflow: hidden; transition: none 0s ease 0s; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: rgba(0, 0, 0, 0.7); word-spacing: 0px; text-indent: 0px; line-height: normal; width: 618px;" class="autosizejs ">Enter your comment here...</textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; overflow: hidden; overflow-wrap: break-word; resize: none;"></textarea></div>
+</div>
+<div id="comment-form-identity" style="display: none;">
+<div id="comment-form-nascar">
+<p>Fill in your details below or click an icon to log in:</p>
+<ul>
+<li class="selected" style="display:none;">
+<a href="#comment-form-guest" id="postas-guest" class="nascar-signin-link" title="Login via Guest">
+</a>
+</li>
+<li>
+<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" class="nascar-signin-link" title="Login via WordPress.com">
+<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg> </a>
+</li>
+<li>
+<a href="#comment-form-load-service:Twitter" id="postas-twitter" class="nascar-signin-link" title="Login via Twitter">
+<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg> </a>
+</li>
+<li>
+<a href="#comment-form-load-service:Facebook" id="postas-facebook" class="nascar-signin-link" title="Login via Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg> </a>
+</li>
+</ul>
+</div>
+<div id="comment-form-guest" class="comment-form-service selected">
+<div class="comment-form-padder">
+<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank"> <img src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav grav-hashed grav-hijack" id="grav-ad516503a11cd5ca435acc9bb6523536-0" width="25">
+</a> </div>
+<div class="comment-form-fields">
+<div class="comment-form-field comment-form-email">
+<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+</div>
+<div class="comment-form-field comment-form-author">
+<label for="author">Name <span class="required">(required)</span></label>
+<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+</div>
+<div class="comment-form-field comment-form-url">
+<label for="url">Website</label>
+<div class="comment-form-input"><input id="url" name="url" type="url"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="comment-form-wordpress" class="comment-form-service">
+<div class="comment-form-padder">
+<div class="comment-form-avatar">
+<img src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad516503a11cd5ca435acc9bb6523536.png" alt="WordPress.com Logo" class="no-grav grav-hashed grav-hijack" id="grav-ad516503a11cd5ca435acc9bb6523536-1" width="25">
+</div>
+<div class="comment-form-fields">
+<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+<p class="comment-form-posting-as pa-wordpress">
+<strong></strong>
+You are commenting using your WordPress.com account. <span class="comment-form-log-out">
+(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+</span>
+<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comment-form-googleplus" class="comment-form-service">
+<div class="comment-form-padder">
+<div class="comment-form-avatar">
+<img src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google photo" class="no-grav grav-hashed grav-hijack" id="grav-ad516503a11cd5ca435acc9bb6523536-2" width="25">
+</div>
+<div class="comment-form-fields">
+<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+<p class="comment-form-posting-as pa-googleplus">
+<strong></strong>
+You are commenting using your Google account. <span class="comment-form-log-out">
+(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+</span>
+<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" x="0px" y="0px" viewBox="0 0 60 60"><path fill="#519bf7" d="M56.3,30c0,-1.6 -0.2,-3.4 -0.6,-5h-3.1H42.2H30v10.6h14.8C44,39.3 42,42 39.1,43.9l8.8,6.8C53,46 56.3,39 56.3,30z"></path><path fill="#3db366" d="M30,57.5c6.7,0 13.1,-2.4 17.9,-6.8l-8.8,-6.8c-2.5,1.6 -5.6,2.4 -9.1,2.4c-7.2,0 -13.3,-4.7 -15.4,-11.2l-9.3,7.1C9.8,51.3 19.1,57.5 30,57.5z"></path><path fill="#fdc600" d="M5.3,42.2l9.3,-7.1c-0.5,-1.6 -0.8,-3.3 -0.8,-5.1s0.3,-3.5 0.8,-5.1l-9.3,-7.1C3.5,21.5 2.5,25.6 2.5,30S3.5,38.5 5.3,42.2z"></path><path fill="#f15b44" d="M40.1,17.4l8,-8C43.3,5.1 37,2.5 30,2.5C19.1,2.5 9.8,8.7 5.3,17.8l9.3,7.1c2.1,-6.5 8.2,-11.1 15.4,-11.1C33.9,13.7 37.4,15.1 40.1,17.4z"></path></svg></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comment-form-twitter" class="comment-form-service">
+<div class="comment-form-padder">
+<div class="comment-form-avatar">
+<img src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav grav-hashed grav-hijack" id="grav-ad516503a11cd5ca435acc9bb6523536-3" width="25">
+</div>
+<div class="comment-form-fields">
+<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+<p class="comment-form-posting-as pa-twitter">
+<strong></strong>
+You are commenting using your Twitter account. <span class="comment-form-log-out">
+(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+</span>
+<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comment-form-facebook" class="comment-form-service">
+<div class="comment-form-padder">
+<div class="comment-form-avatar">
+<img src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav grav-hashed grav-hijack" id="grav-ad516503a11cd5ca435acc9bb6523536-4" width="25">
+</div>
+<div class="comment-form-fields">
+<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+<p class="comment-form-posting-as pa-facebook">
+<strong></strong>
+You are commenting using your Facebook account. <span class="comment-form-log-out">
+(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+</span>
+<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg></span>
+</p>
+</div>
+</div>
+</div>
+<div id="comment-form-load-service" class="comment-form-service">
+<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+<p>Connecting to %s</p>
+</div>
+</div>
+<script type="text/javascript">
+var highlander_expando_javascript = function () {
+
+	function hide( sel ) {
+		var el = document.querySelector( sel );
+		if ( el ) {
+			el.style.setProperty( 'display', 'none' );
+		}
+	}
+
+	function show( sel ) {
+		var el = document.querySelector( sel );
+		if ( el ) {
+			el.style.removeProperty( 'display' );
+		}
+	}
+
+	var input = document.createElement( 'input' );
+	var comment = document.querySelector( '#comment' );
+
+	if ( input && comment && 'placeholder' in input ) {
+		var label = document.querySelector( '.comment-textarea label' );
+		if ( label ) {
+			var text = label.textContent;
+			label.parentNode.removeChild( label );
+			comment.setAttribute( 'placeholder', text );
+		}
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	hide( '#comment-form-identity' );
+	hide( '#comment-form-subscribe' );
+	hide( '#commentform .form-submit' );
+
+	if ( comment ) {
+		comment.style.height = '10px';
+
+		var handler = function () {
+			comment.style.height = HighlanderComments.initialHeight + 'px';
+			show( '#comment-form-identity' );
+			show( '#comment-form-subscribe' );
+			show( '#commentform .form-submit' );
+			HighlanderComments.resizeCallback();
+
+			comment.removeEventListener( 'focus', handler );
+		};
+
+		comment.addEventListener( 'focus', handler );
+	}
+}
+
+if ( document.readyState !== 'loading' ) {
+	highlander_expando_javascript();
+} else {
+	if ( typeof window.jQuery === 'function' ) {
+		// Use jQuery's `ready` if available.
+		// This solves some scheduling issues between this script and the main highlander script.
+		jQuery( document ).ready( highlander_expando_javascript );
+	} else {
+		// If not available, add a vanilla event listener.
+		document.addEventListener( 'DOMContentLoaded', highlander_expando_javascript );
+	}
+}
+
+</script>
+<div id="comment-form-subscribe" style="display: none;">
+<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p><p class="post-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts via email.</label></p></div>
+<p class="form-submit wp-block-button" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit wp-block-button__link" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="87" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ac6a3b13be"></p>
+<input type="hidden" name="genseq" value="1623537020">
+<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100" style="display: none !important;"></textarea><input type="hidden" id="ak_js" name="ak_js" value="1623537022405"></form> </div>
+<div style="clear: both"></div><p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+</div>
+</div>
+<div id="secondary" class="widget-area" role="complementary">
+<aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Top Posts</h1><ul> <li>
+<a href="https://irq5.io/2020/08/10/custom-firmware-for-the-xiaomi-ax3600-wireless-router/" class="bump-view" data-bump-view="tp">Custom Firmware for the Xiaomi AX3600 Wireless Router</a> </li>
+<li>
+<a href="https://irq5.io/2012/06/25/the-apple-30-pin-dock-connector/" class="bump-view" data-bump-view="tp">The Apple 30-pin Dock Connector</a> </li>
+<li>
+<a href="https://irq5.io/2011/04/24/solving-the-facebook-no-internet-connection-problem/" class="bump-view" data-bump-view="tp">Solving the Facebook "No Internet Connection" Problem</a> </li>
+<li>
+<a href="https://irq5.io/2016/12/22/raspberry-pi-zero-as-multiple-usb-gadgets/" class="bump-view" data-bump-view="tp">Raspberry Pi Zero as Multiple USB Gadgets</a> </li>
+<li>
+<a href="https://irq5.io/2020/07/13/xiaomi-aiot-wireless-router-ax3600-review/" class="bump-view" data-bump-view="tp">Xiaomi AIoT Wireless Router AX3600 Review</a> </li>
+<li>
+<a href="https://irq5.io/2017/03/07/cracking-itunes-backup-passwords-with-hashcat/" class="bump-view" data-bump-view="tp">Cracking iTunes Backup Passwords with hashcat</a> </li>
+<li>
+<a href="https://irq5.io/2018/07/24/boot-time-device-tree-overlays-with-u-boot/" class="bump-view" data-bump-view="tp">Boot-time Device Tree Overlays with U-Boot</a> </li>
+<li>
+<a href="https://irq5.io/2011/03/10/optical-to-analog-audio-converter/" class="bump-view" data-bump-view="tp">Optical to analog audio converter</a> </li>
+<li>
+<a href="https://irq5.io/2010/07/15/programming-the-attiny10/" class="bump-view" data-bump-view="tp" aria-current="page">Programming the ATtiny10</a> </li>
+<li>
+<a href="https://irq5.io/2018/12/28/extending-asuswrt-functionality-part-2/" class="bump-view" data-bump-view="tp">Extending ASUSWRT Functionality, Part 2</a> </li>
+</ul></aside>
+<aside id="recent-posts-2" class="widget widget_recent_entries">
+<h1 class="widget-title">Recent Posts</h1>
+<ul>
+<li>
+<a href="https://irq5.io/2020/08/10/custom-firmware-for-the-xiaomi-ax3600-wireless-router/">Custom Firmware for the Xiaomi AX3600 Wireless&nbsp;Router</a>
+</li>
+<li>
+<a href="https://irq5.io/2020/07/13/xiaomi-aiot-wireless-router-ax3600-review/">Xiaomi AIoT Wireless Router AX3600&nbsp;Review</a>
+</li>
+<li>
+<a href="https://irq5.io/2020/05/25/batch-binary-analysis-with-ida-pro-7-4-automation/">Batch Binary Analysis with IDA Pro 7.4&nbsp;Automation</a>
+</li>
+<li>
+<a href="https://irq5.io/2019/09/30/generating-small-static-binaries/">Generating Small Static&nbsp;Binaries</a>
+</li>
+<li>
+<a href="https://irq5.io/2019/08/01/detailed-wireless-client-stats-with-collectd/">Detailed Wireless Client Stats with&nbsp;collectd</a>
+</li>
+</ul>
+</aside><aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h1 class="widget-title"></h1><div style="overflow:hidden"><a href="https://irq5.io/tag/android/" class="tag-cloud-link tag-link-641922 tag-link-position-1" style="font-size: 8pt;" aria-label="android (1 item)">android</a>
+<a href="https://irq5.io/tag/arduino/" class="tag-cloud-link tag-link-134289 tag-link-position-2" style="font-size: 18.111111111111pt;" aria-label="arduino (8 items)">arduino</a>
+<a href="https://irq5.io/tag/asuswrt/" class="tag-cloud-link tag-link-94720864 tag-link-position-3" style="font-size: 14.222222222222pt;" aria-label="asuswrt (4 items)">asuswrt</a>
+<a href="https://irq5.io/tag/atmel/" class="tag-cloud-link tag-link-294049 tag-link-position-4" style="font-size: 16.555555555556pt;" aria-label="atmel (6 items)">atmel</a>
+<a href="https://irq5.io/tag/attiny/" class="tag-cloud-link tag-link-10969282 tag-link-position-5" style="font-size: 14.222222222222pt;" aria-label="attiny (4 items)">attiny</a>
+<a href="https://irq5.io/tag/battery/" class="tag-cloud-link tag-link-135609 tag-link-position-6" style="font-size: 8pt;" aria-label="battery (1 item)">battery</a>
+<a href="https://irq5.io/tag/display/" class="tag-cloud-link tag-link-30164 tag-link-position-7" style="font-size: 8pt;" aria-label="display (1 item)">display</a>
+<a href="https://irq5.io/tag/firefox/" class="tag-cloud-link tag-link-45 tag-link-position-8" style="font-size: 8pt;" aria-label="firefox (1 item)">firefox</a>
+<a href="https://irq5.io/tag/frida/" class="tag-cloud-link tag-link-154100 tag-link-position-9" style="font-size: 8pt;" aria-label="Frida (1 item)">Frida</a>
+<a href="https://irq5.io/tag/ftdi-cable/" class="tag-cloud-link tag-link-52963212 tag-link-position-10" style="font-size: 12.666666666667pt;" aria-label="ftdi cable (3 items)">ftdi cable</a>
+<a href="https://irq5.io/tag/gps/" class="tag-cloud-link tag-link-3169 tag-link-position-11" style="font-size: 8pt;" aria-label="gps (1 item)">gps</a>
+<a href="https://irq5.io/tag/hack/" class="tag-cloud-link tag-link-16981 tag-link-position-12" style="font-size: 12.666666666667pt;" aria-label="hack (3 items)">hack</a>
+<a href="https://irq5.io/tag/hdmi/" class="tag-cloud-link tag-link-202816 tag-link-position-13" style="font-size: 8pt;" aria-label="HDMI (1 item)">HDMI</a>
+<a href="https://irq5.io/tag/hdmi-cec/" class="tag-cloud-link tag-link-599374 tag-link-position-14" style="font-size: 8pt;" aria-label="HDMI-CEC (1 item)">HDMI-CEC</a>
+<a href="https://irq5.io/tag/ida-pro/" class="tag-cloud-link tag-link-7498963 tag-link-position-15" style="font-size: 10.8pt;" aria-label="ida pro (2 items)">ida pro</a>
+<a href="https://irq5.io/tag/infrared/" class="tag-cloud-link tag-link-137956 tag-link-position-16" style="font-size: 12.666666666667pt;" aria-label="infrared (3 items)">infrared</a>
+<a href="https://irq5.io/tag/link/" class="tag-cloud-link tag-link-2717 tag-link-position-17" style="font-size: 22pt;" aria-label="link (15 items)">link</a>
+<a href="https://irq5.io/tag/logic-analyzer/" class="tag-cloud-link tag-link-4677215 tag-link-position-18" style="font-size: 10.8pt;" aria-label="logic analyzer (2 items)">logic analyzer</a>
+<a href="https://irq5.io/tag/magstripe/" class="tag-cloud-link tag-link-12000553 tag-link-position-19" style="font-size: 8pt;" aria-label="magstripe (1 item)">magstripe</a>
+<a href="https://irq5.io/tag/makerfaire/" class="tag-cloud-link tag-link-2310666 tag-link-position-20" style="font-size: 10.8pt;" aria-label="makerfaire (2 items)">makerfaire</a>
+<a href="https://irq5.io/tag/microcontrollers/" class="tag-cloud-link tag-link-139916 tag-link-position-21" style="font-size: 10.8pt;" aria-label="microcontrollers (2 items)">microcontrollers</a>
+<a href="https://irq5.io/tag/midi/" class="tag-cloud-link tag-link-62912 tag-link-position-22" style="font-size: 8pt;" aria-label="midi (1 item)">midi</a>
+<a href="https://irq5.io/tag/nfc/" class="tag-cloud-link tag-link-30167 tag-link-position-23" style="font-size: 8pt;" aria-label="nfc (1 item)">nfc</a>
+<a href="https://irq5.io/tag/partfinder/" class="tag-cloud-link tag-link-51053183 tag-link-position-24" style="font-size: 10.8pt;" aria-label="partfinder (2 items)">partfinder</a>
+<a href="https://irq5.io/tag/pcb/" class="tag-cloud-link tag-link-304802 tag-link-position-25" style="font-size: 16.555555555556pt;" aria-label="pcb (6 items)">pcb</a>
+<a href="https://irq5.io/tag/photography/" class="tag-cloud-link tag-link-436 tag-link-position-26" style="font-size: 10.8pt;" aria-label="photography (2 items)">photography</a>
+<a href="https://irq5.io/tag/poe/" class="tag-cloud-link tag-link-143835 tag-link-position-27" style="font-size: 10.8pt;" aria-label="PoE (2 items)">PoE</a>
+<a href="https://irq5.io/tag/rant/" class="tag-cloud-link tag-link-287 tag-link-position-28" style="font-size: 19.511111111111pt;" aria-label="rant (10 items)">rant</a>
+<a href="https://irq5.io/tag/raspberry-pi/" class="tag-cloud-link tag-link-49695267 tag-link-position-29" style="font-size: 16.555555555556pt;" aria-label="raspberry pi (6 items)">raspberry pi</a>
+<a href="https://irq5.io/tag/repair/" class="tag-cloud-link tag-link-65258 tag-link-position-30" style="font-size: 12.666666666667pt;" aria-label="repair (3 items)">repair</a>
+<a href="https://irq5.io/tag/reverse-engineering/" class="tag-cloud-link tag-link-49333 tag-link-position-31" style="font-size: 18.111111111111pt;" aria-label="reverse engineering (8 items)">reverse engineering</a>
+<a href="https://irq5.io/tag/review/" class="tag-cloud-link tag-link-1745 tag-link-position-32" style="font-size: 15.466666666667pt;" aria-label="review (5 items)">review</a>
+<a href="https://irq5.io/tag/sensor/" class="tag-cloud-link tag-link-283653 tag-link-position-33" style="font-size: 8pt;" aria-label="sensor (1 item)">sensor</a>
+<a href="https://irq5.io/tag/teardown/" class="tag-cloud-link tag-link-3075183 tag-link-position-34" style="font-size: 16.555555555556pt;" aria-label="teardown (6 items)">teardown</a>
+<a href="https://irq5.io/tag/video/" class="tag-cloud-link tag-link-412 tag-link-position-35" style="font-size: 14.222222222222pt;" aria-label="video (4 items)">video</a>
+<a href="https://irq5.io/tag/visualization/" class="tag-cloud-link tag-link-44111 tag-link-position-36" style="font-size: 8pt;" aria-label="visualization (1 item)">visualization</a>
+<a href="https://irq5.io/tag/windows/" class="tag-cloud-link tag-link-800 tag-link-position-37" style="font-size: 14.222222222222pt;" aria-label="windows (4 items)">windows</a>
+<a href="https://irq5.io/tag/z3/" class="tag-cloud-link tag-link-1408403 tag-link-position-38" style="font-size: 10.8pt;" aria-label="Z3 (2 items)">Z3</a></div></aside><aside id="categories-2" class="widget widget_categories"><h1 class="widget-title">Categories</h1>
+<ul>
+<li class="cat-item cat-item-291"><a href="https://irq5.io/category/apple/">apple</a>
+</li>
+<li class="cat-item cat-item-656"><a href="https://irq5.io/category/code/">code</a>
+</li>
+<li class="cat-item cat-item-16149055"><a href="https://irq5.io/category/ctfs/">CTFs</a>
+</li>
+<li class="cat-item cat-item-7334"><a href="https://irq5.io/category/electronics/">electronics</a>
+</li>
+<li class="cat-item cat-item-16981"><a href="https://irq5.io/category/hack/">hack</a>
+</li>
+<li class="cat-item cat-item-79"><a href="https://irq5.io/category/hardware/">hardware</a>
+</li>
+<li class="cat-item cat-item-324281"><a href="https://irq5.io/category/ios/">iOS</a>
+</li>
+<li class="cat-item cat-item-801"><a href="https://irq5.io/category/security/">security</a>
+</li>
+<li class="cat-item cat-item-13505"><a href="https://irq5.io/category/sysadmin/">sysadmin</a>
+</li>
+<li class="cat-item cat-item-1"><a href="https://irq5.io/category/uncategorized/">Uncategorized</a>
+</li>
+</ul>
+</aside><aside id="archives-2" class="widget widget_archive"><h1 class="widget-title">Archives</h1>
+<ul>
+<li><a href="https://irq5.io/2020/08/">August 2020</a></li>
+<li><a href="https://irq5.io/2020/07/">July 2020</a></li>
+<li><a href="https://irq5.io/2020/05/">May 2020</a></li>
+<li><a href="https://irq5.io/2019/09/">September 2019</a></li>
+<li><a href="https://irq5.io/2019/08/">August 2019</a></li>
+<li><a href="https://irq5.io/2019/05/">May 2019</a></li>
+<li><a href="https://irq5.io/2019/04/">April 2019</a></li>
+<li><a href="https://irq5.io/2019/01/">January 2019</a></li>
+<li><a href="https://irq5.io/2018/12/">December 2018</a></li>
+<li><a href="https://irq5.io/2018/07/">July 2018</a></li>
+<li><a href="https://irq5.io/2018/06/">June 2018</a></li>
+<li><a href="https://irq5.io/2018/05/">May 2018</a></li>
+<li><a href="https://irq5.io/2018/04/">April 2018</a></li>
+<li><a href="https://irq5.io/2017/10/">October 2017</a></li>
+<li><a href="https://irq5.io/2017/09/">September 2017</a></li>
+<li><a href="https://irq5.io/2017/08/">August 2017</a></li>
+<li><a href="https://irq5.io/2017/07/">July 2017</a></li>
+<li><a href="https://irq5.io/2017/03/">March 2017</a></li>
+<li><a href="https://irq5.io/2017/02/">February 2017</a></li>
+<li><a href="https://irq5.io/2016/12/">December 2016</a></li>
+<li><a href="https://irq5.io/2016/10/">October 2016</a></li>
+<li><a href="https://irq5.io/2016/08/">August 2016</a></li>
+<li><a href="https://irq5.io/2016/07/">July 2016</a></li>
+<li><a href="https://irq5.io/2016/06/">June 2016</a></li>
+<li><a href="https://irq5.io/2015/12/">December 2015</a></li>
+<li><a href="https://irq5.io/2015/10/">October 2015</a></li>
+<li><a href="https://irq5.io/2015/08/">August 2015</a></li>
+<li><a href="https://irq5.io/2015/07/">July 2015</a></li>
+<li><a href="https://irq5.io/2015/04/">April 2015</a></li>
+<li><a href="https://irq5.io/2015/01/">January 2015</a></li>
+<li><a href="https://irq5.io/2014/12/">December 2014</a></li>
+<li><a href="https://irq5.io/2014/11/">November 2014</a></li>
+<li><a href="https://irq5.io/2014/09/">September 2014</a></li>
+<li><a href="https://irq5.io/2014/08/">August 2014</a></li>
+<li><a href="https://irq5.io/2014/07/">July 2014</a></li>
+<li><a href="https://irq5.io/2014/04/">April 2014</a></li>
+<li><a href="https://irq5.io/2013/12/">December 2013</a></li>
+<li><a href="https://irq5.io/2013/10/">October 2013</a></li>
+<li><a href="https://irq5.io/2013/07/">July 2013</a></li>
+<li><a href="https://irq5.io/2013/06/">June 2013</a></li>
+<li><a href="https://irq5.io/2013/04/">April 2013</a></li>
+<li><a href="https://irq5.io/2013/03/">March 2013</a></li>
+<li><a href="https://irq5.io/2012/12/">December 2012</a></li>
+<li><a href="https://irq5.io/2012/08/">August 2012</a></li>
+<li><a href="https://irq5.io/2012/07/">July 2012</a></li>
+<li><a href="https://irq5.io/2012/06/">June 2012</a></li>
+<li><a href="https://irq5.io/2012/03/">March 2012</a></li>
+<li><a href="https://irq5.io/2012/02/">February 2012</a></li>
+<li><a href="https://irq5.io/2012/01/">January 2012</a></li>
+<li><a href="https://irq5.io/2011/12/">December 2011</a></li>
+<li><a href="https://irq5.io/2011/11/">November 2011</a></li>
+<li><a href="https://irq5.io/2011/10/">October 2011</a></li>
+<li><a href="https://irq5.io/2011/09/">September 2011</a></li>
+<li><a href="https://irq5.io/2011/08/">August 2011</a></li>
+<li><a href="https://irq5.io/2011/06/">June 2011</a></li>
+<li><a href="https://irq5.io/2011/05/">May 2011</a></li>
+<li><a href="https://irq5.io/2011/04/">April 2011</a></li>
+<li><a href="https://irq5.io/2011/03/">March 2011</a></li>
+<li><a href="https://irq5.io/2011/02/">February 2011</a></li>
+<li><a href="https://irq5.io/2011/01/">January 2011</a></li>
+<li><a href="https://irq5.io/2010/11/">November 2010</a></li>
+<li><a href="https://irq5.io/2010/10/">October 2010</a></li>
+<li><a href="https://irq5.io/2010/09/">September 2010</a></li>
+<li><a href="https://irq5.io/2010/08/">August 2010</a></li>
+<li><a href="https://irq5.io/2010/07/">July 2010</a></li>
+<li><a href="https://irq5.io/2010/06/">June 2010</a></li>
+<li><a href="https://irq5.io/2010/05/">May 2010</a></li>
+</ul>
+</aside><aside id="linkcat-1356" class="widget widget_links"><h1 class="widget-title">Blogroll</h1>
+<ul class="xoxo blogroll">
+<li><a href="https://www.adafruit.com/blog/" target="_blank">Adafruit Industries Blog</a></li>
+<li><a href="https://www.bunniestudios.com/blog/">bunnie studios</a></li>
+<li><a href="http://dangerousprototypes.com/" target="_blank">Dangerous Prototypes</a></li>
+<li><a href="https://hackaday.com/" target="_blank">Hack a Day</a></li>
+<li><a href="http://blog.makezine.com/" target="_blank">MAKE Blog</a></li>
+</ul>
+</aside>
+<aside id="meta-2" class="widget widget_meta"><h1 class="widget-title">Meta</h1>
+<ul>
+<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li> <li><a href="https://irq5.wordpress.com/wp-login.php">Log in</a></li>
+<li><a href="https://irq5.io/feed/">Entries feed</a></li>
+<li><a href="https://irq5.io/comments/feed/">Comments feed</a></li>
+<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>
+</ul>
+</aside> <div id="atatags-286348-60c5357cecb65"></div>
+<script>
+				__ATA.cmd.push(function() {
+					__ATA.initDynamicSlot({
+						id: 'atatags-286348-60c5357cecb65',
+						location: 140,
+						formFactor: '003',
+						label: {
+							text: 'Advertisements',
+						},
+						creative: {
+							reportAd: {
+								text: 'Report this ad',
+							},
+							privacySettings: {
+								text: 'Privacy',
+								
+							}
+						}
+					});
+				});
+			</script></div>
+</div>
+<footer class="blog-footer" id="colophon" role="contentinfo">
+<div id="site-generator">
+<a href="https://wordpress.com/?ref=footer_website" rel="nofollow">Create a free website or blog at WordPress.com.</a><a href="https://wordpress.com/advertising-program-optout" class="do-not-sell-link" rel="nofollow" style="margin-left: 0.5em;">Do Not Sell My Personal Information</a> </div>
+</footer>
+</div>
+
+<script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/gprofiles.js" id="grofiles-cards-js"></script>
+<script id="wpgroho-js-extra">
+var WPGroHo = {"my_hash":""};
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/wpgroho.js"></script>
+<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
+
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
+
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
+
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+<div style="display:none">
+<div class="grofile-hash-map-547bc7ffea5667a1349a29467061e3bc">
+</div>
+<div class="grofile-hash-map-dc261e29c2244c157a5e26214ec87faf">
+</div>
+<div class="grofile-hash-map-d448f3f887a50244e6ddcba475a02131">
+</div>
+<div class="grofile-hash-map-3da29f489f183ab43a5199b29cf10b3a">
+</div>
+<div class="grofile-hash-map-ad203a1d72fc3ef0cad0d565b080ea26">
+</div>
+<div class="grofile-hash-map-12e2b4b31358063f629f463e8d7bc978">
+</div>
+<div class="grofile-hash-map-7d08b531525102c9c5e59f201e3b893f">
+</div>
+<div class="grofile-hash-map-b849691b80e6a43559c9f8f57e183a00">
+</div>
+<div class="grofile-hash-map-0074cf30a101387be5853ae7771de5bf">
+</div>
+<div class="grofile-hash-map-3469e43ce5f566a7dbf3493f929f025b">
+</div>
+<div class="grofile-hash-map-11a7fd380a1bf99fcb75f6ba96646401">
+</div>
+</div>
+<script id="highlander-comments-js-extra">
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/irq5.wordpress.com\/public.api\/connect\/?action=request&domain=irq5.io","logoutURL":"https:\/\/irq5.wordpress.com\/wp-login.php?action=logout&_wpnonce=40cc72e3c8","homeURL":"https:\/\/irq5.io\/","postID":"87","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a_003.js"></script>
+
+<script type="text/javascript">
+			( function () {
+
+				var setupPrivacy = function() {
+
+					// Minimal Mozilla Cookie library
+					// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+					var cookieLib = window.cookieLib = {getItem:function(e){return e&&decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null},setItem:function(e,o,n,t,r,i){if(!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e))return!1;var c="";if(n)switch(n.constructor){case Number:c=n===1/0?"; expires=Fri, 31 Dec 9999 23:59:59 GMT":"; max-age="+n;break;case String:c="; expires="+n;break;case Date:c="; expires="+n.toUTCString()}return"rootDomain"!==r&&".rootDomain"!==r||(r=(".rootDomain"===r?".":"")+document.location.hostname.split(".").slice(-2).join(".")),document.cookie=encodeURIComponent(e)+"="+encodeURIComponent(o)+c+(r?"; domain="+r:"")+(t?"; path="+t:"")+(i?"; secure":""),!0}};
+
+					// Implement IAB USP API.
+					window.__uspapi = function( command, version, callback ) {
+
+						if ( typeof callback !== 'function' ) {
+							return;
+						}
+
+						if ( command !== 'getUSPData' || version !== 1 ) {
+							callback( null, false );
+							return;
+						}
+
+						// Check for GPC.
+						if ( navigator.globalPrivacyControl ) {
+							callback( { version: 1, uspString: '1YYN' }, true );
+							return;
+						}
+
+						// Check for cookie.
+						var consent = cookieLib.getItem( 'usprivacy' );
+
+						if ( null === consent ) {
+							callback( null, false );
+							return;
+						}
+
+						callback( { version: 1, uspString: consent }, true );
+					};
+
+					// Initialization.
+					document.addEventListener( 'DOMContentLoaded', function() {
+
+						var setDefaultOptInCookie = function() {
+							var value = '1YNN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 365 * 24 * 60 * 60, '/', domain );
+						};
+
+						var setCcpaAppliesCookie = function( value ) {
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'ccpa_applies', value, 24 * 60 * 60, '/', domain );
+						}
+
+						var maybeCallDoNotSellCallback = function() {
+							if ( 'function' === typeof window.doNotSellCallback ) {
+								return window.doNotSellCallback();
+							}
+
+							return false;
+						}
+
+						var usprivacyCookie = cookieLib.getItem( 'usprivacy' );
+
+						if ( null !== usprivacyCookie ) {
+							maybeCallDoNotSellCallback();
+							return;
+						}
+
+						var ccpaCookie = cookieLib.getItem( 'ccpa_applies' );
+
+						if ( null === ccpaCookie ) {
+
+							var request = new XMLHttpRequest();
+							request.open( 'GET', 'https://public-api.wordpress.com/geo/', true );
+
+							request.onreadystatechange = function () {
+								if ( 4 === this.readyState ) {
+									if ( 200 === this.status ) {
+
+										var data = JSON.parse( this.response );
+										var ccpa_applies = data['region'] && data['region'].toLowerCase() === 'california';
+
+										setCcpaAppliesCookie( ccpa_applies );
+
+										if ( ccpa_applies ) {
+											if ( maybeCallDoNotSellCallback() ) {
+												setDefaultOptInCookie();
+											}
+										}
+									} else {
+										setCcpaAppliesCookie( true );
+										if ( maybeCallDoNotSellCallback() ) {
+											setDefaultOptInCookie();
+										}
+									}
+								}
+							};
+
+							request.send();
+						} else {
+							if ( ccpaCookie === 'true' ) {
+								if ( maybeCallDoNotSellCallback() ) {
+									setDefaultOptInCookie();
+								}
+							}
+						}
+					} );
+				};
+
+				if ( window.defQueue && defQueue.isLOHP && defQueue.isLOHP === 2020 ) {
+					defQueue.items.push( setupPrivacy );
+				} else {
+					setupPrivacy();
+				}
+
+			} )();
+		</script>
+
+<script type="text/javascript">
+			( function( $ ) {
+				$( document.body ).on( 'post-load', function () {
+					if ( typeof __ATA.insertInlineAds === 'function' ) {
+						__ATA.insertInlineAds();
+					}
+				} );
+			} )( jQuery );
+			</script>
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20201002";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.js?v=20201002";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+<div class="jp-carousel-wrap jp-carousel-transitions" itemscope="" itemtype="https://schema.org/ImageGallery" style="display: none;">
+<div class="jp-carousel-overlay"></div>
+<div class="jp-carousel"></div>
+<div class="jp-carousel-fadeaway"></div>
+<div class="jp-carousel-info">
+<div class="jp-carousel-photo-info">
+<h2 class="jp-carousel-caption" itemprop="caption description"></h2>
+</div>
+<div class="jp-carousel-info-columns">
+<div class="jp-carousel-left-column-wrapper">
+<div class="jp-carousel-titleanddesc"></div>
+
+<div class="jp-carousel-photo-info">
+<h2 class="jp-carousel-caption" itemprop="caption description"></h2>
+</div>
+<div id="jp-carousel-comment-form-container">
+<form id="jp-carousel-comment-form">
+<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Write a Comment...</label>
+<textarea name="comment" class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea" id="jp-carousel-comment-form-comment-field" placeholder="Write a Comment..."></textarea>
+<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+<div id="jp-carousel-comment-form-commenting-as">
+<fieldset>
+<label for="jp-carousel-comment-form-email-field">Email (Required)</label>
+<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field">
+</fieldset>
+<fieldset>
+<label for="jp-carousel-comment-form-author-field">Name (Required)</label>
+<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field">
+</fieldset>
+<fieldset>
+<label for="jp-carousel-comment-form-url-field">Website</label>
+<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field">
+</fieldset>
+</div>
+<input type="submit" name="submit" class="jp-carousel-comment-form-button" id="jp-carousel-comment-form-button-submit" value="Post Comment">
+<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+<div id="jp-carousel-comment-post-results"></div>
+</div>
+</form>
+</div>
+<div class="jp-carousel-comments"></div>
+<div id="jp-carousel-comments-loading">
+<span>Loading Comments...</span>
+</div>
+</div>
+<div class="jp-carousel-image-meta">
+<div class="jp-carousel-buttons">
+<a class="jp-carousel-commentlink" href="#">Comment</a>
+</div>
+<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+<a class="jp-carousel-image-download" target="_blank" style="display: none;"></a>
+<div class="jp-carousel-image-map" style="display: none;"></div>
+</div>
+</div>
+</div>
+<div class="jp-carousel-next-button" style="display: none;">
+<span></span>
+</div>
+<div class="jp-carousel-previous-button" style="display: none;">
+<span></span>
+</div>
+<div class="jp-carousel-close-hint"><span>×</span></div>
+</div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<link rel="stylesheet" id="all-css-0-3" href="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a_003.css" type="text/css" media="all">
+<script id="jetpack-carousel-js-extra">
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/irq5.io\/wp-admin\/admin-ajax.php","nonce":"ed7cabfd76","display_exif":"1","display_comments":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/irq5.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Firq5.io%2F2010%2F07%2F15%2Fprogramming-the-attiny10%2F","blog_id":"13419449","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"stats_query_args":"blog=13419449&v=wpcom&tz=8&user_id=0&subd=irq5","is_public":"1"};
+</script>
+<script id="jetpack_related-posts-js-extra">
+var related_posts_js_options = {"post_heading":"h4"};
+</script>
+<script id="sharing-js-js-extra">
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/a.js"></script><div class="widget widget_eu_cookie_law_widget" style="display: block;">
+<div class="hide-on-button ads-active" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+<form method="post">
+<input type="submit" value="Close and accept" class="accept">
+Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+<a href="https://automattic.com/cookies" rel="nofollow">
+Cookie Policy </a>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/w.js" defer="defer"></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'13419449','blog_tz':'8','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'13419449','v':'wpcom','tz':'8','user_id':'0','post':'87','subd':'irq5'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3BuVT01Unp2dX5PUDBEM1czaSZSY2R5T0xYK2JaUWtKXTdxQmlfQmlZfldLbUw3RFgrcnl6JTVvMTR+NGl3XWRtMU5fWWwvNFhhdV1ZMjhYfGViSC1nJUFwNkkvQk9jb1VNSEFfdFBPdl9bcG05alg2eU1tfE5scTZzN0UzNWpBLUxQZFFyaj8yUCtHN11BS0Q5Py1rLVZsTFUsTWlEWENwZVI0V1ZOR2pxTWdDU3RhUVJkRS5LYm1Dd0VNT09sQS0weC56RWcrZUlVWWtXZmhJZVo9TTZ+Pz1ObmRNeX51TTN6WHJDcFhYdWt0Zj1CXz9Bc2ZiSmJ1NGs='}]);
+_stq.push([ 'clickTrackerInit', '13419449', '87' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<iframe scrolling="no" allowtransparency="true" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><script src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/actionbar.js" defer="defer"></script><div id="actionbar" class="actnbr-pub-quintus actnbr-has-follow actnbr-hidden"><ul><li class="actnbr-btn actnbr-hidden"> 				<a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a><a class="actnbr-action actnbr-actn-following no-display" href=""><svg class="gridicon gridicon__following" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"></path></g></svg><span>Following</span></a> 				<div class="actnbr-popover tip tip-top-left actnbr-notice"> 					<div class="tip-arrow"></div> 					<div class="tip-inner actnbr-follow-bubble"> 				<ul> 					<li class="actnbr-sitename actnbr-hidden"><a href="https://irq5.io/"><img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/wpcom-gray-white.png" class="avatar avatar-50" width="50" height="50"> irq5.io</a></li> 					<form> 					<li class="actnbr-login-nudge actnbr-hidden"><div>Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Firq5.io%252F2010%252F07%252F15%252Fprogramming-the-attiny10%252F">Log in now.</a></div></li> 				</form></ul> 			</div> 				</div> 					</li><li class="actnbr-ellipsis actnbr-hidden"> 				<svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 				<div class="actnbr-popover tip tip-top-left actnbr-more"> 				<div class="tip-arrow"></div> 				<div class="tip-inner"> 					<ul> 						<li class="actnbr-sitename actnbr-hidden"><a href="https://irq5.io/"><img alt="" src="Programming%20the%20ATtiny10%20%C2%AB%20irq5.io_files/wpcom-gray-white.png" class="avatar avatar-50" width="50" height="50"> irq5.io</a></li> 					<li class="actnbr-folded-customize actnbr-hidden"><a href="https://irq5.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Firq5.wordpress.com%2F2010%2F07%2F15%2Fprogramming-the-attiny10%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 						<li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a><a class="actnbr-action actnbr-actn-following no-display" href=""><svg class="gridicon gridicon__following" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"></path></g></svg><span>Following</span></a></li> 					<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">Sign up</a></li> 						<li class="actnbr-login actnbr-hidden"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Firq5.io%252F2010%252F07%252F15%252Fprogramming-the-attiny10%252F">Log in</a></li> 						 						<li class="actnbr-shortlink actnbr-hidden"><a href="https://wp.me/pUj0J-1p">Copy shortlink</a></li> 						<li class="flb-report actnbr-hidden"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 						 						 						<li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Manage subscriptions</a></li> 						<li class="actnbr-fold actnbr-hidden"><a href="">Collapse this bar</a></li> 						</ul> 					</div> 					</div> 				</li> 				</ul></div><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>

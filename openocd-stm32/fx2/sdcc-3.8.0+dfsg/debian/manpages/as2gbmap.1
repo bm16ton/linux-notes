@@ -1,0 +1,36 @@
+.TH AS2GBMAP "1" "November 2011"
+.SH NAME
+as2gbmap \- GameBoy binary image file format utility.
+.SH SYNOPSIS
+.B as2gbmap
+.RI [ options ] " files" ...
+.SH DESCRIPTION
+This manual page documents briefly the
+.B as2gbmap
+command.
+.PP
+\fBas2gbmap\fP generates GameBoy binary image file format, both rrgb map file format and no$gmb 
+sym file format from the sdld linker.
+.SH OPTIONS
+The program follows the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+For a complete description, see the Info files.
+.TP
+.B \-h, \-\-help
+Show summary of options.
+.TP
+.B \-\-version
+Show version of program.
+.TP
+.B \-j, --no$gmb
+Generate no$gmb symbol file (default:rrgb)
+.SH SEE ALSO
+.BR makebin (1),
+.BR sdld (1).
+.br
+.SH AUTHOR
+as2gbmap was written by Borut Razem <borut.razem@siol.net>.
+.PP
+This manual page was written by Gudjon I. Gudjonsson <gudjon@gudjon.org>,
+for the Debian project (and may be used by others).

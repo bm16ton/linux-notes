@@ -1,0 +1,38 @@
+AVcc         Analog Supply Voltage, 4.75 V to 5.25 V.
+AGND        Analog Ground
+OS          over sample select
+
+PAR/SER/             Parallel/Serial/Byte Interface Selection
+BYTE SEL             Input. Logic input. If this pin is tied to a logic low, the parallel interface is selected. If this pin is tied to a logic high,the serial interface is selected. Parallel byte       
+                     interface  mode is selected when this pin is logic high and DB15/BYTE SEL is logic high (see Table 8).In serial mode, 
+                     the RD/SCLK pin functions as the serial clock input. The DB7/DOUTA pin and the DB8/DOUTB pin function as serial data outputs.     
+                     DB[6:0] pins should be tied to ground.
+
+STBY                Standby Mode Input.
+RANGE               Analog Input Range Selection. Logic input. The polarity  on this pin deter-mines the input range of the analog input channels. If this pin is tied to a logic high, the  analog input range is ±10 V for all channels. 
+                    If this pin  is tied to a logic low, the analog input range is ±5 V  for all channels
+
+CONVST A,CONVST B   start conversion
+RD/SCLK             spi clock
+BUSY                pulled high busy, low readyto read IRQ?
+
+DB0:6               IN SPI PULL TO AGND
+
+VDRIVE              Logic Power Supply Input. The voltage (2.3 V to 5.25 V) supplied at this pin determines the operating voltage of the interface
+
+DB7/DOUTA           DOUTA and outputs serial conversion data
+DB8/DOUTB           Serial Interface Data Output Pin
+
+DB[13:9]            SPI   these pins should be tied to AGND
+
+DB14/HBEN           SPI     this pin should be tied to GND
+
+DB15/BYTE SEL       When PAR/SER/BYTE SEL = 1 and DB15/BYTE SEL = 0, the AD7606 operates in serial interface mode
+
+REFGND             AGND
+
+V1-8             This pin is a single-ended analog input
+
+
+
+

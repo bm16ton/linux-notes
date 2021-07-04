@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="mask-icon" href="https://learn.adafruit.com/assets/adafruit_favicon-453f71b4ee16f95ff1116c546abf95a38c6667f56243c17737d0da2b5ddb1fd2.svg" color="#000000">
+<link rel="shortcut icon" type="image/x-icon" href="https://learn.adafruit.com/assets/favicon-cca33e5a4305d640b54a688e71c81842ca8e7ade2824a5d56c3bc07d512a9773.ico">
+<title>Overview | Programming SPI flash with an FT232H breakout | Adafruit Learning System</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UjbV8ELBohrRxA0xSMVHVdMDiG3tWcoMCIl0QBRpQDoqGHHKqtqnIqbj3gBz6GZKj1KBQkTNQcsgIVnn80YOQw">
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="https://learn.adafruit.com/feed">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://learn.adafruit.com/feed.rss">
+<link rel="stylesheet" media="screen" href="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/application-a38e5b818a307302e05cfd7c47001fd781670b39a4f8844e.css" data-turbolinks-track="reload">
+<link rel="preload" href="https://learn.adafruit.com/assets/fontawesome-webfont-38af9ab8e8340ebba0182e7f6c9ec81038a1fcc162de3393a51bbb9a4153259d.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-light-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-semibold-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/nr-1208.js"></script><script type="text/javascript" async="" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/analytics.js"></script><script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+<meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+
+<meta name="turbolinks-cache-control" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"308175db61","applicationID":"54271218","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":1,"applicationTime":214,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"308175db61",applicationID:"54271218"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="guide-title" content="Programming SPI flash with an FT232H breakout">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adafruit">
+<meta name="twitter:title" content="Programming SPI flash with an FT232H breakout">
+<meta name="twitter:description" content="they're a dime a dozen. Lets use them!">
+<meta name="twitter:image:src" content="https://cdn-learn.adafruit.com/guides/images/000/001/687/medium800/ft232_ftdiprog_bb.png">
+<meta name="twitter:domain" content="https://learn.adafruit.com">
+<meta property="og:title" content="Programming SPI flash with an FT232H breakout">
+<meta property="og:description" content="Use an Adafruit FT232H and one command to program your favorite flash programmable chips.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cdn-learn.adafruit.com/guides/images/000/001/687/medium800/ft232_ftdiprog_bb.png">
+<meta property="og:url" content="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout/overview">
+<meta property="og:site_name" content="Adafruit Learning System">
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout/overview",
+        "name": "Programming SPI flash with an FT232H breakout",
+        "description": "Use an Adafruit FT232H and one command to program your favorite flash programmable chips.",
+        "publisher": "Adafruit",
+        "datePublished": "2017-07-03T23:43:27-04:00",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://learn.adafruit.com/search?q={search_term}",
+          "query-input": "required name=search_term"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Dean Miller"
+        }
+      }
+    </script>
+<!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+<script>
+    window.rails_env = 'production';
+  </script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/runtime-cb527e7747c00af9a1ce.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/207-c9c6369bb598e1418b64.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/301-b8400a0641a7ea1f26a5.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/411-2aef06340b4b5ef82cb5.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/49-5ade5d042c9572ee17e1.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/908-84556c5c9902ace920cd.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/712-6c4439221575d69e7ca6.js" data-turbolinks-track="reload" defer="defer"></script>
+<script src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/application-19938ad241f6d35f13d5.js" data-turbolinks-track="reload" defer="defer"></script>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+<body class="application pages show">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRPXBQ6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="outer-wrapper">
+<div id="inner-wrapper">
+<div id="messaging-wrapper" class="messages-container" data-load="https://www.adafruit.com/api/multi_message.php"><div role="alert" aria-labelledby="adafruit-message-101" class="messaging-container messaging-alert"><div class="msg-container"><div id="adafruit-message-101" class="message" data-message-id="101">Due to high demand expect some shipping delays at this time, orders may not ship for 1-2 business days.</div><i class="fa fa-times msg-close-btn"></i></div></div></div>
+<header id="adafruit-header" aria-label="Adafruit header">
+<div id="small-header">
+<div class="first-row">
+<nav aria-label="Adafruit applications menu">
+<ul class="application-links">
+<li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+<li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+<li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+<li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+<li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+<li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+<li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+</ul>
+</nav>
+</div>
+<div class="second-row">
+<div class="row-content">
+<div id="mobile-header-logo">
+<a href="https://learn.adafruit.com/">
+<img id="small-logo" alt="Adafruit Logo" title="Adafruit Logo" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/adafruit_logo_small.png" width="50" height="50">
+</a> </div>
+<button id="mobile-menu-button" class="c-hamburger c-hamburger--htx">
+<span>toggle menu</span>
+</button>
+<div id="mobile-search-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="mobile-search" style="display:none;">Search</label>
+<input id="mobile-search" type="text" name="q" autocomplete="off" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com" accesskey="f">
+<button type="submit" aria-label="Submit search"><i class="fa fa-search"></i></button>
+</form>
+</div>
+<a id="mobile-header-cart" href="https://www.adafruit.com/shopping_cart">
+<span class="small-cart-count">0</span>
+<i class="fa fa-shopping-cart"></i>
+</a>
+</div>
+</div>
+<nav id="small-header-nav">
+<div id="small-menu">
+<ul>
+<li class="account-info">
+<a href="https://learn.adafruit.com/users/sign_in">Sign In</a> | <a href="https://accounts.adafruit.com/">Create Account</a>
+</li>
+<li><a href="https://learn.adafruit.com/guides/latest">New Guides</a></li>
+<li><a href="https://learn.adafruit.com/groups">Series</a></li>
+<li>
+<a class="random-guide-link" aria-label="View a Random Guide" href="https://learn.adafruit.com/guides/random">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+<g>
+<path fill="currentColor" d="M478.578,244.475H278.047c-3.81,0-7.42,0.78-10.829,1.961l56.305-56.305c6.306-6.306,9.759-14.706,9.759-23.64
+      c0-8.935-3.454-17.335-9.759-23.64L190.282,9.609c-12.589-12.611-34.692-12.611-47.281,0L9.759,142.85
+      C3.454,149.156,0,157.556,0,166.491s3.454,17.335,9.759,23.64l133.242,133.242c6.306,6.306,14.683,9.759,23.64,9.759
+      c8.957,0,17.335-3.454,23.64-9.759l56.305-56.305c-1.181,3.409-1.961,7.019-1.961,10.829v200.531
+      c0,18.427,14.995,33.422,33.422,33.422h200.531c18.427,0,33.422-14.995,33.422-33.422V277.897
+      C512,259.47,497.005,244.475,478.578,244.475z M182.394,271.368c-4.345,4.345-10.049,6.506-15.753,6.506
+      s-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,248.552,191.106,262.679,182.394,271.368z M182.394,182.244c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,159.428,191.106,173.554,182.394,182.244z M182.394,93.119c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,70.303,191.106,84.429,182.394,93.119z M311.469,467.287c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281C333.75,457.305,323.746,467.287,311.469,467.287z
+       M311.469,333.6c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281
+      C333.75,323.618,323.746,333.6,311.469,333.6z M378.313,400.444c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C400.594,390.462,390.59,400.444,378.313,400.444z
+       M445.156,467.287c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281
+      C467.438,457.305,457.433,467.287,445.156,467.287z M445.156,333.6c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C467.438,323.618,457.433,333.6,445.156,333.6z"></path>
+</g>
+</g>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+<div id="mobile-search-results"></div>
+</nav>
+</div>
+<div id="large-header">
+<nav class="first-row" aria-label="Adafruit main site">
+<div class="row-content">
+<nav aria-label="Adafruit applications menu">
+<ul class="application-links">
+<li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+<li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+<li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+<li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+<li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+<li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+<li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+</ul>
+</nav>
+<div id="account">
+<span class="sign-out"><a href="https://learn.adafruit.com/users/sign_in">Sign In</a></span>
+<div class="cart">
+<a aria-label="Shopping Cart, 0 items" href="https://www.adafruit.com/shopping_cart">
+<i class="fa fa-shopping-cart"></i> 0
+</a> </div>
+</div>
+</div>
+</nav>
+<nav class="second-row" aria-label="Adafruit Learn application">
+<div class="row-content">
+<div class="left-content">
+<div id="logo">
+<a accesskey="h" title="Adafruit Learning System" href="https://learn.adafruit.com/">
+<img alt="Adafruit Logo" title="Adafruit Logo" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/logo_2x.png">
+</a> </div>
+<ul class="main-nav-links">
+<li class="dropdown with-overlay nav-link">
+<button class="dropdown-label" aria-haspopup="true">Explore &amp; Learn</button>
+<div class="dropdown-container">
+<div class="dropdown-content" tabindex="-1">
+<div class="flyout">
+<div class="three-panels">
+<div class="first-column">
+<div class="content-header">
+<span class="title">Learn Categories</span><a class="view-all-count" href="https://learn.adafruit.com/search">view all</a>
+</div>
+<div class="categories">
+<ul>
+<li><a href="https://learn.adafruit.com/category/3d-printing">3D Printing</a></li>
+<li><a href="https://learn.adafruit.com/category/adabox">AdaBox</a></li>
+<li><a href="https://learn.adafruit.com/category/adafruit-products">Adafruit Products</a></li>
+<li><a href="https://learn.adafruit.com/category/arduino">Arduino Compatibles</a></li>
+<li><a href="https://learn.adafruit.com/category/breakout-boards">Breakout Boards</a></li>
+<li><a href="https://learn.adafruit.com/category/circuit-playground">Circuit Playground</a></li>
+<li><a href="https://learn.adafruit.com/category/circuitpython">CircuitPython</a></li>
+<li><a href="https://learn.adafruit.com/category/clue">CLUE</a></li>
+<li><a href="https://learn.adafruit.com/category/community-support">Community Support</a></li>
+<li><a href="https://learn.adafruit.com/category/components">Components</a></li>
+<li><a href="https://learn.adafruit.com/category/crickit">Crickit</a></li>
+<li><a href="https://learn.adafruit.com/category/customer-projects">Customer &amp; Partner Projects</a></li>
+<li><a href="https://learn.adafruit.com/category/development-boards">Development Boards</a></li>
+<li><a href="https://learn.adafruit.com/category/educators">Educators</a></li>
+<li><a href="https://learn.adafruit.com/category/el">EL Wire/Tape/Panel</a></li>
+<li><a href="https://learn.adafruit.com/category/feather">Feather</a></li>
+<li><a href="https://learn.adafruit.com/category/gaming-1">Gaming</a></li>
+<li><a href="https://learn.adafruit.com/category/hacks">Hacks</a></li>
+</ul>
+<ul>
+<li><a href="https://learn.adafruit.com/category/internet-of-things-iot">Internet of Things - IOT</a></li>
+<li><a href="https://learn.adafruit.com/category/lcds-and-displays">LCDs &amp; Displays</a></li>
+<li><a href="https://learn.adafruit.com/category/leds">LEDs</a></li>
+<li><a href="https://learn.adafruit.com/category/machine-learning">Machine Learning</a></li>
+<li><a href="https://learn.adafruit.com/category/makecode">MakeCode</a></li>
+<li><a href="https://learn.adafruit.com/category/maker-business">Maker Business</a></li>
+<li><a href="https://learn.adafruit.com/category/micro-bit">micro:bit</a></li>
+<li><a href="https://learn.adafruit.com/category/microcontrollers">Microcontrollers</a></li>
+<li><a href="https://learn.adafruit.com/category/programming">Programming</a></li>
+<li><a href="https://learn.adafruit.com/category/projects">Projects</a></li>
+<li><a href="https://learn.adafruit.com/category/raspberry-pi">Raspberry Pi</a></li>
+<li><a href="https://learn.adafruit.com/category/robotics">Robotics &amp; CNC</a></li>
+<li><a href="https://learn.adafruit.com/category/sensors">Sensors</a></li>
+<li><a href="https://learn.adafruit.com/category/stemma">STEMMA</a></li>
+<li><a href="https://learn.adafruit.com/category/tools">Tools</a></li>
+<li><a href="https://learn.adafruit.com/category/trellis">Trellis</a></li>
+<li><a href="https://learn.adafruit.com/category/wearables">Wearables</a></li>
+</ul>
+</div>
+</div>
+<div class="middle-column">
+<div class="content-header">
+<span class="title">Series</span><a class="view-all-count" href="https://learn.adafruit.com/groups">view all</a>
+</div>
+<ul class="links">
+<li>
+<a href="https://learn.adafruit.com/series/circuit-playground">Circuit Playground</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/series/adafruit-io-basics">Adafruit IO Basics</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/groups/collins-lab">Collin's Lab</a>
+</li>
+</ul>
+</div>
+<div class="last-column hide-md">
+<div class="image-content-card">
+<img class="lazy" alt="STEMMA, Plug-n-play components" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/stemma-951832861ff41826c301d55383664953fed1a5e8349731619ebd0.jpg" style="">
+<div class="text">
+<div class="main">
+<span>STEMMA</span>
+</div>
+<div class="tagline">
+<span>Plug-n-play components</span>
+</div>
+</div>
+<div class="button">
+<a title="Plug-n-play components, STEMMA" href="https://learn.adafruit.com/category/stemma">Get connected</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-link">
+<a class="new-guides-link" href="https://learn.adafruit.com/guides/latest">New Guides</a>
+</li>
+<li class="nav-link">
+<a class="random-guide-link" aria-label="View a Random Guide" href="https://learn.adafruit.com/guides/random">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+<g>
+<path fill="currentColor" d="M478.578,244.475H278.047c-3.81,0-7.42,0.78-10.829,1.961l56.305-56.305c6.306-6.306,9.759-14.706,9.759-23.64
+      c0-8.935-3.454-17.335-9.759-23.64L190.282,9.609c-12.589-12.611-34.692-12.611-47.281,0L9.759,142.85
+      C3.454,149.156,0,157.556,0,166.491s3.454,17.335,9.759,23.64l133.242,133.242c6.306,6.306,14.683,9.759,23.64,9.759
+      c8.957,0,17.335-3.454,23.64-9.759l56.305-56.305c-1.181,3.409-1.961,7.019-1.961,10.829v200.531
+      c0,18.427,14.995,33.422,33.422,33.422h200.531c18.427,0,33.422-14.995,33.422-33.422V277.897
+      C512,259.47,497.005,244.475,478.578,244.475z M182.394,271.368c-4.345,4.345-10.049,6.506-15.753,6.506
+      s-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,248.552,191.106,262.679,182.394,271.368z M182.394,182.244c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,159.428,191.106,173.554,182.394,182.244z M182.394,93.119c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,70.303,191.106,84.429,182.394,93.119z M311.469,467.287c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281C333.75,457.305,323.746,467.287,311.469,467.287z
+       M311.469,333.6c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281
+      C333.75,323.618,323.746,333.6,311.469,333.6z M378.313,400.444c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C400.594,390.462,390.59,400.444,378.313,400.444z
+       M445.156,467.287c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281
+      C467.438,457.305,457.433,467.287,445.156,467.287z M445.156,333.6c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C467.438,323.618,457.433,333.6,445.156,333.6z"></path>
+</g>
+</g>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+<div class="right-content">
+<div class="search-wrapper">
+<form action="/search" method="get" accesskey="s" role="search">
+<div id="search-info" data-page="" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com"></div>
+<div id="search"><div class="ais-SearchBox"><form action="" role="search" class="ais-SearchBox-form" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="512"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query." hidden=""><svg class="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40"> <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path> </svg></button><button class="ais-SearchBox-reset" type="reset" title="Clear the search query." hidden=""><svg class="ais-SearchBox-resetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10"> <path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"></path> </svg></button><span class="ais-SearchBox-loadingIndicator" hidden=""><svg class="ais-SearchBox-loadingIcon" width="16" height="16" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#444"> <g fill="none" fillrule="evenodd"> <g transform="translate(1 1)" strokewidth="2"> <circle strokeopacity=".5" cx="18" cy="18" r="18"></circle> <path d="M36 18c0-9.94-8.06-18-18-18"> <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"></animateTransform> </path> </g> </g> </svg></span></form></div></div>
+<i class="fa fa-search"></i>
+<label for="search-input" style="display:none;">Search</label>
+<input id="search-input" type="submit" style="visibility: hidden; position: fixed;">
+</form>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<div id="main-content-container">
+<div class="nav-bar ">
+<div class="content">
+<div class="left-content">
+<div class="breadcrumbs" aria-label="Breadcrumbs">
+<a href="https://learn.adafruit.com/"><i class="fa fa-home" role="img" aria-label="Home"></i></a>
+<i class="fa fa-chevron-right separator"></i>
+<a href="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout">Programming SPI flash with an FT232H breakout</a> <i class="fa fa-chevron-right separator"></i> Overview
+</div>
+</div>
+<div class="right-content">
+</div>
+</div>
+</div>
+<div id="page-wrapper" class="">
+<article id="content-wrapper" class="double-sidebar-layout" data-page-id="9589" data-guide-id="1687">
+<aside class="sidebar-left-wrapper">
+<div class="sidebar-left-content" data-clampedwidth=".sidebar-left-wrapper" style="width: 309.4px;">
+<div class="sidebar-left">
+<header aria-label="Guide information" class="title-bar">
+<div class="image-container">
+<img alt="Programming SPI flash with an FT232H breakout" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/ft232_ftdiprog_bb.png" style="">
+</div>
+<h1>Programming SPI flash with an FT232H breakout</h1>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/real_dean">
+<span class="name">Dean Miller</span>
+</a> </div>
+<div class="page-tagline" aria-label="Guide tagline">they're a dime a dozen. Lets use them!</div>
+</header>
+<nav aria-label="Guide navigation">
+<ul class="page-parent" aria-label="Guide pages">
+<li class="parent active">
+<a class="published" href="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout/overview">Overview</a>
+</li>
+</ul>
+<div class="single-page-spacer"></div>
+<ul class="page-parent" aria-label="Guide resources">
+<li class="single-page-link ">
+<a href="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout/featured_products">Featured Products</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout?view=all">Single page</a>
+</li>
+<li><a href="https://cdn-learn.adafruit.com/downloads/pdf/programming-spi-flash-prom-with-an-ft232h-breakout.pdf?timestamp=1619827533">Download PDF</a></li>
+</ul>
+</nav>
+<a class="feedback-link" title="Feedback? Corrections?" rel="nofollow" data-remote="true" data-method="get" href="https://learn.adafruit.com/feedback/new?page_id=9589">
+Feedback? Corrections?
+</a>
+</div>
+</div>
+</aside>
+<section class="main-content" role="region" aria-label="Page content">
+<div class="page-header-wrapper">
+<h2 class="headline" aria-label="Page title">
+<span id="overview">Overview</span>
+</h2>
+<div class="badges">
+<span id="guide-favorite">
+<a class="badge category right red" aria-label="Select to like this guide." data-remote="true" rel="nofollow" data-method="post" href="https://learn.adafruit.com/guides/1687/favorites.js">
+<i class="fa fa-heart-o"></i> Like
+</a></span>
+</div>
+</div>
+<div class="page-content">
+<div class="" role="region" aria-label="Page content">
+<div class="row-fluid text-element">
+<p>In your journey hacking, modding and making electronics you will bump
+ into many a FLASH chip. Often times these store program memory, 
+settings, data files etc. Some microcontrollers have built-in flash, but
+ an external flash chip allows for field-updating. Also, fitting a large
+ Flash chip inside a micro or FPGA can increase cost a lot, where-as 
+having it be external lets the customer pick exactly the right size they
+ need. They can range from 256 bytes up to 16 MBytes or even more!</p>
+<h2>
+<div class="anchor-anchor">
+<a href="#spi-flash-standardization-2533276-1" class="anchor-link"><span class="fa fa-link"></span></a><span id="spi-flash-standardization-2533276-1" class="anchor-link-target"></span>
+</div>SPI Flash Standardization</h2>
+<p>The good news is that just about every 8-pin Flash chip has a standard pinout and SPI interface, these tend to have the number <strong>25 </strong>somewhere in the beginning of the part number. There are also ones that are only I2C - these will have the number <strong>24</strong> somewhere in the part number. This page is just about SPI flash.</p>
+<p><a href="https://www.digikey.com/products/en/integrated-circuits-ics/memory/774?k=SPI%20Flash">You can pick up any kind/size SPI flash you like over at Digikey</a></p>
+<p>As you can see, SPI flash part numbers tend to start with "MX25" or 
+"W25" or "AT25" or "SST25" etc. The first two letters are the 
+manufacturer name.</p>
+<p>The rest of the part number will also contain a 3 digit number that indicates the size in 'kilobits' or 'megabits'. E.g.&nbsp; <strong>010</strong> is 1-Megabit (128 KByte), <strong>080</strong> is 8-Megabit (1 MByte), <strong>016</strong> is 16-Mbit/2MByte. For smaller sizes, all 3 digits are used. E.g. <strong>256</strong> is 256-Kbit (32KByte),</p>
+</div>
+<div class="row-fluid image-element" aria-label="Image: components_8pin_spi.png">
+<a href="https://learn.adafruit.com/assets/43264">
+<img class="43264-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="components_8pin_spi.png" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_8pin_spi.png" style="" srcset="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_8pin_spi_004.png 260w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_8pin_spi_003.png 640w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_8pin_spi.png 800w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_8pin_spi_002.png 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid text-element">
+<p>Not only do they have a standard pinout, but there is also a 
+standard-ish set of commands you can use to read and write the data. So,
+ if your flash memory chip has this pinout, chances are you can use a 
+standard command set to program it.</p>
+<h2>
+<div class="anchor-anchor">
+<a href="#if-you-want-to-use-an-microcontroller-dot-dot-dot-2533278-3" class="anchor-link"><span class="fa fa-link"></span></a><span id="if-you-want-to-use-an-microcontroller-dot-dot-dot-2533278-3" class="anchor-link-target"></span>
+</div>If you want to use an microcontroller...</h2>
+<p>If you have an Arduino or compatible, check out our libraries (<a href="https://github.com/adafruit/Adafruit_SPIFlash">https://github.com/adafruit/Adafruit_SPIFlash</a> or <a href="https://github.com/adafruit/Adafruit_TinyFlash)">https://github.com/adafruit/Adafruit_TinyFlash</a>) on how to read/write to/from these in a mcirocontroller</p>
+<p><strong>HOWEVER </strong></p>
+<p>you are here because you do not want to mess with an Arduino - your 
+file that you want to read/write is on your computer, and its big so 
+getting it into a microcontroller is a pain. Instead, in this guide we 
+will use an FT232H as a 'gateway' so that you can use any computer and 
+read/write the SPI flash through the command line.</p>
+</div>
+<div class="row-fluid text-element">
+<h1>
+<div class="anchor-anchor">
+<a href="#usb-to-spi-gateway-2533279-4" class="anchor-link"><span class="fa fa-link"></span></a><span id="usb-to-spi-gateway-2533279-4" class="anchor-link-target"></span>
+</div>USB to SPI gateway</h1>
+<p>You will need the FT232H breakout, and if you have a chip in a 
+package that is not breadboard-able right away you will need a socket or
+ an adapter board.</p>
+</div>
+<div class="product-element has-sibling-product" data-product-id="2264" aria-labelledby="product-title-2264">
+<div class="product-column product-image">
+<a href="https://www.adafruit.com/product/2264">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2264-06.jpg" alt="Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C" data-error="/assets/missing%2Fmissing.png">
+</a> </div>
+<div class="product-column product-details-wrapper">
+<div class="product-details">
+<div id="product-title-2264" class="product-title"><a href="https://www.adafruit.com/product/2264">Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C</a></div>
+<div class="product-description">Wouldn't it be cool to drive a tiny&nbsp;OLED display, read a </div>
+</div>
+<div class="bottom-section">
+<div class="product-price-wrapper">
+<div class="product-price">$14.95</div>
+<div class="in-stock">In Stock</div>
+</div>
+<div class="product-buy-wrapper">
+<a id="2264-product" class="product-buy btn-primary parts-url" data-pid="2264" data-name="Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2264">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+<div class="product-element has-sibling-product" data-product-id="2166" aria-labelledby="product-title-2166">
+<div class="product-column product-image">
+<a href="https://www.adafruit.com/product/2166">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2166-00.jpg" alt="3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92" data-error="/assets/missing%2Fmissing.png">
+</a> </div>
+<div class="product-column product-details-wrapper">
+<div class="product-details">
+<div id="product-title-2166" class="product-title"><a href="https://www.adafruit.com/product/2166">3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92</a></div>
+<div class="product-description">Need a nice little 3.3V regulator? We 
+rather like the very-low-dropout L4931 from ST! This little guy will 
+help you get your 4-20V battery or wall adapter down to a nice clean 
+3.3V...</div>
+</div>
+<div class="bottom-section">
+<div class="product-price-wrapper">
+<div class="product-price">$0.95</div>
+<div class="in-stock">In Stock</div>
+</div>
+<div class="product-buy-wrapper">
+<a id="2166-product" class="product-buy btn-primary parts-url" data-pid="2166" data-name="3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2166">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+<div class="product-element has-sibling-product" data-product-id="2195" aria-labelledby="product-title-2195">
+<div class="product-column product-image">
+<a href="https://www.adafruit.com/product/2195">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2195-00.jpg" alt="10uF 50V Electrolytic Capacitors - Pack of 10" data-error="/assets/missing%2Fmissing.png">
+</a> </div>
+<div class="product-column product-details-wrapper">
+<div class="product-details">
+<div id="product-title-2195" class="product-title"><a href="https://www.adafruit.com/product/2195">10uF 50V Electrolytic Capacitors - Pack of 10</a></div>
+<div class="product-description">We like capacitors so much we made a&nbsp;kids show about them.&nbsp;...</div>
+</div>
+<div class="bottom-section">
+<div class="product-price-wrapper">
+<div class="product-price">$1.95</div>
+<div class="in-stock">In Stock</div>
+</div>
+<div class="product-buy-wrapper">
+<a id="2195-product" class="product-buy btn-primary parts-url" data-pid="2195" data-name="10uF 50V Electrolytic Capacitors - Pack of 10" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2195">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+<div class="product-element has-sibling-product" data-product-id="1284" aria-labelledby="product-title-1284">
+<div class="product-column product-image">
+<a href="https://www.adafruit.com/product/1284">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/1284-00.jpg" alt="SMT Test Socket - SOIC-8 Narrow Breakout" data-error="/assets/missing%2Fmissing.png">
+</a> </div>
+<div class="product-column product-details-wrapper">
+<div class="product-details">
+<div id="product-title-1284" class="product-title"><a href="https://www.adafruit.com/product/1284">SMT Test Socket - SOIC-8 Narrow Breakout</a></div>
+<div class="product-description">You know those ZIF sockets we have for 
+DIP chips? Well these are just like that but for SMT parts! Yeah, that's
+ right, now you can program and test out your favorite new parts in...</div>
+</div>
+<div class="bottom-section">
+<div class="product-price-wrapper">
+<div class="product-price">$14.95</div>
+<div class="in-stock">In Stock</div>
+</div>
+<div class="product-buy-wrapper">
+<a id="1284-product" class="product-buy btn-primary parts-url" data-pid="1284" data-name="SMT Test Socket - SOIC-8 Narrow Breakout" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/1284">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+<div class="product-element has-sibling-product" data-product-id="1212" aria-labelledby="product-title-1212">
+<div class="product-column product-image">
+<a href="https://www.adafruit.com/product/1212">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/1212-06.jpg" alt="SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!" data-error="/assets/missing%2Fmissing.png">
+</a> </div>
+<div class="product-column product-details-wrapper">
+<div class="product-details">
+<div id="product-title-1212" class="product-title"><a href="https://www.adafruit.com/product/1212">SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!</a></div>
+<div class="product-description">Beguiled by a fancy new chip that is 
+only available in a SOIC or MSOP/(T)SSOP pinout? This breakout PCB set 
+will make your life much much easier and get you prototyping faster 
+than...</div>
+</div>
+<div class="bottom-section">
+<div class="product-price-wrapper">
+<div class="product-price">$2.95</div>
+<div class="in-stock">In Stock</div>
+</div>
+<div class="product-buy-wrapper">
+<a id="1212-product" class="product-buy btn-primary parts-url" data-pid="1212" data-name="SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/1212">Add to Cart</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row-fluid text-element">
+<p>If you're using Windows, you will need to&nbsp;follow&nbsp;<a href="https://learn.adafruit.com/adafruit-ft232h-breakout/windows-setup">these instructions</a>&nbsp;to set up&nbsp;the Zadig tool and replace the default FTDI driver.&nbsp;<strong>Make sure you do this step!</strong></p>
+</div>
+<div class="row-fluid image-element" aria-label="Image: components_Windows_Zadig_2.png">
+<a href="https://learn.adafruit.com/assets/43299">
+<img class="43299-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="components_Windows_Zadig_2.png" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Windows_Zadig_2_002.png" style="" srcset="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Windows_Zadig_2_003.png 260w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Windows_Zadig_2_004.png 640w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Windows_Zadig_2_002.png 800w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Windows_Zadig_2.png 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid text-element">
+<h1>
+<div class="anchor-anchor">
+<a href="#download-and-compile-2533287-12" class="anchor-link"><span class="fa fa-link"></span></a><span id="download-and-compile-2533287-12" class="anchor-link-target"></span>
+</div>Download and compile</h1>
+<p>We have adapted a helper program for FPGAs. <a href="https://github.com/adafruit/ftdiflash/">You can check out our version from github</a>.</p>
+<p>The easiest way to get started is to just download a zip of the repository:</p>
+</div>
+<div id="element-2533288" class="button-element" data-github-release="" aria-label="Button Download ftdiflash files">
+<a href="https://github.com/adafruit/ftdiflash/archive/master.zip" class="btn btn-large btn-block btn-info" target="_self" rel="noopener noreferrer" data-zip-folder="">Download ftdiflash files</a>
+</div>
+<div class="row-fluid text-element">
+<p>Uncompress the zip folder. If you are on mac or linux you will need to install the FTDI library and build the executable. <a href="https://learn.adafruit.com/adafruit-ft232h-breakout">Check out the FT232H guide on where to download those files. </a>For Windows, we provide the .exe already</p>
+<h1>
+<div class="anchor-anchor">
+<a href="#wiring-2533289-14" class="anchor-link"><span class="fa fa-link"></span></a><span id="wiring-2533289-14" class="anchor-link-target"></span>
+</div>Wiring</h1>
+<p>Because SPI flash chips run at 3.3V, you will need to regulate the 5V supply on the FT232H down.</p>
+<p>Using the&nbsp;<a href="https://www.adafruit.com/product/2166">L4931-3.3</a>&nbsp;regulator, make the connections shown in the diagram below.</p>
+<p>Make sure to add a&nbsp;<strong>10uF</strong> capacitor from the regulator output to ground for stability!</p>
+<p>Wire up your FT232H breakout to your flash chip like this (use a socket or an adapter board if it is not a DIP package)</p>
+<ul>
+<li>
+<strong>D0&nbsp;</strong>on the FT232H to <strong>pin 6</strong>&nbsp;on the flash</li>
+<li>
+<strong>D1&nbsp;</strong>on the FT232H to&nbsp;<strong>pin 5</strong> on the flash</li>
+<li>
+<strong>D2&nbsp;</strong>on the FT232H to&nbsp;<strong>pin 2</strong> on the flash</li>
+<li>
+<strong>D4&nbsp;</strong>on the FT232H to&nbsp;<strong>pin 1</strong> on the flash</li>
+<li>
+<strong>pin 3 (Write Protect)</strong> on the flash to <strong>3.3V</strong><strong>.</strong> If you are only reading from the Flash, you can connect this to <strong>ground</strong>.</li>
+<li>
+<strong>pin 4 (VSS ground)</strong> on the flash to <strong>ground</strong>
+</li>
+<li>
+<strong>pin 7 (HOLD)</strong> on the flash to&nbsp;<strong>3.3V</strong><strong><br></strong>
+</li>
+<li>
+<strong>pin 8 (VCC power)</strong> on the flash to&nbsp;<strong>3.3v</strong>
+</li>
+</ul>
+</div>
+<div class="row-fluid image-element" aria-label="Image: components_ft232_ftdiprog_bb.png">
+<a href="https://learn.adafruit.com/assets/43297">
+<img class="43297-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="components_ft232_ftdiprog_bb.png" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_ft232_ftdiprog_bb_002.png" style="" srcset="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_ft232_ftdiprog_bb_003.png 260w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_ft232_ftdiprog_bb_004.png 640w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_ft232_ftdiprog_bb_002.png 800w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_ft232_ftdiprog_bb.png 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid text-element">
+<p>Run the executable from the folder you downloaded. The argument it 
+takes is the path to the binary file you want to write to the flash. An 
+example might look like this</p>
+</div>
+<div class="row-fluid image-element" aria-label="Image: components_Screenshot_(28).png">
+<a href="https://learn.adafruit.com/assets/43293">
+<img class="43293-asset img-responsive lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" alt="components_Screenshot_(28).png" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Screenshot_28.png" style="" srcset="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Screenshot_28_003.png 260w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Screenshot_28_004.png 640w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Screenshot_28.png 800w, Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/components_Screenshot_28_002.png 1024w">
+<span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a> </div>
+<div class="row-fluid text-element">
+<p>That's it!</p>
+</div>
+</div>
+</div>
+<div class="page-navigation">
+</div>
+<div class="page-last-updated">
+<p>
+This guide was first published on Jul 03, 2017. It was last
+updated on Jul 03, 2017.
+</p>
+<p>
+This page (Overview) was last updated on Apr 30, 2021.
+</p>
+<p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+</section>
+<aside class="sidebar-right-wrapper">
+<div class="sidebar-right-content">
+<section class="guide-metadata" aria-label="Guide metadata">
+<div class="metadata-group" aria-label="Skill level">
+<i class="fa fa-ellipsis-h" title="Skill Level"></i>
+<div>Difficulty: Intermediate</div>
+</div>
+<div class="metadata-group" aria-label="Guide type">
+<i class="fa fa-bars" title="Guide type"></i>
+<div>Guide Type: Tutorial</div>
+</div>
+<div class="metadata-group" aria-label="Guide categories">
+<i class="fa fa-sitemap" title="Categories"></i>
+<div>Categories: <a href="https://learn.adafruit.com/category/components">Components</a><br><a href="https://learn.adafruit.com/category/breakout-boards">Breakout Boards</a><span class="category-link-spacer">/</span><a href="https://learn.adafruit.com/category/smt-breakout-pcb">SMT Breakout PCB</a></div>
+</div>
+<div class="metadata-group" aria-label="Guide favorites count">
+<i class="fa fa-heart" title="Favorites count"></i>
+<div>8 Likes</div>
+</div>
+</section>
+<section class="featured-products" role="region" aria-label="Featured products for Guide">
+<div class="data-header">
+Featured Products
+<span class="view-all">
+</span>
+</div>
+<div class="products">
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2264-06.jpg" alt="Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/2264">
+<div class="product-title">Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C</div>
+</a> <div class="product-price">$14.95</div>
+<a id="2264-product" class="product-buy btn-primary " data-pid="2264" data-qty="1" data-name="Adafruit FT232H Breakout - General Purpose USB to GPIO, SPI, I2C" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2264">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2166-00.jpg" alt="3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/2166">
+<div class="product-title">3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92</div>
+</a> <div class="product-price">$0.95</div>
+<a id="2166-product" class="product-buy btn-primary " data-pid="2166" data-qty="1" data-name="3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2166">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/2195-00.jpg" alt="10uF 50V Electrolytic Capacitors - Pack of 10" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/2195">
+<div class="product-title">10uF 50V Electrolytic Capacitors - Pack of 10</div>
+</a> <div class="product-price">$1.95</div>
+<a id="2195-product" class="product-buy btn-primary " data-pid="2195" data-qty="1" data-name="10uF 50V Electrolytic Capacitors - Pack of 10" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/2195">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/1284-00.jpg" alt="SMT Test Socket - SOIC-8 Narrow Breakout" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/1284">
+<div class="product-title">SMT Test Socket - SOIC-8 Narrow Breakout</div>
+</a> <div class="product-price">$14.95</div>
+<a id="1284-product" class="product-buy btn-primary " data-pid="1284" data-qty="1" data-name="SMT Test Socket - SOIC-8 Narrow Breakout" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/1284">Add to Cart</a>
+</div>
+</div>
+<div class="product-wrapper">
+<div class="product-image">
+<img class="img-responsive product-asset" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/1212-06.jpg" alt="SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!" data-error="/assets/missing%2Fmissing.png">
+</div>
+<div class="product-details">
+<a href="https://www.adafruit.com/product/1212">
+<div class="product-title">SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!</div>
+</a> <div class="product-price">$2.95</div>
+<a id="1212-product" class="product-buy btn-primary " data-pid="1212" data-qty="1" data-name="SMT Breakout PCB for SOIC-8, MSOP-8 or TSSOP-8 - 6 Pack!" target="_blank" rel="noopener noreferrer" href="https://www.adafruit.com/product/1212">Add to Cart</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</aside>
+</article>
+<div class="related-guides-wrapper">
+<div class="content-card-group-preview">
+<div class="group-preview-headline">
+<div class="title">
+Related Guides
+</div>
+</div>
+<a class="scroll-back"><i class="fa fa-angle-left"></i></a>
+<div class="content-card-group-container">
+<div class="content-card-group">
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/running-pyportal-code-on-blinka-with-displayio">
+<div class="image-container">
+<img alt="Running PyPortal Code on Blinka with Displayio" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/main_image.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/running-pyportal-code-on-blinka-with-displayio">Running PyPortal Code on Blinka with Displayio</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/MakerMelissa">
+<span class="name">M. LeBlanc-Williams</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+5
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/jupyter-on-any-computer-with-circuitpython-libraries-and-mcp2221">
+<div class="image-container">
+<video class="video-preview lazy" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" data-error="/assets/missing%2Fmissing.png">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/ezgif.mp4">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/ezgif.webm" type="video/webm; codecs=vp8,vorbis">
+Your browser does not support the video tag. This links to the guide 
+CircuitPython Libraries and Jupyter Notebook on any Computer with 
+MCP2221.
+</video>
+<img alt="CircuitPython Libraries and Jupyter Notebook on any Computer with MCP2221" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/ezgif.jpeg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+ <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/jupyter-on-any-computer-with-circuitpython-libraries-and-mcp2221">CircuitPython Libraries and Jupyter Notebook on any...</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/brubell">
+<span class="name">Brent Rubell</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+10
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/adafruit-ft232h-with-spi-and-i2c-libraries">
+<div class="image-container">
+<img alt="Adafruit FT232H With SPI &amp; I2C Devices" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/DSC00742.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/adafruit-ft232h-with-spi-and-i2c-libraries">Adafruit FT232H With SPI &amp; I2C Devices</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/tdicola">
+<span class="name">Tony DiCola</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+11
+</div>
+<div class="badge skill-level-icons" title="Intermediate">
+Intermediate
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi">
+<div class="image-container">
+<img alt="Programming Microcontrollers using OpenOCD on a Raspberry Pi" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/nrf.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi">Programming Microcontrollers using OpenOCD on a...</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/adafruit2">
+<span class="name">lady ada</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+26
+</div>
+<div class="badge skill-level-icons" title="Intermediate">
+Intermediate
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/adafruit-ft232h-breakout">
+<div class="image-container">
+<img alt="Adafruit FT232H Breakout" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/FT232H_top_angle.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/adafruit-ft232h-breakout">Adafruit FT232H Breakout</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/tdicola">
+<span class="name">Tony DiCola</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+26
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/raspberry-pi-physical-dashboard">
+ <div class="image-container">
+<img alt="Raspberry Pi Physical Dashboard" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/IMG_4495.jpg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/raspberry-pi-physical-dashboard">Raspberry Pi Physical Dashboard</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/tdicola">
+<span class="name">Tony DiCola</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+50
+</div>
+<div class="badge skill-level-icons" title="Intermediate">
+Intermediate
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/circuitpython-neopixels-using-spi">
+<div class="image-container">
+<video class="video-preview lazy" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" data-error="/assets/missing%2Fmissing.png">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/20191004_152053.mp4">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/20191004_152053.webm" type="video/webm; codecs=vp8,vorbis">
+Your browser does not support the video tag. This links to the guide CircuitPython NeoPixel Library Using SPI.
+</video>
+<img alt="CircuitPython NeoPixel Library Using SPI" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/20191004_152053.jpeg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/circuitpython-neopixels-using-spi">CircuitPython NeoPixel Library Using SPI</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/caternuson">
+<span class="name">Carter Nelson</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+6
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="guide-preview content-card">
+<div class="preview-content">
+<a aria-hidden="true" href="https://learn.adafruit.com/shake-up-a-gift-box">
+<div class="image-container">
+<video class="video-preview lazy" preload="auto" muted="muted" loop="loop" autoplay="autoplay" playsinline="" data-error="/assets/missing%2Fmissing.png">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/shakeshake.mp4">
+<source src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/shakeshake.webm" type="video/webm; codecs=vp8,vorbis">
+Your browser does not support the video tag. This links to the guide Audio Prank Gift Box.
+</video>
+<img alt="Audio Prank Gift Box" class="image-preview lazy" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/shakeshake.jpeg" style="">
+</div>
+</a>
+<div class="bottom-section">
+<div class="info">
+<a class="title" aria-label="Guide title" href="https://learn.adafruit.com/shake-up-a-gift-box">Audio Prank Gift Box</a>
+<div class="author">
+By
+<a href="https://learn.adafruit.com/users/bekathwia">
+<span class="name">Becky Stern</span>
+</a> </div>
+</div>
+<div class="badges">
+<div class="badge favorites " title="Favorites">
+17
+</div>
+<div class="badge skill-level-icons" title="Beginner">
+Beginner
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="scroll-forward"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+</div>
+<div class="modal fade" id="notify-modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a href="#" class="close" data-dismiss="modal">×</a>
+<h5>OUT OF STOCK NOTIFICATION</h5>
+</div>
+<div class="modal-body">
+<p class="notify-modal-form-header"></p>
+<div class="notify-modal-products"></div>
+<form id="notify-modal-form" name="back_in_stock_notification">
+<p class="notify-modal-form-notice"></p>
+<div class="notify-modal-break"></div>
+<div class="form-group">
+<label class="inputLabel" for="name">YOUR NAME</label>
+<input type="text" size="25" maxlength="64" name="name">
+</div>
+<div class="form-group">
+<label class="inputLabel" for="email">YOUR EMAIL</label>
+<input type="email" size="25" maxlength="96" name="email">
+</div>
+<input type="hidden" name="notify_me" value="true">
+</form>
+<div id="notify-modal-success" style="display:none">
+<p>You have been successfully subscribed to the Notification List for 
+this product and will therefore receive an e-mail from us when it is 
+back in stock!</p>
+<p>For security reasons, an e-mail has been sent to you acknowledging 
+your subscription. Please remember that this subscription will not 
+result in you receiving any e-mail from us about anything other than the
+ restocking of this item.</p>
+<p>If, for any reason, you would like to unsubscribe from the 
+Notification List for this product you will find details of how to do so
+ in the e-mail that has just been sent to you!</p>
+</div>
+</div>
+<div class="modal-footer">
+<a href="#" id="close-notify" style="display: none" data-dismiss="modal" data-target="#notify-modal">CLOSE</a>
+<a href="#" id="submit-notify" rel="nofollow" class="blue-button">NOTIFY ME</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="search-container">
+<div class="nav-bar">
+<div class="content">
+<div class="left-content">
+<div class="breadcrumbs">
+<a href="https://learn.adafruit.com/" aria-label="Home page"><i class="fa fa-home"></i></a>
+<i class="fa fa-chevron-right separator"></i> Search <i class="fa fa-chevron-right separator"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-header">
+<div class="header-intro">
+<h1 class="title">Search</h1>
+<div class="breakdown">
+</div>
+</div>
+<div class="header-main-content-wrapper">
+<div class="header-main-content">
+<div id="search-refinements" class="breakdown"><div class="ais-CurrentRefinements"><ul class="ais-CurrentRefinements-list"></ul></div>
+</div>
+</div>
+</div>
+</div>
+<div class="search-content">
+<div>
+<div class="facets-wrapper">
+<h5 class="search-refinement-header">Categories</h5>
+<div id="search-categories"><div class="ais-HierarchicalMenu root ais-HierarchicalMenu--noRefinement"></div></div>
+</div>
+</div>
+<div>
+<div id="search-results"><div class="no-results">No results for query</div></div>
+<div id="search-pagination" class="pagination"><div class="ais-Pagination ais-Pagination--noRefinement"><ul class="ais-Pagination-list"><li class="ais-Pagination-item item ais-Pagination-item--firstPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">«</span></li><li class="ais-Pagination-item item ais-Pagination-item--previousPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">‹</span></li><li class="ais-Pagination-item item ais-Pagination-item--page ais-Pagination-item--selected selected"><a class="ais-Pagination-link link" aria-label="1" href="https://learn.adafruit.com/programming-spi-flash-prom-with-an-ft232h-breakout">1</a></li><li class="ais-Pagination-item item ais-Pagination-item--nextPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">›</span></li><li class="ais-Pagination-item item ais-Pagination-item--lastPage ais-Pagination-item--disabled disabled"><span class="ais-Pagination-link link">»</span></li></ul></div></div>
+</div>
+</div>
+</div>
+<div id="remote-modal"></div>
+<div id="main-content-overlay"></div>
+</main>
+<footer id="adafruit-footer">
+<div class="footer-container">
+<div class="application-support-link">
+<div>
+<ul>
+<li>
+<a href="https://www.adafruit.com/contact_us">Contact Us</a>
+</li>
+<li>
+<a href="https://forums.adafruit.com/">Tech Support Forums</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/faq">FAQs</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/shippinginfo">Shipping &amp; Returns</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/terms_of_service">Terms of Service</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/privacy">Privacy &amp; Legal</a>
+</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>
+<a href="https://www.adafruit.com/about">About Us</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/press">Press</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/educators">Educators</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/distributors">Distributors</a>
+</li>
+<li>
+<a href="https://jobs.adafruit.com/">Jobs</a>
+</li>
+<li>
+<a href="https://www.adafruit.com/category/14">Gift Cards</a>
+</li>
+</ul>
+</div>
+</div>
+<aside>
+<div class="quote">"Failing to prepare is preparing to fail "</div>
+<div class="quote-attribution"><a href="http://en.wikipedia.org/wiki/Benjamin_Franklin">Benjamin Franklin</a></div>
+</aside>
+</div>
+<div class="footer-container bottom">
+<a title="About Adafruit" id="footer-logo" href="https://learn.adafruit.com/">
+<img alt="Adafruit Logo" title="Adafruit Logo" src="Overview%20|%20Programming%20SPI%20flash%20with%20an%20FT232H%20breakout%20|%20Adafruit%20Learning%20System_files/adafruit_logo_small.png">
+</a>
+<div class="social-links">
+<a href="https://www.instagram.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+<a href="https://twitter.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="https://www.facebook.com/adafruitindustries" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a href="https://www.youtube.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on YouTube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+<a href="https://github.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Github"><i class="fa fa-github" aria-hidden="true"></i></a>
+<a class="tiktok-logo" aria-label="Adafruit on TikTok" href="https://www.tiktok.com/@adafruit" target="_blank" rel="noopener noreferrer"><svg viewBox="3 2 20 22" xmlns="http://www.w3.org/2000/svg"><path class="logo" d="M19.8059 7.50695C18.7771 7.50695 17.8278 7.16612 17.0655 6.59113C16.1912 5.93198 15.5631 4.9651 15.3412 3.85069C15.2863 3.57534 15.2567 3.29119 15.2539 3H12.3149V11.0308L12.3114 15.4297C12.3114 16.6057 11.5455 17.6029 10.4839 17.9536C10.1758 18.0553 9.8431 18.1036 9.49663 18.0846C9.05438 18.0603 8.63995 17.9268 8.27975 17.7113C7.51322 17.2529 6.99351 16.4212 6.97942 15.4698C6.95724 13.9829 8.15933 12.7706 9.64522 12.7706C9.93852 12.7706 10.2202 12.8185 10.4839 12.9054V10.7104V9.92134C10.2058 9.88015 9.92268 9.85867 9.63641 9.85867C8.01004 9.85867 6.48894 10.5347 5.40164 11.7526C4.57982 12.6731 4.08687 13.8473 4.01082 15.0786C3.91117 16.6962 4.50306 18.2339 5.65093 19.3683C5.81959 19.5349 5.9967 19.6895 6.1819 19.8321C7.16604 20.5894 8.36919 21 9.63641 21C9.92268 21 10.2058 20.9789 10.4839 20.9377C11.6677 20.7623 12.7599 20.2204 13.6219 19.3683C14.681 18.3215 15.2662 16.9318 15.2726 15.4526L15.2574 8.88369C15.7627 9.27347 16.3152 9.596 16.9081 9.84635C17.8303 10.2354 18.8081 10.4326 19.8144 10.4322V8.29814V7.50625C19.8151 7.50695 19.8066 7.50695 19.8059 7.50695Z" fill="currentColor"></path></svg></a>
+</div>
+<div class="footer-messaging">
+<a href="https://www.adafruit.com/about">A Minority and Woman-owned Business Enterprise (M/WBE)</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+
+</body></html>

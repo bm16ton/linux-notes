@@ -1,0 +1,189 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS := hardening=+pie,+bindnow
+export CPPFLAGS=$(shell dpkg-buildflags --get CPPFLAGS)
+export CFLAGS=$(shell dpkg-buildflags --get CFLAGS)
+export CXXFLAGS=$(shell dpkg-buildflags --get CXXFLAGS)
+export LDFLAGS=$(shell dpkg-buildflags --get LDFLAGS)
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+ifneq (,$(filter parallel=%,$(subst $(COMMA), ,$(DEB_BUILD_OPTIONS))))
+	NJOBS := -j $(subst parallel=,,$(filter parallel=%,$(subst $(COMMA), ,$(DEB_BUILD_OPTIONS))))
+endif
+
+export HOME=$(CURDIR)/build
+
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -g -O0
+	export STRIP=true
+endif
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	INSTALL_PROGRAM += -s
+endif
+
+clean:
+	dh_testdir
+	dh_testroot
+	[ ! -f Makefile ] || $(MAKE) distclean
+	rm -rf $(CURDIR)/build
+	rm -f support/sdbinutils/binutils/arlex.c
+	rm -f support/sdbinutils/binutils/arparse.c
+	rm -f support/sdbinutils/binutils/arparse.h
+	rm -f confdefs.h
+	rm -f install-arch install-indep
+	rm -f doc/sdcc_version
+	rm -f sim/ucsim/cmd.src/cmdlex.cc
+	rm -f device/lib/stm8-large/Makefile
+	rm -f device/lib/stm8-large/*.asm
+	rm -f device/lib/stm8-large/*.lst
+	rm -f device/lib/stm8-large/*.rel
+	rm -f device/lib/stm8-large/*.sym
+	rm -f support/sdbinutils/binutils/mcparse.[c,h]
+	rm -f support/sdbinutils/binutils/rcparse.[c,h]
+	rm -f support/sdbinutils/binutils/sysinfo.[c,h]
+	rm -f support/sdbinutils/binutils/syslex.[c,h]
+	rm -f support/sdbinutils/binutils/defparse.[c,h]
+	rm -f sim/ucsim/config.log
+	rm -f sim/ucsim/lex.yy.c
+	rm -f support/sdbinutils/bfd/doc/bfd.info
+	rm -f support/sdbinutils/bfd/doc/bfdver.texi
+	find . -type f -name 'Makefile' -exec rm -vf {} \;
+	find . -type f -name 'config.log' -exec rm -vf {} \;
+	dh_clean
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	mkdir -p $(CURDIR)/build
+	chmod a-x device/lib/*.c
+	dh_update_autotools_config
+	CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" \
+	./configure \
+		--host=$(DEB_HOST_GNU_TYPE) \
+		--build=$(DEB_BUILD_GNU_TYPE) \
+		--disable-non-free \
+		--disable-pic14-port \
+		--disable-pic16-port \
+		--prefix=/usr
+	touch $@
+
+build: build-arch build-indep
+build-arch: build-arch-stamp
+build-arch-stamp: configure-stamp 
+	dh_testdir
+	$(MAKE) $(NJOBS)
+	touch $@
+
+build-indep: build-indep-stamp
+build-indep-stamp: configure-stamp
+	dh_testdir
+	cd doc && make
+	touch $@
+
+install: install-arch install-indep
+install-indep: build
+	dh_testdir
+	dh_testroot
+	dh_installdirs 
+	dh_prep
+	$(MAKE) install prefix=$(CURDIR)/debian/tmp/usr
+	mkdir -p debian/tmp/usr/share/doc/sdcc-doc
+	install -o root -g root -m 644 doc/sdccman.pdf debian/tmp/usr/share/doc/sdcc-doc
+	mv debian/tmp/usr/share/doc/sdcc/* debian/tmp/usr/share/doc/sdcc-doc/
+	rm -f debian/tmp/usr/share/doc/sdcc-doc/z80/combined_i186_z80_design.tex
+	rm -f debian/tmp/usr/share/doc/sdcc-doc/z80/Makefile
+	#Remove extra license file
+	rm -f $(CURDIR)/debian/tmp/usr/share/sdcc/lib/src/pic16/COPYING
+	# Remove empty dirs:
+	find $(CURDIR)/debian/tmp -type d -empty -delete
+
+	#Clean up unnecessary directories
+	rm -rf `find $(CURDIR)/debian/tmp -type d -name .deps`
+
+	dh_install -i --sourcedir=debian/tmp --list-missing
+
+	# Install examples
+	#cp -a device/examples $(CURDIR)/debian/sdcc-doc/usr/share/doc/sdcc-doc
+	rm -f $(CURDIR)/debian/sdcc-doc/usr/share/doc/sdcc-doc/examples/mcs51/simple*/go*
+	rm -f debian/sdcc-libraries/usr/share/sdcc/lib/src/pic14/GPL
+	rm -f debian/sdcc-libraries/usr/share/sdcc/lib/src/pic14/LGPL
+
+	touch $@
+
+install-arch: build-arch
+	dh_testdir
+	dh_testroot
+	dh_installdirs 
+	dh_prep
+	$(MAKE) install prefix=$(CURDIR)/debian/tmp/usr
+	rm -f $(CURDIR)/debian/tmp/usr/bin/sdld6808
+	cd $(CURDIR)/debian/tmp/usr/bin/ && ln -s sdld sdld6808
+	rm -f $(CURDIR)/debian/tmp/usr/bin/sdldz80
+	cd $(CURDIR)/debian/tmp/usr/bin/ && ln -s sdld sdldz80
+	rm -f $(CURDIR)/debian/tmp/usr/bin/sdldgb
+	cd $(CURDIR)/debian/tmp/usr/bin/ && ln -s sdld sdldgb
+
+	# Remove empty dirs:
+	find $(CURDIR)/debian/tmp -type d -empty -delete
+
+	#Clean up unnecessary directories
+	rm -rf `find $(CURDIR)/debian/tmp -type d -name .deps`
+	# Add some scripts
+	mkdir -p debian/tmp/usr/share/sdcc/scripts
+	install -o root -g root -m 755  support/scripts/*.pl debian/tmp/usr/share/sdcc/scripts
+	install -o root -g root -m 755  support/scripts/*.py debian/tmp/usr/share/sdcc/scripts
+	# Remove an unnecessary script 
+	rm -f debian/tmp/usr/share/sdcc/scripts/gen_known_bugs.pl
+	dh_install -a --sourcedir=debian/tmp --list-missing
+
+	touch $@
+
+# Must not depend on anything. This is to be called by binary-arch/binary-indep
+# in another 'make' thread.
+binary-common:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_installman
+	#dh_installexamples -psdcc-doc device/examples/* -X\.bat  
+	dh_installemacsen
+	dh_link
+	dh_lintian
+	dh_strip -Xusr/share/sdcc/lib/
+	dh_compress --exclude=.c --exclude=.h --exclude=.cpp
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture-independent files here.
+binary-indep: install-indep
+	$(MAKE) -f debian/rules DH_OPTIONS=-i binary-common
+
+# Build architecture-dependent files here.
+binary-arch: install-arch
+	$(MAKE) -f debian/rules DH_OPTIONS=-s binary-common
+
+get-orig-source:
+	set -e;\
+	VER=$(DEB_VERSION_UPSTREAM);\
+	uscan --force-download --rename --download-version=$$VER --destdir=. && (\
+	tar -xj --exclude device/non-free --exclude sim/ucsim/libltdl -f sdcc_$$VER.orig.tar.bz2 ; \
+	mv sdcc-$$VER sdcc-$$VER+dfsg;\
+	tar -caf sdcc_$$VER+dfsg.orig.tar.xz sdcc-$$VER+dfsg; \
+	rm -rf sdcc-$$VER+dfsg ;\
+	rm -f sdcc_$$VER.orig.tar.bz2);
+
+binary: binary-arch binary-indep
+.PHONY: build clean binary-indep binary-arch binary install install-arch install-indep

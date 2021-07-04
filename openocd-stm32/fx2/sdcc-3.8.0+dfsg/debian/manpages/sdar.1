@@ -1,0 +1,114 @@
+.TH AR 1
+.SH NAME
+sdar \- create, modify, and extract from archives. A part of SDCC
+.SH SYNOPSIS
+.B sdar
+[\fI\,emulation options\/\fR] [\fI\,-\/\fR]\fI\,{dmpqrstx}\/\fR[\fI\,abcDfilMNoPsSTuvV\/\fR] [\fI\,member-name\/\fR] [\fI\,count\/\fR] \fI\,archive-file file\/\fR...
+.SH DESCRIPTION
+.IP
+\fI\,/usr/bin/sdar\/\fP \fB\-M\fR [<mri\-script]
+.IP
+commands:
+.TP
+d
+\- delete file(s) from the archive
+.TP
+m[ab]
+\- move file(s) in the archive
+.TP
+p
+\- print file(s) found in the archive
+.TP
+q[f]
+\- quick append file(s) to the archive
+.TP
+r[ab][f][u]
+\- replace existing or insert new file(s) into the archive
+.TP
+s
+\- act as ranlib
+.TP
+t
+\- display contents of archive
+.TP
+x[o]
+\- extract file(s) from the archive
+.IP
+command specific modifiers:
+.TP
+[a]
+\- put file(s) after [member\-name]
+.TP
+[b]
+\- put file(s) before [member\-name] (same as [i])
+.TP
+[D]
+\- use zero for timestamps and uids/gids
+.TP
+[U]
+\- use actual timestamps and uids/gids (default)
+.TP
+[N]
+\- use instance [count] of name
+.TP
+[f]
+\- truncate inserted file names
+.TP
+[P]
+\- use full path names when matching
+.TP
+[o]
+\- preserve original dates
+.TP
+[u]
+\- only replace files that are newer than current archive contents
+.IP
+generic modifiers:
+.TP
+[c]
+\- do not warn if the library had to be created
+.TP
+[s]
+\- create an archive index (cf. ranlib)
+.TP
+[S]
+\- do not build a symbol table
+.TP
+[T]
+\- make a thin archive
+.TP
+[v]
+\- be verbose
+.TP
+[V]
+\- display the version number
+.TP
+@<file>
+\- read options from <file>
+.HP
+\fB\-\-target\fR=\fI\,BFDNAME\/\fR \- specify the target object format as BFDNAME
+.IP
+emulation options:
+.IP
+No emulation specific options
+.PP
+/usr/bin/sdar: supported targets: asxxxx srec symbolsrec binary ihex
+.SH "REPORTING BUGS"
+Report bugs to <http://sourceforge.net/tracker/?group_id=599@report_bugs_to@atid=100599>
+.SH COPYRIGHT
+Copyright 2012 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+.SH "SEE ALSO"
+The full documentation for
+.B ar
+is maintained as a Texinfo manual.  If the
+.B info
+and
+.B ar
+programs are properly installed at your site, the command
+.IP
+.B info ar
+.PP
+should give you access to the complete manual.

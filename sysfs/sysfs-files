@@ -199,3 +199,6 @@ cat /sys/kernel/debug/interconnect/interconnect_graph | \
 /sys/bus/iio/devices/iio:device0
 echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
 
+######## BLUETOOTH ###########
+echo 1 > /sys/kernel/debug/bluetooth/hci0/vendor_diag
+

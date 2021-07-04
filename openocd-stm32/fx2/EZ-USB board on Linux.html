@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta name="generator" content="http://txt2tags.sf.net">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="EZ-USB%20board%20on%20Linux_files/basic.css">
+<link rel="stylesheet" type="text/css" href="EZ-USB%20board%20on%20Linux_files/menu.css">
+<title>EZ-USB board on Linux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head><body text="black" bgcolor="white">
+<p align="center"></p><center><h1>EZ-USB board on Linux</h1>
+<font size="4">
+<em>Using a Cypress development board with sdcc and fxload</em><br>
+3-2005 ... 13-05-2006. Daniel Clemente
+</font></center>
+
+<p>
+Esta página también está <a href="https://www.danielclemente.com/placa_pi/index.html">en español</a>
+</p>
+<hr size="1" noshade="noshade">
+
+<a name="toc1"></a>
+<h2>Introduction</h2>
+<p>
+In the subject called
+<abbr title="Periféricos e Interfícies">PI</abbr>
+-Periferals and Interfaces- at the
+<abbr title="Facultad de Informática de Barcelona">FIB</abbr>
+(UPC, Public University of Catalonia)
+we used a <em>development board</em> at the practices.
+You connect it to a computer and transfer the programs,
+which can control the buttons, write on the LCD screen, or
+communicate with the computer or other devices.
+</p>
+<p>
+We used proprietary programs which only worked on Windows, so I looked
+for a way to do the same but on any operating system, and with
+free (as in freedom) and <em>gratis</em> programs, so that anyone could
+study them.
+</p>
+<p>
+This isn't finished, but it's a starting point to anyone who were
+looking for this. At least you won't need to start from zero.
+</p>
+    <ul>
+    <li><a href="#toc1">Introduction</a>
+    </li><li><a href="#toc2">Description of the board</a>
+    </li><li><a href="#toc3">Original behaviour (and in Windows)</a>
+    </li><li><a href="#toc4">Loading an hex in the board (fxload)</a>
+    </li><li><a href="#toc5">Compiling C code to create the .hex (sdcc)</a>
+    </li><li><a href="#toc6">ezregs.h, ezusb.h and others</a>
+      <ul>
+      <li><a href="#toc7">Lowercase names</a>
+      </li><li><a href="#toc8">Register definitions for the 8051</a>
+      </li><li><a href="#toc9">Don't abuse the preprocessor</a>
+      </li><li><a href="#toc10">The .inc</a>
+      </li></ul>
+    </li><li><a href="#toc11">EZUSB.LIB library</a>
+      <ul>
+      <li><a href="#toc12">Creation of a library</a>
+      </li><li><a href="#toc13">Lowercase names</a>
+      </li><li><a href="#toc14">stdlib.h instead of stdio.h</a>
+      </li><li><a href="#toc15">Conversion to xdata* at get_infc.c</a>
+      </li><li><a href="#toc16">volatile at I2CPckt</a>
+      </li><li><a href="#toc17">function cannot return 'bit'</a>
+      </li><li><a href="#toc18">Transforming the Keil assembler to sdcc</a>
+      </li><li><a href="#toc19">Testing the library</a>
+      </li></ul>
+    </li><li><a href="#toc20">Summary of what I have done</a>
+    </li><li><a href="#toc21">What still has to be done</a>
+    </li><li><a href="#toc22">Other solutions</a>
+    </li><li><a href="#toc23">Disclaimer, and information about this document</a>
+    </li></ul>
+
+
+<hr size="5" noshade="noshade">
+
+<a name="toc2"></a>
+<h2>Description of the board</h2>
+<p>
+It's a little tricky to understand <em>what</em> the board is.
+Starting from the most general, we have:
+<a href="https://www.danielclemente.com/placa_pi/placa_pi.jpg"><img src="EZ-USB%20board%20on%20Linux_files/mplaca_pi.jpg" alt="The famous development board used at PI" border="0" align="right"></a>
+</p>
+<p>
+The board has been designed and set up by the teachers of the subject (PI);
+they bought some pieces at electronic shops and they put them together.
+Among these pieces are: <em>dot matrix</em>, buttons, memory (64 Kb), serial
+and USB connectors, and the
+<abbr title="microcontroller">μC</abbr> AN2131QC,
+and furthermore some LEDs, resistors, transistors, and others.
+</p>
+<p>
+The main component at the board is the microcontroller AN2131QC, from
+the company <a href="http://www.cypress.com/">Cypress</a> (which bought Anchor
+Chips, the original producer). The AN2131Q is a product of the
+EZ-USB family from Cypress. Other microcontrollers (AN2122T, AN2135S, etc) have
+somewhat different characteristics (more USB <em>endpoints</em>, or faster ports,
+for instance).
+</p>
+<p>
+This microcontroller, AN2131QC, has several important components, such as
+a 8 Kb memory, a UART (it has two), and of course the processor, which is
+an improved 8051. The original
+<a href="http://www.microcontroller.com/embedded/references/faqs/8051-microcontroller-faq.htm">8051</a>
+was made by Intel at 1980, bit now is produced by other companies, like 
+Atmel. It's an 8 bits CPU with 256 bytes of RAM, 2 or 3 timers, 5 or 6
+interrupts, 4 ports (of 8 bits), and serial port. The improvements made by Cypress
+with their EZ-USB is that it runs faster, operates at 3.3V, has a third counter
+(16 bits), and more.
+</p>
+<p>
+The good thing is that the assembler code of the 8051 CPU still works on the
+microcontroller AN2131, so the board used in PI can also be programmed
+with code compatible with the 8051. In addition, some extra functions must
+be used to access everything related to just the EZ-USB.
+</p>
+<p>
+There exist other development boards which use the AN2131QC from Cypress,
+for example:
+<a href="http://www.minford.ca/html/mf3001.html">MF3001</a>,
+<a href="http://www.devasys.com/usbi2cio.htm">USB I2C/IO</a>,
+<a href="http://www.jged.com/web_pages/usbsimm.html">USBSIMM</a>;
+and if you don't like them,
+<a href="http://www.k9spud.com/ezproto/">make one yourself</a>.
+</p>
+<a name="toc3"></a>
+<h2>Original behaviour (and in Windows)</h2>
+<p>
+To make our program run in the board, we had to follow these steps:
+</p>
+<ol>
+<li><strong>Write the high-level code.</strong> We used a sort of somewhat unclean C
+    (it seems that everything we were taught about modular
+    and structured programming doesn't apply here). Beware of the code:
+    <code>a=5;</code> doesn't mean that <code>a</code> gets set the value 5, but
+    it might be a call to a hardware function.
+    Sometimes just changing the order of assignments
+    (<code>b=0;a=0;</code> instead of <code>a=0;b=0;</code>) solved the problems.
+
+</li><li><strong>Compile it.</strong> You need a <em>cross compiler</em> since the desired processor
+    is the 8051, not x86. We used
+    <a href="http://www.keil.com/uvision2/">Keil μVision 2</a>. After compiling,
+    the object file is linked with a library provided by Cypress, called
+    EZUSB.LIB and present in all programs.
+    The result of the compilation is a file with extension HEX which follows
+    the
+    <a href="http://margo.student.utwente.nl/el/misc/intl_hex.htm">specification</a>
+    from Intel.
+
+</li><li><strong>Load the code in the board.</strong> There's a program, <em>Cypress Control Panel</em>,
+    to transfer (<em>download</em>) this HEX file to the board via USB.
+
+</li><li><strong>Look at the board to see if it works.</strong> Just after the
+    transfer, it starts running and we have to test (by using the buttons
+    and LCD screen) whether it does what it was intended. If something
+    doesn't work, change the code and repeat the process until you run
+    out of patience. You can also use debuggers and simulators, but
+    we were not taught that at PI.
+</li></ol>
+
+<p>
+So the two tools used are: Keil (compiler) and the loader from Cypress.
+I haven't exhaustively studied them as they only run on Windows,
+but what I have tried is to find a way to do the same, but using only
+crossplattform, no cost, and hopefully <em>free</em> software (which we can
+study). And not a demo, like Keil (at some subjects, like
+<abbr title="Sistemas Digitales y Microcontroladores">SDMI</abbr>
+students could not compile large projects since the demo
+was limited in size).
+</p>
+<a name="toc4"></a>
+<h2>Loading an hex in the board (fxload)</h2>
+<p>
+I explain this first because is the easiest part. We have an <code>.hex</code>
+(already compiled) and want the board to run it.
+</p>
+<p>
+In kernel 2.6, the ability to transfer to the EZ-USB board is already
+incorporated in the kernel. You just need the program <code>fxload</code>, and a
+command like <code>fxload -I DosPunts.hex</code> is sufficient to make the
+board start running the just transferred code. In kernel 2.4 you
+must use <a href="http://ezusb2131.sourceforge.net/">this driver</a>.
+</p>
+<p>
+So that you can test, here there is an example program:
+<a href="https://www.danielclemente.com/placa_pi/DosPunts.hex">DosPunts.hex</a>. It shines two points at the
+<em>dot matrix</em>, and does nothing else.
+</p>
+<a name="toc5"></a>
+<h2>Compiling C code to create the .hex (sdcc)</h2>
+<p>
+This needs a <em>cross-compiler</em> for the specific language we want.
+For C or C dialects, there are several
+<a href="http://ee.cleversoul.com/8051_compilers.html">8051 compilers</a>.
+Among them there's <a href="http://www.keil.com/c51/c51.htm">C51</a> (the one found in
+Keil, expensive and for MS-DOS) and <a href="http://sdcc.sourceforge.net/">sdcc</a>
+(free software, <em>gratis</em>, crossplatform, and including a lot of other tools).
+</p>
+<p>
+You can compile code written in several other languages, both high and low level.
+For ASM (assembler), the known ones are
+<a href="http://www.keil.com/c51/a51.htm">A51</a> (from Keil),
+<a href="http://sdcc.sourceforge.net/doc/sdccman.html/node34.html">asx8051</a>
+(from sdcc), and others.
+</p>
+<p>
+The one I have decided to use in Linux is sdcc (it seems it's the most complete,
+and in addition it's free software).
+To create the <code>hex</code> you have to do so:
+</p>
+<ol>
+<li>Write code in that pseudo-C, in a file like <code>file.c</code>
+</li><li>Run <code>sdcc file.c</code>, possibly passing it some options like <code>-I</code>
+to specify where are the <em>includes</em>.
+This creates a lot of files:
+<code>.asm</code>,
+<code>.ihx</code>,
+<code>.lnk</code>,
+<code>.lst</code>,
+<code>.map</code>,
+<code>.mem</code>,
+<code>.rel</code>,
+<code>.rst</code>,
+<code>.sym</code>.
+If what you were compiling was assembler,
+it's done with <code>asx8051 -o file.asm</code>
+and after that, <code>sdcc file.rel</code>.
+</li><li>Convert the <code>ihx</code> to <code>hex</code> with <code>packihx file.ihx &gt;file.hex</code>.
+</li></ol>
+
+<p>
+To compile projects which have several files, compile each one individually
+with flag <code>-c</code> and then link them together, putting the <em>main.c</em> first.
+SDCC manual explains this better.
+</p>
+<p>
+And something else:
+due to the architecture of the PI board, <code>sdcc</code> will need some parameters
+like
+<code>--code-loc 0x0080 --xram-loc 0x1000 --iram-size 256 --model-small</code>
+(well, default model is <em>small</em> anyway).
+I found these data at the Keil configuration at the laboratories.
+</p>
+<p>
+All this works; the problem is that at the EZ-USB board,
+most of the functions needed to access the hardware are implemented
+in an extern <em>library</em>, called EZUSB.LIB. For instance,
+in this program, <a href="https://www.danielclemente.com/placa_pi/DosPunts.c">DosPunts.c</a>, it can be seen that
+almost the whole code are custom functions (EZUSB_WriteI2C, EZUSB_Delay, ...).
+</p>
+<a name="toc6"></a>
+<h2>ezregs.h, ezusb.h and others</h2>
+<p>
+At the examples we included (<code>#include</code>) two header files:
+</p>
+<ul>
+<li><code>ezregs.h</code> tells the address for each register in the board,
+both for the internal microcontroller (8051) and for
+the ones added by Cypress.
+</li><li><code>ezusb.h</code> declares the structures and functions specific to the
+EZ-USB bourd (EZUSB_InitI2C, etc)
+</li></ul>
+
+<p>
+These files, and others found at the directory <em>include</em> of the program,
+also need modification to be able to compile without problems.
+The originals are here:
+<a href="https://www.danielclemente.com/placa_pi/include-orig.tar.gz">include-orig.tar.gz</a>,
+and the fixed version is in this folder:
+<a href="https://www.danielclemente.com/placa_pi/include-fix/">include-fix/</a>
+(also in this <a href="https://www.danielclemente.com/placa_pi/fixed.tar.gz">tar.gz</a>).
+I hope I don't disturb anyone by distributing them.
+</p>
+<p>
+The changes I made to them are:
+</p>
+<a name="toc7"></a>
+<h3>Lowercase names</h3>
+<p>
+On Windows, each program referenced the files in a different manner.
+I have renamed them all to lowercase; for instance <code>ezregs.h</code>
+(formerly <code>EZRegs.h</code>) so that it is easy to work with them.
+And by the way, I have indented them and removed the TABs.
+</p>
+<a name="toc8"></a>
+<h3>Register definitions for the 8051</h3>
+<p>
+At <code>ezregs.h</code> we have the memory address by which each
+<abbr title="Special Function Register">SFR</abbr> from the board
+can be accessed.
+<code>sdcc</code> already provides a similar file,
+at <code>/usr/share/sdcc/include/8051.h</code>;
+the addresses of both do agree, but the problem is that our micro
+is an <em>extended</em> 8051 (not to be confused with the 8052), and
+there are definitions which are missing in the file from sdcc.
+For instance, in the original there's just <code>SBUF</code>, but the one
+from Cypress has <code>SBUF0</code> and <code>SBUF1</code>.
+</p>
+<p>
+Anyway, the sdcc file is useful to learn the syntax which the register
+definitions have to follow. It should be something like:
+<code>sfr at 0x8D TH1;</code> but the Keil format is
+<code>sfr TH1 = 0x8D;</code>.
+Both use <code>sfr</code> for register names
+and <code>sbit</code> for names of bits inside registers.
+I have corrected this (by using regular expressions it's done very fast).
+</p>
+<a name="toc9"></a>
+<h3>Don't abuse the preprocessor</h3>
+<p>
+At <code>ezregs.h</code> there's also the definition of registers found at the
+EZ-USB board (not at the 8051), such as the ones we need to use the USB.
+They are <code>xdata</code> registers, so they have to be accessed as if they were
+at the external RAM.
+</p>
+<p>
+The bad point is that they are doing a filthy trick with preprocessor:
+</p>
+<pre>  #ifdef ALLOCATE_EXTERN
+  #define EXTERN
+  #define _AT_ _at_
+  #else                           /*  */
+  #define EXTERN extern
+  #define _AT_ ;/ ## /
+  #endif                          /*  */
+  
+  /* Register Assignments 3/18/99 TPM */
+  EXTERN xdata volatile BYTE OUT7BUF[64] _AT_ 0x7B40;
+  EXTERN xdata volatile BYTE IN7BUF[64] _AT_ 0x7B80;
+  EXTERN xdata volatile BYTE OUT6BUF[64] _AT_ 0x7BC0;
+</pre>
+
+<p>
+And like that, for all registers. The intention is the change <code>_AT_</code> to <code>;//</code> to
+ignore the right half of several lines.
+</p>
+<p>
+This doesn't please sdcc
+(<code>warning: pasting "/" and "/" does not give a valid preprocessing token</code>);
+and neither to me (in fact, <code>gcc</code> also joins our complaining, with normal C).
+I have changed that to something more elegant:
+</p>
+<pre>  #ifdef ALLOCATE_EXTERN
+  #define NEWEZREG(_name,_where,_size) volatile xdata at _where _size _name
+  #else                           /*  */
+  #define NEWEZREG(_name,_where,_size) extern volatile xdata _size _name
+  #endif                          /*  */
+  
+  /* Register Assignments 3/18/99 TPM */
+  NEWEZREG(OUT7BUF[64],0x7B40,BYTE);
+  NEWEZREG(IN7BUF[64],0x7B80,BYTE);
+  NEWEZREG(OUT6BUF[64],0x7BC0,BYTE);
+</pre>
+
+<p>
+With that, <code>ezregs.h</code> is fixed;
+<code>fx2regs.h</code> and <code>fx.h</code> also need the same change.
+</p>
+<a name="toc10"></a>
+<h3>The .inc</h3>
+<p>
+These 6 files are included when you program in assembler:
+</p>
+<ul>
+<li>ezbits.inc
+ sets some bits to a few USB registers.
+</li><li>ezregs.inc
+ contains the same as ezregs.h but for the ASM.
+</li><li>fx2regs.inc
+ is like fx2regs.h (for chip EZ-USB FX2).
+</li><li>fx.inc
+ is the same as fx.h (for chip EZ-USB FX).
+</li><li>macros.inc
+ has 5 simple macros for assembler.
+</li><li>reg320.inc
+ has nothing; it's there to maintain backwards compatibility.
+</li></ul>
+
+<p>
+They use the Keil syntax,
+but they are so seldom used that I preferred not to change them.
+I will talk of them again.
+</p>
+<a name="toc11"></a>
+<h2>EZUSB.LIB library</h2>
+<p>
+The functions to work with the components added by Cypress
+are in the library file EZUSB.LIB,
+and they are more or less <a href="https://www.danielclemente.com/placa_pi/symbols_lib.txt">these</a>.
+When we worked with Keil (Windows),
+at each project we had to include the file
+EZUSB.LIB so that it got linked with the compiled code;
+the problem is that the original EZUSB.LIB is in the format
+which understands Keil, but that's not the same of the one
+used in sdcc libraries.
+</p>
+<p>
+Fortunately and not hoping it, I found a diretory with all the
+<a href="https://www.danielclemente.com/placa_pi/ezusb-orig.tar.gz">source code of the EZUSB library</a> in a Keil installation.
+But it's prepared to compile only with the environment and syntax of
+Keil (using C51 and A51).
+I hope I don't disturb anyone if I distribute this here.
+</p>
+<p>
+After a lot of work, I ported all the C and ASM code of this library
+to a format which sdcc could understand.
+The result is in
+<a href="https://www.danielclemente.com/placa_pi/ezusb-fix/">ezusb-fix/</a>
+(also in this <a href="https://www.danielclemente.com/placa_pi/fixed.tar.gz">tar.gz</a>);
+will Cypress get angry if I publish fixes for their code?.
+</p>
+<p>
+Despite the codes were simple, I have fixed several errors.
+Now I will explain the changes that were needed.
+</p>
+<a name="toc12"></a>
+<h3>Creation of a library</h3>
+<p>
+According to Cypress, EZUSB.LIB is created using <code>C51</code> to compile each <code>.c</code>
+separately and <code>A51</code> for each <code>.a51</code>, also separately.
+Then you must create an empty library, with <code>LIB51</code>, and add all of the
+generated object files except the ones for
+<code>2200jmpt.a51</code>, <code>FXJmpTb.a51</code>, <code>renum.a51</code>, <code>USBJmpTb.a51</code>.
+</p>
+<p>
+According to sdcc, a <code>.lib</code> is just a list of <code>.rel</code> files,
+which are the object code, result of the
+individual compilation of each
+<code>.c</code> or <code>.asm</code> (by using <code>-c</code>).
+It's so easy: just a list with the file names, one per line.
+</p>
+<p>
+ In addition, a <code>.lib</code> from sdcc may also contain all the code
+(so that it ends up being in just one file), and the format is
+equally simple: by using <code>sdcclib</code>, the content of each
+<code>rel</code> (which is plain text) is included, and they are
+classified by using a tags system similar to HTML.
+On the other hand, the Keil format is binary, and
+not easy to understand (at least by me).
+</p>
+<p>
+Then, my goal is to <em>fix</em> the 13 files
+<code>delay.c</code>,
+<code>delayms.a51</code>,
+<code>discon.c</code>,
+<code>EZRegs.c</code>,
+<code>get_cnfg.c</code>,
+<code>get_dscr.c</code>,
+<code>get_infc.c</code>,
+<code>get_strd.c</code>,
+<code>i2c.c</code>,
+<code>i2c_rw.c</code>,
+<code>resume.c</code>,
+<code>susp.a51</code>,
+<code>usbirqcl.a51</code>,
+compile them separately, and join them in a librray to make my
+own <code>ezusb.lib</code>.
+</p>
+<a name="toc13"></a>
+<h3>Lowercase names</h3>
+<p>
+To compile the library on Linux, the <code>#include</code> have to reference
+the correct file (agreeing even with the upper and lower case).
+I have changed in all files things like
+<code>#include "..\inc\Fx.h"</code> to <code>#include &lt;fx.h&gt;</code>.
+</p>
+<a name="toc14"></a>
+<h3>stdlib.h instead of stdio.h</h3>
+<p>
+<code>get_cnfg.c</code>, <code>get_dscr.c</code>, <code>get_infc.c</code>, <code>get_strd.c</code> needed
+the symbol <code>NULL</code>, which is in <code>stdlib.h</code>, not <code>stdio.h</code>.
+<code>i2c.c</code> directly didn't need it.
+</p>
+<a name="toc15"></a>
+<h3>Conversion to xdata* at get_infc.c</h3>
+<p>
+It says this when compiling:
+</p>
+<pre>  get_infc.c:16: warning: function return value mismatch
+  from type 'struct __00010003 generic* '
+  to type 'struct __00010003 xdata-xdata* '
+</pre>
+
+<p>
+The relevant part of code is (the 16 is the <code>return</code>):
+</p>
+<pre>  INTRFCDSCR xdata*       EZUSB_GetIntrfcDscr(BYTE ConfigIdx, BYTE IntrfcIdx, BYTE AltSetting)
+  {
+  ...
+  INTRFCDSCR      *intrfc_dscr;
+  ...
+  intrfc_dscr = (INTRFCDSCR xdata *)((WORD)config_dscr + config_dscr-&gt;length);
+  return(intrfc_dscr);
+  ...
+</pre>
+
+<p>
+The function should return a <code>xdata*</code> ("pointer to the RAM external to the 8051"),
+but in the <code>small</code> model we are using in compilation, local variables are placed
+by default in internal RAM (storage type <code>data</code>).
+</p>
+<p>
+I don't think that USB descriptors are located in <code>data</code> (the 128/256 bytes of internal RAM),
+so declaring it <code>xdata*</code> it will solve it:
+</p>
+<pre>  INTRFCDSCR      xdata *intrfc_dscr;
+</pre>
+
+<a name="toc16"></a>
+<h3>volatile at I2CPckt</h3>
+<p>
+The error compiling <code>i2c.c</code>:
+</p>
+<pre>  i2c.c:5: error: extern definition for 'I2CPckt' mismatches with declaration.
+  from type 'struct __00010007'
+  to type 'volatile-struct __00010007'
+</pre>
+
+<p>
+Line to blame:
+<code>I2CPCKT volatile        I2CPckt;</code>.
+But at <code>ezusb.h</code> it says that <code>extern I2CPCKT I2CPckt;</code>, so that doesn't match.
+</p>
+<p>
+There are two options: add <code>volatile</code> wherever needed, or remove it where it appears.
+I think that if they put it, there must be some reason, so I add it too to <code>ezusb.h</code> and <code>fx2.h</code>:
+</p>
+<pre>  extern I2CPCKT volatile I2CPckt;
+</pre>
+
+<a name="toc17"></a>
+<h3>function cannot return 'bit'</h3>
+<p>
+At <code>i2c.c</code> and <code>i2c_rw.c</code> there are some functions which return <code>BOOL</code>:
+</p>
+<pre>  /* en i2c.c */
+  BOOL EZUSB_WriteI2C_(BYTE addr, BYTE length, BYTE xdata *dat);
+  BOOL EZUSB_ReadI2C_(BYTE addr, BYTE length, BYTE xdata *dat);
+  /* en i2c_rw.c */
+  BOOL EZUSB_ReadI2C(BYTE addr, BYTE length, BYTE xdata *dat)
+  BOOL EZUSB_WriteI2C(BYTE addr, BYTE length, BYTE xdata *dat)
+</pre>
+
+<p>
+According to <code>ezusb.h</code>, it's said that <code>typedef bit BOOL;</code>, but a function returning a single bit
+is not allowed. In fact, the ones from <code>i2c.c</code> return <code>TRUE</code> and <code>FALSE</code>, which
+are defined (<code>#define</code>) at <code>ezusb.h</code> to <code>1</code> and <code>0</code> respectively, so they can
+be normal integers.
+The strange part is that the ones from <code>i2c_rw.c</code> return constants like
+<code>I2C_OK</code>, <code>I2C_NACK</code>, <code>I2C_BERROR</code>,
+with values 8, 7 and 6 respectively. I can't understand the meaning of 
+that transformation to bit; sdcc is doing well by complaining because of
+ that.
+</p>
+<p>
+I have changed the return type to <code>BYTE</code>, changing the headers at <code>i2c.c</code>, <code>i2c_rw.c</code> and
+<code>ezusb.h</code> and <code>fx2.h</code>. In theory a byte can function in the same way as a bit: 0 means false, and different to 0, true.
+But this change may make some older programs (which wanted to get a <code>BOOL</code>) stop compiling now.
+</p>
+<a name="toc18"></a>
+<h3>Transforming the Keil assembler to sdcc</h3>
+<p>
+To complete EZUSB.LIB there still are 3 assembler files:
+<code>delayms.a51</code>,
+<code>susp.a51</code>,
+<code>usbirqcl.a51</code>,
+which include (in the sense of <code>#include</code>) to
+<code>ezregs.inc</code>,
+even when there are 6 <em>include</em>s:
+<code>ezbits.inc</code>
+<code>ezbits.inc</code>
+<code>ezregs.inc</code>
+<code>fx2regs.inc</code>
+<code>fx.inc</code>
+<code>macros.inc</code>
+<code>reg320.inc</code>
+.
+</p>
+<p>
+The syntax used by asx8051 (the compiler found in sdcc) is very different to the
+one from A51 (the assembler compiler from Keil).
+It's worth studying the <code>.asm</code> which sdcc generates when it compiles C.
+</p>
+<p>
+In asx8051 there are some differences respect from A51:
+</p>
+<ul>
+<li>Global symbols (tags accessible from outside) are specified with
+<code>.globl</code> (or with <code>tag::</code>).
+Then you don't need the <code>-g</code> when compiling.
+</li><li>Files are included with <code>.include</code>
+</li><li>Constants (<code>equ</code>) are done with <code>NAME = value</code>
+</li><li>You must use <code>.area CSEG (CODE)</code> before the code.
+</li><li>The hexadecimal values are written with <code>0xVALUE</code>, and binary
+with <code>0bVALUE</code>. In A51 they have the letter at the end.
+</li><li>You don't need the <code>end</code> instruction at the bottom of each file.
+</li><li>Keil ignores everything about upper/lower case, and even when in your
+code you're calling <code>EZUSB_Delay1ms</code>, for instance, at the assembler
+there's only defined the symbol <code>EZUSB_DELAY1MS</code>.
+</li><li>Symbols created by asx8051 must have the prefix <code>_</code> (it means
+<em>external symbol</em>). sdcc adds it automatically when compiling C.
+</li></ul>
+
+<p>
+Instead of fixing the 3 <code>.a51</code>, I have created 3 <code>.asm</code> files with the
+code written in the syntax of asx8051,
+which -in my opinion- is clearer than A51's.
+Since data from the <em>include</em> was scarcely used (just to obtain the address
+of the SFR <code>USBCS</code>, <code>PCON</code> and <code>EXIF</code>),
+I have repeated the declaration of those registers where needed, and I haven't
+used <em>include</em>s.
+</p>
+<p>
+I hope to have converted the files correctly.
+</p>
+<a name="toc19"></a>
+<h3>Testing the library</h3>
+<p>
+Once the 13 files (10 C and 3 ASM) have been compiled, there have been
+no problems creating <code>ezusb.lib</code> from the 13 <code>.rel</code> with <code>sdcclib</code>.
+</p>
+<p>
+Using the corrected header files
+(<a href="https://www.danielclemente.com/placa_pi/include-fix/">include-fix/</a>)
+and the corrected library
+(<a href="https://www.danielclemente.com/placa_pi/ezusb-fix/">ezusb-fix/</a>)
+I can now compile
+<a href="https://www.danielclemente.com/placa_pi/DosPunts.c">DosPunts.c</a>
+with:
+</p>
+<pre>  echo OPCS="--code-loc 0x0080 --xram-loc 0x1000 --iram-size 256 --model-small"
+  sdcc -I ../include-fix -L ../ezusb-fix -l ezusb $OPCS DosPunts.c
+  packihx DosPunts.ihx &gt;DosPunts.hex
+</pre>
+
+<p>
+I tried simulating the hex with s51 (it comes with sdcc): <code>s51 DosPunts.hex</code>.
+It's not very appropriate since the PI board is not an 8051
+(for instance, it has 256 bytes of RAM instead of 128).
+In the simulation, s51 said:
+</p>
+<pre>  ...
+  Error: invalid address 0x82 in memory iram.
+     0x04ad f6       MOV   @R0,A
+  Error: invalid address 0x81 in memory iram.
+     0x04ad f6       MOV   @R0,A
+  Error: invalid address 0x80 in memory iram.
+     0x04ad f6       MOV   @R0,A
+</pre>
+
+<p>
+That's logical, since at the 8051 (which is what it's simulating), there
+are just 128 (0x7f) bytes of RAM, and beyond 0x80 there live the SFRs.
+You can blame the initialization code which sdcc adds to empty the RAM:
+</p>
+<pre>  ...
+  ; starting with r0=0 and a=0
+  00005$: mov     @r0,a
+          djnz    r0,00005$
+  ;       _mcs51_genRAMCLEAR() end
+</pre>
+
+<p>
+This is like <code>i=0; do { mem[i]=0; i--; } while (i!=0);</code>.
+That's effective, but the simulator complains.
+You may add <code>--no-xinit-opt</code> when compiling to stop generating this
+initialization code and avoid <em>warning</em>s (but face the consequences),
+or ask s51 to perform as an 8052, which has the full 256 bytes:
+<code>s51 -t 8052</code> (even when our board <em>is not</em> an 8052).
+</p>
+<a name="toc20"></a>
+<h2>Summary of what I have done</h2>
+<ul>
+<li>Find a C and ASM compiler and a way to create the <code>hex</code> and load them
+in the board.
+</li><li>Fix the header files from Keil so that we can compile with <code>sdcc</code>.
+</li><li>Fix the source code of the library which contains the functions added by Cypress,
+and create the <code>ezusb.lib</code> which can be used with <code>sdcc</code>.
+</li><li>Create the hex file for some simple example which uses EZ-USB technologies.
+</li></ul>
+
+<a name="toc21"></a>
+<h2>What still has to be done</h2>
+<ul>
+<li>Further test the new <code>ezusb.lib</code> with sdcc.
+</li><li>Better understand the memory map of the board.
+Correctly place each section (CODE, DATA, XDATA, BIT, ...).
+</li><li>Try some hex generated by sdcc in the real board.
+Also in a good simulator.
+</li><li>Achieve the correct compilation of all practises and exercices of PI.
+</li><li>Do a simple script to compile a C file (or use Makefile).
+</li><li>For the USB part, use projects like
+<a href="http://ezhid.sourceforge.net/">EzHID</a>
+</li><li>Look for more tools which help the development process with this board:
+simulators like s51/uCsim (from sdcc) or <a href="http://emu51.sourceforge.net/">emu51</a>,
+debuggers like sdcdb (from sdcc),
+graphical interfaces (IDE),
+working examples, etc. The problem is that the programs designed for the
+8051 don't recognize the extensions made by Cypress (USB, I2C, etc.).
+</li></ul>
+
+<a name="toc22"></a>
+<h2>Other solutions</h2>
+<ul>
+<li>If I'm not able to create my <code>ezusb.lib</code>, look for some other
+compiler which accepts libraries in the Keil format.
+There are some, but I haven't found any free one which runs on Linux.
+It will be difficult to find something better than sdcc.
+</li><li>Emulate
+<a href="https://www.winehq.org/hypermail/wine-users/2004/11/0079.html">Keil (with wine)</a>,
+or the compiler it uses internally,
+<a href="http://www.precma.com/tooltips/crosslinux.htm">C51 (with dosemu)</a>.
+It's complicated and the fact that needs a hardware protection (on the
+parallel port) makes the job even less pleasant.
+</li></ul>
+
+<a name="toc23"></a>
+<h2>Disclaimer, and information about this document</h2>
+<p>
+I started writing this with absolutely no knowledge about microcontrollers;
+if in the theory classes at PI they had taught us something about the
+practices, I could have gathered all this information faster.
+</p>
+<p>
+I have read things like this
+<a href="http://www.8052.com/tut8051.phtml">8051 tutorial</a>,
+but I am still a novice on microcontrollers.
+With this document I just intend to help a bit
+the new students so that they don't start their investigations
+from zero.
+I recommend to study the source code of the <em>free software</em> projects
+(like sdcc); it's a wonderful way of learning
+which it's worth profiting.
+</p>
+<p>
+And, by the way, let me say that the subject PI was a general joke
+(even when everyone in our school, FIB, knows that). We made the
+practices trying things randomly or copying them from somewhere else,
+since at our group there were no explanation or notes to take, and the
+chip specification (340 pages, in English) didn't help very much at
+the beginning.
+</p>
+<p>
+We got to the point where we were reading from a barcode scanner
+<em>without</em> having the scanner, and without even knowing how do these
+readers work.
+A teacher said that we could try to <em>simulate</em> it with Hyperterminal,
+but that he could not make it work, so there wasn't very much we could try.
+</p>
+<p>
+And that's the way it was... at the end, the hardest thing to do was not
+to pass the subject, but to learn something useful.
+</p>
+<p>
+Oh, and everything I have written has license <q>do what you want</q>,
+since I distribute some code which I don't really know if I have the right
+to modify.
+I have no relation with Cypress or with my university; I am responsible of
+everything told here.
+Write me if something needs to be changed.
+<em>n142857 -at-g-m-a-i-l--dot-com</em>
+</p>
+<hr size="1" noshade="noshade">
+
+<p>
+March-July 2005 (updated on 13-05-2006),
+<a href="https://www.danielclemente.com/">Daniel Clemente Laboreo</a>,
+</p>
+
+<!-- html code generated by txt2tags 2.3 (http://txt2tags.sf.net) -->
+<!-- cmdline: txt2tags index.en.t2t index.es.t2t -->
+
+</body></html>

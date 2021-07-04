@@ -1,0 +1,44 @@
+################## SWD ####################
+ad0        clk
+ad1        swd
+3.3v       3.3v  (if powering device)
+gnd        gnd
+and a 220ohm-470ohm resistor run directly betwen ad1 and ad2
+
+## openocd
+interface ftdi
+transport select swd
+ftdi_vid_pid 0x0403 0x6010
+ftdi_device_desc "Dual RS232-HS"
+adapter_khz 1000
+ftdi_layout_init 0x0018 0x05fb
+ftdi_layout_signal SWD_EN -data 0
+ftdi_layout_signal nSRST -data 0x0010
+
+## urjtag
+cable ft2232 vid=0x0403 pid=0x6010                 #bank a
+cable ft2232 vid=0x0403 pid=0x6010 interface=1     #bank b
+
+
+################## JTAG ####################
+jtag mini 10pin      bankA/bankB
+pin2                   ad3/bd3
+pin4                   ad0/bd0
+pin6                   ad2/bd2
+pin8                   ad1/bd1
+
+## openocd   #description can be commented out board specific
+
+interface ftdi
+ftdi_vid_pid 0x0403 0x6010
+ftdi_device_desc "Dual RS232-HS"
+ftdi_channel 1
+transport select jtag
+adapter_khz 200
+ftdi_layout_init 0x0018 0x05fb
+
+# "ftdi_channel 1" is bankB use "ftdi_channel 0" for bankA
+
+## urjtag
+cable ft2232 vid=0x0403 pid=0x6010                 #bank a
+cable ft2232 vid=0x0403 pid=0x6010 interface=1     #bank b

@@ -1,0 +1,8 @@
+python esptool.py --chip esp8266 --port /dev/ttyUSB0 --baud 921600 write_flash 0x0000 Basic.ino.generic.bin
+sudo socat PTY,link=/dev/tty63 TCP:192.168.1.191:23
+baud 77400
+
+
+    Decouple the power supply with a large capacitor (e.g. 1000uF) and 100nF, to buffer the input and suppress any noise.
+
+
