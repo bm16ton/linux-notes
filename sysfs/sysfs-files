@@ -202,3 +202,35 @@ echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
 ######## BLUETOOTH ###########
 echo 1 > /sys/kernel/debug/bluetooth/hci0/vendor_diag
 
+
+
+#############################################################################################
+OTG Mode selection, heres an exampl devicetree entry
+
+&usbotg {
+        vbus-supply = <&reg_5p0v>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_usbotg>;
+        disable-over-current;
+        dr_mode = "peripheral";
+        status = "okay";
+};
+
+This can be done in the bootloader, here's an example for GW54xx:
+
+setenv fixfdt 'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode host' # host mode
+setenv fixfdt 'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode gadget' # gadget mode
+saveenv #once you have made your selection
+
+Additionally some host controllers such as the Chips and Media controller used on the IMX6 have hooks that allow them to be configured at runtime in Linux Userspace. For example on IMX6 boards:
+
+cat /sys/kernel/debug/ci_hdrc.0/role # see current role; default dictated by dr_mode dt property or state of OTG_ID pin if not set
+echo gadget > /sys/kernel/debug/ci_hdrc.0/role # specify device mode
+echo host > /sys/kernel/debug/ci_hdrc.0/role # specify host mode
+
+############################################################################################
+
+/sys/class/leds/usb-1-1.3.4:w:stm32-avr-led
+/sys/class/leds/usb-1-1.3.4:w:stm32-avr-led/brightness    ### either 0/1 or 0-255 for pwm
+/sys/class/leds/usb-1-1.3.4:w:stm32-avr-led/trigger       ### cat for available triggers, echo back
+
