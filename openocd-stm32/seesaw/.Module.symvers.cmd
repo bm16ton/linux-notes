@@ -1,0 +1,1 @@
+cmd_/home/maddocks/linux-notes/openocd-stm32/seesaw/Module.symvers := sed 's/\.ko$$/\.o/' /home/maddocks/linux-notes/openocd-stm32/seesaw/modules.order | scripts/mod/modpost     -o /home/maddocks/linux-notes/openocd-stm32/seesaw/Module.symvers -e -i Module.symvers  -N -T -

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js wf-proximanova-n7-active wf-lettergothicstd-n7-active wf-proximanova-i7-active wf-proximanova-n4-active wf-proximanova-i4-active wf-proximanova-i3-active wf-proximanova-n3-active wf-active" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    
+
+<title>Custom ST-Link V2.0 / V2.1 / V3.0 | Details | Hackaday.io</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#333333">
+<link rel="apple-touch-icon-precomposed" href="https://hackaday.io/apple-touch-icon.png">
+<link rel="stylesheet" href="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/style.css">
+<script async="" src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/analytics.js"></script><script type="text/javascript" src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/ymb0lgk.js"></script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-letter-gothic-std{font-family:"letter-gothic-std",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-proxima-nova-n7;src:url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i7;src:url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:tk-proxima-nova-n4;src:url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i4;src:url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:tk-proxima-nova-n3;src:url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:tk-proxima-nova-i3;src:url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/l?subset_id=2&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/d?subset_id=2&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/a?subset_id=2&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-display:auto;}@font-face{font-family:tk-letter-gothic-std-n7;src:url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}</style><script type="text/javascript">try{Typekit.load({ async: true });}catch(e){}</script>
+
+        <script type="text/javascript">
+        function getCommentIdFromUrl() {
+            if(window.location.hash) {
+                var hash = window.location.hash.substring(1);
+                var commentId = parseInt(hash.replace('j-discussion-', ''));
+                if (commentId) {
+                    return commentId;
+                }
+            }
+            return null;
+        }
+
+        var commentId = getCommentIdFromUrl();
+        if (commentId) {
+            var url = window.location.href;
+            if (url.indexOf('?') > -1) {
+                url = url.substring(0, url.indexOf('?'));
+            }
+            if (url.indexOf('#') > -1) {
+                url = url.substring(0, url.indexOf('#'));
+            }
+            url += '/discussion-' + commentId;
+            window.location.href = url;
+        }
+    </script>
+    
+
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:site" content="@hackadayio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content=" | Details | Hackaday.io">
+<meta name="twitter:description" content="&lt;h1&gt;Onboard Programmers are great&lt;/h1&gt;
+
+&lt;p&gt;On microcontroller development boards (such as ST Nucleo Boards) it&amp;apos;s very handy to have an integrated JTAG programmer/debugger. If you would like to build your own board with an embedded programmer, things get a bit tricky.&lt;br&gt;In the case of the STMicroelectronics&amp;#xAE; popular ST-Link V2.0/V2.1 there are lots of clones out there, e.g. from eBay/AliExpress.&lt;br&gt;The maximum programming speed of those is 4 MHz. For larger projects, this can cause long upload times of up to a minute, which is not very pleasant while debugging a system.&amp;#xA0; &lt;br&gt;The &amp;quot;new&amp;quot; ST-Link V3 does not have this issue and provides a Full-Speed USB interface, which leads to an upload speed of 24 MHz!&lt;/p&gt;
+
+
+&lt;h1&gt;No ST-Link V3 clones available&lt;/h1&gt;
+
+
+&lt;p&gt;In my latest project, I would like to implement an embedded ST-Link V3, but I couldn&amp;apos;t find any resources of other people who have done that already.&lt;br&gt;Therefor, I&amp;apos;ve started reverse engineering things and created a proof of concept in the form of an external ST-Link V3 prototype.&lt;br&gt;Instead of developing only a cloned ST-Link V3, I decided to build a custom ST-Link V2 programmer in addition.&lt;br&gt;My goal was, that they share the same physical dimensions and are easily exchangeable.&lt;/p&gt;
+
+
+&lt;h1&gt;&lt;hr&gt;Hardware Design&lt;/h1&gt;
+
+
+&lt;p&gt;As reference for designing my own hardware,">
+<meta name="twitter:image" content="https://cdn.hackaday.io/images/8546711623822573457.jpg">
+
+<!-- Open Graph data -->
+<meta property="og:type" content="website">
+
+
+    <meta property="og:url" content="https://hackaday.io/project/project/179054-custom-st-link-v20-v21-v30/log/undefined-">
+
+<meta property="og:title" content=" | Details | Hackaday.io">
+<meta property="og:description" content="&lt;h1&gt;Onboard Programmers are great&lt;/h1&gt;
+
+&lt;p&gt;On microcontroller development boards (such as ST Nucleo Boards) it&amp;apos;s very handy to have an integrated JTAG programmer/debugger. If you would like to build your own board with an embedded programmer, things get a bit tricky.&lt;br&gt;In the case of the STMicroelectronics&amp;#xAE; popular ST-Link V2.0/V2.1 there are lots of clones out there, e.g. from eBay/AliExpress.&lt;br&gt;The maximum programming speed of those is 4 MHz. For larger projects, this can cause long upload times of up to a minute, which is not very pleasant while debugging a system.&amp;#xA0; &lt;br&gt;The &amp;quot;new&amp;quot; ST-Link V3 does not have this issue and provides a Full-Speed USB interface, which leads to an upload speed of 24 MHz!&lt;/p&gt;
+
+
+&lt;h1&gt;No ST-Link V3 clones available&lt;/h1&gt;
+
+
+&lt;p&gt;In my latest project, I would like to implement an embedded ST-Link V3, but I couldn&amp;apos;t find any resources of other people who have done that already.&lt;br&gt;Therefor, I&amp;apos;ve started reverse engineering things and created a proof of concept in the form of an external ST-Link V3 prototype.&lt;br&gt;Instead of developing only a cloned ST-Link V3, I decided to build a custom ST-Link V2 programmer in addition.&lt;br&gt;My goal was, that they share the same physical dimensions and are easily exchangeable.&lt;/p&gt;
+
+
+&lt;h1&gt;&lt;hr&gt;Hardware Design&lt;/h1&gt;
+
+
+&lt;p&gt;As reference for designing my own hardware,">
+<meta property="og:image" content="https://cdn.hackaday.io/images/8546711623822573457.jpg"><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/f61233/0000000000000000000158d0/23/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/8adb93/0000000000000000000158d8/23/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/l?subset_id=2&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/d?subset_id=2&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/9c140d/0000000000000000000158da/23/a?subset_id=2&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-display:auto;}@font-face{font-family:letter-gothic-std;src:url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/2cd276/000000000000000000012e1b/23/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}</style>
+
+</head>
+<body>
+    
+
+<div class="header hfr-has-background-black" id="header">
+
+    
+
+    <div class="hfr-container hfr-is-max-widescreen">
+
+        <nav class="hfr-navbar" role="navigation" aria-label="main navigation">
+
+            <div class="hfr-navbar-brand">
+                <a href="https://hackaday.io/" title="Hackaday.io Home" class="hfr-navbar-item logo">
+                    <img src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/logo-squares.png" alt="Hackaday.io" class="hfr-is-hidden-touch hfr-is-hidden-widescreen" width="33px" height="23px">
+                    <img src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/hackaday-logo.svg" alt="Hackaday.io" class="hfr-is-hidden-desktop-only" width="138px" height="17px">
+                </a>
+
+                <a role="button" class="hfr-navbar-burger hfr-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="hfr-navbar-menu">
+                
+                <div class="hfr-navbar-start">
+                    <div class="hfr-navbar-item hfr-has-dropdown hfr-is-hoverable">
+                        <a href="https://hackaday.io/projects" class="hfr-navbar-link hfr-is-arrowless hfr-is-family-secondary">Projects 
+
+
+
+
+    <div class="icon hfr-icon hfr-ml-3 hfr-has-text-grey hfr-is-hidden-touch">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 9.702l4.79-4.79a.707.707 0 111 .999l-5.14 5.14a.705.705 0 01-.652.197.712.712 0 01-.646-.196l-5.14-5.14a.703.703 0 01-.004-1.002.708.708 0 011.003.004L8 9.702z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+</a>
+                        <div class="hfr-navbar-dropdown hfr-is-hidden-touch">
+                            <a href="https://hackaday.io/projects?sort=updated" class="hfr-navbar-item">Recently Updated</a>
+                            <a href="https://hackaday.io/projects?sort=skulls" class="hfr-navbar-item">Most Likes</a>
+                            <a href="https://hackaday.io/projects?sort=date" class="hfr-navbar-item">Newest</a>
+                            <a href="https://hackaday.io/lists" class="hfr-navbar-item">Project Lists</a>
+                        </div>
+                    </div>
+                    <a href="https://hackaday.io/discover" class="hfr-navbar-item hfr-is-family-secondary ">Discover</a>
+                    <a href="https://hackaday.io/contests" class="hfr-navbar-item hfr-is-family-secondary ">Contests</a>
+                    <a href="https://hackaday.io/courses" class="hfr-navbar-item hfr-is-family-secondary hfr-is-hidden-desktop-only ">Courses</a>
+                    <a href="https://hackaday.io/stack" class="hfr-navbar-item hfr-is-family-secondary ">Stack</a>
+                    <div class="hfr-navbar-item hfr-has-dropdown hfr-is-hoverable">
+                        <a class="hfr-navbar-link hfr-is-arrowless hfr-is-family-secondary">More 
+
+
+
+
+    <div class="icon hfr-icon hfr-ml-3 hfr-has-text-grey hfr-is-hidden-touch">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 9.702l4.79-4.79a.707.707 0 111 .999l-5.14 5.14a.705.705 0 01-.652.197.712.712 0 01-.646-.196l-5.14-5.14a.703.703 0 01-.004-1.002.708.708 0 011.003.004L8 9.702z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+</a>
+                        <div class="hfr-navbar-dropdown">
+                            <a href="https://hackaday.io/courses" class="hfr-navbar-item hfr-is-hidden-touch hfr-is-hidden-widescreen">Courses</a>
+                            <a href="https://hackaday.io/list/159729" class="hfr-navbar-item">Tutorials</a>
+                            <a href="https://hackaday.io/events" class="hfr-navbar-item">Events</a>
+                            <a href="https://hackaday.io/hackerspaces" class="hfr-navbar-item">Hackerspaces</a>
+                            <a href="https://hackaday.io/hackers" class="hfr-navbar-item">Profiles</a>
+                            <a href="https://hackaday.com/" target="_blank" rel="noopener noreferrer" class="hfr-navbar-item">Hackaday.com</a>
+                            <a href="https://www.tindie.com/" target="_blank" rel="noopener noreferrer" class="hfr-navbar-item j-store-tracking">Tindie Marketplace</a>
+                        </div>
+                    </div>
+                    <div class="hfr-navbar-item nav search-holder" style="border-left: 1px solid #272727;">
+                        
+<form id="search-form" class="hfr-field hfr-has-addons" action="/search" onsubmit="return submitSearch();" method="GET">
+    <div class="hfr-control">
+        <input type="text" placeholder="Find projects and more" name="term" class="hfr-input hfr-is-static j-add-search t-input-search" id="add-search" autocomplete="off" pattern=".{2,}" required="" title="2 characters minimum">
+    </div>
+    <div class="control">
+        <button type="submit" class="hfr-button button-search" title="Search">
+            
+
+
+
+
+    <div class="icon hfr-icon hfr-is-medium">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M10.542 9.368a4.547 4.547 0 10-1.015 1.079c.04.086.094.166.165.237l2.727 2.727a.8.8 0 001.137.006.801.801 0 00-.006-1.136l-2.726-2.727a.812.812 0 00-.282-.185zm-1.72-.473a2.91 2.91 0 10-4.114-4.116 2.91 2.91 0 004.114 4.117z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+        </button>
+    </div>
+</form>
+
+                    </div>
+                </div>
+
+                
+
+                    <div class="hfr-navbar-end">
+                        <div class="hfr-navbar-item">
+                            <div class="hfr-buttons">
+                                <a href="https://hackaday.io/signup" class="hfr-button hfr-is-primary hfr-is-outlined">Sign up</a>
+                                <a href="https://hackaday.io/signin?returnUrl=%2Fproject%2F179054-custom-st-link-v20-v21-v30%2Fdetails" class="hfr-button hfr-is-text">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+
+                
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div id="topMessage" class="alert small hide">
+    <span class="j-top-content"></span>
+    <a href="javascript:void(0);" class="alert-close j-top-message-close" title="Close">
+        
+
+
+
+
+    <div class="icon icon-close-circle">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M10.047 10.658a.562.562 0 01-.398-.165L7.984 8.828 6.32 10.493a.562.562 0 01-.961-.398.56.56 0 01.164-.398L7.19 8.033 5.523 6.368a.561.561 0 11.795-.796l1.665 1.665L9.65 5.572a.563.563 0 01.795.796L8.78 8.033l1.665 1.664a.562.562 0 01-.398.961zm-2.062-7.5a4.875 4.875 0 10.002 9.75 4.875 4.875 0 00-.004-9.75zm0 10.875a6 6 0 110-12 6 6 0 010 12z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+ Close
+    </a>
+</div>
+
+
+
+
+<script>
+    var HIO = HIO || {};
+</script>
+
+
+    
+
+    
+        <div class="headline">
+    <div class="container">
+        
+            
+
+            <h1>Project Details</h1>
+            <p class="description-title">
+                For <a href="https://hackaday.io/project/179054">Custom ST-Link V2.0 / V2.1 / V3.0</a>
+            </p>
+            <p class="description-summary">Design your custom ST-Link to program and debug ST Microcontrollers based on reverse engineered hardware and firmware.</p>
+            <div class="description-metainfo">
+                <span class="identity-card" data-id="248579"><a href="https://hackaday.io/FlorianBaumgartner"><img src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/606521623738563205.jpg" alt="Florian Baumgartner">Florian Baumgartner</a></span>
+                <span class="bull">•</span><span class="time-card" style="margin: 0" title="a month ago">06/15/2021 at 10:55</span>
+            </div>
+
+        
+
+    </div>
+</div>
+
+
+        <div class="container post-content ">
+            <h1>Onboard Programmers are great</h1>
+
+<p>On microcontroller development boards (such as ST Nucleo Boards) it's
+ very handy to have an integrated JTAG programmer/debugger. If you would
+ like to build your own board with an embedded programmer, things get a 
+bit tricky.<br>In the case of the STMicroelectronics® popular ST-Link V2.0/V2.1 there are lots of clones out there, e.g. from eBay/AliExpress.<br>The
+ maximum programming speed of those is 4 MHz. For larger projects, this 
+can cause long upload times of up to a minute, which is not very 
+pleasant while debugging a system.&nbsp; <br>The "new" ST-Link V3 does not have this issue and provides a Full-Speed USB interface, which leads to an upload speed of 24 MHz!</p>
+
+
+<h1>No ST-Link V3 clones available</h1>
+
+
+<p>In my latest project, I would like to implement an embedded ST-Link 
+V3, but I couldn't find any resources of other people who have done that
+ already.<br>Therefor, I've started reverse engineering things and 
+created a proof of concept in the form of an external ST-Link V3 
+prototype.<br>Instead of developing only a cloned ST-Link V3, I decided to build a custom ST-Link V2 programmer in addition.<br>My goal was, that they share the same physical dimensions and are easily exchangeable.</p>
+
+
+<h1><hr>Hardware Design</h1>
+
+
+<p>As reference for designing my own hardware, I used schematics of ST Nucleo boards:</p>
+
+
+<p>ST-Link V2.1:&nbsp;<a href="https://www.st.com/content/ccc/resource/technical/layouts_and_diagrams/schematic_pack/group1/05/c3/27/2a/6b/db/41/f1/MB1455-G031K8-C01_Schematic/files/MB1455-G031K8-C01_Schematic.pdf/jcr:content/translations/en.MB1455-G031K8-C01_Schematic.pdf" target="_blank">NUCLEO-32 STM32G0 (MB1455)</a><br></p>
+
+
+<figure><a href="https://cdn.hackaday.io/images/7434001623825642015.png" target="_blank"><img style="width: 836px; height: 552.125px;" class="lazy" src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/7434001623825642015.png" width="836" height="552.125"></a></figure>
+
+
+<p>ST-Link V3.0:&nbsp;<a href="https://www.st.com/content/ccc/resource/technical/layouts_and_diagrams/schematic_pack/group1/da/0e/e2/b8/a5/b8/4d/ea/MB1363-H745ZIQ-C01_Schematic/files/MB1363-H745ZIQ-C01_Schematic.PDF/jcr:content/translations/en.MB1363-H745ZIQ-C01_Schematic.PDF" target="_blank">NUCLEO-144 STM32H7 (MB1363)</a><br></p>
+
+
+<figure><a href="https://cdn.hackaday.io/images/1708581623825774086.png" target="_blank"><img style="width: 837px; height: 609.804px;" class="lazy" src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/1708581623825774086.png" width="837" height="609.804"></a></figure>
+
+
+<p>Some pins of the onboard programmer are sadly not shown in this 
+schematic. Luckily, some other guys on the EEV-Blog did already some 
+reverse engineering of the pinout of the ST-Link V3 (<a href="https://www.eevblog.com/forum/microcontrollers/st-linkv3/25/" target="_blank">EEV-Blog</a>). Here is what they've come up with:<br></p>
+
+
+<pre>CN3-1            VDD            
+CN3-2            PA14 (SWCLK)            
+CN3-3            GND            
+CN3-4            PA13 (SWDIO)            
+CN4-1            GND            
+CN4-2            nRST            
+CN5-2            PB14            (USB DM)      
+CN5-3            PB15            (USB DP)      
+1                PB11            Bridge UART RX(1)       -&gt; RX signals are inputs for STLINK-V3MODS, outputs for target.
+2                PD11            Bridge UART CTS      
+3                PD12            Bridge UART RTS      
+4                PH7             T_JTMS/T_SWDIO      
+5                PG5             GNDDetect(2)      
+6                PC7             T_JTDO/T_SWO(3)      
+7                PA9             Bridge SPI CLK      
+8                GND             GND      
+9                PA11            Bridge CAN RX(1)      
+10               PA12            Bridge CAN TX(4)      
+11               PC10            Bridge UART TX(4)       -&gt; TX signals are outputs for STLINK-V3MODS, inputs for target.
+12               PG9             T_VCP_TX      
+13               PB3             T_JCLK/T_SWCLK          (SWO)
+14               PB4             Bridge SPI NSS      
+15               PG14            T_VCP_RX      
+16               PB6             Bridge I2C SCL      
+17               PB9             Bridge I2C SDA      
+18               PE2             Bridge GPIO0      
+19               PE4             Bridge GPIO1      
+20               PE5             Bridge GPIO2      
+21               PE6             Bridge GPIO3      
+22               (LoadSW out)    Reserved(5)      
+23               PC1             Bridge SPI MISO      
+24               GND             GND      
+25               PC2             Bridge SPI MOSI      
+26               GND             GND      
+27               GND             GND      
+28               PA1,PF8         T_JTDI/NC(6)      
+29               GND             GND      
+30                               T_VCC(7)      
+31               PA6             T_NRST      
+32               PA7             T_SW_DIR      
+                 PA0             T_VCC (pin 30), divided down      
+Load_EN          PB0             (load_EN (w 10k pulldown)      
+OSC 25MHz        PH0 OSC-IN            
+(VBUS detect?)   PB1/ADC?        (Vsw divided by (4.7k+2.7k))      
+LD1_1            PA10            (through 330 ohm)      
+LD1_2            PA10            (through 330 ohm)      
+LD1_3            GND            
+LD1_4            VDD             3.3V      
+LD2                              ST-Link fault           Load-switch Fault
+LD3              5V/VBUS?        5V power + resistor
+</pre>
+
+
+<h1>Manufacturing</h1>
+
+
+<p>The PCBs have been manufactured and assembled by JLCPCB. All files are available to download below.<br>To
+ save some production costs, I decided to combine both ST-Link versions 
+on one PCB. They can be separated by breaking at the specified mouse 
+bite holes.</p>
+
+
+<figure><a href="https://cdn.hackaday.io/images/3208581623836921019.png" target="_blank"><img class="lazy" data-src="https://cdn.hackaday.io/images/3208581623836921019.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a></figure>
+
+
+<p>The missing parts are hand placed and soldered with a heat gun.</p>
+
+
+<h1>Firmware</h1>
+
+
+<p>The firmware of the ST-Link consists of two parts: Bootloader and application code.</p>
+
+
+<h2>Bootloader</h2>
+
+
+<p>The bootloader makes it possible to upgrade the ST-Link firmware via 
+USB and the STM32CubeProgrammer. The bootloader itself doesn't get 
+updated or changed in this process. By running the bootloader code, the 
+JTAG-SWD Readout-Protection gets activated, which means that the 
+firmware can't be dumped later on.<br>A guy named <em><strong>lujji </strong></em>established
+ to dump the bootloader by uploading a "fake" firmware which sends the 
+whole Flash content via UART. He documented this process on his webpage <a href="https://lujji.github.io/blog/reverse-engineering-stlink-firmware-part2/" target="_blank">here</a>.</p>
+
+
+<p>He reverse engineered the bootloader code and patched out the instructions which activate the Readout-Protection.<br>All different bootloader variants (protected and unprotected) can be downloaded below.</p>
+
+
+<h2>Application Firmware</h2>
+
+
+<p>The actual application firmware on ST-Link differs for each type 
+(V2.0 / V2.1 / V3.0), active features (STM8 and/or STM32, VCP, MSD) and 
+revision.&nbsp; The easiest way to get the firmware is to <a href="https://www.st.com/en/development-tools/stsw-link007.html" target="_blank">download</a> the ST-Link firmware update tool by ST.<br>This tool is written in Java and contains all firmware images in binary format, but they are encrypted as AES-128.<br>By decompiling the Java application&nbsp;<em><strong>lujji&nbsp;</strong></em>found the "secret" keys to decrypt the firmware images. He even made a tool to decrypt the files easily, available on&nbsp;<a href="https://github.com/lujji/st-decrypt" target="_blank">GitHub</a>.</p>
+
+
+<p>To run the <em>st-decrypt </em>application just run this commands in your terminal:</p>
+
+
+<p>For Version V2.x</p>
+
+
+<pre>java -jar st_decrypt.jar --key "best performance" -i encrypted.bin  -o decrypted.bin</pre>
+
+
+<p>&nbsp;For Version V3.x</p>
+
+
+<pre>java -jar st_decrypt.jar --key " .ST-Link.ver.3." -i encrypted.bin  -o decrypted.bin</pre>
+
+
+<p>As you can see, the password for decrypting the data is either "<strong>best performance</strong>" for V2.x and "<strong> .ST-Link.ver.3.</strong>" for V3.x.<br>To find those secret keys&nbsp;<a href="https://github.com/RadioOperator/CMSIS-DAP_for_STLINK-V3MINI/issues/1" target="_blank">this</a> article was extremely useful!&nbsp;<br>I've decrypted all kinds of different firmware images. They can be downloaded from below.</p>
+
+
+<p>Good to know is that if you once loaded the firmware on a freshly 
+built ST-Link, it acts as an original. You can upgrade the firmware with
+ the ST-Link updater tool as normal.</p>
+        </div>
+
+        
+
+
+        
+    
+
+    
+<div class="j-modal-confirmation modal-background"></div>
+<div class="j-modal-confirmation modal-content-holder">
+    <div class="close"><a href="" id="modal-cancel" title="Close"><span class="modal-close">
+        
+
+
+
+
+    <div class="icon icon-close">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8 6.99L4.767 3.76a.714.714 0 10-1.01 1.01L6.992 8 3.76 11.233a.714.714 0 101.01 1.01L8 9.008l3.233 3.232a.714.714 0 101.01-1.01L9.008 8l3.232-3.233a.714.714 0 10-1.01-1.01L8 6.992z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+
+    </span></a></div>
+    <p class="text-center" id="modal-message"></p>
+    <p class="text-center">
+        <a class="grey-grey-button" id="modal-yes" href="javascript:void(0);" data-projecttype="project" data-projectid="179054" data-pageid="194292" data-pagetype="">Yes, delete it</a>
+        <a class="gold-gold-button" id="modal-cancel" href="">Cancel</a>
+    </p>
+</div>
+
+    
+
+
+    <script>
+        var usersFromComments = '[]';
+    </script>
+
+
+
+    <div id="footer" class="footer ">
+    
+        <a href="#header" class="back-to-top">
+            
+
+
+
+
+    <div class="icon icon-long-arrow-up">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path d="M8.023 2.03L4.78 5.26h2.688v1.11h1.11V5.26h2.688L8.023 2.03zm-.555 5.505V8.92h1.11V7.534H7.47zm0 2.56v1.383h1.11v-1.384H7.47zm0 2.55v1.384h1.11v-1.385H7.47z" fill-rule="evenodd"></path></svg>
+        
+    </div>
+
+ Going up?
+        </a>
+    
+    <p>
+        <a href="https://hackaday.com/about/">About Us</a>
+        <a href="mailto:projects-contact@hackaday.com">Contact Hackaday.io</a>
+        <a href="https://hackaday.io/project/37">Give Feedback</a> <a href="https://hackaday.io/tos">Terms of Use</a>
+        <a href="https://supplyframe.com/company/privacy">Privacy Policy</a>
+        <a href="https://dev.hackaday.io/" target="_blank" rel="noopener noreferrer">Hackaday API</a>
+    </p>
+    <p><a id="footer--home" href="https://hackaday.io/">© 2021 Hackaday</a></p>
+
+    
+</div>
+
+
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47229708-1', 'auto');
+
+    var dimensionValue = 'nonregistered';
+    ga('set', 'dimension1', dimensionValue);
+    ga('require', 'displayfeatures');
+
+    ga('send', 'pageview');
+</script>
+
+<script>
+    var csrftoken = 'JCiguAE3-vu1-cpBtcQdoMoSYky-U9HE-XeU';
+</script>
+
+
+<img src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/impression" alt="" class="sf-impression" style="display: none !important;" hidden="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="Custom%20ST-Link%20V2.0%20_%20V2.1%20_%20V3.0%20|%20Details%20|%20Hackaday.io_files/OkhhCeSBz5ZLBE4f7QZBTswUbzMyssop5H1caXZkXKImKPN7fCv0BjjjDWylH.js"></script>
+
+
+</body></html>

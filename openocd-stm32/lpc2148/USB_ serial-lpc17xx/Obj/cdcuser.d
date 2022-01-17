@@ -1,0 +1,10 @@
+.\obj\cdcuser.o: cdcuser.c
+.\obj\cdcuser.o: ..\Common\inc\type.h
+.\obj\cdcuser.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\cdcuser.o: usb.h
+.\obj\cdcuser.o: usbhw.h
+.\obj\cdcuser.o: usbcfg.h
+.\obj\cdcuser.o: usbcore.h
+.\obj\cdcuser.o: cdc.h
+.\obj\cdcuser.o: cdcuser.h
+.\obj\cdcuser.o: serial.h

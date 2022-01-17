@@ -1,0 +1,31 @@
+1st bit base address 0X08
+
+PWM
+The PWM module provides up to 4 8-bit PWM outputs.
+The module base register address for the PWM module is 0x08.
+PWM outputs are available on pins PA04, PA05, PA06, and PA07.
+
+#### BASE ADDRESS 0x08 #######
+
+Function Registers
+Register Address 		Register Name 		Register Size 	Notes
+0x01 					PWM_VAL 			16 bits 		Write Only
+
+
+PWM_VAL (0x01, 16bits, Write Only)
+Byte 0 			Byte 1
+PWM Number 		PWM Value
+
+###The first byte written should be the PWM number you would like to write to. The second byte should be the pwm value.
+PWM Number 		Output Pin
+0 				PA04
+1 				PA05
+2 				PA06
+3 				PA07
+
+pwm mode	pin PA04 		dec 255
+0x08        0x01 			0x100
+
+
+
+

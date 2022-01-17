@@ -1,0 +1,35 @@
+Command		Command							Description
+0x00		COMMAND							This command is used to indicate the next data byte is acted as a command.
+0x40~0x7F	Display Start Line				This command sets the Display Start Line register to determine the starting address of display RAM
+0xAE		Display OFF						This command is used to turn OFF the OLED display panel.
+0xAF		Display ON						This command is used to turn ON the OLED display panel.
+0x20		Memory Addressing Mode			If horizontal address increment mode is enabled by command 20h, after finishing read/write one column data, it is incremented auto to the next column address.
+0x26/0x27	Continuous Horizontal Scroll	0x26 – Right horizontal scroll
+											0x27 – Left horizontal scroll
+0x29/0x2A	Continuous Vertical 			0x2A – Vertical and Left Horizontal Scroll
+			and Horizontal Scroll			0x29 – Vertical and Right Horizontal Scroll
+0x2A – 		Vertical and Left Horizontal Scroll
+0x2E		Deactivate Scroll				This command deactivates the scroll.
+0x2F		Activate Scroll					This command activates the scroll if it is configured before.
+0x21		Column Address					This command is used to define the current read/write column address in graphic display data RAM.
+0x22		Page Address					This command is used to define the current read/write Line(Page as per data sheet) address in graphic display data RAM.
+0x81		Contrast Control				This command sets the Contrast Setting of the display. The chip has 256 contrast steps from 00h to FFh. The segment output current increases as  value increases.
+0xA0		Segment Re-map					This command sets the column address 0 is mapped to SEG0.
+0xA1		Segment Re-map					This command sets the column address 127 is mapped to SEG0.
+0xA6		Normal Display					This command sets the display to normal mode. In the normal display, a RAM data of 1 indicates an “ON” pixel.
+0xA7		Inverse Display					This command sets the display to inverse mode. In the normal display, a RAM data of 0 indicates an “ON” pixel.
+0xA8		Multiplex Ratio					This command sets the display multiplex ratio.
+0xC0/0xC8	COM Output Scan direction		0xC0 – Normal mode (RESET) Scan from COM0 to COM[N –1]
+											0xC8- Remapped mode. Scan from COM[N-1] to COM0 Where N is the Multiplex ratio.
+0xC8- 		Remapped mode. 					Scan from COM[N-1] to COM0 Where N is the Multiplex ratio.
+0xD3		Display Offset					This command sets vertical shift by COM from 0d~63d.
+0xD5		Display Clock Divide Ratio/Oscillator Frequency
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+Workaround - LPC Link 2 must be halted before starting GDB
+
+1. start OpenOCD
+2. open a Telnet connection to localhost 4444 and send „halt“
+	or $echo „halt“ | nc localhost 4444
+
+3. start GDB $arm-none-eabi-gdb *.elf
+4. connect to the remote target - $tar rem :3333

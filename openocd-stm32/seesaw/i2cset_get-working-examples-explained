@@ -1,0 +1,68 @@
+######### ANALOGUE ##########
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+
+bit  meaning        			notes
+0x49 i2c address of device
+0x08 base 						address for adc commands
+0x7  pa2  						0x7=pa2 0x8=pa3 0x9=pa4 0xa=pa5
+
+### requires sending pin number to 0x9 before each and every read, reading address 0x9 will have the data from the pin number sent, IE to read from pin PA2 run the same 2 commands twice, for three reads run same 2 commands thee times.
+## for two reads PA2
+
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+
+## for three reads PA2
+
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+
+### to read pin pa3;
+sudo i2cset -y 17 0x49 0x9 0x8 i
+sudo i2cget -y 17 0x49 0x9 w
+
+### to read pin pa2 then pa3
+sudo i2cset -y 17 0x49 0x9 0x7 i
+sudo i2cget -y 17 0x49 0x9 w
+sudo i2cset -y 17 0x49 0x9 0x8 i
+sudo i2cget -y 17 0x49 0x9 w
+######### PWM #############
+set PA5 pwm to 0
+sudo i2cset -y 17 0x49 0x8 0x01 0x01 0x0 i
+
+bit  meaning
+0x49 i2c 					address of device
+0x08 base 					address for pwm commands
+0x01 pwm 					register start address
+0x01 pin PA5    			0x0=pa4 0x01=pa5 0x02=pa6 0x03=pa7
+0x0  pwm 					level in hex  max 0xff=255  min 0x0=0 HOLLY SHIT I THINK DEC 1-255 SO DROP THE 0x WORKS!
+
+
+turn pins pa5 pa6 pa7 to max and lowest;
+
+### pull the pins to pwm 255
+sudo i2cset -y 17 0x49 0x8 0x01 0x01 0xff i
+sudo i2cset -y 17 0x49 0x8 0x01 0x02 0xff i
+sudo i2cset -y 17 0x49 0x8 0x01 0x03 0xff i
+
+### pull the pins to pwm 0
+sudo i2cset -y 17 0x49 0x8 0x01 0x03 0x0 i
+sudo i2cset -y 17 0x49 0x8 0x01 0x02 0x0 i
+sudo i2cset -y 17 0x49 0x8 0x01 0x01 0x0 i
+
+#### i2cget i2cget command breakown ####
+## The 17 in i2cset/get commands is the local i2c bus number, had nothing to do with adfruit seesaw, if using i2c-tiny usb-to-i2c run
+i2cdetect -l
+## look for i2c tiny (example from my pc)
+i2c-17	i2c       	i2c-tiny at bus 001 device 002	I2C adapter
+## the first column is your bus number (minus the "i2c-" so i2c-17 is just 17) adjust accordingly
+## the "i" at the end of the i2cset command means send the data as I2c block data (always use)
+## the "w" at the end of i2cget command means reads word, so get 4 numbers not 2 IE 0x0000 vs 0x00
+## the "y" in i2cset/get commands means say yes to all the warnings, dont ask me on each one

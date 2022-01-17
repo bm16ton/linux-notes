@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>DC Fan Speed Control</title>
+	<meta name="Keywords" content="Pulse-width modulation, PWM,duty cycle, drive circuit,minimal heat dissipation, switching transistor">
+	<meta name="Description" content="Changing the duty-cycle of the Pulse-width modulation (PWM), we control the speed of the fan">
+
+	<meta name="google-site-verification" content="wR_pc65vobHGU3cK8BYyd3HPgJXyGh8D1x6F9kC1RcA">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="DC%20Fan%20Speed%20Control_files/bootstrap.css">
+
+    <!-- Custom styles for this template -->
+	<style>	
+		body {
+	  padding-top: 20px;
+	  padding-bottom: 20px;
+	}
+
+	.navbar {
+	  margin-bottom: 20px;
+	}
+
+	footer {
+		padding: 5px 0 5px 0;
+
+		text-align: center;
+		font-size: 12px;
+	}	
+	
+	.fixed-fluid {
+    margin-left: 600px;
+	}
+
+	h1,
+	.h1 {
+	  font-size: 22px;
+	  font-weight: bold;
+	}
+	h2,
+	.h2 {
+	  font-size: 18px;
+	  font-weight: bold;
+	}
+	h3,
+	.h3 {
+	  font-size: 15px;
+	  font-weight: bold;
+	}
+	.h4 {
+	  font-size: 14px;
+	  font-weight: bold;
+	}
+	h5,
+	.h5 {
+	  font-size: 13px;
+	  font-weight: bold;
+	}
+	h6,
+	.h6 {
+	font-size: 12px;
+	font-weight: bold;
+	}
+		
+	.src-code{
+	font-family: 'Courier New', Monaco, Courier, monospace;
+	white-space: pre;
+	text-align: left;
+	padding: 5px;
+	margin: 10px 0px;
+	background-color: #F8F8F8;
+	overflow: auto;
+	}
+	</style>	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script async="" src="DC%20Fan%20Speed%20Control_files/analytics.js"></script><script src="DC%20Fan%20Speed%20Control_files/jquery.js"></script>
+
+	<script type="text/javascript">
+			//// (c) 2012, 2013 Emant Pte Ltd
+	jQuery(document).ready(function() {
+			if (typeof initialize == 'function') {		
+			initialize();
+			}
+	});
+
+	function kymail(mailleft,mailright) {
+		document.write("<A href=",String.fromCharCode(34),"mailto:",mailleft,String.fromCharCode(64),mailright,"?subject=enquiry from emant.com",String.fromCharCode(34),">",mailleft,String.fromCharCode(64),mailright,"</A>");
+		}
+	</script>	
+
+</head>
+  <body>
+
+
+
+<div class="container">
+    
+</div><!-- notice --> 
+
+      <!-- Static navbar -->
+<div class="container">	 
+
+<div class="navbar navbar-default" role="navigation">
+
+		<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://emant.com/">EMANT</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+	<li class="dropdown dropdown-large">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+		<ul class="dropdown-menu dropdown-menu-large row">
+			<li><a href="https://emant.com/760002">USB DAQ Training Kit</a>
+			</li><li><a href="https://emant.com/627004">Buy Now</a>
+			</li><li><a href="https://emant.com/759007">Shipping Information</a>
+		</li></ul>
+	</li>	
+	<li class="dropdown dropdown-large">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Application Notes <b class="caret"></b></a>
+		<ul class="dropdown-menu dropdown-menu-large row">
+			<li><a href="https://emant.com/149728">All Notes</a>
+			</li><li><a href="https://emant.com/251010">Compare EMANT 300/380</a>
+			</li><li><a href="https://emant.com/windows-8">Windows 8</a>
+			</li><li class="dropdown-header">Measure Biopotential</li>
+			<li><a href="https://emant.com/ecg">ECG</a>
+			</li><li class="dropdown-header">Measure Strain</li>
+			<li><a href="https://emant.com/325007">Strain Gauge </a>
+			</li><li><a href="https://emant.com/100001">Center of Pressure</a>
+			</li><li><a href="https://emant.com/80100">Hand Dynamometer</a>
+			</li><li><a href="https://emant.com/90110">Pinch Meter</a>
+			</li><li class="dropdown-header">Measure Light</li>
+			<li><a href="https://emant.com/324003">Photodiode</a>
+			</li><li><a href="https://emant.com/316002">LDR</a>
+			</li><li><a href="https://emant.com/694006">Heart Rate Monitor</a>
+			</li><li class="dropdown-header">Measure Pressure</li>
+			<li><a href="https://emant.com/250001">Silicon Piezoresistive</a>
+			</li><li><a href="https://emant.com/80120">Hydrostatic Pressure</a>
+			</li><li><a href="https://emant.com/measure-blood-pressure">Blood Pressure</a>
+			</li><li class="dropdown-header">Measure Temperature</li>
+			<li><a href="https://emant.com/318004">Thermocouple</a>
+			</li><li><a href="https://emant.com/317004">Thermistor</a>
+			</li><li><a href="https://emant.com/317010">Multiple Thermistors</a>
+			</li><li><a href="https://emant.com/322007">Diodes</a>
+			</li><li class="dropdown-header">Measure Power</li>
+			<li><a href="https://emant.com/733010">Solar Panel Voltage Current</a>
+			</li><li class="dropdown-header">Measure Frequency</li>
+			<li><a href="https://emant.com/148000">Counter</a>
+			</li><li class="dropdown-header">Digital IO</li>
+			<li><a href="https://emant.com/80050">3A 250Vac Switch</a>
+			</li><li><a href="https://emant.com/80110">DC Fan Speed Control</a>
+			</li><li><a href="https://emant.com/80140">Stepper Motor Control</a>
+			</li><li class="dropdown-header">Measure Distance</li>
+			<li><a href="https://emant.com/100011">Ultrasonic sensor</a>
+			</li><li class="dropdown-header">Other Applications</li>
+			<li><a href="https://emant.com/733007">Analog Input &gt; 2.5V</a>
+			</li><li><a href="https://emant.com/771001">10V Analog Output</a>
+				</li><li><a href="https://emant.com/770009">Use multiple EMANT300</a>
+			</li><li><a href="https://emant.com/686002">PID Temperature Control</a>
+			</li><li><a href="https://emant.com/80130">C# Strain Logger to Excel</a>
+		</li></ul>
+	</li>
+	<li class="dropdown dropdown-large">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+		<ul class="dropdown-menu dropdown-menu-large row">
+			<li><a href="https://emant.com/149822">All Tutorials</a>
+			</li><li><a href="https://emant.com/windows-android-python-emulator">Python for Android, Windows, Raspberry Pi, Ubuntu</a>
+			</li><li><a href="https://emant.com/vb2010">Visual Basic 2010 .NET</a>
+			</li><li><a href="https://emant.com/326003">Visual C# 2010 .NET</a>
+			</li><li><a href="https://emant.com/labview">LabVIEW</a>
+			</li><li class="divider"></li>
+			<li><a href="https://sensor-cloud.com/" target="_blank">Sensor Cloud</a>
+			</li><li><a href="https://smartphonedaq.com/" target="_blank">Smartphone DAQ</a>
+			</li><li><a href="https://emant.com/pi-daq-server" target="_blank">Raspberry Pi DAQ</a>
+		</li></ul>
+	</li>
+	<li class="dropdown dropdown-large">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+		<ul class="dropdown-menu dropdown-menu-large row">
+			<li><a href="https://info.emant.com/">Download Software</a>
+			</li><li><a href="https://emant.com/155003">Support Notes</a>
+			</li><li><a href="https://emant.com/149910">Contact Us</a>
+		</li></ul>
+	</li>
+	<li><a href="https://emant.com/627004">Buy Now</a></li>
+</ul>
+							
+							
+							
+							
+							
+													  
+
+<form action="https://www.google.com" id="cse-search-box" target="_blank" class="navbar-form navbar-right" role="search">
+  <div class="form-group">
+    <input type="hidden" name="cx" value="partner-pub-6340034682900683:9101194888">
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="q" size="18" class="form-control" placeholder="" style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) no-repeat scroll left 9px top 50%;">
+    <input type="submit" name="sa" value="Search" class="form-control">
+  </div>
+<input name="siteurl" value="emant.com/80110" type="hidden"><input name="ref" value="www.google.com/" type="hidden"><input name="ss" value="" type="hidden"></form>
+<script type="text/javascript" src="DC%20Fan%20Speed%20Control_files/brand"></script>
+	  
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>  
+
+    </div> <!-- /container -->
+
+
+  
+      <!-- Main component for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="col-md-2 hidden-sm hidden-xs">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal"><input type="hidden" value="_cart" name="cmd"><input type="hidden" value="sales@emant.com" name="business"><input type="image" alt="Make payments with PayPal - it's fast, free and secure!" src="DC%20Fan%20Speed%20Control_files/view_cart_02.gif" name="submit"><input type="hidden" value="1" name="display"></form>
+
+<p>
+<b>Learning Kits</b><br>
+<a href="https://emant.com/760002"><b>USB DAQ Training Kit</b></a><br>
+EMANT300 USB DAQ module, Light Application Adaptor, USB Cable, Instructional Guides</p>
+
+<p>
+<b>Open Source Application Adaptors</b><br>
+<a href="https://emant.com/697005"><b>Bridge Sensor Application Adaptor</b></a><br>
+3.3V excitation, Up to 3 bridge inputs<br>
+<a href="https://emant.com/90080"><b>Bridge Completion Network</b></a><br>
+Three 120 ohm resistors with screw terminals
+</p>
+
+<p>
+<b><a href="https://emant.com/discontinued">Discontinued Products</a></b></p>        </div>
+        <div class="col-sm-12 col-md-8 blog-main">
+	<!-- body here -->
+    <div>
+	
+<h1>DC Fan Speed Control</h1>
+
+<p><img class="img-responsive pull-right" src="DC%20Fan%20Speed%20Control_files/Fan_html_6f5d24fe.gif" alt="PWM Circuit">Using
+ Pulse-width modulation (PWM), the fan's power supply is turned on and 
+off at a fixed frequency. By changing the duty-cycle, we control the 
+speed
+of the fan. The larger the duty cycle, the faster the fan spins. Typical
+ frequencies range from 20Hz to 160Hz.</p>
+
+<p>The advantages of PWM include a very simple drive circuit, good 
+startup characteristics, and minimal heat dissipation in the switching 
+transistor. The disadvantages involve increased stress on the fan and 
+the inability to use on board speed or alarm sensors.</p>
+
+<p>However we cannot drive the fan directly from the EMANT300 Digital or PWM Output because</p>
+<ul>
+	<li>the current needed to drive the
+	motor is greater than the 20mA allowed by Digital or PWM Output</li>
+	<li>the fan supply voltage may be
+	greater than the 5V allowed by Digital or PWM Output eg a 12V fan</li>
+</ul>
+
+<p>We recommend using the ULN2003 to drive
+the DC Fan. The ULN2003<sup>1 </sup>is a high voltage, high current
+darlington array each containing seven open collector darlington
+pairs with common emitters. Each open collector darlington is rated
+at 500 mA.. It can accept output voltages of up to 50V. Suppression
+diodes are included for inductive load driving. The ULN2003 has 5V
+TTL, CMOS inputs and allows it to be connected directly to the
+EMANT300 Digital and PWM outputs.</p>
+
+<img class="img-responsive center-block" src="DC%20Fan%20Speed%20Control_files/Fan_html_5d7968bc.gif" alt="ULN2003">
+<p class="text-center">Fig 1: ULN2003 schematic</p>
+
+<img class="img-responsive center-block" src="DC%20Fan%20Speed%20Control_files/Fan_html_4576d5d7.gif" alt="ULN2003 to EMANT300 Connection">
+<p class="text-center">Fig 2: Connecting the DC Fan to the EMANT300 using the ULN2003</p>
+
+<p>Figure 2 shows how to connect the DC
+Fan to the EMANT300. The PWM output of the EMANT300 is connected to
+pin 5 of the ULN2003 and the corresponding output pin 12 is connected
+to the DC Fan. If you require only to turn on and off the fan, you
+may use the D0 output of the EMANT300 instead. You may also use any
+of the other open collector darlington pairs.</p>
+
+<img class="img-responsive center-block" src="DC%20Fan%20Speed%20Control_files/Fan_html_DSCF3424.JPG" alt="EMANT300 with DC Fan">
+<h2>LabVIEW Front Panel</h2>
+<img src="DC%20Fan%20Speed%20Control_files/Fan_html_29097157.png" alt="LabVIEW DC Fan Control">
+<h2>LabVIEW Block Diagram</h2>
+<img src="DC%20Fan%20Speed%20Control_files/Fan_html_m39f7d282.gif" alt="LabVIEW Diagram DC Fan Control">
+<p>Reference</p>
+<ol>
+	<li>ULN2003 Seven Darlington Array Specification from STMicroelectronics
+</li></ol>
+	</div>
+
+
+	<!-- body here -->
+        </div>
+
+        <div class="col-md-2 hidden-sm hidden-xs">
+		<p>
+<a href="https://emant.com/149822"><b>Tutorials</b></a><br>
+<a href="https://emant.com/windows-android-python-emulator">Python</a>  for Android, Windows, Raspberry Pi, Ubuntu<br>
+<a href="https://emant.com/vb2010">Visual Basic</a>  2010 .NET<br>
+<a href="https://emant.com/326003">Visual C#</a>  2010 .NET<br>
+<a href="https://emant.com/labview">LabVIEW</a>
+</p>
+<hr>
+<b>Related Sites</b><br>
+<p>
+<a href="http://electronics-course.com/" target="_blank">Electronics Course</a><br>
+<a href="https://smartphonedaq.com/" target="_blank">Smartphone DAQ</a>
+
+</p>
+<hr>
+<p><a href="https://emant.com/149728"><b>Application Notes</b></a><br>
+<a href="https://emant.com/251010">Compare EMANT 300/380</a><br>
+<a href="https://emant.com/windows-8">Windows 10 / 8</a><br>
+<a href="https://emant.com/pi-daq-server" target="_blank">Raspberry Pi DAQ Server</a><br>
+
+<b>Measure Biopotential</b><br>
+<a href="https://emant.com/ecg">ECG</a><br>
+<b>Measure Strain</b><br>
+<a href="https://emant.com/325007">Strain Gauge </a> <br>
+<a href="https://emant.com/100001">Center of Pressure</a><br>
+<a href="https://emant.com/80100">Hand Dynamometer</a><br>
+<a href="https://emant.com/90110">Pinch Meter</a><br>
+<b>Measure Light</b><br>
+<a href="https://emant.com/324003">Photodiode </a> <br>
+<a href="https://emant.com/316002">LDR </a><br>
+<a href="https://emant.com/694006">Heart Rate Monitor </a><br>
+<b>Measure Pressure</b><br>
+<a href="https://emant.com/250001">Silicon Piezoresistive </a><br>
+<a href="https://emant.com/80120">Hydrostatic Pressure</a><br>
+<a href="https://emant.com/measure-blood-pressure">Blood Pressure</a><br>
+<b>Measure Temperature</b><br>
+<a href="https://emant.com/318004">Thermocouple</a><br>
+<a href="https://emant.com/317004">Thermistor</a><br>
+<a href="https://emant.com/317010">Multiple Thermistors</a><br>
+<a href="https://emant.com/322007">Diodes </a><br>
+<b>Measure Power</b> <br>
+<a href="https://emant.com/733010">Solar Panel Voltage Current</a><br>
+<b>Measure Frequency</b> <br>
+<a href="https://emant.com/148000">Counter</a><br>
+<b>Digital IO</b> <br>
+<a href="https://emant.com/80050">3A 250Vac Switch</a><br>
+<a href="https://emant.com/80110">DC Fan Speed Control</a><br>
+<a href="https://emant.com/80140">Stepper Motor Control</a><br>
+<b>Measure Distance</b> <br>
+<a href="https://emant.com/100011">Ultrasonic sensor</a><br>
+<b>Other Applications</b> <br>
+
+<a href="https://emant.com/733007">Analog Input &gt; 2.5V</a><br>
+<a href="https://emant.com/771001">10V Analog Output</a><br>
+<a href="https://emant.com/770009">Use multiple EMANT300</a><br>
+<a href="https://emant.com/686002">PID Temperature Control</a><br>
+<a href="https://emant.com/80130">C# Strain Logger to Excel</a>
+
+</p>		
+
+        </div><!-- sidebar -->
+
+
+
+    </div><!-- /.container -->
+    <div class="container">
+	<footer class="panel-footer">
+	<p class="text-muted credit">© 2021 Emant Pte Ltd Co. Regn. No. 200210155R | <a href="https://emant.com/674002.page">Terms of Use</a> | <a href="https://emant.com/675000.page">Privacy</a> | 
+	<img src="DC%20Fan%20Speed%20Control_files/emailButton.png" alt="Email Link">
+	<a href="mailto:?subject=EMANT%20website%20link&amp;body=Page%20Link%20http://emant.com/80110.page"> Email this page</a><br>
+	LabVIEW is the trademark of National Instruments. MATLAB is a 
+registered trademark of The MathWorks, Inc. Other Product and Brand 
+names are trademarks of their respective companies</p>
+    </footer>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+	
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="DC%20Fan%20Speed%20Control_files/bootstrap.js"></script>
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-186087-1', 'emant.com');
+	  ga('send', 'pageview');
+	</script>
+
+  
+</body></html>

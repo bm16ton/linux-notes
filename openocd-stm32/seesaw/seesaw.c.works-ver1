@@ -1,0 +1,247 @@
+#include <linux/module.h>
+#include <linux/fs.h>
+#include <linux/printk.h>
+#include <linux/device.h>
+#include <linux/i2c.h>
+#include <linux/delay.h>
+#include <linux/hwmon.h>
+#include <linux/hwmon-sysfs.h>
+#include <linux/cdev.h>
+#include <linux/uaccess.h>
+#include <linux/slab.h>
+#include <linux/list.h>
+#include <linux/sysfs.h>
+#include <linux/slab.h>
+#include <linux/err.h>
+#include <linux/mutex.h>
+
+#define CLASS_NAME	"seesawadc"
+#define NAME		"seesaw-adc"
+#define SEESAW_REG      	  0x09
+#define SEESAWADC_ADCCTL			  0x08
+#define ADC0                  0x07
+#define ADC1                  0x08
+#define ADC2                  0x09
+#define ADC3                  0x0a
+
+static const unsigned short normal_i2c[] = { 0x49, I2C_CLIENT_END };
+
+
+
+static struct i2c_device_id seesawadc_idtable[] = {
+      { "seesawadc", 0 },
+      { }
+};
+MODULE_DEVICE_TABLE(i2c, seesawadc_idtable);
+
+struct seesawadc_data {
+	struct i2c_client *client;
+	struct mutex update_lock;
+	u8 adc1;
+//	u8 adc1_min;
+//	u8 adc1_max;
+	u8 adc1_input;
+	u8 adc1_target;
+    u8 adc1_label;
+};
+
+/*
+int seesawadc_write_value(struct i2c_client *client, u8 reg, u8 value)
+{
+//      printk(KERN_INFO "setting adc to %d\n", value);
+      return i2c_smbus_write_byte_data(client, SEESAW_REG, value);
+}
+*/
+int seesawadc_read_value(struct i2c_client *client, u8 reg, u8 value)
+{
+//      printk(KERN_INFO "setting adc to %d\n", value);
+	  i2c_smbus_write_byte_data(client, SEESAW_REG, 0x08);
+	  msleep(500);
+      return i2c_smbus_read_word_data(client, SEESAW_REG);
+}
+
+static ssize_t adc1_show(struct device *dev, struct device_attribute *attr,
+		char *buf)
+{
+	struct seesawadc_data *data = dev_get_drvdata(dev);
+	struct i2c_client *client = data->client;
+    int ret2;
+//    ret2 = data->adc1;
+
+    	mutex_lock(&data->update_lock);
+
+//    printk(KERN_INFO "setting adc to %d\n", value);
+    ret2 = seesawadc_read_value(client, SEESAW_REG, 0x8);
+
+	mutex_unlock(&data->update_lock);
+
+//	printk(KERN_INFO "%d\n", ret2);
+	return scnprintf(buf, PAGE_SIZE, "%d\n", ret2);
+}
+
+/*
+static ssize_t adc1_store(struct device *dev, struct device_attribute *attr,
+			    const char *buf, size_t count)
+{
+	struct seesawadc_data *data = dev_get_drvdata(dev);
+	struct i2c_client *client = data->client;
+	u8 value;
+	u8 ret2;
+	ret2 = kstrtou8(buf, 10, &value);
+    if (value > 255)
+			return -EINVAL;
+    data->adc1 = value;
+
+	mutex_lock(&data->update_lock);
+
+//    printk(KERN_INFO "setting adc to %d\n", value);
+    seesawadc_read_value(client, SEESAW_REG, 0x07);
+
+	mutex_unlock(&data->update_lock);
+	return count;
+}
+*/
+
+static ssize_t adc1_input_show(struct device *dev, struct device_attribute *attr,
+		char *buf)
+{
+	struct seesawadc_data *data = dev_get_drvdata(dev);
+	struct i2c_client *client = data->client;
+    int ret2;
+    mutex_lock(&data->update_lock);
+
+//    printk(KERN_INFO "setting adc to %d\n", value);
+    ret2 = seesawadc_read_value(client, SEESAW_REG, 0x8);
+
+	mutex_unlock(&data->update_lock);
+	printk(KERN_INFO "%d\n", ret2);
+	return scnprintf(buf, PAGE_SIZE, "%d\n", ret2);
+}
+/*
+static ssize_t adc1_target_show(struct device *dev, struct device_attribute *attr,
+		char *buf)
+{
+	struct seesawadc_data *data = dev_get_drvdata(dev);
+
+    int ret2;
+    ret2 = data->adc1;
+
+	return scnprintf(buf, PAGE_SIZE, "%d\n", ret2);
+}
+*/
+/*
+static ssize_t adc1_target_store(struct device *dev, struct device_attribute *attr,
+			    const char *buf, size_t count)
+{
+	struct seesawadc_data *data = dev_get_drvdata(dev);
+	struct i2c_client *client = data->client;
+	u8 value;
+	u8 ret2;
+	ret2 = kstrtou8(buf, 10, &value);
+    if (value > 100)
+			return -EINVAL;
+
+    data->adc1 = value;
+
+	mutex_lock(&data->update_lock);
+
+//    printk(KERN_INFO "setting adc to %d\n", value);
+    seesawadc_read_value(client, SEESAW_REG, value);
+
+	mutex_unlock(&data->update_lock);
+	return count;
+}
+*/
+static ssize_t adc1_label_show(struct device *dev, struct device_attribute *attr,
+		char *buf)
+{
+
+	return scnprintf(buf, PAGE_SIZE, "seesaweadc\n");
+}
+
+//static DEVICE_ATTR_RW(adc1);
+static DEVICE_ATTR_RO(adc1_input);
+//static DEVICE_ATTR_RW(adc1_target);
+static DEVICE_ATTR_RO(adc1_label);
+
+static struct attribute *seesawadc_attrs[] = {
+//	&dev_attr_adc1.attr,
+	&dev_attr_adc1_input.attr,
+//	&dev_attr_adc1_target.attr,
+	&dev_attr_adc1_label.attr,
+    NULL
+};
+
+ATTRIBUTE_GROUPS(seesawadc);
+
+static int seesawadc_remove(struct i2c_client *client)
+{
+/*
+	struct seesawadc_data *data = i2c_get_clientdata(client);
+
+	mutex_lock(&data->update_lock);
+
+    seesawadc_write_value(client, SEESAW_REG, 0);
+
+	mutex_unlock(&data->update_lock);
+*/
+	return 0;
+}
+
+
+
+static int seesawadc_probe(struct i2c_client *client,
+                     const struct i2c_device_id *id)
+{
+	struct device *dev = &client->dev;
+	struct seesawadc_data *data;
+	struct device *hwmon_dev;
+	data = devm_kzalloc(dev, sizeof(struct seesawadc_data), GFP_KERNEL);
+
+	i2c_set_clientdata(client, data);
+	data->client = client;
+
+	hwmon_dev = devm_hwmon_device_register_with_groups(dev, client->name,
+							   data,
+							   seesawadc_groups);
+
+/*
+    mutex_lock(&data->update_lock);
+
+    seesawadc_read_value(client, SEESAW_REG, ADC1);
+//    i2c_smbus_write_byte_data(client, SEESAW_REG, value);
+
+	mutex_unlock(&data->update_lock);
+*/
+	return PTR_ERR_OR_ZERO(hwmon_dev);
+    return 0;
+}
+
+static const struct of_device_id seesawadc_of_match[] = {
+	{ .compatible = "seesaw,seesawadc" },
+	{ .compatible = "seesaw,seesaw" },
+	{}
+};
+MODULE_DEVICE_TABLE(of, seesawadc_of_match);
+
+static struct i2c_driver seesawadc_driver = {
+	  .class		= I2C_CLASS_HWMON,
+      .driver = {
+              .name   = "seesawadc",
+      },
+
+      .id_table       = seesawadc_idtable,
+      .address_list   = normal_i2c,
+      .probe           = seesawadc_probe,
+
+      .remove       = seesawadc_remove, /* optional */
+
+};
+
+
+module_i2c_driver(seesawadc_driver);
+
+
+MODULE_AUTHOR("Ben Maddocks bm16ton@gmail.com");
+MODULE_DESCRIPTION("Driver for Argonadc PiHat");
+MODULE_LICENSE("GPL");

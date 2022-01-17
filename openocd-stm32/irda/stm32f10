@@ -1,0 +1,28 @@
+The IrDA mode is selected by setting the IREN bit in the USART_CR3 register. In IrDA
+mode, the following bits must be kept cleared:
+LINEN, STOP and CLKEN bits in the USART_CR2 register,
+SCEN and HDSEL bits in the USART_CR3 register.
+
+
+
+
+3.13 IrDA Mode
+
+The IrDA mode is selected by setting the IREN bit in the USART_CR3 register. In IrDA mode, the following bits must be kept clear (0):
+
+    LINEN, STOP, and CLKEN bits in the USART_CR2 register,
+    SCEN and HDSEL bits in the USART_CR3 register.
+
+The IrDA SIR physical layer specifies the use of a Return to Zero, an Inverted (RZI) modulation scheme that represents logic 0 as an infrared light pulse.
+
+The SIR Transmit encoder modulates the Non-Return to Zero (NRZ) transmit bitstream output from USART. The output pulse stream is transmitted to an external output driver and infrared LED. USART supports only bit rates up to 115.2Kbps for the SIR ENDEC. In normal mode, the transmitted pulse width is specified as 3/16 of a bit period.
+
+The SIR receive decoder demodulates the return-to-zero bitstream from the infrared detector and outputs the received NRZ serial bit stream to USART. The decoder input is normally HIGH (marking state) in the idle state. The transmit encoder output has the opposite polarity to the decoder input. A start bit is detected when the decoder input is low
+
+
+
+
+
+
+
+

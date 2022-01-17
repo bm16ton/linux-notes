@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="DMA2D">
+  <COMMON>
+    <LITERALS>
+      <!-- ################ DMA2D_IT_xx expressions ################ -->
+      <LITERAL>
+        <SPL>DMA2D_IT_CE</SPL>
+        <LL>LL_DMA2D_IT_CEIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_IT_CTC</SPL>
+        <LL>LL_DMA2D_IT_CTCIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_IT_CAE</SPL>
+        <LL>LL_DMA2D_IT_CAEIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_IT_TW</SPL>
+        <LL>LL_DMA2D_IT_TWIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_IT_TC</SPL>
+        <LL>LL_DMA2D_IT_TCIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_IT_TE</SPL>
+        <LL>LL_DMA2D_IT_TEIE</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################ DMA2D_FLAG_xx expressions ################ -->
+      <LITERAL>
+        <SPL>DMA2D_FLAG_CE</SPL>
+        <LL>LL_DMA2D_FLAG_CEIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FLAG_CTC</SPL>
+        <LL>LL_DMA2D_FLAG_CTCIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FLAG_CAE</SPL>
+        <LL>LL_DMA2D_FLAG_CAEIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FLAG_TW</SPL>
+        <LL>LL_DMA2D_FLAG_TWIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FLAG_TC</SPL>
+        <LL>LL_DMA2D_FLAG_TCIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FLAG_TE</SPL>
+        <LL>LL_DMA2D_FLAG_TEIF</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################ DMA2D_xxx expressions ################ -->
+      <LITERAL>
+        <SPL>DMA2D_M2M</SPL>
+        <LL>LL_DMA2D_MODE_M2M</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_M2M_PFC</SPL>
+        <LL>LL_DMA2D_MODE_M2M_PFC</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_M2M_BLEND</SPL>
+        <LL>LL_DMA2D_MODE_M2M_BLEND</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_R2M</SPL>
+        <LL>LL_DMA2D_MODE_R2M</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################ DMA2D_xxx expressions ################ -->
+      <LITERAL>
+        <SPL>DMA2D_ARGB8888</SPL>
+        <LL>LL_DMA2D_OUTPUT_MODE_ARGB8888</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_RGB888</SPL>
+        <LL>LL_DMA2D_OUTPUT_MODE_RGB888</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_RGB565</SPL>
+        <LL>LL_DMA2D_OUTPUT_MODE_RGB565</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_ARGB1555</SPL>
+        <LL>LL_DMA2D_OUTPUT_MODE_ARGB1555</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_ARGB4444</SPL>
+        <LL>LL_DMA2D_OUTPUT_MODE_ARGB4444</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################ CM_xxx expressions ################ -->
+      <LITERAL>
+        <SPL>CM_ARGB8888</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_ARGB8888</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_RGB888</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_RGB888</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_RGB565</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_RGB565</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_ARGB1555</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_ARGB1555</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_ARGB4444</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_ARGB4444</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_L8</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_L8</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_AL44</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_AL44</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_AL88</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_AL88</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_L4</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_L4</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_A8</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_A8</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CM_A4</SPL>
+        <LL>LL_DMA2D_INPUT_MODE_A4</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################ CLUT_CM_xxx expressions ################ -->
+      <LITERAL>
+        <SPL>CLUT_CM_ARGB8888</SPL>
+        <LL>LL_DMA2D_CLUT_COLOR_MODE_ARGB8888</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>CLUT_CM_RGB888</SPL>
+        <LL>LL_DMA2D_CLUT_COLOR_MODE_RGB888</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <!-- ################################################################ -->
+      <LITERAL>
+        <SPL>NO_MODIF_ALPHA_VALUE</SPL>
+        <LL>LL_DMA2D_ALPHA_MODE_NO_MODIF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>REPLACE_ALPHA_VALUE</SPL>
+        <LL>LL_DMA2D_ALPHA_MODE_REPLACE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>COMBINE_ALPHA_VALUE</SPL>
+        <LL>LL_DMA2D_ALPHA_MODE_COMBINE</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+      <LITERAL>
+        <SPL>DMA2D_InitTypeDef</SPL>
+        <LL>LL_DMA2D_InitTypeDef</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_FG_InitTypeDef</SPL>
+        <LL>LL_DMA2D_LayerCfgTypeDef</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>DMA2D_BG_InitTypeDef</SPL>
+        <LL>LL_DMA2D_LayerCfgTypeDef</LL>
+      </LITERAL>
+    </LITERALS>
+
+	<STRUCTURES>
+	     <STRUCTURE NAME="DMA2D_InitTypeDef">
+           <FIELD>
+             <SPL>DMA2D_Mode</SPL>
+             <LL>Mode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_CMode</SPL>
+             <LL>ColorMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputBlue</SPL>
+             <LL>OutputBlue</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputGreen</SPL>
+             <LL>OutputGreen</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputRed</SPL>
+             <LL>OutputRed</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputAlpha</SPL>
+             <LL>OutputAlpha</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputMemoryAdd</SPL>
+             <LL>OutputMemoryAddress</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_OutputOffset</SPL>
+             <LL>LineOffset</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_NumberOfLine</SPL>
+             <LL>NbrOfLines</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_PixelPerLine</SPL>
+             <LL>NbrOfPixelsPerLines</LL>
+           </FIELD>
+         </STRUCTURE>
+	     <STRUCTURE NAME="DMA2D_FG_InitTypeDef">
+           <FIELD>
+             <SPL>DMA2D_FGMA</SPL>
+             <LL>MemoryAddress</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGO</SPL>
+             <LL>LineOffset</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGCM</SPL>
+             <LL>ColorMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FG_CLUT_CM</SPL>
+             <LL>CLUTColorMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FG_CLUT_SIZE</SPL>
+             <LL>CLUTSize</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGPFC_ALPHA_MODE</SPL>
+             <LL>AlphaMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGPFC_ALPHA_VALUE</SPL>
+             <LL>Alpha</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGC_BLUE</SPL>
+             <LL>Blue</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGC_GREEN</SPL>
+             <LL>Green</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGC_RED</SPL>
+             <LL>Red</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_FGCMAR</SPL>
+             <LL>CLUTMemoryAddress</LL>
+           </FIELD>
+         </STRUCTURE>
+	     <STRUCTURE NAME="DMA2D_BG_InitTypeDef">
+           <FIELD>
+             <SPL>DMA2D_BGMA</SPL>
+             <LL>MemoryAddress</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGO</SPL>
+             <LL>LineOffset</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGCM</SPL>
+             <LL>ColorMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BG_CLUT_CM</SPL>
+             <LL>CLUTColorMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BG_CLUT_SIZE</SPL>
+             <LL>CLUTSize</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGPFC_ALPHA_MODE</SPL>
+             <LL>AlphaMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGPFC_ALPHA_VALUE</SPL>
+             <LL>Alpha</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGC_BLUE</SPL>
+             <LL>Blue</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGC_GREEN</SPL>
+             <LL>Green</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGC_RED</SPL>
+             <LL>Red</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DMA2D_BGCMAR</SPL>
+             <LL>CLUTMemoryAddress</LL>
+           </FIELD>
+         </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+       <FEATURE>
+           <SPL NAME="DMA2D_DeInit" />
+           <LL  NAME="LL_DMA2D_DeInit"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="DMA2D_Init" />
+           <LL  NAME="LL_DMA2D_Init"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="DMA2D_StructInit" />
+           <LL  NAME="LL_DMA2D_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="DMA2D_StartTransfer" />
+           <LL  NAME="LL_DMA2D_Start"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_AbortTransfer" />
+           <LL  NAME="LL_DMA2D_Abort"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+      <!-- ################ DMA2D_Suspend expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_Suspend"
+                CMD0="EQU@SPL_PARAM_0=ENABLE" />
+           <LL  NAME="LL_DMA2D_Suspend"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_Suspend"
+                CMD0="EQU@SPL_PARAM_0=DISABLE" />
+           <LL  NAME="LL_DMA2D_Resume"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <!-- ########################################################### -->
+       <FEATURE>
+           <SPL NAME="DMA2D_FGConfig" />
+           <LL  NAME="LL_DMA2D_ConfigLayer"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"
+                CMD2="UPD@LL_PARAM_2=1" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_BGConfig" />
+           <LL  NAME="LL_DMA2D_ConfigLayer"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"
+                CMD2="UPD@LL_PARAM_2=0" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_FG_StructInit" />
+           <LL  NAME="LL_DMA2D_LayerCfgStructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_BG_StructInit" />
+           <LL  NAME="LL_DMA2D_LayerCfgStructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+      <!-- ################ DMA2D_FGStart expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_FGStart"
+                CMD0="EQU@SPL_PARAM_0=ENABLE" />
+           <LL  NAME="LL_DMA2D_FGND_EnableCLUTLoad"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_FGStart"
+                CMD0="EQU@SPL_PARAM_0=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="CLEAR_BIT(DMA2D->FGPFCCR, DMA2D_FGPFCCR_START)"
+                LOG="No LL API exist, migration is ensured using direct access register" />
+       </FEATURE>
+       <!-- ########################################################### -->
+      <!-- ################ DMA2D_BGStart expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_BGStart"
+                CMD0="EQU@SPL_PARAM_0=ENABLE" />
+           <LL  NAME="LL_DMA2D_BGND_EnableCLUTLoad"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_BGStart"
+                CMD0="EQU@SPL_PARAM_0=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="CLEAR_BIT(DMA2D->BGPFCCR, DMA2D_BGPFCCR_START)"
+                LOG="No LL API exist, migration is ensured using direct access register" />
+       </FEATURE>
+       <!-- ########################################################### -->
+      <!-- ################ DMA2D_DeadTimeConfig expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_DeadTimeConfig"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_SetDeadTime"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+           <LL  NAME="LL_DMA2D_EnableDeadTime"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_DeadTimeConfig"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_SetDeadTime"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+           <LL  NAME="LL_DMA2D_DisableDeadTime"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <!-- ########################################################### -->
+       <FEATURE>
+           <SPL NAME="DMA2D_LineWatermarkConfig" />
+           <LL  NAME="LL_DMA2D_SetLineWatermark"
+                CMD0="UPD@LL_PARAM_0=DMA2D"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+      <!-- ################ DMA2D_ITConfig expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CE"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_CE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CE"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_CE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CTC"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_CTC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CTC"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_CTC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CAE"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_CAE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CAE"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_CAE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TW"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_TW"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TW"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_TW"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TC"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_TC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TC"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_TC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TE"
+                CMD1="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_DMA2D_EnableIT_TE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ITConfig"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TE"
+                CMD1="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_DMA2D_DisableIT_TE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+      <!-- ################################################################# -->
+      <!-- ################ DMA2D_GetFlagStatus expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CE" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_CE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CTC" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_CTC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CAE" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_CAE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TW" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_TW"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TC" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_TC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TE" />
+           <LL  NAME="LL_DMA2D_IsActiveFlag_TE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+      <!-- ################################################################# -->
+      <!-- ################ DMA2D_ClearFlag expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CTC" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CTC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_CAE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CAE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TW" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TW"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TC" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearFlag"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_FLAG_TE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+      <!-- ################################################################# -->
+      <!-- ################ DMA2D_GetITStatus expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CE" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_CE(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_CE(DMA2D)))" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CTC" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_CTC(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_CTC(DMA2D)))" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CAE" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_CAE(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_CAE(DMA2D)))" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TW" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_TW(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_TW(DMA2D)))" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TC" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_TC(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_TC(DMA2D)))" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_GetITStatus"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TE" />
+           <LL  NAME="N/A"
+                CMD0="((LL_DMA2D_IsEnabledIT_TE(DMA2D)) &amp;&amp; (LL_DMA2D_IsActiveFlag_TE(DMA2D)))" />
+       </FEATURE>
+      <!-- ################################################################# -->
+      <!-- ################ DMA2D_ClearITPendingBit expressions ################ -->
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CTC" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CTC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_CAE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_CAE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TW" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TW"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TC" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TC"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="DMA2D_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_0=DMA2D_IT_TE" />
+           <LL  NAME="LL_DMA2D_ClearFlag_TE"
+                CMD0="UPD@LL_PARAM_0=DMA2D" />
+       </FEATURE>
+      <!-- ################################################################# -->
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+  </SPECIFIC>
+</IP>

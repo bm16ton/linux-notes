@@ -1,0 +1,52 @@
+CN3-1	VDD
+CN3-2	PA14 (SWCLK)
+CN3-3	GND
+CN3-4	PA13 (SWDIO)
+CN4-1	GND
+CN4-2	nRST
+CN5-2	PB14	(USB DM)
+CN5-3	PB15	(USB DP)
+1	PB11	Bridge UART RX(1)
+2	PD11	Bridge UART CTS
+3	PD12	Bridge UART RTS
+4	PH7	T_JTMS/T_SWDIO
+5	PG5	GNDDetect(2)
+6	PC7	T_JTDO/T_SWO(3)
+7	PA9	Bridge SPI CLK
+8	GND	GND
+9	PA11	Bridge CAN RX(1)
+10	PA12	Bridge CAN TX(4)
+11	PC10	Bridge UART TX(4)
+12	PG9	T_VCP_TX
+13	PB3	T_JCLK/T_SWCLK	(SWO)
+14	PB4	Bridge SPI NSS
+15	PG14	T_VCP_RX
+16	PB6	Bridge I2C SCL
+17	PB9	Bridge I2C SDA
+18	PE2	Bridge GPIO0
+19	PE4	Bridge GPIO1
+20	PE5	Bridge GPIO2
+21	PE6	Bridge GPIO3
+22	(LoadSW out)	Reserved(5)
+23	PC1	Bridge SPI MISO
+24	GND	GND
+25	PC2	Bridge SPI MOSI
+26	GND	GND
+27	GND	GND
+28	PA1,PF8	T_JTDI/NC(6)
+29	GND	GND
+30		T_VCC(7)
+31	PA6	T_NRST
+32	PA7	T_SW_DIR
+	PA0	T_VCC (pin 30), divided down
+
+
+Load_EN	PB0	(load_EN (w 10k pulldown)
+OSC 25MHz	PH0 OSC-IN
+(VBUS detect???)	PB1/ADC?	(Vsw divided by (4.7k+2.7k))
+LD1_1	PA10	(through 330 ohm)
+LD1_2	PA10	(through 330 ohm)
+LD1_3	GND
+LD1_4	VDD	3.3V
+LD2		ST-Link fault	Load-switch Fault
+LD3	5V/VBUS?	5V power + resistor

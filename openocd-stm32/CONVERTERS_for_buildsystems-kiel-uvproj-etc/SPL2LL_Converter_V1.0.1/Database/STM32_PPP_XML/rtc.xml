@@ -1,0 +1,1672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="RTC">
+  <COMMON>
+    <LITERALS>
+      <LITERAL><SPL>RTC_Format_BIN</SPL><LL>LL_RTC_FORMAT_BIN</LL></LITERAL>
+      <LITERAL><SPL>RTC_Format_BCD</SPL><LL>LL_RTC_FORMAT_BCD</LL></LITERAL>
+        
+      <LITERAL><SPL>RTC_InitTypeDef</SPL><LL>LL_RTC_InitTypeDef</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+      <LITERAL><SPL>RTC_TimeTypeDef</SPL><LL>LL_RTC_TimeTypeDef</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+      <LITERAL><SPL>RTC_DateTypeDef</SPL><LL>LL_RTC_DateTypeDef</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+      <LITERAL><SPL>RTC_AlarmTypeDef</SPL><LL>LL_RTC_AlarmTypeDef</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+    </LITERALS>
+    <STRUCTURES>
+
+      <STRUCTURE NAME="RTC_InitTypeDef">
+        <FIELD><SPL>RTC_HourFormat</SPL><LL>HourFormat</LL><EXCLUDE>STM32F10</EXCLUDE></FIELD>
+        <FIELD><SPL>RTC_AsynchPrediv</SPL><LL>AsynchPrescaler</LL></FIELD>
+        <FIELD><SPL>RTC_SynchPrediv</SPL><LL>SynchPrescaler</LL></FIELD>
+      </STRUCTURE>
+      <STRUCTURE NAME="RTC_TimeTypeDef">
+        <FIELD><SPL>RTC_Hours</SPL><LL>Hours</LL></FIELD>
+        <FIELD><SPL>RTC_Minutes</SPL><LL>Minutes</LL></FIELD>
+        <FIELD><SPL>RTC_Seconds</SPL><LL>Seconds</LL></FIELD>
+        <FIELD><SPL>RTC_H12</SPL><LL>TimeFormat</LL></FIELD>
+      </STRUCTURE>
+      <STRUCTURE NAME="RTC_DateTypeDef">
+        <FIELD><SPL>RTC_WeekDay</SPL><LL>WeekDay</LL></FIELD>
+        <FIELD><SPL>RTC_Month</SPL><LL>Month</LL></FIELD>
+        <FIELD><SPL>RTC_Date</SPL><LL>Day</LL></FIELD>
+        <FIELD><SPL>RTC_Year</SPL><LL>Year</LL></FIELD>
+      </STRUCTURE>
+      <STRUCTURE NAME="RTC_AlarmTypeDef">
+        <FIELD><SPL>RTC_AlarmTime</SPL><LL>AlarmTime</LL></FIELD>
+        <FIELD><SPL>RTC_AlarmMask</SPL><LL>AlarmMask</LL><EXCLUDE>STM32F10</EXCLUDE></FIELD>
+        <FIELD><SPL>RTC_AlarmDateWeekDaySel</SPL><LL>AlarmDateWeekDaySel</LL><EXCLUDE>STM32F10</EXCLUDE></FIELD>
+        <FIELD><SPL>RTC_AlarmDateWeekDay</SPL><LL>AlarmDateWeekDay</LL><EXCLUDE>STM32F10</EXCLUDE></FIELD>
+      </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+    <!-- ########## void RTC_WaitForSynchro(void) ########## -->
+            <FUNCTION>
+              <SPL NAME="RTC_WaitForSynchro"/>
+              <LL  NAME="LL_RTC_WaitForSynchro"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+    <!--  ################## void RTC_SetAlarm(uint32_t , uint32_t , RTC_AlarmStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_SetAlarm"
+                   CMD0="EQU@SPL_PARAM_1=RTC_Alarm_A"/>
+              <LL  NAME="LL_RTC_ALMA_Init"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+                   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+              <EXCLUDE>STM32F10</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_SetAlarm"
+                   CMD0="EQU@SPL_PARAM_1=RTC_Alarm_B"/>
+              <LL  NAME="LL_RTC_ALMB_Init"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+                   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+              <EXCLUDE>STM32F0</EXCLUDE>
+              <EXCLUDE>STM32F10</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION><!-- #### F10 ## void RTC_SetAlarm(uint32_t) ########## -->
+              <SPL NAME="RTC_SetAlarm"/>
+              <LL  NAME="LL_RTC_ALARM_SetCounter"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <AVAILABLE>STM32F10</AVAILABLE>
+            </FUNCTION>
+    <!--  ################## void RTC_ITConfig(uint16_t , ENABLE/DISABLE) ##################### -->
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_OW"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_EnableIT_OW"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_OW"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableIT_OW"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALR"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_EnableIT_ALR"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALR"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableIT_ALR"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_SEC"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_EnableIT_SEC"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_SEC"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableIT_SEC"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TS"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_EnableIT_TS"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TS"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_DisableIT_TS"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_WUT"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_EnableIT_WUT"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_WUT"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_DisableIT_WUT"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRA"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_EnableIT_ALRA"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRA"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_DisableIT_ALRA"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRB"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_EnableIT_ALRB"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRB"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_DisableIT_ALRB"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP"
+               CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_EnableIT_TAMP"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP"
+               CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_DisableIT_TAMP"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="DEL@LL_PARAM_1"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+      <!-- ########## FlagStatus RTC_GetFlagStatus(uint16_t) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_RTOFF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_RTOF"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_RSF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_RS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_OW"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_OW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+         <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALR"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_ALR"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_SEC"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_SEC"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_RECALPF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_RECALP"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP3F"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TAMP3"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+          <EXCLUDE>STM32F4</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP2F"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TAMP2"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP1F"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TAMP1"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TSOVF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TSOV"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TSF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_WUTF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_WUT"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRBF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_ALRB"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRAF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_ALRA"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_INITF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_INIT"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_INITS"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_INITS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_SHPF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_SHP"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_WUTWF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_WUTW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRBWF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_ALRBW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRAWF"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_ALRAW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+      <!-- ########## void RTC_ClearFlag(uint16_t) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_RSF"/>
+          <LL  NAME="LL_RTC_ClearFlag_RS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_OW"/>
+          <LL  NAME="LL_RTC_ClearFlag_OW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALR"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALR"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_SEC"/>
+          <LL  NAME="LL_RTC_ClearFlag_SEC"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP3F"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP3"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+          <EXCLUDE>STM32F4</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP2F"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP2"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TAMP1F"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP1"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TSOVF"/>
+          <LL  NAME="LL_RTC_ClearFlag_TSOV"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_TSF"/>
+          <LL  NAME="LL_RTC_ClearFlag_TS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_WUTF"/>
+          <LL  NAME="LL_RTC_ClearFlag_WUT"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRBF"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALRB"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=RTC_FLAG_ALRAF"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALRA"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+      <!-- ########## ITStatus RTC_ClearITPendingBit(uint16_t) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_OW"/>
+          <LL  NAME="LL_RTC_ClearFlag_OW"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALR"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALR"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_SEC"/>
+          <LL  NAME="LL_RTC_ClearFlag_SEC"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP3"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP3"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+          <EXCLUDE>STM32F4</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP2"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP2"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP1"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMP1"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TS"/>
+          <LL  NAME="LL_RTC_ClearFlag_TS"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_WUT"/>
+          <LL  NAME="LL_RTC_ClearFlag_WUT"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRB"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALRB"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRA"/>
+          <LL  NAME="LL_RTC_ClearFlag_ALRA"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+      <!-- ########## ITStatus RTC_GetITStatus(uint16_t) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_OW"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_OW(RTC) &amp;&amp; LL_RTC_IsActiveFlag_OW(RTC))"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALR"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_ALR(RTC) &amp;&amp; LL_RTC_IsActiveFlag_ALR(RTC))"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_SEC"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_SEC(RTC) &amp;&amp; LL_RTC_IsActiveFlag_SEC(RTC))"/>
+          <AVAILABLE>STM32F10</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TS"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_TS(RTC) &amp;&amp; LL_RTC_IsActiveFlag_TS(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_WUT"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_WUT(RTC) &amp;&amp; LL_RTC_IsActiveFlag_WUT(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRB"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_ALRB(RTC) &amp;&amp; LL_RTC_IsActiveFlag_ALRB(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F0</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_ALRA"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_ALRA(RTC) &amp;&amp; LL_RTC_IsActiveFlag_ALRA(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP1"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_TAMP(RTC) &amp;&amp; LL_RTC_IsActiveFlag_TAMP1(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP2"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_TAMP(RTC) &amp;&amp; LL_RTC_IsActiveFlag_TAMP2(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="RTC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=RTC_IT_TAMP3"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_RTC_IsEnabledIT_TAMP(RTC) &amp;&amp; LL_RTC_IsActiveFlag_TAMP3(RTC))"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32F2</EXCLUDE>
+          <EXCLUDE>STM32F4</EXCLUDE>
+        </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+    <VERSION NAME="RTC_VER_1_1_0">
+    <LITERALS>
+        <LITERAL><SPL>BKP_TamperPinLevel_High</SPL><LL>LL_RTC_TAMPER_ACTIVELEVEL_HIGH</LL></LITERAL>
+        <LITERAL><SPL>BKP_TamperPinLevel_Low</SPL><LL>LL_RTC_TAMPER_ACTIVELEVEL_LOW</LL></LITERAL>
+        
+        <LITERAL><SPL>BKP_RTCOutputSource_None</SPL><LL>LL_RTC_CALIB_OUTPUT_NONE</LL></LITERAL>
+        <LITERAL><SPL>BKP_RTCOutputSource_CalibClock</SPL><LL>LL_RTC_CALIB_OUTPUT_RTCCLOCK</LL></LITERAL>
+        <LITERAL><SPL>BKP_RTCOutputSource_Alarm</SPL><LL>LL_RTC_CALIB_OUTPUT_ALARM</LL></LITERAL>
+        <LITERAL><SPL>BKP_RTCOutputSource_Second</SPL><LL>LL_RTC_CALIB_OUTPUT_SECOND</LL></LITERAL>
+        
+        <LITERAL><SPL>BKP_DR1</SPL><LL>LL_RTC_BKP_DR1</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR2</SPL><LL>LL_RTC_BKP_DR2</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR3</SPL><LL>LL_RTC_BKP_DR3</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR4</SPL><LL>LL_RTC_BKP_DR4</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR5</SPL><LL>LL_RTC_BKP_DR5 </LL></LITERAL>
+        <LITERAL><SPL>BKP_DR6</SPL><LL>LL_RTC_BKP_DR6 </LL></LITERAL>
+        <LITERAL><SPL>BKP_DR7</SPL><LL>LL_RTC_BKP_DR7 </LL></LITERAL>
+        <LITERAL><SPL>BKP_DR8</SPL><LL>LL_RTC_BKP_DR8 </LL></LITERAL>
+        <LITERAL><SPL>BKP_DR9</SPL><LL>LL_RTC_BKP_DR9 </LL></LITERAL>
+        <LITERAL><SPL>BKP_DR10</SPL><LL>LL_RTC_BKP_DR10</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR11</SPL><LL>LL_RTC_BKP_DR11</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR12</SPL><LL>LL_RTC_BKP_DR12</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR13</SPL><LL>LL_RTC_BKP_DR13</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR14</SPL><LL>LL_RTC_BKP_DR14</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR15</SPL><LL>LL_RTC_BKP_DR15</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR16</SPL><LL>LL_RTC_BKP_DR16</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR17</SPL><LL>LL_RTC_BKP_DR17</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR18</SPL><LL>LL_RTC_BKP_DR18</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR19</SPL><LL>LL_RTC_BKP_DR19</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR20</SPL><LL>LL_RTC_BKP_DR20</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR21</SPL><LL>LL_RTC_BKP_DR21</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR22</SPL><LL>LL_RTC_BKP_DR22</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR23</SPL><LL>LL_RTC_BKP_DR23</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR24</SPL><LL>LL_RTC_BKP_DR24</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR25</SPL><LL>LL_RTC_BKP_DR25</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR26</SPL><LL>LL_RTC_BKP_DR26</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR27</SPL><LL>LL_RTC_BKP_DR27</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR28</SPL><LL>LL_RTC_BKP_DR28</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR29</SPL><LL>LL_RTC_BKP_DR29</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR30</SPL><LL>LL_RTC_BKP_DR30</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR31</SPL><LL>LL_RTC_BKP_DR31</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR32</SPL><LL>LL_RTC_BKP_DR32</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR33</SPL><LL>LL_RTC_BKP_DR33</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR34</SPL><LL>LL_RTC_BKP_DR34</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR35</SPL><LL>LL_RTC_BKP_DR35</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR36</SPL><LL>LL_RTC_BKP_DR36</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR37</SPL><LL>LL_RTC_BKP_DR37</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR38</SPL><LL>LL_RTC_BKP_DR38</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR39</SPL><LL>LL_RTC_BKP_DR39</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR40</SPL><LL>LL_RTC_BKP_DR40</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR41</SPL><LL>LL_RTC_BKP_DR41</LL></LITERAL>
+        <LITERAL><SPL>BKP_DR42</SPL><LL>LL_RTC_BKP_DR42</LL></LITERAL>
+        
+    </LITERALS>
+    <FUNCTIONS>
+      <!-- ############# void RTC_EnterConfigMode(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="RTC_EnterConfigMode"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+      <!-- ############# void RTC_ExitConfigMode(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="RTC_ExitConfigMode"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+      <!-- ############# uint32_t RTC_GetCounter(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="RTC_GetCounter"/>
+          <LL  NAME="LL_RTC_TIME_Get"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+      <!-- ############# void RTC_SetCounter(uint32_t)  -->
+        <FUNCTION>
+          <SPL NAME="RTC_SetCounter"/>
+          <LL  NAME="LL_RTC_TIME_SetCounter"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+        </FUNCTION>
+      <!-- ########## void RTC_SetPrescaler(uint32_t) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_SetPrescaler"/>
+          <LL  NAME="LL_RTC_DisableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+          <LL  NAME="LL_RTC_SetAsynchPrescaler"
+               CMD0="UPD@LL_PARAM_0=RTC"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+          <LL  NAME="LL_RTC_EnableWriteProtection"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+      <!-- ########## uint32_t RTC_GetDivider(void) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_GetDivider"/>
+          <LL  NAME="LL_RTC_GetDivider"
+               CMD0="ADD@LL_PARAM_0=RTC"/>
+        </FUNCTION>
+      <!-- ########## uint32_t RTC_WaitForLastTask(void) ########## -->
+        <FUNCTION>
+          <SPL NAME="RTC_WaitForLastTask"/>
+          <LL  NAME="N/A"
+               CMD0="while(LL_RTC_IsActiveFlag_RTOF(RTC) == RESET)\n
+               {\n
+               }"/>
+        </FUNCTION>
+      <!-- ############# void BKP_DeInit(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_DeInit"/>
+          <LL  NAME="LL_RCC_ForceBackupDomainReset"/>
+          <LL  NAME="LL_RCC_ReleaseBackupDomainReset"/>
+        </FUNCTION>
+      <!-- ############# void BKP_TamperPinLevelConfig(uint16_t BKP_TamperPinLevel) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_TamperPinLevelConfig"/>
+          <LL  NAME="LL_RTC_TAMPER_SetActiveLevel"
+               CMD0="UPD@LL_PARAM_0=BKP"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+        </FUNCTION>
+      <!-- ############# void BKP_TamperPinCmd(FunctionalState NewState) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_TamperPinCmd"
+               CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+          <LL  NAME="LL_RTC_TAMPER_Enable"
+               CMD0="UPD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="BKP_TamperPinCmd"
+               CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+          <LL  NAME="LL_RTC_TAMPER_Disable"
+               CMD0="UPD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      <!-- ############# void BKP_ITConfig(FunctionalState NewState) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+          <LL  NAME="LL_RTC_EnableIT_TAMP"
+               CMD0="UPD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+        <FUNCTION>
+          <SPL NAME="BKP_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+          <LL  NAME="LL_RTC_DisableIT_TAMP"
+               CMD0="UPD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      <!-- ############# void BKP_RTCOutputConfig(uint16_t BKP_RTCOutputSource) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_RTCOutputConfig"/>
+          <LL  NAME="LL_RTC_SetOutputSource"
+               CMD0="UPD@LL_PARAM_0=BKP"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+        </FUNCTION>
+      <!-- ############# void BKP_SetRTCCalibrationValue(uint8_t CalibrationValue) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_SetRTCCalibrationValue"/>
+          <LL  NAME="LL_RTC_CAL_SetCoarseDigital"
+               CMD0="UPD@LL_PARAM_0=BKP"
+               CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+      <!-- ############# void BKP_WriteBackupRegister(uint16_t BKP_DR, uint16_t Data) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_WriteBackupRegister"/>
+          <LL  NAME="LL_RTC_BKP_SetRegister"
+               CMD0="UPD@LL_PARAM_0=BKP"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+               CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+        </FUNCTION>
+      <!-- ############# uint16_t BKP_ReadBackupRegister(uint16_t BKP_DR) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_ReadBackupRegister"/>
+          <LL  NAME="LL_RTC_BKP_GetRegister"
+               CMD0="UPD@LL_PARAM_0=BKP"
+               CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+        </FUNCTION>
+      <!-- ############# FlagStatus BKP_GetFlagStatus(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_GetFlagStatus"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TAMPE"
+               CMD0="ADD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      <!-- ############# void BKP_ClearFlag(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_ClearFlag"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMPE"
+               CMD0="ADD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      <!-- ############# ITStatus BKP_GetITStatus(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_GetITStatus"/>
+          <LL  NAME="LL_RTC_IsActiveFlag_TAMPI"
+               CMD0="ADD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      <!-- ############# void BKP_ClearITPendingBit(void) ############# -->
+        <FUNCTION>
+          <SPL NAME="BKP_ClearITPendingBit"/>
+          <LL  NAME="LL_RTC_ClearFlag_TAMPI"
+               CMD0="ADD@LL_PARAM_0=BKP"/>
+        </FUNCTION>
+      </FUNCTIONS>
+    </VERSION>
+    <VERSION NAME="RTC_VER_2_0_0">
+      <LITERALS>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_All</SPL><LL>15</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_1</SPL><LL>1</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_2</SPL><LL>2</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_3</SPL><LL>3</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_4</SPL><LL>4</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_5</SPL><LL>5</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_6</SPL><LL>6</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_7</SPL><LL>7</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_8</SPL><LL>8</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_9</SPL><LL>9</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_10</SPL><LL>10</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_11</SPL><LL>11</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_12</SPL><LL>12</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14_13</SPL><LL>13</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_SS14</SPL><LL>14</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_AlarmSubSecondMask_None</SPL><LL>0</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_WakeUpClock_RTCCLK_Div16</SPL><LL>LL_RTC_WAKEUPCLOCK_DIV_16</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_WakeUpClock_RTCCLK_Div8</SPL><LL>LL_RTC_WAKEUPCLOCK_DIV_8</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_WakeUpClock_RTCCLK_Div4</SPL><LL>LL_RTC_WAKEUPCLOCK_DIV_4</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_WakeUpClock_RTCCLK_Div2</SPL><LL>LL_RTC_WAKEUPCLOCK_DIV_2</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_WakeUpClock_CK_SPRE_16bits</SPL><LL>LL_RTC_WAKEUPCLOCK_CKSPRE</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_WakeUpClock_CK_SPRE_17bits</SPL><LL>LL_RTC_WAKEUPCLOCK_CKSPRE_WUT</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_Output_Disable</SPL><LL>LL_RTC_ALARMOUT_DISABLE</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_Output_AlarmA</SPL><LL>LL_RTC_ALARMOUT_ALMA</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_Output_AlarmB</SPL><LL>LL_RTC_ALARMOUT_ALMB</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_Output_WakeUp</SPL><LL>LL_RTC_ALARMOUT_WAKEUP</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TimeStampEdge_Rising</SPL><LL>LL_RTC_TIMESTAMP_EDGE_RISING</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TimeStampEdge_Falling</SPL><LL>LL_RTC_TIMESTAMP_EDGE_FALLING</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_OutputPolarity_High</SPL><LL>LL_RTC_OUTPUTPOLARITY_PIN_HIGH</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_OutputPolarity_Low</SPL><LL>LL_RTC_OUTPUTPOLARITY_PIN_LOW</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_CalibOutput_512Hz</SPL><LL>LL_RTC_CALIB_OUTPUT_512HZ</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_CalibOutput_1Hz</SPL><LL>LL_RTC_CALIB_OUTPUT_1HZ</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_CalibSign_Positive</SPL><LL>LL_RTC_CALIB_SIGN_POSITIVE</LL><AVAILABLE>STM32L1</AVAILABLE><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          <LITERAL><SPL>RTC_CalibSign_Negative</SPL><LL>LL_RTC_CALIB_SIGN_NEGATIVE</LL><AVAILABLE>STM32L1</AVAILABLE><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          
+          <LITERAL><SPL>RTC_SmoothCalibPeriod_32sec</SPL><LL>LL_RTC_CALIB_PERIOD_32SEC</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_SmoothCalibPeriod_16sec</SPL><LL>LL_RTC_CALIB_PERIOD_16SEC</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_SmoothCalibPeriod_8sec</SPL> <LL>LL_RTC_CALIB_PERIOD_8SEC</LL> <EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+
+          <LITERAL><SPL>RTC_SmoothCalibPlusPulses_Set</SPL><LL>LL_RTC_CALIB_INSERTPULSE_SET</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_SmoothCalibPlusPulses_Reset</SPL><LL>LL_RTC_CALIB_INSERTPULSE_NONE</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_Tamper_1</SPL><LL>LL_RTC_TAMPER_1</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_Tamper_2</SPL><LL>LL_RTC_TAMPER_2</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_Tamper_3</SPL><LL>LL_RTC_TAMPER_3</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TamperFilter_Disable</SPL><LL>LL_RTC_TAMPER_FILTER_DISABLE</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperFilter_2Sample</SPL><LL>LL_RTC_TAMPER_FILTER_2SAMPLE</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperFilter_4Sample</SPL><LL>LL_RTC_TAMPER_FILTER_4SAMPLE</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperFilter_8Sample</SPL><LL>LL_RTC_TAMPER_FILTER_8SAMPLE</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div32768</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_32768</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div16384</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_16384</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div8192</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_8192</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div4096</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_4096</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div2048</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_2048</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div1024</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_1024</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div512</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_512</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperSamplingFreq_RTCCLK_Div256</SPL><LL>LL_RTC_TAMPER_SAMPLFREQDIV_256</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TamperPrechargeDuration_1RTCCLK</SPL><LL>LL_RTC_TAMPER_DURATION_1RTCCLK</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperPrechargeDuration_2RTCCLK</SPL><LL>LL_RTC_TAMPER_DURATION_2RTCCLK</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperPrechargeDuration_4RTCCLK</SPL><LL>LL_RTC_TAMPER_DURATION_4RTCCLK</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_TamperPrechargeDuration_8RTCCLK</SPL><LL>LL_RTC_TAMPER_DURATION_8RTCCLK</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_BKP_DR0</SPL><LL>LL_RTC_BKP_DR0</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR1</SPL><LL>LL_RTC_BKP_DR1</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR2</SPL><LL>LL_RTC_BKP_DR2</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR3</SPL><LL>LL_RTC_BKP_DR3</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR4</SPL><LL>LL_RTC_BKP_DR4</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR5</SPL><LL>LL_RTC_BKP_DR5</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR6</SPL><LL>LL_RTC_BKP_DR6</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR7</SPL><LL>LL_RTC_BKP_DR7</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR8</SPL><LL>LL_RTC_BKP_DR8</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR9</SPL><LL>LL_RTC_BKP_DR9</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR10</SPL><LL>LL_RTC_BKP_DR10</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR11</SPL><LL>LL_RTC_BKP_DR11</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR12</SPL><LL>LL_RTC_BKP_DR12</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR13</SPL><LL>LL_RTC_BKP_DR13</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR14</SPL><LL>LL_RTC_BKP_DR14</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR15</SPL><LL>LL_RTC_BKP_DR15</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR16</SPL><LL>LL_RTC_BKP_DR16</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR17</SPL><LL>LL_RTC_BKP_DR17</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR18</SPL><LL>LL_RTC_BKP_DR18</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR19</SPL><LL>LL_RTC_BKP_DR19</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR20</SPL><LL>LL_RTC_BKP_DR20</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR21</SPL><LL>LL_RTC_BKP_DR21</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR22</SPL><LL>LL_RTC_BKP_DR22</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR23</SPL><LL>LL_RTC_BKP_DR23</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR24</SPL><LL>LL_RTC_BKP_DR24</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR25</SPL><LL>LL_RTC_BKP_DR25</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR26</SPL><LL>LL_RTC_BKP_DR26</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR27</SPL><LL>LL_RTC_BKP_DR27</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR28</SPL><LL>LL_RTC_BKP_DR28</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR29</SPL><LL>LL_RTC_BKP_DR29</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR30</SPL><LL>LL_RTC_BKP_DR30</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_BKP_DR31</SPL><LL>LL_RTC_BKP_DR31</LL><EXCLUDE>STM32F10</EXCLUDE><EXCLUDE>STM32F0</EXCLUDE><EXCLUDE>STM32F2</EXCLUDE><EXCLUDE>STM32F30</EXCLUDE><EXCLUDE>STM32F4</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_OutputType_OpenDrain</SPL><LL>LL_RTC_ALARM_OUTPUTTYPE_OPENDRAIN</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_OutputType_PushPull</SPL><LL>LL_RTC_ALARM_OUTPUTTYPE_PUSHPULL</LL><EXCLUDE>STM32F10</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TimeStampPin_PC13</SPL><LL>LL_RTC_TimeStampPin_Default</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          <LITERAL><SPL>RTC_TimeStampPin_PI8</SPL><LL>LL_RTC_TimeStampPin_Pos1</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          
+          <LITERAL><SPL>RTC_TamperPin_Default</SPL><LL>LL_RTC_TamperPin_Default</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          <LITERAL><SPL>RTC_TamperPin_Pos1</SPL><LL>LL_RTC_TamperPin_Pos1</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+          
+          <LITERAL><SPL>RTC_ShiftAdd1S_Reset</SPL><LL>LL_RTC_SHIFT_SECOND_DELAY</LL><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          <LITERAL><SPL>RTC_ShiftAdd1S_Set</SPL><LL>LL_RTC_SHIFT_SECOND_ADVANCE</LL><EXCLUDE>STM32F2</EXCLUDE></LITERAL>
+          
+          <LITERAL><SPL>RTC_H12_AM</SPL><LL>LL_RTC_TIME_FORMAT_AM_OR_24</LL></LITERAL>
+          <LITERAL><SPL>RTC_H12_PM</SPL><LL>LL_RTC_TIME_FORMAT_PM</LL></LITERAL>
+          
+          <LITERAL><SPL>RTC_AlarmDateWeekDaySel_Date</SPL><LL>LL_RTC_ALMA_DATEWEEKDAYSEL_DATE</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmDateWeekDaySel_WeekDay</SPL><LL>LL_RTC_ALMA_DATEWEEKDAYSEL_WEEKDAY</LL></LITERAL>
+          
+          <LITERAL><SPL>RTC_AlarmMask_None</SPL><LL>LL_RTC_ALMA_MASK_NONE</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmMask_DateWeekDay</SPL><LL>LL_RTC_ALMA_MASK_DATEWEEKDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmMask_Hours</SPL><LL>LL_RTC_ALMA_MASK_HOURS</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmMask_Minutes</SPL><LL>LL_RTC_ALMA_MASK_MINUTES</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmMask_Seconds</SPL><LL>LL_RTC_ALMA_MASK_SECONDS</LL></LITERAL>
+          <LITERAL><SPL>RTC_AlarmMask_All</SPL><LL>LL_RTC_ALMA_MASK_ALL</LL></LITERAL>
+          
+          <LITERAL><SPL>RTC_Weekday_Monday</SPL><LL>LL_RTC_WEEKDAY_MONDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Tuesday</SPL><LL>LL_RTC_WEEKDAY_TUESDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Wednesday</SPL><LL>LL_RTC_WEEKDAY_WEDNESDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Thursday</SPL><LL>LL_RTC_WEEKDAY_THURSDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Friday</SPL><LL>LL_RTC_WEEKDAY_FRIDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Saturday</SPL><LL>LL_RTC_WEEKDAY_SATURDAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Weekday_Sunday</SPL><LL>LL_RTC_WEEKDAY_SUNDAY</LL></LITERAL>
+          
+          <LITERAL><SPL>RTC_Month_January</SPL><LL>LL_RTC_MONTH_JANUARY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_February</SPL><LL>LL_RTC_MONTH_FEBRUARY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_March</SPL><LL>LL_RTC_MONTH_MARCH</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_April</SPL><LL>LL_RTC_MONTH_APRIL</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_May</SPL><LL>LL_RTC_MONTH_MAY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_June</SPL><LL>LL_RTC_MONTH_JUNE</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_July</SPL><LL>LL_RTC_MONTH_JULY</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_August</SPL><LL>LL_RTC_MONTH_AUGUST</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_September</SPL><LL>LL_RTC_MONTH_SEPTEMBER</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_October</SPL><LL>LL_RTC_MONTH_OCTOBER</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_November</SPL><LL>LL_RTC_MONTH_NOVEMBER</LL></LITERAL>
+          <LITERAL><SPL>RTC_Month_December</SPL><LL>LL_RTC_MONTH_DECEMBER</LL></LITERAL>
+          
+          <LITERAL><SPL>RTC_HourFormat_24</SPL><LL>LL_RTC_HOURFORMAT_24HOUR</LL></LITERAL>
+          <LITERAL><SPL>RTC_HourFormat_12</SPL><LL>LL_RTC_HOURFORMAT_AMPM</LL></LITERAL>
+          
+          
+      </LITERALS>
+      <FUNCTIONS>
+        <!--  ################## void RTC_DeInit(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_DeInit"/>
+              <LL  NAME="LL_RTC_DeInit"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_Init(RTC_InitStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_Init"/>
+              <LL  NAME="LL_RTC_Init"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_StructInit(RTC_InitStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_StructInit"/>
+              <LL  NAME="LL_RTC_StructInit"
+                   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_WriteProtectionCmd(ENABLE/DISABLE) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_WriteProtectionCmd"
+                   CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_WriteProtectionCmd"
+                   CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## void RTC_EnterInitMode(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_EnterInitMode"/>
+              <LL  NAME="LL_RTC_EnterInitMode"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## void RTC_ExitInitMode(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_ExitInitMode"/>
+              <LL  NAME="LL_RTC_ExitInitMode"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_RefClockCmd(FunctionalState) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_RefClockCmd"/>
+              <LL  NAME="RTC_RefClockCmd"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_SynchroShiftConfig(uint32_t, uint32_t) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_SynchroShiftConfig"/>
+              <LL  NAME="RTC_SynchroShiftConfig"
+                   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+            </FUNCTION>
+        <!--  ################## void RTC_BypassShadowCmd(FunctionalState) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_BypassShadowCmd"
+                   CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableShadowRegBypass"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_BypassShadowCmd"
+                   CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_DisableShadowRegBypass"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_SetTime(uint32_t, RTC_TimeStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_SetTime"/>
+              <LL  NAME="LL_RTC_TIME_Init"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+                   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_TimeStructInit(RTC_TimeStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_TimeStructInit"/>
+              <LL  NAME="LL_RTC_TIME_StructInit"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_GetTime(uint32_t , RTC_TimeStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetTime"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BCD"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_TIME_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.TimeFormat =  LL_RTC_TIME_GetFormat(RTC);\n
+                         {CPY@SPL_PARAM_1}.Hours      =  __LL_RTC_GET_HOUR(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Minutes    =  __LL_RTC_GET_MINUTE(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Seconds    =  __LL_RTC_GET_SECOND(tmp_rtc_0_$id$)"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetTime"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BIN"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_TIME_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.TimeFormat =  LL_RTC_TIME_GetFormat(RTC);\n
+                         {CPY@SPL_PARAM_1}.Hours      =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_HOUR(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Minutes    =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_MINUTE(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Seconds    =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_SECOND(tmp_rtc_0_$id$))"/>
+            </FUNCTION>
+        <!--  ################## uint32_t RTC_GetSubSecond(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetSubSecond"/>
+              <LL  NAME="LL_RTC_TIME_GetSubSecond"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_SetDate(uint32_t, RTC_DateStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_SetDate"/>
+              <LL  NAME="LL_RTC_DATE_Init"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+                   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_DateStructInit(RTC_DateStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_DateStructInit"/>
+              <LL  NAME="LL_RTC_DATE_StructInit"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_GetDate(uint32_t , RTC_DateStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetDate"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BCD"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_DATE_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.WeekDay =  __LL_RTC_GET_WEEKDAY(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Month   =  __LL_RTC_GET_MONTH(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Day     =  __LL_RTC_GET_DAY(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Year    =  __LL_RTC_GET_YEAR(tmp_rtc_0_$id$)"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetDate"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BIN"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_DATE_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.WeekDay =  __LL_RTC_GET_WEEKDAY(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Month   =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_MONTH(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Day     =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_DAY(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Year    =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_YEAR(tmp_rtc_0_$id$))"/>
+            </FUNCTION>
+        <!--  ################## void RTC_AlarmStructInit( RTC_AlarmStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmStructInit"/>
+              <LL  NAME="LL_RTC_ALMA_StructInit"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_ALMB_StructInit"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   LOG="You need to choose which ALARM Structure (A or B) to initialize "/>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmStructInit"/>
+              <LL  NAME="LL_RTC_ALMA_StructInit"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+              <AVAILABLE>STM32F0</AVAILABLE>
+            </FUNCTION>
+        <!--  ################## void RTC_GetAlarm(uint32_t , uint32_t , RTC_AlarmStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarm"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BCD"
+                   CMD1="EQU@SPL_PARAM_1=RTC_Alarm_A"/>
+              <LL  NAME="N/A"
+                   CMD0="{CPY@SPL_PARAM_2}.AlarmTime.TimeFormat = LL_RTC_ALMA_GetTimeFormat(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Hours      = LL_RTC_ALMA_GetHour(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Minutes    = LL_RTC_ALMA_GetMinute(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Seconds    = LL_RTC_ALMA_GetSecond(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmMask            = LL_RTC_ALMA_GetMask(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmDateWeekDay     = LL_RTC_ALMA_GetDay(RTC)\n"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarm"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BIN"
+                   CMD1="EQU@SPL_PARAM_1=RTC_Alarm_A"/>
+              <LL  NAME="N/A"
+                   CMD0="{CPY@SPL_PARAM_2}.AlarmTime.TimeFormat = LL_RTC_ALMA_GetTimeFormat(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Hours      = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMA_GetHour(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Minutes    = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMA_GetMinute(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Seconds    = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMA_GetSecond(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmMask            = LL_RTC_ALMA_GetMask(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmDateWeekDay     = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMA_GetDay(RTC));\n"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarm"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BCD"
+                   CMD1="EQU@SPL_PARAM_1=RTC_Alarm_B"/>
+              <LL  NAME="N/A"
+                   CMD0="{CPY@SPL_PARAM_2}.AlarmTime.TimeFormat = LL_RTC_ALMB_GetTimeFormat(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Hours      = LL_RTC_ALMB_GetHour(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Minutes    = LL_RTC_ALMB_GetMinute(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Seconds    = LL_RTC_ALMB_GetSecond(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmMask            = LL_RTC_ALMB_GetMask(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmDateWeekDay     = LL_RTC_ALMB_GetDay(RTC);\n"/>/>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarm"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BIN"
+                   CMD1="EQU@SPL_PARAM_1=RTC_Alarm_B"/>
+              <LL  NAME="N/A"
+                   CMD0="{CPY@SPL_PARAM_2}.AlarmTime.TimeFormat = LL_RTC_ALMB_GetTimeFormat(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Hours      = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMB_GetHour(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Minutes    = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMB_GetMinute(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmTime.Seconds    = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMB_GetSecond(RTC));\n
+                         {CPY@SPL_PARAM_2}.AlarmMask            = LL_RTC_ALMB_GetMask(RTC);\n
+                         {CPY@SPL_PARAM_2}.AlarmDateWeekDay     = __LL_RTC_CONVERT_BCD2BIN(LL_RTC_ALMB_GetDay(RTC));\n"/>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_AlarmCmd(uint32_t , ENABLE/DISABLE) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmCmd"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_A"/>
+              <LL  NAME="RTC_AlarmCmd"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmCmd"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_B"/>
+              <LL  NAME="RTC_AlarmCmd"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_AlarmSubSecondConfig(uint32_t , uint32_t , uint32_t ) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmSubSecondConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_A"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_ALMA_SetSubSecond"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+              <LL  NAME="LL_RTC_ALMA_SetSubSecondMask"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@LL_PARAM_2}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_AlarmSubSecondConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_B"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_ALMB_SetSubSecond"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+              <LL  NAME="LL_RTC_ALMB_SetSubSecondMask"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@LL_PARAM_2}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## uint32_t RTC_GetAlarmSubSecond(uint32_t) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarmSubSecond"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_A"/>
+              <LL  NAME="LL_RTC_ALMA_GetSubSecondMask"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetAlarmSubSecond"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Alarm_B"/>
+              <LL  NAME="LL_RTC_ALMB_GetSubSecondMask"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+              <EXCLUDE>STM32F0</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_WakeUpClockConfig(uint32_t) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_WakeUpClockConfig"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_WAKEUP_SetClock"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## void RTC_SetWakeUpCounter(uint32_t) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_SetWakeUpCounter"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_WAKEUP_SetAutoReload"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## uint32_t RTC_GetWakeUpCounter(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetWakeUpCounter"/>
+              <LL  NAME="LL_RTC_WAKEUP_GetAutoReload"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_WakeUpCmd(uint32_t) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_WakeUpCmd"/>
+              <LL  NAME="RTC_WakeUpCmd"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+            </FUNCTION>
+
+        <!--  ################## void RTC_DayLightSavingConfig(uint32_t , uint32_t) ##################### -->
+            <FUNCTION> <!-- RTC_DayLightSavingConfig(RTC_DayLightSaving_ADD1H, RTC_StoreOperation_Set) -->
+              <SPL NAME="RTC_DayLightSavingConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_DayLightSaving_ADD1H"
+                   CMD1="EQU@SPL_PARAM_1=RTC_StoreOperation_Set"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_EnableDayLightStore"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_IncHour"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+            <FUNCTION> <!-- RTC_DayLightSavingConfig(RTC_DayLightSaving_ADD1H, RTC_StoreOperation_Reset) -->
+              <SPL NAME="RTC_DayLightSavingConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_DayLightSaving_ADD1H"
+                   CMD1="EQU@SPL_PARAM_1=RTC_StoreOperation_Reset"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_DisableDayLightStore"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_IncHour"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+            <FUNCTION><!-- RTC_DayLightSavingConfig(RTC_DayLightSaving_SUB1H, RTC_StoreOperation_Set) -->
+              <SPL NAME="RTC_DayLightSavingConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_DayLightSaving_SUB1H"
+                   CMD1="EQU@SPL_PARAM_1=RTC_StoreOperation_Set"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_EnableDayLightStore"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_DecHour"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+            <FUNCTION><!-- RTC_DayLightSavingConfig(RTC_DayLightSaving_SUB1H, RTC_StoreOperation_Reset) -->
+              <SPL NAME="RTC_DayLightSavingConfig"
+                   CMD0="EQU@SPL_PARAM_0=RTC_DayLightSaving_SUB1H"
+                   CMD1="EQU@SPL_PARAM_1=RTC_StoreOperation_Reset"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_DisableDayLightStore"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TIME_DecHour"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## uint32_t RTC_GetStoreOperation(void) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_GetStoreOperation"/>
+              <LL  NAME="LL_RTC_TIME_IsDayLightStoreEnabled"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## void RTC_OutputConfig(uint32_t , uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_OutputConfig"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_SetAlarmOutEvent"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_SetOutputPolarity"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_CoarseCalibConfig(uint32_t , uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_CoarseCalibConfig"/>
+              <LL  NAME="RTC_CoarseCalibConfig"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_0={CPY@SPL_PARAM_1}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+              <AVAILABLE>STM32L1</AVAILABLE>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_CoarseCalibCmd(ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_CoarseCalibCmd"/>
+              <LL  NAME="RTC_CoarseCalibCmd"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+              <AVAILABLE>STM32L1</AVAILABLE>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+        <!--  ################## void RTC_CalibOutputCmd(ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_CalibOutputCmd"
+                   CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_CAL_SetOutputFreq"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1=LL_RTC_CALIB_OUTPUT_512HZ"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <AVAILABLE>STM32L1</AVAILABLE>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+            <FUNCTION> 
+              <SPL NAME="RTC_CalibOutputCmd"
+                   CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_CAL_SetOutputFreq"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1=LL_RTC_CALIB_OUTPUT_NONE"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <AVAILABLE>STM32L1</AVAILABLE>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+        <!--  ################## void RTC_CalibOutputConfig(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_CalibOutputConfig"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_CAL_SetOutputFreq"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## ErrorStatus RTC_SmoothCalibConfig(uint32_t, uint32_t, uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_SmoothCalibConfig"/>
+              <LL  NAME="RTC_SmoothCalibConfig"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"
+                   LOG="No LL API, StdPeriph legacy API is used instead (legacy library)"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!-- ################## void RTC_TimeStampCmd(uint32_t , ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TimeStampCmd"
+                   CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TS_SetActiveEdge"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_TS_Enable"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+            <FUNCTION> 
+              <SPL NAME="RTC_TimeStampCmd"
+                   CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+              <LL  NAME="LL_RTC_DisableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_TS_SetActiveEdge"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <LL  NAME="LL_RTC_TS_Disable"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <LL  NAME="LL_RTC_EnableWriteProtection"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+            </FUNCTION>
+        <!-- ################## void RTC_GetTimeStamp(uint32_t , RTC_StampTimeStruct, RTC_StampDateStruct) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetTimeStamp"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BCD"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_TIME_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.TimeFormat =  LL_RTC_TIME_GetFormat(RTC);\n
+                         {CPY@SPL_PARAM_1}.Hours      =  __LL_RTC_GET_HOUR(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Minutes    =  __LL_RTC_GET_MINUTE(tmp_rtc_0_$id$);\n
+                         {CPY@SPL_PARAM_1}.Seconds    =  __LL_RTC_GET_SECOND(tmp_rtc_0_$id$);"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_1_$id$ = LL_RTC_DATE_Get(RTC);\n
+                         {CPY@SPL_PARAM_2}.WeekDay =  __LL_RTC_GET_WEEKDAY(tmp_rtc_1_$id$);\n
+                         {CPY@SPL_PARAM_2}.Month   =  __LL_RTC_GET_MONTH(tmp_rtc_1_$id$);\n
+                         {CPY@SPL_PARAM_2}.Day     =  __LL_RTC_GET_DAY(tmp_rtc_1_$id$);\n
+                         {CPY@SPL_PARAM_2}.Year    =  __LL_RTC_GET_YEAR(tmp_rtc_1_$id$)"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_GetTimeStamp"
+                   CMD0="EQU@SPL_PARAM_0=RTC_Format_BIN"/>
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_0_$id$ = LL_RTC_TIME_Get(RTC);\n
+                         {CPY@SPL_PARAM_1}.TimeFormat =  LL_RTC_TIME_GetFormat(RTC);\n
+                         {CPY@SPL_PARAM_1}.Hours      =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_HOUR(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Minutes    =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_MINUTE(tmp_rtc_0_$id$));\n
+                         {CPY@SPL_PARAM_1}.Seconds    =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_SECOND(tmp_rtc_0_$id$));"/>                     
+              <LL  NAME="N/A"
+                   CMD0="uint32_t tmp_rtc_1_$id$ = LL_RTC_DATE_Get(RTC);\n
+                         {CPY@SPL_PARAM_2}.WeekDay =  __LL_RTC_GET_WEEKDAY(tmp_rtc_1_$id$);\n
+                         {CPY@SPL_PARAM_2}.Month   =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_MONTH(tmp_rtc_1_$id$));\n
+                         {CPY@SPL_PARAM_2}.Day     =  __LL_RTC_CONVERT_BCD2BIN(__LL_RTC_GET_DAY(tmp_rtc_1_$id$));\n
+                         {CPY@SPL_PARAM_2}.Year    =  __LL_RTC_GET_YEAR(tmp_rtc_1_$id$)"/>
+            </FUNCTION>
+        <!-- ################## uint32_t RTC_GetTimeStampSubSecond(void) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_GetTimeStampSubSecond"/>
+              <LL  NAME="LL_RTC_TS_GetSubSecond"
+                   CMD0="ADD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!-- ################## void RTC_TamperTriggerConfig(uint32_t RTC_Tamper, uint32_t RTC_TamperTrigger) ##################### -->
+            <FUNCTION>
+              <SPL NAME="RTC_TamperTriggerConfig"
+                   CMD0="EQU@SPL_PARAM_1=RTC_TamperTrigger_RisingEdge"/>
+              <LL  NAME="N/A"
+                   CMD0="RTC->TAFCR &amp;= (uint32_t)((uint32_t)~({UPD@SPL_PARAM_0} &lt;&lt; 1))"/>
+            </FUNCTION>
+            <FUNCTION>
+              <SPL NAME="RTC_TamperTriggerConfig"/>
+              <LL  NAME="N/A"
+                   CMD0="RTC->TAFCR |= (uint32_t)({UPD@SPL_PARAM_0} &lt;&lt; 1)"/>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperCmd(uint32_t, ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperCmd"
+                   CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+              <LL  NAME="LL_RTC_TAMPER_Enable"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperCmd"
+                   CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+              <LL  NAME="LL_RTC_TAMPER_Disable"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperFilterConfig(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperFilterConfig"/>
+              <LL  NAME="LL_RTC_TAMPER_SetFilterCount"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperSamplingFreqConfig(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperSamplingFreqConfig"/>
+              <LL  NAME="LL_RTC_TAMPER_SetSamplingFreq"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperPinsPrechargeDuration(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperPinsPrechargeDuration"/>
+              <LL  NAME="LL_RTC_TAMPER_SetPrecharge"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_TimeStampOnTamperDetectionCmd(ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TimeStampOnTamperDetectionCmd"
+                   CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+              <LL  NAME="LL_RTC_TS_EnableOnTamper"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION> 
+              <SPL NAME="RTC_TimeStampOnTamperDetectionCmd"
+                   CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+              <LL  NAME="LL_RTC_TS_DisableOnTamper"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperPullUpCmd(ENABLE/DISABLE) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperPullUpCmd"
+                   CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+              <LL  NAME="LL_RTC_TAMPER_EnablePullUp"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperPullUpCmd"
+                   CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+              <LL  NAME="LL_RTC_TAMPER_DisablePullUp"
+                   CMD0="UPD@LL_PARAM_0=RTC"/>
+              <EXCLUDE>STM32F2</EXCLUDE>
+            </FUNCTION>
+        <!--  ################## void RTC_WriteBackupRegister(uint32_t, RTC_BKP_DR) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_WriteBackupRegister"/>
+              <LL  NAME="LL_RTC_BAK_SetRegister"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+                   CMD2="ADD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+            </FUNCTION>
+        <!--  ################## uint32_t RTC_ReadBackupRegister(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_ReadBackupRegister"/>
+              <LL  NAME="LL_RTC_BAK_GetRegister"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_OutputTypeConfig(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_OutputTypeConfig"/>
+              <LL  NAME="LL_RTC_SetAlarmOutputType"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+            </FUNCTION>
+        <!--  ################## void RTC_TimeStampPinSelection(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TimeStampPinSelection"/>
+              <LL  NAME="LL_RTC_TS_SetPin"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+        <!--  ################## void RTC_TamperPinSelection(uint32_t) ##################### -->
+            <FUNCTION> 
+              <SPL NAME="RTC_TamperPinSelection"/>
+              <LL  NAME="LL_RTC_TAMPER_SetPin"
+                   CMD0="UPD@LL_PARAM_0=RTC"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+              <AVAILABLE>STM32F2</AVAILABLE>
+              <AVAILABLE>STM32F4</AVAILABLE>
+            </FUNCTION>
+            
+        </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

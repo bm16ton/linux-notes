@@ -1,0 +1,1 @@
+avrdude -C/etc/avrdude.conf -v -pattiny85 -c stk500v1 -P/dev/ttyUSB0 -b19200  -Uflash:w:t85_default.hex:i -U lfuse:w:0xf1:m -U hfuse:w:0xdf:m -U efuse:w:0xfe:m

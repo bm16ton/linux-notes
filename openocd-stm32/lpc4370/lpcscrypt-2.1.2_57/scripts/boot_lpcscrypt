@@ -1,0 +1,22 @@
+#!/bin/bash
+SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )" 
+PATH=$SCRIPT_HOME:$SCRIPT_HOME/../bin:$PATH
+
+name="LPCScrypt target"
+vidpid="0x1fc9:0x000c"
+if [ -z "$1" ]; then
+	for file in "$SCRIPT_HOME/../bin/"LPCScrypt*.hdr; do image=${file} ; done
+	if [ -z "$image"  ] ; then
+		echo "Cannot find unique bootable image. Found '$image'"
+		exit 12
+	fi
+else
+	image=$1
+	if [ ! -e $image ]; then
+		echo "Cannot find bootable image '$image'"
+		exit 13
+	fi
+fi
+
+# echo dfu_boot -s $0 -n "$name" -v $vidpid  -i $image $*
+"$SCRIPT_HOME/dfu_boot" -s $0 -n "$name" -v $vidpid  -i "$image" $*

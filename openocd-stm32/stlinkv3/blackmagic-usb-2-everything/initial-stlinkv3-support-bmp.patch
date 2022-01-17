@@ -1,0 +1,2211 @@
+From 9abccc4909def3ec8578db8e7335ca01f1b3c2f7 Mon Sep 17 00:00:00 2001
+From: Stoyan Shopov <stoyan.shopov@gmail.com>
+Date: Mon, 21 Dec 2020 14:59:30 +0200
+Subject: [PATCH] Initial support for the stlinkv3 target
+
+This commit adds support for the stlinkv3 target as a host for
+running the blackmagic firmware.
+
+In short, here is what has been tested:
+
+- DFU firmware upgrade
+- SWD bus driving
+- JTAG bus driving
+- BMP data usb cdcacm interface
+- trace capture, asynchronous mode
+- target voltage measurement
+
+Not tested:
+
+- srst driving is available, and should work, but has not been tested
+---
+ scripts/stm32_mem.py                     |   4 +-
+ src/platforms/common/cdcacm.c            |  24 +-
+ src/platforms/stlinkv3/Makefile.inc      |  92 ++++
+ src/platforms/stlinkv3/Readme.md         |  59 +++
+ src/platforms/stlinkv3/platform.c        | 223 ++++++++++
+ src/platforms/stlinkv3/platform.h        | 217 ++++++++++
+ src/platforms/stlinkv3/stlinkv3.ld       |  28 ++
+ src/platforms/stlinkv3/usb_control.c     | 325 ++++++++++++++
+ src/platforms/stlinkv3/usb_dwc_common.c  | 514 +++++++++++++++++++++++
+ src/platforms/stlinkv3/usb_f723.c        | 177 ++++++++
+ src/platforms/stlinkv3/usbdfu.c          |  81 ++++
+ src/platforms/stm32/dfu_f4.c             |  16 +-
+ src/platforms/stm32/dfucore.c            |   6 +
+ src/platforms/stm32/gdb_if.c             |   6 +-
+ src/platforms/stm32/gpio.h               |   4 +-
+ src/platforms/stm32/traceswoasync_f723.c | 148 +++++++
+ src/platforms/stm32/usbuart.c            |  23 +-
+ 17 files changed, 1926 insertions(+), 21 deletions(-)
+ create mode 100644 src/platforms/stlinkv3/Makefile.inc
+ create mode 100644 src/platforms/stlinkv3/Readme.md
+ create mode 100644 src/platforms/stlinkv3/platform.c
+ create mode 100644 src/platforms/stlinkv3/platform.h
+ create mode 100644 src/platforms/stlinkv3/stlinkv3.ld
+ create mode 100644 src/platforms/stlinkv3/usb_control.c
+ create mode 100644 src/platforms/stlinkv3/usb_dwc_common.c
+ create mode 100644 src/platforms/stlinkv3/usb_f723.c
+ create mode 100644 src/platforms/stlinkv3/usbdfu.c
+ create mode 100644 src/platforms/stm32/traceswoasync_f723.c
+
+diff --git a/scripts/stm32_mem.py b/scripts/stm32_mem.py
+index 690657e07..bc07b720a 100755
+--- a/scripts/stm32_mem.py
++++ b/scripts/stm32_mem.py
+@@ -207,8 +207,10 @@ def stm32_scan(args, test):
+ 	if args.address :
+ 		start = int(args.address, 0)
+ 	else :
+-		if "F4" in product or "STLINK-V3" in product:
++		if "F4" in product:
+ 			start = 0x8004000
++		elif "STLINK-V3" in product:
++			start = 0x8020000
+ 		else:
+ 			start = 0x8002000
+ 	addr = start
+diff --git a/src/platforms/common/cdcacm.c b/src/platforms/common/cdcacm.c
+index a9825b3ea..842916140 100644
+--- a/src/platforms/common/cdcacm.c
++++ b/src/platforms/common/cdcacm.c
+@@ -47,6 +47,15 @@
+ 
+ usbd_device * usbdev;
+ 
++/* TODO: it looks cleaner to move the trace endpoint size definition
++ * to the platform.h files for different targets, because this definition
++ * must be kept in sync with the values used in the 'traceswo(async)' files. */
++#if defined(STM32F7)
++#define TRACE_ENDPOINT_SIZE	512
++#else
++#define TRACE_ENDPOINT_SIZE	64
++#endif
++
+ static int configured;
+ static int cdcacm_gdb_dtr = 1;
+ 
+@@ -59,11 +68,10 @@ static const struct usb_device_descriptor dev = {
+ 	.bDeviceClass = 0xEF,		/* Miscellaneous Device */
+ 	.bDeviceSubClass = 2,		/* Common Class */
+ 	.bDeviceProtocol = 1,		/* Interface Association */
+-#ifdef LM4F
+-	.bMaxPacketSize0 = 64,		/*Fixed for icdi*/
+-#else
+-	.bMaxPacketSize0 = 32,
+-#endif
++	/* The USB specification requires that the control endpoint size for high
++	 * speed devices (e.g., stlinkv3) is 64 bytes.
++	 * Best to have its size set to 64 bytes in all cases. */
++	.bMaxPacketSize0 = 64,
+ 	.idVendor = 0x1D50,
+ 	.idProduct = 0x6018,
+ 	.bcdDevice = 0x0100,
+@@ -322,7 +330,7 @@ static const struct usb_endpoint_descriptor trace_endp[] = {{
+ 	.bDescriptorType = USB_DT_ENDPOINT,
+ 	.bEndpointAddress = 0x85,
+ 	.bmAttributes = USB_ENDPOINT_ATTR_BULK,
+-	.wMaxPacketSize = 64,
++	.wMaxPacketSize = TRACE_ENDPOINT_SIZE,
+ 	.bInterval = 0,
+ }};
+ 
+@@ -507,7 +515,7 @@ static void cdcacm_set_config(usbd_device *dev, uint16_t wValue)
+ 	configured = wValue;
+ 
+ 	/* GDB interface */
+-#if defined(STM32F4) || defined(LM4F)
++#if defined(STM32F4) || defined(LM4F) || defined(STM32F7)
+ 	usbd_ep_setup(dev, 0x01, USB_ENDPOINT_ATTR_BULK,
+ 	              CDCACM_PACKET_SIZE, gdb_usb_out_cb);
+ #else
+@@ -528,7 +536,7 @@ static void cdcacm_set_config(usbd_device *dev, uint16_t wValue)
+ #if defined(PLATFORM_HAS_TRACESWO)
+ 	/* Trace interface */
+ 	usbd_ep_setup(dev, 0x85, USB_ENDPOINT_ATTR_BULK,
+-					64, trace_buf_drain);
++					TRACE_ENDPOINT_SIZE, trace_buf_drain);
+ #endif
+ 
+ 	usbd_register_control_callback(dev,
+diff --git a/src/platforms/stlinkv3/Makefile.inc b/src/platforms/stlinkv3/Makefile.inc
+new file mode 100644
+index 000000000..95ad8c1c2
+--- /dev/null
++++ b/src/platforms/stlinkv3/Makefile.inc
+@@ -0,0 +1,92 @@
++CROSS_COMPILE ?= arm-none-eabi-
++CC = $(CROSS_COMPILE)gcc
++OBJCOPY = $(CROSS_COMPILE)objcopy
++
++OPT_FLAGS = -Os
++CFLAGS += -mcpu=cortex-m7 -mthumb -mfpu=fpv5-sp-d16 -mfloat-abi=hard \
++	-DSTM32F7 -DDFU_SERIAL_LENGTH=25 -I../libopencm3/include \
++	-I platforms/stm32
++LDFLAGS_BOOT := $(LDFLAGS) -mfpu=fpv5-sp-d16 -mfloat-abi=hard \
++	--specs=nano.specs -lopencm3_stm32f7 \
++	-Wl,-T,platforms/stlinkv3/stlinkv3.ld -nostartfiles -lc \
++	-Wl,-Map=mapfile -mthumb -mcpu=cortex-m7 -Wl,-gc-sections \
++	-L../libopencm3/lib
++
++ifeq ($(NO_BOOTLOADER), 1)
++APP_START = 0x08000000
++else
++APP_START = 0x08020000
++endif
++
++LDFLAGS = $(LDFLAGS_BOOT)
++LDFLAGS +=  -Wl,-Ttext=$(APP_START)
++CFLAGS += -DAPP_START=$(APP_START)
++
++ifeq ($(ENABLE_DEBUG), 1)
++LDFLAGS += --specs=rdimon.specs
++else
++LDFLAGS += --specs=nosys.specs
++endif
++
++VPATH += platforms/stm32
++
++SRC += 	usbuart.c	\
++	cdcacm.c	\
++	serialno.c	\
++	timing.c	\
++	timing_stm32.c	\
++	traceswoasync_f723.c	\
++	traceswodecode.c	\
++
++ifeq ($(NO_BOOTLOADER), 1)
++all:	blackmagic.bin
++else
++all:	blackmagic.bin blackmagic_dfu.bin blackmagic_dfu.hex
++
++blackmagic_dfu.elf: usbdfu.o dfucore.o dfu_f4.o usb_f723.o \
++		usb_dwc_common.o usb_control.o serialno.o
++	@echo "  LD      $@"
++	$(Q)$(CC) $^ -o $@ $(LDFLAGS_BOOT)
++endif
++host_clean:
++	-$(Q)$(RM) *.bin *elf *hex *.o
++
++# Add local libopencm3 patched usb driver.
++SRC += usb_dwc_common.c
++SRC += usb_control.c
++SRC += usb_f723.c
++
++# Note: below are provided some customized versions of
++# files from the libopencm3 libraries. It would be ideal
++# if some day these go in libopencm3 master, but for the
++# time being this is a convenient solution.
++#
++# Note that there is something very odd about linking these
++# libopencm3 replacement files and libopencm3 together.
++# If all of the externally visible symbols from these
++# replacement files are kept (e.g., no externally visible
++# functions or data objects are removed), then linking
++# mysteriously succeeds. However, removing some externally
++# symbols cause linking to (expectedly) fail, giving an
++# error of multiple symbol definitions. The strange
++# thing is why linking succeeds in the case described above.
++
++# The replacement libopencm3 usb_dwc_common.c driver
++# needs some extra include paths within libopencm3.
++usb_dwc_common.o: usb_dwc_common.c
++	@echo "  CC      $<"
++	$(Q)$(CC) -I../libopencm3/lib/usb/ $(CFLAGS) $(OPT_FLAGS) -c $< -o $@
++# Also build a custom version of the 'usb_control.c' high level
++# driver. A very minor change is applied to the original source code -
++# the data for setup usb packets is now read by the high level driver
++# in function '_usbd_control_setup()', and in the original source it is
++# expected that this data packet has already been read prior to invoking
++# the '_usbd_control_setup()' function
++usb_control.o: usb_control.c
++	@echo "  CC      $<"
++	$(Q)$(CC) -I../libopencm3/lib/usb/ $(CFLAGS) $(OPT_FLAGS) -c $< -o $@
++# TODO: decide if it is better that the 'usb_f723.c' usb driver initialization code
++# is merged into 'platform.c'
++usb_f723.o: usb_f723.c
++	@echo "  CC      $<"
++	$(Q)$(CC) -I../libopencm3/lib/usb/ $(CFLAGS) $(OPT_FLAGS) -c $< -o $@
+diff --git a/src/platforms/stlinkv3/Readme.md b/src/platforms/stlinkv3/Readme.md
+new file mode 100644
+index 000000000..f339572cd
+--- /dev/null
++++ b/src/platforms/stlinkv3/Readme.md
+@@ -0,0 +1,59 @@
++# Blackmagic firmware for STLINK-V3 Adapters
++
++Beside using STLINK-V3 as a debugger for the hosted build of the blackmagic,
++it is also possible to run the BMP firmware directly on the STLINK-V3
++hardware.
++
++## Attention: Irreversible read protection activation starting with firmware V36 and up!
++If updated with ST firmware version V36 or higher, the stlinkv3 enters
++read-out protection (RDP) level 2, which irreversibly makes SWD access
++to the chip impossible. The BMP firmware may still be flashed to the device,
++even though in a somewhat not-straightforward manner. Some unprotected bootloader
++on the net is available that is said to not set RDP2 with V36 and above.
++
++## STLINK-V3 features
++The STLINk-V3 is built upon the STM32F723 device, which features a high-speed
++USB connection, 384 kBytes of flash space above the ST bootloader,
++256 kBytes of RAM and lots of connections. STLINK-V3SET come with
++a case and offering multiple connectors for the other functions. V3-mini has
++a 14-pin 1.27mm JTAG/SWD/UART connector, compatible with the 10 pin BMP-Native
++connector when used with a 14-pin connector. The rest of the connection are
++castellated holes. V3MODS remove the 14-pin connector and only has castellated
++holes, meant to be soldered on board.
++
++The ST firmware checks the Romtable and only allows access to STM32 devices. In
++some situations, Romtable access may also fail on STM32 device and so a debugger
++warm plug will fail. Cold plug should work with any STM32 device.
++
++## Building.
++
++As simple as
++```
++make PROBE_HOST=stlinkv3
++```
++
++## Flashing
++Easiest is using the BMP bootloader. Load the BMP firmware easiest with
++scripts/stm32mem.py  or dfu-utils. BMP bootloader must be flashed with SWD
++access. Use CN2 on the V3Set. For V3-mini and V3MODS use soldered connections
++to CN3, see [connection diagramm](https://github.com/RadioOperator/CMSIS-DAP_for_STLINK-V3MINI/blob/master/STLINK-V3MINI/Adaptor/STLINK-V3MINI_GPIOs_v4.JPG)
++
++It is a good idea to keep a full image of the original flash content as backup!
++
++With the ST crypto bootloader, unpack STLinkUpgrade.jar, replace f3_2.bin
++with the encrypted blackmagic.bin, repack and run
++'''
++java -jar STLinkUpgrade.jar -d8_d32_msc_br -force_prog
++'''
++in the stsw-link/AllPlatforms directory. Running the same command with the
++unmodified STLinkUpgrade.jar will bring back the original ST firmware.
++
++To revert with the BMP bootloader, decrypt f3_2.bin and flash with
++stm32mem.py or dfu-util or replay the backup image from above via SWD, but
++consider the unprotected bootloader
++
++## What remains to be done?
++
++- Improve and document LED indication
++- ...and more, e.g. additional implement CAN, I2C, ... in the firmware
++'''
+diff --git a/src/platforms/stlinkv3/platform.c b/src/platforms/stlinkv3/platform.c
+new file mode 100644
+index 000000000..2e36ad4ce
+--- /dev/null
++++ b/src/platforms/stlinkv3/platform.c
+@@ -0,0 +1,223 @@
++/*
++ * This file is part of the Black Magic Debug project.
++ *
++ * Copyright (C) 2011  Black Sphere Technologies Ltd.
++ * Written by Gareth McMullin <gareth@blacksphere.co.nz>
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++/* This file provides the platform specific functions for the ST-Link V3
++ * implementation.
++ */
++
++#include "general.h"
++#include "cdcacm.h"
++#include "usbuart.h"
++#include "gdb_if.h"
++
++#include <libopencm3/stm32/rcc.h>
++#include <libopencm3/cm3/scb.h>
++#include <libopencm3/cm3/scs.h>
++#include <libopencm3/cm3/nvic.h>
++#include <libopencm3/stm32/usart.h>
++#include <libopencm3/usb/usbd.h>
++#include <libopencm3/stm32/adc.h>
++#include <libopencm3/stm32/spi.h>
++#include <libopencm3/stm32/adc.h>
++
++uint16_t led_idle_run;
++uint16_t srst_pin;
++static uint32_t hw_version;
++
++#define SCB_CCR_IC_Pos                      17U                                           /*!< SCB CCR: Instruction cache enable bit Position */
++#define SCB_CCR_IC_Msk                     (1UL << SCB_CCR_IC_Pos)                        /*!< SCB CCR: Instruction cache enable bit Mask */
++
++#define SCB_CCR_DC_Pos                      16U                                           /*!< SCB CCR: Cache enable bit Position */
++#define SCB_CCR_DC_Msk                     (1UL << SCB_CCR_DC_Pos)                        /*!< SCB CCR: DC Mask */
++
++#define SCB_CCSIDR_NUMSETS_Msk             (0x7FFFUL << SCB_CCSIDR_NUMSETS_Pos)           /*!< SCB CCSIDR: NumSets Mask */
++#define SCB_CCSIDR_NUMSETS_Pos             13U                                            /*!< SCB CCSIDR: NumSets Position */
++
++#define SCB_CCSIDR_ASSOCIATIVITY_Pos        3U                                            /*!< SCB CCSIDR: Associativity Position */
++#define SCB_CCSIDR_ASSOCIATIVITY_Msk       (0x3FFUL << SCB_CCSIDR_ASSOCIATIVITY_Pos)      /*!< SCB CCSIDR: Associativity Mask */
++#define CCSIDR_WAYS(x)         (((x) & SCB_CCSIDR_ASSOCIATIVITY_Msk) >> SCB_CCSIDR_ASSOCIATIVITY_Pos)
++
++#define SCB_DCISW_SET_Pos                   5U                                            /*!< SCB DCISW: Set Position */
++#define SCB_DCISW_SET_Msk                  (0x1FFUL << SCB_DCISW_SET_Pos)                 /*!< SCB DCISW: Set Mask */
++
++#define SCB_DCISW_WAY_Pos                  30U                                            /*!< SCB DCISW: Way Position */
++#define SCB_DCISW_WAY_Msk                  (3UL << SCB_DCISW_WAY_Pos)                     /*!< SCB DCISW: Way Mask */
++
++#define CCSIDR_SETS(x)         (((x) & SCB_CCSIDR_NUMSETS_Msk      ) >> SCB_CCSIDR_NUMSETS_Pos      )
++
++static void __DSB(void)
++{
++	asm volatile ("dsb 0xF":::"memory");
++}
++
++static void __ISB(void)
++{
++	asm volatile ("isb 0xF":::"memory");
++}
++
++static void SCB_EnableICache (void)
++{
++	volatile uint32_t *SCB_ICIALLU =  (volatile uint32_t *)(SCB_BASE + 0x250);
++	__DSB();
++	__ISB();
++	*SCB_ICIALLU = 0UL;                     /* invalidate I-Cache */
++	__DSB();
++	__ISB();
++	SCB_CCR |=  (uint32_t)SCB_CCR_IC_Msk;  /* enable I-Cache */
++	__DSB();
++	__ISB();
++}
++
++static void SCB_EnableDCache (void)
++{
++	volatile uint32_t *SCB_CCSIDR = (volatile uint32_t *)(SCB_BASE +  0x80);
++	volatile uint32_t *SCB_CSSELR = (volatile uint32_t *)(SCB_BASE +  0x84);
++	volatile uint32_t *SCB_DCISW  =  (volatile uint32_t *)(SCB_BASE + 0x260);
++
++	uint32_t ccsidr;
++	uint32_t sets;
++	uint32_t ways;
++
++	*SCB_CSSELR = 0U; /*(0U << 1U) | 0U;*/  /* Level 1 data cache */
++	__DSB();
++
++	ccsidr = *SCB_CCSIDR;
++
++	sets = (uint32_t)(CCSIDR_SETS(ccsidr));
++	do {
++		ways = (uint32_t)(CCSIDR_WAYS(ccsidr));
++		do {
++			*SCB_DCISW = (((sets << SCB_DCISW_SET_Pos) & SCB_DCISW_SET_Msk) |
++					((ways << SCB_DCISW_WAY_Pos) & SCB_DCISW_WAY_Msk)  );
++#if defined ( __CC_ARM )
++			__schedule_barrier();
++#endif
++		} while (ways-- != 0U);
++	} while(sets-- != 0U);
++	__DSB();
++
++	SCB_CCR |=  (uint32_t)SCB_CCR_DC_Msk;  /* enable D-Cache */
++
++	__DSB();
++	__ISB();
++}
++
++int platform_hwversion(void)
++{
++	return hw_version;
++}
++
++void platform_srst_set_val(bool assert)
++{
++	gpio_set_val(SRST_PORT, SRST_PIN, !assert);
++	if (assert)
++		for(int i = 0; i < 10000; i++)
++			asm("nop");
++}
++
++bool platform_srst_get_val()
++{
++	return gpio_get(SRST_PORT, SRST_PIN) == 0;
++}
++
++const char *platform_target_voltage(void)
++{
++	/* On the stlinkv3, the target input voltage is divided by two.
++	 * The ADC is sampling at 12 bit resolution. 
++	 * Vref+ input is assumed to be 3.3 volts. */
++	static char ret[] = "0.0V";
++	uint8_t channels[] = { ADC_CHANNEL0, };
++	unsigned value;
++
++	adc_set_regular_sequence(ADC1, 1, channels);
++	adc_start_conversion_regular(ADC1);
++	while (!adc_eoc(ADC1));
++	value = adc_read_regular(ADC1);
++
++	value *= 3379; /* 3.3 * 1024 == 3379.2 */
++	value += 104858; /* round, 0.05V * 2 ^ 21 == 104857.6 */
++	ret[0] = (value >> 21) + '0';
++	value &= (1 << 21) - 1;
++	value *= 10;
++	ret[2] = (value >> 21) + '0';
++
++	return ret;
++}
++
++void platform_request_boot(void)
++{
++	/* Use top of ITCM RAM as magic marker*/
++	volatile uint32_t *magic = (volatile uint32_t *) 0x3ff8;
++	magic[0] = BOOTMAGIC0;
++	magic[1] = BOOTMAGIC1;
++	scb_reset_system();
++}
++
++void platform_init(void)
++{
++	rcc_periph_clock_enable(RCC_APB2ENR_SYSCFGEN);
++	rcc_clock_setup_hse(rcc_3v3 + RCC_CLOCK_3V3_216MHZ, 25);
++	SCB_EnableICache();
++	SCB_EnableDCache();
++	rcc_periph_clock_enable(RCC_GPIOA);
++	rcc_periph_clock_enable(RCC_GPIOB);
++	rcc_periph_clock_enable(RCC_GPIOD);
++	rcc_periph_clock_enable(RCC_GPIOH);
++	rcc_periph_clock_enable(RCC_GPIOF);
++
++	/* Initialize ADC. */
++	gpio_mode_setup(GPIOA, GPIO_MODE_ANALOG, GPIO_PUPD_NONE, GPIO0);
++	rcc_periph_clock_enable(RCC_ADC1);
++	adc_power_off(ADC1);
++	adc_disable_scan_mode(ADC1);
++	adc_set_sample_time(ADC1, ADC_CHANNEL0, ADC_SMPR_SMP_3CYC);
++	adc_power_on(ADC1);
++
++	/* Configure srst pin. */
++	gpio_set_output_options(SRST_PORT, GPIO_OTYPE_OD, GPIO_OSPEED_2MHZ, SRST_PIN);
++	gpio_mode_setup(SRST_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, SRST_PIN);
++  
++	TMS_SET_MODE();
++	/* Configure TDI pin. */
++	gpio_mode_setup(TDI_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, TDI_PIN);
++	gpio_set_output_options(TDI_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TDI_PIN);
++
++	/* Drive the swck pin low. */
++	gpio_mode_setup(STLINKV3_MINI_SPI_SCK_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, STLINKV3_MINI_SPI_SCK_PIN);
++	gpio_set_output_options(STLINKV3_MINI_SPI_SCK_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, STLINKV3_MINI_SPI_SCK_PIN);
++
++	/* Set up green/red led to steady green to indicate application active
++	 * FIXME: Allow RED and yellow constant and blinking,
++	 * e.g. by PWM onTIM1_CH3 (PA10)
++	 */
++	gpio_mode_setup(LED_RG_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_RG_PIN);
++	gpio_set_output_options(LED_RG_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ,
++							LED_RG_PIN);
++
++	/* Relocate interrupt vector table here */
++	extern int vector_table;
++	SCB_VTOR = (uint32_t)&vector_table;
++
++	platform_timing_init();
++	cdcacm_init();
++	usbuart_init();
++	/* By default, do not drive the swd bus too fast. */
++	platform_max_frequency_set(6000000);
++}
+diff --git a/src/platforms/stlinkv3/platform.h b/src/platforms/stlinkv3/platform.h
+new file mode 100644
+index 000000000..0c9d18e78
+--- /dev/null
++++ b/src/platforms/stlinkv3/platform.h
+@@ -0,0 +1,217 @@
++/*
++ * This file is part of the Black Magic Debug project.
++ *
++ * Copyright (C) 2011  Black Sphere Technologies Ltd.
++ * Written by Gareth McMullin <gareth@blacksphere.co.nz>
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++/* This file implements the platform specific functions for the STM32
++ * implementation.
++ */
++#ifndef __PLATFORM_H
++#define __PLATFORM_H
++
++#include "gpio.h"
++#include "timing.h"
++#include "timing_stm32.h"
++
++#include <libopencm3/cm3/common.h>
++#include <libopencm3/stm32/f1/memorymap.h>
++#include <libopencm3/usb/usbd.h>
++
++#ifdef ENABLE_DEBUG
++# define PLATFORM_HAS_DEBUG
++# define USBUART_DEBUG
++extern bool debug_bmp;
++int usbuart_debug_write(const char *buf, size_t len);
++#endif
++
++#define PLATFORM_IDENT    "(STLINK-V3) "
++
++#define BOOTMAGIC0 0xb007da7a
++#define BOOTMAGIC1 0xbaadfeed
++
++#define DESIG_UNIQUE_ID_BASE DESIG_UNIQUE_ID_BASE_452
++
++/* Hardware definitions... */
++#define TDI_PORT	GPIOA
++#define TMS_PORT	GPIOF
++#define TCK_PORT	GPIOH
++#define TDO_PORT	GPIOD
++#define TDI_PIN		GPIO1
++#define TMS_PIN		GPIO9
++#define TCK_PIN		GPIO6
++#define TDO_PIN		GPIO2
++
++#define SWDIO_PORT 	TMS_PORT
++#define SWCLK_PORT 	TCK_PORT
++#define SWDIO_PIN	TMS_PIN
++#define SWCLK_PIN	TCK_PIN
++
++#define SRST_PORT	GPIOA
++#define SRST_PIN	GPIO6
++
++/* SPI5 pins on the stlinkv3-mini. */
++#define STLINKV3_MINI_SPI		SPI5
++/* Alternate function number for the spi pins. */
++#define STLINKV3_MINI_SPI_AF_NUMBER	GPIO_AF5
++
++#define	STLINKV3_MINI_SPI_MOSI_PORT	GPIOF
++#define	STLINKV3_MINI_SPI_MOSI_PIN	GPIO9
++#define	STLINKV3_MINI_SPI_MISO_PORT	GPIOH
++#define	STLINKV3_MINI_SPI_MISO_PIN	GPIO7
++#define	STLINKV3_MINI_SPI_SCK_PORT	GPIOH
++#define	STLINKV3_MINI_SPI_SCK_PIN	GPIO6
++
++#define PLATFORM_HAS_TRACESWO		1
++#define NUM_TRACE_PACKETS		(16)
++#define TRACESWO_PROTOCOL		2			/* 1 = Manchester, 2 = NRZ / async */
++
++#define SWDIO_MODER   GPIO_MODER(TMS_PORT)
++#define SWDIO_MODER_MULT (1 << (9 << 1))
++
++#define TMS_SET_MODE()\
++	gpio_mode_setup(TMS_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, TMS_PIN);	\
++	gpio_set_output_options(TMS_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TMS_PIN);
++
++#define SWDIO_MODE_FLOAT()	do {				\
++		uint32_t moder = SWDIO_MODER;			\
++		moder &= ~(0x3 * SWDIO_MODER_MULT);		\
++		SWDIO_MODER = moder;					\
++	} while(0)
++
++#define SWDIO_MODE_DRIVE()   do {				\
++		uint32_t moder = SWDIO_MODER;			\
++		moder |= (1 * SWDIO_MODER_MULT);		\
++		SWDIO_MODER = moder;					\
++	} while(0)
++
++#define PIN_MODE_FAST()  do {											\
++		gpio_set_output_options(TMS_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, TMS_PIN); \
++		gpio_set_output_options(TCK_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, TCK_PIN); \
++		gpio_set_output_options(TDO_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_25MHZ, TDO_PIN); \
++	} while(0)
++
++#define PIN_MODE_NORMAL() do {											\
++		gpio_set_output_options(TMS_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TMS_PIN); \
++		gpio_set_output_options(TCK_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TCK_PIN); \
++		gpio_set_output_options(TDO_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TDO_PIN);	\
++	} while(0)
++
++extern const struct _usbd_driver stm32f723_usb_driver;
++#define USB_DRIVER      stm32f723_usb_driver
++#define USB_IRQ	        NVIC_OTG_HS_IRQ
++#define USB_ISR	        otg_hs_isr
++/* Interrupt priorities.  Low numbers are high priority.
++ * For now USART2 preempts USB which may spin while buffer is drained.
++ */
++#define IRQ_PRI_USB		(2 << 4)
++#define IRQ_PRI_USBUSART	(1 << 4)
++#define IRQ_PRI_USBUSART_TIM	(3 << 4)
++#define IRQ_PRI_USB_VBUS	(14 << 4)
++#define IRQ_PRI_SWO_DMA			(1 << 4)
++
++#define USBUSART USART6
++#define USBUSART_CR1 USART_CR1(USART6_BASE)
++#define USBUSART_IRQ NVIC_USART6_IRQ
++#define USBUSART_CLK RCC_USART6
++#define USBUSART_PORT GPIOG
++#define USBUSART_PIN_AF        GPIO_AF8
++#define USBUSART_PORT_CLKEN RCC_GPIOG
++#define USBUSART_TX_PIN GPIO14
++#define USBUSART_RX_PIN GPIO9
++#define USBUSART_ISR usart6_isr
++#define USBUSART_TIM TIM4
++#define USBUSART_TIM_CLK_EN() rcc_periph_clock_enable(RCC_TIM4)
++#define USBUSART_TIM_IRQ NVIC_TIM4_IRQ
++#define USBUSART_TIM_ISR tim4_isr
++
++#define UART_PIN_SETUP() {\
++	rcc_periph_clock_enable(USBUSART_PORT_CLKEN); \
++	gpio_mode_setup(USBUSART_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, USBUSART_TX_PIN);\
++	gpio_set_output_options(USBUSART_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, USBUSART_TX_PIN);\
++	gpio_set_af(USBUSART_PORT, USBUSART_PIN_AF, USBUSART_TX_PIN);\
++	\
++	gpio_mode_setup(USBUSART_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, USBUSART_RX_PIN);\
++	gpio_set_af(USBUSART_PORT, USBUSART_PIN_AF, USBUSART_RX_PIN);\
++} while (0)
++
++
++#define SWO_UART			UART5
++#define SWO_UART_DR			UART5_RDR
++#define SWO_UART_CLK			RCC_UART5
++#define SWO_UART_PORT			GPIOD
++#define SWO_UART_RX_PIN			GPIO2
++#define SWO_UART_PIN_AF			GPIO_AF8
++
++/* This DMA channel is set by the USART in use */
++#define SWO_DMA_BUS			DMA1
++#define SWO_DMA_CLK			RCC_DMA1
++#define SWO_DMA_CHAN			DMA_CHANNEL4
++#define SWO_DMA_STREAM			DMA_STREAM0
++#define SWO_DMA_IRQ			NVIC_DMA1_STREAM0_IRQ
++#define SWO_DMA_ISR(x)			dma1_stream0_isr(x)
++
++extern uint16_t led_idle_run;
++#define LED_RG_PORT	GPIOA
++#define LED_RG_PIN  GPIO10
++#define LED_PORT	GPIOA
++#define LED_PORT_UART	GPIOA
++#define LED_UART	GPIO10
++
++#define LED_IDLE_RUN            led_idle_run
++#define SET_RUN_STATE(state)
++#define SET_IDLE_STATE(state)
++#define SET_ERROR_STATE(x)
++
++extern uint32_t detect_rev(void);
++
++/*
++ * Use newlib provided integer only stdio functions
++ */
++
++/* sscanf */
++#ifdef sscanf
++#undef sscanf
++#define sscanf siscanf
++#else
++#define sscanf siscanf
++#endif
++/* sprintf */
++#ifdef sprintf
++#undef sprintf
++#define sprintf siprintf
++#else
++#define sprintf siprintf
++#endif
++/* vasprintf */
++#ifdef vasprintf
++#undef vasprintf
++#define vasprintf vasiprintf
++#else
++#define vasprintf vasiprintf
++#endif
++/* snprintf */
++#ifdef snprintf
++#undef snprintf
++#define snprintf sniprintf
++#else
++#define snprintf sniprintf
++#endif
++
++
++#endif
++
+diff --git a/src/platforms/stlinkv3/stlinkv3.ld b/src/platforms/stlinkv3/stlinkv3.ld
+new file mode 100644
+index 000000000..499b03a52
+--- /dev/null
++++ b/src/platforms/stlinkv3/stlinkv3.ld
+@@ -0,0 +1,28 @@
++/*
++ * This file is part of the libopenstm32 project.
++ *
++ * Copyright (C) 2010 Thomas Otto <tommi@viadmin.org>
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++/* Define memory regions. */
++MEMORY
++{
++	rom (rx) : ORIGIN = 0x08000000, LENGTH =  512K
++	ram (rwx) : ORIGIN = 0x20000000, LENGTH = 256K
++}
++
++/* Include the common ld script from libopenstm32. */
++INCLUDE cortex-m-generic.ld
+diff --git a/src/platforms/stlinkv3/usb_control.c b/src/platforms/stlinkv3/usb_control.c
+new file mode 100644
+index 000000000..41ba1410c
+--- /dev/null
++++ b/src/platforms/stlinkv3/usb_control.c
+@@ -0,0 +1,325 @@
++/** @defgroup usb_control_file Generic USB Control Requests
++
++@ingroup USB
++
++@brief <b>Generic USB Control Requests</b>
++
++@version 1.0.0
++
++@author @htmlonly &copy; @endhtmlonly 2010
++Gareth McMullin <gareth@blacksphere.co.nz>
++
++@date 10 March 2013
++
++LGPL License Terms @ref lgpl_license
++*/
++
++/*
++ * This file is part of the libopencm3 project.
++ *
++ * Copyright (C) 2010 Gareth McMullin <gareth@blacksphere.co.nz>
++ *
++ * This library is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU Lesser General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public License
++ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++/**@{*/
++
++#include <stdlib.h>
++#include <libopencm3/usb/usbd.h>
++#include "usb_private.h"
++
++/*
++ * According to the USB 2.0 specification, section 8.5.3, when a control
++ * transfer is stalled, the pipe becomes idle. We provide one utility to stall
++ * a transaction to reduce boilerplate code.
++ */
++static void stall_transaction(usbd_device *usbd_dev)
++{
++	usbd_ep_stall_set(usbd_dev, 0, 1);
++	usbd_dev->control_state.state = IDLE;
++}
++
++/**
++ * If we're replying with _some_ data, but less than the host is expecting,
++ * then we normally just do a short transfer.  But if it's short, but a
++ * multiple of the endpoint max packet size, we need an explicit ZLP.
++ * @param len how much data we want to transfer
++ * @param wLength how much the host asked for
++ * @param ep_size
++ * @return
++ */
++static bool needs_zlp(uint16_t len, uint16_t wLength, uint8_t ep_size)
++{
++	if (len < wLength) {
++		if (len && (len % ep_size == 0)) {
++			return true;
++		}
++	}
++	return false;
++}
++
++/* Register application callback function for handling USB control requests. */
++int usbd_register_control_callback(usbd_device *usbd_dev, uint8_t type,
++				   uint8_t type_mask,
++				   usbd_control_callback callback)
++{
++	int i;
++
++	for (i = 0; i < MAX_USER_CONTROL_CALLBACK; i++) {
++		if (usbd_dev->user_control_callback[i].cb) {
++			continue;
++		}
++
++		usbd_dev->user_control_callback[i].type = type;
++		usbd_dev->user_control_callback[i].type_mask = type_mask;
++		usbd_dev->user_control_callback[i].cb = callback;
++		return 0;
++	}
++
++	return -1;
++}
++
++static void usb_control_send_chunk(usbd_device *usbd_dev)
++{
++	if (usbd_dev->desc->bMaxPacketSize0 <
++			usbd_dev->control_state.ctrl_len) {
++		/* Data stage, normal transmission */
++		usbd_ep_write_packet(usbd_dev, 0,
++				     usbd_dev->control_state.ctrl_buf,
++				     usbd_dev->desc->bMaxPacketSize0);
++		usbd_dev->control_state.state = DATA_IN;
++		usbd_dev->control_state.ctrl_buf +=
++			usbd_dev->desc->bMaxPacketSize0;
++		usbd_dev->control_state.ctrl_len -=
++			usbd_dev->desc->bMaxPacketSize0;
++	} else {
++		/* Data stage, end of transmission */
++		usbd_ep_write_packet(usbd_dev, 0,
++				     usbd_dev->control_state.ctrl_buf,
++				     usbd_dev->control_state.ctrl_len);
++
++		usbd_dev->control_state.state =
++			usbd_dev->control_state.needs_zlp ?
++			DATA_IN : LAST_DATA_IN;
++		usbd_dev->control_state.needs_zlp = false;
++		usbd_dev->control_state.ctrl_len = 0;
++		usbd_dev->control_state.ctrl_buf = NULL;
++	}
++}
++
++static int usb_control_recv_chunk(usbd_device *usbd_dev)
++{
++	uint16_t packetsize = MIN(usbd_dev->desc->bMaxPacketSize0,
++			usbd_dev->control_state.req.wLength -
++			usbd_dev->control_state.ctrl_len);
++	uint16_t size = usbd_ep_read_packet(usbd_dev, 0,
++				       usbd_dev->control_state.ctrl_buf +
++				       usbd_dev->control_state.ctrl_len,
++				       packetsize);
++
++	if (size != packetsize) {
++		stall_transaction(usbd_dev);
++		return -1;
++	}
++
++	usbd_dev->control_state.ctrl_len += size;
++
++	return packetsize;
++}
++
++static enum usbd_request_return_codes
++usb_control_request_dispatch(usbd_device *usbd_dev,
++			     struct usb_setup_data *req)
++{
++	int i, result = 0;
++	struct user_control_callback *cb = usbd_dev->user_control_callback;
++
++	/* Call user command hook function. */
++	for (i = 0; i < MAX_USER_CONTROL_CALLBACK; i++) {
++		if (cb[i].cb == NULL) {
++			break;
++		}
++
++		if ((req->bmRequestType & cb[i].type_mask) == cb[i].type) {
++			result = cb[i].cb(usbd_dev, req,
++					  &(usbd_dev->control_state.ctrl_buf),
++					  &(usbd_dev->control_state.ctrl_len),
++					  &(usbd_dev->control_state.complete));
++			if (result == USBD_REQ_HANDLED ||
++			    result == USBD_REQ_NOTSUPP) {
++				return result;
++			}
++		}
++	}
++
++	/* Try standard request if not already handled. */
++	return _usbd_standard_request(usbd_dev, req,
++				      &(usbd_dev->control_state.ctrl_buf),
++				      &(usbd_dev->control_state.ctrl_len));
++}
++
++/* Handle commands and read requests. */
++static void usb_control_setup_read(usbd_device *usbd_dev,
++		struct usb_setup_data *req)
++{
++	usbd_dev->control_state.ctrl_buf = usbd_dev->ctrl_buf;
++	usbd_dev->control_state.ctrl_len = req->wLength;
++
++	if (usb_control_request_dispatch(usbd_dev, req)) {
++		if (req->wLength) {
++			usbd_dev->control_state.needs_zlp =
++				needs_zlp(usbd_dev->control_state.ctrl_len,
++					req->wLength,
++					usbd_dev->desc->bMaxPacketSize0);
++			/* Go to data out stage if handled. */
++			usb_control_send_chunk(usbd_dev);
++		} else {
++			/* Go to status stage if handled. */
++			usbd_ep_write_packet(usbd_dev, 0, NULL, 0);
++			usbd_dev->control_state.state = STATUS_IN;
++		}
++	} else {
++		/* Stall endpoint on failure. */
++		stall_transaction(usbd_dev);
++	}
++}
++
++static void usb_control_setup_write(usbd_device *usbd_dev,
++				    struct usb_setup_data *req)
++{
++	if (req->wLength > usbd_dev->ctrl_buf_len) {
++		stall_transaction(usbd_dev);
++		return;
++	}
++
++	/* Buffer into which to write received data. */
++	usbd_dev->control_state.ctrl_buf = usbd_dev->ctrl_buf;
++	usbd_dev->control_state.ctrl_len = 0;
++	/* Wait for DATA OUT stage. */
++	if (req->wLength > usbd_dev->desc->bMaxPacketSize0) {
++		usbd_dev->control_state.state = DATA_OUT;
++	} else {
++		usbd_dev->control_state.state = LAST_DATA_OUT;
++	}
++
++	usbd_ep_nak_set(usbd_dev, 0, 0);
++}
++
++/* Do not appear to belong to the API, so are omitted from docs */
++/**@}*/
++
++void _usbd_control_setup(usbd_device *usbd_dev, uint8_t ea)
++{
++	struct usb_setup_data *req = &usbd_dev->control_state.req;
++	(void)ea;
++
++	usbd_dev->control_state.complete = NULL;
++
++	usbd_ep_nak_set(usbd_dev, 0, 1);
++
++	/* Note: this is the only difference from the original
++	 * libopencm3 source code, the setup packet is read here,
++	 * and in the original sources it is expected that the
++	 * packet has already been read into the 
++	 * usbd_dev->control_state.req buffer. */
++	if (usbd_ep_read_packet(usbd_dev, 0, req, 8) != 8) {
++		stall_transaction(usbd_dev);
++		return;
++	}
++	if (req->wLength == 0) {
++		usb_control_setup_read(usbd_dev, req);
++	} else if (req->bmRequestType & 0x80) {
++		usb_control_setup_read(usbd_dev, req);
++	} else {
++		usb_control_setup_write(usbd_dev, req);
++	}
++}
++
++void _usbd_control_out(usbd_device *usbd_dev, uint8_t ea)
++{
++	(void)ea;
++
++	switch (usbd_dev->control_state.state) {
++	case DATA_OUT:
++		if (usb_control_recv_chunk(usbd_dev) < 0) {
++			break;
++		}
++		if ((usbd_dev->control_state.req.wLength -
++					usbd_dev->control_state.ctrl_len) <=
++					usbd_dev->desc->bMaxPacketSize0) {
++			usbd_dev->control_state.state = LAST_DATA_OUT;
++		}
++		break;
++	case LAST_DATA_OUT:
++		if (usb_control_recv_chunk(usbd_dev) < 0) {
++			break;
++		}
++		/*
++		 * We have now received the full data payload.
++		 * Invoke callback to process.
++		 */
++		if (usb_control_request_dispatch(usbd_dev,
++					&(usbd_dev->control_state.req))) {
++			/* Go to status stage on success. */
++			usbd_ep_write_packet(usbd_dev, 0, NULL, 0);
++			usbd_dev->control_state.state = STATUS_IN;
++		} else {
++			stall_transaction(usbd_dev);
++		}
++		break;
++	case STATUS_OUT:
++		usbd_ep_read_packet(usbd_dev, 0, NULL, 0);
++		usbd_dev->control_state.state = IDLE;
++		if (usbd_dev->control_state.complete) {
++			usbd_dev->control_state.complete(usbd_dev,
++					&(usbd_dev->control_state.req));
++		}
++		usbd_dev->control_state.complete = NULL;
++		break;
++	default:
++		stall_transaction(usbd_dev);
++	}
++}
++
++void _usbd_control_in(usbd_device *usbd_dev, uint8_t ea)
++{
++	(void)ea;
++	struct usb_setup_data *req = &(usbd_dev->control_state.req);
++
++	switch (usbd_dev->control_state.state) {
++	case DATA_IN:
++		usb_control_send_chunk(usbd_dev);
++		break;
++	case LAST_DATA_IN:
++		usbd_dev->control_state.state = STATUS_OUT;
++		usbd_ep_nak_set(usbd_dev, 0, 0);
++		break;
++	case STATUS_IN:
++		if (usbd_dev->control_state.complete) {
++			usbd_dev->control_state.complete(usbd_dev,
++					&(usbd_dev->control_state.req));
++		}
++
++		/* Exception: Handle SET ADDRESS function here... */
++		if ((req->bmRequestType == 0) &&
++		    (req->bRequest == USB_REQ_SET_ADDRESS)) {
++			usbd_dev->driver->set_address(usbd_dev, req->wValue);
++		}
++		usbd_dev->control_state.state = IDLE;
++		break;
++	default:
++		stall_transaction(usbd_dev);
++	}
++}
++
+diff --git a/src/platforms/stlinkv3/usb_dwc_common.c b/src/platforms/stlinkv3/usb_dwc_common.c
+new file mode 100644
+index 000000000..02750dc8d
+--- /dev/null
++++ b/src/platforms/stlinkv3/usb_dwc_common.c
+@@ -0,0 +1,514 @@
++/*
++ * This file is part of the libopencm3 project.
++ *
++ * Copyright (C) 2011 Gareth McMullin <gareth@blacksphere.co.nz>
++ * Copyright (C) 2020 Stoyan Shopov <stoyan.shopov@gmail.com>
++ *
++ * This library is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU Lesser General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public License
++ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <string.h>
++#include <libopencm3/cm3/common.h>
++#include <libopencm3/usb/usbd.h>
++#include <libopencm3/usb/dwc/otg_common.h>
++#include "usb_private.h"
++#include "usb_dwc_common.h"
++
++/* The FS core and the HS core have the same register layout.
++ * As the code can be used on both cores, the registers offset is modified
++ * according to the selected cores base address. */
++#define dev_base_address (usbd_dev->driver->base_address)
++#define REBASE(x)        MMIO32((x) + (dev_base_address))
++
++/* TODO: this does not belong here; maybe add it as a new field in the driver structure */
++enum
++{
++	MAX_BULK_PACKET_SIZE	= 512,
++	USB_ENDPOINT_COUNT	= 9,
++};
++
++/* Note: the original 'usb_dwc_common.c' source code
++ * handles incoming OUT and SETUP usb packets as soon as they are available
++ * in the packet FIFO.
++ *
++ * I inspected the stm-cube sources, and there, the incoming OUT and
++ * SETUP packets are handled only when a XFRC - transfer complete interrupt is
++ * received. This means that, at this point, it is guaranteed that the respective
++ * usb endpoint 'enable' bit is cleared by the usb core. From the st manual:
++ *
++ * The core clears this (EPENA) bit before setting any of the following interrupts on this endpoint:
++ * - SETUP phase done
++ * - Endpoint disabled
++ * - Transfer completed
++ *
++ * Maybe this is not relevant, but it seems to me that such handling is more
++ * robust. I spent a significant amount of time debugging some other usb issues,
++ * and while debugging, I adjusted the code to behave more like the stm-cube
++ * sources. When I was done with debugging, I did not investigate if the original
++ * usb_dwc_common driver code for handling incoming (OUT) usb packages would work with.
++ * the adjustments I made. It seems to me that the stm-cube handling of incoming (OUT)
++ * usb packages is more robust, and I decided to keep it this way.
++ *
++ * However, for that to work, it is needed that the packets are read from the usb FIFO packet
++ * memory in some temporary storage, and are handed to the upper usb layers only
++ * when the corresponding XFRC interrupts are received. This means that some temporary
++ * storage is necessary, so this variable serves this purpose.
++ *
++ * Also, note that in usb_control.c, function '_usbd_control_setup()' expects that
++ * the setup data packet (8 bytes) has already been read in the
++ * 'usbd_dev->control_state.req' buffer prior to invoking the '_usbd_control_setup()'
++ * function. I am not very familiar with the usb stack, but it seems more natural
++ * to me that the setup packet is actually read in the '_usbd_control_setup()'
++ * function, instead of handling it as a special case here.
++ */
++static struct incoming_packet
++{
++	bool	is_packet_present;
++	int	packet_length;
++	uint8_t	packet_data[MAX_BULK_PACKET_SIZE];
++} stashed_packets[USB_ENDPOINT_COUNT];
++
++void dwc_set_address(usbd_device *usbd_dev, uint8_t addr)
++{
++	REBASE(OTG_DCFG) = (REBASE(OTG_DCFG) & ~OTG_DCFG_DAD) | (addr << 4);
++}
++
++void dwc_ep_setup(usbd_device *usbd_dev, uint8_t addr, uint8_t type,
++			uint16_t max_size,
++			void (*callback) (usbd_device *usbd_dev, uint8_t ep))
++{
++	/*
++	 * Configure endpoint address and type. Allocate FIFO memory for
++	 * endpoint. Install callback function.
++	 */
++	uint8_t dir = addr & 0x80;
++	addr &= 0x7f;
++
++	if (addr == 0) { /* For the default control endpoint */
++		/* Configure IN part. */
++		if (max_size >= 64) {
++			REBASE(OTG_DIEPCTL0) = OTG_DIEPCTL0_MPSIZ_64;
++		} else if (max_size >= 32) {
++			REBASE(OTG_DIEPCTL0) = OTG_DIEPCTL0_MPSIZ_32;
++		} else if (max_size >= 16) {
++			REBASE(OTG_DIEPCTL0) = OTG_DIEPCTL0_MPSIZ_16;
++		} else {
++			REBASE(OTG_DIEPCTL0) = OTG_DIEPCTL0_MPSIZ_8;
++		}
++
++		REBASE(OTG_DIEPTSIZ0) =
++			(max_size & OTG_DIEPSIZ0_XFRSIZ_MASK);
++		REBASE(OTG_DIEPCTL0) |=
++			/* OTG_DIEPCTL0_EPENA | */OTG_DIEPCTL0_SNAK;
++
++		/* Configure OUT part. */
++		usbd_dev->doeptsiz[0] = OTG_DIEPSIZ0_STUPCNT_1 |
++			OTG_DIEPSIZ0_PKTCNT |
++			(max_size & OTG_DIEPSIZ0_XFRSIZ_MASK);
++		REBASE(OTG_DOEPTSIZ(0)) = usbd_dev->doeptsiz[0];
++		REBASE(OTG_DOEPCTL(0)) |=
++		    OTG_DOEPCTL0_EPENA | OTG_DIEPCTL0_SNAK;
++
++		REBASE(OTG_GNPTXFSIZ) = ((max_size / 4) << 16) |
++					 usbd_dev->driver->rx_fifo_size;
++		usbd_dev->fifo_mem_top += max_size / 4;
++		usbd_dev->fifo_mem_top_ep0 = usbd_dev->fifo_mem_top;
++
++		return;
++	}
++
++	if (dir) {
++		REBASE(OTG_DIEPTXF(addr)) = ((max_size / 4) << 16) |
++					     usbd_dev->fifo_mem_top;
++		usbd_dev->fifo_mem_top += max_size / 4;
++
++		REBASE(OTG_DIEPTSIZ(addr)) =
++		    (max_size & OTG_DIEPSIZ0_XFRSIZ_MASK);
++		REBASE(OTG_DIEPCTL(addr)) |=
++		    /*OTG_DIEPCTL0_EPENA |*/ OTG_DIEPCTL0_SNAK | (type << 18)
++		    | OTG_DIEPCTL0_USBAEP | OTG_DIEPCTLX_SD0PID
++		    | (addr << 22) | max_size;
++
++		if (callback) {
++			usbd_dev->user_callback_ctr[addr][USB_TRANSACTION_IN] =
++			    (void *)callback;
++		}
++	}
++
++	if (!dir) {
++		usbd_dev->doeptsiz[addr] = OTG_DIEPSIZ0_PKTCNT |
++				 (max_size & OTG_DIEPSIZ0_XFRSIZ_MASK);
++		REBASE(OTG_DOEPTSIZ(addr)) = usbd_dev->doeptsiz[addr];
++		REBASE(OTG_DOEPCTL(addr)) |= OTG_DOEPCTL0_EPENA |
++		    OTG_DOEPCTL0_USBAEP | OTG_DIEPCTL0_CNAK |
++		    OTG_DOEPCTLX_SD0PID | (type << 18) | max_size;
++
++		if (callback) {
++			usbd_dev->user_callback_ctr[addr][USB_TRANSACTION_OUT] =
++			    (void *)callback;
++		}
++	}
++}
++
++void dwc_endpoints_reset(usbd_device *usbd_dev)
++{
++	int i;
++	/* The core resets the endpoints automatically on reset. */
++	usbd_dev->fifo_mem_top = usbd_dev->fifo_mem_top_ep0;
++
++	/* Disable any currently active endpoints */
++	for (i = 1; i < USB_ENDPOINT_COUNT; i++) {
++		if (REBASE(OTG_DOEPCTL(i)) & OTG_DOEPCTL0_EPENA) {
++			REBASE(OTG_DOEPCTL(i)) |= OTG_DOEPCTL0_EPDIS;
++		}
++		if (REBASE(OTG_DIEPCTL(i)) & OTG_DIEPCTL0_EPENA) {
++			REBASE(OTG_DIEPCTL(i)) |= OTG_DIEPCTL0_EPDIS;
++		}
++	}
++
++	/* Flush all tx/rx fifos */
++	REBASE(OTG_GRSTCTL) = OTG_GRSTCTL_TXFFLSH | OTG_GRSTCTL_TXFNUM_ALL
++			      | OTG_GRSTCTL_RXFFLSH;
++}
++
++void dwc_ep_stall_set(usbd_device *usbd_dev, uint8_t addr, uint8_t stall)
++{
++	if (addr == 0) {
++		if (stall) {
++			REBASE(OTG_DIEPCTL(addr)) |= OTG_DIEPCTL0_STALL;
++		} else {
++			REBASE(OTG_DIEPCTL(addr)) &= ~OTG_DIEPCTL0_STALL;
++		}
++	}
++
++	if (addr & 0x80) {
++		addr &= 0x7F;
++
++		if (stall) {
++			REBASE(OTG_DIEPCTL(addr)) |= OTG_DIEPCTL0_STALL;
++		} else {
++			REBASE(OTG_DIEPCTL(addr)) &= ~OTG_DIEPCTL0_STALL;
++			REBASE(OTG_DIEPCTL(addr)) |= OTG_DIEPCTLX_SD0PID;
++		}
++	} else {
++		if (stall) {
++			REBASE(OTG_DOEPCTL(addr)) |= OTG_DOEPCTL0_STALL;
++		} else {
++			REBASE(OTG_DOEPCTL(addr)) &= ~OTG_DOEPCTL0_STALL;
++			REBASE(OTG_DOEPCTL(addr)) |= OTG_DOEPCTLX_SD0PID;
++		}
++	}
++}
++
++uint8_t dwc_ep_stall_get(usbd_device *usbd_dev, uint8_t addr)
++{
++	/* Return non-zero if STALL set. */
++	if (addr & 0x80) {
++		return (REBASE(OTG_DIEPCTL(addr & 0x7f)) &
++				OTG_DIEPCTL0_STALL) ? 1 : 0;
++	} else {
++		return (REBASE(OTG_DOEPCTL(addr)) &
++				OTG_DOEPCTL0_STALL) ? 1 : 0;
++	}
++}
++
++void dwc_ep_nak_set(usbd_device *usbd_dev, uint8_t addr, uint8_t nak)
++{
++	/* It does not make sense to force NAK on IN endpoints. */
++	if (addr & 0x80) {
++		return;
++	}
++
++	usbd_dev->force_nak[addr] = nak;
++
++	if (nak) {
++		REBASE(OTG_DOEPCTL(addr)) |= OTG_DOEPCTL0_SNAK;
++	} else {
++		REBASE(OTG_DOEPCTL(addr)) |= OTG_DOEPCTL0_CNAK;
++	}
++}
++
++uint16_t dwc_ep_write_packet(usbd_device *usbd_dev, uint8_t addr,
++			      const void *buf, uint16_t len)
++{
++	const uint32_t *buf32 = buf;
++#if defined(__ARM_ARCH_6M__)
++	const uint8_t *buf8 = buf;
++	uint32_t word32;
++#endif /* defined(__ARM_ARCH_6M__) */
++	int i;
++
++	addr &= 0x7F;
++
++	/* Note: because of the libopencm3 API specification of this
++	 * function, the type of the return code is 'uint16_t'.
++	 * This means that it is not possible to return a negative
++	 * result code for error. Also, the API specification
++	 * expects that the length of the data packet written to
++	 * the usb core is returned. This means that zero-length
++	 * usb data packets cannot be reliably sent with the current api,
++	 * and zero-length packets are needed in some cases for usb
++	 * cdcacm class interfaces to signify the end of a transfer.
++	 * At the moment, the blackmagic firmware works around this
++	 * limitation by sending a single byte (containing a zero)
++	 * usb packet for the gdb cdcacm interface, whenever a zero-length
++	 * packet needs to be sent. This particular workaround works
++	 * for the blackmagic use case, because the gdb protocol is
++	 * packetized, and the single zero byte will be silently discarded
++	 * by gdb, but this approach is incorrect in general.
++	 *
++	 * For the time being, return zero here in case of error. */
++	/* Return if endpoint is already enabled, which means a packet
++	 * transfer is still in progress. */
++	if (REBASE(OTG_DIEPCTL(addr)) & OTG_DIEPCTL0_EPENA)
++		return 0;
++	if (REBASE(OTG_DTXFSTS(addr) & 0xffff) < (unsigned)((len + 3) >> 2))
++		return 0;
++
++	/* Enable endpoint for transmission. */
++	REBASE(OTG_DIEPTSIZ(addr)) = OTG_DIEPSIZ0_PKTCNT | len;
++
++	/* WARNING: it is not explicitly stated in the ST documentation,
++	 * but the usb core fifo memory read/write accesses should not
++	 * be interrupted by usb core fifo memory write/read accesses.
++	 *
++	 * For example, this function can be run from within the usb interrupt
++	 * context, and also from outside of the usb interrupt context.
++	 * When this function executes outside of the usb interrupt context,
++	 * if it gets interrupted by the usb interrupt while it writes to
++	 * the usb core fifo memory, and from within the usb
++	 * interrupt the usb core fifo memory is read, then when control returns
++	 * to this function, the usb core fifo memory write accesses can not
++	 * simply continue, this will result in a transaction error on the
++	 * usb line.
++	 *
++	 * In order to avoid such situation, the usb interrupt is masked here
++	 * prior to writing the data to the usb core fifo memory.
++	 */
++	uint32_t saved_interrupt_mask = REBASE(OTG_GINTMSK);
++	REBASE(OTG_GINTMSK) = 0;
++	REBASE(OTG_DIEPCTL(addr)) |= OTG_DIEPCTL0_EPENA |
++				     OTG_DIEPCTL0_CNAK;
++
++	/* Copy buffer to endpoint FIFO, note - memcpy does not work.
++	 * ARMv7M supports non-word-aligned accesses, ARMv6M does not. */
++#if defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__)
++	for (i = len; i > 0; i -= 4) {
++		REBASE(OTG_FIFO(addr)) = *buf32++;
++	}
++#endif /* defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7EM__) */
++
++#if defined(__ARM_ARCH_6M__)
++	/* Take care of word-aligned and non-word-aligned buffers */
++	if (((uint32_t)buf8 & 0x3) == 0) {
++		for (i = len; i > 0; i -= 4) {
++			REBASE(OTG_FIFO(addr)) = *buf32++;
++		}
++	} else {
++		for (i = len; i > 0; i -= 4) {
++			memcpy(&word32, buf8, 4);
++			REBASE(OTG_FIFO(addr)) = word32;
++			buf8 += 4;
++		}
++	}
++#endif /* defined(__ARM_ARCH_6M__) */
++
++	REBASE(OTG_GINTMSK) = saved_interrupt_mask;
++	return len;
++}
++
++uint16_t dwc_ep_read_packet(usbd_device *usbd_dev, uint8_t addr,
++				  void *buf, uint16_t len)
++{
++	(void) usbd_dev;
++	struct incoming_packet * packet = stashed_packets + addr;
++	if (!packet->is_packet_present)
++		return 0;
++	len = MIN(len, packet->packet_length);
++	packet->is_packet_present = false;
++	memcpy(buf, packet->packet_data, len);
++	return len;
++}
++
++/* TODO: this does not currently handle the case for __ARM_ARCH_6M__ */
++void dwc_ep_read_packet_internal(usbd_device *usbd_dev, int ep)
++{
++	int i;
++	struct incoming_packet * packet = stashed_packets + ep;
++	uint32_t *buf32 = (uint32_t *) packet->packet_data;
++	uint32_t extra;
++	uint16_t len = sizeof packet->packet_data;
++
++	len = MIN(len, usbd_dev->rxbcnt);
++
++	/* ARMv7M supports non-word-aligned accesses, ARMv6M does not. */
++	for (i = len; i >= 4; i -= 4) {
++		*buf32++ = REBASE(OTG_FIFO(0));
++		usbd_dev->rxbcnt -= 4;
++	}
++
++	if (i) {
++		extra = REBASE(OTG_FIFO(0));
++		/* we read 4 bytes from the fifo, so update rxbcnt */
++		if (usbd_dev->rxbcnt < 4) {
++			/* Be careful not to underflow (rxbcnt is unsigned) */
++			usbd_dev->rxbcnt = 0;
++		} else {
++			usbd_dev->rxbcnt -= 4;
++		}
++		memcpy(buf32, &extra, i);
++	}
++	packet->is_packet_present = true;
++
++	packet->packet_length = len;
++}
++
++void dwc_poll(usbd_device *usbd_dev)
++{
++	/* Read interrupt status register. */
++	uint32_t intsts = REBASE(OTG_GINTSTS);
++	if (!(intsts & REBASE(OTG_GINTMSK)))
++		/* No interrupts to handle - can happen if this function is
++		 * not invoked from the usb interrupt handler. */
++		 return;
++	int i;
++
++	if (intsts & OTG_GINTSTS_ENUMDNE) {
++		/* Handle USB RESET condition. */
++		REBASE(OTG_GINTSTS) = OTG_GINTSTS_ENUMDNE;
++		usbd_dev->fifo_mem_top = usbd_dev->driver->rx_fifo_size;
++		_usbd_reset(usbd_dev);
++		return;
++	}
++
++	/* Handle IN endpoint interrupt requests. */
++	if (intsts & OTG_GINTSTS_IEPINT)
++	{
++		for (i = 0; i < USB_ENDPOINT_COUNT; i++) { /* Iterate over endpoints. */
++			if (REBASE(OTG_DIEPINT(i)) & OTG_DIEPINTX_XFRC) {
++				/* Transfer complete. */
++				REBASE(OTG_DIEPINT(i)) = OTG_DIEPINTX_XFRC;
++				if (usbd_dev->user_callback_ctr[i]
++						[USB_TRANSACTION_IN]) {
++					usbd_dev->user_callback_ctr[i]
++						[USB_TRANSACTION_IN](usbd_dev, i);
++				}
++			}
++		}
++	}
++
++	if (intsts & OTG_GINTSTS_RXFLVL) {
++		/* Receive FIFO non-empty. */
++		uint32_t rxstsp = REBASE(OTG_GRXSTSP);
++		uint32_t pktsts = rxstsp & OTG_GRXSTSP_PKTSTS_MASK;
++		uint8_t ep = rxstsp & OTG_GRXSTSP_EPNUM_MASK;
++
++		/* Save packet size for dwc_ep_read_packet(). */
++		usbd_dev->rxbcnt = (rxstsp & OTG_GRXSTSP_BCNT_MASK) >> 4;
++		struct incoming_packet * packet = stashed_packets + ep;
++
++		if (pktsts == OTG_GRXSTSP_PKTSTS_OUT)
++		{
++			if (usbd_dev->rxbcnt)
++				dwc_ep_read_packet_internal(usbd_dev, ep);
++			else
++				packet->is_packet_present = true, packet->packet_length = 0;
++		}
++		else if (pktsts == OTG_GRXSTSP_PKTSTS_SETUP)
++		{
++			if (usbd_dev->rxbcnt)
++				dwc_ep_read_packet_internal(usbd_dev, ep);
++			else
++				packet->is_packet_present = true, packet->packet_length = 0;
++		}
++	}
++
++	/* Handle OUT endpoint interrupt requests. */
++	if (intsts & OTG_GINTSTS_OEPINT)
++	{
++		uint32_t daint = REBASE(OTG_DAINT);
++		int epnum;
++		for (epnum = 0; epnum < USB_ENDPOINT_COUNT; epnum ++)
++			if (daint & (1 << (16 + epnum)))
++			{
++				uint32_t t = REBASE(OTG_DOEPINT(epnum));
++				REBASE(OTG_DOEPINT(epnum)) = t;
++
++				if (t & OTG_DOEPINTX_XFRC)
++				{
++					REBASE(OTG_DOEPINT(epnum)) = OTG_DOEPINTX_XFRC;
++					if (usbd_dev->user_callback_ctr[epnum][USB_TRANSACTION_OUT]) {
++						usbd_dev->user_callback_ctr[epnum][USB_TRANSACTION_OUT] (usbd_dev, epnum);
++					}
++					REBASE(OTG_DOEPTSIZ(epnum)) = usbd_dev->doeptsiz[epnum];
++					REBASE(OTG_DOEPCTL(epnum)) |= OTG_DOEPCTL0_EPENA |
++						(usbd_dev->force_nak[epnum] ?
++						 OTG_DOEPCTL0_SNAK : OTG_DOEPCTL0_CNAK);
++				}
++				if (t & OTG_DOEPINTX_STUP)
++				{
++					/* Special case for control endpoints - reception of OUT packets is
++					 * always enabled. */
++					REBASE(OTG_DOEPINT(epnum)) = OTG_DOEPINTX_STUP;
++					if (usbd_dev->user_callback_ctr[epnum][USB_TRANSACTION_SETUP]) {
++						usbd_dev->user_callback_ctr[epnum][USB_TRANSACTION_SETUP] (usbd_dev, epnum);
++					}
++					REBASE(OTG_DOEPTSIZ(epnum)) = usbd_dev->doeptsiz[epnum];
++					REBASE(OTG_DOEPCTL(epnum)) |= OTG_DOEPCTL0_EPENA |
++
++						(usbd_dev->force_nak[epnum] ?
++						 OTG_DOEPCTL0_SNAK : OTG_DOEPCTL0_CNAK);
++				}
++				if (t & OTG_DOEPINTX_OTEPDIS)
++					REBASE(OTG_DOEPINT(epnum)) = OTG_DOEPINTX_OTEPDIS;
++			}
++	}
++
++	if (intsts & OTG_GINTSTS_USBSUSP) {
++		if (usbd_dev->user_callback_suspend) {
++			usbd_dev->user_callback_suspend();
++		}
++		REBASE(OTG_GINTSTS) = OTG_GINTSTS_USBSUSP;
++	}
++
++	if (intsts & OTG_GINTSTS_WKUPINT) {
++		if (usbd_dev->user_callback_resume) {
++			usbd_dev->user_callback_resume();
++		}
++		REBASE(OTG_GINTSTS) = OTG_GINTSTS_WKUPINT;
++	}
++
++	if (intsts & OTG_GINTSTS_SOF) {
++		if (usbd_dev->user_callback_sof) {
++			usbd_dev->user_callback_sof();
++		}
++		REBASE(OTG_GINTSTS) = OTG_GINTSTS_SOF;
++	}
++
++	if (usbd_dev->user_callback_sof) {
++		REBASE(OTG_GINTMSK) |= OTG_GINTMSK_SOFM;
++	} else {
++		REBASE(OTG_GINTMSK) &= ~OTG_GINTMSK_SOFM;
++	}
++}
++
++void dwc_disconnect(usbd_device *usbd_dev, bool disconnected)
++{
++	if (disconnected) {
++		REBASE(OTG_DCTL) |= OTG_DCTL_SDIS;
++	} else {
++		REBASE(OTG_DCTL) &= ~OTG_DCTL_SDIS;
++	}
++}
++
+diff --git a/src/platforms/stlinkv3/usb_f723.c b/src/platforms/stlinkv3/usb_f723.c
+new file mode 100644
+index 000000000..03b2f4ec1
+--- /dev/null
++++ b/src/platforms/stlinkv3/usb_f723.c
+@@ -0,0 +1,177 @@
++/*
++ * This file is part of the libopencm3 project.
++ *
++ * Copyright (C) 2011 Gareth McMullin <gareth@blacksphere.co.nz>
++ * Copyright (C) 2020 Stoyan Shopov <stoyan.shopov@gmail.com>
++ *
++ * This library is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU Lesser General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public License
++ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <string.h>
++#include <libopencm3/cm3/common.h>
++#include <libopencm3/stm32/tools.h>
++#include <libopencm3/stm32/rcc.h>
++#include <libopencm3/stm32/gpio.h>
++#include <libopencm3/cm3/nvic.h>
++#include <libopencm3/usb/usbd.h>
++#include <libopencm3/usb/dwc/otg_hs.h>
++#include "usb_private.h"
++#include "usb_dwc_common.h"
++
++/*
++ * These are some register definitions, not yet provided by libopencm3,
++ * or definitions that need hacking in order to use here.
++ */
++/* ??? This bit is present in the st header files, but I could not find it described in the documentation. */
++#define OTG_GCCFG_PHYHSEN		(1 << 23)
++#define OTG_PHYC_LDO_DISABLE		(1 << 2)
++#define OTG_PHYC_LDO_STATUS		(1 << 1)
++
++/* USB PHY controller registers. */
++#define USBPHYC_BASE			0x40017C00
++#define OTG_HS_PHYC_PLL1		MMIO32(USBPHYC_BASE + 0)
++
++#define OTG_PHYC_PLL1_ENABLE		1
++
++#define OTG_HS_PHYC_TUNE		MMIO32(USBPHYC_BASE + 0xc)
++#define OTG_HS_PHYC_LDO			MMIO32(USBPHYC_BASE + 0x18)
++/* ??? The st header files have this:
++ * #define USB_HS_PHYC_LDO_ENABLE                   USB_HS_PHYC_LDO_DISABLE
++ * ...go figure...
++ */
++#define OTG_PHYC_LDO_DISABLE		(1 << 2)
++#define OTG_PHYC_LDO_STATUS		(1 << 1)
++
++
++/* Yes, this is unpleasant. It does not belong here. */
++#define _REG_BIT(base, bit)             (((base) << 5) + (bit))
++/* STM32F7x3xx and STM32F730xx devices have an internal usb high-speed usb phy controller */
++enum
++{
++	RCC_OTGPHYC	= _REG_BIT(0x44, 31),
++};
++
++/* Receive FIFO size in 32-bit words. */
++#define RX_FIFO_SIZE 512
++
++static usbd_device *stm32f723_usbd_init(void);
++
++static struct _usbd_device usbd_dev;
++
++const struct _usbd_driver stm32f723_usb_driver = {
++	.init = stm32f723_usbd_init,
++	.set_address = dwc_set_address,
++	.ep_setup = dwc_ep_setup,
++	.ep_reset = dwc_endpoints_reset,
++	.ep_stall_set = dwc_ep_stall_set,
++	.ep_stall_get = dwc_ep_stall_get,
++	.ep_nak_set = dwc_ep_nak_set,
++	.ep_write_packet = dwc_ep_write_packet,
++	.ep_read_packet = dwc_ep_read_packet,
++	.poll = dwc_poll,
++	.disconnect = dwc_disconnect,
++	.base_address = USB_OTG_HS_BASE,
++	.set_address_before_status = 1,
++	.rx_fifo_size = RX_FIFO_SIZE,
++};
++
++/*
++ * Initialize the USB device controller hardware of the STM32.
++ *
++ * Note: this initialization code was compiled from the libopencm3 usb_f207.c
++ * source, and the st cube sources. Note that the st manuals state that some delays
++ * are necessary at certain places. This code works for usb hosts that I tested on
++ * without the delays, but this is bending the rules.
++ *
++ * If for someone the code below does not work, one thing to try is perhaps to
++ * enable the delays before starting to debug other stuff. */
++static usbd_device *stm32f723_usbd_init(void)
++{
++	rcc_periph_clock_enable(RCC_GPIOB);
++	gpio_mode_setup(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO14 | GPIO15);
++	gpio_set_output_options(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_100MHZ, GPIO14 | GPIO15);
++	gpio_set_af(GPIOB, GPIO_AF12, GPIO14 | GPIO15);
++
++	rcc_periph_clock_enable((enum rcc_periph_clken) RCC_OTGPHYC);
++	rcc_periph_clock_enable(RCC_OTGHSULPI);
++
++	// TODO - check the preemption and subpriority, they are unified here
++	nvic_set_priority(NVIC_OTG_HS_IRQ, 0);
++
++	rcc_periph_clock_enable(RCC_OTGHS);
++	OTG_HS_GINTSTS = OTG_GINTSTS_MMIS;
++
++	// ??? What is this??? It is not documented in the manual
++	OTG_HS_GCCFG |= OTG_GCCFG_PHYHSEN;
++
++	/* ??? The st header files have this:
++	 * #define USB_HS_PHYC_LDO_ENABLE                   USB_HS_PHYC_LDO_DISABLE
++	 * ...go figure...
++	 */
++	OTG_HS_PHYC_LDO |= OTG_PHYC_LDO_DISABLE;
++	while (!(OTG_HS_PHYC_LDO & OTG_PHYC_LDO_STATUS))
++		;
++	/* This setting is for a HSE clock of 25 MHz. */
++	OTG_HS_PHYC_PLL1 = 5 << 1;
++	OTG_HS_PHYC_TUNE |= 0x00000F13U;
++	OTG_HS_PHYC_PLL1 |= OTG_PHYC_PLL1_ENABLE;
++	/* 2ms Delay required to get internal phy clock stable */
++	//HAL_Delay(2U);
++
++	////OTG_HS_GUSBCFG |= OTG_GUSBCFG_PHYSEL;
++	/* Enable VBUS sensing in device mode and power down the PHY. */
++	////OTG_HS_GCCFG |= OTG_GCCFG_VBUSBSEN | OTG_GCCFG_PWRDWN;
++
++	/* Wait for AHB idle. */
++	while (!(OTG_HS_GRSTCTL & OTG_GRSTCTL_AHBIDL));
++	/* Do core soft reset. */
++	OTG_HS_GRSTCTL |= OTG_GRSTCTL_CSRST;
++	while (OTG_HS_GRSTCTL & OTG_GRSTCTL_CSRST);
++
++	/* Force peripheral only mode. */
++	OTG_HS_GUSBCFG |= OTG_GUSBCFG_FDMOD | OTG_GUSBCFG_TRDT_MASK;
++	//HAL_Delay(50U);
++
++	/* Full speed device. */
++	////OTG_HS_DCFG |= OTG_DCFG_DSPD;
++
++	/* Restart the PHY clock. */
++	OTG_HS_PCGCCTL = 0;
++
++	OTG_HS_GRXFSIZ = stm32f723_usb_driver.rx_fifo_size;
++	usbd_dev.fifo_mem_top = stm32f723_usb_driver.rx_fifo_size;
++
++	OTG_HS_DCTL |= OTG_DCTL_SDIS;
++	//HAL_Delay(10);
++
++	/* Unmask interrupts for TX and RX. */
++	OTG_HS_GAHBCFG |= OTG_GAHBCFG_GINT;
++	OTG_HS_GINTMSK = OTG_GINTMSK_ENUMDNEM |
++			 OTG_GINTMSK_RXFLVLM |
++			 OTG_GINTMSK_IEPINT |
++			 OTG_GINTMSK_OEPINT |
++			 //OTG_GINTMSK_USBRST |
++			 OTG_GINTMSK_USBSUSPM |
++			 OTG_GINTMSK_WUIM;
++
++	OTG_HS_DAINTMSK = 0xffffffff;
++
++	OTG_HS_DOEPMSK |= OTG_DOEPMSK_STUPM | OTG_DOEPMSK_XFRCM ;
++	OTG_HS_DIEPMSK |= OTG_DIEPMSK_XFRCM ;
++
++	OTG_HS_DCTL &=~ OTG_DCTL_SDIS;
++
++	return &usbd_dev;
++}
++
+diff --git a/src/platforms/stlinkv3/usbdfu.c b/src/platforms/stlinkv3/usbdfu.c
+new file mode 100644
+index 000000000..bb9a5115b
+--- /dev/null
++++ b/src/platforms/stlinkv3/usbdfu.c
+@@ -0,0 +1,81 @@
++/*
++ * This file is part of the Black Magic Debug project.
++ *
++ * Copyright (C) 2013 Gareth McMullin <gareth@blacksphere.co.nz>
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ */
++
++#include <string.h>
++#include <libopencm3/cm3/systick.h>
++#include <libopencm3/stm32/rcc.h>
++#include <libopencm3/stm32/gpio.h>
++#include <libopencm3/cm3/scb.h>
++
++#include "usbdfu.h"
++#include "general.h"
++#include "platform.h"
++
++uint32_t app_address = APP_START;
++
++void dfu_detach(void)
++{
++	scb_reset_system();
++}
++
++int main(void)
++{
++	/* Use Top of ITCM Flash as magic marker */
++	volatile uint32_t *magic = (volatile uint32_t *) 0x3ff8;
++	rcc_periph_clock_enable(RCC_GPIOA);
++	/* On the Mini, NRST is on the footprint for the 1.27 mm Jumper
++	 * to the side of th USB connector */
++	bool force_bootloader;
++	force_bootloader = ((RCC_CSR &  RCC_CSR_RESET_FLAGS) == RCC_CSR_PINRSTF);
++	RCC_CSR |= RCC_CSR_RMVF;
++	RCC_CSR &= ~RCC_CSR_RMVF;
++	if (force_bootloader ||
++	   ((magic[0] == BOOTMAGIC0) && (magic[1] == BOOTMAGIC1))) {
++		magic[0] = 0;
++		magic[1] = 0;
++	} else {
++		dfu_jump_app_if_valid();
++	}
++	rcc_periph_clock_enable(RCC_APB2ENR_SYSCFGEN);
++	rcc_clock_setup_hse(rcc_3v3 + RCC_CLOCK_3V3_216MHZ, 25);
++
++	/* Set up green/red led to blink green to indicate bootloader active*/
++	gpio_mode_setup(LED_RG_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_RG_PIN);
++	gpio_set_output_options(LED_RG_PORT, GPIO_OTYPE_OD, GPIO_OSPEED_2MHZ, LED_RG_PIN);
++
++	systick_set_clocksource(STK_CSR_CLKSOURCE_AHB_DIV8);
++	systick_set_reload(216*1000*1000/(8 * 10));
++	systick_interrupt_enable();
++	systick_counter_enable();
++
++ 	dfu_protect(false);
++	dfu_init(&USB_DRIVER);
++	dfu_main();
++
++}
++
++
++void dfu_event(void)
++{
++}
++
++void sys_tick_handler(void)
++{
++	gpio_toggle(LED_RG_PORT, LED_RG_PIN);
++}
+diff --git a/src/platforms/stm32/dfu_f4.c b/src/platforms/stm32/dfu_f4.c
+index 5d0c25aaa..e9b580334 100644
+--- a/src/platforms/stm32/dfu_f4.c
++++ b/src/platforms/stm32/dfu_f4.c
+@@ -89,17 +89,21 @@ void dfu_protect(bool enable)
+ 	}
+ }
+ 
++#if defined(STM32F7)		/* Set vector table base address */
++#define SCB_VTOR_MASK 0xFFFFFF00
++#define RAM_MASK  0x2FF00000
++#else
++#define SCB_VTOR_MASK 0x1FFFFF
++#define RAM_MASK  0x2FFC0000
++#endif
++
+ void dfu_jump_app_if_valid(void)
+ {
+ 	/* Boot the application if it's valid */
+ 	/* Vector table may be anywhere in 128 kByte RAM
+ 	   CCM not handled*/
+-	if((*(volatile uint32_t*)app_address & 0x2FFC0000) == 0x20000000) {
+-#if defined(STM32F7)		/* Set vector table base address */
+-		SCB_VTOR = app_address & 0xFFFFFF00;
+-#else
+-		SCB_VTOR = app_address & 0x1FFFFF; /* Max 2 MByte Flash*/
+-#endif
++	if((*(volatile uint32_t*)app_address & RAM_MASK) == 0x20000000) {
++		SCB_VTOR = app_address & SCB_VTOR_MASK;
+ 		/* Initialise master stack pointer */
+ 		asm volatile ("msr msp, %0"::"g"
+ 		              (*(volatile uint32_t*)app_address));
+diff --git a/src/platforms/stm32/dfucore.c b/src/platforms/stm32/dfucore.c
+index 3ddadb60e..1a26780bf 100644
+--- a/src/platforms/stm32/dfucore.c
++++ b/src/platforms/stm32/dfucore.c
+@@ -35,8 +35,14 @@
+ #elif defined(STM32F4) ||  defined(STM32F7)
+ #   define FLASH_BASE         0x08000000U
+ #   define DFU_IFACE_PAGESIZE 128
++# if   APP_START == 0x08020000
++#   define DFU_IFACE_STRING_OFFSET 62
++#	define DFU_IFACE_STRING  "@Internal Flash   /0x08000000/1*016Ka,3*016Ka,1*064Ka,1*128Kg,002*128Kg"
++# elif APP_START == 0x08004000
+ #   define DFU_IFACE_STRING_OFFSET 54
+ #	define DFU_IFACE_STRING  "@Internal Flash   /0x08000000/1*016Ka,3*016Kg,1*064Kg,000*128Kg"
++# else
++# endif
+ #endif
+ #include <libopencm3/stm32/flash.h>
+ 
+diff --git a/src/platforms/stm32/gdb_if.c b/src/platforms/stm32/gdb_if.c
+index 6cc1f9c86..9cf7adf8a 100644
+--- a/src/platforms/stm32/gdb_if.c
++++ b/src/platforms/stm32/gdb_if.c
+@@ -31,7 +31,7 @@ static uint32_t count_in;
+ static uint32_t out_ptr;
+ static uint8_t buffer_out[CDCACM_PACKET_SIZE];
+ static uint8_t buffer_in[CDCACM_PACKET_SIZE];
+-#ifdef STM32F4
++#if defined(STM32F4) || defined(STM32F7)
+ static volatile uint32_t count_new;
+ static uint8_t double_buffer_out[CDCACM_PACKET_SIZE];
+ #endif
+@@ -64,7 +64,7 @@ void gdb_if_putchar(unsigned char c, int flush)
+ 	}
+ }
+ 
+-#ifdef STM32F4
++#if defined(STM32F4) || defined(STM32F7)
+ void gdb_usb_out_cb(usbd_device *dev, uint8_t ep)
+ {
+ 	(void)ep;
+@@ -80,7 +80,7 @@ void gdb_usb_out_cb(usbd_device *dev, uint8_t ep)
+ static void gdb_if_update_buf(void)
+ {
+ 	while (cdcacm_get_config() != 1);
+-#ifdef STM32F4
++#if defined(STM32F4) || defined(STM32F7)
+ 	asm volatile ("cpsid i; isb");
+ 	if (count_new) {
+ 		memcpy(buffer_out, double_buffer_out, count_new);
+diff --git a/src/platforms/stm32/gpio.h b/src/platforms/stm32/gpio.h
+index dad20bb22..0a3f6d7a8 100644
+--- a/src/platforms/stm32/gpio.h
++++ b/src/platforms/stm32/gpio.h
+@@ -38,7 +38,7 @@
+ static inline void _gpio_set(uint32_t gpioport, uint16_t gpios)
+ {
+ 	GPIO_BSRR(gpioport) = gpios;
+-#ifdef STM32F4
++#if defined(STM32F4) || defined(STM32F7)
+ 	GPIO_BSRR(gpioport) = gpios;
+ #endif
+ }
+@@ -46,7 +46,7 @@ static inline void _gpio_set(uint32_t gpioport, uint16_t gpios)
+ 
+ static inline void _gpio_clear(uint32_t gpioport, uint16_t gpios)
+ {
+-#ifndef STM32F4
++#if !defined(STM32F4) && !defined(STM32F7)
+ 	GPIO_BRR(gpioport) = gpios;
+ #else
+ 	GPIO_BSRR(gpioport) = gpios<<16;
+diff --git a/src/platforms/stm32/traceswoasync_f723.c b/src/platforms/stm32/traceswoasync_f723.c
+new file mode 100644
+index 000000000..820a64d34
+--- /dev/null
++++ b/src/platforms/stm32/traceswoasync_f723.c
+@@ -0,0 +1,148 @@
++/*
++ * This file is part of the Black Magic Debug project.
++ *
++ * Based on work that is Copyright (C) 2017 Black Sphere Technologies Ltd.
++ * Copyright (C) 2017 Dave Marples <dave@marples.net>
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.	 If not, see <http://www.gnu.org/licenses/>.
++ */
++
++/* This file implements capture of the TRACESWO output using ASYNC signalling.
++ *
++ * ARM DDI 0403D - ARMv7M Architecture Reference Manual
++ * ARM DDI 0337I - Cortex-M3 Technical Reference Manual
++ * ARM DDI 0314H - CoreSight Components Technical Reference Manual
++ */
++
++/* TDO/TRACESWO signal comes into the SWOUSART RX pin.
++ */
++
++#include "general.h"
++#include "cdcacm.h"
++#include "traceswo.h"
++
++#include <libopencmsis/core_cm3.h>
++#include <libopencm3/cm3/nvic.h>
++#include <libopencm3/stm32/timer.h>
++#include <libopencm3/stm32/rcc.h>
++#include <libopencm3/stm32/usart.h>
++#include <libopencm3/stm32/dma.h>
++
++/* For speed this is set to the USB transfer size */
++# define FULL_SWO_PACKET	512
++
++static volatile uint32_t w;	/* Packet currently received via UART */
++static volatile uint32_t r;	/* Packet currently waiting to transmit to USB */
++/* Packets arrived from the SWO interface */
++static uint8_t trace_rx_buf[NUM_TRACE_PACKETS * FULL_SWO_PACKET];
++/* Packet pingpong buffer used for receiving packets */
++static uint8_t pingpong_buf[2 * FULL_SWO_PACKET];
++/* SWO decoding */
++static bool decoding = false;
++
++void trace_buf_drain(usbd_device *dev, uint8_t ep)
++{
++	static volatile char inBufDrain;
++
++	/* If we are already in this routine then we don't need to come in again */
++	if (__atomic_test_and_set (&inBufDrain, __ATOMIC_RELAXED))
++		return;
++	/* Attempt to write everything we buffered */
++	if (w != r) {
++		uint16_t rc;
++		if (decoding)
++			/* write decoded swo packets to the uart port */
++			rc = traceswo_decode(dev, CDCACM_UART_ENDPOINT,
++										  &trace_rx_buf[r * FULL_SWO_PACKET],
++										  FULL_SWO_PACKET);
++		else
++			/* write raw swo packets to the trace port */
++			rc = usbd_ep_write_packet(dev, ep,
++										  &trace_rx_buf[r * FULL_SWO_PACKET],
++										  FULL_SWO_PACKET);
++		if (rc) r = (r + 1) % NUM_TRACE_PACKETS;
++	}
++	__atomic_clear (&inBufDrain, __ATOMIC_RELAXED);
++}
++
++void traceswo_setspeed(uint32_t baudrate)
++{
++	dma_disable_stream(SWO_DMA_BUS, SWO_DMA_STREAM);
++	usart_disable(SWO_UART);
++	usart_set_baudrate(SWO_UART, baudrate);
++	usart_set_databits(SWO_UART, 8);
++	usart_set_stopbits(SWO_UART, USART_STOPBITS_1);
++	usart_set_mode(SWO_UART, USART_MODE_RX);
++	usart_set_parity(SWO_UART, USART_PARITY_NONE);
++	usart_set_flow_control(SWO_UART, USART_FLOWCONTROL_NONE);
++
++	/* Set up DMA channel*/
++	dma_stream_reset(SWO_DMA_BUS, SWO_DMA_STREAM);
++	dma_set_peripheral_address(SWO_DMA_BUS, SWO_DMA_STREAM,
++							   (uint32_t)&SWO_UART_DR);
++	dma_set_transfer_mode(SWO_DMA_BUS, SWO_DMA_STREAM,
++				DMA_SxCR_DIR_PERIPHERAL_TO_MEM);
++	dma_enable_memory_increment_mode(SWO_DMA_BUS, SWO_DMA_STREAM);
++	dma_set_peripheral_size(SWO_DMA_BUS, SWO_DMA_STREAM, DMA_SxCR_PSIZE_8BIT);
++	dma_set_memory_size(SWO_DMA_BUS, SWO_DMA_STREAM, DMA_SxCR_MSIZE_8BIT);
++	dma_set_priority(SWO_DMA_BUS, SWO_DMA_STREAM, DMA_SxCR_PL_VERY_HIGH);
++	dma_enable_transfer_complete_interrupt(SWO_DMA_BUS, SWO_DMA_STREAM);
++	dma_enable_half_transfer_interrupt(SWO_DMA_BUS, SWO_DMA_STREAM);
++	dma_enable_circular_mode(SWO_DMA_BUS,SWO_DMA_STREAM);
++
++	usart_enable(SWO_UART);
++	nvic_enable_irq(SWO_DMA_IRQ);
++	w = r = 0;
++	dma_set_memory_address(SWO_DMA_BUS, SWO_DMA_STREAM, (uint32_t)pingpong_buf);
++	dma_set_number_of_data(SWO_DMA_BUS, SWO_DMA_STREAM, 2 * FULL_SWO_PACKET);
++	dma_channel_select(SWO_DMA_BUS, SWO_DMA_STREAM, DMA_SxCR_CHSEL_4);
++	dma_enable_stream(SWO_DMA_BUS, SWO_DMA_STREAM);
++	usart_enable_rx_dma(SWO_UART);
++}
++
++void SWO_DMA_ISR(void)
++{
++	if (DMA_LISR(SWO_DMA_BUS) & DMA_LISR_HTIF0) {
++		DMA_LIFCR(SWO_DMA_BUS) |= DMA_LISR_HTIF0;
++		memcpy(&trace_rx_buf[w * FULL_SWO_PACKET], pingpong_buf,
++			   FULL_SWO_PACKET);
++	}
++	if (DMA_LISR(SWO_DMA_BUS) & DMA_LISR_TCIF0) {
++		DMA_LIFCR(SWO_DMA_BUS) |= DMA_LISR_TCIF0;
++		memcpy(&trace_rx_buf[w * FULL_SWO_PACKET],
++			   &pingpong_buf[FULL_SWO_PACKET], FULL_SWO_PACKET);
++	}
++	w = (w + 1) % NUM_TRACE_PACKETS;
++	trace_buf_drain(usbdev, 0x85);
++}
++
++void traceswo_init(uint32_t baudrate, uint32_t swo_chan_bitmask)
++{
++	if (!baudrate)
++		baudrate = SWO_DEFAULT_BAUD;
++
++	rcc_periph_clock_enable(SWO_UART_CLK);
++	rcc_periph_clock_enable(SWO_DMA_CLK);
++
++	rcc_periph_clock_enable(RCC_GPIOD);
++	gpio_mode_setup(SWO_UART_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, SWO_UART_RX_PIN);
++	gpio_set_af(SWO_UART_PORT, SWO_UART_PIN_AF, SWO_UART_RX_PIN);
++	/* Pull SWO pin high to keep open SWO line ind uart idle state!*/
++	gpio_set(SWO_UART_PORT, SWO_UART_RX_PIN);
++	nvic_set_priority(SWO_DMA_IRQ, IRQ_PRI_SWO_DMA);
++	nvic_enable_irq(SWO_DMA_IRQ);
++	traceswo_setspeed(baudrate);
++	traceswo_setmask(swo_chan_bitmask);
++	decoding = (swo_chan_bitmask != 0);
++}
+diff --git a/src/platforms/stm32/usbuart.c b/src/platforms/stm32/usbuart.c
+index d2dc215e4..82ca07fa7 100644
+--- a/src/platforms/stm32/usbuart.c
++++ b/src/platforms/stm32/usbuart.c
+@@ -130,6 +130,9 @@ static void usbuart_run(void)
+ 
+ void usbuart_set_line_coding(struct usb_cdc_line_coding *coding)
+ {
++	/* Some devices require that the usart is disabled before
++	 * changing the usart registers. */
++	usart_disable(USBUSART);
+ 	usart_set_baudrate(USBUSART, coding->dwDTERate);
+ 
+ 	if (coding->bParityType)
+@@ -160,6 +163,7 @@ void usbuart_set_line_coding(struct usb_cdc_line_coding *coding)
+ 		usart_set_parity(USBUSART, USART_PARITY_EVEN);
+ 		break;
+ 	}
++	usart_enable(USBUSART);
+ }
+ 
+ void usbuart_usb_out_cb(usbd_device *dev, uint8_t ep)
+@@ -214,13 +218,30 @@ void usbuart_usb_in_cb(usbd_device *dev, uint8_t ep)
+  */
+ void USBUSART_ISR(void)
+ {
+-	uint32_t err = USART_SR(USBUSART);
++	uint32_t err;
++#if defined STM32F7
++	err = USART_ISR(USBUSART);
++#else
++	err = USART_SR(USBUSART);
++#endif
+ 	char c = usart_recv(USBUSART);
++/* Note: on stm32f1 devices, the NE flag (start bit noise error)
++ * corresponds to flag NF in the ST documentation for other devices,
++ * they are at the same bit position. */
+ #if !defined(USART_SR_NE) && defined(USART_ISR_NF)
+ # define USART_SR_NE USART_ISR_NF
+ #endif
+ 	if (err & (USART_FLAG_ORE | USART_FLAG_FE | USART_SR_NE))
++	{
++		/* Ignore errors, errors may occur in the case of mismatched baud rates. */
++#ifdef STM32F7
++		/* On stm32f7 devices, the overrun error must be cleared explicitly.
++		 * If not cleared, this error will cause the interrupt to be continuously
++		 * triggered. */
++		USART_ICR(USBUSART) = USART_ICR_ORECF;
++#endif
+ 		return;
++	}
+ 
+ 	/* Turn on LED */
+ 	gpio_set(LED_PORT_UART, LED_UART);

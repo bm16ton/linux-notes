@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="LPTIM">
+  <COMMON>
+    <LITERALS>
+        <LITERAL><SPL>LPTIM_InitTypeDef</SPL><LL>LL_LPTIM_InitTypeDef</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_ClockSource_APBClock_LPosc</SPL><LL>LL_LPTIM_CLK_SOURCE_INTERNAL</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockSource_ULPTIM</SPL><LL>LL_LPTIM_CLK_SOURCE_EXTERNAL</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_ClockPolarity_RisingEdge</SPL><LL>LL_LPTIM_ENCODER_MODE_RISING</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockPolarity_FallingEdge</SPL><LL>LL_LPTIM_ENCODER_MODE_FALLING</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockPolarity_BothEdges</SPL><LL>LL_LPTIM_ENCODER_MODE_RISING_FALLING</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_Prescaler_DIV1</SPL><LL>LL_LPTIM_PRESCALER_DIV1</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV2</SPL><LL>LL_LPTIM_PRESCALER_DIV2</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV4</SPL><LL>LL_LPTIM_PRESCALER_DIV4</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV8</SPL><LL>LL_LPTIM_PRESCALER_DIV8</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV16</SPL><LL>LL_LPTIM_PRESCALER_DIV16</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV32</SPL><LL>LL_LPTIM_PRESCALER_DIV32</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV64</SPL><LL>LL_LPTIM_PRESCALER_DIV64</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Prescaler_DIV128</SPL><LL>LL_LPTIM_PRESCALER_DIV128</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_ExtTRGSource_0</SPL><LL>LL_LPTIM_TRIG_SOURCE_GPIO</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_1</SPL><LL>LL_LPTIM_TRIG_SOURCE_RTCALARMA</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_2</SPL><LL>LL_LPTIM_TRIG_SOURCE_RTCALARMB</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_3</SPL><LL>LL_LPTIM_TRIG_SOURCE_RTCTAMP1</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_4</SPL><LL>LL_LPTIM_TRIG_SOURCE_TIM1_TRGO</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_5</SPL><LL>LL_LPTIM_TRIG_SOURCE_TIM5_TRGO</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_6</SPL><LL>LL_LPTIM_TRIG_SOURCE_GPIO</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGSource_7</SPL><LL>LL_LPTIM_TRIG_SOURCE_GPIO</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_Mode_Continuous</SPL><LL>LL_LPTIM_OPERATING_MODE_CONTINUOUS</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Mode_Single</SPL><LL>LL_LPTIM_OPERATING_MODE_ONESHOT</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_ExtTRGPolarity_RisingEdge</SPL><LL>LL_LPTIM_TRIG_POLARITY_RISING</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGPolarity_FallingEdge</SPL><LL>LL_LPTIM_TRIG_POLARITY_FALLING</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ExtTRGPolarity_BothEdges</SPL><LL>LL_LPTIM_TRIG_POLARITY_RISING_FALLING</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_TrigSampleTime_DirectTransistion</SPL><LL>LL_LPTIM_TRIG_FILTER_NONE</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_TrigSampleTime_2Transistions</SPL><LL>LL_LPTIM_TRIG_FILTER_2</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_TrigSampleTime_4Transistions</SPL><LL>LL_LPTIM_TRIG_FILTER_4</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_TrigSampleTime_8Transistions</SPL><LL>LL_LPTIM_TRIG_FILTER_8</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_ClockSampleTime_DirectTransistion</SPL><LL>LL_LPTIM_CLK_FILTER_NONE</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockSampleTime_2Transistions</SPL><LL>LL_LPTIM_CLK_FILTER_2</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockSampleTime_4Transistions</SPL><LL>LL_LPTIM_CLK_FILTER_4</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_ClockSampleTime_8Transistions</SPL><LL>LL_LPTIM_CLK_FILTER_8</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_Update_Immediate</SPL><LL>LL_LPTIM_UPDATE_MODE_IMMEDIATE</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Update_EndOfPeriod</SPL><LL>LL_LPTIM_UPDATE_MODE_ENDOFPERIOD</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_Waveform_PWM_OnePulse</SPL><LL>LL_LPTIM_OUTPUT_WAVEFORM_PWM</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_Waveform_SetOnce</SPL><LL>LL_LPTIM_OUTPUT_WAVEFORM_SETONCE</LL></LITERAL>
+        
+        <LITERAL><SPL>LPTIM_OutputPolarity_High</SPL><LL>LL_LPTIM_OUTPUT_POLARITY_REGULAR</LL></LITERAL>
+        <LITERAL><SPL>LPTIM_OutputPolarity_Low</SPL><LL>LL_LPTIM_OUTPUT_POLARITY_INVERSE</LL></LITERAL>
+
+    </LITERALS>
+
+    <STRUCTURES>
+       <STRUCTURE NAME= "LPTIM_InitTypeDef">
+            <FIELD><SPL>LPTIM_ClockSource</SPL><LL>ClockSource</LL></FIELD>
+            <FIELD><SPL>LPTIM_Prescaler</SPL><LL>Prescaler</LL></FIELD>
+            <FIELD><SPL>LPTIM_Waveform</SPL><LL>Waveform</LL></FIELD>
+            <FIELD><SPL>LPTIM_OutputPolarity</SPL><LL>Polarity</LL></FIELD>
+      </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+    <!-- ####### void LPTIM_DeInit(LPTIMx) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_DeInit"/>
+            <LL NAME="LL_LPTIM_DeInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_Init(LPTIMx, LPTIM_InitStruct) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_Init"/>
+            <LL NAME="LL_LPTIM_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_StructInit(LPTIM_InitStruct)####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_StructInit"/>
+            <LL NAME="LL_LPTIM_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_Cmd(LPTIMx, ENABLE/DISABLE) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+            <LL NAME="LL_LPTIM_Enable"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+            <LL NAME="LL_LPTIM_Disable"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SelectClockSource(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectClockSource"/>
+            <LL NAME="LL_LPTIM_SetClockSource"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SelectULPTIMClockPolarity(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectULPTIMClockPolarity"/>
+            <LL NAME="LL_LPTIM_SetEncoderMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigPrescaler(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigPrescaler"/>
+            <LL NAME="LL_LPTIM_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigExternalTrigger(LPTIMx, uint32_t, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigExternalTrigger"/>
+            <LL NAME="N/A"
+                CMD0="LL_LPTIM_ConfigTrigger({CPY@SPL_PARAM_0},\n
+                                             {UPD@SPL_PARAM_1},\n
+                                             LL_LPTIM_GetTriggerFilter({CPY@SPL_PARAM_0}),\n
+                                             {UPD@SPL_PARAM_2})"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SelectSoftwareStart(LPTIMx) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectSoftwareStart"/>
+            <LL NAME="LL_LPTIM_TrigSw"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigTriggerGlitchFilter(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigTriggerGlitchFilter"/>
+            <LL NAME="N/A"
+                CMD0="LL_LPTIM_ConfigTrigger({CPY@SPL_PARAM_0},\n
+                                             LL_LPTIM_GetTriggerSource({CPY@SPL_PARAM_0}),\n
+                                             {UPD@SPL_PARAM_1},\n
+                                             LL_LPTIM_GetTriggerPolarity({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigClockGlitchFilter(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigClockGlitchFilter"/>
+            <LL NAME="N/A"
+                CMD0="LL_LPTIM_ConfigClock({CPY@SPL_PARAM_0},\n
+                                           {UPD@SPL_PARAM_1},\n
+                                           LL_LPTIM_GetClockPolarity({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION> 
+    <!-- ####### void LPTIM_SelectOperatingMode(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectOperatingMode"/>
+            <LL NAME="LL_LPTIM_StartCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_TimoutCmd(LPTIMx, ENABLE/DISABLE) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_TimoutCmd"
+                 CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_TimoutCmd"
+                 CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigWaveform(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigWaveform"/>
+            <LL NAME="LL_LPTIM_SetWaveform"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ConfigUpdate(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ConfigUpdate"/>
+            <LL NAME="LL_LPTIM_SetUpdateMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SetAutoreloadValue(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SetAutoreloadValue"/>
+            <LL NAME="LL_LPTIM_SetAutoReload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SetCompareValue(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SetCompareValue"/>
+            <LL NAME="LL_LPTIM_SetCompare"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SelectCounterMode(LPTIMx, ENABLE/DISABLE) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectCounterMode"
+                 CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+            <LL NAME="LL_LPTIM_SetCounterMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_LPTIM_COUNTER_MODE_EXTERNAL"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectCounterMode"
+                 CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+            <LL NAME="LL_LPTIM_SetCounterMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_LPTIM_COUNTER_MODE_INTERNAL"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_SelectEncoderMode(LPTIMx, ENABLE/DISABLE) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectEncoderMode"
+                 CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableEncoderMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_SelectEncoderMode"
+                 CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableEncoderMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### uint32_t LPTIM_GetCounterValue(LPTIMx) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetCounterValue"/>
+            <LL NAME="LL_LPTIM_GetCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### uint32_t LPTIM_GetAutoreloadValue(LPTIMx) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetAutoreloadValue"/>
+            <LL NAME="LL_LPTIM_GetAutoReload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### uint32_t LPTIM_GetCompareValue(LPTIMx) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetCompareValue"/>
+            <LL NAME="LL_LPTIM_GetCompare"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_RemapConfig(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_OP_PAD_AF"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR =((uint32_t)0x00000000)"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_OP_PAD_AF4"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR = LPTIM_OR_OR_0"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_OP_PAD_PB9"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR = LPTIM_OR_OR_1"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=RCC_LPTIM1CLKSOURCE_LSI"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR = LPTIM_OR_OR_1"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_OP_TIM_DAC"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR = LPTIM_OR_OR"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_RemapConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_OP_PAD_PA4"/>
+            <LL NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}->OR = LPTIM_OR_OR_0"/>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ITConfig(LPTIMx, uint32_t, ENABLE/DISABLE) ####### -->
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_DOWN, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_DOWN"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_DOWN"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_DOWN"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_DOWN"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_UP, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_UP"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_UP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_UP"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_UP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_ARROK, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARROK"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_ARROK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARROK"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_ARROK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_CMPOK, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPOK"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_CMPOK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPOK"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_CMPOK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_EXTTRIG, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_EXTTRIG"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_EXTTRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_EXTTRIG"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_EXTTRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_ARRM, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARRM"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_ARRM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARRM"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_ARRM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION><!-- LPTIM_ITConfig(LPTIMx, LPTIM_IT_CMPM, E/D)-->
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPM"
+                 CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+            <LL NAME="LL_LPTIM_EnableIT_CMPM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ITConfig"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPM"
+                 CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+            <LL NAME="LL_LPTIM_DisableIT_CMPM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### FlagStatus LPTIM_GetFlagStatus(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_DOWN"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_DOWN"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_UP"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_UP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_ARROK"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_ARROK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_CMPOK"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_CMPOK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_EXTTRIG"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_EXTTRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_ARRM"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_ARRM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetFlagStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_FLAG_CMPM"/>
+            <LL NAME="LL_LPTIM_IsActiveFlag_CMPM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### void LPTIM_ClearFlag(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_DOWN"/>
+            <LL NAME="LL_LPTIM_ClearFlag_DOWN"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_UP"/>
+            <LL NAME="LL_LPTIM_ClearFlag_UP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_ARROK"/>
+            <LL NAME="LL_LPTIM_ClearFlag_ARROK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_CMPOK"/>
+            <LL NAME="LL_LPTIM_ClearFlag_CMPOK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_EXTTRIG"/>
+            <LL NAME="LL_LPTIM_ClearFlag_EXTTRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_ARRM"/>
+            <LL NAME="LL_LPTIM_ClearFLAG_ARRM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_ClearFlag"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_CLEAR_CMPM"/>
+            <LL NAME="LL_LPTIM_ClearFLAG_CMPM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+        </FUNCTION>
+    <!-- ####### ITStatus LPTIM_GetITStatus(LPTIMx, uint32_t) ####### -->
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_DOWN"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_DOWN({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_DOWN({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_UP"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_UP({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_UP({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARROK"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_ARROK({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_ARROK({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPOK"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_CMPOK({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_CMPOK({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_EXTTRIG"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_EXTTRIG({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_EXTTRIG({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_ARRM"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_ARRM({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_ARRM({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        <FUNCTION>
+            <SPL NAME="LPTIM_GetITStatus"
+                 CMD0="EQU@SPL_PARAM_1=LPTIM_IT_CMPM"/>
+            <LL NAME="N/A"
+                CMD0="(LL_LPTIM_IsEnabledIT_CMPM({CPY@SPL_PARAM_0}) &amp;&amp; LL_LPTIM_IsActiveFlag_CMPM({CPY@SPL_PARAM_0}))"/>
+        </FUNCTION>
+        
+    </FUNCTIONS>
+
+  </COMMON>
+
+  <SPECIFIC>    
+  </SPECIFIC>
+</IP>

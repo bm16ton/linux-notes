@@ -1,0 +1,154 @@
+#!/bin/bash
+# Script to autodetect then program J-Link image onto LPC-Link2 or LPCXpresso V2/V3 board
+
+usage() {
+    echo Usage:
+    echo "Connect a LPC-Link2 or LPCXpresso debug probe configured to DFU-Boot."
+    echo "This script will program the probe with a J-Link image."
+    echo
+    echo "The following arguments are accepted:"
+    echo "$0                  [Programs Bridged J-Link Image]"
+    echo "$0 'path to bin'    [Programs the chosen binary]"
+    echo
+}
+
+run() {
+#    clear
+    "$SCRIPT_HOME/../bin/lpcscrypt" print 0x1234 2>&1 | grep 1234 >/dev/null
+    if [ $? -ne 0 ]; then 
+        echo "Booting LPCScrypt"
+        $SCRIPT_HOME/boot_lpcscrypt >/dev/null
+        if [ $? -ne 0 ]; then 
+            echo "Boot Failed!"
+            echo "Ensure One Debug Probe is configured to DFU-Boot and connected via USB."
+            echo "  - For LPC-Link2: remove link JP1 (nearest USB) and power cycle" 
+            echo "  - For LPCXpresso V2/V3: make DFU link and power cycle"
+            echo
+        #   read -s -r -n 1
+            exit 1
+        else 
+            RET=1
+            sleep 1
+            until [ ${RET} -eq 0 ]; do
+                "$SCRIPT_HOME/../bin/lpcscrypt" print 0x1234 2>&1 | grep 1234 >/dev/null 
+                RET=$?
+                printf "."
+                sleep 1
+            done    
+        fi
+    fi    
+    echo 
+
+    # call out to LPCScrypt and read part info
+    "$SCRIPT_HOME/../bin/lpcscrypt" querypart | grep "LPC43.0" >/dev/null
+    if [ $? -eq 0 ]; then
+        Part="Link2"
+    else
+        Part="Lpcx"
+    fi
+
+    # echo $Part
+    # echo $1
+
+    case `echo $1 | tr '[A-Z]' '[a-z]'` in
+        "")
+            if [ $Part == "Link2" ]; then 
+                Link2Home="$SCRIPT_HOME"/../probe_firmware/LPCLink2
+                Link2ImageWild=Firmware_JLink_LPC-Link2_*.bin
+                DeviceName="LPC-Link2"
+                Flash=SPIFI
+            else 
+                Link2Home="$SCRIPT_HOME"/../probe_firmware/LPCXpressoV2
+                Link2ImageWild=Firmware_JLink_LPCXpressoV2_*.bin
+                DeviceName="LPCXpresso V2/V3"
+                Flash=BANKA
+            fi        
+            ;;
+    esac
+
+    #echo $Link2Home
+    #echo $Link2ImageWild
+    #echo "$Link2Home/"$Link2ImageWild
+    #read
+
+    # if $Link2ImageWild set, find image, else use $1
+
+    if [ -n "$Link2ImageWild" ]; then
+        for file in "$Link2Home/"$Link2ImageWild; do image=${file} ; done
+        if [ -z "$image"  ] ; then
+            echo "Cannot find unique bootable image. Found '$image'"
+            exit 1
+        fi
+    else
+        image=$1
+        if [ $Part == "Link2" ]; then 
+            Flash=SPIFI
+        else
+            Flash=BANKA
+        fi
+        #echo $Part
+    fi
+
+    if [ ! -e $image ]; then
+        echo "Cannot find binary '$image'"
+        exit 1
+    fi
+
+    ShortLink2Image=$(basename "$image")
+    #echo $ShortLink2Image
+
+    #echo "$SCRIPT_HOME/lpcscrypt" program "$image" "$Flash"
+    "$SCRIPT_HOME/../bin/lpcscrypt" program "$image" "$Flash" >/dev/null 2>/tmp/scrypt.log
+	RET=$?
+	
+	if [ ${RET} -ne 0 ]; then
+		# if first attempt fails, slow clock and retry
+		more /tmp/scrypt.log
+		echo "Reducing clock speed and retrying ..."
+		echo
+		"$SCRIPT_HOME/../bin/lpcscrypt" clockslow >/dev/null
+		"$SCRIPT_HOME/../bin/lpcscrypt" program "$image" "$Flash" >/dev/null 2>/tmp/scrypt.log
+		RET=$?
+	fi	
+	
+    if [ ${RET} -eq 0 ]; then
+        echo $DeviceName "programmed with" $ShortLink2Image 
+        if [ $Part == "Link2" ]; then 
+            echo "  - To use: make link JP1 (nearest USB) and reboot the board"
+        else     
+            echo "  -To use: remove DFU link and reboot the board"
+        fi
+        echo
+        # stops ' ' being stripped
+        export IFS= 
+        read -s -r -p "Connect next board then press Space (or <return> to Quit)" -n 1 fin
+        echo
+        #echo ${#fin}
+         
+        if [ -z $fin ]; then
+            echo
+            exit 1
+        fi   
+            
+    else
+        more /tmp/scrypt.log
+        exit 1    
+    fi
+}
+
+version="v2.1.2 Nov 2020"
+SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )" 
+clear
+case `echo $1 | tr '[A-Z]' '[a-z]'` in
+   help)
+       usage
+       exit 1
+esac
+
+echo "LPCScrypt - J-Link firmware programming script "$version"."
+echo
+echo "Connect an LPC-Link2 or LPCXpresso V2/V3 Board via USB then press Space."
+read -s -r -n 1
+
+while true; do run $1; done
+

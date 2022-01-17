@@ -1,0 +1,66 @@
+From c02b3a83f173f5091d4f56ba0d5204e52f709b21 Mon Sep 17 00:00:00 2001
+From: Uwe Bonnes <bon@elektron.ikp.physik.tu-darmstadt.de>
+Date: Tue, 27 Apr 2021 14:07:51 +0200
+Subject: [PATCH] stlinkv3: Work on embedded boards too.
+
+- Enable PWR_EN
+- Release SRST early
+---
+ src/platforms/stlinkv3/platform.c | 15 +++++++++++----
+ src/platforms/stlinkv3/platform.h | 12 ------------
+ 2 files changed, 11 insertions(+), 16 deletions(-)
+
+diff --git a/src/platforms/stlinkv3/platform.c b/src/platforms/stlinkv3/platform.c
+index 7ece9d1c2..a8e45c3f9 100644
+--- a/src/platforms/stlinkv3/platform.c
++++ b/src/platforms/stlinkv3/platform.c
+@@ -193,15 +193,22 @@ void platform_init(void)
+ 	/* Configure srst pin. */
+ 	gpio_set_output_options(SRST_PORT, GPIO_OTYPE_OD, GPIO_OSPEED_2MHZ, SRST_PIN);
+ 	gpio_mode_setup(SRST_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, SRST_PIN);
+-  
++	gpio_set(SRST_PORT, SRST_PIN);
++
+ 	TMS_SET_MODE();
+ 	/* Configure TDI pin. */
+ 	gpio_mode_setup(TDI_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, TDI_PIN);
+ 	gpio_set_output_options(TDI_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TDI_PIN);
+ 
+-	/* Drive the swck pin low. */
+-	gpio_mode_setup(STLINKV3_MINI_SPI_SCK_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, STLINKV3_MINI_SPI_SCK_PIN);
+-	gpio_set_output_options(STLINKV3_MINI_SPI_SCK_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, STLINKV3_MINI_SPI_SCK_PIN);
++	/* Drive the tck/swck pin low. */
++	gpio_mode_setup(TCK_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, TCK_PIN);
++	gpio_set_output_options(TCK_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, TCK_PIN);
++
++#define PWR_EN_PORT GPIOB
++#define PWR_EN_PIN  GPIO0
++	gpio_mode_setup(PWR_EN_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, PWR_EN_PIN);
++	gpio_set_output_options(PWR_EN_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, PWR_EN_PIN);
++	gpio_set(PWR_EN_PORT, PWR_EN_PIN);
+ 
+ 	/* Set up green/red led to steady green to indicate application active
+ 	 * FIXME: Allow RED and yellow constant and blinking,
+diff --git a/src/platforms/stlinkv3/platform.h b/src/platforms/stlinkv3/platform.h
+index 32b9a1970..29c19434f 100644
+--- a/src/platforms/stlinkv3/platform.h
++++ b/src/platforms/stlinkv3/platform.h
+@@ -64,18 +64,6 @@ int usbuart_debug_write(const char *buf, size_t len);
+ #define SRST_PORT	GPIOA
+ #define SRST_PIN	GPIO6
+ 
+-/* SPI5 pins on the stlinkv3-mini. */
+-#define STLINKV3_MINI_SPI		SPI5
+-/* Alternate function number for the spi pins. */
+-#define STLINKV3_MINI_SPI_AF_NUMBER	GPIO_AF5
+-
+-#define	STLINKV3_MINI_SPI_MOSI_PORT	GPIOF
+-#define	STLINKV3_MINI_SPI_MOSI_PIN	GPIO9
+-#define	STLINKV3_MINI_SPI_MISO_PORT	GPIOH
+-#define	STLINKV3_MINI_SPI_MISO_PIN	GPIO7
+-#define	STLINKV3_MINI_SPI_SCK_PORT	GPIOH
+-#define	STLINKV3_MINI_SPI_SCK_PIN	GPIO6
+-
+ #define PLATFORM_HAS_TRACESWO		1
+ #define NUM_TRACE_PACKETS		(16)
+ #define TRACESWO_PROTOCOL		2			/* 1 = Manchester, 2 = NRZ / async */

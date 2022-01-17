@@ -1,0 +1,1439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="USART">
+  <COMMON>
+    <LITERALS>
+       <!-- ################ USART Word Length ################ -->
+      <LITERAL><SPL>USART_WordLength_8b</SPL><LL>LL_USART_DATAWIDTH_8B</LL></LITERAL>
+      <LITERAL><SPL>USART_WordLength_9b</SPL><LL>LL_USART_DATAWIDTH_9B</LL></LITERAL>
+	  <!-- ################ USART Stop bits ################ -->
+      <LITERAL><SPL>USART_StopBits_1</SPL><LL>LL_USART_STOPBITS_1</LL></LITERAL>
+      <LITERAL><SPL>USART_StopBits_2</SPL><LL>LL_USART_STOPBITS_2</LL></LITERAL>
+      <LITERAL><SPL>USART_StopBits_1_5</SPL><LL>LL_USART_STOPBITS_1_5</LL></LITERAL>
+	  <!-- ################ USART Parity ################ -->
+      <LITERAL><SPL>USART_Parity_No</SPL><LL>LL_USART_PARITY_NONE</LL></LITERAL>
+      <LITERAL><SPL>USART_Parity_Even</SPL><LL>LL_USART_PARITY_EVEN</LL></LITERAL>
+      <LITERAL><SPL>USART_Parity_Odd</SPL><LL>LL_USART_PARITY_ODD</LL></LITERAL>
+	  <!-- ################ USART Direction Communication ################ -->
+      <LITERAL><SPL>USART_Mode_Rx</SPL><LL>LL_USART_DIRECTION_RX</LL></LITERAL>
+      <LITERAL><SPL>USART_Mode_Tx</SPL><LL>LL_USART_DIRECTION_TX</LL></LITERAL>
+	  <!-- ################ USART Hardware Control ################ -->
+      <LITERAL><SPL>USART_HardwareFlowControl_None</SPL><LL>LL_USART_HWCONTROL_NONE</LL></LITERAL>
+      <LITERAL><SPL>USART_HardwareFlowControl_RTS</SPL><LL>LL_USART_HWCONTROL_RTS</LL></LITERAL>
+      <LITERAL><SPL>USART_HardwareFlowControl_CTS</SPL><LL>LL_USART_HWCONTROL_CTS</LL></LITERAL>
+      <LITERAL><SPL>USART_HardwareFlowControl_RTS_CTS</SPL><LL>LL_USART_HWCONTROL_RTS_CTS</LL></LITERAL>
+	  <!-- ################ USART Clock Signal ################ --> 
+      <LITERAL><SPL>USART_Clock_Disable</SPL><LL>LL_USART_CLOCK_DISABLE</LL></LITERAL>
+	  <LITERAL><SPL>USART_Clock_Enable</SPL><LL>LL_USART_CLOCK_ENABLE</LL></LITERAL>
+	  <!-- ################ USART Clock Polarity ################ -->
+	  <LITERAL><SPL>USART_CPOL_Low</SPL><LL>LL_USART_POLARITY_LOW</LL></LITERAL>
+	  <LITERAL><SPL>USART_CPOL_High</SPL><LL>LL_USART_POLARITY_HIGH</LL></LITERAL>
+	  <!-- ################ USART Clock Phase ################ -->	  
+	  <LITERAL><SPL>USART_CPHA_1Edge</SPL><LL>LL_USART_PHASE_1EDGE</LL></LITERAL>
+	  <LITERAL><SPL>USART_CPHA_2Edge</SPL><LL>LL_USART_PHASE_2EDGE</LL></LITERAL>
+	  <!-- ################ USART Last Clock Pulse ################ --> 
+	  <LITERAL><SPL>USART_LastBit_Disable</SPL><LL>LL_USART_LASTCLKPULSE_NO_OUTPUT</LL></LITERAL>
+	  <LITERAL><SPL>USART_LastBit_Enable</SPL><LL>LL_USART_LASTCLKPULSE_OUTPUT</LL></LITERAL>
+	  <!-- ################ USART Wake up ################ --> 	  
+	  <LITERAL><SPL>USART_WakeUp_IdleLine</SPL><LL>LL_USART_WAKEUP_IDLELINE</LL></LITERAL>
+	  <LITERAL><SPL>USART_WakeUp_AddressMark</SPL><LL>LL_USART_WAKEUP_ADDRESSMARK</LL></LITERAL>
+	  <!-- ################ USART Lin Break Detection ################ --> 	  
+	  <LITERAL><SPL>USART_LINBreakDetectLength_10b</SPL><LL>LL_USART_LINBREAK_DETECT_10B</LL></LITERAL>
+	  <LITERAL><SPL>USART_LINBreakDetectLength_11b</SPL><LL>LL_USART_LINBREAK_DETECT_11B</LL></LITERAL>
+	  <!-- ################ USART Lin Break Detection ################ --> 	  
+	  <LITERAL><SPL>USART_LINBreakDetectLength_10b</SPL><LL>LL_USART_LINBREAK_DETECT_10B</LL></LITERAL>
+	  <LITERAL><SPL>USART_LINBreakDetectLength_11b</SPL><LL>LL_USART_LINBREAK_DETECT_11B</LL></LITERAL> 
+	  <!-- ################ USART IrDa power ################ --> 	  
+	  <LITERAL><SPL>USART_IrDAMode_LowPower</SPL><LL>LL_USART_IRDA_POWER_LOW</LL></LITERAL>
+	  <LITERAL><SPL>USART_IrDAMode_Normal</SPL><LL>LL_USART_IRDA_POWER_NORMAL</LL></LITERAL> 
+	  
+       <!-- ################USART Flags################ -->
+      <LITERAL><SPL>USART_FLAG_CTS</SPL><LL>LL_USART_ISR_CTS</LL></LITERAL>
+      <LITERAL><SPL>USART_FLAG_LBD</SPL><LL>LL_USART_ISR_LBDF</LL></LITERAL>
+      <LITERAL><SPL>USART_FLAG_TXE</SPL><LL>LL_USART_ISR_TXE</LL></LITERAL> 
+      <LITERAL><SPL>USART_FLAG_TC</SPL><LL>LL_USART_ISR_TC</LL></LITERAL>
+      <LITERAL><SPL>USART_FLAG_RXNE</SPL><LL>LL_USART_ISR_RXNE</LL></LITERAL>
+	  <LITERAL><SPL>USART_FLAG_IDLE</SPL><LL>LL_USART_ISR_IDLE</LL></LITERAL>
+	  <LITERAL><SPL>USART_FLAG_ORE</SPL><LL>LL_USART_ISR_ORE</LL></LITERAL> 
+      <LITERAL><SPL>USART_FLAG_NE</SPL><LL>LL_USART_ISR_NE</LL></LITERAL>
+      <LITERAL><SPL>USART_FLAG_FE</SPL><LL>LL_USART_ISR_FE</LL></LITERAL>
+	  <LITERAL><SPL>USART_FLAG_PE</SPL><LL>LL_USART_ISR_PE</LL></LITERAL>
+
+       <!-- ################ USART Structures Typedef ################ -->
+      <LITERAL><SPL>USART_InitTypeDef</SPL><LL>LL_USART_InitTypeDef</LL></LITERAL> 
+      <LITERAL><SPL>USART_ClockInitTypeDef</SPL><LL>LL_USART_ClockInitTypeDef</LL></LITERAL> 
+
+	</LITERALS>
+
+    <STRUCTURES>
+	     <STRUCTURE NAME="USART_InitTypeDef">
+           <FIELD>
+             <SPL>USART_BaudRate</SPL>
+             <LL>BaudRate</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_WordLength</SPL>
+             <LL>DataWidth</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_StopBits</SPL>
+             <LL>StopBits</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_Parity</SPL>
+             <LL>Parity</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_Mode</SPL>
+             <LL>TransferDirection</LL>
+           </FIELD>
+		    <FIELD>
+             <SPL>USART_HardwareFlowControl</SPL>
+             <LL>HardwareFlowControl</LL>
+           </FIELD>
+         </STRUCTURE>
+		 <STRUCTURE NAME="USART_ClockInitTypeDef">
+           <FIELD>
+             <SPL>USART_Clock</SPL>
+             <LL>ClockOutput</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_CPOL</SPL>
+             <LL>ClockPolarity</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_CPHA</SPL>
+             <LL>ClockPhase</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>USART_LastBit</SPL>
+             <LL>LastBitClockPulse</LL>
+           </FIELD>
+         </STRUCTURE>
+		 
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ Function used to set the USART configuration to the default reset state ################ -->
+      <FUNCTION>
+          <SPL NAME="USART_DeInit" />
+          <LL  NAME="LL_USART_DeInit"
+		       CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+      <!-- ################ USART Initialization ################ -->
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_Init" />
+          <LL  NAME="N/A"
+		       CMD0="{CPY@SPL_PARAM_1}.OverSampling = LL_USART_OVERSAMPLING_16;" />
+          <LL  NAME="LL_USART_Init"
+		       CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+               LOG="OverSampling value is set by default to LL_USART_OVERSAMPLING_16\nThis feature is not available for some STM32F1 target devices" />
+          <AVAILABLE>STM32F10</AVAILABLE>
+      </FUNCTION>
+      
+	  <FUNCTION>
+          <SPL NAME="USART_Init" />
+          <LL  NAME="N/A"
+		       CMD0="{CPY@SPL_PARAM_1}.OverSampling = LL_USART_OVERSAMPLING_16;" />
+          <LL  NAME="LL_USART_Init"
+		       CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+               LOG="OverSampling value is set by default to LL_USART_OVERSAMPLING_16" />
+          <EXCLUDE>STM32F10</EXCLUDE>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_StructInit" />
+          <LL  NAME="LL_USART_StructInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>		  
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_ClockInit"/>
+          <LL  NAME="LL_USART_ClockInit"
+		  	   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClockStructInit"/>
+          <LL  NAME="LL_USART_ClockStructInit"
+		       CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_Cmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_Disable"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  	  <FUNCTION>
+          <SPL NAME="USART_Cmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_Enable"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="USART_SetPrescaler"/>
+          <LL  NAME="LL_USART_SetSmartcardPrescaler" 
+               CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>      
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_OverSampling8Cmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_SetOverSampling"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_USART_OVERSAMPLING_16"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_OverSampling8Cmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_SetOverSampling"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_USART_OVERSAMPLING_8"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_OneBitMethodCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_DisableOneBitSamp"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_OneBitMethodCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_EnableOneBitSamp"
+			   CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SendData"/>
+          <LL  NAME="LL_USART_TransmitData9" 
+		       CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ReceiveData"/>
+          <LL  NAME="LL_USART_ReceiveData9"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_LINBreakDetectLengthConfig"/>
+          <LL  NAME="LL_USART_SetLINBrkDetectionLen" 
+               CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_LINCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableLIN" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_LINCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableLIN" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  
+	 <FUNCTION>
+          <SPL NAME="USART_SendBreak"/>
+          <LL  NAME="LL_USART_RequestBreakSending" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+	      <EXCLUDE>STM32F30</EXCLUDE>
+          <EXCLUDE>STM32F37</EXCLUDE>
+		  <EXCLUDE>STM32F0</EXCLUDE>
+	  </FUNCTION> 
+	  <FUNCTION>
+          <SPL NAME="USART_HalfDuplexCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableHalfDuplex" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_HalfDuplexCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableHalfDuplex" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SmartCardCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableSmartcard" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SmartCardCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableSmartcard" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SmartCardNACKCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableSmartcardNACK" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION> 
+	  <FUNCTION>
+          <SPL NAME="USART_SmartCardNACKCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableSmartcardNACK" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION> 
+	  <FUNCTION>
+          <SPL NAME="USART_SetGuardTime"/>
+          <LL  NAME="LL_USART_SetSmartcardGuardTime" 
+			   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_IrDAConfig"/>
+          <LL  NAME="LL_USART_SetIrdaPowerMode" 
+               CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_IrDACmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIrda" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	 	  <FUNCTION>
+          <SPL NAME="USART_IrDACmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIrda" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_DMAReq_Rx"/>
+          <LL  NAME="LL_USART_DisableDMAReq_RX" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_DMAReq_Rx"/>
+          <LL  NAME="LL_USART_EnableDMAReq_RX" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_DMAReq_Tx"/>
+          <LL  NAME="LL_USART_DisableDMAReq_TX" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_DMAReq_Tx"/>
+          <LL  NAME="LL_USART_EnableDMAReq_TX" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>	  
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_PE"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_PE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_PE"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_PE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TXE"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_TXE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TXE"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_TXE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TC"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_TC" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TC"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_TC" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>  
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RXNE"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_RXNE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RXNE"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_RXNE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_IDLE"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_IDLE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_IDLE"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_IDLE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_LBD"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_LBD" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_LBD"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_LBD" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CTS"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_CTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CTS"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_CTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ERR"
+			   CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_ERROR" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	 <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ERR"
+			   CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_ERROR" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_LBD"/>
+          <LL  NAME="LL_USART_IsActiveFlag_LBD" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_TXE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_TXE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_TC"/>
+          <LL  NAME="LL_USART_IsActiveFlag_TC" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_RXNE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_RXNE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_IDLE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_IDLE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_ORE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_ORE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_NE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_NE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_PE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_PE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_FE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_FE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_CTS"/>
+          <LL  NAME="LL_USART_ClearFlag_nCTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_LBD"/>
+          <LL  NAME="LL_USART_ClearFlag_LBD" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_TC"/>
+          <LL  NAME="LL_USART_ClearFlag_TC" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_IDLE"/>
+          <LL  NAME="LL_USART_ClearFlag_IDLE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_ORE"/>
+          <LL  NAME="LL_USART_ClearFlag_ORE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_NE"/>
+          <LL  NAME="LL_USART_ClearFlag_NE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_FE"/>
+          <LL  NAME="LL_USART_ClearFlag_FE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_PE"/>
+          <LL  NAME="LL_USART_ClearFlag_PE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_PE"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_PE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_PE({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TXE"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_TXE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_TXE({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>	 
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TC"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_TC({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_TC({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RXNE"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_RXNE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_RXNE({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_IDLE"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_IDLE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_IDLE({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_LBD"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_LBD({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_LBD({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ERR"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_ERROR({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_ERROR({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ORE"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_RXNE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_ORE({CPY@SPL_PARAM_0})))"/>
+		<EXCLUDE>STM32F2</EXCLUDE>
+		<EXCLUDE>STM32F4</EXCLUDE>	
+		<EXCLUDE>STM32L1</EXCLUDE>			
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_PE"/>
+          <LL  NAME="LL_USART_ClearFlag_PE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_FE"/>
+          <LL  NAME="LL_USART_ClearFlag_FE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_NE"/>
+          <LL  NAME="LL_USART_ClearFlag_NE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_IDLE"/>
+          <LL  NAME="LL_USART_ClearFlag_IDLE" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_TC"/>
+          <LL  NAME="LL_USART_ClearFlag_TC" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_LBD"/>
+          <LL  NAME="LL_USART_ClearFlag_LBD" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CTS"/>
+          <LL  NAME="LL_USART_ClearFlag_nCTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+  
+  <SPECIFIC>
+   <VERSION NAME="USART_VER_1_0_0">
+      <LITERALS>
+	  <!-- ################ USART Length ################ -->
+      <LITERAL><SPL>USART_WordLength_7b</SPL><LL>LL_USART_DATAWIDTH_7B</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+	  <LITERAL><SPL>USART_WakeUpSource_AddressMatch</SPL><LL>LL_USART_WAKEUP_ON_ADDRESS</LL></LITERAL>
+	  <LITERAL><SPL>USART_WakeUpSource_StartBit</SPL><LL>LL_USART_WAKEUP_ON_STARTBIT</LL></LITERAL>
+	  <LITERAL><SPL>USART_WakeUpSource_RXNE</SPL><LL>LL_USART_WAKEUP_ON_RXNE</LL></LITERAL>
+	  <LITERAL><SPL>USART_AddressLength_4b</SPL><LL>LL_USART_ADDRESS_DETECT_4B</LL></LITERAL>
+	  <LITERAL><SPL>USART_AddressLength_7b</SPL><LL>LL_USART_ADDRESS_DETECT_7B</LL></LITERAL>
+	  <!-- ################ USART AutoBaudrate Mode ################ -->
+	  <LITERAL><SPL>USART_AutoBaudRate_StartBit</SPL><LL>LL_USART_AUTOBAUD_DETECT_ON_STARTBIT</LL></LITERAL>
+	  <LITERAL><SPL>USART_AutoBaudRate_FallingEdge</SPL><LL>LL_USART_AUTOBAUD_DETECT_ON_FALLINGEDGE</LL></LITERAL>
+	  <LITERAL><SPL>USART_AutoBaudRate_0x7FFrame</SPL><LL>LL_USART_AUTOBAUD_DETECT_ON_7F_FRAME</LL><AVAILABLE>STM32F30</AVAILABLE></LITERAL>
+	  <LITERAL><SPL>USART_AutoBaudRate_0x55Frame</SPL><LL>LL_USART_AUTOBAUD_DETECT_ON_55_FRAME</LL><AVAILABLE>STM32F30</AVAILABLE></LITERAL>	  
+	  <LITERAL><SPL>USART_DEPolarity_High</SPL><LL>LL_USART_DE_POLARITY_HIGH</LL></LITERAL>
+	  <LITERAL><SPL>USART_DEPolarity_Low</SPL><LL>LL_USART_DE_POLARITY_LOW</LL></LITERAL>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+    <FUNCTIONS>
+      <!-- ################ Function used to configure the USART Direction Tx  ################ -->
+      <FUNCTION>
+          <SPL NAME="USART_DirectionModeCmd"
+		       CMD0="EQU@SPL_PARAM_1=USART_Mode_Tx"
+		       CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableDirectionTx"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="USART_DirectionModeCmd"
+		       CMD0="EQU@SPL_PARAM_1=USART_Mode_Tx"
+		       CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableDirectionTx"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <!-- ################ Function used to configure the USART Direction Rx  ################ -->
+      <FUNCTION>
+          <SPL NAME="USART_DirectionModeCmd"
+		       CMD0="EQU@SPL_PARAM_1=USART_Mode_Rx"
+		       CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableDirectionRx"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="USART_DirectionModeCmd"
+		       CMD0="EQU@SPL_PARAM_1=USART_Mode_Rx"
+		       CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableDirectionRx"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_MSBFirstCmd" 
+		       CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_SetTransferBitOrder" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_USART_BITORDER_MSBFIRST"/>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_MSBFirstCmd" 
+		       CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_SetTransferBitOrder" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_USART_BITORDER_LSBFIRST"/>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="USART_DataInvCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_SetBinaryDataLogic" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_BINARY_LOGIC_NEGATIVE"/>
+      </FUNCTION>
+	  <FUNCTION>
+              <SPL NAME="USART_DataInvCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_SetBinaryDataLogic"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_BINARY_LOGIC_POSITIVE"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="USART_InvPinCmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_InvPin_Tx" />
+          <LL  NAME="LL_USART_SetTXPinLevel" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_TXPIN_LEVEL_INVERTED"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="USART_InvPinCmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_InvPin_Tx" />
+          <LL  NAME="LL_USART_SetTXPinLevel" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_TXPIN_LEVEL_STANDARD"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="USART_InvPinCmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_InvPin_Rx" />
+          <LL  NAME="LL_USART_SetTXPinLevel" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_RXPIN_LEVEL_INVERTED"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="USART_InvPinCmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE"
+			   CMD1="EQU@SPL_PARAM_1=USART_InvPin_Rx" />
+          <LL  NAME="LL_USART_SetTXPinLevel" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_RXPIN_LEVEL_STANDARD"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>	  
+	  <FUNCTION>
+          <SPL NAME="USART_SWAPPinCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_SetTXRXSwap" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_TXRX_STANDARD"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SWAPPinCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_SetTXRXSwap" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_USART_TXRX_SWAPPED"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ReceiverTimeOutCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_EnableRxTimeout" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ReceiverTimeOutCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_DisableRxTimeout" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SetReceiverTimeOut"/>
+          <LL  NAME="LL_USART_SetRxTimeout" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_STOPModeCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_USART_EnableInStopMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+               CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_STOPModeCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_USART_DisableInStopMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+               CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_StopModeWakeUpSourceConfig"/>
+          <LL  NAME="LL_USART_SetWKUPType" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_AutoBaudRateCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableAutoBaudRate" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_AutoBaudRateCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableAutoBaudRate" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_AutoBaudRateConfig"/>
+          <LL  NAME="LL_USART_SetAutoBaudRateMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_MuteModeWakeUpConfig"/>
+          <LL  NAME="LL_USART_SetWakeUpMethod" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_MuteModeCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableMuteMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_MuteModeCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableMuteMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_AddressDetectionConfig"/>
+          <LL  NAME="N/A" 
+               CMD0="MODIFY_REG({CPY@SPL_PARAM_0}-&gt;CR2, USART_CR2_ADDM7, {CPY@SPL_PARAM_1})" />
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SetAutoRetryCount"/>
+          <LL  NAME="LL_USART_SetSmartcardAutoRetryCount" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SetBlockLength"/>
+          <LL  NAME="LL_USART_SetBlockLength" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DECmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_EnableDEMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DECmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_DisableDEMode" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DEPolarityConfig"/>
+          <LL  NAME="LL_USART_SetDESignalPolarity" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_SetDEAssertionTime" />
+          <LL  NAME="LL_USART_SetDEAssertionTime" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_SetDEDeassertionTime" />
+          <LL  NAME="LL_USART_SetDEDeassertionTime" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DMAReceptionErrorConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_DMAOnError_Enable" />
+          <LL  NAME="LL_USART_EnableDMADeactOnRxErr"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_DMAReceptionErrorConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_DMAOnError_Disable" />
+          <LL  NAME="LL_USART_DisableDMADeactOnRxErr"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_TXFRQ"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_RequestTxDataFlush"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_TXFRQ"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="N/A"
+               LOG="Disable the request is not allowed by HW"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_RXFRQ"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_RequestRxDataFlush"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_RXFRQ"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="N/A"
+               LOG="Disable the request is not allowed by HW"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_MMRQ"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_RequestEnterMuteMode"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_MMRQ"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="N/A"
+               LOG="Disable the request is not allowed by HW"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_SBKRQ"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_RequestBreakSending"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_SBKRQ"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="N/A"
+               LOG="Disable the request is not allowed by HW"/>
+      </FUNCTION>	 
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_ABRRQ"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_RequestAutoBaudRate"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_RequestCmd"
+               CMD0="EQU@SPL_PARAM_1=USART_Request_ABRRQ"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="N/A"
+               LOG="Disable the request is not allowed by HW"/>
+      </FUNCTION>	  
+	  <FUNCTION>
+          <SPL NAME="USART_OverrunDetectionConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_OVRDetection_Enable"/>
+          <LL  NAME="LL_USART_EnableOverrunDetect"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_OverrunDetectionConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_OVRDetection_Disable"/>
+          <LL  NAME="LL_USART_DisableOverrunDetect"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_WU"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_WKUP"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SetAddress"/>
+          <LL  NAME="N/A" 
+               CMD0="LL_USART_ConfigNodeAddress({CPY@SPL_PARAM_0}, LL_USART_GetNodeAddress({CPY@SPL_PARAM_0}), {CPY@SPL_PARAM_1})" />
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_WU"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_WKUP"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>  
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CM"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_CM"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CM"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_CM"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>  
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_EOB"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_EOB"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_EOB"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_EOB"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>  
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RTO"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_USART_DisableIT_RTO"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RTO"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_USART_EnableIT_RTO"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_REACK"/>
+          <LL  NAME="LL_USART_IsActiveFlag_REACK"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_TEACK"/>
+          <LL  NAME="LL_USART_IsActiveFlag_TEACK"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_WU"/>
+          <LL  NAME="LL_USART_IsActiveFlag_WKUP"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_RWU"/>
+          <LL  NAME="LL_USART_IsActiveFlag_RWU"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_SBK"/>
+          <LL  NAME="LL_USART_IsActiveFlag_SBK"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_CM"/>
+          <LL  NAME="LL_USART_IsActiveFlag_CM"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_BUSY"/>
+          <LL  NAME="LL_USART_IsActiveFlag_BUSY"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_ABRF"/>
+          <LL  NAME="LL_USART_IsActiveFlag_ABR"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_ABRE"/>
+          <LL  NAME="LL_USART_IsActiveFlag_ABRE"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>	 
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_EOB"/>
+          <LL  NAME="LL_USART_IsActiveFlag_EOB"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_CTS"/>
+          <LL  NAME="LL_USART_IsActiveFlag_CTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_RTO"/>
+          <LL  NAME="LL_USART_IsActiveFlag_RTO"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_nCTSS"/>
+          <LL  NAME="LL_USART_IsActiveFlag_nCTS"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>		  
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_WU"/>
+          <LL  NAME="LL_USART_ClearFlag_WKUP"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_CM"/>
+          <LL  NAME="LL_USART_ClearFlag_CM"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_EOB"/>
+          <LL  NAME="LL_USART_ClearFlag_EOB"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_RTO"/>
+          <LL  NAME="LL_USART_ClearFlag_RTO"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_WU"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_WKUP({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_WKUP({CPY@SPL_PARAM_0})))"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CM"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_CM({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_CM({CPY@SPL_PARAM_0})))"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_EOB"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_EOB({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_EOB({CPY@SPL_PARAM_0})))"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RTO"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_RTO({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_RTO({CPY@SPL_PARAM_0})))"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CTS"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_CTS({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_CTS({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>	
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_WU"/>
+          <LL  NAME="LL_USART_ClearFlag_WKUP"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CM"/>
+          <LL  NAME="LL_USART_ClearFlag_CM"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_EOB"/>
+          <LL  NAME="LL_USART_ClearFlag_EOB"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_RTO"/>
+          <LL  NAME="LL_USART_ClearFlag_RTO"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+	
+ <VERSION NAME="USART_VER_2_0_0">
+      <LITERALS>
+	  <!-- ################ USART StopBit ################ -->
+      <LITERAL><SPL>USART_StopBits_0_5</SPL><LL>LL_USART_STOPBITS_0_5</LL></LITERAL>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+    <FUNCTIONS>
+      <!-- ################ Function used to configure the USART Direction Tx  ################ -->
+      <FUNCTION>
+          <SPL NAME="USART_WakeUpConfig"/>
+          <LL  NAME="LL_USART_SetWakeUpMethod"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="USART_ReceiverWakeUpCmd"
+		       CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+          <LL  NAME="LL_USART_RequestEnterMuteMode"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="USART_ReceiverWakeUpCmd"
+		       CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+          <LL  NAME="LL_USART_RequestExitMuteMode"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_SetAddress"/>
+          <LL  NAME="LL_USART_SetNodeAddress" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+               CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" 			   />
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ORE_RX"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_RXNE({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_ORE({CPY@SPL_PARAM_0})))"/>
+		<AVAILABLE>STM32F2</AVAILABLE>
+		<AVAILABLE>STM32F4</AVAILABLE>	
+		<AVAILABLE>STM32L1</AVAILABLE>			
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_ORE_ER"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_ERROR({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_ORE({CPY@SPL_PARAM_0})))"/>
+		<AVAILABLE>STM32F2</AVAILABLE>
+		<AVAILABLE>STM32F4</AVAILABLE>	
+		<AVAILABLE>STM32L1</AVAILABLE>			
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_IT_CTS"/>
+          <LL  NAME="N/A"
+               CMD0="((LL_USART_IsEnabledIT_CTS({CPY@SPL_PARAM_0}))&amp;&amp; (LL_USART_IsActiveFlag_nCTS({CPY@SPL_PARAM_0})))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="USART_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=USART_FLAG_CTS"/>
+          <LL  NAME="LL_USART_IsActiveFlag_nCTS" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"  
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

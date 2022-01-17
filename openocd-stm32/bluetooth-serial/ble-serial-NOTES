@@ -1,0 +1,28 @@
+
+
+$ ble-scan
+
+Started BLE scan
+
+C0:36:E0:82:49:07 (RSSI=-49): SerialPassthrough
+
+Finished BLE scan
+
+$ ble-scan -d C0:36:E0:82:49:07
+
+Started deep scan of C0:36:E0:82:49:07
+
+SERVICE 00001801-0000-1000-8000-00805f9b34fb (Handle: 6): Generic Attribute Profile
+     CHARACTERISTIC 00002a05-0000-1000-8000-00805f9b34fb (Handle: 7): Service Changed ['indicate']
+         DESCRIPTOR 00002902-0000-1000-8000-00805f9b34fb (Handle: 9): Client Characteristic Configuration
+SERVICE 6e400001-b5a3-f393-e0a9-e50e24dcca9e (Handle: 10): Nordic UART Service
+     CHARACTERISTIC 6e400002-b5a3-f393-e0a9-e50e24dcca9e (Handle: 11): Nordic UART RX ['write-without-response']
+     CHARACTERISTIC 6e400003-b5a3-f393-e0a9-e50e24dcca9e (Handle: 13): Nordic UART TX ['notify']
+         DESCRIPTOR 00002902-0000-1000-8000-00805f9b34fb (Handle: 15): Client Characteristic Configuration
+
+Completed deep scan of C0:36:E0:82:49:07
+
+
+$ sudo ble-serial -d C0:36:E0:82:49:07 -p /dev/ttyBLE0 -w 6e400002-b5a3-f393-e0a9-e50e24dcca9e -r 6e400003-b5a3-f393-e0a9-e50e24dcca9e
+
+$ sudo chmod aou+wrx

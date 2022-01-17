@@ -1,0 +1,1698 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="i2c_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_29848_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font529848
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font629848
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font729848
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font829848
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6529848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6629848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6729848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6829848
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl6929848
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7029848
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7129848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7229848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7329848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7429848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7529848
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7629848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7729848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7829848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7929848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8029848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8129848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8229848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8329848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8429848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8529848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl8629848
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_29848" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1717 class=xl6553529848
+ style='border-collapse:collapse;table-layout:fixed;width:1288pt'>
+ <col class=xl6553529848 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553529848 width=547 style='mso-width-source:userset;mso-width-alt:
+ 17504;width:410pt'>
+ <col class=xl6553529848 width=562 style='mso-width-source:userset;mso-width-alt:
+ 17984;width:422pt'>
+ <col class=xl6553529848 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553529848 width=72 span=8 style='width:54pt'>
+ <tr class=xl6553529848 height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl8029848 width=1141 style='height:47.1pt;
+  width:856pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font829848">I2C</font><font class="font629848"> driver</font></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+  <td class=xl6553529848 width=72 style='width:54pt'></td>
+ </tr>
+ <tr class=xl6553529848 height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td colspan=2 height=22 class=xl7429848 style='height:16.5pt'>SPL<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl7429848>STM32Cube_LL</td>
+  <td class=xl7429848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=21 style='height:15.75pt'>
+  <td height=21 class=xl6629848 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_Init(I2C_TypeDef* I2Cx,
+  I2C_InitTypeDef* I2C_InitStruct)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_Init(I2C_TypeDef*
+  I2Cx, LL_I2C_InitTypeDef* I2C_InitStruct)</td>
+  <td class=xl6629848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_DeInit(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_DeInit(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_StructInit(I2C_InitTypeDef*
+  I2C_InitStruct)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_StructInit(LL_I2C_InitTypeDef*
+  I2C_InitStruct)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_Cmd(I2C_TypeDef* I2Cx,
+  FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_Enable(I2C_TypeDef*
+  I2Cx)<br>
+    <br>
+    LL_I2C_Disable(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_DualAddressCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableOwnAddress2(I2C_TypeDef*
+  I2Cx)<br>
+    <br>
+    LL_I2C_DisableOwnAddress2(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GeneralCallCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableGeneralCall(I2C_TypeDef*
+  I2Cx)<br>
+    <br>
+    LL_I2C_DisableGeneralCall(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_StretchClockCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableClockStretching(I2C_TypeDef*
+  I2Cx)<br>
+    <br>
+    LL_I2C_DisableClockStretching(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_SendData(I2C_TypeDef*
+  I2Cx, uint8_t Data)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_TransmitData8(I2C_TypeDef
+  *I2Cx, uint8_t Data)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ReceiveData(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_ReceiveData8(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_CalculatePEC(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusPEC(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableSMBusPEC(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetPEC(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_GetSMBusPEC(I2C_TypeDef
+  *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ReadRegister(I2C_TypeDef*
+  I2Cx, uint8_t I2C_Register)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_ReadReg(__INSTANCE__,
+  __REG__)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=400 style='height:300.0pt'>
+  <td height=400 class=xl6729848 style='height:300.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ITConfig(I2C_TypeDef*
+  I2Cx, uint32_t I2C_IT, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableIT_TX(I2C_TypeDef*
+  I2Cx)<br>
+    LL_I2C_DisableIT_TX(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_RX(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_RX(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_ADDR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_ADDR(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_NACK(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_NACK(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_STOP(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_STOP(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_TC(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_TC(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableIT_ERR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableIT_ERR(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_StopModeCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableWakeUpFromStop(I2C_TypeDef*
+  I2Cx)<br>
+    <br>
+    LL_I2C_DisableWakeUpFromStop(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6729848 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_OwnAddress2Config(I2C_TypeDef*
+  I2Cx, uint16_t Address, uint8_t Mask)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetOwnAddress2(I2C_TypeDef*
+  I2Cx, uint32_t OwnAddress2, uint32_t OwnAddrMask)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=400 style='height:300.0pt'>
+  <td height=400 class=xl6729848 style='height:300.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_TransferHandling(I2C_TypeDef*
+  I2Cx, uint16_t Address, uint8_t Number_Bytes, uint32_t ReloadEndMode,
+  uint32_t StartStopMode)<br>
+    <br>
+    I2C_10BitAddressHeaderCmd(I2C_TypeDef* I2Cx, FunctionalState
+  NewState)<br>
+    <br>
+    I2C_10BitAddressingModeCmd(I2C_TypeDef* I2Cx, FunctionalState
+  NewState)<br>
+    <br>
+    I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState)<br>
+    <br>
+    I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState)<br>
+    <br>
+    I2C_MasterRequestConfig(I2C_TypeDef* I2Cx, uint16_t I2C_Direction)<br>
+    <br>
+    I2C_NumberOfBytesConfig(I2C_TypeDef* I2Cx, uint8_t Number_Bytes)<br>
+    <br>
+    I2C_ReloadCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)<br>
+    <br>
+    I2C_AutoEndCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)<br>
+    <br>
+    I2C_SlaveAddressConfig(I2C_TypeDef* I2Cx, uint16_t Address)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_HandleTransfer(I2C_TypeDef*
+  I2Cx, uint32_t SlaveAddr, uint32_t SlaveAddrSize, uint32_t TransferSize,
+  uint32_t EndMode, uint32_t Request)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetTransferDirection(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_GetTransferDirection(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetAddressMatched(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_GetAddressMatchCode(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_AcknowledgeConfig(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_AcknowledgeNextData(I2C_TypeDef*
+  I2Cx, uint32_t TypeAcknowledge)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_10BitAddressingModeCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetMasterAddressingMode(I2C_TypeDef*
+  I2Cx, uint32_t AddressingMode)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6729848 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_DMACmd(I2C_TypeDef*
+  I2Cx, uint32_t I2C_DMAReq, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableDMAReq_TX(I2C_TypeDef*
+  I2Cx)<br>
+    LL_I2C_DisableDMAReq_TX(I2C_TypeDef* I2Cx)<br>
+    <br>
+    LL_I2C_EnableDMAReq_RX(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_DisableDMAReq_RX(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl6729848 style='height:180.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetFlagStatus(I2C_TypeDef*
+  I2Cx, uint32_t I2C_FLAG)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_IsActiveFlag_TXE(I2C_TypeDef*
+  I2Cx)<br>
+    LL_I2C_IsActiveFlag_TXIS(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_RXNE(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_ADDR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_NACK(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_STOP(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_TC(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_TCR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_BERR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_ARLO(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_OVR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_BUSY(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=140 style='height:105.0pt'>
+  <td height=140 class=xl6729848 style='height:105.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ClearFlag(I2C_TypeDef*
+  I2Cx, uint32_t I2C_FLAG)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_ClearFlag_ADDR(I2C_TypeDef*
+  I2Cx)<br>
+    LL_I2C_ClearFlag_NACK(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_ClearFlag_STOP(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_ClearFlag_TXE(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_ClearFlag_BERR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_ClearFlag_ARLO(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_ClearFlag_OVR(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_AnalogFilterCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableAnalogFilter(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableAnalogFilter(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_DigitalFilterConfig(I2C_TypeDef*
+  I2Cx, uint16_t I2C_DigitalFilter)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetDigitalFilter(I2C_TypeDef
+  *I2Cx, uint32_t DigitalFilter)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_Send7bitAddress(I2C_TypeDef*
+  I2Cx, uint8_t Address, uint8_t I2C_Direction)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_TransmitData8(I2C_TypeDef
+  *I2Cx, uint8_t Data)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_FastModeDutyCycleConfig(I2C_TypeDef*
+  I2Cx, uint16_t I2C_DutyCycle)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetDutyCycle(I2C_TypeDef
+  *I2Cx, uint32_t DutyCycle)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_SMBusAlertConfig(I2C_TypeDef*
+  I2Cx, uint16_t I2C_SMBusAlert)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusAlert(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableSMBusAlert(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ARPCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetMode(I2C_TypeDef
+  *I2Cx, uint32_t PeripheralMode)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_TransmitPEC(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusPECCompare(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableSMBusPECCompare(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_DMALastTransferCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableLastDMA(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableLastDMA(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=340 style='height:255.0pt'>
+  <td height=340 class=xl6729848 style='height:255.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_CheckEvent(I2C_TypeDef*
+  I2Cx, uint32_t I2C_EVENT)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>can be any combination of:
+  <br>
+    LL_I2C_IsActiveFlag_TXE(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_BTF(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_RXNE(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_ADDR(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_SB(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_ADD10(I2C_TypeDef* I2Cx)<br>
+    LL_I2C_IsActiveFlag_STOP(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_BERR(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_ARLO(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_OVR(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_MSL(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_GENCALL(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveSMBusFlag_SMBDEFAULT(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveSMBusFlag_SMBHOST(I2C_TypeDef *I2Cx)<br>
+    LL_I2C_IsActiveFlag_DUAL(I2C_TypeDef
+  *I2Cx)LL_I2C_IsActiveFlag_BUSY(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_SlaveByteControlCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSlaveByteControl(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableSlaveByteControl(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_SlaveAddressConfig(I2C_TypeDef*
+  I2Cx, uint16_t Address)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetSlaveAddr(I2C_TypeDef
+  *I2Cx, uint32_t SlaveAddr)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_10BitAddressingModeCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetMasterAddressingMode(I2C_TypeDef
+  *I2Cx, uint32_t AddressingMode)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6729848 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_AutoEndCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableAutoEndMode(I2C_TypeDef
+  *I2Cx)<br>
+    LL_I2C_DisableAutoEndMode(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6729848 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ReloadCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableReloadMode(I2C_TypeDef
+  *I2Cx)<br>
+    LL_I2C_DisableReloadMode(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_NumberOfBytesConfig(I2C_TypeDef*
+  I2Cx, uint8_t Number_Bytes)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetTransferSize(I2C_TypeDef
+  *I2Cx, uint32_t TransferSize)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_MasterRequestConfig(I2C_TypeDef*
+  I2Cx, uint16_t I2C_Direction)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetTransferRequest(I2C_TypeDef
+  *I2Cx, uint32_t TransferRequest)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6729848 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_10BitAddressHeaderCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableAuto10BitRead(I2C_TypeDef
+  *I2Cx)<br>
+    LL_I2C_DisableAuto10BitRead(I2C_TypeDef *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_AcknowledgeConfig(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_AcknowledgeNextData(I2C_TypeDef
+  *I2Cx, uint32_t TypeAcknowledge)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetAddressMatched(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_GetAddressMatchCode(I2C_TypeDef
+  *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_GetTransferDirection(I2C_TypeDef*
+  I2Cx)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_GetTransferDirection(I2C_TypeDef
+  *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'><span
+  style='mso-spacerun:yes'> </span>I2C_TransferHandling(I2C_TypeDef* I2Cx,
+  uint16_t Address, uint8_t Number_Bytes, uint32_t ReloadEndMode, uint32_t
+  StartStopMode)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_HandleTransfer(I2C_TypeDef
+  *I2Cx, uint32_t SlaveAddr, uint32_t SlaveAddrSize,<br>
+    <span style='mso-spacerun:yes'>                                         
+  </span>uint32_t TransferSize, uint32_t EndMode, uint32_t Request)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_SMBusAlertCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusAlert(I2C_TypeDef
+  *I2Cx)<br>
+    <br>
+    LL_I2C_DisableSMBusAlert(I2C_TypeDef *I2Cx)<span
+  style='mso-spacerun:yes'>       </span></td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ClockTimeoutCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusTimeout(I2C_TypeDef
+  *I2Cx, uint32_t ClockTimeout)<br>
+    <br>
+    LL_I2C_DisableSMBusTimeout(I2C_TypeDef *I2Cx, uint32_t ClockTimeout)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=60 style='height:45.0pt'>
+  <td height=60 class=xl6729848 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_ExtendedClockTimeoutCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_EnableSMBusTimeout(I2C_TypeDef
+  *I2Cx, uint32_t ClockTimeout)<br>
+    <br>
+    LL_I2C_DisableSMBusTimeout(I2C_TypeDef *I2Cx, uint32_t ClockTimeout)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_TimeoutAConfig(I2C_TypeDef*
+  I2Cx, uint16_t Timeout)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetSMBusTimeoutA(I2C_TypeDef
+  *I2Cx, uint32_t TimeoutA)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7529848 width=547 style='width:410pt'>I2C_TimeoutBConfig(I2C_TypeDef*
+  I2Cx, uint16_t Timeout)</td>
+  <td class=xl6929848 width=562 style='width:422pt'>LL_I2C_SetSMBusTimeoutAMode(I2C_TypeDef
+  *I2Cx, uint32_t TimeoutAMode)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl6829848 width=547 style='width:410pt'>I2C_PECRequestCmd(I2C_TypeDef*
+  I2Cx, FunctionalState NewState)</td>
+  <td class=xl7029848 width=562 style='width:422pt'>LL_I2C_EnableSMBusPECCompare(I2C_TypeDef
+  *I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl7329848 width=16 style='height:18.75pt;width:12pt'>&nbsp;</td>
+  <td colspan=2 class=xl8329848 width=1109 style='width:832pt'>Correspondence
+  between <font class="font729848">SPL</font><font class="font529848"> and </font><font
+  class="font729848">STM32Cube_LL</font><font class="font529848">
+  initialization structures</font></td>
+  <td class=xl7329848 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl6729848 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7229848 width=547 style='border-top:none;width:410pt'>Structure<br>
+    </td>
+  <td class=xl7129848 width=562 style='border-top:none;width:422pt'>Parameter</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=9 class=xl8229848 width=547 style='border-bottom:.5pt solid #39A9DC;
+  border-top:none;width:410pt'>I2C_InitTypeDef &#8596;<span
+  style='mso-spacerun:yes'>  </span>LL_I2C_InitTypeDef</td>
+  <td class=xl8429848 width=562 style='border-top:none;width:422pt'>I2C_Timing
+  &#8596;<span style='mso-spacerun:yes'>  </span>Timing</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_AnalogFilter &#8596;
+  AnalogFilter</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_DigitalFilter &#8596;
+  DigitalFilter</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_Mode
+  &#8596;PeripheralMode</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_OwnAddress1 &#8596;
+  OwnAddress1</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_Ack &#8596;
+  TypeAcknowledge</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_AcknowledgedAddress
+  &#8596; OwnAddrSize</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8529848 width=562 style='width:422pt'>I2C_ClockSpeed<span
+  style='mso-spacerun:yes'>  </span>&#8596; ClockSpeed</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8629848 width=562 style='width:422pt'>I2C_DutyCycle<span
+  style='mso-spacerun:yes'>   </span>&#8596;<span style='mso-spacerun:yes'> 
+  </span>DutyCycle</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr class=xl6553529848 height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl7329848 width=16 style='height:17.25pt;width:12pt'>&nbsp;</td>
+  <td colspan=2 class=xl8129848 width=1109 style='width:832pt'>APIs not
+  available on LL(Migartion done using direct register access )<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl7329848 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6729848 style='height:15.0pt'>&nbsp;</td>
+  <td colspan=2 class=xl7629848 width=1109 style='width:832pt'>I2C_NACKPositionConfig(I2C_TypeDef*
+  I2Cx, uint16_t I2C_NACKPosition)<br>
+    I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition)<br>
+    I2C_GetLastEvent(I2C_TypeDef* I2Cx)</td>
+  <td class=xl6729848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6529848 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl6529848>&nbsp;</td>
+  <td class=xl6529848>&nbsp;</td>
+  <td class=xl6529848>&nbsp;</td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+  <td class=xl6553529848></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=547 style='width:410pt'></td>
+  <td width=562 style='width:422pt'></td>
+  <td width=16 style='width:12pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

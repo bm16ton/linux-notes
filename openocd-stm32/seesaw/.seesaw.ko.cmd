@@ -1,0 +1,1 @@
+cmd_/home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.ko := ld -r  -EL  -maarch64elf  --build-id=sha1  -T scripts/module.lds -o /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.ko /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.o /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.mod.o;  true

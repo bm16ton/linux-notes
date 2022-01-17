@@ -1,0 +1,91 @@
+#!/bin/bash
+# Script to provide simple pseudo command line environment for LPCScrypt
+
+set -i
+history -r
+
+myread() {
+    read -e -p 'LPCScrypt ' $1
+    history -s ${!1}
+}
+
+usage() {
+    echo Usage:
+    echo "Connect an LPC18xx or LPC43xx MCU configured to DFU-Boot from USB."
+    echo "This script will boot LPCScrypt and then process LPCScrypt commands."
+    echo
+}
+
+
+run() {
+#    clear
+
+    "$SCRIPT_HOME/../bin/lpcscrypt" print 0x1234 2>&1 | grep 1234 >/dev/null
+    if [ $? -ne 0 ]; then
+        echo "Booting LPCScrypt"
+        $SCRIPT_HOME/boot_lpcscrypt >/dev/null
+        if [ $? -ne 0 ]; then
+            echo "Boot Failed!"
+            echo "Ensure a single LPC18xx or LPC43xx MCU is connected and configured to boot from USB."
+            echo
+        #   read -s -r -n 1
+            exit 1
+        else
+            RET=1
+            sleep 1
+            until [ ${RET} -eq 0 ]; do
+                "$SCRIPT_HOME/../bin/lpcscrypt" print 0x1234 2>&1 | grep 1234 >/dev/null
+                RET=$?
+                echo -n "."
+                sleep 1
+            done
+        fi
+    fi
+    echo
+
+    myread scrypt_options
+	
+	if [ "$scrypt_options" == "" ]; then
+       return
+    fi	
+    
+	shopt -s nocasematch
+	if [ "$scrypt_options" == "exit" ]; then
+       exit 1
+    fi
+	
+	if [ "$scrypt_options" == "cmsis" ]; then
+       /bin/bash $SCRIPT_HOME/program_CMSIS
+    fi
+	
+	if [ "$scrypt_options" == "jlink" ]; then
+       /bin/bash $SCRIPT_HOME/program_JLINK
+    fi
+	shopt -u nocasematch
+	
+    "$SCRIPT_HOME/../bin/lpcscrypt" $scrypt_options
+    if [ $? -eq 0 ]; then
+        echo "Successful"
+    else
+        echo "Failed"
+    fi
+
+    echo
+}
+
+version="v2.1.2 Nov 2020"
+SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
+clear
+case `echo $1 | tr '[A-Z]' '[a-z]'` in
+   help)
+       usage
+       exit 1
+esac
+
+echo "LPCScrypt - Command line Environment "$version"."
+echo
+echo "Connect target via USB then press Space."
+read -s -r -n 1
+
+while true; do run $1; done
+

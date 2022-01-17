@@ -1,0 +1,14 @@
+.\obj\vcomdemo.o: vcomdemo.c
+.\obj\vcomdemo.o: ..\Common\inc\LPC17xx.h
+.\obj\vcomdemo.o: ..\Common\inc\core_cm3.h
+.\obj\vcomdemo.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\vcomdemo.o: ..\Common\inc\system_LPC17xx.h
+.\obj\vcomdemo.o: ..\Common\inc\type.h
+.\obj\vcomdemo.o: usb.h
+.\obj\vcomdemo.o: usbcfg.h
+.\obj\vcomdemo.o: usbhw.h
+.\obj\vcomdemo.o: usbcore.h
+.\obj\vcomdemo.o: cdc.h
+.\obj\vcomdemo.o: cdcuser.h
+.\obj\vcomdemo.o: serial.h
+.\obj\vcomdemo.o: vcomdemo.h

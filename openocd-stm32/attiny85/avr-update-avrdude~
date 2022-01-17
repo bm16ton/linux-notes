@@ -1,0 +1,10 @@
+avrdude -C"/etc/avrdude.conf" -v -pattiny85 -cstk500v1 -P/dev/ttyACM0 -b19200 -Uflash:w:"t85_default.hex":i -U lfuse:w:0xe1:m -U hfuse:w:0xdd:m -U efuse:w:0xfe:m
+
+
+ATtiny85 Pin 	Arduino Uno Pin
+Vcc 			5V
+GND 			GND
+Pin 2 			13
+Pin 1 			12
+Pin 0 			11
+Reset 			10

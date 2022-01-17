@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>
+      linux/OTG – Gateworks
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+          <link rel="search" href="http://trac.gateworks.com/search">
+          <link rel="help" href="http://trac.gateworks.com/wiki/TracGuide">
+          <link rel="alternate" href="http://trac.gateworks.com/wiki/linux/OTG?format=txt" type="text/x-trac-wiki" title="Plain Text">
+          <link rel="up" href="http://trac.gateworks.com/wiki/linux" title="View parent page">
+          <link rel="start" href="http://trac.gateworks.com/wiki">
+          <link rel="stylesheet" href="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/trac_002.css" type="text/css">
+          <link rel="stylesheet" href="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/wiki.css" type="text/css">
+          <link rel="icon" href="http://trac.gateworks.com/chrome/common/trac.ico" type="image/x-icon">
+    
+      <link type="application/opensearchdescription+xml" rel="search" href="http://trac.gateworks.com/search/opensearch" title="Search Gateworks">
+      <script type="text/javascript" charset="utf-8" src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/folding.js"></script>
+    <script type="text/javascript">
+      jQuery("#trac-noscript").remove();
+      jQuery(document).ready(function($) {
+        $(".trac-autofocus").focus();
+        $(".trac-target-new").attr("target", "_blank");
+        if ($.ui) { /* is jquery-ui added? */
+          $(".trac-datepicker:not([readonly])").prop("autocomplete", "off").datepicker();
+          $(".trac-datetimepicker:not([readonly])").prop("autocomplete", "off").datetimepicker();
+          $("#main").addClass("trac-nodatetimehint");
+        }
+        $(".trac-disable").disableSubmit(".trac-disable-determinant");
+        setTimeout(function() { $(".trac-scroll").scrollToTop() }, 1);
+        $(".trac-disable-on-submit").disableOnSubmit();
+      });
+    </script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/js"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-4861144-3');
+		</script>
+	<link rel="stylesheet" type="text/css" href="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/trac.css"></head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://trac.gateworks.com/wiki"><img src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/g2998.png" alt="Gateworks Wiki"></a>
+      </div>
+      <form id="search" action="/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18">
+          <input type="submit" value="Search">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://trac.gateworks.com/login">Login</a></li><li><a href="http://trac.gateworks.com/prefs">Preferences</a></li><li><a href="http://trac.gateworks.com/wiki/TracGuide">Help/Guide</a></li><li><a href="http://trac.gateworks.com/about">About Trac</a></li><li class="last"><a href="http://trac.gateworks.com/reset_password">Forgot your password?</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://trac.gateworks.com/wiki">Wiki</a></li><li><a href="http://trac.gateworks.com/timeline">Timeline</a></li><li class="last"><a href="http://trac.gateworks.com/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://trac.gateworks.com/wiki">wiki:</a><a class="pathentry" href="http://trac.gateworks.com/wiki/linux" title="View linux">linux</a><span class="pathentry sep">/</span><a class="pathentry" href="http://trac.gateworks.com/wiki/linux/OTG" title="View linux/OTG">OTG</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><a href="http://trac.gateworks.com/wiki/linux">Up</a></li><li><a href="http://trac.gateworks.com/wiki/WikiStart">Start Page</a></li><li><a href="http://trac.gateworks.com/wiki/TitleIndex">Index</a></li><li class="last"><a href="http://trac.gateworks.com/wiki/linux/OTG?action=history">History</a></li>
+        </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><p>
+</p><div class="wiki-toc">
+<ol>
+  <li>
+    <a href="#USBOn-The-GoOTG">USB On-The-Go (OTG)</a>
+    <ol>
+      <li>
+        <a href="#USBHostMode">USB Host Mode</a>
+      </li>
+      <li>
+        <a href="#USBDeviceMode">USB Device Mode</a>
+        <ol>
+          <li>
+            <a href="#g_etherGadget">g_ether Gadget</a>
+          </li>
+          <li>
+            <a href="#g_mass_storage-USBMassStorageDevice">g_mass_storage - USB Mass Storage Device</a>
+          </li>
+          <li>
+            <a href="#g_serial-SerialDeviceGadget">g_serial - Serial Device Gadget</a>
+          </li>
+          <li>
+            <a href="#g_cdc-CompositeEthernetSerialGadget">g_cdc - Composite Ethernet + Serial Gadget</a>
+          </li>
+          <li>
+            <a href="#g_multi-CompositeEthernetSerialMassStorageGadget">g_multi - Composite Ethernet + Serial + Mass Storage Gadget</a>
+          </li>
+          <li>
+            <a href="#g_hid-HumanInterfaceDeviceHIDGadget">g_hid - Human Interface Device (HID) Gadget</a>
+          </li>
+          <li>
+            <a href="#g_webcam-CompositeUSBAudioandVideoClassGadget">g_webcam - Composite USB Audio and Video Class Gadget</a>
+          </li>
+          <li>
+            <a href="#g_ncm-USBCDCNCMsubclassEthernetGadget">g_ncm - USB CDC NCM subclass Ethernet Gadget</a>
+          </li>
+          <li>
+            <a href="#ConfigFs">ConfigFs</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#OpenWrtOTG">OpenWrt OTG</a>
+      </li>
+      <li>
+        <a href="#OTGModeselection">OTG Mode selection</a>
+      </li>
+      <li>
+        <a href="#UsingaNon-OTGportindevicemode">Using a Non-OTG port in device mode</a>
+      </li>
+    </ol>
+  </li>
+</ol>
+</div><p>
+</p>
+<h1 id="USBOn-The-GoOTG">USB On-The-Go (OTG)<a class="anchor" href="#USBOn-The-GoOTG" title="Link to this section"> ¶</a></h1>
+<p>
+Certain devices have USB Device Controllers or Dual-Role controllers that can be used in either host mode or device mode.
+</p>
+<p>
+This page aims to document how to use and configure USB OTG gadget 
+devices on Linux for boards you wish to connect to a USB Host port and 
+behave like a 'device'.
+ 
+See also <a class="wiki" href="http://trac.gateworks.com/wiki/USB_OTG">USB_OTG</a>
+</p>
+<p>
+This wiki page is created for use on <a class="ext-link" href="https://www.gateworks.com/products/"><span class="icon">​</span>Gateworks Rugged and Industrial Single Board Computers</a> Made in the USA.
+</p>
+<p>
+<strong>Note: Newport SBC's do not support OTG/Device/Gadget modes.</strong>  
+<span class="wikianchor" id="host"><a class="anchor" href="#host" title="Link to #host"> ¶</a></span>
+</p>
+<h2 id="USBHostMode">USB Host Mode<a class="anchor" href="#USBHostMode" title="Link to this section"> ¶</a></h2>
+<p>
+A Host mode cable allows connecting to a USB device. No special configuration is necessary for this.
+</p>
+<p>
+<span class="wikianchor" id="device"><a class="anchor" href="#device" title="Link to #device"> ¶</a></span>
+</p>
+<h2 id="USBDeviceMode">USB Device Mode<a class="anchor" href="#USBDeviceMode" title="Link to this section"> ¶</a></h2>
+<p>
+A Device mode cable allows connection to a USB host such as a PC.
+</p>
+<p>
+When used in this mode, the device needs to have a 'Gadget driver' 
+loaded which implements the personality of the device type you want.
+</p>
+<p>
+There are several Linux gadget drivers in today's linux kernel. These can be found under the <code>Device Drivers -&gt; USB support -&gt; USB Gadget Support menu</code>:
+</p>
+<ul><li>g_zero (CONFIG_USB_ZERO)
+</li><li>g_audio (CONFIG_USB_AUDIO)
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_ether">g_ether</a>
+ (CONFIG_USB_ETH) - implement a 'Communication Device Class' (CDC) 
+Ethernet device to create a 'USB to Ethernet' network connection.
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_ncm">g_ncm</a>
+ (CONFIG_USB_G_NCM) - implement USB CDC NCM subclass standard. NCM is an
+ advanced protocol for Ethernet encapsulation and allows grouping of 
+several ethernet frames into one USB transfer.
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_mass_storage">g_mass_storage</a>
+ (CONFIG_USB_MASS_STORAGE) - acts as a USB Mass Storage disk driver. Its
+ storage repository can use a regular file or a block device specified 
+as a module parameter or sysfs option.
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_serial">g_serial</a>
+ (CONFIG_USB_G_SERIAL) - behave as a ACM Serial device to create a 'USB 
+to Serial' connection which can be used to interoperate with MS-Windows 
+hosts or with the Linux-USB 'cdc-acm' driver.
+</li><li>g_midi (CONFIG_USB_MIDI_GADGET) - acts as a USB Audio device with one MIDI input and one MIDI output.
+</li><li>g_printer (CONFIG_USB_G_PRINTER) - channels data between the USB host and a userspace program driving the print engine.
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_cdc">g_cdc</a>
+ (CONFIG_USB_CDC_COMPOSITE) - provides two functions in one 
+configuration: a CDC Ethernet (ECM) link, and a CDC ACM (serial port) 
+link
+</li><li>g_acm_ms (CONFIG_USB_G_ACM_MS) - provides two functions in one 
+configuration: a USB Mass Storage device and a CDC ACM (serial port) 
+link
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_multi">g_multi</a>
+ (CONFIG_USB_G_MULTI) - A multifunction composite gadget that can 
+provide Ethernet (RNDIS and/or CDC), mass storage, and ACM serial link 
+interfaces
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_hid">g_hid</a>
+ (CONFIG_USB_G_HID) - A Human Interface Device (HID) gadget that 
+provides a generic interface for things such as keyboards, mice, 
+touchscreens
+</li><li><a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_webcam">g_webcam</a> - A Webcam Device
+</li></ul><p>
+Additionally The Linux <a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#configfs">Configfs</a>
+ (CONFIG_CONFIGFS_FS) support allows complete dynamic configuration of 
+gadget devices from userspace in which case you can create a single 
+configuration or multi-configuration composite device with one or more 
+of the functions available from drivers/usb/gadget/udc/functions. See <a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#configfs">below</a> for more details on how to use this.
+</p>
+<p>
+Note that only one gadget driver (device personality) can be loaded at a
+ time but there are some 'composite' gadget drivers that behave as 
+'composite devices' meaning they have multiple endpoints per USB device.
+ This will seem familiar if you think of how a modern smart-phone works.
+ Take an Android phone for example: When plugged into a host PC via 
+micro-USB OTG, it will behave as a storage device (MTP), however if you 
+want to have it behave as a serial debug device you have to go into the 
+developer menu and select this option. Note that modern smartphones no 
+longer behave as 'USB Mass Storage' devices as this protocol does not 
+allow the device OS to access the filesystem at the same time the host 
+PC does - instead these devices act as an MTP (​<a class="ext-link" href="http://en.wikipedia.org/wiki/Media_Transfer_Protocol"><span class="icon">​</span>Media Transfer Protocol</a>) device.
+</p>
+<p>
+Note that the Vendor ID (VID) and Device ID (DID) that is presented to the USB host is configurable (see <a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_configfs.txt"><span class="icon">​</span>here</a> for details)
+</p>
+<p>
+<span class="wikianchor" id="g_ether"><a class="anchor" href="#g_ether" title="Link to #g_ether"> ¶</a></span>
+</p>
+<h3 id="g_etherGadget">g_ether Gadget<a class="anchor" href="#g_etherGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The g_ether gadget driver behaves as a USB-to-Ethernet dongle. Once 
+loaded the device-mode system will add a 'usb&lt;n&gt;' network device 
+which can be used the same as any other network device. On the USB host 
+system, a similar network device will appear as long as a driver 
+supporting the 'CDC Ethernet' standard is available.
+</p>
+<p>
+This module can be built with additional support:
+</p>
+<ul><li>EEM: CDC Ethernet Emulation Model (EEM) is a newer standard that
+ has a a simpler interface that can be used by more USB host hardware.
+</li><li>RNDIS: RNDIS support is an additional option (more CPU intensive) that may be more compatible with Windows drivers.
+</li></ul><p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_ether
+</pre></div></div><ul><li>usb0 network interface appears on target (treat like any other network interface)
+</li></ul></li><li>on host device (ie PC) a device with VID:PID 0525:a4a2 will appear conforming to the ​CDC Ethernet standard
+<ul><li>usb0 appears on Linux host (using the cdc_ether driver)
+</li></ul></li><li>module parameters can specify the VID, PID, device version, manufacturer string, product string, serialnumber
+</li><li>module parameters can specify the device and host ethernet address and whether or not to use CDC EEM mode
+</li></ul><p>
+Linux Host Notes:
+</p>
+<ul><li>cdc_ether driver supports this and will create a 'usb&lt;n&gt;' device on the USB host
+</li></ul><p>
+Windows Host Notes:
+</p>
+<ul><li>the g_ether driver is typically built with RNDIS support enabled
+ which will make it compatible with drivers in Windows7 and above which 
+will appear in the device manager as a 'USB Ethernet/RNDIS Gadget' and 
+can be configured just as any other network interface.
+</li></ul><p>
+Reference:
+</p>
+<ul><li>​<a class="ext-link" href="http://en.wikipedia.org/wiki/USB_communications_device_class"><span class="icon">​</span>http://en.wikipedia.org/wiki/USB_communications_device_class</a>
+</li><li><a class="ext-link" href="http://en.wikipedia.org/wiki/Ethernet_over_USB"><span class="icon">​</span>http://en.wikipedia.org/wiki/Ethernet_over_USB</a>
+</li></ul><p>
+<span class="wikianchor" id="g_mass_storage"><a class="anchor" href="#g_mass_storage" title="Link to #g_mass_storage"> ¶</a></span>
+</p>
+<h3 id="g_mass_storage-USBMassStorageDevice">g_mass_storage - USB Mass Storage Device<a class="anchor" href="#g_mass_storage-USBMassStorageDevice" title="Link to this section"> ¶</a></h3>
+<p>
+The g_file_storage driver behaves as a USB Mass Storage device such as a
+ USB hard-disk or USB flash drive. You can decide whether to use a 
+'file' as a backing store, or a block device (ie a flash partition, or a
+ physical disk). The file/device is provided to the module via the 
+'file' module parameter.
+</p>
+<p>
+If using a backing storage 'file' you must create it beforehand with its
+ desired size. For example to create a 64MB backing store:
+</p>
+<div class="wiki-code"><div class="code"><pre>dd <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">64</span> <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/backing_file
+</pre></div></div><p>
+To use this as a backing store:
+</p>
+<div class="wiki-code"><div class="code"><pre>modprobe g_mass_storage <span class="nv">file</span><span class="o">=</span>/backing_file
+</pre></div></div><p>
+References:
+</p>
+<ul><li>​<a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/mass-storage.txt"><span class="icon">​</span>https://www.kernel.org/doc/Documentation/usb/mass-storage.txt</a>
+</li><li><a class="ext-link" href="http://www.linux-usb.org/gadget/file_storage.html"><span class="icon">​</span>http://www.linux-usb.org/gadget/file_storage.html</a>
+</li></ul><p>
+<span class="wikianchor" id="g_serial"><a class="anchor" href="#g_serial" title="Link to #g_serial"> ¶</a></span>
+</p>
+<h3 id="g_serial-SerialDeviceGadget">g_serial - Serial Device Gadget<a class="anchor" href="#g_serial-SerialDeviceGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The Serial Gadget supports CDC-ACM and CDC-OBEX which can inter-operate 
+with the MS-Windows hosts or with Linux hosts using the 'cdc-acm' driver
+ to create a 'USB-to-Serial' connection.
+</p>
+<p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_serial
+</pre></div></div></li><li>on host device (ie PC) a USB CDC ACM device (VID:PID 0525:a4a7 by default) will appear and behave as a serial device
+</li><li>module parameters can specify the VID, PID, device version, 
+</li></ul><p>
+manufacturer string, product string, serialnumber
+</p>
+<ul><li>module parameters can specify whether or not to use CDC ACM, CDC OBEX, and the number of ports to create
+</li></ul><p>
+Linux USB Host notes:
+</p>
+<ul><li>the cdc_acm driver will enumerate this device as '/dev/ttyACM&lt;n&gt;'
+</li></ul><p>
+Windows USB Host notes:
+</p>
+<ul><li>see ​<a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_serial.txt"><span class="icon">​</span>https://www.kernel.org/doc/Documentation/usb/gadget_serial.txt</a>
+</li></ul><p>
+Reference:
+</p>
+<ul><li>​<a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_serial.txt"><span class="icon">​</span>https://www.kernel.org/doc/Documentation/usb/gadget_serial.txt</a>
+</li></ul><p>
+<span class="wikianchor" id="g_cdc"><a class="anchor" href="#g_cdc" title="Link to #g_cdc"> ¶</a></span>
+</p>
+<h3 id="g_cdc-CompositeEthernetSerialGadget">g_cdc - Composite Ethernet + Serial Gadget<a class="anchor" href="#g_cdc-CompositeEthernetSerialGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The g_cdc gadget supports two functions in one configuration:
+</p>
+<ul><li>a CDC Ethernet (ECM) link (USB-to-Ethernet connection)
+</li><li>a CDC ACM (serial port) link (USB-to-Serial connection)
+</li></ul><p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_cdc
+</pre></div></div></li><li>on host device (ie PC) a USB CDC ACM device (VID:PID 0525:a4aa) will appear
+</li></ul><p>
+Linux USB Host notes:
+</p>
+<ul><li>the cdc_acm driver will enumerate this device as '/dev/ttyACM&lt;n&gt;'
+</li><li>the cdc_ether driver will enumerate this device as a 'usb&lt;n&gt;' network device
+</li></ul><p>
+Windows USB Host notes:
+</p>
+<ul><li>A CDC Composite Gadget device will appear in Device Manager
+</li><li>TODO: Is there a driver available that can use this in Windows? See <a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#g_multi">g_multi below</a>
+</li></ul><p>
+<span class="wikianchor" id="g_multi"><a class="anchor" href="#g_multi" title="Link to #g_multi"> ¶</a></span>
+</p>
+<h3 id="g_multi-CompositeEthernetSerialMassStorageGadget">g_multi - Composite Ethernet + Serial + Mass Storage Gadget<a class="anchor" href="#g_multi-CompositeEthernetSerialMassStorageGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The g_multi gadget supports multiple functions in one configuration:
+</p>
+<ul><li>a CDC Ethernet (ECM) link
+</li><li>a CDC ACM (serial port) link
+</li><li>a USB Mass Storage device
+</li></ul><p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_cdc
+</pre></div></div></li><li>on host device (ie PC) a USB CDC ACM device (VID:PID 1d6b:0104 by default) will appear
+</li><li>module parameters can specify the VID, PID, device version, manufacturer string, product string, serialnumber
+</li><li>module parameters can specify the ethernet device and host address and queue length multiplier at high speed
+</li></ul><p>
+Linux USB Host notes:
+</p>
+<ul><li>the cdc_acm driver will enumerate this device as '/dev/ttyACM&lt;n&gt;'
+</li><li>the cdc_ether driver will enumerate this device as a 'usb&lt;n&gt;' network device
+</li><li>the usb-storage driver will provide the USB Mass Storage feature
+</li></ul><p>
+Windows USB Host notes:
+</p>
+<ul><li>A Multifunction Composite Gadget device will appear in Device Manager
+</li><li>see <a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_multi.txt"><span class="icon">​</span>here</a> for details on Windows configuration
+</li></ul><p>
+References:
+</p>
+<ul><li>​<a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_multi.txt"><span class="icon">​</span>https://www.kernel.org/doc/Documentation/usb/gadget_multi.txt</a>
+</li></ul><p>
+<span class="wikianchor" id="g_hid"><a class="anchor" href="#g_hid" title="Link to #g_hid"> ¶</a></span>
+</p>
+<h3 id="g_hid-HumanInterfaceDeviceHIDGadget">g_hid - Human Interface Device (HID) Gadget<a class="anchor" href="#g_hid-HumanInterfaceDeviceHIDGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The HID gadget driver provides generic emulation of USB Human Interface 
+Devices (HID), for example keyboards, mice, touchscreens, etc
+</p>
+<p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_hid
+</pre></div></div></li><li>module parameters can specify the VID, PID, device version, manufacturer string, product string, serialnumber
+</li></ul><p>
+References:
+</p>
+<ul><li>​<a class="ext-link" href="https://www.kernel.org/doc/Documentation/usb/gadget_hid.txt"><span class="icon">​</span>https://www.kernel.org/doc/Documentation/usb/gadget_hid.txt</a>
+</li></ul><p>
+<span class="wikianchor" id="g_webcam"><a class="anchor" href="#g_webcam" title="Link to #g_webcam"> ¶</a></span>
+</p>
+<h3 id="g_webcam-CompositeUSBAudioandVideoClassGadget">g_webcam - Composite USB Audio and Video Class Gadget<a class="anchor" href="#g_webcam-CompositeUSBAudioandVideoClassGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The g_webcam gadget driver provides a Composite USB Audio and Video Class device.
+</p>
+<p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_webcam
+</pre></div></div></li><li>on host device (ie PC) a 'Linux Foundation Webcam Gadget' device (VID:PID 1d6b:0102 by default) will appear
+</li><li>on target device (Gateworks board) a /dev/video&lt;n&gt; device
+ will be created and avialable as a Video4Linux output device supporting
+ 320/240 YUYV video
+</li><li>module parameters can specify the VID, PID, device version, manufacturer string, product string, serialnumber
+</li></ul><p>
+Linux USB Host notes:
+</p>
+<ul><li>the uvcvideo driver will enumerate the device and create a <code>/dev/video&lt;n&gt;</code> video capture device
+</li></ul><p>
+Windows USB Host notes:
+</p>
+<ul><li>A USB Composite device will appear in Device Manager
+</li><li>A UVC Camera device will appear under Imaging devices in the device manager and be available to capture video
+</li></ul><p>
+<span class="wikianchor" id="g_ncm"><a class="anchor" href="#g_ncm" title="Link to #g_ncm"> ¶</a></span>
+</p>
+<h3 id="g_ncm-USBCDCNCMsubclassEthernetGadget">g_ncm - USB CDC NCM subclass Ethernet Gadget<a class="anchor" href="#g_ncm-USBCDCNCMsubclassEthernetGadget" title="Link to this section"> ¶</a></h3>
+<p>
+The g_ncm gadget driver provides a a USB CDC NCM subclass. NCM is an 
+advanced protocol for Ethernet encapsulation, allowing grouping of 
+several ethernet frames into one USB transfer with various alignment 
+possibilities.
+</p>
+<p>
+Example:
+</p>
+<ul><li>on target device (Gateworks board with OTG controller):
+<div class="wiki-code"><div class="code"><pre>modprobe g_ncm
+</pre></div></div></li><li>on host device (ie PC) a 'Linux-USB Ethernet Gadget' device (VID:PID 0525:a4a1 by default) will appear
+</li><li>on target device (Gateworks board) a usb&lt;n&gt; network device will be created
+</li><li>module parameters can specify the VID, PID, device version, manufacturer string, product string, serialnumber
+</li><li>module parameters can specify the device and host ethernet addresses and the queue length multiplier used at high speeds
+</li></ul><p>
+Linux USB Host notes:
+</p>
+<ul><li>the cdc_ncm driver will enumerate the device and create a network interface in <code>/sys/class/net</code>
+</li></ul><p>
+Windows USB Host notes:
+</p>
+<ul><li>A NCM Gadget device will appear in Device Manager
+</li><li>see <a class="ext-link" href="http://www.thesycon.de/eng/usb_cdcncm.shtml"><span class="icon">​</span>here</a> for details about a Windows CDC NCM driver
+</li></ul><p>
+<span class="wikianchor" id="configfs"><a class="anchor" href="#configfs" title="Link to #configfs"> ¶</a></span>
+</p>
+<h3 id="ConfigFs">ConfigFs<a class="anchor" href="#ConfigFs" title="Link to this section"> ¶</a></h3>
+<p>
+The Linux Configfs (CONFIG_CONFIGFS_FS) support allows complete dynamic 
+configuration of gadget devices from userspace in which case you can 
+create a single configuration or multi-configuration composite device 
+with one or more of the functions available from 
+drivers/usb/gadget/udc/functions:
+</p>
+<ul><li>usb_f_acm - CDC Serial (ACM - Abstract Control Model)
+</li><li>usb_f_ecm - CDC Ethernet (ECM - Ethernet Networking Control Model)
+</li><li>usb_f_eem - CDC Ethernet (EEM - Ethernet Emulation Model)
+</li><li>usb_f_fs - Filesystem
+</li><li>usb_f_hid - HID Interface
+</li><li>usb_f_mass_storage - USB Mass Storage class
+</li><li>usb_f_midi - MIDI
+</li><li>usb_f_ncm - CDC Network (NCM - Network Control Model Ethernet)
+</li><li>usb_f_obex - CDC OBEX (Object Exchange Model)
+</li><li>usb_f_phonet - CDC Phonet
+</li><li>usb_f_printer - Printer function
+</li><li>usb_f_rndis - (Remote Network Driver Interface Specification - Microsoft Ethernet over USB)
+</li><li>usb_f_serial - Generic serial function
+</li><li>usb_f_subset - CDC Subset (Ethernet with no control mechanism - just raw data transfer)
+</li><li>usb_f_uac1 - USB Audio class
+</li><li>usb_f_uac2 - USB Audio class 2.0
+</li><li>usb_f_uvc - USB Video class
+</li></ul><p>
+Note that not all of the above kernel modules may be available depending on your kernel configuration or BSP.
+</p>
+<p>
+Examples:
+</p>
+<ul><li>Create a CDC ACM Serial device:
+<div class="wiki-code"><div class="code"><pre><span class="c1"># mount configfs
+</span>mount -t configfs none /sys/kernel/config
+<span class="c1"># load libcomposite module
+</span>modprobe libcomposite
+<span class="c1"># create a gadget
+</span>mkdir /sys/kernel/config/usb_gadget/g1
+<span class="c1"># cd to its configfs node
+</span><span class="nb">cd</span> /sys/kernel/config/usb_gadget/g1
+<span class="c1"># configure it (vid/pid can be anything if USB Class is used for driver compat)
+</span><span class="nb">echo</span> 0xabcd &gt; idVendor
+<span class="nb">echo</span> 0x1234 &gt; idProduct
+<span class="c1"># configure its serial/mfg/product
+</span>mkdir strings/0x409
+<span class="nb">echo</span> myserial &gt; strings/0x409/serialnumber
+<span class="nb">echo</span> mymfg &gt; strings/0x409/manufacturer
+<span class="nb">echo</span> myproduct &gt; strings/0x409/product
+<span class="c1"># create a config
+</span>mkdir configs/c.1
+<span class="c1"># configure it with attributes if needed
+</span><span class="nb">echo</span> <span class="m">120</span> &gt; configs/c.1/MaxPower
+<span class="c1"># ensure function is loaded
+</span>modprobe usb_f_acm
+<span class="c1"># create the function (name must match a usb_f_&lt;name&gt; module such as 'acm')
+</span>mkdir functions/acm.0
+<span class="c1"># associate function with config
+</span>ln -s functions/acm.0 configs/c.1
+<span class="c1"># enable gadget by binding it to a UDC from /sys/class/udc
+</span><span class="nb">echo</span> <span class="m">0000</span>:01:00.0 &gt; UDC
+<span class="c1"># to unbind it: echo "" UDC; sleep 1; rm -rf /sys/kernel/config/usb_gadget/g1
+</span></pre></div></div></li><li>Create a CDC ECM Ethernet device:
+<div class="wiki-code"><div class="code"><pre><span class="c1"># mount configfs
+</span>mount -t configfs none /sys/kernel/config
+<span class="c1"># load libcomposite module
+</span>modprobe libcomposite
+<span class="c1"># create a gadget
+</span>mkdir /sys/kernel/config/usb_gadget/g1
+<span class="c1"># cd to its configfs node
+</span><span class="nb">cd</span> /sys/kernel/config/usb_gadget/g1
+<span class="c1"># configure it (vid/pid can be anything if USB Class is used for driver compat)
+</span><span class="nb">echo</span> 0xabcd &gt; idVendor
+<span class="nb">echo</span> 0x1234 &gt; idProduct
+<span class="c1"># configure its serial/mfg/product
+</span>mkdir strings/0x409
+<span class="nb">echo</span> myserial &gt; strings/0x409/serialnumber
+<span class="nb">echo</span> mymfg &gt; strings/0x409/manufacturer
+<span class="nb">echo</span> myproduct &gt; strings/0x409/product
+<span class="c1"># create a config
+</span>mkdir configs/c.1
+<span class="c1"># configure it with attributes if needed
+</span><span class="nb">echo</span> <span class="m">120</span> &gt; configs/c.1/MaxPower
+<span class="c1"># ensure function is loaded
+</span>modprobe usb_f_ecm
+<span class="c1"># create the function (name must match a usb_f_&lt;name&gt; module such as 'ecm')
+</span>mkdir functions/ecm.0
+<span class="c1"># associate function with config
+</span>ln -s functions/ecm.0 configs/c.1
+<span class="c1"># enable gadget by binding it to a UDC from /sys/class/udc
+</span><span class="nb">echo</span> <span class="m">0000</span>:01:00.0 &gt; UDC
+<span class="c1"># to unbind it: echo "" UDC; sleep 1; rm -rf /sys/kernel/config/usb_gadget/g1
+</span></pre></div></div></li><li>Create a USB Mass Storage device (with 2 LUN's 16MB each):
+<div class="wiki-code"><div class="code"><pre><span class="c1"># mount configfs
+</span>mount -t configfs none /sys/kernel/config
+<span class="c1"># load libcomposite module
+</span>modprobe libcomposite
+<span class="c1"># create a gadget
+</span>mkdir /sys/kernel/config/usb_gadget/g1
+<span class="c1"># cd to its configfs node
+</span><span class="nb">cd</span> /sys/kernel/config/usb_gadget/g1
+<span class="c1"># configure it (vid/pid can be anything if USB Class is used for driver compat)
+</span><span class="nb">echo</span> 0xabcd &gt; idVendor
+<span class="nb">echo</span> 0x1234 &gt; idProduct
+<span class="c1"># configure its serial/mfg/product
+</span>mkdir strings/0x409
+<span class="nb">echo</span> myserial &gt; strings/0x409/serialnumber
+<span class="nb">echo</span> mymfg &gt; strings/0x409/manufacturer
+<span class="nb">echo</span> myproduct &gt; strings/0x409/product
+<span class="c1"># create configs
+</span>mkdir configs/c.1
+mkdir configs/c.2
+mkdir configs/c.3
+<span class="c1"># configure them with attributes if needed
+</span><span class="nb">echo</span> <span class="m">120</span> &gt; configs/c.1/MaxPower
+<span class="nb">echo</span> <span class="m">120</span> &gt; configs/c.2/MaxPower
+<span class="nb">echo</span> <span class="m">120</span> &gt; configs/c.2/MaxPower
+<span class="c1"># ensure function is loaded
+</span>modprobe usb_f_mass_storage
+<span class="c1"># create the function (name must match a usb_f_&lt;name&gt; module such as 'acm')
+</span>mkdir functions/mass_storage.0
+<span class="c1"># create backing store(s): in this example 2 LUN's 16MB each
+</span>dd <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">16</span> <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/tmp/lun0.img <span class="c1"># 16MB
+</span>dd <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">16</span> <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/tmp/lun1.img <span class="c1"># 16MB
+# associate with partitions
+</span>mkdir functions/mass_storage.0/lun.0
+<span class="nb">echo</span> /tmp/lun0.img &gt; functions/mass_storage.0/lun.0/file
+mkdir functions/mass_storage.0/lun.1
+<span class="nb">echo</span> /tmp/lun1.img &gt; functions/mass_storage.0/lun.1/file
+<span class="c1"># associate function with config
+</span>ln -s functions/mass_storage.0 configs/c.1
+<span class="c1"># enable gadget by binding it to a UDC from /sys/class/udc
+</span><span class="nb">echo</span> <span class="m">0000</span>:01:00.0 &gt; UDC
+<span class="c1"># to unbind it: echo "" UDC; sleep 1; rm -rf /sys/kernel/config/usb_gadget/g1
+</span></pre></div></div></li></ul><p>
+References:
+</p>
+<ul><li><a class="ext-link" href="https://lxr.missinglinkelectronics.com/linux/Documentation/usb/gadget_configfs.txt"><span class="icon">​</span>Documentation/usb/gadget_configfs.txt</a>
+</li><li><a class="ext-link" href="https://wiki.tizen.org/wiki/USB/Linux_USB_Layers/Configfs_Composite_Gadget/General_configuration"><span class="icon">​</span>https://wiki.tizen.org/wiki/USB/Linux_USB_Layers/Configfs_Composite_Gadget/General_configuration</a>
+</li></ul><p>
+<span class="wikianchor" id="openwrt"><a class="anchor" href="#openwrt" title="Link to #openwrt"> ¶</a></span>
+</p>
+<h2 id="OpenWrtOTG"><a class="wiki" href="http://trac.gateworks.com/wiki/OpenWrt">OpenWrt</a> OTG<a class="anchor" href="#OpenWrtOTG" title="Link to this section"> ¶</a></h2>
+<p>
+<a class="wiki" href="http://trac.gateworks.com/wiki/OpenWrt">OpenWrt</a> packages several of the above Linux kernel modules as packages:
+</p>
+<ul><li>g_ether - Kernel modules -&gt; USB Support -&gt; kmod-usb-eth-gadget
+</li><li>g_mass_storage - Kernel modules -&gt; USB Support -&gt; kmod-usb-mass-storage-gadget
+</li><li>g_serial - Kernel modules -&gt; USB Support -&gt; kmod-usb-serial-gadget
+</li></ul><p>
+You must have gadget support enabled:
+</p>
+<ul><li>Kernel modules -&gt; USB Support (kmod-usb-gadget)
+</li></ul><p>
+Note that all of these packages will attempt to autoload their 
+respective kernel module so whichever one is alphabetically first will 
+be loaded. You can see what is loaded by looking at the current modules:
+</p>
+<div class="wiki-code"><div class="code"><pre>lsmod <span class="p">|</span> grep g_*
+</pre></div></div><p>
+<span class="wikianchor" id="dual-role"><a class="anchor" href="#dual-role" title="Link to #dual-role"> ¶</a></span>
+</p>
+<h2 id="OTGModeselection">OTG Mode selection<a class="anchor" href="#OTGModeselection" title="Link to this section"> ¶</a></h2>
+<p>
+USB OTG host controllers are 'dual-role' controllers in that they can behave as a <code>USB host</code> or a <code>USB peripheral</code>.
+ The decision on which mode to be in is typically controlled by the 
+state of the OTG ID pin (OTG_ID) which is grounded on OTG to host 
+cables, and left floating on OTG to device cables.
+</p>
+<p>
+In some cases you may have a board without an OTG_ID signal where you still want to use USB OTG in device mode.
+</p>
+<p>
+Dual-role controllers can be forced into 'host' mode or 'peripheral' 
+mode via the device-tree 'dr_mode' property. For example to force an 
+IMX6 OTG controller to peripheral mode add 'dr_mode = "peripheral";' to 
+the dt such as:
+</p>
+<pre class="wiki">&amp;usbotg {
+&nbsp; &nbsp; &nbsp; &nbsp; vbus-supply = &lt;&amp;reg_5p0v&gt;;
+&nbsp; &nbsp; &nbsp; &nbsp; pinctrl-names = "default";
+&nbsp; &nbsp; &nbsp; &nbsp; pinctrl-0 = &lt;&amp;pinctrl_usbotg&gt;;
+&nbsp; &nbsp; &nbsp; &nbsp; disable-over-current;
+&nbsp; &nbsp; &nbsp; &nbsp; dr_mode = "peripheral";
+&nbsp; &nbsp; &nbsp; &nbsp; status = "okay";
+};
+</pre><p>
+This can be done in the bootloader, here's an example for GW54xx:
+</p>
+<div class="wiki-code"><div class="code"><pre>setenv fixfdt <span class="s1">'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode host'</span> <span class="c1"># host mode
+</span>setenv fixfdt <span class="s1">'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode gadget'</span> <span class="c1"># gadget mode
+</span>saveenv <span class="c1">#once you have made your selection
+</span></pre></div></div><p>
+Additionally some host controllers such as the Chips and Media 
+controller used on the IMX6 have hooks that allow them to be configured 
+at runtime in Linux Userspace. For example on IMX6 boards:
+</p>
+<div class="wiki-code"><div class="code"><pre>cat /sys/kernel/debug/ci_hdrc.0/role <span class="c1"># see current role; default dictated by dr_mode dt property or state of OTG_ID pin if not set
+</span><span class="nb">echo</span> gadget &gt; /sys/kernel/debug/ci_hdrc.0/role <span class="c1"># specify device mode
+</span><span class="nb">echo</span> host &gt; /sys/kernel/debug/ci_hdrc.0/role <span class="c1"># specify host mode
+</span></pre></div></div><p>
+<span class="wikianchor" id="device-mode"><a class="anchor" href="#device-mode" title="Link to #device-mode"> ¶</a></span>
+</p>
+<h2 id="UsingaNon-OTGportindevicemode">Using a Non-OTG port in device mode<a class="anchor" href="#UsingaNon-OTGportindevicemode" title="Link to this section"> ¶</a></h2>
+<p>
+In some cases you can use a USB Type-A socket in device mode in a 
+non-standard way. This can be used for example on boards that route a 
+USB OTG controller to a Type-A socket which does not have an OTG_ID 
+signal. In this case you need to isolate VBUS to ensure both the host 
+and the device are not both driving it at the same time. This 
+opportunity exists on certain Ventana boards (where the 'usbotg' host 
+controller is enabled in the device-tree yet the signals route to a USB 
+Type-A socket connector instead of an OTG controller).
+</p>
+<p>
+In this case you can do the following:
+</p>
+<ol><li>use a non-standard Type-A plug to Type-A plug cable and isolate 
+the VBUS (red wire) to ensure host and device are not both driving VBUS
+</li><li>configure the OTG controller for device-mode (see <a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#dual-role">above</a>)
+</li><li>Load a gadget driver (see <a class="wiki" href="http://trac.gateworks.com/wiki/linux/OTG#device">above</a>)
+</li></ol></div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="http://trac.gateworks.com/wiki/linux/OTG?action=diff&amp;version=9" title="Version 9 by Cale Collins: typo">Last modified</a> <a class="timeline" href="http://trac.gateworks.com/timeline?from=2021-03-29T23%3A29%3A25Z&amp;precision=second" title="See timeline at 03/29/2021 11:29:25 PM">7 months ago</a></span>
+            <span class="trac-print">Last modified on 03/29/2021 11:29:25 PM</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <script type="text/javascript">
+        jQuery.loadStyleSheet("/pygments/trac.css", "text/css");
+    </script>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://trac.gateworks.com/wiki/linux/OTG?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="bootloader-role-switch-linux_OTG%20%E2%80%93%20Gateworks_files/trac_logo_mini.png" alt="Trac Powered" width="107" height="30"></a>
+      <p class="left">Powered by <a href="http://trac.gateworks.com/about"><strong>Trac 1.2.2</strong></a><br>
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+	
+</body></html>

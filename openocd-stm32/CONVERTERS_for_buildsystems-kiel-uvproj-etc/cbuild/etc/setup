@@ -1,0 +1,25 @@
+# Version: 1.0.1
+# Date: 2020-02-11
+# This file configures the settings of the CMSIS Command Line Build environment
+#
+# Pre-requisites:
+# - Bash shell (for Windows: install git for Windows)
+
+############### EDIT BELOW ###############
+
+export CMSIS_PACK_ROOT=/home/maddocks/.cache/arm/packs
+export CMSIS_COMPILER_ROOT=/home/maddocks/src/cbuild/etc
+export MDK_ROOT=
+
+############ DO NOT EDIT BELOW ###########
+
+export CMSIS_BUILD_ROOT=/home/maddocks/src/cbuild/bin
+
+# Print exported variables
+echo "Set CMSIS_PACK_ROOT=$CMSIS_PACK_ROOT"
+echo "Set CMSIS_BUILD_ROOT=$CMSIS_BUILD_ROOT"
+echo "Set CMSIS_COMPILER_ROOT=$CMSIS_COMPILER_ROOT"
+
+# Add CMSIS_BUILD_ROOT to the path
+export PATH="$PATH:$CMSIS_BUILD_ROOT"
+echo "Added "${CMSIS_BUILD_ROOT}" into the PATH"

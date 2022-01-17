@@ -1,0 +1,231 @@
+######## NETWORK TRAFFIC;
+/proc/sys/net/ipv4/conf/
+CONFIGURE AN INSIDE CLIENT WITH A STATIC IP OF 10.42.0.11/24
+ON THE BRIDGE:
+bridge# echo 1 > /proc/sys/net/ipv4/conf/all/proxy_arp
+bridge# echo 1 > /proc/sys/net/ipv4/ip_forward
+bridge# ip ro add 10.42.0.11/32 dev eth0
+
+######## QMI MODEM MIC
+echo Y &gt; /sys/class/net/wwan0/qmi/raw_ip
+
+######## GENERIC/OPTION USB SERIAL DRIVER
+echo 19d2 0601 &gt; /sys/bus/usb-serial/drivers/option1/new_id
+echo <vid> <pid> >/sys/bus/usb-serial/drivers/generic/new_id
+
+######## edid
+/sys/devices/platform/gpu/drm/card1/card1-HDMI-A-1/edid
+
+######## TYPEC TYPE-C
+/sys/class/typec/
+/sys/class/typec/port0/<alternate mode>/mode1/
+
+
+######## ALSA
+RECONFIG ALSA
+echo 1 > /sys/class/sound/card/reconfig
+
+cat /proc/asound/cards    # list cards
+
+######## VENUS;
+turn on venus decoder/encoder debug
+echo "1" > /sys/class/video4linux/video3/dev_debug
+
+WATCH FOR VENUS INTERRUPTS
+grep venus /proc/interrupts
+
+/sys/kernel/debug/dma_buf/bufinfo
+
+######## DMABUF DMA_BUF
+/sys/kernel/debug/dma_buf/bufinfo
+
+######## BLUETOOTH
+/sys/kernel/debug/bluetooth/hci0/
+/sys/class/bluetooth/hci0
+
+######## ATH10K
+/sys/kernel/debug/ieee80211/phy0
+          ##### ENABLE HISTORY
+/sys/kernel/debug/ieee80211/phy0/ath10k# echo 0xf > history_enable   (requires module param history_enable_mask=0xf)
+/sys/class/ieee80211/phy0/
+/sys/class/ieee80211/phy0/device/net/wlan0
+/sys/kernel/debug/ieee80211/phy0/
+                                "ton of stuff"
+                                /hwflags
+
+
+/sys/kernel/debug/ieee80211/phy0# cat netdev\:wlan0/stations/b0\:98\:2b\:03\:53\:79/
+
+
+/sys/kernel/debug/ieee80211/phy0/hw_conf
+                    	WMI_VDEV_TYPE_AP      = 1,  after setting monitor mode shows 1
+	                    WMI_VDEV_TYPE_STA     = 2,  reg managed mode operation shows 2
+	                    WMI_VDEV_TYPE_IBSS    = 3,
+	                    WMI_VDEV_TYPE_MONITOR = 4,
+/sys/kernel/debug/ieee80211/phy0/netdev\:wlan0/
+                                                "ton of stuff"
+/sys/kernel/debug/ieee80211/phy0/ath10k/
+    Firmware dbglogs can be now enabled through fw_dbglog file.
+    To enable all possible log messages run:
+echo 0xffffffff > /sys/kernel/debug/ieee80211/phy0/ath10k/fw_dbglog
+    And to put back firmare defaults use 0x0:
+echo 0x0 > /sys/kernel/debug/ieee80211/phy0/ath10k/fw_dbglog
+ATH10K TPC
+    Export the final Transmit Power Control (TPC) value, which is the
+    minimum of control power and existing TPC value to user space via
+    a debugfs file "tpc_stats_final"
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats_final
+
+    The existing tpc_stats debugfs file provides the dump
+    which is minimum of target power and regulatory domain.
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats
+
+    The existing tpc_stats debugfs file provides the dump
+    which is minimum of target power and regulatory domain.
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/tpc_stats
+
+    To enable pktlog for all filters
+echo 0x1f > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
+    To disable pktlog
+echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/pktlog_filter
+    powersave setting/reporting
+cat /sys/kernel/debug/ieee80211/phy0/ath10k/ps_state_enable
+echo Y > /sys/kernel/debug/ieee80211/phy0/ath10k/ps_state_enable
+    Y = 0 to enable and Y = 1 to disable <-deprecated? use 0/1
+
+######## THERMAL
+/sys/class/thermal/thermal_zoneX /type   # shows hardware temps
+                                 /temp
+/sys/class/thermal/cooling_device[0-*]:
+
+######## REMOTE PROC
+/sys/class/remoteproc/remoteprocX        # remote proc stuff
+/sys/class/remoteproc/.../firmware       # name of firmware on remote proc
+/sys/class/remoteproc/.../state          # can write start/stop and will report current status
+/proc/device-tree/"remoteproc-adsp|remoteproc-cdsp"
+                 status                  # okay
+                 compatible              # qcom,sdm845-adsp-pas
+                 firmware-name           # qcom/LENOVO/81JL/qcadsp850.mbn
+######## SOME BATTERY SOME ADAPTER
+/sys/class/power_supply/some-adapter/uevent
+
+######## USB
+echo host > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo device > /sys/kernel/debug/usb/a600000.dwc3/mode
+echo otg > /sys/kernel/debug/usb/a600000.dwc3/mode
+
+/sys/bus/usb/devices/usb2
+
+######## CPUFREQ TURBO BOOST
+echo 1 > /sys/devices/system/cpu/cpufreq/boost
+
+######## DEVICE INFORMATION
+/proc/device-tree
+         /proc/device-tree
+         /proc/device-tree/compatible               # lenovo,yoga-c630qcom,sdm845
+         /proc/device-tree/chosen/bootargs          # obvious
+         /proc/device-tree/cpu0_opp_table/          # cpu operating tables
+         /proc/device-tree/cpus/cpu@0/compatible    #  qcom,kryo385
+         /proc/device-tree/firmware/scm/compatible  #  qcom,scm-sdm845qcom,scm
+         /proc/device-tree/panel/compatible
+         /sys/class/dmi/id/*    tons of stuff
+                    bios_date                       # 06/ 4/2019
+                    bios_release                    # 1.33
+                    bios_version                    # 9UCN33WW(V2.06)
+                    board_name                      # LNVNB161216
+                    board_serial                    # MP1EUJZB
+                    board_version                   # SDK0R32787 WIN
+                    ec_firmware_release             # 1.33
+                    modalias                        # dmi:bvnLENOVO:bvr9UCN33WW(V2.06):bd06/4/2019:br1.33:efr1.33:svnLENOVO:pn81JL:pvrLenovoYOGAC630-13Q50:rvnLENOVO:rnLNVNB161216:rvrSDK0R32787WIN:cvnLENOVO:ct32:cvrLenovoYOGAC630-13Q50:
+                    product_family                  # YOGA C630-13Q50
+                    product_name                    # 81JL
+                    product_sku                     # LENOVO_MT_81JL_BU_idea_FM_YOGA C630-13Q50
+                    product_uuid                    # unique id
+                    product_version                 # Lenovo YOGA C630-13Q50
+         /sys/devices/platform/panel/modalias       # what kind of panel      of:NpanelT(null)Cboe,nv133fhm-n61
+         /sys/kernel/debug/qcom_socinfo
+                    pmic_model                      # PM8015
+                    pmic_die_rev                    # 2.0
+                    num_defective_parts             # 6
+                    chip_id                         # SDM850
+                    adsp/name                       # 12:ADSP.HT.4.1.c2-00016-SDM845-1
+                    adsp/variant                    # 845.adsp.prodQ
+                    boot/name                       # 00:BOOT.XF.2.2-00080-SDM845WZB-1
+                    boot/variant                    # SDM845WP
+                    mpss/name                       # 11:MPSS.AT.4.0.c2-01017-SDM845_GEN_PACK-1
+                    mpss/variant                    # sdm845.gen.prodQ
+
+
+######## CPU FREQUENCY SPEEDS PROFILES
+/sys/devices/system/cpu/cpufreq/policy4/
+/sys/kernel/debug/opp/cpu4/
+echo 2956800 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+/sys/devices/system/cpu/cpufreq/policy4/scaling_boost_frequencies           #list boost freq for higher cores
+/sys/devices/system/cpu/cpu4/cpufreq/stats/time_in_state                    #amount of time in each freq,time measured in 10mS increments
+/sys/devices/system/cpu/cpufreq/policy4/stats/time_in_state                 #higher cores amount of time in each freq,time measured in 10mS increments
+/sys/devices/system/cpu/cpufreq/policy0/stats/time_in_state                 #lower cores amount of time in each freq,time measured in 10mS increments
+######## OPP TABLES
+/sys/kernel/debug/opp
+
+######## INTERCONNECT
+/sys/kernel/debug/interconnect/interconnect_summary
+                                            interconnect_graph
+cat /sys/kernel/debug/interconnect/interconnect_graph | \
+                dot -Tsvg > interconnect_graph.svg
+
+
+######## GPIO-KEYS
+/sys/devices/platform/gpio-keys/keys [ro]
+/sys/devices/platform/gpio-keys/switches [ro]
+/sys/devices/platform/gpio-keys/disabled_keys [rw]
+/sys/devices/platform/gpio-keys/disables_switches [rw]
+
+######## GPIO
+/sys/class/gpio/
+/sys/bus/gpio
+/sys/devices/platform/gpio-keys
+/sys/kernel/debug/gpio
+
+#########GPU
+/sys/bus/platform/devices/5000000.gpu/devfreq/5000000.gpu/
+/sys/bus/platform/devices/5000000.gpu/devfreq/5000000.gpu/trans_stat   time in each state
+/sys/class/devfreq/5000000.gpu/trans_stat  time in each state
+
+######### ADC
+/sys/bus/spi/drivers/adc0832/spi0.0/iio\:device0/in_voltage0_raw   plus a ton more, scales, triggers etc
+
+######### GYRO ACCELEROMTER
+/sys/bus/iio/devices/iio:device1
+/sys/bus/iio/devices/iio:device0
+echo inv-mpu6050-i2c 0x68 | sudo tee /sys/class/i2c-adapter/i2c-17/new_device
+
+######## BLUETOOTH ###########
+echo 1 > /sys/kernel/debug/bluetooth/hci0/vendor_diag
+
+
+
+#############################################################################################
+OTG Mode selection, heres an exampl devicetree entry
+
+&usbotg {
+        vbus-supply = <&reg_5p0v>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_usbotg>;
+        disable-over-current;
+        dr_mode = "peripheral";
+        status = "okay";
+};
+
+This can be done in the bootloader, here's an example for GW54xx:
+
+setenv fixfdt 'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode host' # host mode
+setenv fixfdt 'fdt addr ${fdt_addr}; fdt resize; fdt set /soc/aips-bus@2100000/usb@2184000 dr_mode gadget' # gadget mode
+saveenv #once you have made your selection
+
+Additionally some host controllers such as the Chips and Media controller used on the IMX6 have hooks that allow them to be configured at runtime in Linux Userspace. For example on IMX6 boards:
+
+cat /sys/kernel/debug/ci_hdrc.0/role # see current role; default dictated by dr_mode dt property or state of OTG_ID pin if not set
+echo gadget > /sys/kernel/debug/ci_hdrc.0/role # specify device mode
+echo host > /sys/kernel/debug/ci_hdrc.0/role # specify host mode
+
+

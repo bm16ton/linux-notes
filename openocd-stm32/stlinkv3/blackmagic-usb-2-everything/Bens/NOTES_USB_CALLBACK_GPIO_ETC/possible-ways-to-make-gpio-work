@@ -1,0 +1,65 @@
+so in cdcacm.c regiter an i2c call back cdcacm_set_config at bottom after adding endpoints etc
+
+    usbd_register_control_callback(dev,
+                                  USB_REQ_TYPE_VENDOR,//USB_REQ_TYPE_STANDARD | USB_REQ_TYPE_INTERFACE,
+                                  USB_REQ_TYPE_TYPE, /// | USB_REQ_TYPE_RECIPIENT,
+                                  control_request_i2c);
+
+The last line is where you pick the name for the i2c callback
+
+
+
+for gpio call backs in call back function use brequest for gpio number and value for on or off
+
+
+switch (req->bRequest) {
+   if (req->bRequest == 1)
+     {
+        if (req->wValue ==1)
+        	{
+        	gpio_set(GPIOA, GPIO10);
+     		}
+     	else if (req->wValue == 0)
+     	    {
+     	    gpio_clear(GPIOA, GPIO10);
+     	    }
+     }
+   if (req->bRequest == 2)
+   {
+        if (req->wValue ==1)
+        	{
+        	gpio_set(GPIOA, GPIO10);   /* use different gpio obviously */
+     		}
+     	else if (req->wValue == 0)
+     	    {
+     	    gpio_clear(GPIOA, GPIO10);
+     	    }
+	}
+
+
+And mae kernel driver use brequest and value for the correct things can also try case
+
+switch(req->bRequest) {
+	case 1:
+        switch (req->wValue)
+        case 1:
+        	{
+        	gpio_set(GPIOA, GPIO10);
+     		}
+     	case 0: (req->wValue)
+     	    {
+     	    gpio_clear(GPIOA, GPIO10);
+     	    }
+	}
+	case 2:
+        switch (req->wValue) {
+        case 1:
+        	{
+        	gpio_set(GPIOA, GPIO10);
+     		}
+     	case 0: (req->wValue)
+     	    {
+     	    gpio_clear(GPIOA, GPIO10);
+     	    }
+     }
+

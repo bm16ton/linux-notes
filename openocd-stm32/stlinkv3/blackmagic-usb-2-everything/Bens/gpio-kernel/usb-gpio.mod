@@ -1,0 +1,2 @@
+/home/maddocks/linux-notes/openocd-stm32/stlinkv3/blackmagic-usb-2-everything/Bens/gpio-kernel/usb-gpio.o
+

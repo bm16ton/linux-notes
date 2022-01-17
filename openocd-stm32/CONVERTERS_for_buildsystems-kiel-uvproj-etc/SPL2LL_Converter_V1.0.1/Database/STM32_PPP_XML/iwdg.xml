@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="IWDG">
+  <COMMON>
+    <LITERALS>
+      <!-- ################ IWDG_Prescaler_x expressions ################ -->
+      <LITERAL>
+        <SPL>IWDG_Prescaler_4</SPL>
+        <LL>LL_IWDG_PRESCALER_4</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_8</SPL>
+        <LL>LL_IWDG_PRESCALER_8</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_16</SPL>
+        <LL>LL_IWDG_PRESCALER_16</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_32</SPL>
+        <LL>LL_IWDG_PRESCALER_32</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_64</SPL>
+        <LL>LL_IWDG_PRESCALER_64</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_128</SPL>
+        <LL>LL_IWDG_PRESCALER_128</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>IWDG_Prescaler_256</SPL>
+        <LL>LL_IWDG_PRESCALER_256</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+    </LITERALS>
+
+	<STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+       <!-- ################ IWDG_WriteAccessCmd expressions ################ -->
+       <FEATURE>
+           <SPL NAME="IWDG_WriteAccessCmd"
+                CMD0="EQU@SPL_PARAM_0=IWDG_WriteAccess_Enable" />
+           <LL  NAME="LL_IWDG_EnableWriteAccess"
+                CMD0="UPD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="IWDG_WriteAccessCmd"
+                CMD0="EQU@SPL_PARAM_0=IWDG_WriteAccess_Disable" />
+           <LL  NAME="LL_IWDG_DisableWriteAccess"
+                CMD0="UPD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+       <!-- ################################################################ -->
+
+       <FEATURE>
+           <SPL NAME="IWDG_SetPrescaler" />
+           <LL  NAME="LL_IWDG_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0=IWDG"
+                CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       
+       <FEATURE>
+           <SPL NAME="IWDG_SetReload" />
+           <LL  NAME="LL_IWDG_SetReloadCounter"
+                CMD0="UPD@LL_PARAM_0=IWDG"
+                CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       
+       <FEATURE>
+           <SPL NAME="IWDG_Enable" />
+           <LL  NAME="LL_IWDG_Enable"
+                CMD0="ADD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+
+       <!-- ################ IWDG_GetFlagStatus expressions ################ -->
+       <FEATURE>
+           <SPL NAME="IWDG_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=IWDG_FLAG_PVU" />
+           <LL  NAME="LL_IWDG_IsActiveFlag_PVU"
+                CMD0="UPD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="IWDG_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_0=IWDG_FLAG_RVU" />
+           <LL  NAME="LL_IWDG_IsActiveFlag_RVU"
+                CMD0="UPD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+       <!-- ################################################################ -->
+       
+       <FEATURE>
+           <SPL NAME="IWDG_ReloadCounter" />
+           <LL  NAME="LL_IWDG_ReloadCounter"
+                CMD0="ADD@LL_PARAM_0=IWDG" />
+       </FEATURE>
+       <!-- #################################################### -->
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+   <!-- ################ STM32F0/F3/L0/L4/F7/H7 ################ -->
+   <VERSION NAME="IWDG_VER_2_2_0">
+      <LITERALS>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+          <FEATURE>
+              <SPL NAME="IWDG_SetWindowValue" />
+              <LL  NAME="LL_IWDG_SetWindow"
+                   CMD0="UPD@LL_PARAM_0=IWDG"
+                   CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+          </FEATURE>
+
+          <FEATURE>
+              <SPL NAME="IWDG_GetFlagStatus"
+                   CMD0="EQU@SPL_PARAM_0=IWDG_FLAG_WVU" />
+              <LL  NAME="LL_IWDG_IsActiveFlag_WVU"
+                   CMD0="UPD@LL_PARAM_0=IWDG" />
+          </FEATURE>
+          <!-- #################################################### -->
+      </FUNCTIONS>
+    </VERSION>
+    <!-- ######################################################### -->
+  </SPECIFIC>
+</IP>

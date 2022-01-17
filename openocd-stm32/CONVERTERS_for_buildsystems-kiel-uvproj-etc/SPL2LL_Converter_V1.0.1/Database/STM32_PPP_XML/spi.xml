@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="SPI">
+  <COMMON>
+    <LITERALS>
+      <LITERAL><SPL>SPI_Direction_2Lines_FullDuplex</SPL><LL>LL_SPI_FULL_DUPLEX</LL></LITERAL>
+      <LITERAL><SPL>SPI_Direction_2Lines_RxOnly</SPL><LL>LL_SPI_SIMPLEX_RX</LL></LITERAL>
+      <LITERAL><SPL>SPI_Direction_1Line_Rx</SPL><LL>LL_SPI_HALF_DUPLEX_RX</LL></LITERAL>
+      <LITERAL><SPL>SPI_Direction_1Line_Tx</SPL><LL>LL_SPI_HALF_DUPLEX_TX</LL></LITERAL>
+      <LITERAL><SPL>SPI_Mode_Master</SPL><LL>LL_SPI_MODE_MASTER</LL></LITERAL>
+      <LITERAL><SPL>SPI_Mode_Slave</SPL><LL>LL_SPI_MODE_SLAVE</LL></LITERAL>
+      <LITERAL><SPL>SPI_CPOL_Low</SPL><LL>LL_SPI_POLARITY_LOW</LL></LITERAL>
+      <LITERAL><SPL>SPI_CPOL_High</SPL><LL>LL_SPI_POLARITY_HIGH</LL></LITERAL>
+      <LITERAL><SPL>SPI_CPHA_1Edge</SPL><LL>LL_SPI_PHASE_1EDGE</LL></LITERAL>
+      <LITERAL><SPL>SPI_CPHA_2Edge</SPL><LL>LL_SPI_PHASE_2EDGE</LL></LITERAL>
+      <LITERAL><SPL>SPI_NSS_Soft</SPL><LL>LL_SPI_NSS_SOFT</LL></LITERAL>
+      <LITERAL><SPL>SPI_NSS_Hard</SPL><LL>LL_SPI_NSS_HARD_INPUT</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_2</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV2</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_4</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV4</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_8</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV8</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_16</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV16</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_32</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV32</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_64</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV64</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_128</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV128</LL></LITERAL>
+      <LITERAL><SPL>SPI_BaudRatePrescaler_256</SPL><LL>LL_SPI_BAUDRATEPRESCALER_DIV256</LL></LITERAL>
+      <LITERAL><SPL>SPI_FirstBit_MSB</SPL><LL>LL_SPI_MSB_FIRST</LL></LITERAL>
+      <LITERAL><SPL>SPI_FirstBit_LSB</SPL><LL>LL_SPI_LSB_FIRST</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_16b</SPL><LL>LL_SPI_DATAWIDTH_16BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_8b</SPL><LL>LL_SPI_DATAWIDTH_8BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_4b</SPL><LL>LL_SPI_DATAWIDTH_4BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_5b</SPL><LL>LL_SPI_DATAWIDTH_5BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_6b</SPL><LL>LL_SPI_DATAWIDTH_6BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_7b</SPL><LL>LL_SPI_DATAWIDTH_7BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_9b</SPL><LL>LL_SPI_DATAWIDTH_9BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_10b</SPL><LL>LL_SPI_DATAWIDTH_10BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_11b</SPL><LL>LL_SPI_DATAWIDTH_11BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_12b</SPL><LL>LL_SPI_DATAWIDTH_12BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_13b</SPL><LL>LL_SPI_DATAWIDTH_13BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_14b</SPL><LL>LL_SPI_DATAWIDTH_14BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_DataSize_15b</SPL><LL>LL_SPI_DATAWIDTH_15BIT</LL></LITERAL>
+      <LITERAL><SPL>SPI_InitTypeDef</SPL><LL>LL_SPI_InitTypeDef</LL></LITERAL>
+	  
+	</LITERALS>
+
+    <STRUCTURES>
+	   <STRUCTURE NAME="SPI_InitTypeDef">
+         <FIELD><SPL>SPI_Direction</SPL><LL>TransferDirection</LL></FIELD>
+         <FIELD><SPL>SPI_Mode</SPL><LL>Mode</LL></FIELD>
+         <FIELD><SPL>SPI_DataSize</SPL><LL>DataWidth</LL></FIELD>
+         <FIELD><SPL>SPI_CPOL</SPL><LL>ClockPolarity</LL></FIELD>
+         <FIELD><SPL>SPI_CPHA</SPL><LL>ClockPhase</LL></FIELD>
+         <FIELD><SPL>SPI_NSS</SPL><LL>NSS</LL></FIELD>
+         <FIELD><SPL>SPI_BaudRatePrescaler</SPL><LL>BaudRate</LL></FIELD>
+         <FIELD><SPL>SPI_FirstBit</SPL><LL>BitOrder</LL></FIELD>
+         <FIELD><SPL>SPI_CRCPolynomial</SPL><LL>CRCPoly</LL></FIELD>
+       </STRUCTURE>
+	   
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ SPI Functions ################ -->
+      <FUNCTION>
+          <SPL NAME="SPI_I2S_DeInit" />
+          <LL  NAME="LL_SPI_DeInit"
+               CMD0="UPD@LL_PARAM_0={CPY@LL_PARAM_0}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_Init" />
+          <LL  NAME="LL_SPI_Init"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_StructInit" />
+          <LL  NAME="LL_SPI_StructInit"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_Cmd" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_SPI_Enable"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_Cmd" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_SPI_Disable"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_TIModeCmd" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_SPI_SetStandard"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_PROTOCOL_TI"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32L1</EXCLUDE>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_TIModeCmd" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_SPI_SetStandard"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_PROTOCOL_MOTOROLA"/>
+          <EXCLUDE>STM32F10</EXCLUDE>
+          <EXCLUDE>STM32L1</EXCLUDE>
+      </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_DataSizeConfig"/>
+           <LL  NAME="LL_SPI_SetDataWidth"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_BiDirectionalLineConfig" 
+               CMD0="EQU@SPL_PARAM_1=SPI_Direction_Tx" />
+          <LL  NAME="LL_SPI_SetTransferDirection"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_HALF_DUPLEX_TX"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_BiDirectionalLineConfig" 
+               CMD0="EQU@SPL_PARAM_1=SPI_Direction_Rx" />
+          <LL  NAME="LL_SPI_SetTransferDirection"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_HALF_DUPLEX_RX"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_NSSInternalSoftwareConfig" 
+               CMD0="EQU@SPL_PARAM_1=SPI_NSSInternalSoft_Set" />
+          <LL  NAME="N/A"
+               CMD0="SET_BIT({CPY@SPL_PARAM_0}-&gt;CR1, SPI_CR1_SSI)" 
+			   LOG="No LL API exist, migration is ensured by using direct access register"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_NSSInternalSoftwareConfig" 
+               CMD0="EQU@SPL_PARAM_1=SPI_NSSInternalSoft_Reset" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;CR1, SPI_CR1_SSI)" 
+			   LOG="No LL API exist, migration is ensured by using direct access register"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_SSOutputCmd" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_SPI_SetNSSMode"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_NSS_HARD_OUTPUT"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_SSOutputCmd" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;CR2, SPI_CR2_SSOE)" 
+			   LOG="No LL API exist, migration is ensured by using direct access register"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_CalculateCRC" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_SPI_EnableCRC"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_CalculateCRC" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_SPI_DisableCRC"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_TransmitCRC"/>
+          <LL  NAME="LL_SPI_SetCRCNext"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_GetCRC" 
+               CMD0="EQU@SPL_PARAM_1=SPI_CRC_Tx" />
+          <LL  NAME="LL_SPI_GetTxCRC"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_GetCRC" 
+               CMD0="EQU@SPL_PARAM_1=SPI_CRC_Rx" />
+          <LL  NAME="LL_SPI_GetRxCRC"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_GetCRCPolynomial"/>
+          <LL  NAME="LL_SPI_GetCRCPolynomial"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+      <FUNCTION>
+          <SPL NAME="SPI_I2S_DMACmd"
+		       CMD0="EQU@SPL_PARAM_1=SPI_I2S_DMAReq_Tx" 
+               CMD1="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_SPI_EnableDMAReq_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_I2S_DMACmd"
+		       CMD0="EQU@SPL_PARAM_1=SPI_I2S_DMAReq_Tx" 
+               CMD1="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="LL_SPI_DisableDMAReq_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_I2S_DMACmd"
+		       CMD0="EQU@SPL_PARAM_1=SPI_I2S_DMAReq_Rx" 
+               CMD1="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_SPI_EnableDMAReq_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_I2S_DMACmd"
+		       CMD0="EQU@SPL_PARAM_1=SPI_I2S_DMAReq_Rx" 
+               CMD1="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="LL_SPI_DisableDMAReq_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_TXE" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_SPI_EnableIT_TXE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_TXE" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_SPI_DisableIT_TXE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_RXNE" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_SPI_EnableIT_RXNE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_RXNE" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_SPI_DisableIT_RXNE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_ERR" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_SPI_EnableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_ERR" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_SPI_DisableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_FLAG_TXE" />
+           <LL  NAME="LL_SPI_IsActiveFlag_TXE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_FLAG_RXNE" />
+           <LL  NAME="LL_SPI_IsActiveFlag_RXNE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_FLAG_BSY" />
+           <LL  NAME="LL_SPI_IsActiveFlag_BSY"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_FLAG_OVR" />
+           <LL  NAME="LL_SPI_IsActiveFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_FLAG_MODF" />
+           <LL  NAME="LL_SPI_IsActiveFlag_MODF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_FLAG_CRCERR" />
+           <LL  NAME="LL_SPI_IsActiveFlag_CRCERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_FLAG_TIFRFE" />
+           <LL  NAME="LL_SPI_IsActiveFlag_FRE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+       <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2S_FLAG_UDR" />
+           <LL  NAME="LL_I2S_IsActiveFlag_UDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2S_FLAG_CHSIDE" />
+           <LL  NAME="LL_I2S_IsActiveFlag_CHSIDE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	
+	   
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=SPI_FLAG_CRCERR" />
+           <LL  NAME="LL_SPI_ClearFlag_CRCERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	  
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_TXE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_SPI_IsActiveFlag_TXE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_RXNE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_RXNE({CPY@SPL_PARAM_0}) &amp;&amp; LL_SPI_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_IT_MODF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_SPI_IsActiveFlag_MODF({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_OVR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_SPI_IsActiveFlag_OVR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2S_IT_UDR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2S_IsActiveFlag_UDR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_FRE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2S_IsActiveFlag_FRE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=SPI_I2S_IT_TIFRFE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_SPI_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2S_IsActiveFlag_FRE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_SendData"/>
+           <LL  NAME="LL_SPI_TransmitData16"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_ReceiveData"/>
+           <LL  NAME="LL_SPI_ReceiveData16"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_SendData16"/>
+           <LL  NAME="LL_SPI_TransmitData16"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_ReceiveData16"/>
+           <LL  NAME="LL_SPI_ReceiveData16"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_SendData8"/>
+           <LL  NAME="LL_SPI_TransmitData8"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_ReceiveData8"/>
+           <LL  NAME="LL_SPI_ReceiveData8"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="SPI_I2S_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=SPI_IT_CRCERR" />
+           <LL  NAME="LL_SPI_ClearFlag_CRCERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+    </FUNCTIONS>
+	
+	
+  </COMMON>
+
+  <SPECIFIC>
+   <VERSION NAME="SPI_VER_1_2_0">
+    <LITERALS>
+	</LITERALS>
+
+    <STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+	
+	
+	
+    </FUNCTIONS>
+    </VERSION>
+	
+   <VERSION NAME="SPI_VER_1_3_0">
+    <LITERALS>
+        <FIELD><SPL>SPI_RxFIFOThreshold_HF</SPL><LL>LL_SPI_RX_FIFO_TH_HALF</LL></FIELD>
+        <FIELD><SPL>SPI_RxFIFOThreshold_QF</SPL><LL>LL_SPI_RX_FIFO_TH_QUARTER</LL></FIELD>
+        <FIELD><SPL>SPI_CRCLength_8b</SPL><LL>LL_SPI_CRC_8BIT</LL></FIELD>
+        <FIELD><SPL>SPI_CRCLength_16b</SPL><LL>LL_SPI_CRC_16BIT</LL></FIELD>
+	</LITERALS>
+
+    <STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+	   <FUNCTION>
+          <SPL NAME="SPI_RxFIFOThresholdConfig"/>
+          <LL  NAME="LL_SPI_SetRxFIFOThreshold"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+       </FUNCTION>
+	   <FUNCTION>
+          <SPL NAME="SPI_NSSPulseModeCmd" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_SPI_EnableNSSPulseMgt"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_NSSPulseModeCmd" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_SPI_DisableNSSPulseMgt"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="SPI_CRCLengthConfig"/>
+          <LL  NAME="LL_SPI_SetCRCWidth"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+      </FUNCTION>
+
+	   <FUNCTION>
+          <SPL NAME="SPI_LastDMATransferCmd" 
+               CMD0="EQU@SPL_PARAM_1=SPI_LastDMATransfer_TxEvenRxEven" />
+          <LL  NAME="LL_SPI_SetDMAParity_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_EVEN"/>
+          <LL  NAME="LL_SPI_SetDMAParity_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_EVEN"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_LastDMATransferCmd" 
+               CMD0="EQU@SPL_PARAM_1=SPI_LastDMATransfer_TxOddRxEven" />
+          <LL  NAME="LL_SPI_SetDMAParity_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_ODD"/>
+          <LL  NAME="LL_SPI_SetDMAParity_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_EVEN"/>
+      </FUNCTION>
+	   <FUNCTION>
+          <SPL NAME="SPI_LastDMATransferCmd" 
+               CMD0="EQU@SPL_PARAM_1=SPI_LastDMATransfer_TxEvenRxOdd" />
+          <LL  NAME="LL_SPI_SetDMAParity_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_EVEN"/>
+          <LL  NAME="LL_SPI_SetDMAParity_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_ODD"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="SPI_LastDMATransferCmd" 
+               CMD0="EQU@SPL_PARAM_1=SPI_LastDMATransfer_TxOddRxOdd" />
+          <LL  NAME="LL_SPI_SetDMAParity_TX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_ODD"/>
+          <LL  NAME="LL_SPI_SetDMAParity_RX"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1=LL_SPI_DMA_PARITY_ODD"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="SPI_GetTransmissionFIFOStatus"/>
+          <LL  NAME="LL_SPI_GetTxFIFOLevel"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="SPI_GetReceptionFIFOStatus"/>
+          <LL  NAME="LL_SPI_GetRxFIFOLevel"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

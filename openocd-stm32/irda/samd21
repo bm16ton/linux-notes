@@ -1,0 +1,20 @@
+25.6.3.3  IrDA Modulation and Demodulation
+IrDA modulation and demodulation is available with the following configuration. When enabled, transmission and
+reception is IrDA compliant up to 115.2 kb/s.
+z IrDA encoding enabled (CTRLB.ENC=1).
+z Asynchronous mode (CTRLA.CMODE = 0).
+z 16x sample rate (CTRLA.SAMPR[0] = 0).
+During transmission, each low bit is transmitted as a high pulse with width as 3/16 of the baud rate period
+
+The reception decoder has two main functions. The first is to synchronize the incoming data to the IrDA baud rate
+counter. Synchronization is performed at the start of each zero pulse. The second function is to decode incoming Rx
+data. If a pulse width meets the minimum length set by configuration (RXPL.RXPL), it is accepted. When the baud rate
+counter reaches its middle value (1/2 bit length), it is transferred to the receiver.
+Figure 25-9 illustrates reception where RXPL.RXPL is set to 19. This indicates that the pulse width should be at least 20
+SE clock cycles.  When assuming BAUD = 0xE666 or 160 SE cycles per bit, this corresponds to 2/16 baud clock as
+minimum pulse width required. In this case the first bit is accepted as a zero, the second bit is a one, and the third bit is
+also a one. A low pulse is rejected since it does not meet the minimum requirement of 2/16 baud clock.
+
+Note that the polarity of the transmitter and receiver are opposite. During transmission, a zero bit is transmitted as a one
+
+pulse. During reception, an accepted zero pulse is received as a zero bit

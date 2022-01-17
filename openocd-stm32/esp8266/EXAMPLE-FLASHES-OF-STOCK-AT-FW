@@ -1,0 +1,21 @@
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x00000 v0.9.2.2\ AT\ Firmware.bin
+
+
+###############################################################
+
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x00000 boot_v1.1.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x01000 newest/user1.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x7C000 esp_init_data_default.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x7E000 blank.bin
+
+
+##############################################################
+
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x00000 boot_v1.2.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x01000 at/512+512/user1.1024.new.2.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x7C000 esp_init_data_default_v05.bin
+esptool.py --port /dev/tty.usbserial-FTG54BPS --baud 115200 write_flash --flash_mode dio 0x7E000 blank.bin
+
+##############################################################
+
+

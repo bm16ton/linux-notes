@@ -1,0 +1,191 @@
+## FROM https://github.com/olikraus/u8g2/blob/master/csrc/u8x8_d_ssd1306_96x16.c  FOR 96X16
+
+static const uint8_t u8x8_d_ssd1306_96x16_er_init_seq[] = {
+  U8X8_START_TRANSFER(),             	/* enable chip, delay is part of the transfer start */
+  U8X8_C(0x0ae),		                /* display off */
+  U8X8_CA(0x0d5, 0x080),		/* clock divide ratio (0x00=1) and oscillator frequency (0x8) */
+  U8X8_CA(0x0a8, 0x00f),		/* multiplex ratio, 0.69 OLED: 0x0f */
+  U8X8_CA(0x0d3, 0x000),		/* display offset, 0.69 OLED  */
+  U8X8_C(0x040),		                /* set display start line to 0, 0.69 OLED */
+  U8X8_CA(0x08d, 0x014),		/* [2] charge pump setting (p62): 0x014 enable, 0x010 disable, 0.66 OLED  0x14*/
+  U8X8_CA(0x020, 0x000),		/* horizontal addressing mode */
+  U8X8_C(0x0a1),				/* segment remap a0/a1, 0.66 OLED  */
+  U8X8_C(0x0c8),				/* c0: scan dir normal, c8: reverse, 0.66 OLED  */
+  // Flipmode
+  // U8X8_C(0x0a0),				/* segment remap a0/a1*/
+  // U8X8_C(0x0c0),				/* c0: scan dir normal, c8: reverse */
+  U8X8_CA(0x0da, 0x002),		/* com pin HW config, sequential com pin config (bit 4), disable left/right remap (bit 5), 0.66 OLED */
+  U8X8_CA(0x081, 0x0af),		/* [2] set contrast control, 0.69 OLED datasheet: 0xaf */
+  U8X8_CA(0x0d9, 0x0f1),		/* [2] pre-charge period 0x0f1, 0.69 OLED datasheet: 0xf1 */
+  U8X8_CA(0x0db, 0x020),		/* vcomh deselect level, 0.69 OLED datasheet: 0x20 */
+  U8X8_C(0x02e),				/* Deactivate scroll */
+  U8X8_C(0x0a4),				/* output ram to display */
+  U8X8_C(0x0a6),				/* none inverted normal display mode */
+  U8X8_END_TRANSFER(),             	/* disable chip */
+  U8X8_END()             			/* end of sequence */
+};
+static const uint8_t u8x8_d_ssd1306_96x16_powersave0_seq[] = {
+  U8X8_START_TRANSFER(),             	/* enable chip, delay is part of the transfer start */
+  U8X8_C(0x0af),		                /* display on */
+  U8X8_END_TRANSFER(),             	/* disable chip */
+  U8X8_END()             			/* end of sequence */
+};
+
+static const uint8_t u8x8_d_ssd1306_96x16_powersave1_seq[] = {
+  U8X8_START_TRANSFER(),             	/* enable chip, delay is part of the transfer start */
+  U8X8_C(0x0ae),		                /* display off */
+  U8X8_END_TRANSFER(),             	/* disable chip */
+  U8X8_END()             			/* end of sequence */
+};
+
+static const uint8_t u8x8_d_ssd1306_96x16_flip0_seq[] = {
+  U8X8_START_TRANSFER(),             	/* enable chip, delay is part of the transfer start */
+  U8X8_C(0x0a1),				/* segment remap a0/a1*/
+  U8X8_C(0x0c8),				/* c0: scan dir normal, c8: reverse */
+  U8X8_END_TRANSFER(),             	/* disable chip */
+  U8X8_END()             			/* end of sequence */
+};
+
+static const uint8_t u8x8_d_ssd1306_96x16_flip1_seq[] = {
+  U8X8_START_TRANSFER(),             	/* enable chip, delay is part of the transfer start */
+  U8X8_C(0x0a0),				/* segment remap a0/a1*/
+  U8X8_C(0x0c0),				/* c0: scan dir normal, c8: reverse */
+  U8X8_END_TRANSFER(),             	/* disable chip */
+  U8X8_END()             			/* end of sequence */
+};
+#############################################################################################################################
+
+
+## FROM https://github.com/Embetronicx/Tutorials/blob/master/Linux/Device_Driver/I2C-Linux-Device-Driver/SSD1306_I2C_Driver/driver.c FOR 128X64
+
+  /*
+  ** Commands to initialize the SSD_1306 OLED Display
+  */
+  SSD1306_Write(true, 0xAE); // Entire Display OFF
+  SSD1306_Write(true, 0xD5); // Set Display Clock Divide Ratio and Oscillator Frequency
+  SSD1306_Write(true, 0x80); // Default Setting for Display Clock Divide Ratio and Oscillator Frequency that is recommended
+  SSD1306_Write(true, 0xA8); // Set Multiplex Ratio
+  SSD1306_Write(true, 0x3F); // 64 COM lines
+  SSD1306_Write(true, 0xD3); // Set display offset
+  SSD1306_Write(true, 0x00); // 0 offset
+  SSD1306_Write(true, 0x40); // Set first line as the start line of the display
+  SSD1306_Write(true, 0x8D); // Charge pump
+  SSD1306_Write(true, 0x14); // Enable charge dump during display on
+  SSD1306_Write(true, 0x20); // Set memory addressing mode
+  SSD1306_Write(true, 0x00); // Horizontal addressing mode
+  SSD1306_Write(true, 0xA1); // Set segment remap with column address 127 mapped to segment 0
+  SSD1306_Write(true, 0xC8); // Set com output scan direction, scan from com63 to com 0
+  SSD1306_Write(true, 0xDA); // Set com pins hardware configuration
+  SSD1306_Write(true, 0x12); // Alternative com pin configuration, disable com left/right remap
+  SSD1306_Write(true, 0x81); // Set contrast control
+  SSD1306_Write(true, 0x80); // Set Contrast to 128
+  SSD1306_Write(true, 0xD9); // Set pre-charge period
+  SSD1306_Write(true, 0xF1); // Phase 1 period of 15 DCLK, Phase 2 period of 1 DCLK
+  SSD1306_Write(true, 0xDB); // Set Vcomh deselect level
+  SSD1306_Write(true, 0x20); // Vcomh deselect level ~ 0.77 Vcc
+  SSD1306_Write(true, 0xA4); // Entire display ON, resume to RAM content display
+  SSD1306_Write(true, 0xA6); // Set Display in Normal Mode, 1 = ON, 0 = OFF
+  SSD1306_Write(true, 0x2E); // Deactivate scroll
+  SSD1306_Write(true, 0xAF); // Display ON in normal mode
+
+#############################################################################################################################
+
+## FROM https://github.com/greiman/SSD1306Ascii/issues/50 THEIR INITIALIZING 96X16 BUT USING INIT FROM 128X32? MODED?
+
+/** Initialization commands for a 96x16 SSD1306 oled display. /
+static const uint8_t MEM_TYPE Adafruit96x16init[] = {
+// Init sequence for Adafruit 128x32 OLED module
+SSD1306_DISPLAYOFF,
+SSD1306_SETDISPLAYCLOCKDIV, 0x80, // the suggested ratio 0x80
+SSD1306_SETMULTIPLEX, 0x0F, // ratio 32
+SSD1306_SETDISPLAYOFFSET, 0x0, // no offset
+SSD1306_SETSTARTLINE | 0x40, // line #0
+SSD1306_CHARGEPUMP, 0x14, // internal vcc
+SSD1306_MEMORYMODE, 0x00, // page mode
+SSD1306_SEGREMAP | 0xA1, // column 95 mapped to SEG0
+SSD1306_COMSCANDEC, // column scan direction reversed
+SSD1306_SETCOMPINS, 0x02, // sequential COM pins, disable remap
+SSD1306_SETCONTRAST, 0xAF, // contrast level 175
+SSD1306_SETPRECHARGE, 0xF1, // pre-charge period (1, 15)
+SSD1306_SETVCOMDETECT, 0x20, // vcomh regulator level
+SSD1306_DISPLAYALLON_RESUME,
+SSD1306_NORMALDISPLAY,
+SSD1306_DISPLAYON
+};
+/* Initialize a 96x16 SSD1306 oled display. */
+static const DevType MEM_TYPE Adafruit96x16 = {
+Adafruit96x16init,
+sizeof(Adafruit96x16init),
+96,
+16,
+0
+};
+
+#############################################################################################################################
+
+### ADAFRUIT ARDUINO LIBRARY
+
+#define SSD1306_MEMORYMODE 0x20          ///< See datasheet
+#define SSD1306_COLUMNADDR 0x21          ///< See datasheet
+#define SSD1306_PAGEADDR 0x22            ///< See datasheet
+#define SSD1306_SETCONTRAST 0x81         ///< See datasheet
+#define SSD1306_CHARGEPUMP 0x8D          ///< See datasheet
+#define SSD1306_SEGREMAP 0xA0            ///< See datasheet
+#define SSD1306_DISPLAYALLON_RESUME 0xA4 ///< See datasheet
+#define SSD1306_DISPLAYALLON 0xA5        ///< Not currently used
+#define SSD1306_NORMALDISPLAY 0xA6       ///< See datasheet
+#define SSD1306_INVERTDISPLAY 0xA7       ///< See datasheet
+#define SSD1306_SETMULTIPLEX 0xA8        ///< See datasheet
+#define SSD1306_DISPLAYOFF 0xAE          ///< See datasheet
+#define SSD1306_DISPLAYON 0xAF           ///< See datasheet
+#define SSD1306_COMSCANINC 0xC0          ///< Not currently used
+#define SSD1306_COMSCANDEC 0xC8          ///< See datasheet
+#define SSD1306_SETDISPLAYOFFSET 0xD3    ///< See datasheet
+#define SSD1306_SETDISPLAYCLOCKDIV 0xD5  ///< See datasheet
+#define SSD1306_SETPRECHARGE 0xD9        ///< See datasheet
+#define SSD1306_SETCOMPINS 0xDA          ///< See datasheet
+#define SSD1306_SETVCOMDETECT 0xDB       ///< See datasheet
+
+#define SSD1306_SETLOWCOLUMN 0x00  ///< Not currently used
+#define SSD1306_SETHIGHCOLUMN 0x10 ///< Not currently used
+#define SSD1306_SETSTARTLINE 0x40  ///< See datasheet
+
+#define SSD1306_EXTERNALVCC 0x01  ///< External display voltage source
+#define SSD1306_SWITCHCAPVCC 0x02 ///< Gen. display voltage from 3.3V
+
+#define SSD1306_RIGHT_HORIZONTAL_SCROLL 0x26              ///< Init rt scroll
+#define SSD1306_LEFT_HORIZONTAL_SCROLL 0x27               ///< Init left scroll
+#define SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL 0x29 ///< Init diag scroll
+#define SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL 0x2A  ///< Init diag scroll
+#define SSD1306_DEACTIVATE_SCROLL 0x2E                    ///< Stop scroll
+#define SSD1306_ACTIVATE_SCROLL 0x2F                      ///< Start scroll
+#define SSD1306_SET_VERTICAL_SCROLL_AREA 0xA3             ///< Set scroll range
+
+## FROM https://embetronicx.com/tutorials/linux/device-drivers/i2c-bus-driver-dummy-linux-device-driver-using-raspberry-pi/ 96X16
+
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xae]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xd5]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x80]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xa8]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x3f]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xd3]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x00]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x40]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x8d]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x14]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x20]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x00]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xa1]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xc8]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xda]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x12]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x81]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x80]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xd9]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xf1]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xdb]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x20]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xa4]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xa6]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0x2e]
+[Addr = 0x3c] [Len = 2] [Data] = [0x00] [0xaf]

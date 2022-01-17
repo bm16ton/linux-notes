@@ -1,0 +1,4 @@
+The IrDA mode is selected by setting the IREN bit in the USART_CR3 register. In IrDA
+mode, the following bits must be kept cleared:
+LINEN, STOP and CLKEN bits in the USART_CR2 register,
+SCEN and HDSEL bits in the USART_CR3 register.

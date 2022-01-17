@@ -1,0 +1,3093 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="adc_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_32736_Styles"><!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font532736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font632736
+	{color:red;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font732736
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font832736
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6532736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6632736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6732736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6832736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl6932736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7032736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7132736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7232736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7332736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7432736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7532736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7632736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7732736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7832736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7932736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8032736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8132736
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8232736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8332736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8432736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8532736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8632736
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+--></style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_32736" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=2731 class=xl6553532736
+ style='border-collapse:collapse;table-layout:fixed;width:2049pt'>
+ <col class=xl6553532736 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553532736 width=774 style='mso-width-source:userset;mso-width-alt:
+ 24768;width:581pt'>
+ <col class=xl6553532736 width=845 style='mso-width-source:userset;mso-width-alt:
+ 27040;width:634pt'>
+ <col class=xl6553532736 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553532736 width=72 span=15 style='width:54pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl8132736 width=1651 style='height:47.1pt;
+  width:1239pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font832736">ADC</font><font class="font732736"> driver</font></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+  <td class=xl6553532736 width=72 style='width:54pt'></td>
+ </tr>
+ <tr class=xl6553532736 height=21 style='height:15.75pt'>
+  <td colspan=2 height=21 class=xl7632736 style='height:15.75pt'>SPL</td>
+  <td class=xl7632736>STM32Cube_LL</td>
+  <td class=xl7632736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6632736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_Init(ADC_TypeDef* ADCx,
+  ADC_InitTypeDef* ADC_InitStruct)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_Init(ADC_TypeDef
+  *ADCx, LL_ADC_InitTypeDef *ADC_InitStruct)<br>
+    <br>
+    LL_ADC_REG_Init(ADC_TypeDef *ADCx, LL_ADC_REG_InitTypeDef
+  *ADC_REG_InitStruct)</td>
+  <td class=xl6632736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl6632736 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_DeInit(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_DeInit(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6632736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6632736 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StructInit(ADC_InitTypeDef*
+  ADC_InitStruct);<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_StructInit(LL_ADC_InitTypeDef
+  *ADC_InitStruct)void LL_ADC_REG_StructInit(LL_ADC_REG_InitTypeDef
+  *ADC_REG_InitStruct)</td>
+  <td class=xl6632736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl6632736 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_CommonStructInit(ADC_CommonInitTypeDef*
+  ADC_CommonInitStruct);</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_CommonStructInit(LL_ADC_CommonInitTypeDef
+  *ADC_CommonInitStruct)</td>
+  <td class=xl6632736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_InjectedInit(ADC_TypeDef*
+  ADCx, ADC_InjectedInitTypeDef* ADC_InjectedInitStruct)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_Init(ADC_TypeDef
+  *ADCx, LL_ADC_INJ_InitTypeDef *ADC_INJ_InitStruct)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_InjectedStructInit(ADC_InjectedInitTypeDef*
+  ADC_InjectedInitStruct)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StructInit(LL_ADC_INJ_InitTypeDef
+  *ADC_INJ_InitStruct)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_CommonInit(ADC_CommonInitTypeDef*
+  ADC_CommonInitStruct)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_CommonInit(ADC_Common_TypeDef
+  *ADCxy_COMMON, LL_ADC_CommonInitTypeDef *ADC_CommonInitStruct)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_CommonStructInit(ADC_CommonInitTypeDef*
+  ADC_CommonInitStruct)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_CommonStructInit(LL_ADC_CommonInitTypeDef
+  *ADC_CommonInitStruct)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_ClockConfig(uint32_t
+  ADC_Clock, uint32_t ADC_ClockPrescaler)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetCommonClock(ADC_Common_TypeDef
+  *ADCxy_COMMON, uint32_t CommonClock)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6732736 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_Cmd(ADC_TypeDef* ADCx,
+  FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_Enable(ADC_TypeDef
+  *ADCx)<br>
+    LL_ADC_Disable(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_OversamplingRegularGroupCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)<br>
+    <br>
+    ADC_OversamplingInjectedGroupCmd(ADC_TypeDef* ADCx, FunctionalState
+  NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetOverSamplingScope(ADC_TypeDef
+  *ADCx, uint32_t OvsScope)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6732736 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StartCalibration(ADC_TypeDef*
+  ADCx)<br>
+    ADC_SelectCalibrationMode(ADC_TypeDef* ADCx, uint32_t ADC_CalibrationMode)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_GetCalibrationFactor(ADC_TypeDef
+  *ADCx, uint32_t SingleDiff)<br>
+    </td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetCalibrationValue(ADC_TypeDef*
+  ADCx)<br>
+    <br>
+    ADC_SelectCalibrationMode(ADC_TypeDef* ADCx, uint32_t ADC_CalibrationMode)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_GetCalibrationFactor(ADC_TypeDef
+  *ADCx, uint32_t SingleDiff)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_SetCalibrationValue(ADC_TypeDef*
+  ADCx, uint32_t ADC_Calibration)<br>
+    <br>
+    ADC_SelectCalibrationMode(ADC_TypeDef* ADCx, uint32_t ADC_CalibrationMode)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetCalibrationFactor(ADC_TypeDef
+  *ADCx, uint32_t SingleDiff, uint32_t CalibrationFactor)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetCalibrationStatus(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_IsCalibrationOnGoing(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_DisableCmd(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_Disable(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetDisableCmdStatus(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_IsDisableOngoing(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_VoltageRegulatorCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_EnableInternalRegulator(ADC_TypeDef
+  *ADCx)<br>
+    <br>
+    LL_ADC_DisableInternalRegulator(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_DeepPowerDownCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_EnableDeepPowerDown(ADC_TypeDef
+  *ADCx)<br>
+    <br>
+    LL_ADC_DisableDeepPowerDown(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_SelectDifferentialMode(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetChannelSingleDiff(ADC_TypeDef
+  *ADCx, uint32_t Channel, uint32_t SingleDiff)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_SelectQueueOfContextMode(ADC_TypeDef*
+  ADCx, FunctionalState NewState)<br>
+    <br>
+    ADC_QueueOfContextCmd(ADC_TypeDef* ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetQueueMode(ADC_TypeDef
+  *ADCx, uint32_t QueueMode)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_AutoDelayCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetLowPowerMode(ADC_TypeDef
+  *ADCx, uint32_t LowPowerMode)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_AnalogWatchdogCmd(ADC_TypeDef*
+  ADCx, uint32_t ADC_AnalogWatchdog)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef
+  *ADCx, uint32_t AWDy, uint32_t AWDChannelGroup)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6732736 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_AnalogWatchdog1ThresholdsConfig(ADC_TypeDef*
+  ADCx, uint16_t HighThreshold, uint16_t LowThreshold)<br>
+    <br>
+    ADC_AnalogWatchdog2ThresholdsConfig(ADC_TypeDef* ADCx, uint16_t
+  HighThreshold, uint16_t LowThreshold)<br>
+    <br>
+    ADC_AnalogWatchdog3ThresholdsConfig(ADC_TypeDef* ADCx, uint16_t
+  HighThreshold, uint16_t LowThreshold)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_ConfigAnalogWDThresholds(ADC_TypeDef*
+  ADCx, uint32_t AWDy, uint32_t AWDThresholdHighValue, uint32_t
+  AWDThresholdLowValue)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6732736 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_TempSensorCmd(FunctionalState
+  NewState)<br>
+    <br>
+    ADC_VrefintCmd(FunctionalState NewState)<br>
+    <br>
+    ADC_VbatCmd(FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetCommonPathInternalCh(ADC_Common_TypeDef
+  *ADCxy_COMMON, uint32_t PathInternal)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_RegularChannelConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetSequencerRanks(ADC_TypeDef
+  *ADCx, uint32_t Rank, uint32_t Channel)<br>
+    <br>
+    LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Channel, uint32_t
+  SamplingTime)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_RegularChannelSequencerLengthConfig(ADC_TypeDef*
+  ADCx, uint8_t SequencerLength)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetSequencerLength(ADC_TypeDef
+  *ADCx, uint32_t SequencerNbRanks)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_ExternalTriggerConfig(ADC_TypeDef*
+  ADCx, uint16_t ADC_ExternalTrigConvEvent, uint16_t ADC_ExternalTrigEventEdge)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetTriggerEdge(ADC_TypeDef
+  *ADCx, uint32_t ExternalTriggerEdge)<br>
+    <br>
+    LL_ADC_REG_SetTriggerSource(ADC_TypeDef *ADCx, uint32_t TriggerSource)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StartConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StartConversion(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetStartConversionStatus(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_IsConversionOngoing(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StopConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StopConversion(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_DiscModeChannelCountConfig(ADC_TypeDef*
+  ADCx, uint8_t Number)<br>
+    <br>
+    ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetSequencerDiscont(ADC_TypeDef
+  *ADCx, uint32_t SeqDiscont)<br>
+    </td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl6732736 style='height:60.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetConversionValue(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_ReadConversionData12(ADC_TypeDef
+  *ADCx)<br>
+    LL_ADC_REG_ReadConversionData10(ADC_TypeDef *ADCx)<br>
+    LL_ADC_REG_ReadConversionData8(ADC_TypeDef *ADCx)<br>
+    LL_ADC_REG_ReadConversionData6(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl6732736 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetDualModeConversionValue(void)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_ReadMultiConversionData32(ADC_Common_TypeDef
+  *ADCxy_COMMON, uint32_t ConvData)</td>
+  <td class=xl6832736 width=16 style='width:12pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl6732736 style='height:105.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_SetChannelOffset1(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel, uint16_t Offset)<br>
+    <br>
+    ADC_SetChannelOffset2(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint16_t
+  Offset)<br>
+    <br>
+    ADC_SetChannelOffset3(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint16_t
+  Offset)<br>
+    <br>
+    ADC_SetChannelOffset4(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint16_t
+  Offset)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetOffset(ADC_TypeDef*
+  ADCx, uint32_t Offsety, uint32_t Channel, uint32_t OffsetLevel)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl6732736 style='height:105.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_ChannelOffset1Cmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)<br>
+    <br>
+    ADC_ChannelOffset2Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)<br>
+    <br>
+    ADC_ChannelOffset3Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)<br>
+    <br>
+    ADC_ChannelOffset4Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetOffsetState(ADC_TypeDef
+  *ADCx, uint32_t Offsety, uint32_t OffsetState)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_DMAConfig(ADC_TypeDef*
+  ADCx, uint32_t ADC_DMAMode)<br>
+    <br>
+    ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetDMATransfer(ADC_TypeDef
+  *ADCx, uint32_t DMATransfer)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6732736 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_InjectedChannelSampleTimeConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_InjectedChannel, uint8_t ADC_SampleTime)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetChannelSamplingTime(ADC_TypeDef
+  *ADCx, uint32_t Channel, uint32_t SamplingTime)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StartInjectedConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StartConversion(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_StopInjectedConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StopConversion(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetStartInjectedConversionStatus(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_IsConversionOngoing(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_AutoInjectedConvCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetTrigAuto(ADC_TypeDef
+  *ADCx, uint32_t InjTrigAuto)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_InjectedDiscModeCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetSequencerDiscont(ADC_TypeDef
+  *ADCx, uint32_t SeqDiscont)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl6732736 style='height:105.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetInjectedConversionValue(ADC_TypeDef*
+  ADCx, uint8_t ADC_InjectedSequence)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_ReadConversionData12(ADC_TypeDef
+  *ADCx, uint32_t Rank)<br>
+    <br>
+    LL_ADC_INJ_ReadConversionData10(ADC_TypeDef *ADCx, uint32_t Rank)<br>
+    <br>
+    LL_ADC_INJ_ReadConversionData8(ADC_TypeDef *ADCx, uint32_t Rank)<br>
+    <br>
+    LL_ADC_INJ_ReadConversionData6(ADC_TypeDef *ADCx, uint32_t Rank)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=423 style='mso-height-source:userset;height:317.25pt'>
+  <td height=423 class=xl6732736 style='height:317.25pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>(ADC_TypeDef* ADCx,
+  uint32_t ADC_IT, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_EnableIT_ADRDY(ADC_TypeDef
+  *ADCx)<br>
+    LL_ADC_EnableIT_EOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_EOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_OVR(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_EOSMP(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_JEOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_JEOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_JQOVF(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_AWD1(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_AWD2(ADC_TypeDef *ADCx)<br>
+    LL_ADC_EnableIT_AWD3(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_ADRDY(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_EOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_EOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_OVR(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_EOSMP(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_JEOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_JEOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_JQOVF(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_AWD1(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_AWD2(ADC_TypeDef *ADCx)<br>
+    LL_ADC_DisableIT_AWD3(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl6732736 style='height:165.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_GetFlagStatus(ADC_TypeDef*
+  ADCx, uint32_t ADC_FLAG)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_IsActiveFlag_ADRDY(ADC_TypeDef
+  *ADCx)<br>
+    LL_ADC_IsActiveFlag_EOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_EOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_OVR(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_EOSMP(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_JEOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_JEOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_JQOVF(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_AWD1(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_AWD2(ADC_TypeDef *ADCx)<br>
+    LL_ADC_IsActiveFlag_AWD3(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl6732736 style='height:165.0pt'>&nbsp;</td>
+  <td class=xl7732736 width=774 style='width:581pt'>ADC_ClearFlag(ADC_TypeDef*
+  ADCx, uint32_t ADC_FLAG)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_ClearFlag_ADRDY(ADC_TypeDef
+  *ADCx)<br>
+    LL_ADC_ClearFlag_EOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_EOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_OVR(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_EOSMP(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_JEOC(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_JEOS(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_JQOVF(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_AWD1(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_AWD2(ADC_TypeDef *ADCx)<br>
+    LL_ADC_ClearFlag_AWD3(ADC_TypeDef *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl6732736 style='height:165.0pt'>&nbsp;</td>
+  <td rowspan=2 class=xl7732736 width=774 style='border-bottom:.5pt solid #39A9DC;
+  width:581pt'>ADC_GetCommonFlagStatus(uint32_t ADC_FLAG)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_IsActiveFlag_MST_ADRDY(ADC_Common_TypeDef
+  *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_ADRDY(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_EOC(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_EOC(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_EOS(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_EOS(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_OVR(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_OVR(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_EOSMP(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_EOSMP(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_JEOC(ADC_Common_TypeDef *ADCxy_COMMON)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl6732736 style='height:165.0pt'>&nbsp;</td>
+  <td class=xl7932736 width=845 style='width:634pt'>LL_ADC_IsActiveFlag_SLV_JEOC(ADC_Common_TypeDef
+  *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_JEOS(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_JEOS(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_JQOVF(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_JQOVF(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_AWD1(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_AWD1(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_AWD2(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_AWD2(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_MST_AWD3(ADC_Common_TypeDef *ADCxy_COMMON)<br>
+    LL_ADC_IsActiveFlag_SLV_AWD3(ADC_Common_TypeDef *ADCxy_COMMON)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ClockModeConfig(ADC_TypeDef*
+  ADCx, uint32_t ADC_ClockMode)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetClock(ADC_TypeDef
+  *ADCx, uint32_t ClockSource)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_JitterCmd(ADC_TypeDef*
+  ADCx, uint32_t ADC_JitterOff, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetClock(ADC_TypeDef
+  *ADCx, uint32_t ClockSource)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_AutoPowerOffCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetLowPowerMode(ADC_TypeDef
+  *ADCx, uint32_t LowPowerMode)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_WaitModeCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetLowPowerMode(ADC_TypeDef
+  *ADCx, uint32_t LowPowerMode)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ChannelConfig(ADC_TypeDef*
+  ADCx, uint32_t ADC_Channel, uint32_t ADC_SampleTime)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetSequencerChannels(ADC_TypeDef
+  *ADCx, uint32_t Channel)<br>
+    <br>
+    LL_ADC_SetSamplingTimeCommonChannels(ADC_TypeDef *ADCx, uint32_t
+  SamplingTime)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ContinuousModeCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetContinuousMode(ADC_TypeDef
+  *ADCx, uint32_t Continuous)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_OverrunModeCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetSequencerDiscont(ADC_TypeDef
+  *ADCx, uint32_t SeqDiscont)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_GetCalibrationFactor(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_GetCalibrationFactor(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_StopOfConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StopConversion(ADC_TypeDef
+  *ADCx</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_StartOfConversion(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StartConversion(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ExternalTrigConvCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StartConversionExtTrig(ADC_TypeDef
+  *ADCx, uint32_t ExternalTriggerEdge)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ExternalTrigInjectedConvCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StartConversionExtTrig(ADC_TypeDef
+  *ADCx, uint32_t ExternalTriggerEdge)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_AnalogWatchdogThresholdsConfig(ADC_TypeDef*
+  ADCx, uint16_t HighThreshold, uint16_t LowThreshold)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetAnalogWDThresholds(ADC_TypeDef
+  *ADCx, uint32_t AWDThresholdsHighLow, uint32_t AWDThresholdValue)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef
+  *ADCx, uint32_t AWDChannelGroup)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_TempSensorVrefintCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetCommonPathInternalCh(ADC_Common_TypeDef
+  *ADCxy_COMMON, uint32_t PathInternal)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_SoftwareStartConv(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_StartConversionSWStart(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef*
+  ADCx, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_REG_SetDMATransfer(ADC_TypeDef
+  *ADCx, uint32_t DMATransfer)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6732736 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_InjectedChannelConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetChannelSamplingTime(ADC_TypeDef
+  *ADCx, uint32_t Channel, uint32_t SamplingTime)<br>
+    <br>
+    LL_ADC_INJ_GetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_InjectedSequencerLengthConfig(ADC_TypeDef*
+  ADCx, uint8_t Length)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetSequencerLength(ADC_TypeDef
+  *ADCx, uint32_t SequencerNbRanks)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_SetInjectedOffset(ADC_TypeDef*
+  ADCx, uint8_t ADC_InjectedChannel, uint16_t Offset)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetOffset(ADC_TypeDef
+  *ADCx, uint32_t Rank, uint32_t OffsetLevel)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ExternalTrigInjectedConvConfig(ADC_TypeDef*
+  ADCx, uint32_t ADC_ExternalTrigInjecConv)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_SetTriggerSource(ADC_TypeDef
+  *ADCx, uint32_t TriggerSource)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_ExternalTrigInjectedConvEdgeConfig(ADC_TypeDef*
+  ADCx, uint32_t ADC_ExternalTrigInjecConvEdge)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StartConversionExtTrig(ADC_TypeDef
+  *ADCx, uint32_t ExternalTriggerEdge)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_SoftwareStartInjectedConv(ADC_TypeDef*
+  ADCx)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_INJ_StartConversionSWStart(ADC_TypeDef
+  *ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_BankSelection(ADC_TypeDef*
+  ADCx, uint8_t ADC_Bank)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetChannelsBank(ADC_TypeDef
+  *ADCx, uint32_t ChannelsBank)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_PowerDownCmd(ADC_TypeDef*
+  ADCx, uint32_t ADC_PowerDown, FunctionalState NewState)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetLowPowerModeAutoPowerOff(ADC_TypeDef
+  *ADCx, uint32_t LowPowerModeAutoPowerOff)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_GetCalibrationValue(ADC_TypeDef*
+  ADCx);</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_ReadReg(ADC_TypeDef
+  *ADCx, CALFACT)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_SetCalibrationValue(ADC_TypeDef*
+  ADCx, uint32_t ADC_Calibration)</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_WriteReg(ADC_TypeDef
+  *ADCx, CALFACT ,uint32_t ADC_Calibration)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6732736 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_AnalogWatchdog1SingleChannelConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_Channel)<br>
+    <br>
+    ADC_AnalogWatchdog2SingleChannelConfig(ADC_TypeDef* ADCx, uint8_t
+  ADC_Channel);<br>
+    <br>
+    ADC_AnalogWatchdog3SingleChannelConfig(ADC_TypeDef* ADCx, uint8_t
+  ADC_Channel);</td>
+  <td class=xl6932736 width=845 style='width:634pt'>LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef
+  *ADCx, uint32_t AWDChannelGroup)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7832736 width=774 style='width:581pt'>ADC_DelaySelectionConfig(ADC_TypeDef*
+  ADCx, uint8_t ADC_DelayLength)</td>
+  <td class=xl7032736 width=845 style='width:634pt'>LL_ADC_SetLowPowerModeAutoWait(ADC_TypeDef
+  *ADCx, uint32_t LowPowerModeAutoWait)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr class=xl6553532736 height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td colspan=4 height=25 class=xl8032736 width=1651 style='height:18.75pt;
+  width:1239pt'>Correspondence between SPL and STM32Cube_LL initialization
+  structures</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr class=xl6553532736 height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl6732736 style='height:17.25pt'>&nbsp;</td>
+  <td class=xl7532736 width=774 style='width:581pt'>Structure<br>
+    </td>
+  <td class=xl7432736 width=845 style='width:634pt'>Parameter</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=11 class=xl8332736 width=774 style='width:581pt'>ADC_InitTypeDef<span
+  style='mso-spacerun:yes'>   </span>&#8596; <br>
+    LL_ADC_InitTypeDef <br>
+    &amp;&amp; <br>
+    LL_ADC_REG_InitTypeDef</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_ContinuousConvMode
+  &#8596;<span style='mso-spacerun:yes'>  </span>ContinuousMode</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_Resolution &#8596;<span
+  style='mso-spacerun:yes'>  </span>Resolution</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_ExternalTrigConvEvent
+  &#8596;<span style='mso-spacerun:yes'>  </span>TriggerSource</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_ExternalTrigEventEdge
+  &#8596;<span style='mso-spacerun:yes'>  </span><font class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_DataAlign &#8596;<span
+  style='mso-spacerun:yes'>  </span>DataAlignment</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_OverrunMode &#8596;
+  Overrun</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_AutoInjMode &#8596; <font
+  class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_NbrOfRegChannel &#8596;
+  <font class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A</font><font
+  class="font532736"> &#8596; SequencerLength</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A</font><font
+  class="font532736"> &#8596; SequencerDiscont</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A
+  </font><font class="font532736">&#8596; DMATransfer</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=7 class=xl8232736 width=774 style='width:581pt'>ADC_InjectedInitTypeDef<span
+  style='mso-spacerun:yes'>   </span>&#8596; <br>
+    LL_ADC_INJ_InitTypeDef</td>
+  <td class=xl7132736 width=845 style='width:634pt'>ADC_ExternalTrigInjecConvEvent
+  &#8596; TriggerSource</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_ExternalTrigInjecEventEdge
+  &#8596; <font class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_NbrOfInjecChannel
+  &#8596; <font class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_InjecSequence1 ..
+  ADC_InjecSequence4 &#8596; <font class="font632736">N/A</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A
+  </font><font class="font532736">&#8596; SequencerLength</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A
+  </font><font class="font532736">&#8596; SequencerDiscont</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'><font class="font632736">N/A</font><font
+  class="font532736"> &#8596; TrigAuto</font></td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=4 class=xl8232736 width=774 style='border-bottom:.5pt solid #39A9DC;
+  width:581pt'>ADC_CommonInitType<span style='mso-spacerun:yes'>  
+  </span>&#8596; <br>
+    LL_ADC_CommonInitTypeDef</td>
+  <td class=xl7132736 width=845 style='width:634pt'>ADC_Mode &#8596; Multimode</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_Clock &#8596;
+  CommonClock</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7232736 width=845 style='width:634pt'>ADC_DMAAccessMode
+  &amp;&amp; ADC_DMAMode &#8596; MultiDMATransfer</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6732736 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7332736 width=845 style='width:634pt'>ADC_TwoSamplingDelay
+  &#8596; MultiTwoSamplingDelay</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr class=xl6553532736 height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td colspan=4 height=23 class=xl8032736 width=1651 style='height:17.25pt;
+  width:1239pt'>APIs not available on LL (Migartion done using direct register
+  access )</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=165 style='mso-height-source:userset;height:123.75pt'>
+  <td height=165 class=xl6732736 style='height:123.75pt'>&nbsp;</td>
+  <td colspan=2 class=xl8532736 width=1619 style='width:1215pt'>ADC_OversamplingInit(ADC_TypeDef*
+  ADCx, ADC_OversamplingInitTypeDef* ADC_OversamplingInitStruct)<br>
+    ADC_OversamplingStructInit(ADC_OversamplingInitTypeDef*
+  ADC_OversamplingInitStruct)<br>
+    ADC_ResetCalibration(ADC_TypeDef* ADCx)<br>
+    ADC_GetResetCalibrationStatus(ADC_TypeDef* ADCx)<br>
+    ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx)<br>
+    ADC_GetMultiModeConversionValue(void)<br>
+    ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState)<br>
+    ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx)</td>
+  <td class=xl6732736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6532736 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl6532736>&nbsp;</td>
+  <td class=xl6532736>&nbsp;</td>
+  <td class=xl6532736>&nbsp;</td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+  <td class=xl6553532736></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=774 style='width:581pt'></td>
+  <td width=845 style='width:634pt'></td>
+  <td width=16 style='width:12pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>
+

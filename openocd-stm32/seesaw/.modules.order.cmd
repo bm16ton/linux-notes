@@ -1,0 +1,1 @@
+cmd_/home/maddocks/linux-notes/openocd-stm32/seesaw/modules.order := {   echo /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.ko; :; } | awk '!x[$$0]++' - > /home/maddocks/linux-notes/openocd-stm32/seesaw/modules.order

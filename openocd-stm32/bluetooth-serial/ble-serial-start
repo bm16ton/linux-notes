@@ -1,0 +1,5 @@
+#!/bin/bash
+$(sleep 6 ; sudo chmod aou+wrx /dev/ttyBLE) &
+sudo ble-serial -d C0:93:9A:E8:AB:07 -p /dev/ttyBLE -w 6e400002-b5a3-f393-e0a9-e50e24dcca9e -r 6e400003-b5a3-f393-e0a9-e50e24dcca9e
+
+

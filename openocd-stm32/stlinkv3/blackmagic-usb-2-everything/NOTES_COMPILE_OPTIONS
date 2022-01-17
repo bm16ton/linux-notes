@@ -1,0 +1,13 @@
+make clean ; make PROBE_HOST=stlinkv3 NO_BOOTLOADER=1
+
+
+YET ANOTHER BOOTLOADER REQUIREMENTS
+also src/platforms/stlinkv3/Makefile.inc needs the NO_BOOTLOADER address
+changed to 0x08040000
+
+
+ifeq ($(NO_BOOTLOADER), 1)
+APP_START = 0x08040000
+else
+APP_START = 0x08040000
+endif

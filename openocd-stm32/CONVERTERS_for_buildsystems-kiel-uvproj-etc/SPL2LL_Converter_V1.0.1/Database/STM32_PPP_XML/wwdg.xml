@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="WWDG">
+  <COMMON>
+    <LITERALS>
+      <!-- ################ WWDG_Prescaler_x expressions ################ -->
+      <LITERAL>
+        <SPL>WWDG_Prescaler_1</SPL>
+        <LL>LL_WWDG_PRESCALER_1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>WWDG_Prescaler_2</SPL>
+        <LL>LL_WWDG_PRESCALER_2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>WWDG_Prescaler_4</SPL>
+        <LL>LL_WWDG_PRESCALER_4</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>WWDG_Prescaler_8</SPL>
+        <LL>LL_WWDG_PRESCALER_8</LL>
+      </LITERAL>
+      <!-- ################################################################ -->
+    </LITERALS>
+
+	<STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+       <FEATURE>
+           <SPL NAME="WWDG_DeInit" />
+           <LL  NAME="LL_APB1_GRP1_ForceReset"
+                CMD0="ADD@LL_PARAM_0=LL_APB1_GRP1_PERIPH_WWDG" />
+           <LL  NAME="LL_APB1_GRP1_ReleaseReset"
+                CMD0="ADD@LL_PARAM_0=LL_APB1_GRP1_PERIPH_WWDG"
+                LOG="No LL API exist, implemented using BUS reset feature. \nPlease import HAL BUS include (stm32xxx_ll_bus.h)" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_SetPrescaler" />
+           <LL  NAME="LL_WWDG_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0=WWDG"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_SetWindowValue" />
+           <LL  NAME="LL_WWDG_SetWindow"
+                CMD0="UPD@LL_PARAM_0=WWDG"
+                CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_EnableIT" />
+           <LL  NAME="LL_WWDG_EnableIT_EWKUP"
+                CMD0="ADD@LL_PARAM_0=WWDG" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_SetCounter" />
+           <LL  NAME="LL_WWDG_SetCounter"
+                CMD0="UPD@LL_PARAM_0=WWDG"
+                CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_Enable" />
+           <LL  NAME="LL_WWDG_SetCounter"
+                CMD0="UPD@LL_PARAM_0=WWDG"
+                CMD1="ADD@LL_PARAM_1={CPY@SPL_PARAM_0}" />
+           <LL  NAME="LL_WWDG_Enable"
+                CMD0="UPD@LL_PARAM_0=WWDG" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_GetFlagStatus" />
+           <LL  NAME="LL_WWDG_IsActiveFlag_EWKUP"
+                CMD0="ADD@LL_PARAM_0=WWDG" />
+       </FEATURE>
+
+       <FEATURE>
+           <SPL NAME="WWDG_ClearFlag" />
+           <LL  NAME="LL_WWDG_ClearFlag_EWKUP"
+                CMD0="ADD@LL_PARAM_0=WWDG" />
+       </FEATURE>
+       <!-- #################################################### -->
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+  </SPECIFIC>
+</IP>

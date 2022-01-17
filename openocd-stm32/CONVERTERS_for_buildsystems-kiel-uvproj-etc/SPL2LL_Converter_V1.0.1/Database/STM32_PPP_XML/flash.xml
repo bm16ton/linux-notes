@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="FLASH">
+  <COMMON>
+    <LITERALS>
+
+      <LITERAL><SPL>FLASH_Latency_0</SPL><LL>LL_FLASH_LATENCY_0</LL></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_1</SPL><LL>LL_FLASH_LATENCY_1</LL></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_2</SPL><LL>LL_FLASH_LATENCY_2</LL><AVAILABLE>STM32F10</AVAILABLE><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F30</AVAILABLE><AVAILABLE>STM32F37</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_3</SPL><LL>LL_FLASH_LATENCY_3</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_4</SPL><LL>LL_FLASH_LATENCY_4</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_5</SPL><LL>LL_FLASH_LATENCY_5</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_6</SPL><LL>LL_FLASH_LATENCY_6</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_7</SPL><LL>LL_FLASH_LATENCY_7</LL><AVAILABLE>STM32F2</AVAILABLE><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_8</SPL><LL>LL_FLASH_LATENCY_8</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_9</SPL><LL>LL_FLASH_LATENCY_9</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_10</SPL><LL>LL_FLASH_LATENCY_10</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_11</SPL><LL>LL_FLASH_LATENCY_11</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_12</SPL><LL>LL_FLASH_LATENCY_12</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_13</SPL><LL>LL_FLASH_LATENCY_13</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_14</SPL><LL>LL_FLASH_LATENCY_14</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>FLASH_Latency_15</SPL><LL>LL_FLASH_LATENCY_15</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      
+    </LITERALS>
+    
+    <FUNCTIONS>
+
+      <!-- #################### void FLASH_SetLatency(uint32_t) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_SetLatency"/>
+        <LL  NAME="LL_FLASH_SetLatency"
+             CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_PrefetchBufferCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_PrefetchBufferCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnablePrefetch"
+             CMD0="DEL@LL_PARAM_0"/>
+        <EXCLUDE>STM32F10</EXCLUDE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_PrefetchBufferCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisablePrefetch"
+             CMD0="DEL@LL_PARAM_0"/>
+        <EXCLUDE>STM32F10</EXCLUDE>
+      </FUNCTION>
+      
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+    <VERSION NAME="FLASH_VER_1_0_0">               <!-- STM32F0  -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_GetPrefetchBufferStatus(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_GetPrefetchBufferStatus"/>
+        <LL  NAME="LL_FLASH_IsPrefetchEnabled"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+  
+    <VERSION NAME="FLASH_VER_1_1_0">               <!-- STM32F10 -->
+    <FUNCTIONS>
+      <!-- #################### void FLASH_GetPrefetchBufferStatus(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_GetPrefetchBufferStatus"/>
+        <LL  NAME="LL_FLASH_IsPrefetchEnabled"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_PrefetchBufferCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_PrefetchBufferCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_PrefetchBuffer_Enable"/>
+        <LL  NAME="LL_FLASH_EnablePrefetch"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_PrefetchBufferCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_PrefetchBuffer_Disable"/>
+        <LL  NAME="LL_FLASH_DisablePrefetch"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_HalfCycleAccessCmd(uint32_t) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Enable"/>
+        <LL  NAME="LL_FLASH_EnableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Disable"/>
+        <LL  NAME="LL_FLASH_DisableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+    
+    <VERSION NAME="FLASH_VER_1_2_0">               <!-- STM32F2  -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_InstructionCacheCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableInstCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableInstCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_DataCacheCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableDataCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableDataCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_InstructionCacheReset(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheReset"/>
+        <LL  NAME="LL_FLASH_EnableInstCacheReset"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_DataCacheReset(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheReset"/>
+        <LL  NAME="LL_FLASH_EnableDataCacheReset"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+    
+    <VERSION NAME="FLASH_VER_1_3_0">               <!-- STM32F30 -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_HalfCycleAccessCmd(uint32_t) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Enable"/>
+        <LL  NAME="LL_FLASH_EnableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Disable"/>
+        <LL  NAME="LL_FLASH_DisableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+    
+    <VERSION NAME="FLASH_VER_1_3_7">               <!-- STM32F37 -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_HalfCycleAccessCmd(uint32_t) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Enable"/>
+        <LL  NAME="LL_FLASH_EnableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_HalfCycleAccessCmd"
+             CMD0="EQU@SPL_PARAM_0=FLASH_HalfCycleAccess_Disable"/>
+        <LL  NAME="LL_FLASH_DisableHalfCycleAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+    
+    <VERSION NAME="FLASH_VER_1_4_0">               <!-- STM32F4  -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_InstructionCacheCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableInstCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableInstCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+    <!-- #################### void FLASH_DataCacheCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableDataCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableDataCache"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+    <!-- #################### void FLASH_InstructionCacheReset(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_InstructionCacheReset"/>
+        <LL  NAME="LL_FLASH_EnableInstCacheReset"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+    <!-- #################### void FLASH_DataCacheReset(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_DataCacheReset"/>
+        <LL  NAME="LL_FLASH_EnableDataCacheReset"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+    
+    <VERSION NAME="FLASH_VER_0_1_0">               <!-- STM32L1  -->
+    <FUNCTIONS>
+    <!-- #################### void FLASH_ReadAccess64Cmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_ReadAccess64Cmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_Enable64bitAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_ReadAccess64Cmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_Disable64bitAccess"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_SLEEPPowerDownCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_SLEEPPowerDownCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableSleepPowerDown"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_SLEEPPowerDownCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableSleepPowerDown"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- #################### void FLASH_RUNPowerDownCmd(ENABLE/DISABLE) #################### -->
+      <FUNCTION>
+        <SPL NAME="FLASH_RUNPowerDownCmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL  NAME="LL_FLASH_EnableRunPowerDown"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="FLASH_RUNPowerDownCmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL  NAME="LL_FLASH_DisableRunPowerDown"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+    </FUNCTIONS>
+    </VERSION>
+  
+  </SPECIFIC>
+</IP>

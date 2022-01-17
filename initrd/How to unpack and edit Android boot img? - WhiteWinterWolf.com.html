@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>How to unpack and edit Android boot&nbsp;img? - WhiteWinterWolf.com</title>
+	<meta name="twitter:title" property="og:title" content="How to unpack and edit Android boot&nbsp;img?">
+	<link rel="home" href="https://www.whitewinterwolf.com/">
+	<link rel="up" href="https://www.whitewinterwolf.com/cookbook/">
+
+	<link rel="icon" type="image/x-icon" sizes="16x16 32x32 64x64" href="https://www.whitewinterwolf.com/favicon.ico">
+	<link rel="icon" type="image/png" sizes="192x192" href="https://www.whitewinterwolf.com/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="https://www.whitewinterwolf.com/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.whitewinterwolf.com/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.whitewinterwolf.com/favicon/favicon-16.png">
+	<meta name="msapplication-TileColor" content="#033649">
+	<meta name="msapplication-TileImage" content="/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+
+	<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@wwwolf_sec">
+		<meta name="twitter:author" content="@wwwolf_sec">
+		<link rel="canonical" href="https://www.whitewinterwolf.com/posts/2016/08/11/how-to-unpack-and-edit-android-boot-img/">
+		<meta property="og:url" content="https://www.whitewinterwolf.com/posts/2016/08/11/how-to-unpack-and-edit-android-boot-img/">
+
+		<meta name="description" content="A step-by-step guide from fetching and editing to reflashing an Android boot image.">
+		<meta name="twitter:description" property="og:description" content="A step-by-step guide from fetching and editing to reflashing an Android boot image.">
+
+		<meta name="twitter:image" property="og:image" content="https://www.whitewinterwolf.com/images/topics/android/tweak.png">
+
+	<meta property="og:type" content="article">
+	<meta property="article:published_time" content="2016-08-11">
+
+	<link rel="stylesheet" href="How%20to%20unpack%20and%20edit%20Android%20boot%C2%A0img%3F%20-%20WhiteWinterWolf.com_files/main.css">
+		<link href="https://www.whitewinterwolf.com/feeds/all.atom" type="application/atom+xml" rel="alternate" title="WhiteWinterWolf.com Atom feed">
+			<link href="https://www.whitewinterwolf.com/feeds/cookbook.atom" type="application/atom+xml" rel="alternate" title="'Cookbook' Atom feed">
+</head>
+
+<body id="index" class="home">
+	<header id="banner" class="body">
+		<h1><a href="https://www.whitewinterwolf.com/">
+			<span class="w">W</span>hite<span class="w">W</span>inter<span class="w">W</span>olf
+				<span class="subtitle">Practical IT security, *nix systems &amp; networking</span>
+		</a></h1>
+		<div id="searchbox">
+			<form method="post" action="https://duckduckgo.com/" title="Search with DuckDuckGo">
+				<input type="hidden" name="kh" value="1">
+				<input type="hidden" name="sites" value="www.whitewinterwolf.com">
+				<input type="text" name="q" maxlength="255" placeholder="Search…" size="15">
+				<input aria-label="Search" type="submit" value="">
+			</form>
+		</div>
+		<nav><ul>
+				<li><a href="https://www.whitewinterwolf.com/">Home</a></li>
+					<li class="active"><a href="https://www.whitewinterwolf.com/cookbook/">Cookbook</a></li>
+					<li><a href="https://www.whitewinterwolf.com/opinions/">Opinions</a></li>
+					<li><a href="https://www.whitewinterwolf.com/library/">Library</a></li>
+					<li><a href="https://www.whitewinterwolf.com/projects/">Projects</a></li>
+						<li><a href="https://www.whitewinterwolf.com/about/">About</a></li>
+		</ul></nav>
+	</header>
+<section id="content" class="body first">
+	<article>
+		<header>
+				<div class="topic_image floatright">
+					<img src="How%20to%20unpack%20and%20edit%20Android%20boot%C2%A0img%3F%20-%20WhiteWinterWolf.com_files/tweak.png" alt="'Android/tweak' tag logo">
+				</div>
+	
+			<h2 class="entry-title">
+				<a href="https://www.whitewinterwolf.com/posts/2016/08/11/how-to-unpack-and-edit-android-boot-img/" rel="bookmark" title="Permalink to How to unpack and edit Android boot&nbsp;img?">How to unpack and edit Android boot&nbsp;img?</a>
+			</h2>
+		</header>
+
+		<div class="entry-content">
+			<footer class="post-info">
+				<p>
+					Published: Thu 11 August 2016
+					in <a title="Go to Cookbook" href="https://www.whitewinterwolf.com/cookbook/">Cookbook</a>.
+				</p>
+<ul class="taglist">
+	<li><a href="https://www.whitewinterwolf.com/tags/android/" title="View the articles tagged 'android'" rel="tag"> 
+		android
+	</a></li>
+</ul>
+			</footer>
+				<div class="toc">
+					<p id="toc-title">In this article:</p>
+					<div id="toc"><ul><li><a class="toc-href" href="#" title="How to unpack and edit Android boot&nbsp;img?">How to unpack and edit Android boot&nbsp;img?</a><ul><li><a class="toc-href" href="#tools-selection" title="Tools&nbsp;selection">Tools&nbsp;selection</a></li><li><a class="toc-href" href="#tools-installation" title="Tools&nbsp;installation">Tools&nbsp;installation</a></li><li><a class="toc-href" href="#fetch-the-bootimg-file" title="Fetch the boot.img file">Fetch the boot.img file</a></li><li><a class="toc-href" href="#unpack-the-original-bootimg-file" title="Unpack the original boot.img file">Unpack the original boot.img file</a></li><li><a class="toc-href" href="#rebuild-to-get-the-new-new-bootimg-file" title="Rebuild to get the new new-boot.img file">Rebuild to get the new new-boot.img file</a></li><li><a class="toc-href" href="#flash-the-new-bootimg-file-onto-the-device" title="Flash the new-boot.img file onto the&nbsp;device">Flash the new-boot.img file onto the&nbsp;device</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></li></ul></div>
+				</div>
+			<h3 id="tools-selection"><a class="toclink" href="#tools-selection">Tools&nbsp;selection</a></h3>
+<p>The method I present here relies on CyanogenMod’s Android source&nbsp;code.</p>
+<p>While Google’s <span class="caps">AOSP</span> only provides to the tool to <em>build</em> the <code>boot.img</code> file,
+CyanogenMod also adds the <code>unpackbootimg</code> tool allowing you to <em>unpack</em> it.
+This tool does not seem specifically designed for CyanogenMod in any way, so
+most chances are that it will work for other ROMs as&nbsp;well.</p>
+<p>There are however a relatively large number of alternatives to unpack the
+<code>boot.img</code> file which all work more-or-less the&nbsp;same.</p>
+<p>Basically, such unpack tool will extract the content of the <code>boot.img</code> file and
+display a set of parameters you will have to pass to Google’s <code>mkbootimg</code> tool
+to build a file whose configuration (mainly kernel parameters and memory
+addresses) will match the original&nbsp;one.</p>
+<p>Here are a few examples, I did not test them personally so cannot recommend any
+and I present them only for reference&nbsp;purposes:</p>
+<ul>
+<li>
+<p>A few are open source or script&nbsp;based:</p>
+<ul>
+<li><a href="https://github.com/dsixda/Android-Kitchen/" rel="external">The Android Kitchen</a> was
+    apparently meant to be some kind of Swiss army knife for Android
+    developers.
+    The original author officially stopped maintaining the project, a few
+    other users forked it like
+    <a href="https://github.com/javilonas/Android-Kitchen" rel="external">javilonas</a> or
+    <a href="https://github.com/cmotc/Android-Kitchen" rel="external">cmotc</a>.</li>
+<li><a href="https://github.com/szym/unbootimg" rel="external">szym</a> targets easiness by adding
+    shell script wrappers to its toolset to make the complete unpacking and
+    repacking process more&nbsp;straightforward.</li>
+<li><a href="https://github.com/osm0sis/mkbootimg" rel="external">osm0sis</a> proposes a fork of
+    CyanogenMod’s tools <em>“forked and updated”</em> according to the project’s
+    own description. This project seems indeed still maintained which is
+    not very common in this area, however the actual advantage over
+    CyanogenMod’s original tools remains unclear to&nbsp;me.</li>
+</ul>
+</li>
+<li>
+<p>Some are free closed source proprietary&nbsp;binaries:</p>
+<ul>
+<li><a href="http://whiteboard.ping.se/Android/Unmkbootimg" rel="external">Kuisma’s <code>unmkbootimg</code></a>
+    appears pretty often in help forums and seem to do a good job in
+    helping to handle odd cases, outputting “human readable” English
+    recommendation when some modification are required in <code>mkbootimg</code>
+    source code and displaying the exact command-line to use to rebuild the&nbsp;image.</li>
+<li><a href="https://github.com/xiaolu/mkbootimg_tools" rel="external">Xiaolu’s <code>mkbootimg_tools</code></a>
+    seems also mentioned quite often and allows to unpack and repack
+    <code>boot.img</code> and the device tree file <code>dt.img</code>.
+    Don’t be fooled by the  fact it is hosted on GitHub: it <em>is</em> a closed
+    source proprietary binary and only compiled binaries are available on
+    their repository (actually I’m even wondering about the exact interest
+    of using a source-code repository to store binary blobs, but different
+    people, different&nbsp;minds…).</li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=2319018" rel="external">CNexus</a> on
+    the <span class="caps">XDA</span> forum provides an archive with a selection of&nbsp;tools.</li>
+<li><a href="https://unix.stackexchange.com/a/65316/53965" rel="external">This answer</a> in Unix.<span class="caps">SE</span>
+    recommends
+    <a href="http://android-serialport-api.googlecode.com/files/android_bootimg_tools.tar.gz" rel="external">some tools</a>
+    from the now seemingly defunct Android Serial Port project.
+    The file names however lead me to think these should be old prebuilt
+    versions of CyanogenMod’s tools (the project being closed, there is
+    neither documentation nor&nbsp;support).</li>
+</ul>
+</li>
+</ul>
+<p>All these tools (and others you may found with any search engine) should work
+the same way, but some may work better than other in handling some particular
+edge-case you may face with your own device.
+Most of them however, at least in the open source arena, do not seem regularly
+maintained, so the best bet in my opinion to have working, maintained and
+documented tools is to go with CyanogenMod’s&nbsp;ones.</p>
+<p>Some manufacturers produce ROMs which are more or less far from <span class="caps">AOSP</span> standard
+(unusual addresses, headers, file format, etc.).
+If the standard procedure below does not work, maybe one these alternative
+software may do the trick. Otherwise you will have to check for issues specific
+to your device: some seem to need a specific procedure or even specific tools
+(confer <a href="https://android.stackexchange.com/q/58825/107603" rel="external">this question</a>
+related to MediaTek devices for&nbsp;instance).</p>
+<h3 id="tools-installation"><a class="toclink" href="#tools-installation">Tools&nbsp;installation</a></h3>
+<p>Compiling CyanogenMod toolset for <code>boot.img</code> packing and unpacking is quite&nbsp;straightforward.</p>
+<ul>
+<li>
+<p>If you already have installed the complete Android source code tree (you
+    can check
+    <a href="https://android.stackexchange.com/a/154947/107603" rel="external">my other answer</a> to get
+    more information about this), go in <code>system/core/mkbootimg/</code> directory
+    (as a reminder, Google’s <span class="caps">AOSP</span> source code only provide the tool to build
+    the <code>boot.img</code> file, they do <em>not</em> provide any unpacking&nbsp;tool),</p>
+</li>
+<li>
+<p>If you haven’t and don’t need this for any other purpose, an easier and
+    quicker solution is to only clone CyanogenMod’s <em>android_system_core</em>&nbsp;repository:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>git clone https://github.com/CyanogenMod/android_system_core.git
+<span class="nb">cd </span>android_system_core/mkbootimg/
+</pre></div>
+</td></tr></tbody></table></div>
+</li>
+</ul>
+<p>Once in the right directory, compile and&nbsp;install:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>gcc -o ./mkbootimg -I ../include ../libmincrypt/*.c ./mkbootimg.c
+gcc -o ./unpackbootimg -I ../include ../libmincrypt/*.c ./unpackbootimg.c
+sudo cp ./mkbootimg ./unpackbootimg /usr/bin/
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Note that Google is replacing the C <code>mkbootimg</code> with
+<a href="https://android.googlesource.com/platform/system/core/+/ad6ec0c7fe8b5cd80dff619f1d3b6067db85110a" rel="external">a Python version</a>,
+so in future versions no compilation may be needed anymore for this&nbsp;command.</p>
+<p>You will also need to install Android tools on your computer to let it
+communicate with your phone.
+You will need <code>adb</code> (Android Debug Bridge, a shell utility allowing to
+communicate with Android’s debug subsystem), <code>adbd</code> (the related daemon) and
+<code>fastboot</code> (a shell utility allowing to communicate with your phone’s
+bootloader&nbsp;system).</p>
+<p>Your favorite Linux distribution may provide them in a single or separate
+packages, but usually they are always called&nbsp;“android-tools”:</p>
+<ul>
+<li>Debian / Ubuntu: <code>sudo apt-get install android-tools-{adb,adbd,fastboot}</code></li>
+<li>Fedora / CentOS: <code>sudo yum install android-tools</code></li>
+<li>OpenSuse: <code>sudo zypper install android-tools</code></li>
+</ul>
+<h3 id="fetch-the-bootimg-file"><a class="toclink" href="#fetch-the-bootimg-file">Fetch the <code>boot.img</code> file</a></h3>
+<p>Extract the boot.img either for <span class="caps">ROM</span> .zip file or directly from the&nbsp;device:</p>
+<ul>
+<li>
+<p>From the stock <span class="caps">ROM</span> .zip file: some applications like SuperSU may modify the
+    boot.img directly on the device, replacing it with the stock one would
+    break such&nbsp;applications.</p>
+</li>
+<li>
+<p>Directly from the device: some people report read issue leading to
+    corrupted <code>boot.img</code>. <span class="caps">IMO</span> these issues are most likely linked to the use of
+    poor <span class="caps">USB</span> cables or <span class="caps">USB</span> hub and can be simply avoided by using good quality
+    cables connecting directly the phone to the computer. You also need the
+    ability to run <span class="caps">ADB</span> in root mode (depending on the <span class="caps">ROM</span> used this may be
+    trivial or&nbsp;not).</p>
+</li>
+</ul>
+<p>The first method is very obvious: extract the .zip file with any <span class="caps">ZIP</span> software,
+the <code>boot.img</code> file should be right there at the root of the&nbsp;archive.</p>
+<p>For the second method, you will first have to determine the (sadly
+device-specific) path to the storage device where <code>boot.img</code><span class="quo">‘</span>s content can be&nbsp;retrieved.</p>
+<p>I know two methods for&nbsp;this:</p>
+<ul>
+<li>
+<p><code>ls /dev/block/platform/*/by-name/</code> (where <code>*</code> covers yet another
+    device-specific folder name, chances are it is the only directory below
+    <code>platform/</code>), the exact name to search is also platform dependent but makes
+    usually sense (some examples: <code>boot</code>, <code>LNX</code> (acronym for “Linux”)).
+    The files in this directory are actually symbolic links and some people
+    bother to manually go to the target, but I recommend sticking with the
+    higher level name based path which, while longer, remains less error prone.
+    So you will end-up with a path like
+    <code>/dev/block/platform/sdhci-tegra.3/by-name/LNX</code>.</p>
+</li>
+<li>
+<p>On some (older?) devices, the right device could be found by investigating
+    the output of <code>cat /proc/mtd</code>. If you see the device <code>mtd2</code> associated to
+    the <code>"boot"</code> label, then you will use the path <code>/dev/mtd2</code>.</p>
+</li>
+</ul>
+<p>Now:</p>
+<ul>
+<li>From the phone’s developer menu:<ul>
+<li>Enable debugging on your&nbsp;phone,</li>
+<li>Allow root access to <span class="caps">ADB</span> (this step applies to phones running
+    CynogenMod, other devices may require some potentially more complex&nbsp;procedure),</li>
+</ul>
+</li>
+<li>Connect it to your computer (and from there to the <span class="caps">VM</span> guest if you are
+    running Android tools from within a virtual&nbsp;machine).</li>
+</ul>
+<p>If this is not already done, I recommend to manually start the <span class="caps">ADB</span> server on
+the computer’s side, this will allow you to directly validate the <span class="caps">RSA</span> key on
+device’s side without affecting the behavior of the following <span class="caps">ADB</span>&nbsp;commands:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb start-server
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Then switch <span class="caps">ADB</span> in root&nbsp;mode:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb root
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Finally you should be able to directly extract the <code>boot.img</code> file from the
+device using such command (the source and destination path and names are given
+as examples, adapt them to your needs and&nbsp;preferences):</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb pull /dev/block/platform/sdhci-tegra.3/by-name/LNX ./boot.img
+</pre></div>
+</td></tr></tbody></table></div>
+<p>The command will copy the whole partition, both used and free space, so don’t
+be surprised that the resulting <code>boot.img</code> file will be larger than the
+original <code>boot.img</code> file coming with the stock <span class="caps">ROM</span> .zip file, the content
+itself remains&nbsp;similar.</p>
+<p>Once the transfer is finished, disconnect the phone and don’t forget to disable
+both debugging and root access from the developer&nbsp;menu.</p>
+<h3 id="unpack-the-original-bootimg-file"><a class="toclink" href="#unpack-the-original-bootimg-file">Unpack the original <code>boot.img</code> file</a></h3>
+<p>Unpack the <code>boot.img</code> file itself using the command compiled&nbsp;previously:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>unpackbootimg -i ./boot.img
+</pre></div>
+</td></tr></tbody></table></div>
+<p>This will output several information essential to let you rebuild a new
+<code>boot.img</code> with the correct structure with respect to the the stock <code>boot.img</code>.
+However, don’t rush on your notepad since CyanogenMod’s <code>upackbootimg</code> also
+saves the very same information in several files we will use later&nbsp;on.</p>
+<p>This command generates several files with particular suffixes added to the
+input file’s&nbsp;name:</p>
+<ul>
+<li><code>*-second</code>: This is the second-stage bootloader, optional and rarely used
+    on end-user phones.
+    If this file is empty (the most common case) then the phone’s bootloader
+    will directly call the Linux&nbsp;kernel.</li>
+<li><code>*-zImage</code>: This is the Linux&nbsp;kernel.</li>
+<li><code>*-ramdisk.gz</code> or <code>*-ramdisk.lz4</code>: the ramdisk used to populate the
+    device’s root directory. The extension differs depending on the compression
+    algorithm&nbsp;used.</li>
+<li><code>*-dt</code>: The device tree, populating <code>/dev</code>.</li>
+<li>The rest are small files each storing one of the values displayed in
+    <code>unpackbootimg</code> output. These values define the command-line parameter to
+    pass to the Linux kernel and the addresses where the bootloader will have
+    to load each objects at boot&nbsp;time.</li>
+</ul>
+<p>Most often, one unpacks the <code>boot.img</code> to be able to edit the content of the
+phone’s root directory. As seen above, this content is stored in the
+<code>*-ramdisk.gz</code> or <code>*-ramdisk.lz4</code> file and it can be extracted using the
+commands&nbsp;below:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>mkdir ./ramdisk
+<span class="nb">cd</span> ./ramdisk/
+gzip -dc ../boot.img-ramdisk.gz <span class="p">|</span> cpio -imd
+</pre></div>
+</td></tr></tbody></table></div>
+<p>For a <span class="caps">LZ4</span> compressed <span class="caps">RAM</span> disks, replace the last step with
+<code>lz4 -d ../boot.img-ramdisk.lz4 | cpio -imd</code>.</p>
+<p>You are now free to do the modification you want before proceeding.
+However, it could be worth to follow the full unpack - repack - boot procedure
+once without changing anything to ensure that your tools are working as
+expected.
+Otherwise, in case of an issue, you will not be certain if the cause is your
+modification or some incompatibility (see my remarks at the beginning about
+some manufacturers requiring non-standard procedures or&nbsp;tools).</p>
+<h3 id="rebuild-to-get-the-new-new-bootimg-file"><a class="toclink" href="#rebuild-to-get-the-new-new-bootimg-file">Rebuild to get the new <code>new-boot.img</code> file</a></h3>
+<p>CyanogenMod <span class="caps">ROM</span> building process relies on an internal tool, <code>mkbootfs</code>, to
+produce the <code>boot.img</code> file (this happens in
+<a href="https://github.com/CyanogenMod/android_build/blob/cm-13.0/tools/releasetools/common.py" rel="external">build/tools/releasetools/common.py</a>).
+However, the steps to build this tool seems uselessly complex to me, whereas
+using the system-provided <code>cpio</code> seems to work just as fine.
+The main difference between the two, as per my understanding after a (very)
+quick check in <code>mkbootfs</code> souce code, seems to be that the latter applies some
+sanity measures by not including dotted files and the <code>/root</code> directory in the
+resulting archive while the <code>cpio</code>-based procedure below will just blindly put
+the whole selected directory tree in the&nbsp;archive.</p>
+<p>Conclusion: unnecessary complex to compile with very few advantages, so let’s
+stick on system provided&nbsp;tools!</p>
+<p>Begin by creating the new <span class="caps">RAM</span> disk, from the <code>ramdisk</code> directory created above&nbsp;type:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>find . ! -name . <span class="p">|</span> <span class="nv">LC_ALL</span><span class="o">=</span>C sort <span class="p">|</span> cpio -o -H newc -R root:root <span class="p">|</span> gzip &gt; ../new-boot.img-ramdisk.gz
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Or, if you need to generate a <span class="caps">LZ4</span>&nbsp;archive:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>find . ! -name . <span class="p">|</span> <span class="nv">LC_ALL</span><span class="o">=</span>C sort <span class="p">|</span> cpio -o -H newc -R root:root <span class="p">|</span> lz4 &gt; ../new-boot.img-ramdisk.lz4
+</pre></div>
+</td></tr></tbody></table></div>
+<p>The goal here is to create a new <span class="caps">RAM</span> disk file with properties as close as
+possible to the original one (for instance setting the owner seems often
+missing in the procedures shared in forums and blogs, however this was required
+on my&nbsp;device).</p>
+<p>Go now in the parent directory to generate the <code>new-boot.img</code> file&nbsp;itself.</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="nb">cd</span> ..
+</pre></div>
+</td></tr></tbody></table></div>
+<p>As seen above, CyanogenMod’s <code>unpackbootimg</code> command generates a file matching
+each parameter expected by <code>mkbootimg</code>. Therefore, all you have to do is issue
+a <code>mkbootimg -h</code> to get a listing of all parameters, then set each one of them
+to the appropriate value using the matching file.
+Note that some parameters expect a file path while other expect to receive the
+content of the file as value. See an example of resulting command&nbsp;below:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre>mkbootimg --kernel ./boot.img-zImage <span class="se">\</span>
+--ramdisk ./new-boot.img-ramdisk.gz <span class="se">\</span>
+--second ./boot.img-second <span class="se">\</span>
+--cmdline <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-cmdline<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+--base <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-base<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+--pagesize <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-pagesize<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+--dt ./boot.img-dt <span class="se">\</span>
+--ramdisk_offset <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-ramdisk_offset<span class="k">)</span><span class="s2">"</span>
+--second_offset <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-second_offset<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+--tags_offset <span class="s2">"</span><span class="k">$(</span>cat ./boot.img-tags_offset<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+--output ./new-boot.img
+</pre></div>
+</td></tr></tbody></table></div>
+<p>Only two parameters are not set&nbsp;here:</p>
+<ul>
+<li><code>--board</code>: As per my understanding this is just an informative field
+    allowing to insert a model name in the resulting&nbsp;image.</li>
+<li><code>--id</code>: This one does not expect any value, it just prints out a unique
+    identifier after the image has been built (combining a timestamp and a&nbsp;checksum).</li>
+</ul>
+<h3 id="flash-the-new-bootimg-file-onto-the-device"><a class="toclink" href="#flash-the-new-bootimg-file-onto-the-device">Flash the <code>new-boot.img</code> file onto the&nbsp;device</a></h3>
+<ul>
+<li>
+<p>Start the device in fastboot mode (aka bootloader mode, usually by holding
+    power and volume up&nbsp;buttons).</p>
+</li>
+<li>
+<p>Connect the <span class="caps">USB</span>&nbsp;cable</p>
+</li>
+<li>
+<p>Check that the device is correctly&nbsp;detected:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>sudo fastboot devices
+</pre></div>
+</td></tr></tbody></table></div>
+</li>
+<li>
+<p>Try to boot using the new <span class="caps">ROM</span> (without flashing it yet, so in case of issue you just have to restart the phone to get it back on trails, replace the <code>./new-boot.img</code> file name with your&nbsp;own):</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>sudo fastboot boot ./new-boot.img
+</pre></div>
+</td></tr></tbody></table></div>
+</li>
+<li>
+<p>If the phone works successfully with the new boot image, then go back in fastboot mode and flash it&nbsp;permanently:</p>
+<div class="hilitewrapper"><table class="codehilitetable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>sudo fastboot flash boot ./new-boot.img
+sudo fastboot reboot
+</pre></div>
+</td></tr></tbody></table></div>
+</li>
+</ul>
+<h3 id="conclusion"><a class="toclink" href="#conclusion">Conclusion</a></h3>
+<p>This procedure may seem daunting at first, but once you get it you will see it
+is actually&nbsp;not.</p>
+<p>The “daunting” aspect comes from the fact that there is not a single
+“Android system”: a lot of manufacturers and <span class="caps">ROM</span> providers make changes which
+can range from a subtle path difference to a completely non-standard&nbsp;environment.</p>
+<p>What you have to do is determine your particular device’s posture, and then
+what are the few commands which are appropriate in your case.
+Once you get them, you can stick to them and even easily script them if you
+need them&nbsp;often.</p>
+<p>I voluntary went into relatively low-level details sometimes because it will
+make you troubleshooting your issues more easily.
+Would you use some “easier” opaque utility to build and flash your new
+<code>boot.img</code> file and see that your device cannot start with it, it would be
+harder for you to determine which step went wrong.
+Here, at each step you will be able to compare the data you are manipulating
+with the data coming from the original <code>boot.img</code> file or the data as seen on
+the phone, or try for instance to rebuild the <code>boot.img</code> file with either the
+original or the newly generated <span class="caps">RAM</span> disk file to check if that makes any
+difference (this allows you to pinpoint if the issue comes from the <code>boot.img</code>
+or the <span class="caps">RAM</span> disk file generation&nbsp;procedure).</p>
+<hr>
+<p class="footnote">Article based on a <a href="https://android.stackexchange.com/q/69954/107603#154621" rel="external">StackExchange answer</a>.</p>
+		</div>
+
+		<hr>
+		<div class="comments">
+			<a href="mailto:contact@whitewinterwolf.com?subject=Comment%20on%20%27How%20to%20unpack%20and%20edit%20Android%20boot%20img%3F%27">
+				Comment by email
+			</a>
+		</div>
+		<div class="pagetop">
+			<a href="#index">
+				Top of the page
+			</a>
+		</div>
+
+	</article>
+</section>
+
+	<aside class="body second" id="featured">
+		<h2>Related articles</h2>
+		<ol id="posts-list" class="hfeed">
+				<li><hr><article class="hentry">
+						<div class="topic_image floatright">
+							<img src="How%20to%20unpack%20and%20edit%20Android%20boot%C2%A0img%3F%20-%20WhiteWinterWolf.com_files/selinux.png" alt="'Android/selinux' tag logo">
+<ul class="taglist">
+	<li><a href="https://www.whitewinterwolf.com/tags/android/" title="View the articles tagged 'android'" rel="tag"> 
+		android
+	</a></li>
+	<li><a href="https://www.whitewinterwolf.com/tags/selinux/" title="View the articles tagged 'selinux'" rel="tag"> 
+		selinux
+	</a></li>
+	<li><a href="https://www.whitewinterwolf.com/tags/hardening/" title="View the articles tagged 'hardening'" rel="tag"> 
+		hardening
+	</a></li>
+</ul>
+						</div>
+					<div class="entry-details">
+						<header>
+							<h3><a href="https://www.whitewinterwolf.com/posts/2016/08/15/examine-android-selinux-policy/" rel="bookmark" title="Permalink to How to examine Android SELinux&nbsp;policy">How to examine Android SELinux&nbsp;policy</a></h3>
+						</header>
+						<div class="entry-content">
+<footer class="post-info">
+        <p>
+                Published: Mon 15 August 2016
+		in <a title="Go to Cookbook" href="https://www.whitewinterwolf.com/cookbook/">Cookbook</a>.
+
+			<br>
+			A step-by-step guide from building your environment to a concrete example showing the tools in action.
+        </p>
+
+
+</footer>							<p>Examining SELinux policy should be a trivial thing, but Android turns this into some kind of nightmare.
+In fact, Google has designed Android mainly from a consumer perspective, and not for
+power users.
+The result is that, as soon as you want to do something outside of using the
+latest Facebook app or playing Candy Crush, you very quickly find yourself
+back in realm of early-2000 Linux, when a developer-like knowledge was required
+to change what should be simple settings.
+I believe that the situation will fastly evolve as Android system gets more
+mature, but for now we have to do with what we have&nbsp;got…</p>
+<p>As you said, there are two reasons why it is necessary to compile your own
+SELinux&nbsp;toolset:</p>
+<ul>
+<li>The system provided toolset is usually a version behind.
+    While Android’s SELinux relies on policy <span class="caps">DB</span> version 30, current Linux boxes
+    usually handle only version up …</li></ul>
+						</div>
+						<div class="continue button">
+							<a href="https://www.whitewinterwolf.com/posts/2016/08/15/examine-android-selinux-policy/">Continue</a>
+						</div>
+					</div>
+				</article></li>
+		</ol>
+	</aside>
+	<section id="extras" class="body">
+			<div class="extras-column" id="extras-tags">
+				<h2>
+					Popular tags
+					<span class="link"><sup><a href="https://www.whitewinterwolf.com/tags/" title="See all tags">
+						see all
+					</a></sup>
+				</span></h2>
+				<ul class="tagcloud">
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/nix/" title="Latest articles tagged '*nix'">*nix</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/blackhat/" title="Latest articles tagged 'blackhat'">blackhat</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/career/" title="Latest articles tagged 'career'">career</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/certification/" title="Latest articles tagged 'certification'">certification</a>
+						</li>
+						<li class="tag-1">
+							<a href="https://www.whitewinterwolf.com/tags/cisco/" title="Latest articles tagged 'cisco'">cisco</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/gns3/" title="Latest articles tagged 'gns3'">gns3</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/hardening/" title="Latest articles tagged 'hardening'">hardening</a>
+						</li>
+						<li class="tag-4">
+							<a href="https://www.whitewinterwolf.com/tags/industry/" title="Latest articles tagged 'industry'">industry</a>
+						</li>
+						<li class="tag-1">
+							<a href="https://www.whitewinterwolf.com/tags/lab/" title="Latest articles tagged 'lab'">lab</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/linux/" title="Latest articles tagged 'linux'">linux</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/microsoft/" title="Latest articles tagged 'microsoft'">microsoft</a>
+						</li>
+						<li class="tag-1">
+							<a href="https://www.whitewinterwolf.com/tags/networking/" title="Latest articles tagged 'networking'">networking</a>
+						</li>
+						<li class="tag-1">
+							<a href="https://www.whitewinterwolf.com/tags/offsec/" title="Latest articles tagged 'offsec'">offsec</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/pentest/" title="Latest articles tagged 'pentest'">pentest</a>
+						</li>
+						<li class="tag-3">
+							<a href="https://www.whitewinterwolf.com/tags/privacy/" title="Latest articles tagged 'privacy'">privacy</a>
+						</li>
+						<li class="tag-4">
+							<a href="https://www.whitewinterwolf.com/tags/selinux/" title="Latest articles tagged 'selinux'">selinux</a>
+						</li>
+						<li class="tag-4">
+							<a href="https://www.whitewinterwolf.com/tags/video/" title="Latest articles tagged 'video'">video</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/virtualization/" title="Latest articles tagged 'virtualization'">virtualization</a>
+						</li>
+						<li class="tag-4">
+							<a href="https://www.whitewinterwolf.com/tags/vmtools/" title="Latest articles tagged 'vmtools'">vmtools</a>
+						</li>
+						<li class="tag-2">
+							<a href="https://www.whitewinterwolf.com/tags/vulnerability/" title="Latest articles tagged 'vulnerability'">vulnerability</a>
+						</li>
+				</ul>
+			</div>
+					<div class="extras-column" id="extras-website">
+						<h2>Website</h2>
+						<ul>
+					    		<li><a href="https://www.whitewinterwolf.com/about/search/" title="Search on this website">Search</a></li>
+					    		<li><a href="https://www.whitewinterwolf.com/about/privacy/" title="How this website respects your privacy">Privacy</a></li>
+					    		<li><a href="https://www.whitewinterwolf.com/about/copyright/" title="Where content comes from and what you can do with it">Copyright</a></li>
+					    		<li><a href="https://www.whitewinterwolf.com/about/" title="About this website">About</a></li>
+						</ul>
+					</div>
+					<div class="extras-column" id="extras-author">
+						<h2>Author</h2>
+						<ul>
+					    		<li><a href="https://www.whitewinterwolf.com/about/contact/" title="Contact me">Contact</a></li>
+					    		<li><a href="https://www.whitewinterwolf.com/about/pgp/" title="Keys to verify downloads or contact me privately">PGP keys</a></li>
+					    		<li><a href="https://www.whitewinterwolf.com/about/me/" title="The guy behind this blog">About</a></li>
+						</ul>
+					</div>
+					<div class="extras-column" id="extras-follow">
+						<h2>Follow</h2>
+						<ul>
+					    		<li><a href="https://www.whitewinterwolf.com/feeds/all.atom" title="Feed your RSS/Atom client">Atom/RSS</a></li>
+						</ul>
+					</div>
+	</section>
+
+	<footer id="contentinfo" class="body">
+		<p>Powered by <a href="http://getpelican.com/" rel="external">Pelican</a></p>
+	</footer>
+
+</body></html>

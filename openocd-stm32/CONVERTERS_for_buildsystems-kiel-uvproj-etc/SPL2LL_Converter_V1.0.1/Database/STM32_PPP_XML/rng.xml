@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="RNG">
+  <COMMON>
+    <LITERALS>
+      <!-- ################### No_LITERALS ################## -->
+    </LITERALS>
+
+    <STRUCTURE_FIELDS>
+      <!-- ############# No STRUCTURE_FIELDS ################ -->
+    </STRUCTURE_FIELDS>
+
+    <FUNCTIONS>
+      <!-- ############# void RNG_DeInit(void) ############# -->
+      <FUNCTION>
+        <SPL NAME="RNG_DeInit" />
+        <LL  NAME="LL_RNG_DeInit" 
+             CMD0="ADD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ########## void RNG_Cmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="RNG_Cmd"
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_RNG_Enable"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_Cmd"
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_RNG_Disable"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+       <!-- ###### uint32_t RNG_GetRandomNumber(void) ###### -->
+      <FUNCTION>
+        <SPL NAME="RNG_GetRandomNumber" />
+        <LL NAME="LL_RNG_ReadRandData32" 
+            CMD0="ADD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ######## void RNG_ITConfig(ENABLE/DISABLE) ######## -->
+      <FUNCTION>
+        <SPL NAME="RNG_ITConfig"
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_RNG_EnableIT"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_ITConfig"
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_RNG_DisableIT"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ######## uint8_t RNG_GetITStatus(uint8_t) ######## -->
+      <FUNCTION>
+        <SPL NAME="RNG_GetITStatus"
+             CMD0="EQU@SPL_PARAM_0=RNG_IT_CEI" />
+        <LL NAME="LL_RNG_IsActiveFlag_CEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_GetITStatus"
+             CMD0="EQU@SPL_PARAM_0=RNG_IT_SEI" />
+        <LL NAME="LL_RNG_IsActiveFlag_SEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ######## void RNG_ClearITPendingBit(uint8_t) ######## -->
+      <FUNCTION>
+        <SPL NAME="RNG_ClearITPendingBit"
+             CMD0="EQU@SPL_PARAM_0=RNG_IT_CEI" />
+        <LL NAME="LL_RNG_ClearFlag_CEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_ClearITPendingBit"
+             CMD0="EQU@SPL_PARAM_0=RNG_IT_SEI" />
+        <LL NAME="LL_RNG_ClearFlag_SEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ######## void RNG_GetFlagStatus(uint8_t) ######## -->
+      <FUNCTION>
+        <SPL NAME="RNG_GetFlagStatus"
+             CMD0="EQU@SPL_PARAM_0=RNG_FLAG_DRDY" />
+        <LL NAME="LL_RNG_IsActiveFlag_DRDY"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_GetFlagStatus"
+             CMD0="EQU@SPL_PARAM_0=RNG_FLAG_CECS" />
+        <LL NAME="LL_RNG_IsActiveFlag_CECS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_GetFlagStatus"
+             CMD0="EQU@SPL_PARAM_0=RNG_FLAG_SECS" />
+        <LL NAME="LL_RNG_IsActiveFlag_SECS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+      <!-- ######### void RNG_ClearFlag(uint8_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="RNG_ClearFlag"
+             CMD0="EQU@SPL_PARAM_0=RNG_FLAG_CECS" />
+        <LL NAME="LL_RNG_ClearFlag_CEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="RNG_ClearFlag"
+             CMD0="EQU@SPL_PARAM_0=RNG_FLAG_SECS" />
+        <LL NAME="LL_RNG_ClearFlag_SEIS"
+            CMD0="UPD@LL_PARAM_0=RNG" />
+      </FUNCTION>
+      
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+    <!-- ############# No_SPECIFIC_FEATURE ################ -->
+  </SPECIFIC>
+</IP>

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="OPAMP">
+  <COMMON>
+    <LITERALS>
+       <!-- ################ OPAMP_Trimming_x expressions ################ -->
+       <LITERAL>
+         <SPL>OPAMP_Trimming_Factory</SPL>
+         <LL>LL_OPAMP_TRIMMING_FACTORY</LL>
+       </LITERAL>
+       <LITERAL>
+         <SPL>OPAMP_Trimming_User</SPL>
+         <LL>LL_OPAMP_TRIMMING_USER</LL>
+       </LITERAL>
+       <!-- ################################################################ -->
+       <!-- ################ OPAMP_Trimming_x expressions ################ -->
+       <LITERAL>
+         <SPL>OPAMP_Selection_OPAMP1</SPL>
+         <LL>OPAMP1</LL>
+       </LITERAL>
+       <LITERAL>
+         <SPL>OPAMP_Selection_OPAMP2</SPL>
+         <LL>OPAMP2</LL>
+       </LITERAL>
+       <LITERAL>
+         <SPL>OPAMP_Selection_OPAMP3</SPL>
+         <LL>OPAMP3</LL>
+       </LITERAL>
+       <LITERAL>
+         <SPL>OPAMP_Selection_OPAMP4</SPL>
+         <LL>OPAMP4</LL>
+         <EXCLUDE>STM32L1</EXCLUDE>
+       </LITERAL>
+       <!-- ################################################################ -->
+    </LITERALS>
+
+	<STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+
+       <!-- ################ OPAMP_Cmd expressions ################ -->
+       <FEATURE>
+           <SPL NAME="OPAMP_Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_OPAMP_Enable"
+                CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="OPAMP_Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_OPAMP_Disable"
+                CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+       </FEATURE>
+       <!-- ################################################################ -->
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+   <!-- ################ STM32L1 ################ -->
+   <VERSION NAME="OPAMP_CMOSF9_VER_1_0_0">
+      <LITERALS>
+         <!-- ################ OPAMP_OPAMPxSwitchx expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_OPAMP1Switch3</SPL>
+           <LL>LL_OPAMP_MODE_FOLLOWER</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP1Switch4</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP1Switch5</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP1Switch6</SPL>
+           <LL>LL_OPAMP_INPUT_NONINV_DAC1_CH1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP1SwitchANA</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP2Switch3</SPL>
+           <LL>LL_OPAMP_MODE_FOLLOWER</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP2Switch4</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP2Switch5</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP2Switch6</SPL>
+           <LL>LL_OPAMP_INPUT_NONINV_DAC1_CH1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP2SwitchANA</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO1</LL>
+         </LITERAL>
+         
+         <LITERAL>
+           <SPL>OPAMP_OPAMP3Switch3</SPL>
+           <LL>LL_OPAMP_MODE_FOLLOWER</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP3Switch4</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP3Switch5</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP3Switch6</SPL>
+           <LL>LL_OPAMP_INPUT_NONINV_DAC1_CH1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP3SwitchANA</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO1</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_PowerRange_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_PowerRange_Low</SPL>
+           <LL>LL_OPAMP_POWERSUPPLY_RANGE_LOW</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_PowerRange_High</SPL>
+           <LL>LL_OPAMP_POWERSUPPLY_RANGE_HIGH</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_Input_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_Input_NMOS</SPL>
+           <LL>LL_OPAMP_TRIMMING_NMOS</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_Input_PMOS</SPL>
+           <LL>LL_OPAMP_TRIMMING_PMOS</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+         <FEATURE>
+             <SPL NAME="OPAMP_DeInit" />
+             <LL  NAME="N/A"
+                  CMD0="#if defined(OPAMP3)\n
+                        LL_OPAMP_DeInit(OPAMP3);\n
+                        #endif /* OPAMP3 */\n
+                        LL_OPAMP_DeInit(OPAMP2);\n
+                        LL_OPAMP_DeInit(OPAMP1)" />
+         </FEATURE>
+         <!-- ################ OPAMP_SwitchCmd expressions ################ -->
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch3"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_FOLLOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch3"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_STANDALONE" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch3"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_FOLLOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch3"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_STANDALONE" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch3"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_FOLLOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch3"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetFunctionalMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_STANDALONE" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch4"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch4"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch4"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch4"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch4"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch4"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch5"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch5"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S5SEL1)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch5"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch5"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S5SEL2)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch5"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINVERT_IO0" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch5"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S5SEL3)" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch6"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINV_DAC1_CH1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1Switch6"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S6SEL1)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch6"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINV_DAC1_CH1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch6"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S6SEL2)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch6"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINV_DAC1_CH1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3Switch6"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S6SEL3)" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch7"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputNonInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_NONINV_DAC1_CH2" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2Switch7"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="N/A"
+                  CMD0="CLEAR_BIT(OPAMP-&gt;CSR, OPAMP_CSR_S6SEL2)" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP1SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP2SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_IO1" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_SwitchCmd"
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_OPAMP3SwitchANA"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputInverting"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_INVERT_CONNECT_NO" />
+         </FEATURE>
+         <!-- ############################################################# -->
+         <!-- ################ OPAMP_LowPowerCmd expressions ################ -->
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP1"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_LOWPOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP1"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP1"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_NORMAL" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP2"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_LOWPOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP2"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP2"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_NORMAL" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP3"
+                  CMD1="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_LOWPOWER" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_LowPowerCmd" 
+                  CMD0="EQU@SPL_PARAM_0=OPAMP_Selection_OPAMP3"
+                  CMD1="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetPowerMode"
+                  CMD0="UPD@LL_PARAM_0=OPAMP3"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_POWERMODE_NORMAL" />
+         </FEATURE>
+         <!-- ############################################################# -->
+         <FEATURE>
+             <SPL NAME="OPAMP_PowerRangeSelect" />
+             <LL  NAME="LL_OPAMP_SetCommonPowerRange"
+                  CMD0="UPD@LL_PARAM_0=__LL_OPAMP_COMMON_INSTANCE()"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_OffsetTrimmingModeSelect" />
+             <LL  NAME="LL_OPAMP_SetCommonTrimmingMode"
+                  CMD0="UPD@LL_PARAM_0=__LL_OPAMP_COMMON_INSTANCE()"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_OffsetTrimConfig" />
+             <LL  NAME="N/A"
+                  CMD0="LL_OPAMP_SetTrimmingValue({UPD@SPL_PARAM_0}, LL_OPAMP_POWERMODE_NORMAL, {UPD@SPL_PARAM_1}, {CPY@SPL_PARAM_2})" />
+         </FEATURE>
+          <FEATURE>
+             <SPL NAME="OPAMP_OffsetTrimLowPowerConfig" />
+             <LL  NAME="N/A"
+                  CMD0="LL_OPAMP_SetTrimmingValue({UPD@SPL_PARAM_0}, LL_OPAMP_POWERMODE_LOWPOWER, {UPD@SPL_PARAM_1}, {CPY@SPL_PARAM_2})" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_GetFlagStatus" />
+             <LL  NAME="LL_OPAMP_IsCalibrationOutputSet"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+         </FEATURE>
+      </FUNCTIONS>
+    </VERSION>
+
+   <!-- ################ STM32F3 ################ -->
+   <VERSION NAME="OPAMP_TSMC018_ULL_VER_1_0_0">
+      <LITERALS>
+         <LITERAL>
+           <SPL>OPAMP_InitTypeDef</SPL>
+           <LL>LL_OPAMP_InitTypeDef</LL>
+         </LITERAL>
+         <!-- ################ OPAMP_InvertingInput_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_InvertingInput_IO1</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_InvertingInput_IO2</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_IO1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_InvertingInput_PGA</SPL>
+           <LL>LL_OPAMP_INPUT_INVERT_CONNECT_NO</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_InvertingInput_Vout</SPL>
+           <LL>LL_OPAMP_MODE_FOLLOWER</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_NonInvertingInput_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_NonInvertingInput_IO1</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_NonInvertingInput_IO2</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_NonInvertingInput_IO3</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_NonInvertingInput_IO4</SPL>
+           <LL>LL_OPAMP_INPUT_NONINVERT_IO0</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_OPAMP_PGAGain_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_OPAMP_PGAGain_2</SPL>
+           <LL>LL_OPAMP_PGA_GAIN_2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP_PGAGain_4</SPL>
+           <LL>LL_OPAMP_PGA_GAIN_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP_PGAGain_8</SPL>
+           <LL>LL_OPAMP_PGA_GAIN_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_OPAMP_PGAGain_16</SPL>
+           <LL>LL_OPAMP_PGA_GAIN_16</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_Vref_x expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_Vref_3VDDA</SPL>
+           <LL>LL_OPAMP_TRIMMING_PMOS_VREF_3_3PC_VDDA</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_Vref_10VDDA</SPL>
+           <LL>LL_OPAMP_TRIMMING_PMOS_VREF_10PC_VDDA</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_Vref_50VDDA</SPL>
+           <LL>LL_OPAMP_TRIMMING_NMOS_VREF_50PC_VDDA</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_Vref_90VDDA</SPL>
+           <LL>LL_OPAMP_TRIMMING_NMOS_VREF_90PC_VDDA</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <!-- ################ OPAMP_PGAConnect_xx expressions ################ -->
+         <LITERAL>
+           <SPL>OPAMP_PGAConnect_No</SPL>
+           <LL>LL_OPAMP_MODE_STANDALONE</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_PGAConnect_IO1</SPL>
+           <LL>LL_OPAMP_MODE_PGA_EXT_FILT_IO0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_PGAConnect_IO2</SPL>
+           <LL>LL_OPAMP_MODE_PGA_EXT_FILT_IO1</LL>
+         </LITERAL>
+         <!-- ################################################################ -->
+         <LITERAL>
+           <SPL>OPAMP_Input_Inverting</SPL>
+           <LL>LL_OPAMP_TRIMMING_NMOS</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>OPAMP_Input_NonInverting</SPL>
+           <LL>LL_OPAMP_TRIMMING_PMOS</LL>
+         </LITERAL>
+      </LITERALS>
+      <STRUCTURES>
+	     <STRUCTURE NAME="OPAMP_InitTypeDef">
+           <FIELD>
+             <SPL>OPAMP_InvertingInput</SPL>
+             <LL>InputInverting</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>OPAMP_NonInvertingInput</SPL>
+             <LL>InputNonInverting</LL>
+           </FIELD>
+         </STRUCTURE>
+      </STRUCTURES>
+      <FUNCTIONS>
+         <FEATURE>
+             <SPL NAME="OPAMP_DeInit" />
+             <LL  NAME="LL_OPAMP_DeInit"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_Init" />
+             <LL  NAME="LL_OPAMP_Init"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_StructInit" />
+             <LL  NAME="LL_OPAMP_StructInit"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_PGAConfig" />
+             <LL  NAME="N/A"
+                  CMD0="MODIFY_REG({UPD@SPL_PARAM_0}->CSR, OPAMP_CSR_PGGAIN_3 | OPAMP_CSR_PGGAIN_2, {UPD@SPL_PARAM_2})" />
+             <LL  NAME="LL_OPAMP_SetPGAGain"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_VrefConfig" />
+             <LL  NAME="LL_OPAMP_SetCalibrationSelection"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_VrefConfig" />
+             <LL  NAME="LL_OPAMP_SetCalibrationSelection"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_VrefConnectADCCmd"
+                  CMD0="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetCalibrationVrefOutput"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_VREF_OUTPUT_ENABLE" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_VrefConnectADCCmd"
+                  CMD0="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetCalibrationVrefOutput"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_VREF_OUTPUT_DISABLE" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_TimerControlledMuxConfig" />
+             <LL  NAME="N/A"
+                  CMD0="LL_OPAMP_SetInputInverting({UPD@SPL_PARAM_0}, {CPY@SPL_PARAM_1}.InputInverting);\n
+                        LL_OPAMP_SetInputNonInverting({UPD@SPL_PARAM_0}, {CPY@SPL_PARAM_1}.InputNonInverting)" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_TimerControlledMuxCmd"
+                  CMD0="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetInputsMuxMode"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_MUX_TIM1_CH6" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_TimerControlledMuxCmd"
+                  CMD0="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetInputsMuxMode"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_INPUT_MUX_DISABLE" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_Cmd"
+                  CMD0="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_Enable"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_Cmd"
+                  CMD0="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_Disable"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+
+         <FEATURE>
+             <SPL NAME="OPAMP_GetOutputLevel" />
+             <LL  NAME="N/A"
+                  CMD0="((LL_OPAMP_IsCalibrationOutputSet({UPD@SPL_PARAM_0}) != 0) ? OPAMP_CSR_OUTCAL : 0x00000000U)" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_OffsetTrimModeSelect" />
+             <LL  NAME="LL_OPAMP_SetTrimmingMode"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_OffsetTrimConfig" />
+             <LL  NAME="N/A"
+                  CMD0="LL_OPAMP_SetTrimmingValue({UPD@SPL_PARAM_0}, {UPD@SPL_PARAM_1}, {CPY@SPL_PARAM_2})" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_StartCalibration"
+                  CMD0="EQU@SPL_PARAM_1=ENABLE" />
+             <LL  NAME="LL_OPAMP_SetMode"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_CALIBRATION" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="OPAMP_StartCalibration"
+                  CMD0="EQU@SPL_PARAM_1=DISABLE" />
+             <LL  NAME="LL_OPAMP_SetMode"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1=LL_OPAMP_MODE_FUNCTIONAL" />
+         </FEATURE>
+         
+         <FEATURE>
+             <SPL NAME="OPAMP_LockConfig" />
+             <LL  NAME="LL_OPAMP_Lock"
+                  CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+         </FEATURE>
+
+      </FUNCTIONS>
+    </VERSION>
+    <!-- ######################################################### -->
+  </SPECIFIC>
+</IP>

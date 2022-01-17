@@ -1,0 +1,2491 @@
+From c52b7ba5d5b32ce2f42c9cff255131a2f1694c87 Mon Sep 17 00:00:00 2001
+From: "Satoshi N. M" <snmatsutake@yahoo.co.jp>
+Date: Sat, 23 Dec 2017 16:32:54 -0800
+Subject: [PATCH] Remove BMP-specific folders: driver, scripts, upgrade
+
+---
+ HACKING                          |   1 -
+ driver/blackmagic.inf            |  89 ---------
+ driver/blackmagic_upgrade.inf    | 161 -----------------
+ scripts/README                   |   9 -
+ scripts/bootprog.py              | 189 -------------------
+ scripts/dfu-convert.py           | 142 ---------------
+ scripts/dfu.py                   | 193 --------------------
+ scripts/gdb.py                   | 301 -------------------------------
+ scripts/get_openocd_nrf51_ids.py |  60 ------
+ scripts/hexprog.py               | 182 -------------------
+ scripts/stm32_mem.py             | 232 ------------------------
+ scripts/stubs/Makefile           |  12 --
+ scripts/stubs/stm32_opterase.S   |  53 ------
+ scripts/stubs/stm32_optprog.S    |  52 ------
+ upgrade/Makefile                 |  23 ---
+ upgrade/bindata.S                |  28 ---
+ upgrade/bindata.h                |  32 ----
+ upgrade/dfu.c                    | 155 ----------------
+ upgrade/dfu.h                    |  86 ---------
+ upgrade/main.c                   | 175 ------------------
+ upgrade/stm32mem.c               |  98 ----------
+ upgrade/stm32mem.h               |  34 ----
+ 22 files changed, 2307 deletions(-)
+ delete mode 100644 HACKING
+ delete mode 100644 driver/blackmagic.inf
+ delete mode 100644 driver/blackmagic_upgrade.inf
+ delete mode 100644 scripts/README
+ delete mode 100755 scripts/bootprog.py
+ delete mode 100644 scripts/dfu-convert.py
+ delete mode 100644 scripts/dfu.py
+ delete mode 100644 scripts/gdb.py
+ delete mode 100755 scripts/get_openocd_nrf51_ids.py
+ delete mode 100755 scripts/hexprog.py
+ delete mode 100755 scripts/stm32_mem.py
+ delete mode 100644 scripts/stubs/Makefile
+ delete mode 100644 scripts/stubs/stm32_opterase.S
+ delete mode 100644 scripts/stubs/stm32_optprog.S
+ delete mode 100644 upgrade/Makefile
+ delete mode 100644 upgrade/bindata.S
+ delete mode 100644 upgrade/bindata.h
+ delete mode 100644 upgrade/dfu.c
+ delete mode 100644 upgrade/dfu.h
+ delete mode 100644 upgrade/main.c
+ delete mode 100644 upgrade/stm32mem.c
+ delete mode 100644 upgrade/stm32mem.h
+
+diff --git a/HACKING b/HACKING
+deleted file mode 100644
+index f53c89e..0000000
+--- a/HACKING
++++ /dev/null
+@@ -1 +0,0 @@
+-See https://github.com/blacksphere/blackmagic/wiki/Hacking
+diff --git a/driver/blackmagic.inf b/driver/blackmagic.inf
+deleted file mode 100644
+index 9194937..0000000
+--- a/driver/blackmagic.inf
++++ /dev/null
+@@ -1,89 +0,0 @@
+-; Windows USB CDC ACM driver setup file.
+-
+-; Copyright (C) 2004 Al Borchers (alborchers@steinerpoint.com)
+-; Taken from Linux documentation, modified for Black Magic debug probe
+-; by Gareth McMullin <gareth@blacksphere.co.nz>
+-
+-; This provides the driver information for the GDB and UART interfaces to
+-; be presented as virtual serial ports in Windows.
+-
+-; Common to Windows 32- and 64-bit systems
+-
+-[Version]
+-Signature="$Windows NT$"
+-Class=Ports
+-ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+-Provider=%BLACKSPHERE%
+-DriverVer=28/12/2011,0.0.1.1
+-
+-[Manufacturer]
+-%VendorName%=DeviceList, NTamd64
+-
+-[Strings]
+-VendorName = "Black Sphere Technologies"
+-BLACKMAGICGDB = "Black Magic GDB Server"
+-BLACKMAGICUART = "Black Magic UART Port"
+-BLACKSPHERE_DISPLAY_NAME = "Black Magic Probe Driver"
+-
+-[DeviceList]
+-%BLACKMAGICGDB%=DriverInstall, USB\VID_1d50&PID_6018&Rev_0100&MI_00
+-%BLACKMAGICUART%=DriverInstall, USB\VID_1d50&PID_6018&Rev_0100&MI_02
+-
+-[DeviceList.NTamd64]
+-%BLACKMAGICGDB%=DriverInstall, USB\VID_1d50&PID_6018&Rev_0100&MI_00
+-%BLACKMAGICUART%=DriverInstall, USB\VID_1d50&PID_6018&Rev_0100&MI_02
+-
+-[DestinationDirs]
+-DefaultDestDir=10,System32\Drivers
+-
+-; Windows 32-bit sections
+-;~~~~~~~~~~~~~~~~~~~~~~~~~
+-
+-[DriverInstall.nt]
+-CopyFiles=DriverCopyFiles.nt
+-AddReg=DriverInstall.nt.AddReg
+-
+-[DriverCopyFiles.nt]
+-usbser.sys,,,0x20
+-
+-[DriverInstall.nt.AddReg]
+-HKR,,DevLoader,,*ntkern
+-HKR,,NTMPDriver,,usbser.sys
+-HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+-
+-[DriverInstall.nt.Services]
+-AddService = usbser,0x0002,DriverService.nt
+-
+-[DriverService.nt]
+-DisplayName = %BLACKSPHERE_DISPLAY_NAME%
+-ServiceType = 1                  ; SERVICE_KERNEL_DRIVER
+-StartType = 3                    ; SERVICE_DEMAND_START
+-ErrorControl = 1                 ; SERVICE_ERROR_NORMAL
+-ServiceBinary = %10%\System32\Drivers\usbser.sys
+-LoadOrderGroup = Base
+-
+-; Windows 64-bit sections
+-;~~~~~~~~~~~~~~~~~~~~~~~~~
+-[DriverInstall.NTamd64]
+-CopyFiles=DriverCopyFiles.NTamd64
+-AddReg=DriverInstall.NTamd64.AddReg
+-
+-[DriverCopyFiles.NTamd64]
+-usbser.sys,,,0x20
+-
+-[DriverInstall.NTamd64.AddReg]
+-HKR,,DevLoader,,*ntkern
+-HKR,,NTMPDriver,,usbser.sys
+-HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+-
+-[DriverInstall.NTamd64.Services]
+-AddService = usbser,0x0002,DriverService.NTamd64
+-
+-[DriverService.NTamd64]
+-DisplayName = %BLACKSPHERE_DISPLAY_NAME%
+-ServiceType = 1                  ; SERVICE_KERNEL_DRIVER
+-StartType = 3                    ; SERVICE_DEMAND_START
+-ErrorControl = 1                 ; SERVICE_ERROR_NORMAL
+-ServiceBinary = %10%\System32\Drivers\usbser.sys
+-LoadOrderGroup = Base
+-
+diff --git a/driver/blackmagic_upgrade.inf b/driver/blackmagic_upgrade.inf
+deleted file mode 100644
+index d37036f..0000000
+--- a/driver/blackmagic_upgrade.inf
++++ /dev/null
+@@ -1,161 +0,0 @@
+-; blackmagic_upgrade.inf
+-; Copyright (c) 2010 libusb-win32 (GNU LGPL)
+-[Strings]
+-DeviceName = "Black Magic Firmware Upgrade"
+-DeviceNameDFU = "Black Magic Probe (Upgrade)"
+-DeviceNameTPA = "Black Magic Trace Capture"
+-VendorName = "Black Sphere Technologies"
+-SourceName = "Black Magic Firmware Upgrade Install Disk"
+-DeviceID   = "VID_1d50&PID_6018&Rev_0100&MI_04"
+-DeviceIDDFU= "VID_1d50&PID_6017&Rev_0100"
+-DeviceIDTPA= "VID_1d50&PID_6018&Rev_0100&MI_05"
+-DeviceIDDFUold= "VID_0483&PID_df11&Rev_0200"
+-
+-[Version]
+-Signature   = "$Windows NT$"
+-Class       = "libusb-win32 devices"
+-ClassGuid   = {EB781AAF-9C70-4523-A5DF-642A87ECA567}
+-Provider    = "libusb-win32"
+-CatalogFile = blackmagic_upgrade.cat
+-DriverVer   = 01/18/2012, 1.2.6.0
+-
+-[ClassInstall32]
+-Addreg = libusb_class_install_add_reg
+-
+-[libusb_class_install_add_reg]
+-HKR,,,0,"libusb-win32 devices"
+-HKR,,Icon,,-20
+-
+-[Manufacturer]
+-%VendorName% = Devices, NT, NTAMD64, NTIA64
+-
+-;--------------------------------------------------------------------------
+-; libusb-win32 files
+-;--------------------------------------------------------------------------
+-
+-[SourceDisksNames]
+-1 = %SourceName%
+-
+-[SourceDisksFiles.x86]
+-libusb0.sys     = 1,x86
+-libusb0_x86.dll = 1,x86
+-
+-[SourceDisksFiles.amd64]
+-libusb0.sys     = 1,amd64
+-libusb0.dll     = 1,amd64
+-libusb0_x86.dll = 1,x86
+-
+-[SourceDisksFiles.ia64]
+-libusb0.sys     = 1,ia64
+-libusb0.dll     = 1,ia64
+-libusb0_x86.dll = 1,x86
+-
+-[DestinationDirs]
+-libusb_files_sys       = 10,system32\drivers
+-libusb_files_dll       = 10,system32
+-libusb_files_dll_wow64 = 10,syswow64
+-libusb_files_dll_x86   = 10,system32
+-
+-[libusb_files_sys]
+-libusb0.sys
+-
+-[libusb_files_dll]
+-libusb0.dll
+-
+-[libusb_files_dll_x86]
+-libusb0.dll, libusb0_x86.dll
+-
+-[libusb_files_dll_wow64]
+-libusb0.dll, libusb0_x86.dll
+-
+-;--------------------------------------------------------------------------
+-; libusb-win32 device driver
+-;--------------------------------------------------------------------------
+-
+-[LIBUSB_WIN32_DEV.NT]
+-CopyFiles = libusb_files_sys, libusb_files_dll_x86
+-
+-[LIBUSB_WIN32_DEV.NTAMD64]
+-CopyFiles = libusb_files_sys, libusb_files_dll, libusb_files_dll_wow64
+-
+-[LIBUSB_WIN32_DEV.NTIA64]
+-CopyFiles = libusb_files_sys, libusb_files_dll, libusb_files_dll_wow64
+-
+-[LIBUSB_WIN32_DEV.NT.HW]
+-DelReg = libusb_del_reg_hw
+-AddReg = libusb_add_reg_hw
+-
+-[LIBUSB_WIN32_DEV.NTAMD64.HW]
+-DelReg = libusb_del_reg_hw
+-AddReg = libusb_add_reg_hw
+-
+-[LIBUSB_WIN32_DEV.NTIA64.HW]
+-DelReg = libusb_del_reg_hw
+-AddReg = libusb_add_reg_hw
+-
+-[LIBUSB_WIN32_DEV.NT.Services]
+-AddService = libusb0, 0x00000002, libusb_add_service
+-
+-[LIBUSB_WIN32_DEV.NTAMD64.Services]
+-AddService = libusb0, 0x00000002, libusb_add_service
+-
+-[LIBUSB_WIN32_DEV.NTIA64.Services]
+-AddService = libusb0, 0x00000002, libusb_add_service
+-
+-; Older versions of this .inf file installed filter drivers. They are not
+-; needed any more and must be removed
+-[libusb_del_reg_hw]
+-HKR,,LowerFilters
+-HKR,,UpperFilters
+-
+-; libusb-win32 device properties
+-[libusb_add_reg_hw]
+-HKR,,SurpriseRemovalOK,0x00010001,1
+-
+-; (Optional) the usb configuration value to select when this device
+-; is started.  If this key does not exist the first config is selected.
+-;HKR,,InitialConfigValue,0x00010001,<your config value>
+-
+-;--------------------------------------------------------------------------
+-; libusb-win32 service
+-;--------------------------------------------------------------------------
+-
+-[libusb_add_service]
+-DisplayName   = "libusb-win32 - Kernel Driver 01/18/2012 1.2.6.0"
+-ServiceType   = 1
+-StartType     = 3
+-ErrorControl  = 0
+-ServiceBinary = %12%\libusb0.sys
+-
+-;--------------------------------------------------------------------------
+-; libusb-win32 devices
+-;--------------------------------------------------------------------------
+-
+-; Hardware IDs in a 'Devices' section can be installed by libusb-win32
+-; using usb_install_driver_np(), usb_install_driver_np_rundll(), or the
+-; inf-wizard utility.
+-;
+-[Devices]
+-%DeviceName% = LIBUSB_WIN32_DEV, USB\%DeviceID%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV, USB\%DeviceIDDFU%
+-%DeviceNameTPA% = LIBUSB_WIN32_DEV, USB\%DeviceIDTPA%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV, USB\%DeviceIDDFUold%
+-
+-[Devices.NT]
+-%DeviceName% = LIBUSB_WIN32_DEV.NT, USB\%DeviceID%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NT, USB\%DeviceIDDFU%
+-%DeviceNameTPA% = LIBUSB_WIN32_DEV.NT, USB\%DeviceIDTPA%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NT, USB\%DeviceIDDFUold%
+-
+-[Devices.NTAMD64]
+-%DeviceName% = LIBUSB_WIN32_DEV.NTAMD64, USB\%DeviceID%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NTAMD64, USB\%DeviceIDDFU%
+-%DeviceNameTPA% = LIBUSB_WIN32_DEV.NTAMD64, USB\%DeviceIDTPA%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NTAMD64, USB\%DeviceIDDFUold%
+-
+-[Devices.NTIA64]
+-%DeviceName% = LIBUSB_WIN32_DEV.NTIA64, USB\%DeviceID%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NTIA64, USB\%DeviceIDDFU%
+-%DeviceNameTPA% = LIBUSB_WIN32_DEV.NTIA64, USB\%DeviceIDTPA%
+-%DeviceNameDFU% = LIBUSB_WIN32_DEV.NTIA64, USB\%DeviceIDDFUold%
+-
+diff --git a/scripts/README b/scripts/README
+deleted file mode 100644
+index a539475..0000000
+--- a/scripts/README
++++ /dev/null
+@@ -1,9 +0,0 @@
+-This directory contains some useful scripts for working
+-on the Black Magic Debug project.
+-
+-bootprog.py - Production programmer using the STM32 SystemMemory bootloader.
+-hexprog.py - Write an Intel hex file to a target using the GDB protocol.
+-stm32_mem.py - Access STM32 Flash memory using USB DFU class interface.
+-
+-stubs/ - Source code for the microcode strings included in hexprog.py.
+-
+diff --git a/scripts/bootprog.py b/scripts/bootprog.py
+deleted file mode 100755
+index ab78325..0000000
+--- a/scripts/bootprog.py
++++ /dev/null
+@@ -1,189 +0,0 @@
+-#!/usr/bin/env python
+-#
+-# bootprog.py: STM32 SystemMemory Production Programmer -- version 1.1
+-# Copyright (C) 2011  Black Sphere Technologies 
+-# Written by Gareth McMullin <gareth@blacksphere.co.nz>
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-import serial
+-import struct
+-from time import sleep
+-
+-class stm32_boot:
+-	def __init__(self, port, baud=115200):
+-		self.serial = serial.Serial(port, baud, 8, 'E', 1, 
+-				timeout=1)
+-
+-		# Turn on target device in SystemMemory boot mode
+-		self.serial.setDTR(1)
+-		sleep(0.1);
+-
+-		self._sync()
+-
+-	def _sync(self):
+-		# Send sync byte
+-		#print "sending sync byte"
+-		self.serial.write("\x7F")
+-		self._checkack()
+-
+-	def _sendcmd(self, cmd):
+-		if type(cmd) == int:
+-			cmd = chr(cmd)
+-		cmd += chr(ord(cmd) ^ 0xff)
+-		#print "sendcmd:", repr(cmd)
+-		self.serial.write(cmd)
+-
+-	def _send(self, data):
+-		csum = 0
+-		for c in data: csum ^= ord(c)
+-		data = data + chr(csum)
+-		#print "sending:", repr(data)
+-		self.serial.write(data)
+-
+-	def _checkack(self):
+-		ACK = "\x79"
+-		b = self.serial.read(1)
+-		if b != ACK: raise Exception("Invalid ack: %r" % b)
+-		#print "got ack!"
+-
+-
+-
+-	def get(self):
+-		self._sendcmd("\x00")
+-		self._checkack()
+-		num = ord(self.serial.read(1))
+-		data = self.serial.read(num+1)
+-		self._checkack()
+-		return data
+-
+-	def eraseall(self):
+-		# Send erase cmd
+-		self._sendcmd("\x43")
+-		self._checkack()
+-		# Global erase
+-		self._sendcmd("\xff")
+-		self._checkack()
+-
+-	def read(self, addr, len):
+-		# Send read cmd
+-		self._sendcmd("\x11")
+-		self._checkack()
+-		# Send address
+-		self._send(struct.pack(">L", addr))
+-		self._checkack()
+-		# Send length
+-		self._sendcmd(chr(len-1))
+-		self._checkack()
+-		return self.serial.read(len)
+-
+-	def write(self, addr, data):
+-		# Send write cmd
+-		self._sendcmd("\x31")
+-		self._checkack()
+-		# Send address
+-		self._send(struct.pack(">L", addr))
+-		self._checkack()
+-		# Send data
+-		self._send(chr(len(data)-1) + data)
+-		self._checkack()
+-	
+-
+-	def write_protect(self, sectors):
+-		# Send WP cmd
+-		self._sendcmd("\x63")
+-		self._checkack()
+-		# Send sector list
+-		self._send(chr(len(sectors)-1) + "".join(chr(i) for i in sectors))
+-		self._checkack()
+-		# Resync after system reset
+-		self._sync()
+-
+-	def write_unprotect(self):
+-		self._sendcmd("\x73")
+-		self._checkack()
+-		self._checkack()
+-		self._sync()
+-
+-	def read_protect(self):
+-		self._sendcmd("\x82")
+-		self._checkack()
+-		self._checkack()
+-		self._sync()
+-
+-	def read_unprotect(self):
+-		self._sendcmd("\x92")
+-		self._checkack()
+-		self._checkack()
+-		self._sync()
+-
+-
+-if __name__ == "__main__":
+-	from sys import stdout, argv, platform
+-	from getopt import getopt
+-
+-	if platform == "linux2":
+-		print  "\x1b\x5b\x48\x1b\x5b\x32\x4a" # clear terminal screen
+-	print "STM32 SystemMemory Production Programmer -- version 1.1"
+-	print "Copyright (C) 2011  Black Sphere Technologies"
+-	print "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>"
+-	print
+-
+-	dev = "COM1" if platform == "win32" else "/dev/ttyUSB0"
+-	baud = 115200
+-	addr = 0x8000000
+-	try:
+-		opts, args = getopt(argv[1:], "b:d:a:")
+-		for opt in opts:
+-			if opt[0] == "-b": baud = int(opt[1])
+-			elif opt[0] == "-d": dev = opt[1]
+-			else: raise Exception()
+-
+-		progfile = args[0]
+-	except:
+-		print "Usage %s [-d <dev>] [-b <baudrate>] [-a <address>] <filename>" % argv[0]
+-		print "\t-d : Use target on interface <dev> (default: %s)" % dev
+-		print "\t-b : Set device baudrate (default: %d)" % baud
+-		print "\t-a : Set programming address (default: 0x%X)" % addr
+-		print
+-		exit(-1)
+-
+-	prog = open(progfile, "rb").read()
+-	boot = stm32_boot(dev, baud)
+-
+-	cmds = boot.get()
+-	print "Target bootloader version: %d.%d\n" % (ord(cmds[0]) >> 4, ord(cmds[0]) % 0xf)
+-
+-	print "Removing device protection..."
+-	boot.read_unprotect()
+-	boot.write_unprotect()
+-	print "Erasing target device..."
+-	boot.eraseall()
+-	addr = 0x8000000
+-	while prog:
+-		print ("Programming address 0x%08X..0x%08X...\r" % (addr, addr + min(len(prog), 255))),
+-		stdout.flush();
+-		boot.write(addr, prog[:256])
+-		addr += 256
+-		prog = prog[256:]
+-
+-	print
+-	print "Enabling device protection..."
+-	boot.write_protect(range(0,2))
+-	#boot.read_protect()
+-
+-	print "All operations completed."
+-	print
+-
+-
+diff --git a/scripts/dfu-convert.py b/scripts/dfu-convert.py
+deleted file mode 100644
+index 5a0a904..0000000
+--- a/scripts/dfu-convert.py
++++ /dev/null
+@@ -1,142 +0,0 @@
+-#!/usr/bin/python2
+-
+-# Written by Antonio Galea - 2010/11/18
+-# Distributed under Gnu LGPL 3.0
+-# see http://www.gnu.org/licenses/lgpl-3.0.txt
+-
+-import sys,struct,zlib,os
+-from optparse import OptionParser
+-from intelhex import IntelHex
+-
+-DEFAULT_DEVICE="0x0483:0xdf11"
+-
+-def named(tuple,names):
+-  return dict(zip(names.split(),tuple))
+-def consume(fmt,data,names):
+-  n = struct.calcsize(fmt)
+-  return named(struct.unpack(fmt,data[:n]),names),data[n:]
+-def cstring(string):
+-  return string.split('\0',1)[0]
+-def compute_crc(data):
+-  return 0xFFFFFFFF & -zlib.crc32(data) -1
+-
+-def parse(file,dump_images=False):
+-  print 'File: "%s"' % file
+-  data = open(file,'rb').read()
+-  crc = compute_crc(data[:-4])
+-  prefix, data = consume('<5sBIB',data,'signature version size targets')
+-  print '%(signature)s v%(version)d, image size: %(size)d, targets: %(targets)d' % prefix
+-  for t in range(prefix['targets']):
+-    tprefix, data  = consume('<6sBI255s2I',data,'signature altsetting named name size elements')
+-    tprefix['num'] = t
+-    if tprefix['named']:
+-      tprefix['name'] = cstring(tprefix['name'])
+-    else:
+-      tprefix['name'] = ''
+-    print '%(signature)s %(num)d, alt setting: %(altsetting)s, name: "%(name)s", size: %(size)d, elements: %(elements)d' % tprefix
+-    tsize = tprefix['size']
+-    target, data = data[:tsize], data[tsize:]
+-    for e in range(tprefix['elements']):
+-      eprefix, target = consume('<2I',target,'address size')
+-      eprefix['num'] = e
+-      print '  %(num)d, address: 0x%(address)08x, size: %(size)d' % eprefix
+-      esize = eprefix['size']
+-      image, target = target[:esize], target[esize:]
+-      if dump_images:
+-        out = '%s.target%d.image%d.bin' % (file,t,e)
+-        open(out,'wb').write(image)
+-        print '    DUMPED IMAGE TO "%s"' % out
+-    if len(target):
+-      print "target %d: PARSE ERROR" % t
+-  suffix = named(struct.unpack('<4H3sBI',data[:16]),'device product vendor dfu ufd len crc')
+-  print 'usb: %(vendor)04x:%(product)04x, device: 0x%(device)04x, dfu: 0x%(dfu)04x, %(ufd)s, %(len)d, 0x%(crc)08x' % suffix
+-  if crc != suffix['crc']:
+-    print "CRC ERROR: computed crc32 is 0x%08x" % crc
+-  data = data[16:]
+-  if data:
+-    print "PARSE ERROR"
+-
+-def build(file,targets,device=DEFAULT_DEVICE):
+-  data = ''
+-  for t,target in enumerate(targets):
+-    tdata = ''
+-    for image in target:
+-      tdata += struct.pack('<2I',image['address'],len(image['data']))+image['data']
+-    tdata = struct.pack('<6sBI255s2I','Target',0,1,'ST...',len(tdata),len(target)) + tdata
+-    data += tdata
+-  data  = struct.pack('<5sBIB','DfuSe',1,len(data)+11,len(targets)) + data
+-  v,d=map(lambda x: int(x,0) & 0xFFFF, device.split(':',1))
+-  data += struct.pack('<4H3sB',0,d,v,0x011a,'UFD',16)
+-  crc   = compute_crc(data)
+-  data += struct.pack('<I',crc)
+-  open(file,'wb').write(data)
+-
+-if __name__=="__main__":
+-  usage = """
+-%prog [-d|--dump] infile.dfu
+-%prog {-b|--build} address:file.bin [-b address:file.bin ...] [{-D|--device}=vendor:device] outfile.dfu
+-%prog {-i|--ihex} file.hex [-i file.hex ...] [{-D|--device}=vendor:device] outfile.dfu"""
+-
+-  parser = OptionParser(usage=usage)
+-  parser.add_option("-b", "--build", action="append", dest="binfiles",
+-    help="build a DFU file from given BINFILES", metavar="BINFILES")
+-  parser.add_option("-i", "--ihex", action="append", dest="hexfiles",
+-    help="build a DFU file from given HEXFILES", metavar="HEXFILES")
+-  parser.add_option("-D", "--device", action="store", dest="device",
+-    help="build for DEVICE, defaults to %s" % DEFAULT_DEVICE, metavar="DEVICE")
+-  parser.add_option("-d", "--dump", action="store_true", dest="dump_images",
+-    default=False, help="dump contained images to current directory")
+-  (options, args) = parser.parse_args()
+-
+-  if (options.binfiles or options.hexfiles) and len(args)==1:
+-    target = []
+-    
+-    if options.binfiles:
+-      for arg in options.binfiles:
+-        try:
+-          address,binfile = arg.split(':',1)
+-        except ValueError:
+-          print "Address:file couple '%s' invalid." % arg
+-          sys.exit(1)
+-        try:
+-          address = int(address,0) & 0xFFFFFFFF
+-        except ValueError:
+-          print "Address %s invalid." % address
+-          sys.exit(1)
+-        if not os.path.isfile(binfile):
+-          print "Unreadable file '%s'." % binfile
+-          sys.exit(1)
+-        target.append({ 'address': address, 'data': open(binfile,'rb').read() })
+-    
+-    if options.hexfiles:
+-      for hex in options.hexfiles:
+-        ih = IntelHex(hex)
+-        address = ih.minaddr()
+-        data = ih.tobinstr()
+-        try:
+-          address = address & 0xFFFFFFFF
+-        except ValueError:
+-          print "Address %s invalid." % address
+-          sys.exit(1)
+-        target.append({ 'address': address, 'data': data })
+-    
+-    outfile = args[0]
+-    device = DEFAULT_DEVICE
+-    if options.device:
+-      device=options.device
+-    try:
+-      v,d=map(lambda x: int(x,0) & 0xFFFF, device.split(':',1))
+-    except:
+-      print "Invalid device '%s'." % device
+-      sys.exit(1)
+-    build(outfile,[target],device)
+-  elif len(args)==1:
+-    infile = args[0]
+-    if not os.path.isfile(infile):
+-      print "Unreadable file '%s'." % infile
+-      sys.exit(1)
+-    parse(infile, dump_images=options.dump_images)
+-  else:
+-    parser.print_help()
+-    sys.exit(1)
+-
+diff --git a/scripts/dfu.py b/scripts/dfu.py
+deleted file mode 100644
+index 5e1e592..0000000
+--- a/scripts/dfu.py
++++ /dev/null
+@@ -1,193 +0,0 @@
+-#!/usr/bin/env python
+-#
+-# dfu.py: Access USB DFU class devices
+-# Copyright (C) 2009  Black Sphere Technologies 
+-# Written by Gareth McMullin <gareth@blacksphere.co.nz>
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+- 
+-import usb
+-
+-DFU_DETACH_TIMEOUT = 1000
+-
+-# DFU Requests 
+-DFU_DETACH = 0x00
+-DFU_DNLOAD = 0x01
+-DFU_UPLOAD = 0x02
+-DFU_GETSTATUS = 0x03
+-DFU_CLRSTATUS = 0x04
+-DFU_GETSTATE = 0x05
+-DFU_ABORT = 0x06
+-
+-# DFU States
+-STATE_APP_IDLE =                 0x00
+-STATE_APP_DETACH =               0x01
+-STATE_DFU_IDLE =                 0x02
+-STATE_DFU_DOWNLOAD_SYNC =        0x03
+-STATE_DFU_DOWNLOAD_BUSY =        0x04
+-STATE_DFU_DOWNLOAD_IDLE =        0x05
+-STATE_DFU_MANIFEST_SYNC =        0x06
+-STATE_DFU_MANIFEST =             0x07
+-STATE_DFU_MANIFEST_WAIT_RESET =  0x08
+-STATE_DFU_UPLOAD_IDLE =          0x09
+-STATE_DFU_ERROR =                0x0a
+-DFU_STATUS_OK =                  0x00
+-
+-# DFU Status cides
+-DFU_STATUS_ERROR_TARGET =        0x01
+-DFU_STATUS_ERROR_FILE =          0x02
+-DFU_STATUS_ERROR_WRITE =         0x03
+-DFU_STATUS_ERROR_ERASE =         0x04
+-DFU_STATUS_ERROR_CHECK_ERASED =  0x05
+-DFU_STATUS_ERROR_PROG =          0x06
+-DFU_STATUS_ERROR_VERIFY =        0x07
+-DFU_STATUS_ERROR_ADDRESS =       0x08
+-DFU_STATUS_ERROR_NOTDONE =       0x09
+-DFU_STATUS_ERROR_FIRMWARE =      0x0a
+-DFU_STATUS_ERROR_VENDOR =        0x0b
+-DFU_STATUS_ERROR_USBR =          0x0c
+-DFU_STATUS_ERROR_POR =           0x0d
+-DFU_STATUS_ERROR_UNKNOWN =       0x0e
+-DFU_STATUS_ERROR_STALLEDPKT =    0x0f
+-
+-class dfu_status(object):
+-	def __init__(self, buf):
+-		self.bStatus = buf[0]
+-		self.bwPollTimeout = buf[1] + (buf[2]<<8) + (buf[3]<<16)
+-		self.bState = buf[4]
+-		self.iString = buf[5]
+-
+-
+-class dfu_device(object):
+-	def __init__(self, dev, conf, iface):
+-		self.dev = dev
+-		self.conf = conf
+-		self.iface = iface
+-		self.handle = self.dev.open()
+-		try:
+-			self.handle.setConfiguration(conf)
+-		except: pass
+-		self.handle.claimInterface(iface.interfaceNumber)
+-		if type(self.iface) is usb.Interface:
+-			self.index = self.iface.interfaceNumber
+-		else:	self.index = self.iface
+-
+-	def release(self):
+-		self.handle.releaseInterface()
+-	def detach(self, wTimeout=255):
+-		self.handle.controlMsg(usb.ENDPOINT_OUT | usb.TYPE_CLASS | 
+-			usb.RECIP_INTERFACE, DFU_DETACH, 
+-			None, value=wTimeout, index=self.index)
+-
+-	def download(self, wBlockNum, data):
+-		self.handle.controlMsg(usb.ENDPOINT_OUT | usb.TYPE_CLASS |
+-			usb.RECIP_INTERFACE, DFU_DNLOAD,
+-			data, value=wBlockNum, index=self.index) 
+-
+-	def upload(self, wBlockNum, length):
+-		return self.handle.controlMsg(usb.ENDPOINT_IN | 
+-			usb.TYPE_CLASS | usb.RECIP_INTERFACE, DFU_UPLOAD,
+-			length, value=wBlockNum, index=self.index) 
+-
+-	def get_status(self):
+-		buf = self.handle.controlMsg(usb.ENDPOINT_IN | 
+-			usb.TYPE_CLASS | usb.RECIP_INTERFACE, DFU_GETSTATUS,
+-			6, index=self.index) 
+-		return dfu_status(buf)
+-		
+-	def clear_status(self):
+-		self.handle.controlMsg(usb.ENDPOINT_OUT | usb.TYPE_CLASS | 
+-			usb.RECIP_INTERFACE, DFU_CLRSTATUS, 
+-			"", index=0)
+-
+-	def get_state(self):
+-		buf = self.handle.controlMsg(usb.ENDPOINT_IN | 
+-			usb.TYPE_CLASS | usb.RECIP_INTERFACE, DFU_GETSTATE,
+-			1, index=self.index) 
+-		return buf[0]
+-
+-	def abort(self):
+-		self.handle.controlMsg(usb.ENDPOINT_OUT | usb.TYPE_CLASS | 
+-			usb.RECIP_INTERFACE, DFU_ABORT, 
+-			None, index=self.index)
+-
+-
+-	def make_idle(self):
+-		retries = 3
+-		while retries:
+-			try:
+-				status = self.get_status()
+-			except:
+-				self.clear_status()
+-				continue
+-
+-			retries -= 1
+-
+-			if status.bState == STATE_DFU_IDLE:
+-				return True
+-
+-			if ((status.bState == STATE_DFU_DOWNLOAD_SYNC) or 
+-			    (status.bState == STATE_DFU_DOWNLOAD_IDLE) or
+-			    (status.bState == STATE_DFU_MANIFEST_SYNC) or
+-			    (status.bState == STATE_DFU_UPLOAD_IDLE) or
+-			    (status.bState == STATE_DFU_DOWNLOAD_BUSY) or
+-			    (status.bState == STATE_DFU_MANIFEST)):
+-				self.abort()
+-				continue
+-
+-			if status.bState == STATE_DFU_ERROR:
+-				self.clear_status()
+-				continue
+-
+-			if status.bState == STATE_APP_IDLE:
+-				self.detach(DFU_DETACH_TIMEOUT)
+-				continue
+-
+-			if ((status.bState == STATE_APP_DETACH) or
+-			    (status.bState == STATE_DFU_MANIFEST_WAIT_RESET)):
+-                		usb.reset(self.handle)
+-				return False
+-
+-		raise Exception
+-
+-def finddevs():
+-	devs = []
+-	for bus in usb.busses():
+-		for dev in bus.devices:
+-			for conf in dev.configurations:
+-				for ifaces in conf.interfaces:
+-					for iface in ifaces:
+-						if ((iface.interfaceClass == 0xFE) and
+-						    (iface.interfaceSubClass == 0x01)):
+-							devs.append((dev, conf, iface))
+-	return devs
+-
+-
+-if __name__ == "__main__":
+-	devs = finddevs()
+-	if not devs:
+-		print "No devices found!"
+-		exit(-1)
+-
+-	for dfu in devs:
+-		handle = dfu[0].open()
+-		man = handle.getString(dfu[0].iManufacturer, 30)
+-		product = handle.getString(dfu[0].iProduct, 30)
+-		print "Device %s: ID %04x:%04x %s - %s" % (dfu[0].filename, 
+-			dfu[0].idVendor, dfu[0].idProduct, man, product)
+-		print "%r, %r" % (dfu[1], dfu[2])
+-
+-
+-
+diff --git a/scripts/gdb.py b/scripts/gdb.py
+deleted file mode 100644
+index eb28ed8..0000000
+--- a/scripts/gdb.py
++++ /dev/null
+@@ -1,301 +0,0 @@
+-#!/usr/bin/env python
+-#
+-# gdb.py: Python module for low level GDB protocol implementation
+-# Copyright (C) 2009  Black Sphere Technologies
+-# Written by Gareth McMullin <gareth@blacksphere.co.nz>
+-# 
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-
+-# Used to parse XML memory map from target
+-from xml.dom.minidom import parseString
+-import struct
+-import time
+-
+-def hexify(s):
+-	"""Convert a binary string into hex representation"""
+-	ret = ''
+-	for c in s:
+-		ret += "%02X" % ord(c)
+-	return ret
+-
+-def unhexify(s):
+-	"""Convert a hex string into binary representation"""
+-	ret = ''
+-	for i in range(0, len(s), 2):
+-		ret += chr(int(s[i:i+2], 16))
+-	return ret
+-
+-class FakeSocket:
+-	"""Emulate socket functions send and recv on a file object"""
+-	def __init__(self, file):
+-		self.file = file
+-	
+-	def send(self, data):
+-		self.file.write(data)
+-
+-	def recv(self, bufsize):
+-		return self.file.read(bufsize)
+-
+-class Target:
+-	def __init__(self, sock):
+-		if "send" in dir(sock):
+-			self.sock = sock
+-		else:	
+-			self.sock = FakeSocket(sock)
+-
+-	def getpacket(self):
+-		"""Return the first correctly received packet from GDB target"""
+-		while True:
+-			while self.sock.recv(1) != '$': pass
+-			csum = 0
+-			packet = ''
+-
+-			while True:
+-				c = self.sock.recv(1)
+-				if c == '#': break
+-
+-				if c == '$':
+-					packet = ''
+-					csum = 0
+-					continue
+-
+-				if c == '}':
+-					c = self.sock.recv(1)
+-					csum += ord(c) + ord('}')
+-					packet += chr(ord(c) ^ 0x20)
+-					continue	
+-
+-				packet += c
+-				csum += ord(c)
+-
+-			if (csum & 0xFF) == int(self.sock.recv(2),16): break
+-
+-			self.sock.send('-')
+-		
+-		self.sock.send('+')
+-		return packet
+-
+-
+-	def putpacket(self, packet):
+-		"""Send packet to GDB target and wait for acknowledge"""
+-		while True:
+-			self.sock.send('$')
+-			csum = 0
+-			for c in packet:
+-				if (c == '$') or (c == '#') or (c == '}'):
+-					self.sock.send('}')
+-					self.sock.send(chr(ord(c) ^ 0x20))
+-					csum += (ord(c) ^ 0x20) + ord('}')
+-				else:
+-					self.sock.send(c)
+-					csum += ord(c)
+-			self.sock.send('#')
+-			self.sock.send("%02X" % (csum & 0xFF))
+-			if self.sock.recv(1) == '+': break
+-
+-	def monitor(self, cmd):
+-		"""Send gdb "monitor" command to target"""
+-		ret = []
+-		self.putpacket("qRcmd," + hexify(cmd))
+-
+-		while True:
+-			s = self.getpacket()
+-			if s == '': return None
+-			if s == 'OK': return ret
+-			if s.startswith('O'): ret.append(unhexify(s[1:]))
+-			else:
+-				raise Exception('Invalid GDB stub response')
+-
+-	def attach(self, pid):
+-		"""Attach to target process (gdb "attach" command)"""
+-		self.putpacket("vAttach;%08X" % pid)
+-		reply = self.getpacket()
+-		if (len(reply) == 0) or (reply[0] == 'E'): 
+-			raise Exception('Failed to attach to remote pid %d' % pid)
+-
+-	def detach(self):
+-		"""Detach from target process (gdb "detach" command)"""
+-		self.putpacket("D")
+-		if self.getpacket() != 'OK': 
+-			raise Exception("Failed to detach from remote process")
+-
+-	def reset(self):
+-		"""Reset the target system"""
+-		self.putpacket("r")
+-
+-	def read_mem(self, addr, length):
+-		"""Read length bytes from target at address addr"""
+-		self.putpacket("m%08X,%08X" % (addr, length))
+-		reply = self.getpacket()
+-		if (len(reply) == 0) or (reply[0] == 'E'): 
+-			raise Exception('Error reading memory at 0x%08X' % addr)
+-		try:
+-			data = unhexify(reply)
+-		except Excpetion:
+-			raise Exception('Invalid response to memory read packet: %r' % reply)
+-		return data
+-		
+-	def write_mem(self, addr, data):
+-		"""Write data to target at address addr"""
+-		self.putpacket("X%08X,%08X:%s" % (addr, len(data), data))
+-		if self.getpacket() != 'OK': 
+-			raise Exception('Error writing to memory at 0x%08X' % addr)
+-
+-	def read_regs(self):
+-		"""Read target core registers"""
+-		self.putpacket("g")
+-		reply = self.getpacket()
+-		if (len(reply) == 0) or (reply[0] == 'E'): 
+-			raise Exception('Error reading memory at 0x%08X' % addr)
+-		try:
+-			data = unhexify(reply)
+-		except Excpetion:
+-			raise Exception('Invalid response to memory read packet: %r' % reply)
+-		return struct.unpack("=20L", data)
+-
+-	def write_regs(self, *regs):
+-		"""Write target core registers"""
+-		data = struct.pack("=%dL" % len(regs), *regs)
+-		self.putpacket("G" + hexify(data))
+-		if self.getpacket() != 'OK': 
+-			raise Exception('Error writing to target core registers')
+-
+-	def memmap_read(self):
+-		"""Read the XML memory map from target"""
+-		offset = 0
+-		ret = ''
+-		while True:
+-			self.putpacket("qXfer:memory-map:read::%08X,%08X" % (offset, 512))
+-			reply = self.getpacket()
+-			if (reply[0] == 'm') or (reply[0] == 'l'):
+-				offset += len(reply) - 1
+-				ret += reply[1:]
+-			else:
+-				raise Exception("Invalid GDB stub response")
+-
+-			if reply[0] == 'l': return ret
+-			
+-	def resume(self):
+-		"""Resume target execution"""
+-		self.putpacket("c")
+-
+-	def interrupt(self):
+-		"""Interrupt target execution"""
+-		self.sock.send("\x03")
+-
+-	def run_stub(self, stub, address, *args):
+-		"""Execute a binary stub at address, passing args in core registers."""
+-		self.reset() # Ensure processor is in sane state
+-		time.sleep(0.1)
+-		self.write_mem(address, stub)
+-		regs = list(self.read_regs())
+-		regs[:len(args)] = args
+-		regs[15] = address
+-		self.write_regs(*regs)
+-		self.resume()
+-		reply = self.getpacket()
+-		while not reply:
+-			reply = self.getpacket()
+-		if not reply.startswith("T05"):
+-			raise Exception("Invalid stop response: %r" % reply)
+-
+-	class FlashMemory:
+-		def __init__(self, target, offset, length, blocksize):
+-			self.target = target
+-			self.offset = offset
+-			self.length = length
+-			self.blocksize = blocksize
+-			self.blocks = list(None for i in range(length / blocksize))
+-
+-		def prog(self, offset, data):
+-			assert ((offset >= self.offset) and 
+-				(offset + len(data) <= self.offset + self.length))
+-
+-			while data:
+-				index = (offset - self.offset) / self.blocksize
+-				bloffset = (offset - self.offset) % self.blocksize
+-				bldata = data[:self.blocksize-bloffset]
+-				data = data[len(bldata):]; offset += len(bldata)
+-				if self.blocks[index] is None: # Initialize a clear block
+-					self.blocks[index] = "".join(chr(0xff) for i in range(self.blocksize))
+-				self.blocks[index] = (self.blocks[index][:bloffset] + bldata + 
+-						self.blocks[index][bloffset+len(bldata):])
+-
+-		def commit(self, progress_cb=None):
+-			totalblocks = 0
+-			for b in self.blocks:
+-				if b is not None: totalblocks += 1
+-				
+-			block = 0
+-			for i in range(len(self.blocks)):
+-				block += 1
+-				if callable(progress_cb):
+-					progress_cb(block*100/totalblocks)
+-
+-				# Erase the block
+-				data = self.blocks[i]
+-				addr = self.offset + self.blocksize * i
+-				if data is None: continue
+-				#print "Erasing flash at 0x%X" % (self.offset + self.blocksize*i)
+-				self.target.putpacket("vFlashErase:%08X,%08X" % 
+-					(self.offset + self.blocksize*i, self.blocksize))
+-				if self.target.getpacket() != 'OK': 
+-					raise Exception("Failed to erase flash")
+-
+-				while data:
+-					d = data[0:980]
+-					data = data[len(d):]
+-					#print "Writing %d bytes at 0x%X" % (len(d), addr)
+-					self.target.putpacket("vFlashWrite:%08X:%s" % (addr, d))
+-					addr += len(d)
+-					if self.target.getpacket() != 'OK': 
+-						raise Exception("Failed to write flash")
+-					
+-				self.target.putpacket("vFlashDone")
+-				if self.target.getpacket() != 'OK': 
+-					raise Exception("Failed to commit")
+-			
+-			self.blocks = list(None for i in range(self.length / self.blocksize))
+-			
+-
+-	def flash_probe(self):
+-		self.mem = []
+-		xmldom = parseString(self.memmap_read())
+-		
+-		for memrange in xmldom.getElementsByTagName("memory"):
+-			if memrange.getAttribute("type") != "flash": continue
+-			offset = eval(memrange.getAttribute("start"))
+-			length = eval(memrange.getAttribute("length"))
+-			for property in memrange.getElementsByTagName("property"):
+-				if property.getAttribute("name") == "blocksize":
+-					blocksize = eval(property.firstChild.data)
+-					break
+-			mem = Target.FlashMemory(self, offset, length, blocksize)
+-			self.mem.append(mem)
+-
+-		xmldom.unlink()
+-
+-		return self.mem
+-
+-	def flash_write_prepare(self, address, data):
+-		for m in self.mem:
+-			if (address >= m.offset) and (address + len(data) <= m.offset + m.length):
+-				m.prog(address, data)
+-
+-	def flash_commit(self, progress_cb=None):
+-		for m in self.mem:
+-			m.commit(progress_cb)
+-
+-
+diff --git a/scripts/get_openocd_nrf51_ids.py b/scripts/get_openocd_nrf51_ids.py
+deleted file mode 100755
+index 5c90a29..0000000
+--- a/scripts/get_openocd_nrf51_ids.py
++++ /dev/null
+@@ -1,60 +0,0 @@
+-#!/usr/bin/python
+-
+-"""Pulls nRF51 IDs from openocd's nrf51.c in a form suitable for
+-pasting into blackmagic's nrf51.c
+-
+-"""
+-
+-import subprocess,re
+-
+-cmd = 'git archive --remote=git://git.code.sf.net/p/openocd/code HEAD src/flash/nor/nrf51.c | tar -xO'
+-
+-class Spec():
+-    def __repr__(self):
+-        return "0x%04X: /* %s %s %s */"%(self.hwid,self.comment, self.variant,self.build_code)
+-
+-fd = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE).stdout
+-
+-specdict={}
+-specs=[]
+-spec=Spec()
+-for line in fd.read().split('\n'):
+-    m=re.search('/\*(.*)\*/',line)
+-    if m:
+-        lastcomment=m.group(1)
+-
+-    m=re.search('.hwid.*=\s*(0x[0-9A-F]*),',line)
+-    if m:
+-        spec.hwid=int(m.group(1),base=0)
+-    m=re.search('.variant.*=\s*"(.*)",',line)
+-    if m:
+-        spec.variant=m.group(1)
+-    m=re.search('.build_code.*=\s*"(.*)",',line)
+-    if m:
+-        spec.build_code=m.group(1)
+-    m=re.search('.flash_size_kb.*=\s*([0-9]*),',line)
+-    if m:
+-        spec.flash_size_kb=int(m.group(1),base=0)
+-        ram,flash = {'AA':(16,256),
+-                     'AB':(16,128),
+-                     'AC':(32,256)}[spec.variant[-2:]]
+-        assert flash==spec.flash_size_kb
+-        spec.ram_size_kb = ram
+-        nicecomment =lastcomment.strip().replace('IC ','').replace('Devices ','').replace('.','')
+-        spec.comment=nicecomment
+-
+-        specdict.setdefault((ram,flash),[]).append(spec)
+-        specs.append(spec)
+-        spec=Spec()
+-
+-for (ram,flash),specs in specdict.iteritems():
+-    specs.sort(key=lambda x:x.hwid)
+-    for spec in specs:
+-        print "\tcase",spec
+-    print '\t\tt->driver = "Nordic nRF51";'
+-    print '\t\ttarget_add_ram(t, 0x20000000, 0x%X);'%(1024*ram)
+-    print '\t\tnrf51_add_flash(t, 0x00000000, 0x%X, NRF51_PAGE_SIZE);'%(1024*flash)
+-    print '\t\tnrf51_add_flash(t, NRF51_UICR, 0x100, 0x100);'
+-    print '\t\ttarget_add_commands(t, nrf51_cmd_list, "nRF51");'
+-    print '\t\treturn true;'
+-
+diff --git a/scripts/hexprog.py b/scripts/hexprog.py
+deleted file mode 100755
+index ccfb43c..0000000
+--- a/scripts/hexprog.py
++++ /dev/null
+@@ -1,182 +0,0 @@
+-#!/usr/bin/env python
+-
+-# hexprog.py: Python application to flash a target with an Intel hex file
+-# Copyright (C) 2011  Black Sphere Technologies
+-# Written by Gareth McMullin <gareth@blacksphere.co.nz>
+-# 
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-import gdb
+-import struct
+-import time
+-
+-# Microcode sequence to erase option bytes
+-stub_opterase = '\nH\x0bIA`\x0bIA`\tI\x81`\tI\x81`\x01iA\xf0 \x01\x01aA\xf0@\x01\x01a\xc4hO\xf0\x01\x064B\xfa\xd1\x00\xbe\x00 \x02@#\x01gE\xab\x89\xef\xcd'
+-# Microcode sequence to program option bytes
+-stub_optprog = '\tJ\nKS`\nKS`\x08K\x93`\x08K\x93`\x13iC\xf0\x10\x03\x13a\x01\x80\xd4hO\xf0\x01\x064B\xfa\xd1\x00\xbe\x00 \x02@#\x01gE\xab\x89\xef\xcd'
+-
+-def flash_write_hex(target, hexfile, progress_cb=None):
+-	target.flash_probe()
+-	f = open(hexfile)
+-	addrhi = 0
+-	for line in f:
+-		if line[0] != ':': raise Exception("Error in hex file")
+-		reclen = int(line[1:3], 16)
+-		addrlo = int(line[3:7], 16)
+-		rectype = int(line[7:9], 16);
+-		if sum(ord(x) for x in gdb.unhexify(line[1:11+reclen*2])) & 0xff != 0:
+-			raise Exception("Checksum error in hex file") 
+-		if rectype == 0: # Data record
+-			addr = (addrhi << 16) + addrlo
+-			data = gdb.unhexify(line[9:9+reclen*2])
+-			target.flash_write_prepare(addr, data)
+-			pass
+-		elif rectype == 4: # High address record
+-			addrhi = int(line[9:13], 16)
+-			pass
+-		elif rectype == 5: # Entry record
+-			pass
+-		elif rectype == 1: # End of file record
+-			break 
+-		else:
+-			raise Exception("Invalid record in hex file")
+-
+-	try:
+-		target.flash_commit(progress_cb)
+-	except:
+-		print "Flash write failed! Is device protected?\n"
+-		exit(-1)
+-	
+-
+-if __name__ == "__main__":
+-	from serial import Serial, SerialException
+-	from sys import argv, platform, stdout
+-	from getopt import getopt
+-
+-	if platform == "linux2":
+-		print ("\x1b\x5b\x48\x1b\x5b\x32\x4a") # clear terminal screen
+-	print("Black Magic Probe -- Target Production Programming Tool -- version 1.0")
+-	print "Copyright (C) 2011  Black Sphere Technologies"
+-	print "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>"
+-	print("")
+-
+-	dev = "COM1" if platform == "win32" else "/dev/ttyACM0"
+-	baud = 115200
+-	scan = "jtag_scan"
+-	targetno = 1
+-	unprot = False; prot = False
+-
+-	try:
+-		opts, args = getopt(argv[1:], "sd:b:t:rR")
+-		for opt in opts:
+-			if opt[0] == "-s": scan = "swdp_scan"
+-			elif opt[0] == "-b": baud = int(opt[1])
+-			elif opt[0] == "-d": dev = opt[1]
+-			elif opt[0] == "-t": targetno = int(opt[1])
+-			elif opt[0] == "-r": unprot = True
+-			elif opt[0] == "-R": prot = True
+-			else: raise Exception()
+-
+-		hexfile = args[0]
+-	except:
+-		print("Usage %s [-s] [-d <dev>] [-b <baudrate>] [-t <n>] <filename>" % argv[0])
+-		print("\t-s : Use SW-DP instead of JTAG-DP")
+-		print("\t-d : Use target on interface <dev> (default: %s)" % dev)
+-		print("\t-b : Set device baudrate (default: %d)" % baud)
+-		print("\t-t : Connect to target #n (default: %d)" % targetno)
+-		print("\t-r : Clear flash read protection before programming")
+-		print("\t-R : Enable flash read protection after programming (requires power-on reset)")
+-		print("")
+-		exit(-1)
+-
+-	try:
+-		s = Serial(dev, baud, timeout=3)
+-		s.setDTR(1)
+-		while s.read(1024):
+-			pass
+-
+-		target = gdb.Target(s)
+-		
+-	except SerialException, e:
+-		print("FATAL: Failed to open serial device!\n%s\n" % e[0])
+-		exit(-1)
+-
+-	try:
+-		r = target.monitor("version")
+-		for s in r: print s,
+-	except SerialException, e:
+-		print("FATAL: Serial communication failure!\n%s\n" % e[0])
+-		exit(-1)
+-	except: pass
+-
+-	print "Target device scan:"
+-	targetlist = None
+-	r = target.monitor(scan)
+-	for s in r: 
+-		print s,
+-	print
+-
+-	r = target.monitor("targets")
+-	for s in r: 
+-		if s.startswith("No. Att Driver"): targetlist = []
+-		try:
+-			if type(targetlist) is list: 
+-				targetlist.append(int(s[:2]))
+-		except: pass
+-
+-	#if not targetlist:
+-	#	print("FATAL: No usable targets found!\n")
+-	#	exit(-1)
+-
+-	if targetlist and (targetno not in targetlist):
+-		print("WARNING: Selected target %d not available, using %d" % (targetno, targetlist[0]))
+-		targetno = targetlist[0]
+-
+-	print("Attaching to target %d." % targetno)
+-	target.attach(targetno)
+-	time.sleep(0.1)
+-
+-	if unprot:
+-		print("Removing device protection.")
+-		# Save option bytes for later
+-		#optbytes = struct.unpack("8H", target.read_mem(0x1FFFF800, 16))
+-		# Remove protection
+-		target.run_stub(stub_opterase, 0x20000000)
+-		target.run_stub(stub_optprog, 0x20000000, 0x1FFFF800, 0x5aa5)
+-		target.reset()
+-		time.sleep(0.1)
+-
+-	for m in target.flash_probe():
+-		print("FLASH memory -- Offset: 0x%X  BlockSize:0x%X\n" % (m.offset, m.blocksize))
+-
+-	def progress(percent):
+-		print ("Progress: %d%%\r" % percent),
+-		stdout.flush()
+-
+-	print("Programming target")
+-	flash_write_hex(target, hexfile, progress)
+-
+-	print("Resetting target")
+-	target.reset()
+-
+-	if prot:
+-		print("Enabling device protection.")
+-		target.run_stub(stub_opterase, 0x20000000)
+-		target.run_stub(stub_optprog, 0x20000000, 0x1FFFF800, 0x00ff)
+-		target.reset()
+-
+-	target.detach()
+-
+-	print("\nAll operations complete!\n")
+-
+diff --git a/scripts/stm32_mem.py b/scripts/stm32_mem.py
+deleted file mode 100755
+index d30a855..0000000
+--- a/scripts/stm32_mem.py
++++ /dev/null
+@@ -1,232 +0,0 @@
+-#!/usr/bin/env python
+-#
+-# stm32_mem.py: STM32 memory access using USB DFU class
+-# Copyright (C) 2011  Black Sphere Technologies 
+-# Copyright (C) 2017  Uwe Bonnes (bon@elektron.ikp.physik.tu-darmstadt.de)
+-# Written by Gareth McMullin <gareth@blacksphere.co.nz>
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-from time import sleep
+-import struct
+-from sys import stdout, argv
+-
+-import argparse
+-import usb
+-import dfu
+-
+-CMD_GETCOMMANDS =            0x00
+-CMD_SETADDRESSPOINTER =      0x21
+-CMD_ERASE =                  0x41
+-
+-def stm32_erase(dev, addr):
+-	erase_cmd = struct.pack("<BL", CMD_ERASE, addr)
+-	dev.download(0, erase_cmd)
+-	while True:
+-		status = dev.get_status()
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_BUSY:
+-			sleep(status.bwPollTimeout / 1000.0)
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_IDLE:
+-			break
+-
+-def stm32_set_address(dev, addr):
+-	set_address_cmd = struct.pack("<BL", CMD_SETADDRESSPOINTER, addr)
+-	dev.download(0, set_address_cmd)
+-	while True:
+-		status = dev.get_status()
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_BUSY:
+-			sleep(status.bwPollTimeout / 1000.0)
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_IDLE:
+-			break
+-
+-def stm32_write(dev, data):
+-	dev.download(2, data)
+-	while True:
+-		status = dev.get_status()
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_BUSY:
+-			sleep(status.bwPollTimeout / 1000.0)
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_IDLE:
+-			break
+-
+-def stm32_read(dev):
+-	data = dev.upload(2, 1024)
+-	while True:
+-		status = dev.get_status()
+-		if status.bState == dfu.STATE_DFU_DOWNLOAD_BUSY:
+-			sleep(status.bwPollTimeout / 1000.0)
+-		if status.bState == dfu.STATE_DFU_UPLOAD_IDLE:
+-			break
+-	return data
+-
+-def stm32_manifest(dev):
+-	dev.download(0, "")
+-	while True:
+-		try:
+-			status = dev.get_status()
+-		except:
+-			return
+-		sleep(status.bwPollTimeout / 1000.0)
+-		if status.bState == dfu.STATE_DFU_MANIFEST:
+-			break
+-def stm32_scan(args, test):
+-	devs = dfu.finddevs()
+-	bmp = 0
+-	if not devs:
+-                if test == True:
+-                        return
+-		print "No DFU devices found!"
+-		exit(-1)
+-
+-	for dev in devs:
+-		dfudev = dfu.dfu_device(*dev)
+-		man = dfudev.handle.getString(dfudev.dev.iManufacturer, 30)
+-		if man == "Black Sphere Technologies": bmp = bmp + 1
+-	if bmp == 0 :
+-                if test == True:
+-                        return
+-		print "No compatible device found\n"
+-		exit(-1)
+-	if bmp > 1 and not args.serial_target :
+-                if test == True:
+-                        return
+-		print "Found multiple devices:\n"
+-		for dev in devs:
+-			dfudev = dfu.dfu_device(*dev)
+-			man = dfudev.handle.getString(dfudev.dev.iManufacturer, 30)
+-			product = dfudev.handle.getString(dfudev.dev.iProduct, 96)
+-			serial_no = dfudev.handle.getString(dfudev.dev.iSerialNumber, 30)
+-			print "Device ID:\t %04x:%04x" % (dfudev.dev.idVendor, dfudev.dev.idProduct)
+-			print "Manufacturer:\t %s" % man
+-			print "Product:\t %s" % product
+-			print "Serial:\t\t %s\n" % serial_no
+-		print "Select device with serial number!"
+-		exit (-1)
+-
+-	for dev in devs:
+-		dfudev = dfu.dfu_device(*dev)
+-		man = dfudev.handle.getString(dfudev.dev.iManufacturer, 30)
+-		product = dfudev.handle.getString(dfudev.dev.iProduct, 96)
+-		serial_no = dfudev.handle.getString(dfudev.dev.iSerialNumber, 30)
+-		if args.serial_target:
+-			if man == "Black Sphere Technologies" and serial_no ==	args.serial_target: break
+-		else:
+-			if man == "Black Sphere Technologies": break
+-	print "Device ID:\t %04x:%04x" % (dfudev.dev.idVendor, dfudev.dev.idProduct)
+-	print "Manufacturer:\t %s" % man
+-	print "Product:\t %s" % product
+-	print "Serial:\t\t %s" % serial_no
+-	if args.serial_target and serial_no !=	args.serial_target:
+-		print "Serial number doesn't match!\n"
+-		exit(-2)
+-	return dfudev
+-
+-if __name__ == "__main__":
+-	print
+-	print "USB Device Firmware Upgrade - Host Utility -- version 1.2"
+-	print "Copyright (C) 2011  Black Sphere Technologies"
+-	print "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>"
+-	print
+-
+-	parser = argparse.ArgumentParser()
+-	parser.add_argument("progfile", help="Binary file to program")
+-	parser.add_argument("-s", "--serial_target", help="Match Serial Number")
+-	parser.add_argument("-a", "--address", help="Start address for firmware")
+-	parser.add_argument("-m", "--manifest", help="Start application, if in DFU mode", action='store_true')
+-	args = parser.parse_args()
+-	dfudev = stm32_scan(args, False)
+-	try:
+-		state = dfudev.get_state()
+-	except:
+-		if args.manifest : exit(0)
+-		print "Failed to read device state! Assuming APP_IDLE"
+-		state = dfu.STATE_APP_IDLE
+-	if state == dfu.STATE_APP_IDLE:
+-		dfudev.detach()
+-		dfudev.release()
+-		print "Invoking DFU Device"
+-		timeout = 0
+-		while True :
+-			sleep(0.5)
+-			timeout = timeout + 0.5
+-			dfudev = stm32_scan(args, True)
+-			if dfudev: break
+-			if timeout > 5 :
+-				print "Error: DFU device did not appear"
+-				exit(-1)
+-	if args.manifest :
+-		stm32_manifest(dfudev)
+-		print "Invoking Application Device"
+-		exit(0)
+-	dfudev.make_idle()
+-	file = open(args.progfile, "rb")
+-	bin = file.read()
+-
+-	product = dfudev.handle.getString(dfudev.dev.iProduct, 64)
+-	if args.address :
+-		start = int(args.address, 0)
+-	else :
+-		if "F4" in product:
+-			start = 0x8004000
+-		else:
+-			start = 0x8002000
+-	addr = start
+-	while bin:
+-		print ("Programming memory at 0x%08X\r" % addr),
+-		stdout.flush()
+-		try:
+-# STM DFU bootloader erases always.
+-# BPM Bootloader only erases once per sector
+-# To support the STM DFU bootloader, the interface descriptor must
+-# get evaluated and erase called only once per sector!
+-			stm32_erase(dfudev, addr)
+-		except:
+-			print "\nErase Timed out\n"
+-			break
+-		try:
+-			stm32_set_address(dfudev, addr)
+-		except:
+-			print "\nSet Address Timed out\n"
+-			break
+-		stm32_write(dfudev, bin[:1024])
+-		bin = bin[1024:]
+-		addr += 1024
+-	file.seek(0)
+-	bin = file.read()
+-	len = len(bin)
+-	addr = start
+-        print
+-        while bin:
+-		try:
+-			stm32_set_address(dfudev, addr)
+-			data = stm32_read(dfudev)
+-		except:
+-# Abort silent if bootloader does not support upload
+-			break
+-		print ("Verifying memory at   0x%08X\r" % addr),
+-                stdout.flush()
+-		if len > 1024 :
+-			size = 1024
+-		else :
+-			size = len
+-		if bin[:size] != bytearray(data[:size]) :
+-			print ("\nMitmatch in block at	0x%08X" % addr)
+-			break;
+-		bin = bin[1024:]
+-		addr += 1024
+-		len -= 1024
+-		if len <= 0 :
+-			print "\nVerified!"
+-	stm32_manifest(dfudev)
+-
+-	print "All operations complete!\n"
+diff --git a/scripts/stubs/Makefile b/scripts/stubs/Makefile
+deleted file mode 100644
+index eb588d8..0000000
+--- a/scripts/stubs/Makefile
++++ /dev/null
+@@ -1,12 +0,0 @@
+-CROSS_COMPILE = stm32-
+-CC = $(CROSS_COMPILE)gcc
+-OBJCOPY = $(CROSS_COMPILE)objcopy
+-
+-all:	stm32_opterase.bin stm32_optprog.bin
+-
+-%.bin:	%.S
+-	$(CC) -nostdlib -Wl,-Ttext,0x20000000 $<
+-	$(OBJCOPY) -O binary a.out $@
+-
+-clean:
+-	-rm *.bin
+diff --git a/scripts/stubs/stm32_opterase.S b/scripts/stubs/stm32_opterase.S
+deleted file mode 100644
+index aea83e7..0000000
+--- a/scripts/stubs/stm32_opterase.S
++++ /dev/null
+@@ -1,53 +0,0 @@
+-@; Assembler sequence to erase option bytes on STM32
+-@; Takes no parameters, ends with BKPT instruction
+-.global _start
+-
+-.equ FLASHBASE, 0x40022000
+-
+-.equ KEY1, 0x45670123
+-.equ KEY2, 0xCDEF89AB
+-
+-.equ FLASH_KEY, 0x04
+-.equ FLASH_OPTKEY, 0x08
+-.equ FLASH_CR, 0x10
+-.equ FLASH_SR, 0x0C
+-
+-.equ OPTER, 0x20
+-.equ STRT, 0x40
+-
+-.equ BSY, 0x01
+-
+-.syntax unified
+-
+-_start:
+-	@; Load FLASH controller base address
+-	ldr r0, =FLASHBASE
+-
+-	@; Do unlocking sequence
+-	ldr r1, =KEY1
+-	str r1, [r0, #FLASH_KEY]
+-	ldr r1, =KEY2
+-	str r1, [r0, #FLASH_KEY]
+-
+-	@; Same for option bytes
+-	ldr r1, =KEY1
+-	str r1, [r0, #FLASH_OPTKEY]
+-	ldr r1, =KEY2
+-	str r1, [r0, #FLASH_OPTKEY]
+-
+-	@; Set OPTER bit in FLASH_CR
+-	ldr r1, [r0, #FLASH_CR]
+-	orr r1, r1, #OPTER
+-	str r1, [r0, #FLASH_CR]
+-	@; Set STRT bit in FLASH_CR
+-	orr r1, r1, #STRT
+-	str r1, [r0, #FLASH_CR]
+-
+-_wait:	@; Wait for BSY bit to clear
+-	ldr r4, [r0, #FLASH_SR]
+-	mov r6, #BSY
+-	tst r4, r6
+-	bne _wait
+-
+-	bkpt
+-
+diff --git a/scripts/stubs/stm32_optprog.S b/scripts/stubs/stm32_optprog.S
+deleted file mode 100644
+index cc97cd6..0000000
+--- a/scripts/stubs/stm32_optprog.S
++++ /dev/null
+@@ -1,52 +0,0 @@
+-@; Assembler sequence to program option bytes on STM32
+-@; Takes option address in r0 and value in r1.
+-@; Ends with BKPT instruction
+-.global _start
+-
+-.equ FLASHBASE, 0x40022000
+-
+-.equ KEY1, 0x45670123
+-.equ KEY2, 0xCDEF89AB
+-
+-.equ FLASH_KEY, 0x04
+-.equ FLASH_OPTKEY, 0x08
+-.equ FLASH_CR, 0x10
+-.equ FLASH_SR, 0x0C
+-
+-.equ OPTPG, 0x10
+-
+-.equ BSY, 0x01
+-
+-.syntax unified
+-
+-_start:
+-	@; Load FLASH controller base address
+-	ldr r2, =FLASHBASE
+-
+-	@; Do unlocking sequence
+-	ldr r3, =KEY1
+-	str r3, [r2, #FLASH_KEY]
+-	ldr r3, =KEY2
+-	str r3, [r2, #FLASH_KEY]
+-
+-	@; Same for option bytes
+-	ldr r3, =KEY1
+-	str r3, [r2, #FLASH_OPTKEY]
+-	ldr r3, =KEY2
+-	str r3, [r2, #FLASH_OPTKEY]
+-
+-	@; Set OPTPG bit in FLASH_CR
+-	ldr r3, [r2, #FLASH_CR]
+-	orr r3, r3, #OPTPG
+-	str r3, [r2, #FLASH_CR]
+-	@; Write data at address
+-	strh r1, [r0]
+-
+-_wait:	@; Wait for BSY bit to clear
+-	ldr r4, [r2, #FLASH_SR]
+-	mov r6, #BSY
+-	tst r4, r6
+-	bne _wait
+-
+-	bkpt
+-
+diff --git a/upgrade/Makefile b/upgrade/Makefile
+deleted file mode 100644
+index 397b3e6..0000000
+--- a/upgrade/Makefile
++++ /dev/null
+@@ -1,23 +0,0 @@
+-OUTFILE = blackmagic_upgrade
+-
+-CC = $(CROSS_COMPILE)gcc
+-
+-CFLAGS = -Wall -Wextra -std=gnu99 -O0 -g -MD -mno-ms-bitfields
+-LDFLAGS = -lusb
+-
+-OBJ =	bindata.o	\
+-	dfu.o		\
+-	stm32mem.o	\
+-	main.o
+-
+-all: $(OUTFILE)
+-
+-$(OUTFILE) $(OUTFILE).exe: $(OBJ)
+-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+-
+-.PHONY: clean
+-clean:
+-	-rm -rf $(OUTFILE) $(OUTFILE).exe *.d *.o
+-
+--include *.d
+-
+diff --git a/upgrade/bindata.S b/upgrade/bindata.S
+deleted file mode 100644
+index 585a670..0000000
+--- a/upgrade/bindata.S
++++ /dev/null
+@@ -1,28 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-.section .rodata
+-.global _bindata, _bindatalen
+-
+-_bindata:
+-	.incbin "../src/blackmagic.bin"
+-
+-_bindatalen:
+-	.long (. - _bindata)
+-
+diff --git a/upgrade/bindata.h b/upgrade/bindata.h
+deleted file mode 100644
+index 3679692..0000000
+--- a/upgrade/bindata.h
++++ /dev/null
+@@ -1,32 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __BINDATA_H
+-#define __BINDATA_H
+-
+-#ifndef WIN32
+-#define bindatalen _bindatalen
+-#define bindata _bindata
+-#endif
+-
+-extern const uint32_t bindatalen;
+-extern const uint8_t bindata[];
+-
+-#endif
+-
+diff --git a/upgrade/dfu.c b/upgrade/dfu.c
+deleted file mode 100644
+index 39d3ab4..0000000
+--- a/upgrade/dfu.c
++++ /dev/null
+@@ -1,155 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifdef WIN32
+-#   include <lusb0_usb.h>
+-#else
+-#   include <usb.h>
+-#endif
+-
+-#include "dfu.h"
+-
+-/* DFU Requests: Refer to Table 3.2 */
+-#define DFU_DETACH	0x00
+-#define DFU_DNLOAD	0x01
+-#define DFU_UPLOAD	0x02
+-#define DFU_GETSTATUS	0x03
+-#define DFU_CLRSTATUS	0x04
+-#define DFU_GETSTATE	0x05
+-#define DFU_ABORT	0x06
+-
+-#define USB_DEFAULT_TIMEOUT 1000
+-#define DFU_DETACH_TIMEOUT 1000
+-
+-int dfu_detach(usb_dev_handle *dev, uint16_t iface, uint16_t wTimeout)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_OUT | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_DETACH, wTimeout, iface, NULL, 0, 
+-			USB_DEFAULT_TIMEOUT);
+-}
+-
+-int dfu_dnload(usb_dev_handle *dev, uint16_t iface, 
+-		 uint16_t wBlockNum, void *data, uint16_t size)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_OUT | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_DNLOAD, wBlockNum, iface, data, size, 
+-			USB_DEFAULT_TIMEOUT);
+-}
+-
+-int dfu_upload(usb_dev_handle *dev, uint16_t iface, 
+-		 uint16_t wBlockNum, void *data, uint16_t size)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_IN | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_DNLOAD, wBlockNum, iface, data, size, 
+-			USB_DEFAULT_TIMEOUT);
+-}
+-
+-int dfu_getstatus(usb_dev_handle *dev, uint16_t iface, dfu_status *status)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_IN | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_GETSTATUS, 0, iface, (void*)status, sizeof(dfu_status), 
+-			USB_DEFAULT_TIMEOUT);
+-}
+-
+-int dfu_clrstatus(usb_dev_handle *dev, uint16_t iface)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_OUT | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_CLRSTATUS, 0, iface, NULL, 0, USB_DEFAULT_TIMEOUT);
+-}
+-
+-int dfu_getstate(usb_dev_handle *dev, uint16_t iface)
+-{
+-	int i;
+-	uint8_t state;
+-	do {
+-		i = usb_control_msg(dev,
+-			USB_ENDPOINT_IN | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_GETSTATE, 0, iface, (char*)&state, 1,
+-			USB_DEFAULT_TIMEOUT);
+-	} while(i == 0);
+-
+-	if (i > 0)
+-		return state;
+-	else
+-		return i;
+-}
+-
+-int dfu_abort(usb_dev_handle *dev, uint16_t iface)
+-{
+-	return usb_control_msg(dev, 
+-			USB_ENDPOINT_OUT | USB_TYPE_CLASS | USB_RECIP_INTERFACE,
+-			DFU_ABORT, 0, iface, NULL, 0, USB_DEFAULT_TIMEOUT);
+-}
+-
+-
+-int dfu_makeidle(usb_dev_handle *dev, uint16_t iface)
+-{
+-	int i;
+-	dfu_status status;
+-
+-	for(i = 0; i < 3; i++) {
+-		if(dfu_getstatus(dev, iface, &status) < 0) {
+-			dfu_clrstatus(dev, iface);
+-			continue;
+-		}
+-
+-		i--;
+-		
+-		switch(status.bState) {
+-		    case STATE_DFU_IDLE:
+-			return 0;
+-
+-		    case STATE_DFU_DOWNLOAD_SYNC:
+-		    case STATE_DFU_DOWNLOAD_IDLE:
+-		    case STATE_DFU_MANIFEST_SYNC:
+-		    case STATE_DFU_UPLOAD_IDLE:
+-		    case STATE_DFU_DOWNLOAD_BUSY:
+-		    case STATE_DFU_MANIFEST:
+-			dfu_abort(dev, iface);
+-			continue;
+-
+-		    case STATE_DFU_ERROR:
+-			dfu_clrstatus(dev, iface);
+-			continue;
+-
+-		    case STATE_APP_IDLE:
+-			dfu_detach(dev, iface, DFU_DETACH_TIMEOUT);
+-			continue;
+-
+-		    case STATE_APP_DETACH:
+-		    case STATE_DFU_MANIFEST_WAIT_RESET:
+-			usb_reset(dev);
+-			return -1;
+-
+-		    default:
+-			return -1;
+-		}
+-
+-	}
+-
+-	return -1;
+-}
+-
+-
+diff --git a/upgrade/dfu.h b/upgrade/dfu.h
+deleted file mode 100644
+index e81ee44..0000000
+--- a/upgrade/dfu.h
++++ /dev/null
+@@ -1,86 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __DFU_H
+-#define __DFU_H
+-
+-#include <stdint.h>
+-
+-#include <usb.h>
+-
+-/* DFU states as returned by DFU_GETSTATE and DFU_GETSTATUS request in bState field.
+- * Refer to Section 6.1.2
+- * Refer to Figure A.1 for state diagram 
+- */
+-#define STATE_APP_IDLE                0x00
+-#define STATE_APP_DETACH              0x01
+-#define STATE_DFU_IDLE                0x02
+-#define STATE_DFU_DOWNLOAD_SYNC       0x03
+-#define STATE_DFU_DOWNLOAD_BUSY       0x04
+-#define STATE_DFU_DOWNLOAD_IDLE       0x05
+-#define STATE_DFU_MANIFEST_SYNC       0x06
+-#define STATE_DFU_MANIFEST            0x07
+-#define STATE_DFU_MANIFEST_WAIT_RESET 0x08
+-#define STATE_DFU_UPLOAD_IDLE         0x09
+-#define STATE_DFU_ERROR               0x0a
+-
+-/* DFU status codes as returned by DFU_GETSTATUS request in bStatus field.
+- * Refer to Section 6.1.2 */
+-#define DFU_STATUS_OK                 0x00
+-#define DFU_STATUS_ERROR_TARGET       0x01
+-#define DFU_STATUS_ERROR_FILE         0x02
+-#define DFU_STATUS_ERROR_WRITE        0x03
+-#define DFU_STATUS_ERROR_ERASE        0x04
+-#define DFU_STATUS_ERROR_CHECK_ERASED 0x05
+-#define DFU_STATUS_ERROR_PROG         0x06
+-#define DFU_STATUS_ERROR_VERIFY       0x07
+-#define DFU_STATUS_ERROR_ADDRESS      0x08
+-#define DFU_STATUS_ERROR_NOTDONE      0x09
+-#define DFU_STATUS_ERROR_FIRMWARE     0x0a
+-#define DFU_STATUS_ERROR_VENDOR       0x0b
+-#define DFU_STATUS_ERROR_USBR         0x0c
+-#define DFU_STATUS_ERROR_POR          0x0d
+-#define DFU_STATUS_ERROR_UNKNOWN      0x0e
+-#define DFU_STATUS_ERROR_STALLEDPKT   0x0f
+-
+-/* Device status structure returned by DFU_GETSTATUS request.
+- * Refer to Section 6.1.2 */
+-typedef struct dfu_status {
+-	uint8_t bStatus;
+-	uint32_t bwPollTimeout:24;
+-	uint8_t bState;
+-	uint8_t iString;
+-} __attribute__((packed)) dfu_status;
+-
+-
+-int dfu_detach(usb_dev_handle *dev, uint16_t iface, uint16_t wTimeout);
+-int dfu_dnload(usb_dev_handle *dev, uint16_t iface, 
+-		 uint16_t wBlockNum, void *data, uint16_t size);
+-int dfu_upload(usb_dev_handle *dev, uint16_t iface, 
+-		 uint16_t wBlockNum, void *data, uint16_t size);
+-int dfu_getstatus(usb_dev_handle *dev, uint16_t iface, dfu_status *status);
+-int dfu_clrstatus(usb_dev_handle *dev, uint16_t iface);
+-int dfu_getstate(usb_dev_handle *dev, uint16_t iface);
+-int dfu_abort(usb_dev_handle *dev, uint16_t iface);
+-
+-int dfu_makeidle(usb_dev_handle *dev, uint16_t iface);
+-
+-
+-#endif
+-
+diff --git a/upgrade/main.c b/upgrade/main.c
+deleted file mode 100644
+index 38fa575..0000000
+--- a/upgrade/main.c
++++ /dev/null
+@@ -1,175 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include <stdio.h>
+-#include <string.h>
+-#ifdef WIN32
+-#   include <lusb0_usb.h>
+-#else
+-#   include <usb.h>
+-#endif
+-
+-#include <assert.h>
+-
+-#include "dfu.h"
+-#include "stm32mem.h"
+-#include "bindata.h"
+-
+-#define VERSION "1.0"
+-
+-#define LOAD_ADDRESS 0x8002000
+-
+-void banner(void)
+-{
+-	puts("\nBlack Magic Probe -- Firmware Upgrade Utility -- Version " VERSION);
+-	puts("Copyright (C) 2011  Black Sphere Technologies Ltd.");
+-	puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n");
+-}
+-
+-
+-struct usb_device * find_dev(void)
+-{
+-	struct usb_bus *bus;
+-	struct usb_device *dev;
+-	struct usb_dev_handle *handle;
+-	char man[40];
+-	char prod[40];
+-
+-	usb_find_busses();
+-	usb_find_devices();
+-
+-	for(bus = usb_get_busses(); bus; bus = bus->next) {
+-		for(dev = bus->devices; dev; dev = dev->next) {
+-			/* Check for ST Microelectronics vendor ID */
+-			if ((dev->descriptor.idVendor != 0x483) &&
+-			    (dev->descriptor.idVendor != 0x1d50))
+-				continue;
+-
+-			handle = usb_open(dev);
+-			usb_get_string_simple(handle, dev->descriptor.iManufacturer, man,
+-						sizeof(man));
+-			usb_get_string_simple(handle, dev->descriptor.iProduct, prod,
+-						sizeof(prod));
+-#if 0
+-			printf("%s:%s [%04X:%04X] %s : %s\n", bus->dirname, dev->filename,
+-				dev->descriptor.idVendor, dev->descriptor.idProduct, man, prod);
+-#endif
+-			usb_close(handle);
+-
+-			if (((dev->descriptor.idProduct == 0x5740) ||
+-			     (dev->descriptor.idProduct == 0x6018)) &&
+-			   !strcmp(man, "Black Sphere Technologies"))
+-				return dev;
+-
+-			if (((dev->descriptor.idProduct == 0xDF11) ||
+-			     (dev->descriptor.idProduct == 0x6017)) &&
+-			   !strcmp(man, "Black Sphere Technologies"))
+-				return dev;
+-		}
+-	}
+-	return NULL;
+-}
+-
+-usb_dev_handle * get_dfu_interface(struct usb_device *dev, uint16_t *interface)
+-{
+-	int i, j, k;
+-	struct usb_config_descriptor *config;
+-	struct usb_interface_descriptor *iface;
+-
+-	usb_dev_handle *handle;
+-
+-	for(i = 0; i < dev->descriptor.bNumConfigurations; i++) {
+-		config = &dev->config[i];
+-
+-		for(j = 0; j < config->bNumInterfaces; j++) {
+-			for(k = 0; k < config->interface[j].num_altsetting; k++) {
+-				iface = &config->interface[j].altsetting[k];
+-				if((iface->bInterfaceClass == 0xFE) &&
+-				   (iface->bInterfaceSubClass = 0x01)) {
+-					handle = usb_open(dev);
+-					//usb_set_configuration(handle, i);
+-					usb_claim_interface(handle, j);
+-					//usb_set_altinterface(handle, k);
+-					//*interface = j;
+-					*interface = iface->bInterfaceNumber;
+-					return handle;
+-				}
+-			}
+-		}
+-	}
+-	return NULL;
+-}
+-
+-int main(void)
+-{
+-	struct usb_device *dev;
+-	usb_dev_handle *handle;
+-	uint16_t iface;
+-	int state;
+-	uint32_t offset;
+-
+-	banner();
+-	usb_init();
+-
+-retry:
+-	if(!(dev = find_dev()) || !(handle = get_dfu_interface(dev, &iface))) {
+-		puts("FATAL: No compatible device found!\n");
+-#ifdef WIN32
+-		system("pause");
+-#endif
+-		return -1;
+-	}
+-
+-	state = dfu_getstate(handle, iface);
+-	if((state < 0) || (state == STATE_APP_IDLE)) {
+-		puts("Resetting device in firmware upgrade mode...");
+-		dfu_detach(handle, iface, 1000);
+-		usb_release_interface(handle, iface);
+-		usb_close(handle);
+-#ifdef WIN32
+-		Sleep(5000);
+-#else
+-		sleep(5);
+-#endif
+-		goto retry;
+-	}
+-	printf("Found device at %s:%s\n", dev->bus->dirname, dev->filename);
+-
+-	dfu_makeidle(handle, iface);
+-
+-	for(offset = 0; offset < bindatalen; offset += 1024) {
+-		printf("Progress: %d%%\r", (offset*100)/bindatalen);
+-		fflush(stdout);
+-		assert(stm32_mem_erase(handle, iface, LOAD_ADDRESS + offset) == 0);
+-		stm32_mem_write(handle, iface, (void*)&bindata[offset], 1024);
+-	}
+-	stm32_mem_manifest(handle, iface);
+-
+-	usb_release_interface(handle, iface);
+-	usb_close(handle);
+-
+-	puts("All operations complete!\n");
+-
+-#ifdef WIN32
+-		system("pause");
+-#endif
+-
+-	return 0;
+-}
+-
+diff --git a/upgrade/stm32mem.c b/upgrade/stm32mem.c
+deleted file mode 100644
+index 53bbb5b..0000000
+--- a/upgrade/stm32mem.c
++++ /dev/null
+@@ -1,98 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include <string.h>
+-
+-#ifdef WIN32
+-#   include <windows.h>
+-#   include <lusb0_usb.h>
+-#else
+-#   include <unistd.h>
+-#   include <usb.h>
+-#endif
+-
+-#include "dfu.h"
+-#include "stm32mem.h"
+-
+-#define STM32_CMD_GETCOMMANDS		0x00
+-#define STM32_CMD_SETADDRESSPOINTER	0x21
+-#define STM32_CMD_ERASE			0x41
+-
+-static int stm32_download(usb_dev_handle *dev, uint16_t iface, 
+-			  uint16_t wBlockNum, void *data, int size)
+-{
+-	dfu_status status;
+-	int i;
+-
+-	if((i = dfu_dnload(dev, iface, wBlockNum, data, size)) < 0) return i;
+-	while(1) {
+-		if((i = dfu_getstatus(dev, iface, &status)) < 0) return i;
+-		switch(status.bState) {
+-		case STATE_DFU_DOWNLOAD_BUSY:
+-#ifdef WIN32
+-			Sleep(status.bwPollTimeout);
+-#else
+-			usleep(status.bwPollTimeout * 1000);
+-#endif
+-			break;
+-		case STATE_DFU_DOWNLOAD_IDLE:
+-			return 0;
+-		default:	
+-			return -1;
+-		}
+-	}
+-}
+-
+-int stm32_mem_erase(usb_dev_handle *dev, uint16_t iface, uint32_t addr)
+-{
+-	uint8_t request[5];
+-
+-	request[0] = STM32_CMD_ERASE;
+-	memcpy(request+1, &addr, sizeof(addr));
+-
+-	return stm32_download(dev, iface, 0, request, sizeof(request));
+-}
+-
+-int stm32_mem_write(usb_dev_handle *dev, uint16_t iface, void *data, int size)
+-{
+-	return stm32_download(dev, iface, 2, data, size);
+-}
+-
+-int stm32_mem_manifest(usb_dev_handle *dev, uint16_t iface)
+-{
+-	dfu_status status;
+-	int i;
+-
+-	if((i = dfu_dnload(dev, iface, 0, NULL, 0)) < 0) return i;
+-	while(1) {
+-		if((i = dfu_getstatus(dev, iface, &status)) < 0) return 0;
+-#ifdef WIN32
+-		Sleep(status.bwPollTimeout);
+-#else
+-		usleep(status.bwPollTimeout * 1000);
+-#endif
+-		switch(status.bState) {
+-		case STATE_DFU_MANIFEST:
+-			return 0;
+-		default:	
+-			return -1;
+-		}
+-	}
+-}
+-
+diff --git a/upgrade/stm32mem.h b/upgrade/stm32mem.h
+deleted file mode 100644
+index fd99c65..0000000
+--- a/upgrade/stm32mem.h
++++ /dev/null
+@@ -1,34 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __STM32MEM_H
+-#define __STM32MEM_H
+-
+-#ifdef WIN32
+-#   include <lusb0_usb.h>
+-#else
+-#   include <usb.h>
+-#endif
+-
+-int stm32_mem_erase(usb_dev_handle *dev, uint16_t iface, uint32_t addr);
+-int stm32_mem_write(usb_dev_handle *dev, uint16_t iface, void *data, int size);
+-int stm32_mem_manifest(usb_dev_handle *dev, uint16_t iface);
+-
+-#endif
+-

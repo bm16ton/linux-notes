@@ -1,0 +1,75 @@
+
+gpio
+
+1st bit
+base address of gpio 0x01
+
+2nd bit
+Register	Function	Register	Notes
+Address		Name		size
+
+0x02 		DIRSET 		32 bits 	Write Only
+0x03 		DIRCLR 		32 bits 	Write Only
+0x04 		GPIO 		32 bits 	Read/Write
+0x05 		SET 		32 bits 	Write Only
+0x06 		CLR 		32 bits 	Write Only
+0x07 		TOGGLE 		32 bits 	Write Only
+0x08 		INTENSET 	32 bits 	Write Only
+0x09 		INTENCLR 	32 bits 	Write Only
+0x0A 		INTFLAG 	32 bits 	Read Only
+0x0B 		PULLENSET 	32 bits 	Write Only
+0x0C 		PULLENCLR 	32 bits 	Write Only
+
+GPIO
+The GPIO module provides every day input and outputs. You'll get 3.3V logic GPIO pins that can act as outputs or
+inputs. With pullups or pulldowns. When inputs, you can also create pin-change interrupts that are routed the the IRQ
+pin.
+The module base register address for the GPIO module is 0x01.
+ Function Registers
+Writes of GPIO function registers should contain 4 data bytes (32 bits) following the initial register data bytes. Each bit
+in these registers represents a GPIO pin on PORTA of the seesaw device.
+If the corresponding pin does not exist on the SeeSaw device, then reading or writing the bit has no effect.
+We decided to go with this method to make GPIO toggling fast (rather than having one i2c transaction per individual
+pin control) but the host processor will need to do a little work to keep the pins identified.
+
+#### GPIO REGISTER BITS
+Bit 31 	Bit 30 	Bit 29 	Bit 28 	Bit 27 .  .  . Bit 4 	Bit 3 	Bit 2 	Bit 1 	Bit 0
+PA31   	PA30   	PA29   	PA28   	PA27 .  .  .   PA04  	PA03  	PA02  	PA01  	PA00
+
+DIRSET (0x02, 32 bits, Write Only)
+Writing a 1 to any bit in this register sets the direction of the corresponding pin to OUTPUT.
+Writing zeros to this register has no effect.
+DIRCLR (0x03, 32 bits, Write Only)
+Writing a 1 to any bit in this register sets the direction of the corresponding pin to INPUT.
+Writing zeros to this register has no effect.
+GPIO (0x04, 32 bits, Read/Write)
+When this register is written, all bits that are set to 0 will have their corresponding pins set LOW.
+All bits that are set to 1 will have their corresponding pins set HIGH.
+Reading this register reads all pins on PORTA of the seesaw device.
+SET (0x05, 32 bits, Write Only)
+Writing a 1 to any bit in this register writes the corresponding pin HIGH.
+Writing zeros to this register has no effect.
+CLR (0x06, 32 bits, Write Only)
+Writing a 1 to any bit in this register writes the corresponding pin LOW.
+Writing zeros to this register has no effect.
+TOGGLE (0x07, 32 bits, Write Only)
+Writing a 1 to any bit in this register toggles the corresponding pin.
+Writing zeros to this register has no effect.
+INTENSET (0x08, 32 bits, Write Only)
+Writing a 1 to any bit in this register enables the interrupt on the corresponding pin. When the value on this pin
+changes, the corresponding bit will be set in the INTFLAG register.
+Writing zeros to this register has no effect.
+INTENCLR (0x09, 32 bits, Write Only)
+Writing a 1 to any bit in this register disables the interrupt on the corresponding pin.
+Writing zeros to this register has no effect.
+INTFLAG (0x0A, 32 bits, Read Only)
+This register hold the status of all GPIO interrupts. When an interrupt fires, the corresponding bit in this register gets
+set. Reading this register clears all interrupts.
+PULLENSET (0x0B, 32 bits, Write Only)
+Writing a 1 to any bit in this register enables the internal pullup or pulldown on the corresponding pin. The pull direction
+(up/down) is determined by the GPIO (output) value - if the corresponding GPIO register bit is low,  its a pulldown.
+High, its a pullup.
+Writing zeros to this register has no effect.
+PULLENCLR (0x0C, 32 bits, Write Only)
+Writing a 1 to any bit in this register disables the pull up/down on the corresponding pin.
+Writing zeros to this register has no effect.

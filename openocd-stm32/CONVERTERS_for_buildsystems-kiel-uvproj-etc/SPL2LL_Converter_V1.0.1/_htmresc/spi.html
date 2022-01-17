@@ -1,0 +1,3239 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="spi_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_21545_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font521545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font621545
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font721545
+	{color:red;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font821545
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font921545
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1021545
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6521545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6621545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6721545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl6821545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl6921545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7021545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7121545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7221545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7321545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7421545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7521545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7621545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7721545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7821545
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7921545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8021545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8121545
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_21545" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=4354 class=xl6553521545
+ style='border-collapse:collapse;table-layout:fixed;width:3266pt'>
+ <col class=xl6553521545 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553521545 width=640 style='mso-width-source:userset;mso-width-alt:
+ 20480;width:480pt'>
+ <col class=xl6553521545 width=730 style='mso-width-source:userset;mso-width-alt:
+ 23360;width:548pt'>
+ <col class=xl6553521545 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553521545 width=72 span=41 style='width:54pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl7821545 width=1402 style='height:47.1pt;
+  width:1052pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font1021545">SPI </font><font class="font821545">driver</font></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+  <td class=xl6553521545 width=72 style='width:54pt'></td>
+ </tr>
+ <tr class=xl6553521545 height=21 style='height:15.75pt'>
+  <td colspan=2 height=21 class=xl7621545 style='height:15.75pt'>SPL</td>
+  <td class=xl7621545>STM32Cube_LL</td>
+  <td class=xl7621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6521545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_Init(SPI_TypeDef* SPIx,
+  SPI_InitTypeDef* SPI_InitStruct)<br>
+    <br>
+    I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_Init(SPI_TypeDef
+  *SPIx, LL_SPI_InitTypeDef *SPI_InitStruct)<br>
+    <br>
+    LL_I2S_StructInit(LL_I2S_InitTypeDef *I2S_InitStruct)</td>
+  <td class=xl6521545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_DeInit(SPI_TypeDef*
+  SPIx)<br>
+    <br>
+    SPI_I2S_DeInit(SPI_TypeDef* SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_DeInit(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_StructInit(SPI_InitTypeDef*
+  SPI_InitStruct)<br>
+    <br>
+    I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_StructInit(LL_SPI_InitTypeDef
+  *SPI_InitStruct)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_TIModeCmd(SPI_TypeDef*
+  SPIx, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetStandard(SPI_TypeDef
+  *SPIx, uint32_t Standard)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>I2S_Cmd(SPI_TypeDef* SPIx,
+  FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_I2S_Enable(SPI_TypeDef
+  *SPIx)<br>
+    <br>
+    LL_I2S_Disable(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_Cmd(SPI_TypeDef* SPIx,
+  FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_Enable(SPI_TypeDef
+  *SPIx)<br>
+    <br>
+    LL_SPI_Disable(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_DataSizeConfig(SPI_TypeDef*
+  SPIx, uint16_t SPI_DataSize)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetDataWidth(SPI_TypeDef
+  *SPIx, uint32_t DataWidth)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_RxFIFOThresholdConfig(SPI_TypeDef*
+  SPIx, uint16_t SPI_RxFIFOThreshold)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetRxFIFOThreshold(SPI_TypeDef
+  *SPIx, uint32_t Threshold)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_BiDirectionalLineConfig(SPI_TypeDef*
+  SPIx, uint16_t SPI_Direction)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetTransferDirection(SPI_TypeDef
+  *SPIx, uint32_t TransferDirection)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_NSSInternalSoftwareConfig(SPI_TypeDef*
+  SPIx, uint16_t SPI_NSSInternalSoft)<br>
+    <br>
+    SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetNSSMode(SPI_TypeDef
+  *SPIx, uint32_t NSS)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6621545 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_NSSPulseModeCmd(SPI_TypeDef*
+  SPIx, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_EnableNSSPulseMgt(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_DisableNSSPulseMgt(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>I2S_FullDuplexConfig(SPI_TypeDef*
+  I2Sxext, I2S_InitTypeDef* I2S_InitStruct)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_I2S_InitFullDuplex(SPI_TypeDef
+  *I2Sxext, LL_I2S_InitTypeDef *I2S_InitStruct)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_SendData8(SPI_TypeDef*
+  SPIx, uint8_t Data)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_TransmitData8(SPI_TypeDef
+  *SPIx, uint8_t TxData)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_SendData16(SPI_TypeDef*
+  SPIx, uint16_t Data)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_TransmitData16(SPI_TypeDef
+  *SPIx, uint16_t TxData)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_SendData16(SPI_TypeDef*
+  SPIx, uint16_t Data)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_TransmitData16(SPI_TypeDef
+  *SPIx, uint16_t TxData)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_ReceiveData8(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_ReceiveData8(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_ReceiveData16(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_ReceiveData16(SPI_TypeDef*
+  SPIx) / LL_SPI_DMA_GetRegAddr(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_ReceiveData16(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_ReceiveData16(SPI_TypeDef*
+  SPIx) / LL_SPI_DMA_GetRegAddr(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_CRCLengthConfig(SPI_TypeDef*
+  SPIx, uint16_t SPI_CRCLength)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetCRCWidth(SPI_TypeDef
+  *SPIx, uint32_t CRCLength)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6621545 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_CalculateCRC(SPI_TypeDef*
+  SPIx, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_EnableCRC(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_DisableCRC(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_TransmitCRC(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetCRCNext(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6621545 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_GetCRC(SPI_TypeDef*
+  SPIx, uint8_t SPI_CRC)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_GetRxCRC(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_GetTxCRC(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_GetCRCPolynomial(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_GetCRCPolynomial(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6621545 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_DMACmd(SPI_TypeDef*
+  SPIx, uint16_t SPI_DMAReq, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_EnableDMAReq_RX(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_DisableDMAReq_RX(SPI_TypeDef *SPIx)<br>
+    <br>
+    LL_SPI_EnableDMAReq_TX(SPI_TypeDef *SPIx)<br>
+    LL_SPI_DisableDMAReq_TX(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6621545 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_DMACmd(SPI_TypeDef*
+  SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_EnableDMAReq_RX(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_DisableDMAReq_RX(SPI_TypeDef *SPIx)<br>
+    <br>
+    LL_SPI_EnableDMAReq_TX(SPI_TypeDef *SPIx)<br>
+    LL_SPI_DisableDMAReq_TX(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_LastDMATransferCmd(SPI_TypeDef*
+  SPIx, uint16_t SPI_LastDMATransfer)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_SetDMAParity_RX(SPI_TypeDef
+  *SPIx, uint32_t Parity)<br>
+    <br>
+    LL_SPI_SetDMAParity_TX(SPI_TypeDef *SPIx, uint32_t Parity)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl6621545 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_ITConfig(SPI_TypeDef*
+  SPIx, uint8_t SPI_IT, FunctionalState NewState)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_EnableIT_ERR(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_EnableIT_RXNE(SPI_TypeDef *SPIx)<br>
+    LL_SPI_EnableIT_TXE(SPI_TypeDef *SPIx)<br>
+    LL_SPI_DisableIT_ERR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_DisableIT_RXNE(SPI_TypeDef *SPIx)<br>
+    LL_SPI_DisableIT_TXE(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_GetTransmissionFIFOStatus(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_GetTxFIFOLevel(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_GetReceptionFIFOStatus(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_GetRxFIFOLevel(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_ReceiveData(SPI_TypeDef*
+  SPIx)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_ReceiveData16(SPI_TypeDef*
+  SPIx)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_SendData(SPI_TypeDef*
+  SPIx, uint16_t Data)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_TransmitData16(SPI_TypeDef
+  *SPIx, uint16_t TxData)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_ClearITPendingBit(SPI_TypeDef*
+  SPIx, uint8_t SPI_I2S_IT)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_ClearFlag_CRCERR(SPI_TypeDef
+  *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl6621545 style='height:135.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_GetFlagStatus(SPI_TypeDef*
+  SPIx, uint16_t SPI_FLAG)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_IsActiveFlag_RXNE(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_IsActiveFlag_TXE(SPI_TypeDef *SPIx)<br>
+    LL_I2S_IsActiveFlag_UDR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_CRCERR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_MODF(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_OVR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_BSY(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_FRE(SPI_TypeDef *SPIx)<br>
+    LL_I2S_IsActiveFlag_CHSIDE(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl6621545 style='height:135.0pt'>&nbsp;</td>
+  <td class=xl7721545 width=640 style='width:480pt'>SPI_I2S_GetFlagStatus(SPI_TypeDef*
+  SPIx, uint16_t SPI_I2S_FLAG)</td>
+  <td class=xl7021545 width=730 style='width:548pt'>LL_SPI_IsActiveFlag_RXNE(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_IsActiveFlag_TXE(SPI_TypeDef *SPIx)<br>
+    LL_I2S_IsActiveFlag_UDR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_CRCERR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_MODF(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_OVR(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_BSY(SPI_TypeDef *SPIx)<br>
+    LL_SPI_IsActiveFlag_FRE(SPI_TypeDef *SPIx)<br>
+    LL_I2S_IsActiveFlag_CHSIDE(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl6621545 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl6921545 width=640 style='width:480pt'>SPI_ClearFlag(SPI_TypeDef*
+  SPIx, uint16_t SPI_FLAG)</td>
+  <td class=xl7121545 width=730 style='width:548pt'>LL_SPI_ClearFlag_CRCERR(SPI_TypeDef
+  *SPIx)<br>
+    LL_SPI_ClearFlag_MODF(SPI_TypeDef *SPIx)<br>
+    LL_SPI_ClearFlag_OVR(SPI_TypeDef *SPIx)</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr class=xl6553521545 height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td colspan=4 height=25 class=xl7521545 width=1402 style='height:18.75pt;
+  width:1052pt'>Correspondence between <font class="font921545">SPL</font><font
+  class="font621545"> and </font><font class="font921545">STM32Cube_LL</font><font
+  class="font621545"> initialization structures</font></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr class=xl6553521545 height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl6621545 style='height:17.25pt'>&nbsp;</td>
+  <td class=xl6721545 width=640 style='width:480pt'>Structure<br>
+    </td>
+  <td class=xl6821545 width=730 style='width:548pt'>Parameter</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=10 class=xl7921545 width=640 style='border-bottom:.5pt solid #39A9DC;
+  width:480pt'>SPI_InitTypeDef<span style='mso-spacerun:yes'> 
+  </span>&#8596;<span style='mso-spacerun:yes'>  </span>LL_SPI_InitTypeDef</td>
+  <td class=xl7221545 width=730 style='width:548pt'>SPI_Direction &#8596;<span
+  style='mso-spacerun:yes'>  </span>TransferDirection</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_Mode &#8596; Mode</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_DataSize &#8596;<span
+  style='mso-spacerun:yes'>  </span>DataWidth</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_CPOL &#8596;<span
+  style='mso-spacerun:yes'>  </span>ClockPolarity</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_CPHA &#8596;<span
+  style='mso-spacerun:yes'>  </span>ClockPhase</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_NSS &#8596;<span
+  style='mso-spacerun:yes'>  </span>NSS</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_BaudRatePrescaler
+  &#8596;<span style='mso-spacerun:yes'>  </span>BaudRate</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_FirstBit &#8596;<span
+  style='mso-spacerun:yes'>  </span>BitOrder</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>SPI_CRCPolynomial
+  &#8596;<span style='mso-spacerun:yes'>  </span>CRCPoly</td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6621545 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7421545 width=730 style='width:548pt'><font class="font721545">N/A</font><font
+  class="font521545"> &#8596;<span style='mso-spacerun:yes'> 
+  </span>CRCCalculation</font></td>
+  <td class=xl6621545>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr class=xl6553521545 height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td rowspan=6 class=xl8021545 width=640 style='border-bottom:.5pt solid #39A9DC;
+  width:480pt'>I2S_InitTypeDef<span style='mso-spacerun:yes'> 
+  </span>&#8596;<span style='mso-spacerun:yes'>  </span>LL_I2S_InitTypeDef</td>
+  <td class=xl7321545 width=730 style='width:548pt'>I2S_Mode &#8596;<span
+  style='mso-spacerun:yes'>  </span>TransferDirection</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>I2S_Standard &#8596;
+  Standard</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>I2S_DataFormat &#8596;<span
+  style='mso-spacerun:yes'>  </span>DataFormat</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>I2S_MCLKOutput &#8596;<span
+  style='mso-spacerun:yes'>  </span>ClockPolarity</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7321545 width=730 style='width:548pt'>I2S_AudioFreq &#8596;<span
+  style='mso-spacerun:yes'>  </span>AudioFreq</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7421545 width=730 style='width:548pt'>I2S_CPOL &#8596;<span
+  style='mso-spacerun:yes'>  </span>ClockPolarity</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl7521545 width=16 style='height:15.75pt;width:12pt'>&nbsp;</td>
+  <td class=xl7521545 width=640 style='width:480pt'>&nbsp;</td>
+  <td class=xl7521545 width=730 style='width:548pt'>&nbsp;</td>
+  <td class=xl7521545 width=16 style='width:12pt'>&nbsp;</td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+  <td class=xl6553521545></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=640 style='width:480pt'></td>
+  <td width=730 style='width:548pt'></td>
+  <td width=16 style='width:12pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

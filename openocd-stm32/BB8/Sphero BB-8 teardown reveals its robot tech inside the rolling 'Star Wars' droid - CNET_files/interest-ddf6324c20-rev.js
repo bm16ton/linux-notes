@@ -1,0 +1,1 @@
+define(["managers/edition"],function(n){return n.getTranslation({en:{follow:"Follow ",following:"Following "}})});

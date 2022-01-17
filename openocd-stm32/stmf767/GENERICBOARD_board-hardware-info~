@@ -1,0 +1,101 @@
+Reset button
+Name 	RESET
+Reference 	-
+Type 	Button
+Connected to 	NRST
+Mode 	Active low
+
+
+User button 1
+Name 	WK_UP
+Reference 	-
+Type 	Button
+Connected to 	PA0
+Mode 	Active high
+
+User button 2
+Name 	KEY0
+Reference 	-
+Type 	Button
+Connected to 	PA1
+Mode 	Active low
+
+
+Power LED
+Name 	-
+Reference 	D6
+Type 	LED
+Connected to 	+3.3V rail
+Mode 	N.A.
+
+User LED 1
+Name 	-
+Reference 	D4
+Type 	LED
+Connected to 	PB11
+Mode 	Sink
+
+User LED 2
+Name 	-
+Reference 	D5
+Type 	LED
+Connected to 	PB10
+Mode 	Sink
+
+User button 3
+Name 	KEY1
+Reference 	-
+Type 	Button
+Connected to 	PA2
+Mode 	Active low
+
+SWD header pins
+# 	Name 	Function 	Connected to
+1 	VCC 	- 	+3.3V rail
+2 	GND 	- 	Ground plane
+3 	SWDIO 	- 	PA13
+4 	SWCLK 	- 	PA14
+
+Serial USB connector pins
+# 	Name 	Function 	Connected to
+1 	- 	VCC 	+5V rail via SW5
+2 	- 	D- 	CH340 Pin 6
+3 	- 	D+ 	CH340 Pin 5
+4 	- 	ID 	N.C.
+5 	- 	GND 	Ground plane
+
+SD-card connector pins
+# 	Name 	Function 	Connected to
+1 	- 	DAT2 	N.C.
+2 	- 	CD/DAT3 	PC10
+3 	- 	CMD 	PC11
+4 	- 	VDD 	+3.3V rail
+5 	- 	CLK 	PD2
+6 	- 	VSS 	Ground plane
+7 	- 	DAT0 	PC8
+8 	- 	DAT1 	PC9
+9 	- 	CD 	N.C.
+10 	- 	Body 	N.C.
+
+W25Q16JV pins
+# 	Name 	Function 	Connected to
+1 	- 	/CS 	PA4
+2 	- 	DO 	PB4
+3 	- 	/WP 	+3.3V rail
+4 	- 	GND 	Ground plane
+5 	- 	DI 	PB2
+6 	- 	CLK 	PB3
+7 	- 	/HOLD 	+3.3V rail
+8 	- 	VCC 	+3.3V rail
+
+Generic EEPROM pins
+# 	Name 	Function 	Connected to
+1 	- 	A0 	Ground plane
+2 	- 	A1 	Ground plane
+3 	- 	A2 	Ground plane
+4 	- 	GND 	Ground plane
+5 	- 	SDA 	PB7
+6 	- 	SCL 	PB6
+7 	- 	WP 	Ground plane
+8 	- 	VCC 	+3.3V rail
+

@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="DAC">
+  <COMMON>
+    <LITERALS>
+       <!-- ################ DAC_trigger_selection ################ -->
+      <LITERAL><SPL>DAC_Trigger_T2_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM2_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T4_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM4_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T5_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM5_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T6_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM6_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T7_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM7_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T8_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM8_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_Ext_IT9</SPL><LL>LL_DAC_TRIG_EXT_EXTI_LINE9</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_Software</SPL><LL>LL_DAC_TRIG_SOFTWARE</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_None</SPL><LL>0x00000000U</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T3_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM3_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T15_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM15_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_T18_TRGO</SPL><LL>LL_DAC_TRIG_EXT_TIM18_TRGO</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_HRTIM1_DACTRG1</SPL><LL>LL_DAC_TRIGGER_HRTIM1_DACTRG1</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_HRTIM1_DACTRG2</SPL><LL>LL_DAC_TRIGGER_HRTIM1_DACTRG2</LL></LITERAL>
+      <LITERAL><SPL>DAC_Trigger_HRTIM1_DACTRG3</SPL><LL>LL_DAC_TRIGGER_HRTIM1_DACTRG3</LL></LITERAL>
+	  
+       <!-- ################DAC_wave_generation################ -->
+      <LITERAL><SPL>DAC_WaveGeneration_None</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_NONE</LL></LITERAL>
+      <LITERAL><SPL>DAC_WaveGeneration_Noise</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_NOISE</LL></LITERAL>
+      <LITERAL><SPL>DAC_WaveGeneration_Triangle</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_TRIANGLE</LL></LITERAL>
+
+       <!-- ################ DAC_lfsrunmask_triangleamplitude ################ -->
+      <LITERAL><SPL>DAC_LFSRUnmask_Bit0</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_NONE</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits1_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS1_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits2_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS2_0</LL></LITERAL>  
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits3_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS3_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits4_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS4_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits5_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS5_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits6_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS6_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits7_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS7_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits8_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS8_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits9_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS9_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits10_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS10_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_LFSRUnmask_Bits11_0</SPL><LL>LL_DAC_NOISE_LFSR_UNMASK_BITS11_0</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_1</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_1</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_3</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_3</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_7</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_7</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_15</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_15</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_31</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_31</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_63</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_63</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_127</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_127</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_255</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_255</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_511</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_511</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_1023</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_1023</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_2047</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_2047</LL></LITERAL>
+      <LITERAL><SPL>DAC_TriangleAmplitude_4095</SPL><LL>LL_DAC_TRIANGLE_AMPLITUDE_4095</LL></LITERAL>
+
+	         <!-- ################ DAC_output_buffer ################ -->
+      <LITERAL><SPL>DAC_OutputBuffer_Enable</SPL><LL>LL_DAC_OUTPUT_BUFFER_ENABLE</LL></LITERAL>
+      <LITERAL><SPL>DAC_OutputBuffer_Disable</SPL><LL>LL_DAC_OUTPUT_BUFFER_DISABLE</LL></LITERAL>  
+      <LITERAL><SPL>DAC_BufferSwitch_Enable</SPL><LL>LL_DAC_OUTPUT_BUFFER_ENABLE</LL></LITERAL>  
+      <LITERAL><SPL>DAC_BufferSwitch_Disable</SPL><LL>LL_DAC_OUTPUT_BUFFER_DISABLE</LL></LITERAL>
+
+       <!-- ################ DAC Structures Typedef ################ -->
+      <LITERAL><SPL>DAC_InitTypeDef</SPL><LL>LL_DAC_InitTypeDef</LL></LITERAL> 
+      
+	   <!-- ################ DAC_Channel_selection ################ -->
+      <LITERAL><SPL>DAC_Channel_1</SPL><LL>LL_DAC_CHANNEL_1</LL></LITERAL>
+      <LITERAL><SPL>DAC_Channel_2</SPL><LL>LL_DAC_CHANNEL_2</LL></LITERAL>
+    
+	   <!-- ################ DAC_wave_generation ################ -->
+      <LITERAL><SPL>DAC_Wave_Noise</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_NOISE</LL></LITERAL>
+      <LITERAL><SPL>DAC_Wave_Triangle</SPL><LL>LL_DAC_WAVE_AUTO_GENERATION_TRIANGLE</LL></LITERAL>
+
+	</LITERALS>
+
+    <STRUCTURES>
+	     <STRUCTURE NAME="DAC_InitTypeDef">
+           <FIELD>
+             <SPL>DAC_Trigger</SPL>
+             <LL>TriggerSource</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DAC_WaveGeneration</SPL>
+             <LL>WaveAutoGeneration</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DAC_LFSRUnmask_TriangleAmplitude</SPL>
+             <LL>WaveAutoGenerationConfig</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DAC_OutputBuffer</SPL>
+             <LL>OutputBuffer</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>DAC_Buffer_Switch</SPL>
+             <LL>OutputBuffer</LL>
+           </FIELD>
+         </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ Function used to set the DAC configuration to the default reset state ################ -->
+      <FUNCTION>
+          <SPL NAME="DAC_DeInit"
+               CMD0="EQU@SPL_PARAM_0=DAC1" />
+          <LL  NAME="LL_DAC_DeInit"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="DAC_DeInit"
+               CMD0="EQU@SPL_PARAM_0=DAC2" />
+          <LL  NAME="LL_DAC_DeInit"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DeInit" />
+          <LL  NAME="LL_DAC_DeInit"
+               CMD0="ADD@LL_PARAM_0=DAC1"/>
+      </FUNCTION>
+
+	  
+      <!-- ################ DAC channels configuration: trigger, output buffer, data format ################ -->
+	  <FUNCTION>
+          <SPL NAME="DAC_Init"
+               CMD0="EQU@SPL_PARAM_0=DAC1" />
+          <LL  NAME="N/A" 
+               CMD0="if({CPY@SPL_PARAM_2}.TriggerSource != 0)\n
+			         {\n
+					   LL_DAC_EnableTrigger(DAC1,{UPD@SPL_PARAM_1});\n
+					 }\n"/>
+          <LL  NAME="LL_DAC_Init" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_Init"
+               CMD0="EQU@SPL_PARAM_0=DAC2" />
+          <LL  NAME="N/A" 
+               CMD0="if({CPY@SPL_PARAM_2}.TriggerSource != 0)\n
+			         {\n
+					   LL_DAC_EnableTrigger(DAC1,{UPD@SPL_PARAM_1});\n
+					 }\n"/>
+          <LL  NAME="LL_DAC_Init" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_Init" />
+          <LL  NAME="N/A" 
+               CMD0="if({CPY@SPL_PARAM_1}.TriggerSource != 0)\n
+			         {\n
+					   LL_DAC_EnableTrigger(DAC1,{UPD@SPL_PARAM_0});\n
+					 }\n"/>
+          <LL  NAME="LL_DAC_Init" 
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_StructInit" />
+          <LL  NAME="LL_DAC_StructInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_Cmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_DAC_Enable" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_Cmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_DAC_Disable"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="DAC_Cmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_DAC_Enable" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_Cmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="LL_DAC_Disable"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>	  
+	  
+      <FUNCTION>
+          <SPL NAME="DAC_SoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_DAC_TrigSWConversion" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>    
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT(DAC1-&gt;SWTRIGR,({UPD@SPL_PARAM_0} &amp; DAC_SWTR_CHX_MASK))"/>
+	  </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="DAC_SoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_DAC_TrigSWConversion" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;SWTRIGR,({UPD@SPL_PARAM_1} &amp; DAC_SWTR_CHX_MASK))"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_DualSoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_0=ENABLE" />
+          <LL  NAME="N/A" 
+               CMD0="LL_DAC_TrigSWConversion(DAC1, LL_DAC_CHANNEL_1);"/>
+          <LL NAME="N/A" 
+               CMD0="LL_DAC_TrigSWConversion(DAC1, LL_DAC_CHANNEL_2)"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DualSoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_0=DISABLE" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT(DAC1-&gt;SWTRIGR,(LL_DAC_CHANNEL_1 &amp; DAC_SWTR_CHX_MASK));"/>
+		  <LL  NAME="N/A"
+               CMD0="CLEAR_BIT(DAC1-&gt;SWTRIGR,(LL_DAC_CHANNEL_2 &amp; DAC_SWTR_CHX_MASK))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DualSoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="N/A" 
+               CMD0="LL_DAC_TrigSWConversion({CPY@SPL_PARAM_0}, LL_DAC_CHANNEL_1);"/>
+           <LL NAME="N/A" 
+               CMD0="LL_DAC_TrigSWConversion({CPY@SPL_PARAM_0}, LL_DAC_CHANNEL_2)"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DualSoftwareTriggerCmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="N/A"
+               CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;SWTRIGR,(LL_DAC_CHANNEL_1 &amp; DAC_SWTR_CHX_MASK));"/>
+		  <LL  NAME="N/A"
+               CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;SWTRIGR,(LL_DAC_CHANNEL_2 &amp; DAC_SWTR_CHX_MASK))"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_WaveGenerationCmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_DAC_SetWaveAutoGeneration" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+			   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_WaveGenerationCmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="LL_DAC_SetWaveAutoGeneration" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"
+			   CMD2="UPD@LL_PARAM_2=LL_DAC_WAVE_AUTO_GENERATION_NONE"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_WaveGenerationCmd"
+               CMD0="EQU@SPL_PARAM_3=ENABLE" />
+          <LL  NAME="LL_DAC_SetWaveAutoGeneration" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+			   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_WaveGenerationCmd"
+               CMD0="EQU@SPL_PARAM_3=DISABLE" />
+          <LL  NAME="LL_DAC_SetWaveAutoGeneration" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+			   CMD2="UPD@LL_PARAM_2=LL_DAC_WAVE_AUTO_GENERATION_NONE"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel1Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetChannel2Data"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="ADD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_0=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_8b_R"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_3}"/>
+          <LL  NAME="LL_DAC_ConvertData8RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_L"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_3}"/>
+          <LL  NAME="LL_DAC_ConvertDualData12LeftAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_SetDualChannelData"
+               CMD0="EQU@SPL_PARAM_1=DAC_Align_12b_R"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_1"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_3}"/>
+          <LL  NAME="LL_DAC_ConvertData12RightAligned" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="UPD@LL_PARAM_1=LL_DAC_CHANNEL_2"
+			   CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_GetDataOutputValue" 
+               CMD0="EQU@SPL_PARAM_0=DAC1" />
+          <LL  NAME="LL_DAC_RetrieveOutputData" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetDataOutputValue" 
+               CMD0="EQU@SPL_PARAM_0=DAC2" />
+          <LL  NAME="LL_DAC_RetrieveOutputData" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetDataOutputValue" />
+          <LL  NAME="LL_DAC_RetrieveOutputData" 
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_0}"/> 
+	  </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_DMACmd"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_DAC_EnableDMAReq" 
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DMACmd"
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_DAC_DisableDMAReq"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=ENABLE" />
+          <LL  NAME="LL_DAC_EnableDMAReq" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_DMACmd"
+               CMD0="EQU@SPL_PARAM_2=DISABLE" />
+          <LL  NAME="LL_DAC_DisableDMAReq"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_DAC_EnableIT_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1" 
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_DAC_DisableIT_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"
+               CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+          <LL  NAME="LL_DAC_EnableIT_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"
+               CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+          <LL  NAME="LL_DAC_DisableIT_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1"
+               CMD1="EQU@SPL_PARAM_3=ENABLE"/>
+          <LL  NAME="LL_DAC_EnableIT_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"
+			   CMD3="DEL@LL_PARAM_3"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1" 
+               CMD1="EQU@SPL_PARAM_3=DISABLE"/>
+          <LL  NAME="LL_DAC_DisableIT_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"
+			   CMD3="DEL@LL_PARAM_3"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"
+               CMD1="EQU@SPL_PARAM_3=ENABLE"/>
+          <LL  NAME="LL_DAC_EnableIT_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"
+			   CMD3="DEL@LL_PARAM_3"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ITConfig"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"
+               CMD1="EQU@SPL_PARAM_3=DISABLE"/>
+          <LL  NAME="LL_DAC_DisableIT_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"
+			   CMD3="DEL@LL_PARAM_3"/>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="DAC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_IsActiveFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_IsActiveFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_IsActiveFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetFlagStatus"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_IsActiveFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearFlag"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_DAC_IsEnabledIT_DMAUDR1(DAC1) &amp;&amp; LL_DAC_IsActiveFlag_DMAUDR1(DAC1))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_DAC_IsEnabledIT_DMAUDR2(DAC1) &amp;&amp; LL_DAC_IsActiveFlag_DMAUDR2(DAC1))"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_DAC_IsEnabledIT_DMAUDR1({CPY@SPL_PARAM_0}) &amp;&amp; LL_DAC_IsActiveFlag_DMAUDR1({CPY@SPL_PARAM_0}))"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_GetITStatus"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"/>
+          <LL  NAME="N/A"
+               CMD0="(LL_DAC_IsEnabledIT_DMAUDR2({CPY@SPL_PARAM_0}) &amp;&amp; LL_DAC_IsActiveFlag_DMAUDR2({CPY@SPL_PARAM_0}))"/>
+      </FUNCTION>
+	  
+	  
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0=DAC1"
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_0=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0=DAC1" 
+			   CMD1="DEL@LL_PARAM_1"/>
+	  </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_1"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR1"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="DAC_ClearITPendingBit"
+               CMD0="EQU@SPL_PARAM_1=DAC_Channel_2"/>
+          <LL  NAME="LL_DAC_ClearFlag_DMAUDR2"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+			   CMD1="DEL@LL_PARAM_1"
+			   CMD2="DEL@LL_PARAM_2"/>
+      </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+  
+  <SPECIFIC>
+    <VERSION NAME="DACITF_VER_1_1_1">
+      <LITERALS>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+      </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

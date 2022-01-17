@@ -1,0 +1,1 @@
+cmd_/home/maddocks/linux-notes/openocd-stm32/stlinkv3/blackmagic-usb-2-everything/Bens/gpio-kernel/usb-gpio.mod := { echo  /home/maddocks/linux-notes/openocd-stm32/stlinkv3/blackmagic-usb-2-everything/Bens/gpio-kernel/usb-gpio.o;  echo; } > /home/maddocks/linux-notes/openocd-stm32/stlinkv3/blackmagic-usb-2-everything/Bens/gpio-kernel/usb-gpio.mod

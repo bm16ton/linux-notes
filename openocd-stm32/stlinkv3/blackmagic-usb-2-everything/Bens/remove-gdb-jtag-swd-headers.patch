@@ -1,0 +1,617 @@
+From 6f8e54496683fafa961f058c6a0cc504fbacba5d Mon Sep 17 00:00:00 2001
+From: "Satoshi N. M" <snmatsutake@yahoo.co.jp>
+Date: Sat, 23 Dec 2017 17:22:58 -0800
+Subject: [PATCH] Remove gdb and jtag/swd headers
+
+---
+ src/Makefile                  |   1 -
+ src/command.c                 | 300 ----------------------------------
+ src/include/crc32.h           |  26 ---
+ src/include/gdb_if.h          |  35 ----
+ src/include/gdb_main.h        |  27 ---
+ src/include/gdb_packet.h      |  37 -----
+ src/include/jtagtap.h         |  65 --------
+ src/include/swdptap.h         |  37 -----
+ src/platforms/common/cdcacm.c |   1 -
+ 9 files changed, 529 deletions(-)
+ delete mode 100644 src/command.c
+ delete mode 100644 src/include/crc32.h
+ delete mode 100644 src/include/gdb_if.h
+ delete mode 100644 src/include/gdb_main.h
+ delete mode 100644 src/include/gdb_packet.h
+ delete mode 100644 src/include/jtagtap.h
+ delete mode 100644 src/include/swdptap.h
+
+diff --git a/src/Makefile b/src/Makefile
+index 41243fc..45f9917 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -20,7 +20,6 @@ CFLAGS += -DENABLE_DEBUG
+ endif
+ 
+ SRC =			\
+-	command.c	\
+ 	exception.c	\
+ 	hex_utils.c	\
+ 	main.c		\
+diff --git a/src/command.c b/src/command.c
+deleted file mode 100644
+index 9594c3a..0000000
+--- a/src/command.c
++++ /dev/null
+@@ -1,300 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-/* This file implements a basic command interpreter for GDB 'monitor'
+- * commands.
+- */
+-
+-#include "general.h"
+-#include "exception.h"
+-#include "command.h"
+-#include "gdb_packet.h"
+-#include "target.h"
+-#include "morse.h"
+-#include "version.h"
+-
+-#ifdef PLATFORM_HAS_TRACESWO
+-#	include "traceswo.h"
+-#endif
+-
+-typedef bool (*cmd_handler)(target *t, int argc, const char **argv);
+-
+-struct command_s {
+-	const char *cmd;
+-	cmd_handler handler;
+-
+-	const char *help;
+-};
+-
+-static bool cmd_version(void);
+-static bool cmd_help(target *t);
+-
+-static bool cmd_jtag_scan(target *t, int argc, char **argv);
+-static bool cmd_swdp_scan(void);
+-static bool cmd_targets(void);
+-static bool cmd_morse(void);
+-static bool cmd_connect_srst(target *t, int argc, const char **argv);
+-static bool cmd_hard_srst(void);
+-#ifdef PLATFORM_HAS_POWER_SWITCH
+-static bool cmd_target_power(target *t, int argc, const char **argv);
+-#endif
+-#ifdef PLATFORM_HAS_TRACESWO
+-static bool cmd_traceswo(void);
+-#endif
+-#ifdef PLATFORM_HAS_DEBUG
+-static bool cmd_debug_bmp(target *t, int argc, const char **argv);
+-#endif
+-
+-const struct command_s cmd_list[] = {
+-	{"version", (cmd_handler)cmd_version, "Display firmware version info"},
+-	{"help", (cmd_handler)cmd_help, "Display help for monitor commands"},
+-	{"jtag_scan", (cmd_handler)cmd_jtag_scan, "Scan JTAG chain for devices" },
+-	{"swdp_scan", (cmd_handler)cmd_swdp_scan, "Scan SW-DP for devices" },
+-	{"targets", (cmd_handler)cmd_targets, "Display list of available targets" },
+-	{"morse", (cmd_handler)cmd_morse, "Display morse error message" },
+-	{"connect_srst", (cmd_handler)cmd_connect_srst, "Configure connect under SRST: (enable|disable)" },
+-	{"hard_srst", (cmd_handler)cmd_hard_srst, "Force a pulse on the hard SRST line - disconnects target" },
+-#ifdef PLATFORM_HAS_POWER_SWITCH
+-	{"tpwr", (cmd_handler)cmd_target_power, "Supplies power to the target: (enable|disable)"},
+-#endif
+-#ifdef PLATFORM_HAS_TRACESWO
+-	{"traceswo", (cmd_handler)cmd_traceswo, "Start trace capture" },
+-#endif
+-#ifdef PLATFORM_HAS_DEBUG
+-	{"debug_bmp", (cmd_handler)cmd_debug_bmp, "Output BMP \"debug\" strings to the second vcom: (enable|disable)"},
+-#endif
+-	{NULL, NULL, NULL}
+-};
+-
+-static bool connect_assert_srst;
+-#ifdef PLATFORM_HAS_DEBUG
+-bool debug_bmp;
+-#endif
+-
+-int command_process(target *t, char *cmd)
+-{
+-	const struct command_s *c;
+-	int argc = 0;
+-	const char **argv;
+-
+-	/* Initial estimate for argc */
+-	for(char *s = cmd; *s; s++)
+-		if((*s == ' ') || (*s == '\t')) argc++;
+-
+-	argv = alloca(sizeof(const char *) * argc);
+-
+-	/* Tokenize cmd to find argv */
+-	for(argc = 0, argv[argc] = strtok(cmd, " \t");
+-		argv[argc]; argv[++argc] = strtok(NULL, " \t"));
+-
+-	/* Look for match and call handler */
+-	for(c = cmd_list; c->cmd; c++) {
+-		/* Accept a partial match as GDB does.
+-		 * So 'mon ver' will match 'monitor version'
+-		 */
+-		if ((argc == 0) || !strncmp(argv[0], c->cmd, strlen(argv[0])))
+-			return !c->handler(t, argc, argv);
+-	}
+-
+-	if (!t)
+-		return -1;
+-
+-	return target_command(t, argc, argv);
+-}
+-
+-bool cmd_version(void)
+-{
+-	gdb_outf("Black Magic Probe (Firmware " FIRMWARE_VERSION ") (Hardware Version %d)\n", platform_hwversion());
+-	gdb_out("Copyright (C) 2015  Black Sphere Technologies Ltd.\n");
+-	gdb_out("License GPLv3+: GNU GPL version 3 or later "
+-		"<http://gnu.org/licenses/gpl.html>\n\n");
+-
+-	return true;
+-}
+-
+-bool cmd_help(target *t)
+-{
+-	const struct command_s *c;
+-
+-	gdb_out("General commands:\n");
+-	for(c = cmd_list; c->cmd; c++)
+-		gdb_outf("\t%s -- %s\n", c->cmd, c->help);
+-
+-	if (!t)
+-		return -1;
+-
+-	target_command_help(t);
+-
+-	return true;
+-}
+-
+-static bool cmd_jtag_scan(target *t, int argc, char **argv)
+-{
+-	(void)t;
+-	uint8_t irlens[argc];
+-
+-	gdb_outf("Target voltage: %s\n", platform_target_voltage());
+-
+-	if (argc > 1) {
+-		/* Accept a list of IR lengths on command line */
+-		for (int i = 1; i < argc; i++)
+-			irlens[i-1] = atoi(argv[i]);
+-		irlens[argc-1] = 0;
+-	}
+-
+-	if(connect_assert_srst)
+-		platform_srst_set_val(true); /* will be deasserted after attach */
+-
+-	int devs = -1;
+-	volatile struct exception e;
+-	TRY_CATCH (e, EXCEPTION_ALL) {
+-		devs = jtag_scan(argc > 1 ? irlens : NULL);
+-	}
+-	switch (e.type) {
+-	case EXCEPTION_TIMEOUT:
+-		gdb_outf("Timeout during scan. Is target stuck in WFI?\n");
+-		break;
+-	case EXCEPTION_ERROR:
+-		gdb_outf("Exception: %s\n", e.msg);
+-		break;
+-	}
+-
+-	if(devs <= 0) {
+-		platform_srst_set_val(false);
+-		gdb_out("JTAG device scan failed!\n");
+-		return false;
+-	}
+-	cmd_targets();
+-	morse(NULL, false);
+-	return true;
+-}
+-
+-bool cmd_swdp_scan(void)
+-{
+-	gdb_outf("Target voltage: %s\n", platform_target_voltage());
+-
+-	if(connect_assert_srst)
+-		platform_srst_set_val(true); /* will be deasserted after attach */
+-
+-	int devs = -1;
+-	volatile struct exception e;
+-	TRY_CATCH (e, EXCEPTION_ALL) {
+-		devs = adiv5_swdp_scan();
+-	}
+-	switch (e.type) {
+-	case EXCEPTION_TIMEOUT:
+-		gdb_outf("Timeout during scan. Is target stuck in WFI?\n");
+-		break;
+-	case EXCEPTION_ERROR:
+-		gdb_outf("Exception: %s\n", e.msg);
+-		break;
+-	}
+-
+-	if(devs <= 0) {
+-		platform_srst_set_val(false);
+-		gdb_out("SW-DP scan failed!\n");
+-		return false;
+-	}
+-
+-	cmd_targets();
+-	morse(NULL, false);
+-	return true;
+-
+-}
+-
+-static void display_target(int i, target *t, void *context)
+-{
+-	(void)context;
+-	gdb_outf("%2d   %c  %s\n", i, target_attached(t)?'*':' ', target_driver_name(t));
+-}
+-
+-bool cmd_targets(void)
+-{
+-	gdb_out("Available Targets:\n");
+-	gdb_out("No. Att Driver\n");
+-	if (!target_foreach(display_target, NULL)) {
+-		gdb_out("No usable targets found.\n");
+-		return false;
+-	}
+-
+-	return true;
+-}
+-
+-bool cmd_morse(void)
+-{
+-	if(morse_msg)
+-		gdb_outf("%s\n", morse_msg);
+-	return true;
+-}
+-
+-static bool cmd_connect_srst(target *t, int argc, const char **argv)
+-{
+-	(void)t;
+-	if (argc == 1)
+-		gdb_outf("Assert SRST during connect: %s\n",
+-			 connect_assert_srst ? "enabled" : "disabled");
+-	else
+-		connect_assert_srst = !strcmp(argv[1], "enable");
+-	return true;
+-}
+-
+-static bool cmd_hard_srst(void)
+-{
+-	target_list_free();
+-	platform_srst_set_val(true);
+-	platform_srst_set_val(false);
+-	return true;
+-}
+-
+-#ifdef PLATFORM_HAS_POWER_SWITCH
+-static bool cmd_target_power(target *t, int argc, const char **argv)
+-{
+-	(void)t;
+-	if (argc == 1)
+-		gdb_outf("Target Power: %s\n",
+-			 platform_target_get_power() ? "enabled" : "disabled");
+-	else
+-		platform_target_set_power(!strncmp(argv[1], "enable", strlen(argv[1])));
+-	return true;
+-}
+-#endif
+-
+-#ifdef PLATFORM_HAS_TRACESWO
+-static bool cmd_traceswo(void)
+-{
+-	extern char serial_no[9];
+-	traceswo_init();
+-	gdb_outf("%s:%02X:%02X\n", serial_no, 5, 0x85);
+-	return true;
+-}
+-#endif
+-
+-#ifdef PLATFORM_HAS_DEBUG
+-static bool cmd_debug_bmp(target *t, int argc, const char **argv)
+-{
+-	(void)t;
+-	if (argc > 1) {
+-		debug_bmp = !strcmp(argv[1], "enable");
+-	}
+-	gdb_outf("Debug mode is %s\n",
+-		 debug_bmp ? "enabled" : "disabled");
+-	return true;
+-}
+-#endif
+diff --git a/src/include/crc32.h b/src/include/crc32.h
+deleted file mode 100644
+index 4e0f729..0000000
+--- a/src/include/crc32.h
++++ /dev/null
+@@ -1,26 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __CRC32_H
+-#define __CRC32_H
+-
+-uint32_t generic_crc32(target *t, uint32_t base, int len);
+-
+-#endif
+diff --git a/src/include/gdb_if.h b/src/include/gdb_if.h
+deleted file mode 100644
+index 3307454..0000000
+--- a/src/include/gdb_if.h
++++ /dev/null
+@@ -1,35 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __GDB_IF_H
+-#define __GDB_IF_H
+-
+-#if !defined(LIBFTDI)
+-#include <libopencm3/usb/usbd.h>
+-void gdb_usb_out_cb(usbd_device *dev, uint8_t ep);
+-#endif
+-
+-int gdb_if_init(void);
+-unsigned char gdb_if_getchar(void);
+-unsigned char gdb_if_getchar_to(int timeout);
+-void gdb_if_putchar(unsigned char c, int flush);
+-
+-#endif
+-
+diff --git a/src/include/gdb_main.h b/src/include/gdb_main.h
+deleted file mode 100644
+index f57e5e3..0000000
+--- a/src/include/gdb_main.h
++++ /dev/null
+@@ -1,27 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __GDB_MAIN_H
+-#define __GDB_MAIN_H
+-
+-void gdb_main(void);
+-
+-#endif
+-
+diff --git a/src/include/gdb_packet.h b/src/include/gdb_packet.h
+deleted file mode 100644
+index 789cfa1..0000000
+--- a/src/include/gdb_packet.h
++++ /dev/null
+@@ -1,37 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __GDB_PACKET_H
+-#define __GDB_PACKET_H
+-
+-#include <stdarg.h>
+-
+-int gdb_getpacket(char *packet, int size);
+-void gdb_putpacket(const char *packet, int size);
+-#define gdb_putpacketz(packet) gdb_putpacket((packet), strlen(packet))
+-void gdb_putpacket_f(const char *packet, ...);
+-
+-void gdb_out(const char *buf);
+-void gdb_voutf(const char *fmt, va_list);
+-void gdb_outf(const char *fmt, ...);
+-
+-#endif
+-
+-
+diff --git a/src/include/jtagtap.h b/src/include/jtagtap.h
+deleted file mode 100644
+index 898b9c8..0000000
+--- a/src/include/jtagtap.h
++++ /dev/null
+@@ -1,65 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __JTAGTAP_H
+-#define __JTAGTAP_H
+-
+-/* Note: Signal names are as for the device under test. */
+-
+-int jtagtap_init(void);
+-
+-void jtagtap_reset(void);
+-
+-uint8_t jtagtap_next(const uint8_t TMS, const uint8_t TDI);
+-/* tap_next executes one state transision in the JTAG TAP state machine:
+- * - Ensure TCK is low
+- * - Assert the values of TMS and TDI
+- * - Assert TCK (TMS and TDO are latched on rising edge
+- * - Caputure the value on TDO
+- * - Release TCK.
+- */
+-
+-void jtagtap_tms_seq(uint32_t MS, int ticks);
+-void jtagtap_tdi_tdo_seq(uint8_t *DO, const uint8_t final_tms, const uint8_t *DI, int ticks);
+-void jtagtap_tdi_seq(const uint8_t final_tms, const uint8_t *DI, int ticks);
+-/* Shift out a sequence on MS and DI, capture data to DO.
+- * - This is not endian safe: First byte will always be first shifted out.
+- * - DO may be NULL to ignore captured data.
+- * - DO may be point to the same address as DI.
+- */
+-
+-/* generic soft reset: 1, 1, 1, 1, 1, 0 */
+-#define jtagtap_soft_reset()	\
+-	jtagtap_tms_seq(0x1F, 6)
+-
+-/* Goto Shift-IR: 1, 1, 0, 0 */
+-#define jtagtap_shift_ir()		\
+-	jtagtap_tms_seq(0x03, 4)
+-
+-/* Goto Shift-DR: 1, 0, 0 */
+-#define jtagtap_shift_dr()		\
+-	jtagtap_tms_seq(0x01, 3)
+-
+-/* Goto Run-test/Idle: 1, 1, 0 */
+-#define jtagtap_return_idle()	\
+-	jtagtap_tms_seq(0x01, 2)
+-
+-#endif
+-
+diff --git a/src/include/swdptap.h b/src/include/swdptap.h
+deleted file mode 100644
+index c51a28c..0000000
+--- a/src/include/swdptap.h
++++ /dev/null
+@@ -1,37 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __SWDPTAP_H
+-#define __SWDPTAP_H
+-
+-int swdptap_init(void);
+-
+-/* Primitive functions */
+-bool swdptap_bit_in(void);
+-void swdptap_bit_out(bool val);
+-
+-/* High level functions, provided as weak in swdptap_generic.c */
+-uint32_t swdptap_seq_in(int ticks);
+-bool swdptap_seq_in_parity(uint32_t *data, int ticks);
+-void swdptap_seq_out(uint32_t MS, int ticks);
+-void swdptap_seq_out_parity(uint32_t MS, int ticks);
+-
+-#endif
+-
+diff --git a/src/platforms/common/cdcacm.c b/src/platforms/common/cdcacm.c
+index 62cc419..a292940 100644
+--- a/src/platforms/common/cdcacm.c
++++ b/src/platforms/common/cdcacm.c
+@@ -27,7 +27,6 @@
+  */
+ 
+ #include "general.h"
+-#include "gdb_if.h"
+ #include "cdcacm.h"
+ #if defined(PLATFORM_HAS_TRACESWO)
+ #	include "traceswo.h"

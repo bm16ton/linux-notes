@@ -3,7 +3,12 @@ flash info 0
 
 flash protectn    #turn on off flash protection will most likely cause full erase
 
-# program and verify using elf/hex/s19. verify and reset# are optional parametersopenocd -f board/stm32f3discovery.cfg \-c "program filename.elf verify reset exit"# binary files need the flash address passingopenocd -f board/stm32f3discovery.cfg \-c "program filename.bin exit 0x08000000"
+# program and verify using elf/hex/s19. verify and reset# are optional parameters
+
+openocd -f board/stm32f3discovery.cfg \
+-c "program filename.elf verify reset exit"  # binary files need the flash address passing
+openocd -f board/stm32f3discovery.cfg \
+-c "program filename.bin exit 0x08000000"
 
 Memory access commandsThese commands allow accesses of a specific size to the memory system.  Often these areused to configure the current target in some special way.  For example - one may need towrite certain values to the SDRAM controller to enable SDRAM.1.  Use thetargets(plural) command to change the current target.2.  In  system  level  scripts  these  commands  are  deprecated.   Please  use  their  TARGETobject siblings to avoid making assumptions about what TAP is the current target, orabout MMU configuration.[Command]mdd[phys]addr[count][Command]mdw[phys]addr[count][Command]mdh[phys]addr[count][Command]mdb[phys]addr[count]Display contents of addressaddr,  as 64-bit doublewords (mdd),  32-bit words (mdw),16-bit halfwords (mdh), or 8-bit bytes (mdb).  When the current target has an MMUwhich is present and active,addris interpreted as a virtual address.  Otherwise, or ifthe optionalphysflag is specified,addris interpreted as a physical address.  Ifcountis specified, displays that many units.  (If you want to manipulate the data instead ofdisplaying it, see themem2arrayprimitives.)[Command]mwd[phys]addr doubleword[count][Command]mww[phys]addr word[count][Command]mwh[phys]addr halfword[count][Command]mwb[phys]addr byte[count]Writes the specifieddoubleword(64 bits),word(32 bits),halfword(16 bits), orbyte(8-bit) value, at the specified addressaddr.  When the current target has an MMUwhich is present and active,addris interpreted as a virtual address.  Otherwise, or i
 

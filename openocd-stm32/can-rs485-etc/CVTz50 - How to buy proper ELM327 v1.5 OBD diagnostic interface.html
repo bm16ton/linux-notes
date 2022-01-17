@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>CVTz50 - How to buy proper ELM327 v1.5 OBD diagnostic interface</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/main.css">
+</head>
+<body class="">
+<div id="page-wrapper"> 
+  
+  <!-- Header -->
+  <div id="header"> 
+    
+    <!-- Logo -->
+    <h1><a href="http://cvtz50.info/" id="logo">CVTz50<em> &nbsp;|&nbsp; CVT diagnostics with ELM327</em></a></h1>
+    
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li style="white-space: nowrap;"><a href="https://cvtz50.info/">Main</a></li>
+        <li style="white-space: nowrap;"><a href="https://cvtz50.info/get">Download from Google Play</a></li>
+        <li class="current" style="white-space: nowrap;"><a href="https://cvtz50.info/en/elm327/elm327/">Choosing ELM327 Interface</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Main -->
+  <section class="wrapper style1">
+    <div class="container">
+      <div class="row gtr-200">
+        <div class="col-4 col-12-narrower">
+          <div id="sidebar"> 
+            
+            <!-- Sidebar -->
+            
+            <section>
+              <h3>Choosing ELM327 device</h3>
+              <ul class="links">
+                <li><a href="#whyversionmatters">Why it matters</a></li>
+                <li><a href="#wheretobuy">Where to buy</a></li>
+                <li><a href="#differences">Difference between good and bad ELM327 interface</a></li>
+                <li><a href="#differencepics">Difference in pictures</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="col-8  col-12-narrower imp-narrower">
+          <div id="content"> 
+            
+            <!-- Content -->
+            
+            <article>
+              <header> <a name="whyversionmatters"></a>
+                <h2>Why it matters</h2>
+              </header>
+              <p>In order to communicate with majority of CVT 
+transmissions, CVTz50 requires a good ELM327 interface ("good version 
+1.4 or 1.5"). CVT diagnostic protocol is more complex than standard 
+engine diagnostics so it requires more functionality from ELM327. This 
+means that many "bad v2.1" interfaces are able to connect to engine 
+howerer are missing features required for establishing a connection with
+ transmission and other control modules. Some "bad" interfaces are still
+ able to provide limited connectivity to CVT in compatibility mode 
+(compatibility mode can be enabled by choosing option "ELM327 v2.15 
+workaroud" in CVTz50 menu), however advanced functionality will not be 
+working (like clearing "CVTF deterioration date", reading engine brake 
+level, list of previously cleared DTCs, some monitoring parameters).</p>
+            </article>
+            <article>
+              <header><a name="wheretobuy"></a>
+                <h2>Where to buy</h2>
+              </header>
+              <p>Fastest and most reliable way of getting proper 
+ELM327v1.5 is buying it at local store. Check it immediately with CVTz50
+ or CVTz50 DEMO and get moneyback if it unable to connect to 
+transmission. Just one disadvantage - price of the interface will be 
+higher comparing to online stores.</p>
+              <p>It is also possible to buy a good ELM327 interface via 
+Ebay or Aliexpress, search using keywords ELM327 PIC18F25K80 
+(PIC18F25K80 is name of the chip inside majority of "good" adapters). 
+The problem is that some sellers are still shipping "fake" interfaces 
+regardless of mentioning the name of good chip in item's description, 
+especially sellers offering lowest price. So before placing an order, it
+ is necessary to check with the seller whether their product really has 
+proper version 1.5 and build on appropriate hardware. Sample query to a 
+seller: <em>Is your ELM327 1.5 built on original Microchip PIC18F25K80? 
+What's the frequency of crystal oscillator there, 4mhz or 16mhz? Does it
+ support commands ATAL and ATPPS?</em></p>
+            </article>
+            <article>
+              <header><a name="differences"></a>
+                <h2>Difference between good and bad ELM327 interface</h2>
+              </header>
+              <p>Casing of good and bad interfaces is the same (many 
+variants of cases exist however all of them can have fake components 
+inside) so it is needed to look into internals. Many online stores 
+provide pictures of disassembled devices allowing to recognize obvious 
+fakes (though pictures in online shops are not always real).</p>
+              <p>"Good", "real version 1.5" ELM327 interfaces are built 
+on chip PIC18F25K80 produced by Microchip. As a rule, such interfaces 
+are properly listed as "version 1.5" in online stores. Android 
+application <em>ELM327 Identifier</em> after analysis of such device show that the interface supports all commands of ELM327 protocol till version 1.4.</p>
+              <p>"Bad" (or fake) interfaces are built on cheap 
+microcontrollers like STM32F042, YM1130, BK3231Q, 25K80 QBD327 and 
+unknown chips hidden under black drop of special varnish. Such 
+interfaces are usually recognized as "Chineese version 2.1", however 
+many unfair sellers are selling these as v1.5. Moreover, when connected 
+to diagnostic software, poor interfaces can report version 1.5 so they 
+are "fake v1.5" (actually they can show any number there). If "bad" 
+interface is not trying to trick the user, than ELM327 Identifier will 
+show that many v1.4 commands are not supported. However if fake ELM327 
+programmed to cheat diagnostic software,  ELM327 Identifier can show 
+same result as for good interface or even better.</p>
+              <p>Special attention to new kind of fake adapters 
+introduced in 2017 - built on chip QBD327 relabeled as PIC18F25K80. Such
+ relabeled chips have following specialities:</p>
+              <ul style="list-style-type:square">
+                <li>Microchip logotype <em>(M)</em> on fake chip is blurred (while original chip has clear and sharp logo)</li>
+                <li>Third line of the label on fake chip has string <em>14309MP</em> or <em>1643URE</em> or <em>1850AAJ</em>; original chip has another strings with encoded production date</li>
+                <li>Fake chip uses crystal oscillator with frequency 
+16.000MHz (usually located near the chip); original PIC18F25K80 requires
+ crystal oscillator 4.000MHz</li>
+                <li>Fake ELM327 does not support command ATPPS; good 
+ELM327 recognizes command ATPPS and responds to it with list of hex 
+numbers (ATPPS can be sent to the adapter using "Custom commands" in <a href="http://cvtz50.info/getdemo">CVTz50 DEMO</a>).</li>
+              </ul>
+            </article>
+            <article>
+              <header><a name="differencepics"></a>
+                <h2>Difference in pictures</h2>
+              </header>
+              <p>Good ELM327 interface: microchip PIC18F25K80 and crystal oscillator 4MHz.<br>
+                Might be built on one PCB (like on the picture), or on two or three PCBs soldered together<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_0_good.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Generally good ELM327 interface (microchip PIC18F25K80 
+and crystal oscillator 4MHz), however this specific variant with PCB 
+KA2019+switch can be turned on only while engine is running.<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_0_good_ka2019switch.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Bad ELM327 interface: <strong>fake</strong> microchip PIC18F25K80 with label 14309MP and crystal oscillator 16MHz<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_1_bad_fakepic.jpg" style="max-width: 640px; width: 100%"> </p>
+              <p>Bad ELM327 interface: microchip STM32 (except Vgate iCar Pro and similar which are priced above average)<br>
+                Sometimes such interfaces can work with limitations in mode "ELM327 v2.15 compatibility"<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_2_bad_stm.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Bad ELM327 interface: unknown chip hidden under drop of varnish<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_3_bad_kaplya.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Bad ELM327 interface: 2 chips with erased labels.<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_4_bad_2020_16pin.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Bad ELM327 interface: unknown chip hidden under drop of varnish<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_5_bad_2019_kaplya.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Bad ELM327 interface: unknown chip hidden under drop of varnish is on the back of circuit board<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_6_bad_202103_kaplya_otherside.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Also following models cannot be easily disassembled but are usually good<br>
+                Vgate iCar Pro: usually good if original. Price starts from $15.<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_vgate_icar_pro.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Konnwei KW903 Bluetooth 4.0: usually good if original, 
+however works only in Bluetooth Low Energy mode which is not compatible 
+with old Android devices. Price starts from $10.<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_konnweikw903_bt4.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>ObdLink LX (or MX, MX+): very good if original. Price from $50. <br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_obdlink_lx.jpg" style="max-width: 640px; width: 100%"></p>
+              <p>Viecar 4.0: usually good if original. Price starts from $15.<br>
+                <img src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/elm327_hw_viecar_bt4.jpg" style="max-width: 640px; width: 100%"></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <div id="footer"> 
+    <!-- Copyright -->
+    <div class="copyright"> © CVTz50.info </div>
+  </div>
+</div>
+
+<!-- Scripts --> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/jquery.js"></script> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/jquery_002.js"></script> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/browser.js"></script> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/breakpoints.js"></script> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/util.js"></script> 
+<script src="CVTz50%20-%20How%20to%20buy%20proper%20ELM327%20v1.5%20OBD%20diagnostic%20interface_files/main.js"></script><div id="titleBar"><a href="#navPanel" class="toggle"></a><span class="title">CVTz50<em> &nbsp;|&nbsp; CVT diagnostics with ELM327</em></span></div><div id="navPanel"><nav><a class="link depth-0" href="https://cvtz50.info/"><span class="indent-0"></span>Main</a><a class="link depth-0" href="https://cvtz50.info/get"><span class="indent-0"></span>Download from Google Play</a><a class="link depth-0" href="https://cvtz50.info/en/elm327/elm327/"><span class="indent-0"></span>Choosing ELM327 Interface</a></nav></div>
+
+</body></html>

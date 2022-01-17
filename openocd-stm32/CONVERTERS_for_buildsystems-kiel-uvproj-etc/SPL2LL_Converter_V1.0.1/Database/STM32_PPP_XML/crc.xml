@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="CRC">
+  <COMMON>
+    <LITERALS>
+    </LITERALS>
+
+	<STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>  
+      <!-- ################ Exported Functions ################ -->
+	  <FUNCTION>
+          <SPL NAME="CRC_ResetDR" />
+          <LL  NAME="LL_CRC_ResetCRCCalculationUnit"  
+               CMD0="UPD@LL_PARAM_0=CRC"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_CalcCRC" />
+          <LL  NAME="LL_CRC_FeedData32"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+          <LL  NAME="LL_CRC_ReadData32"  
+               CMD0="UPD@LL_PARAM_0=CRC"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_CalcBlockCRC" />
+          <LL  NAME="N/A"
+               CMD0="uint32_t index = 0;\n   
+			         for(index = 0; index &lt; {CPY@SPL_PARAM_1}; index++)\n
+                     {\n
+                       LL_CRC_FeedData32(CRC, {CPY@SPL_PARAM_0}[index]);\n
+                     }" />
+          <LL  NAME="LL_CRC_ReadData32"  
+               CMD0="UPD@LL_PARAM_0=CRC"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_GetCRC" />
+          <LL  NAME="LL_CRC_ReadData32"  
+               CMD0="UPD@LL_PARAM_0=CRC"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_SetIDRegister" />
+          <LL  NAME="LL_CRC_Write_IDR"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_GetIDRegister" />
+          <LL  NAME="LL_CRC_Read_IDR"  
+               CMD0="UPD@LL_PARAM_0=CRC"/>
+      </FUNCTION>
+	  
+    </FUNCTIONS>
+  </COMMON>
+  
+  <SPECIFIC>
+   <VERSION NAME="CRC_VER_1_0_0">
+      <LITERALS>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+      </FUNCTIONS>
+    </VERSION>
+	
+   <VERSION NAME="CRC_VER_2_1_0">
+      <LITERALS>
+        <LITERAL>
+          <SPL>CRC_ReverseInputData_No</SPL>
+          <LL>LL_CRC_INDATA_REVERSE_NONE</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_ReverseInputData_8bits</SPL>
+          <LL>LL_CRC_INDATA_REVERSE_BYTE</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_ReverseInputData_16bits</SPL>
+          <LL>LL_CRC_INDATA_REVERSE_HALFWORD</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_ReverseInputData_32bits</SPL>
+          <LL>LL_CRC_INDATA_REVERSE_WORD</LL>
+        </LITERAL>
+		
+        <LITERAL>
+          <SPL>CRC_PolSize_7</SPL>
+          <LL>LL_CRC_POLYLENGTH_7B</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_PolSize_8</SPL>
+          <LL>LL_CRC_POLYLENGTH_8B</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_PolSize_16</SPL>
+          <LL>LL_CRC_POLYLENGTH_16B</LL>
+        </LITERAL>
+        <LITERAL>
+          <SPL>CRC_PolSize_32</SPL>
+          <LL>LL_CRC_POLYLENGTH_32B</LL>
+        </LITERAL>
+		
+      </LITERALS>
+	  
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+      <!-- ################ Init/DeInit Functions ################ -->
+	  <FUNCTION>
+          <SPL NAME="CRC_DeInit" />
+          <LL  NAME="LL_CRC_DeInit"  
+               CMD0="UPD@LL_PARAM_0=CRC"/> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_CalcCRC16bits" />
+          <LL  NAME="LL_CRC_FeedData16"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+          <LL  NAME="LL_CRC_ReadData16"  
+               CMD0="UPD@LL_PARAM_0=CRC"/>
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="CRC_CalcCRC8bits" />
+          <LL  NAME="LL_CRC_FeedData8"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+          <LL  NAME="LL_CRC_ReadData8"  
+               CMD0="UPD@LL_PARAM_0=CRC"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="CRC_PolynomialSizeSelect" />
+          <LL  NAME="LL_CRC_SetPolynomialSize"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="CRC_ReverseInputDataSelect" />
+          <LL  NAME="LL_CRC_SetInputDataReverseMode"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+	   <FUNCTION>
+           <SPL NAME="CRC_ReverseOutputDataCmd"
+                CMD0="EQU@SPL_PARAM_0=ENABLE" />
+           <LL  NAME="LL_CRC_SetOutputDataReverseMode"
+                CMD0="UPD@LL_PARAM_0=CRC"
+				CMD1="UPD@LL_PARAM_1=LL_CRC_OUTDATA_REVERSE_BIT" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="CRC_ReverseOutputDataCmd"
+                CMD0="EQU@SPL_PARAM_0=DISABLE" />
+           <LL  NAME="LL_CRC_SetOutputDataReverseMode"
+                CMD0="UPD@LL_PARAM_0=CRC"
+				CMD1="UPD@LL_PARAM_1=LL_CRC_OUTDATA_REVERSE_NONE" />
+       </FUNCTION>
+	   
+	  <FUNCTION>
+          <SPL NAME="CRC_SetInitRegister" />
+          <LL  NAME="LL_CRC_SetInitialData"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+	  <FUNCTION>
+          <SPL NAME="CRC_SetPolynomial" />
+          <LL  NAME="LL_CRC_SetPolynomialCoef"  
+               CMD0="UPD@LL_PARAM_0=CRC"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_0}"/>
+      </FUNCTION>
+	  
+      </FUNCTIONS>
+    </VERSION>
+	
+  </SPECIFIC>
+</IP>

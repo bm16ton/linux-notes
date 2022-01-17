@@ -1,0 +1,18 @@
+
+lpc43xx_bare.name=NXP LPC43XX
+
+lpc1114_bare.upload.tool=dfuprog
+lpc1114_bare.upload.protocol=lpc
+lpc1114_bare.upload.maximum_size=32768
+lpc1114_bare.upload.use_1200bps_touch=false
+lpc1114_bare.upload.wait_for_upload_port=true
+#
+lpc1114_bare.build.mcu=cortex-m4
+lpc1114_bare.build.f_cpu=50000000L
+lpc1114_bare.build.board=NXP_LPC4370
+lpc1114_bare.build.core=lpc43xx
+lpc1114_bare.build.extra_flags=-D__LPC43XX__ -mthumb
+lpc1114_bare.build.ldscript=linker_scripts/gcc/linkscript43.ld
+lpc1114_bare.build.variant=lpc43xx
+lpc1114_bare.build.variant_system_lib=liblpc_chip_43xx.a
+

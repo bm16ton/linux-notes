@@ -1,0 +1,1 @@
+(function(){ezoicSiteSpeed(window,String(/windowLoad/).substring(1).slice(0,-1),String(/window-load-listener/).substring(1).slice(0,-1),function(){var notificationElement=document.querySelector('.jetpack-sub-notification');if(notificationElement){notificationElement.scrollIntoView();}});})();

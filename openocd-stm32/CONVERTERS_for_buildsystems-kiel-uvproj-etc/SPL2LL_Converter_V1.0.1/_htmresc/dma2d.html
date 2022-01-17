@@ -1,0 +1,804 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="dma2d_files/filelist.xml">
+<style id="wwdg_21271_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font521271
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font621271
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font721271
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font821271
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl1521271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6521271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6621271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6721271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6821271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6921271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7021271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7121271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7221271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7321271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7421271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7521271
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7621271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7721271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7821271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7921271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8021271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8121271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8221271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8321271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8421271
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="wwdg_21271" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1163 style='border-collapse:
+ collapse;table-layout:fixed;width:873pt'>
+ <col class=xl1521271 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col width=530 style='mso-width-source:userset;mso-width-alt:16960;width:398pt'>
+ <col width=601 style='mso-width-source:userset;mso-width-alt:19232;width:451pt'>
+ <col width=16 style='mso-width-source:userset;mso-width-alt:512;width:12pt'>
+ <tr class=xl6821271 height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl8021271 width=1163 style='border-right:.5pt solid #39A9DC;
+  height:47.1pt;width:873pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font821271">DMA2D</font><font class="font621271"> driver</font></td>
+ </tr>
+ <tr class=xl1521271 height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td colspan=2 height=22 class=xl8421271 width=546 style='height:16.5pt;
+  width:410pt'>SPL</td>
+  <td class=xl7621271>STM32Cube_LL</td>
+  <td class=xl6921271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl6621271 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_DeInit(void)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_DeInit(DMA2D_TypeDef
+  *DMA2Dx)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=21 style='height:15.75pt'>
+  <td height=21 class=xl6621271 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_Init(DMA2D_InitTypeDef*
+  DMA2D_InitStruct)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_Init(DMA2D_TypeDef
+  *DMA2Dx, LL_DMA2D_InitTypeDef *DMA2D_InitStruct)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=21 style='height:15.75pt'>
+  <td height=21 class=xl6621271 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_StructInitDMA2D_StructInit(DMA2D_InitTypeDef*
+  DMA2D_InitStruct)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_StructInit(LL_DMA2D_InitTypeDef
+  *DMA2D_InitStruct)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=21 style='height:15.75pt'>
+  <td height=21 class=xl6621271 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_StartTransfer(void)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_Start(DMA2D_TypeDef
+  *DMA2Dx)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=21 style='height:15.75pt'>
+  <td height=21 class=xl6621271 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_AbortTransfer(void)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_Abort(DMA2D_TypeDef
+  *DMA2Dx)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6621271 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_Suspend(FunctionalState
+  NewState)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_Resume(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_Suspend(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6621271 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_FGConfig(DMA2D_FG_InitTypeDef*
+  DMA2D_FG_InitStruct)<br>
+    DMA2D_BGConfig(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_ConfigLayer(DMA2D_TypeDef
+  *DMA2Dx, LL_DMA2D_LayerCfgTypeDef *DMA2D_LayerCfg, uint32_t LayerIdx)</td>
+  <td class=xl6621271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6721271 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_FG_StructInit(DMA2D_FG_InitTypeDef*
+  DMA2D_FG_InitStruct)<br>
+    DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_LayerCfgStructInit(LL_DMA2D_LayerCfgTypeDef
+  *DMA2D_LayerCfg)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6721271 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_FGStart(FunctionalState
+  NewState)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_FGND_EnableCLUTLoad(DMA2D_TypeDef
+  *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6721271 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_BGStart(FunctionalState
+  NewState)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_BGND_EnableCLUTLoad(DMA2D_TypeDef
+  *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=40 style='height:30.0pt'>
+  <td height=40 class=xl6721271 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_DeadTimeConfig(uint32_t
+  DMA2D_DeadTime, FunctionalState NewState)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_EnableDeadTime(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_DisableDeadTime(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=20 style='height:15.0pt'>
+  <td height=20 class=xl6721271 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_LineWatermarkConfig(uint32_t
+  DMA2D_LWatermarkConfig)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_SetLineWatermark(DMA2D_TypeDef
+  *DMA2Dx, uint32_t LineWatermark)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=260 style='height:195.0pt'>
+  <td height=260 class=xl6721271 style='height:195.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_ITConfig(uint32_t
+  DMA2D_IT, FunctionalState NewState)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_EnableIT_CE(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_EnableIT_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_EnableIT_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_EnableIT_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_EnableIT_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_EnableIT_TE(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_DisableIT_CE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_DisableIT_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_DisableIT_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_DisableIT_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_DisableIT_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_DisableIT_TE(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=120 style='height:90.0pt'>
+  <td height=120 class=xl6721271 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_GetFlagStatus(uint32_t
+  DMA2D_FLAG)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_IsActiveFlag_CE(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_IsActiveFlag_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsActiveFlag_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsActiveFlag_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsActiveFlag_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsActiveFlag_TE(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=120 style='height:90.0pt'>
+  <td height=120 class=xl6721271 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_ClearFlag(uint32_t
+  DMA2D_FLAG)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_ClearFlag_CE(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TE(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=340 style='height:255.0pt'>
+  <td height=340 class=xl6721271 style='height:255.0pt'>&nbsp;</td>
+  <td class=xl7021271 width=530 style='width:398pt'>DMA2D_GetITStatus(uint32_t
+  DMA2D_IT)</td>
+  <td class=xl7421271 width=601 style='width:451pt'>LL_DMA2D_IsActiveFlag_CE(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_CE(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_IsActiveFlag_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_IsActiveFlag_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_IsActiveFlag_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_IsActiveFlag_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    <br>
+    LL_DMA2D_IsActiveFlag_TE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_IsEnabledIT_TE(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=120 style='height:90.0pt'>
+  <td height=120 class=xl6721271 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7121271 width=530 style='width:398pt'>void
+  DMA2D_ClearITPendingBit(uint32_t DMA2D_IT)</td>
+  <td class=xl7521271 width=601 style='width:451pt'>LL_DMA2D_ClearFlag_CE(DMA2D_TypeDef
+  *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_CTC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_CAE(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TW(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TC(DMA2D_TypeDef *DMA2Dx)<br>
+    LL_DMA2D_ClearFlag_TE(DMA2D_TypeDef *DMA2Dx)</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td colspan=4 height=25 class=xl8321271 width=1163 style='height:18.75pt;
+  width:873pt'>Correspondence between <font class="font721271">SPL</font><font
+  class="font521271">and </font><font class="font721271">STM32Cube_LL</font><font
+  class="font521271"> initialization structures</font></td>
+ </tr>
+ <tr class=xl1521271 height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl7721271 style='height:17.25pt'>&nbsp;</td>
+  <td class=xl7921271 width=530 style='width:398pt'>Structures</td>
+  <td class=xl7821271 width=601 style='width:451pt'>Parameters</td>
+  <td class=xl7721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=200 style='height:150.0pt'>
+  <td height=200 class=xl6721271 style='height:150.0pt'>&nbsp;</td>
+  <td class=xl7221271 width=530 style='width:398pt'>DMA2D_InitTypeDef<span
+  style='mso-spacerun:yes'>  </span>&#8596; LL_DMA2D_InitTypeDef<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl7321271 width=601 style='width:451pt'>DMA2D_Mode<span
+  style='mso-spacerun:yes'>   </span>&#8596;<span style='mso-spacerun:yes'>  
+  </span>Mode<br>
+    DMA2D_CMode<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>ColorMode<br>
+    DMA2D_OutputBlue<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>OutputBlue<br>
+    DMA2D_OutputGreen<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>OutputGreen<br>
+    DMA2D_OutputRed<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>OutputRed<br>
+    DMA2D_OutputAlpha<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>OutputAlpha<br>
+    DMA2D_OutputMemoryAdd<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>OutputMemoryAddress<br>
+    DMA2D_OutputOffset<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>LineOffset<br>
+    DMA2D_NumberOfLine<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>NbrOfLines<br>
+    DMA2D_PixelPerLine<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>NbrOfPixelsPerLines</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=220 style='height:165.0pt'>
+  <td height=220 class=xl6721271 style='height:165.0pt'>&nbsp;</td>
+  <td class=xl7221271 width=530 style='border-top:none;width:398pt'>DMA2D_FG_InitTypeDef<span
+  style='mso-spacerun:yes'>  </span>&#8596; LL_DMA2D_LayerCfgTypeDef</td>
+  <td class=xl7321271 width=601 style='border-top:none;width:451pt'>DMA2D_FGMA<span
+  style='mso-spacerun:yes'>   </span>&#8596;<span style='mso-spacerun:yes'>  
+  </span>MemoryAddress<br>
+    DMA2D_FGO<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>LineOffset<br>
+    DMA2D_FGCM<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>ColorMode<br>
+    DMA2D_FG_CLUT_CM<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>CLUTColorMode<br>
+    DMA2D_FG_CLUT_SIZE<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>CLUTSize<br>
+    DMA2D_FGPFC_ALPHA_MODE<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>AlphaMode<br>
+    DMA2D_FGPFC_ALPHA_VALUE<span style='mso-spacerun:yes'>  
+  </span>&#8596;<span style='mso-spacerun:yes'>   </span>Alpha<br>
+    DMA2D_FGC_BLUE<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>Blue<br>
+    DMA2D_FGC_GREEN<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>Green<br>
+    DMA2D_FGC_RED<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>Red<br>
+    DMA2D_FGCMAR<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>CLUTMemoryAddress</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=220 style='height:165.0pt'>
+  <td height=220 class=xl6721271 style='height:165.0pt'>&nbsp;</td>
+  <td class=xl7221271 width=530 style='border-top:none;width:398pt'>DMA2D_BG_InitTypeDef<span
+  style='mso-spacerun:yes'>  </span>&#8596; LL_DMA2D_LayerCfgTypeDef</td>
+  <td class=xl7321271 width=601 style='border-top:none;width:451pt'>DMA2D_BGMA<span
+  style='mso-spacerun:yes'>  </span>&#8596;<span style='mso-spacerun:yes'>  
+  </span>MemoryAddress<br>
+    DMA2D_BGO<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>LineOffset<br>
+    DMA2D_BGCM<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>ColorMode<br>
+    DMA2D_BG_CLUT_CM<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>CLUTColorMode<br>
+    DMA2D_BG_CLUT_SIZE<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>CLUTSize<br>
+    DMA2D_BGPFC_ALPHA_MODE<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>AlphaMode<br>
+    DMA2D_BGPFC_ALPHA_VALUE<span style='mso-spacerun:yes'>  
+  </span>&#8596;<span style='mso-spacerun:yes'>   </span>Alpha<br>
+    DMA2D_BGC_BLUE<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>Blue<br>
+    DMA2D_BGC_GREEN<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>Green<br>
+    DMA2D_BGC_RED<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>Red<br>
+    DMA2D_BGCMAR<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>CLUTMemoryAddress</td>
+  <td class=xl6721271>&nbsp;</td>
+ </tr>
+ <tr class=xl1521271 height=19 style='height:14.25pt'>
+  <td height=19 class=xl6521271 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl6521271>&nbsp;</td>
+  <td class=xl6521271>&nbsp;</td>
+  <td class=xl6521271>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl1521271 style='height:14.25pt'></td>
+  <td class=xl1521271></td>
+  <td class=xl1521271></td>
+  <td class=xl1521271></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl1521271 style='height:14.25pt'></td>
+  <td class=xl1521271></td>
+  <td class=xl1521271></td>
+  <td class=xl1521271></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=530 style='width:398pt'></td>
+  <td width=601 style='width:451pt'></td>
+  <td width=16 style='width:12pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

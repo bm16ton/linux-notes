@@ -1,0 +1,121 @@
+#include "iom8.h"
+#include "ina90.h"
+#include "stdio.h"
+
+#define SetBit(address,bit) (address|=(1<<bit))
+#define ClrBit(address,bit) (address&=~(1<<bit))
+#define InvBit(address,bit) (address^=(1<<bit))
+#define IsBitOn(address,bit)  (address&(1<<bit))
+#define IsBitOff(address,bit) (!(address&(1<<bit)))
+
+volatile unsigned char a, ch, t0, t1, data0, data1, flag, count;
+volatile int timer;
+unsigned char i;
+/* Prototypes */
+void InitUART( void );
+void TransmitByte(unsigned char);
+
+
+/* Initialize UART */
+void InitUART(void)
+{      
+//UCSRA=0x00;// USART Receiver: On
+//UCSRB=0x98;// USART Transmitter: On
+//UCSRC=0x86;// USART Mode: Asynchronous
+        UBRRH = 0;
+	UBRRL = 8; 	/* Set the baud rate 57600 8_MHz */
+	UCSRB = ( (1<<RXCIE)  | (1<<RXEN) | (1<<TXEN) );/* Enable UART receiver and transmitter, and receive interrupt */
+        UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);
+}
+
+#pragma vector=USART_RXC_vect
+__interrupt void UART_RX_interrupt( void )
+   {    a = UDR; count++;   // a &= 31;  //перевод в ASCII
+   if (a==0xAB) {flag=0; SetBit(flag,3); count=1;}     // условие СТАРТ от РС
+   if (count == 2)  { if (a==0x00) SetBit (flag,0);
+                      if (a==0x01) SetBit (flag,1);
+                      if (a==0x02) SetBit (flag,2);}
+                            
+   if (count == 3)  {ch=a; count=0; SetBit(flag,4);}
+                     
+    }
+
+#pragma vector=USART_UDRE_vect
+__interrupt void UART_TX_interrupt( void )
+{
+		UCSRB = (1<<UDRIE);        /*  Enable UDRIE */
+	}
+
+void TransmitByte(unsigned char data)
+{
+while ( !( UCSRA & (1<<UDRE)) );/* Wait for empty transmit buffer */
+UDR = data;                     /* Put data into buffer, sends the data */
+}
+
+ void ADC_R(char Can)
+ {
+   ADMUX=Can; ADCSR = (1<<ADEN);
+   SetBit(ADCSR,ADSC); //ADCSR = (1<<ADS);
+ while (!(ADCSR & (1<<ADIF)));
+    ADCSR = (1<<ADIF); //сброс флага
+    data0=ADCL;
+    data1=ADCH;
+ }//ADC
+
+
+void main(void)
+{ 
+
+  DDRD = 0xF0; //выход-вход 1111 0000
+  DDRB = 0xFF; //выход
+  DDRC = 0x00;
+  PORTD = 0x0D; //0000 1101
+  PORTB = 0xFF;
+  PORTC = 0x00;
+
+WDTCR = 0x18;
+WDTCR = 0x10; //стоп WDT
+
+ch=0; count=0; timer=0;
+
+ADCSR = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1);//  prescaler=64
+
+ __enable_interrupt();
+InitUART();
+
+while(1){ 
+__delay_cycles(1000000);
+
+ if(IsBitOn(flag,4)) {ClrBit(flag,4); ClrBit(flag,3); 
+   switch (flag) {
+        case 1:  { timer=0; ch=0; ClrBit(ADCSR,ADEN);}  break;//STOP  
+        case 2:  {timer=0; ch=0; ClrBit(ADCSR,ADEN);
+                 TransmitByte(0xAB); //Proverka
+                 TransmitByte(1);
+                 TransmitByte(2);
+                 TransmitByte(3); 
+                 TransmitByte(4); 
+                 TransmitByte(5);  } break;
+        case 4: {timer=0; ch=a; } break;
+          } //switch
+      }//if
+
+if (ch>0) {timer++;  
+        for(i=0; i<6; i++) {
+             if (IsBitOn(ch,i)) {ADC_R(i); 
+                 t0=(0x00FF & timer);
+                 t1=(timer >> 8);
+                 TransmitByte(0xAB);
+                 TransmitByte(i);
+                 TransmitByte(t0);
+                 TransmitByte(t1);
+                 TransmitByte(data0); 
+                 TransmitByte(data1);}
+                  }//for
+}  
+        }//while
+}//main
+
+
+
+

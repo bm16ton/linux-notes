@@ -1,0 +1,1 @@
+if(window.WeakMap&&window.Promise)try{(new WeakMap).has(0)}catch(w){window.unsupportedBrowser=!0}else window.unsupportedBrowser=!0;

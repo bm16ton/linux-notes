@@ -1,0 +1,61 @@
+cgdb
+gdb-multiarch
+nemiver
+rust-gdb
+xxgdb
+
+
+gdb will be removed with configuration
+gdb-multiarch will be removed with configuration
+gdbserver will be removed with configuration
+cgdb will be removed
+nemiver will be removed
+rust-gdb will be removed
+xxgdb will be removed
+
+
+set architecture arm
+target extended-remote /dev/ttyACM0
+
+######################################################
+arm-none-eabi-gdb -nx --batch \
+-ex 'target extended-remote /dev/ttyACM0' \
+-ex 'monitor swdp_scan'
+
+
+
+#########################################################
+to enable target power
+arm-none-eabi-gdb -nx --batch -ex 'target extended-remote /dev/ttyACM0' -ex 'monitor tpwr enable' -ex 'monitor swdp_scan'
+
+to disable external power
+arm-none-eabi-gdb -nx --batch -ex 'target extended-remote /dev/ttyACM0' -ex 'monitor tpwr disable' -ex 'monitor swdp_scan'
+
+
+#####################################################
+
+arm-none-eabi-gdb -nx --batch \
+-ex 'target extended-remote /dev/ttyACM0' \
+-ex 'monitor swdp_scan' \
+-ex 'attach 1' \
+-ex 'load' \
+-ex 'set mem inaccessible-by-default off' \
+-ex 'set {int}0x14000000 = 2' \
+-ex 'compare-sections' \
+-ex 'kill' \
+LPC4370.elf
+
+arm-none-eabi-gdb -nx --batch \
+-ex 'target extended-remote /dev/ttyACM0' \
+-ex 'monitor swdp_scan' \
+-ex 'attach 1' \
+-ex 'load' \
+-ex 'set mem inaccessible-by-default off' \
+-ex 'set {int}0x14000000 = 2' \
+-ex 'compare-sections' \
+-ex 'kill' \
+LPC4370.elf
+
+
+
+0x400E0740  is lpc4370 memmory address

@@ -1,0 +1,6 @@
+i2c_smbus_read_block_data
+Note that using this function requires that the client’s adapter support the I2C_FUNC_SMBUS_READ_BLOCK_DATA functionality.
+Not all adapter drivers support this; its emulation through I2C messaging relies on a specific mechanism (I2C_M_RECV_LEN)
+ which may not be implemented.
+
+

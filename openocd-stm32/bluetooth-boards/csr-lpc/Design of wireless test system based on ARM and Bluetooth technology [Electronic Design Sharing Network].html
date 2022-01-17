@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+ <head>
+  <base href="http://www.cediy.com/webHtml/Article/test/1076020080901102800.html"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+  <title>基于ARM及蓝牙技术的无线测试系统设计[电子设计分享网]</title> 
+  <meta name="generator" content="Aspoo"> 
+  <meta name="Keywords" content="基于ARM及蓝牙技术的无线测试系统设计,LPC2146,蓝牙,LT1461A3,MAX3232,无线通讯,数据采集,CSRBC02,开发板,电子技术,ARM开发板"> 
+  <meta name="Description" content="基于ARM及蓝牙技术的无线测试系统设计、电子技术,开发板制作交流"> 
+  <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/inc/js/stm31.js"></script> 
+  <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/inc/js/Font.js"></script> 
+  <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/inc/js/Ajax.js"></script> 
+  <link title="" type="application/rss+xml" rel="alternate" href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/RssFeed.Asp?ChannelID%3D1"> 
+  <link rel="stylesheet" type="text/css" href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/skins/Css/css25.css"> 
+  <meta http-equiv="X-Translated-By" content="Google">
+  <meta http-equiv="X-Translated-To" content="en">
+  <script type="text/javascript" src="https://www.gstatic.com/_/translate_http/_/js/k=translate_http.tr.en_US.FkHK92VbULg.O/d=1/rs=AN8SPfr5yFulQTD6i-M7qsvaMdDCJgno6g/m=website" data-sourceurl="http://www.cediy.com/webHtml/Article/test/1076020080901102800.html"></script>
+  <meta name="robots" content="none">
+ </head> 
+ <body>
+  <script type="text/javascript" src="https://www.gstatic.com/_/translate_http/_/js/k=translate_http.tr.en_US.FkHK92VbULg.O/d=1/exm=el_conf,website/ed=1/rs=AN8SPfr5yFulQTD6i-M7qsvaMdDCJgno6g/m=naviframe" data-environment="prod" data-proxy-url="https://www-cediy-com.translate.goog" data-proxy-full-url="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sch=http&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc" data-source-url="http://www.cediy.com/webHtml/Article/test/1076020080901102800.html" data-source-language="zh-CN" data-target-language="en" data-display-language="en" data-detected-source-language="" data-is-source-untranslated="false" data-source-untranslated-url="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/webHtml/Article/test/1076020080901102800.html&amp;anno=2"></script> 
+  <script type="text/javascript">
+<!-- Hide
+function killErrors() {
+return true;
+}
+window.onerror = killErrors;
+// -->
+</script> 
+  <div class="head"> 
+   <div class="top"> 
+    <div class="top_logo">
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="电子设计分享"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/logo.gif" width="200" height="70" border="0" alt=""></a>
+    </div> 
+    <div class="top_banner">
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="电子设计分享"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/skins/dianzi/Banner.gif" width="450" height="80" border="0" alt=""></a>
+    </div> 
+    <div class="top_logo2">
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Skins/cediylogo1.gif" border="0"></a> 
+    </div> 
+    <div class="top_right"> 
+     <script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/ShowLogin.asp?ChannelID%3Dchannelid"></script> 
+    </div> 
+   </div> 
+   <!--频道滑动导航开始 特效JS--> 
+   <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/skins/dianzi/tab_menu.js"></script> 
+   <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/skins/dianzi/top_menu.js"></script> 
+   <div class="cl_menu"> 
+    <ul> 
+     <li class="cl_menu_title_on" id="cl_TabTitle" onmouseover="Showcl_Tabs(0)"><a href="https://www-cediy-com.translate.goog/?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">首&nbsp;页</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(1)"><a href="https://www-cediy-com.translate.goog/Article/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">技术文章</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(2)"><a href="https://www-cediy-com.translate.goog/project/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">解决方案</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(3)"><a href="https://www-cediy-com.translate.goog/ebook/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">电子书籍</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(4)"><a href="https://www-cediy-com.translate.goog/soft/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">下载中心</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(5)"><a href="https://www-cediy-com.translate.goog/product/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">电子商城</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(6)"><a href="https://www-cediy-com.translate.goog/bbs/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">技术论坛</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(7)"><a href="https://www-cediy-com.translate.goog/blog/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">电子博客</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(8)"><a href="https://www-cediy-com.translate.goog/info/index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">商务信息</a></li> 
+     <li class="cl_menu_title" id="cl_TabTitle" onmouseover="Showcl_Tabs(9)"><a href="https://www-cediy-com.translate.goog/webHtml/Article/test/*?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">内部网站</a></li> 
+    </ul> 
+    <div class="nav_rightbg">
+     <b><a href="https://www-cediy-com.translate.goog/User/user_Index.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" style="color:#fff;font-size:12px; ">电子技术投稿</a></b>
+    </div> 
+   </div> 
+   <div class="cl_menu_center"> 
+    <ul id="cl_Tabs"> 
+     <li>当前没有通告！</li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none;"> 
+     <li><script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_1.Js"></script></li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <li><script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_101.Js"></script></li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <li><script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_8.Js"></script></li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <li><script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_2.Js"></script></li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <li><script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_5.Js"></script></li> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_11.Js"></script> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_102.Js"></script> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_30.Js"></script> 
+    </ul> 
+    <ul id="cl_Tabs" style="DISPLAY: none"> 
+     <script language="JavaScript" type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Js/ClassMenu/ClassMenu_3000.Js"></script> 
+    </ul> 
+   </div> 
+   <!--频道滑动导航结束--> 
+   <div class="clear"></div> 
+   <!--搜索开始--> 
+   <div class="searchart"> 
+    <form action="/SearchAdv.asp" method="get" name="search" target="_blank" id="search"> 
+     <input type="hidden" value="yes" name="IsSearch"> 
+     <input type="hidden" value="do" name="Action"> 
+     <strong>站内搜索：</strong> 
+     <input title="电子设计分享站内搜索" style="WIDTH: 450px;BORDER-RIGHT: #e2e2e2 1px solid; BORDER-TOP: #e2e2e2 1px solid; PADDING-LEFT: 30px; BORDER-LEFT: #e2e2e2 1px solid; WIDTH: 390px; BORDER-BOTTOM: #e2e2e2 1px solid; HEIGHT: 22px;vertical-align:middle" maxlength="50" name="Keyword" value="请输入关键字" onfocus="this.value=''" onblur="if (value ==''){value='请输入关键字'}"> 
+     <input type="image" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/skins/dianzi/but_ser.gif" align="absmiddle"> 
+     <input name="ModuleID" type="radio" value="1" checked> 文章 
+     <input name="ModuleID" type="radio" value="2"> 软件 
+     <input name="ModuleID" type="radio" value="3"> 图片 
+    </form> 
+   </div> 
+   <!--搜索结束--> 
+   <div class="clear"></div> 
+   <div class="currentpath"> 
+    <div class="path">
+     &nbsp;位置：&nbsp;
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">电子设计分享</a> &gt;&gt; 
+     <a href="https://www-cediy-com.translate.goog/Article?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">技术文章</a> &gt;&gt; 
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/Class/6_Index.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">测试测量</a> &gt;&gt; 正文 
+    </div> 
+    <div class="date"> 
+     <script src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/inc/js/date.js" type="text/javascript"></script> &nbsp;&nbsp;
+     <a href="https://www-cediy-com.translate.goog/Rssfeed.asp?Channelid=1&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/Rss.gif" border="0"></a>
+     <a href="https://www-cediy-com.translate.goog/help.asp?action=wap&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/Wap.gif" border="0"></a>&nbsp;&nbsp;
+    </div> 
+   </div> 
+  </div> 
+  <div class="spaceline"></div> 
+  <script language="JavaScript">
+function fontColor(objname)
+{
+	var arr = showModalDialog("/Editor/Dialog/selcolor.htm", "", "dialogWidth:18.5em; dialogHeight:17.5em; status:0; help:0");
+	if (arr != null) setColor(objname,arr);
+}
+</script> 
+  <div class="body"> 
+   <div class="article_right"> 
+    <div class="articleinfo_title">
+     基于ARM及蓝牙技术的无线测试系统设计
+    </div> 
+    <div class="articleinfo_titleintact"></div> 
+    <div class="articleinfo_other">
+     作者:mudan008 &nbsp;&nbsp; 来源:现代电子技术 &nbsp;&nbsp; 录入:mudan008 &nbsp;&nbsp; 字体:
+     <input type="button" title="把正文字体缩小" onclick="fontSize('m','ArticleBody')" value="小"> 
+     <input type="button" title="把正文字体扩大" onclick="fontSize('b','ArticleBody')" value="大"> 
+     <input type="button" title="转为简体中文模式" onclick="bodytojt('ArticleBody')" value="简"> 
+     <input type="button" title="转为繁体中文模式" onclick="bodytoft('ArticleBody')" value="繁"> 
+     <a href="javascript:fontColor('ArticleBody')?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/images/fgcolor.gif" alt="字体颜色" border="0" align="absmiddle"></a>
+    </div> 
+    <hr> 
+    <div class="articleinfo_content border_1"> 
+     <div id="ArticleBody"> 
+      <table class="MAIN-BG4" cellspacing="0" cellpadding="1" align="right" border="0"> 
+       <tbody>
+        <tr> 
+         <td><script type="text/javascript"><!--
+google_ad_client = "pub-9909211984255658";
+//250x250, 创建于 07-11-22
+google_ad_slot = "6040686062";
+google_ad_width = 250;
+google_ad_height = 250;
+//--></script> <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></td> 
+        </tr> 
+       </tbody>
+      </table> 
+      <p><font face="Times New Roman" size="3">Design and Realization of Wireless Signal Acquisition System Based on ARM and Bluetooth Technique<br>abstract：The research is based on the rotating mechanism measurement,and develops a wireless testing system based on bluetooth and ARM.The system is based on CSR BC02 Bluetooth module and LPC2146(ARM7).The HCI UART based communication is mainly discussed.The result proves that the installation of the PCB is reliable,the bluetooth communication works properly and has good noise immunity.<br>Keyword：bluetooth;ARM;wireless communication;digital acquisition<br>摘要：以旋转件的测量为背景,设计研制了一套基于ARM及蓝牙技术的无线测试系统。系统以基于CSR BC02的蓝牙模块及基于ARM7的LPC2146微控制器为核心,重点研究了采用HCI UART的蓝牙无线通讯方式。实验结果证明基于HCI的蓝牙无线通讯软硬件工作正常,具备一定的抗干扰能力,满足实际测试场合的需要。<br>关键词：蓝牙;ARM;无线通讯;数据采集</font></p> 
+      <p><font size="3">1 引 言 </font></p> 
+      <p><font size="3">无线测试技术在工业领域有广泛的应用前景。在连线复杂并需要反复拆装被测设备和测试设备之间连线的场合，使用无线可以降低工作的复杂程度，节约大量的时间，提高测试环节的工作效率，尤其在有时间限制时其优越性更加明显。此外在不适宜连线的场合，如港口、码头、江河湖坝、野外勘测、石油勘探中油井深处环境参数的测量，使用无线测量具有有线测量无法比拟的优越性。</font></p> 
+      <p><font size="3">对于近距离的无线传输，蓝牙由于采用快速跳频技术，确保了链路的稳定，同时使干扰可能造成的影响变得很小，适合用于存在大量噪声干扰的工业测试环境中，由于无线传输的是数字量，因此在通常情况下没有传输误差，不会影响到系统的准确度，并且可以单芯片实现，体积功耗都能达到很小的水平。</font></p> 
+      <p><font size="3">本文针对无线信号测试，提出一种基于ARM和蓝牙的无线信号采集系统的设计与实现。</font></p> 
+      <p><font size="3">2 芯片选择</font></p> 
+      <p><font size="3">2.1 蓝牙模块的选择</font></p> 
+      <p><font size="3">采集模块使用的蓝牙芯片是已经商品化的蓝牙模块，其核心是主流的CSR的BlueCore02-External蓝牙芯片，他与外围器件一起构成蓝牙模块，如图1所示。电压调整电路提供蓝牙模块所需的3.3 V和1.8 V电压，闪存用于存储蓝牙固件和配置参数。蓝牙主机可通过各种接口(SPI，UART，USB等)实现与蓝牙模块的通信。</font></p> 
+      <table width="675"> 
+       <tbody> 
+        <tr> 
+         <td> 
+          <div align="center">
+           <font size="3"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Article/2008/9/1/2008090110202121683.jpg" onclick="javascript:window.open(this.src);" style="cursor:pointer;" onload="javascript:if(this.width>600)this.style.width='600px';" border="0"></font>
+          </div></td>
+        </tr>
+       </tbody>
+      </table> 
+      <p><font size="3">2.2 微处理器的选择</font></p> 
+      <p><font size="3">微处理器主要负责对采样的控制，对信号调理芯片的进行编程与控制，与蓝牙模块的通信。由于采用了寄居式的蓝牙模型，所以微处理器通过HCI(Host Control Interface)接口与蓝牙模块通信，包括将采集的数据按照蓝牙协议规定的数据格式打包发送给蓝牙模块，解读从上位机发送过来的控制命令，控制系统的采集动作以及蓝牙模块的工作方式。</font></p> 
+      <p><font size="3">基于ARM核心的微处理器具有运算速度快，体积小，功耗低，外围接口资源丰富等优点，使用基于ARM7TDMI-S核心的Philips LPC2146微控制器。</font></p> 
+      <p><font size="3">3 硬件设计</font></p> 
+      <p><font size="3">系统硬件分为采集模块与接收模块两部分：</font></p> 
+      <p><font size="3">(1)采集模块：为8通道数据采集系统，8路传感器信号经过放大与调理后，均变为0～3 V的标准模拟电压信号，分别连接到LPC2146的AD1.0～AD1.7管脚。LPC2146片内的ADC是一个分辨率为10位，转换速率为400 ks／s的逐次逼近型ADC，支持8路复用的输入信号。LPC2146对8路信号进行轮流采样，数字化。由于LPC2146内部的ADC不提供转换时的电压基准，故使用了LT1461A3这一+3 V的精密电压基准。</font></p> 
+      <p><font size="3">(2)接收模块：接收模块同样以CSR BC02蓝牙模块为核心，与采集模块进行蓝牙ACL(AccessControl List)数据通信。BC02芯片通过MAX3232电平转换芯片与PC机串口进行数据收发。</font></p> 
+      <p><font size="3">3.1 信号采集模块</font></p> 
+      <p><font size="3">CSR BlueCore02蓝牙模块具有HCIUART与HCI USB传输层。本课题采用了编程较为简单HCI UART接口与微控制器LPC2146连接。</font></p> 
+      <p><font size="3">蓝牙模块与ARM的硬件连接如图2所示。由于蓝牙模块和ARM都采用+3.3 V电源供电，故其接口间不存在电平差异，不需要电平转换。蓝牙模块UART接口的发送端UART TX接LPC2146的UART0接收端RXD0，而蓝牙模块的UART接口的接收端UART RX接LPC2146的UART0发送端TXD0。</font></p> 
+      <table width="675"> 
+       <tbody> 
+        <tr> 
+         <td> 
+          <div align="center">
+           <font size="3"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Article/2008/9/1/2008090110203586827.jpg" onclick="javascript:window.open(this.src);" style="cursor:pointer;" onload="javascript:if(this.width>600)this.style.width='600px';" border="0"></font>
+          </div></td>
+        </tr>
+       </tbody>
+      </table> 
+      <p><font size="3">蓝牙模块的复位电路有上电复位，手动复位和LPC2146控制复位三种复位功能。在RST脚上的高电平持续时间大于5 ms时，蓝牙模块将被复位。</font></p> 
+      <p><font size="3">图2中C1和R3组成上电复位电路；S1为长开按钮，当S1按下时，实现手动复位；LPC2146的P0.16脚(BTRST)也可以通过D1二极管复位蓝牙模块。</font></p> 
+      <p><font size="3">3.2 蓝牙接收模块</font></p> 
+      <p><font size="3">接收模块与监控PC机连接，用来接收从采集模块发送过来的蓝牙ACL数据包，并将之传送到PC。蓝牙模块与PC机的通信是基于HCI RS 232接口，使用了一片电平转换芯片MAX3232将TTL电平转换成RS 232电平，实现了利用PC机串口与蓝牙模块通信，进行数据收发的功能，如图3所示。</font></p>
+      <font size="3"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Article/2008/9/1/21232008090110205192781.jpg" onclick="javascript:window.open(this.src);" style="cursor:pointer;" onload="javascript:if(this.width>600)this.style.width='600px';" border="0"> </font> 
+      <table width="675"> 
+       <tbody> 
+        <tr> 
+         <td> 
+          <div align="center">
+           <font size="3"></font>&nbsp;
+          </div></td>
+        </tr>
+       </tbody>
+      </table> 
+      <p><font size="3">PC机与蓝牙模块的接口使用了硬件流控，如图4所示。</font></p> 
+      <table width="675"> 
+       <tbody> 
+        <tr> 
+         <td> 
+          <div align="center">
+           <font size="3"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Article/2008/9/1/2008090110211393402.jpg" onclick="javascript:window.open(this.src);" style="cursor:pointer;" onload="javascript:if(this.width>600)this.style.width='600px';" border="0"></font>
+          </div></td>
+        </tr>
+       </tbody>
+      </table> 
+      <p><font size="3">值得注意的是，PC机主板内置的RS 232接口能达到的波特率最大仅为115.2 kb／s，远远低于蓝牙模块ACL，连接的最大通信速率721 kb／s。为了避免RS 232接口成为数据采集系统的数据传输瓶颈，使用了一块PCI-RS232的接口卡，其波特率可以达到1 Mb／s。</font></p> 
+      <p><font size="3">另外，RS 232接口的波特率也受其传输距离的制约。经过实验反复验证，最终接收端蓝牙HCI UART传输层能在460.8 kb／s的波特率下正常的收发数据。</font></p> 
+      <p><font size="3">3.3 硬件抗干扰措施 </font></p> 
+      <p><font size="3">在此系统中，诸如ARM，信号调理芯片，蓝牙模块都是易受干扰的元器件，因此抗干扰技术是系统设计中需要重点考虑的问题。在硬件的设计时，主要采取了如下措施来加强整个测试系统的抗干扰能力：</font></p> 
+      <p><font size="3">(1)对电路板采用了电池供电。采用4.2 V的锂电池供电，可以提供相对稳定的电压和纯净的电流。相对于其他采用金属滑环或者旋转变压器供电的方案，电池供电消除了这两种方式带来的交流噪声及电源波动。</font></p> 
+      <p><font size="3">(2)对ARM处理器加入了电源监控芯片MAX823及看门狗电路。当电源的波动超过安全阈值时(3.6～2.9V)，MAX823将产生一个Reset信号，对微处理器进行复位。</font></p> 
+      <p><font size="3">4 结 语</font></p> 
+      <p><font size="3">本课题基于蓝牙技术的无线测试系统正是近距离无线通信技术在测试领域的应用。该无线测试系统采样通道数多，体积小，功耗低，具有多种节能模式，安装简便，兼具有信号调理和信号遥传的功能，不但可以应用于旋转机械(如航空发动机叶片，汽车转动轴)的参数采集，也可以应用在其他高速或低速的旋转机械的工作状态监测和故障诊断系统中，具有广阔的应用范围和良好的应用前景。</font></p> 
+      <p><font size="3">作者通信地址：北京航空航天大学 仪器科学与光电工程学院 北京 100083<br></font></p> 
+      <script type="text/javascript"><!--
+google_ad_client = "pub-9909211984255658";
+/* 728x90, 创建于 08-3-27 */
+google_ad_slot = "9752070685";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script> 
+      <script type="text/javascript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 
+     </div> 
+    </div> 
+    <div class="articleinfo_button  border_1"> 
+     <img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/email.gif" width="15" height="15" border="0" alt=""> 
+     <a href="https://www-cediy-com.translate.goog/User/SendMail.asp?Title=%E5%9F%BA%E4%BA%8EARM%E5%8F%8A%E8%93%9D%E7%89%99%E6%8A%80%E6%9C%AF%E7%9A%84%E6%97%A0%E7%BA%BF%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" target="_blank">告诉好友</a> &nbsp; 
+     <img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/print.gif" width="15" height="15" border="0" alt=""> 
+     <a href="javascript:window.print()?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">打印此文</a>&nbsp; 
+     <img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/Favorite.gif" width="15" height="15" border="0" alt=""> 
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http#" title="收藏的网页将被永久地保存到您的收藏夹中" onclick="window.open('/User/User_Favorite.Asp?title='+document.title+'&amp;url='+document.location.href,'_blank', 'scrollbars=no,width=500,height=420,left=75,top=20,status=no,resizable=yes');">收藏此页</a>&nbsp; 
+     <img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/close.gif" width="15" height="15" border="0" alt=""> 
+     <a href="javascript:window.close();?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">关闭窗口</a>&nbsp; 
+     <img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/BackTop.gif" width="15" height="15" border="0" alt=""> 
+     <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http#">返回顶部</a> 
+    </div> 
+    <div class="border_1"> 
+     <div class="articleinfo_near"> 
+      <ul> 
+       <li>上一篇： <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1075720080901095000.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="标题：基于Mega8单片机和DS18B20的单总线温度测量仪设计
+作者：廖琪梅  韩彬  杨文昭  屈景辉
+更新：2008/9/1 9:50:00
+点击：1156">基于Mega8单片机和DS18B20的单总线温度测量仪设计</a></li> 
+       <li>下一篇： <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1077120080903084400.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="标题：基于MS5534B的新型气压高度计设计
+作者：王志刚  唐 飞  王晓浩  熊继军
+更新：2008/9/3 8:44:00
+点击：411">基于MS5534B的新型气压高度计设计</a></li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="articleinfo_comment border_1"> 
+     <div class="right_title">
+      <img height="16" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Images/Comment.gif" width="16" alt="">&nbsp;网友评论：（只显示最新5条。评论内容只代表网友观点，与本站立场无关！）&nbsp;
+      <a href="https://www-cediy-com.translate.goog/Comment/Write.asp?ChannelID=1&amp;InfoID=10760&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">发表评论</a>
+     </div> 
+     <div class="right_content">
+      <script language="JavaScript" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/Comment/Js.asp?ChannelID%3D1%26InfoID%3D10760%26Num%3D5" type="text/javascript"></script>
+     </div> 
+    </div> 
+   </div> 
+   <div class="article_info_right  shuline"> 
+    <div class="border_1"> 
+     <div class="left_title">
+      <h2>推荐栏目</h2>
+     </div> 
+     <div class="left_content">
+       推荐栏目 
+     </div> 
+    </div> 
+    <div class="border_1"> 
+     <ul id="myTab1" class="download_th tab"> 
+      <li class="normal active" onmouseover="nTabs(this,0)"><a href="https://www-cediy-com.translate.goog/Article/ShowHot.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">热门文章</a></li> 
+      <li class="normal" onmouseover="nTabs(this,1);"><a href="https://www-cediy-com.translate.goog/Article/ShowElite.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http">推荐文章</a></li> 
+     </ul> 
+     <div class="left_content"> 
+      <div id="myTab1_Content0"> 
+       <ul class="xhx"> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1316120130816142647.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="WSN底层平台研究与实现" target="_blank">WSN底层平台研究与实现</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/bascs/1315920130814114127.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于SOPC多波形信号发生器" target="_blank">基于SOPC多波形信号发生器</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1315820130814111333.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于LPC1768的全双工UART的软件模拟实现" target="_blank">基于LPC1768的全双工UART的软件...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/electromotor/1315320130117115427.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于COMX的机器人伺服控制器设计" target="_blank">基于COMX的机器人伺服控制器设计...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/electromotor/1315220121222174427.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于语音识别的汽车空调控制系统" target="_blank">基于语音识别的汽车空调控制系统...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1315120121222172807.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于μC/OS和MCS51单片机的固话来电防火墙设计" target="_blank">基于μC/OS和MCS51单片机的固话...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1315020121222171421.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于matlab GUI的上位机与智能车的两种实时通信" target="_blank">基于matlab GUI的上位机与智能车...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/electromotor/1314920121222170352.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="开源自动化控制软件Sedona在物联网架构中的应用" target="_blank">开源自动化控制软件Sedona在物联...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1314820121222164910.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于STM32和CC2520的TinyOS移植与驱动分析" target="_blank">基于STM32和CC2520的TinyOS移植...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/sensor/1314720121222144643.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="ZigBee空中下载技术研究及其优化设计" target="_blank">ZigBee空中下载技术研究及其优化...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1314620121222134434.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于Linux和MiniGUI的心电监护仪设计" target="_blank">基于Linux和MiniGUI的心电监护仪...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/FPGA/1314520121222133929.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于FPGA的卷积编译码器的设计与实现" target="_blank">基于FPGA的卷积编译码器的设计与...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/sensor/1313720120919222357.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="红外通信技术在温湿度变送器上的运用" target="_blank">红外通信技术在温湿度变送器上的...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/1313620120919220439.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于89C51的液体点滴速度监控系统设计" target="_blank">基于89C51的液体点滴速度监控系...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/FPGA/1313420100803153600.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="图像自适应分段线性拉伸算法的FPGA设计" target="_blank">图像自适应分段线性拉伸算法的F...</a></span></li> 
+       </ul> 
+      </div> 
+      <div id="myTab1_Content1" class="hide"> 
+       <ul class="xhx"> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/420070927095400.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="大功率谐振过渡软开关技术变频器研究（1）" target="_blank">大功率谐振过渡软开关技术变频器...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/320070927093500.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="大功率谐振过渡软开关技术变频器研究（2）" target="_blank">大功率谐振过渡软开关技术变频器...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/220070927093400.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="大功率谐振过渡软开关技术变频器研究（3）" target="_blank">大功率谐振过渡软开关技术变频器...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/comm/535820060526003100.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="放大器参数说明" target="_blank">放大器参数说明</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/198120050905122900.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="低电压大电流的线性解决方案分析" target="_blank">低电压大电流的线性解决方案分析...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/180920050831182200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="矩阵式变换器安全换流策略研究" target="_blank">矩阵式变换器安全换流策略研究</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/bascs/179920050831155500.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于ARM控制器S3C44B0x的给煤机控制系统的设计" target="_blank">基于ARM控制器S3C44B0x的给煤机...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/bascs/179320050831135200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于USB&nbsp;2.0的高速数据采集卡在虚拟仪器中的应用" target="_blank">基于USB 2.0的高速数据采集卡在...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/power/147720050823162300.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="基于半桥驱动器IR2153的荧光灯电子镇流器" target="_blank">基于半桥驱动器IR2153的荧光灯电...</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/other/146120050823143300.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="利用DS12887设计的利率显示屏" target="_blank">利用DS12887设计的利率显示屏</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/test/107620050815101200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="一种实用过载测试系统设计" target="_blank">一种实用过载测试系统设计</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/106620050815094300.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="面向仪表的嵌入式DSP硬件平台" target="_blank">面向仪表的嵌入式DSP硬件平台</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/inset/105220050815090800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="嵌入式实时数据库技术研究" target="_blank">嵌入式实时数据库技术研究</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/mcu/89820050811102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="PIC单片机原理" target="_blank">PIC单片机原理</a></span></li> 
+        <li><span class="title"><a href="https://www-cediy-com.translate.goog/webHtml/Article/consume/86420050810141100.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="空调蓄冷技术" target="_blank">空调蓄冷技术</a></span></li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="border_1"> 
+     <div class="left_title">
+      <h2>推荐商品</h2>
+     </div> 
+     <div class="left_content">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+       <tbody>
+        <tr>
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A9/38920130704122200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="MarS Board  飞思卡尔i.MX 6Dual Cortex-A9" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2013-7/2013070412304687186.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A9/38920130704122200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="MarS Board  飞思卡尔i.MX 6Dual Cortex-A9" target="_blank">MarS Board 飞思卡尔i.MX 6Dual...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">668</span>
+          </div></td>
+        </tr>
+        <tr valign="top">
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A8/36620130425183100.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="element14 BeagleBone Black(Rev C)  最新一代 TI AM3358开发板 Cortex-A8 BB-Black" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2014-7/2014072816175613568.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A8/36620130425183100.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="element14 BeagleBone Black(Rev C)  最新一代 TI AM3358开发板 Cortex-A8 BB-Black" target="_blank">element14 BeagleBone Black(Rev...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">420</span>
+          </div></td>
+        </tr>
+        <tr valign="top">
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A9/36420130412162300.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="Cortex-A9开发板 飞思卡尔 四核 SABRELite评估板 ARM i.MX 6Quad" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2013-4/2013041216254235324.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A9/36420130412162300.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="Cortex-A9开发板 飞思卡尔 四核 SABRELite评估板 ARM i.MX 6Quad" target="_blank">Cortex-A9开发板 飞思卡尔 四核 ...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">1300</span>
+          </div></td>
+        </tr>
+        <tr valign="top">
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/ARM11/29220100417213600.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="最新 Real6410开发板+4.3寸触摸屏 Android2.1 S3C6410开发板 ARM11 256M内存" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2010-7/201063093042120.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/ARM11/29220100417213600.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="最新 Real6410开发板+4.3寸触摸屏 Android2.1 S3C6410开发板 ARM11 256M内存" target="_blank">最新 Real6410开发板+4.3寸触摸屏...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">1380</span>
+          </div></td>
+        </tr>
+        <tr valign="top">
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/TI6000/11020090117204500.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="增强型DM642开发板+H.264视频开发板+网络开发板" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2008-10/2008101412370388529.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/TI6000/11020090117204500.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="增强型DM642开发板+H.264视频开发板+网络开发板" target="_blank">增强型DM642开发板+H.264视频开发...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">1580</span>
+          </div></td>
+        </tr>
+        <tr valign="top">
+         <td align="center">
+          <div style="margin:4px 2px 2px 2px;border: 1px solid #e2e2e2;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A8/32320120727174200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="S5PV210/QT210-V3开发板+7寸电容屏/WIFI/4G TF卡 三星Cortex-A8" target="_blank"><img src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.cediy.com/UpLoadFiles/Product/2012-7/2012072717463491619.jpg" width="200" height="150" border="1"></a>
+          </div>
+          <div style="margin-top:15px;margin-bottom:10px;">
+           <a href="https://www-cediy-com.translate.goog/webHtml/Product/Cortex-A8/32320120727174200.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" title="S5PV210/QT210-V3开发板+7寸电容屏/WIFI/4G TF卡 三星Cortex-A8" target="_blank">S5PV210/QT210-V3开发板+7寸电容...</a>
+          </div>
+          <div style="color:#ff0000;margin-bottom:10px;">
+           会员价：￥
+           <span style="color:#ff0033;">699</span>
+          </div></td>
+        </tr>
+        <tr valign="top"></tr>
+       </tbody>
+      </table>
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="clear"></div> 
+  <div id="footer" class="footer"> 
+   <div class="bottom"> 
+    <a onclick="this.style.behavior=&quot;url(#default#homepage)&quot;;this.setHomePage(&quot;http://www.cediy.com/&quot;);" href="https://www-cediy-com.translate.goog/webHtml/Article/test/Editor.asp?id=EditorTemp&amp;style=Template&amp;cid=1&amp;CssID=1&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http#"><font color="#000000">设为首页</font></a>&nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/Help.asp?Action=contact&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" target="_blank"><font color="#FF0000">商城说明</font></a>&nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/Help.Asp?Action=remit&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" target="_blank"><font color="#FF0000">付款方式</font></a>&nbsp;|&nbsp; 
+    <a href="javascript:window.external.addFavorite(&quot;http://www.cediy.com/&quot;,&quot;中国电子设计&quot;)?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">加入收藏</font></a>&nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/Help.asp?Action=aboutweb&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">关于本站</font></a>&nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/Help.asp?Action=Copyright&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">版权申明</font></a> &nbsp;|&nbsp; 
+    <a href="mailto:tony@cediy.com?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">联系站长</font></a> &nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/bbs/X_AdvCom.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">宣传赚点</font></a> &nbsp;|&nbsp; 
+    <a href="https://www-cediy-com.translate.goog/LinkSite.asp?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"><font color="#000000">友情链接</font></a> 
+   </div>
+   <div class="clear"></div> 
+   <div class="footleft"> 
+    <div class="footleft"> 
+     <div class="footleft"> 
+      <table cellspacing="1" cellpadding="3" bgcolor="#808080" border="0"> 
+       <tbody> 
+        <tr> 
+         <td bgcolor="#ffffff" width="280" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D450321892%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%BD%91%E5%95%86%E5%9F%8E%26Menu%3Dyes" target="blank"><img border="0" alt="如果我在线，不用加为好友，立刻与我交谈。" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:450321892:1" align="absMiddle"></a> <br><b>商城业务<font color="#ff0000">450321892</font></b> </td> 
+         <td bgcolor="#ffffff" width="280" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D1449220281%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%BD%91%E5%95%86%E5%9F%8E%26Menu%3Dyes" target="blank"><img border="0" alt="如果我在线，不用加为好友，立刻与我交谈。" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:1449220281:1" align="absMiddle"></a><br><b>商城业务</b><font color="#ff0000">1449220281</font> </td> 
+         <td bgcolor="#ffffff" width="270" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D2569721294%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%BD%91%E5%95%86%E5%9F%8E%26Menu%3Dyes" target="blank"><img border="0" alt="如果我在线，不用加为好友，立刻与我交谈。" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:2569721294:1" align="absMiddle"></a><br><b>商城业务</b><font color="#ff0000">2569721294</font> </td> 
+         <td bgcolor="#ffffff" width="280" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D1241618116%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%BD%91%E5%95%86%E5%9F%8E%26Menu%3Dyes" target="blank"><img border="0" alt="如果我在线，不用加为好友，立刻与我交谈。" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:1241618116:1" align="absMiddle"></a><br><b>商城业务</b><font color="#ff0000">1241618116</font> </td> 
+         <td bgcolor="#ffffff" width="280" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D1563798659%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%AE%A1%E7%90%86%E5%91%98%26Menu%3Dyes" target="blank"><img border="0" alt="本QQ只负责网站管理及合作洽谈" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:1563798659:1" align="absMiddle"></a><br><b>网站管理</b><font color="#ff0000">1563798659</font> </td> 
+         <td bgcolor="#ffffff" width="280" align="center"><a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/msgrd?V%3D1%26Uin%3D1431132590%26Site%3D%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E7%BD%91%E5%8F%8B%E6%83%85%26Menu%3Dyes" target="blank"><img border="0" alt="本QQ只负责友情链接交换及站内错误反馈。" src="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://wpa.qq.com/pa?p%3D1:1431132590:1" align="absMiddle"></a><br><b>友情链接</b><font color="#ff0000">1431132590</font> </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div> 
+    <br> Copyright&copy; 2004-2018 www.cediy.com .All Rights Reserved 
+    <br> 
+    <br> 
+    <a href="https://translate.google.com/website?sl=zh-CN&amp;tl=en&amp;nui=1&amp;prev=search&amp;u=http://www.beian.miit.gov.cn" target="_blank">湘ICP备15010806号</a>
+    <br> 
+    <br> 
+    <font color="#999999"></font>
+    <br> 
+    <br> 
+   </div> 
+   <div class="footright"> 
+    <a href="https://www-cediy-com.translate.goog/webHtml/Index.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" target="_blank"> <img src="https://www-cediy-com.translate.goog/cert/waicon.gif?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" alt="安网备案标志"></a> 
+    <script language="JavaScript" src="https://www-cediy-com.translate.goog/counts/smart-stats.asp?id=1&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" type="text/JavaScript"></script> 
+    <script src="https://www-cediy-com.translate.goog/count/mystat.asp?siteid=1&amp;_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http"></script> 
+    <a href="https://www-cediy-com.translate.goog/webHtml/Article/test/1076020080901102800.html?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" target="_blank"> <img src="https://www-cediy-com.translate.goog/cert/gt.gif?_x_tr_sl=zh-CN&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=nui,sc&amp;_x_tr_sch=http" alt="网上报警"></a> 
+   </div> 
+  </div>  
+  <!--Powered by:CreateLive CMS Version 4.2(aspoo.net) CreateDate:2019/9/6 9:00:12--> 
+  <script>function gtElInit() {var lib = new google.translate.TranslateService();lib.translatePage('zh-CN', 'en', function () {});}</script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=gtElInit&amp;hl=en&amp;client=wt_search&amp;te=pod" type="text/javascript"></script>
+ </body>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="I2S">
+  <COMMON>
+    <LITERALS>
+      <LITERAL><SPL>I2S_Mode_SlaveTx</SPL><LL>LL_I2S_MODE_SLAVE_TX</LL></LITERAL>
+      <LITERAL><SPL>I2S_Mode_SlaveRx</SPL><LL>LL_I2S_MODE_SLAVE_RX</LL></LITERAL>
+      <LITERAL><SPL>I2S_Mode_MasterTx</SPL><LL>LL_I2S_MODE_MASTER_TX</LL></LITERAL>
+      <LITERAL><SPL>I2S_Mode_MasterRx</SPL><LL>LL_I2S_MODE_MASTER_RX</LL></LITERAL>
+      <LITERAL><SPL>I2S_Standard_Phillips</SPL><LL>LL_I2S_STANDARD_PHILIPS</LL></LITERAL>
+      <LITERAL><SPL>I2S_Standard_MSB</SPL><LL>LL_I2S_STANDARD_MSB</LL></LITERAL>
+      <LITERAL><SPL>I2S_Standard_LSB</SPL><LL>LL_I2S_STANDARD_LSB</LL></LITERAL>
+      <LITERAL><SPL>I2S_Standard_PCMShort</SPL><LL>LL_I2S_STANDARD_PCM_SHORT</LL></LITERAL>
+      <LITERAL><SPL>I2S_Standard_PCMLong</SPL><LL>LL_I2S_STANDARD_PCM_LONG</LL></LITERAL>
+      <LITERAL><SPL>I2S_DataFormat_16b</SPL><LL>LL_I2S_DATAFORMAT_16B</LL></LITERAL>
+      <LITERAL><SPL>I2S_DataFormat_16bextended</SPL><LL>LL_I2S_DATAFORMAT_16B_EXTENDED</LL></LITERAL>
+      <LITERAL><SPL>I2S_DataFormat_24b</SPL><LL>LL_I2S_DATAFORMAT_24B</LL></LITERAL>
+      <LITERAL><SPL>I2S_DataFormat_32b</SPL><LL>LL_I2S_DATAFORMAT_32B</LL></LITERAL>
+      <LITERAL><SPL>I2S_MCLKOutput_Enable</SPL><LL>LL_I2S_MCLK_OUTPUT_ENABLE</LL></LITERAL>
+      <LITERAL><SPL>I2S_MCLKOutput_Disable</SPL><LL>LL_I2S_MCLK_OUTPUT_DISABLE</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_192k</SPL><LL>LL_I2S_AUDIOFREQ_192K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_96k</SPL><LL>LL_I2S_AUDIOFREQ_96K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_48k</SPL><LL>LL_I2S_AUDIOFREQ_48K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_44k</SPL><LL>LL_I2S_AUDIOFREQ_44K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_32k</SPL><LL>LL_I2S_AUDIOFREQ_32K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_22k</SPL><LL>LL_I2S_AUDIOFREQ_22K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_16k</SPL><LL>LL_I2S_AUDIOFREQ_16K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_11k</SPL><LL>LL_I2S_AUDIOFREQ_11K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_8k</SPL><LL>LL_I2S_AUDIOFREQ_8K</LL></LITERAL>
+      <LITERAL><SPL>I2S_AudioFreq_Default</SPL><LL>LL_I2S_AUDIOFREQ_DEFAULT</LL></LITERAL>
+      <LITERAL><SPL>I2S_CPOL_Low</SPL><LL>LL_I2S_POLARITY_LOW</LL></LITERAL>
+      <LITERAL><SPL>I2S_CPOL_High</SPL><LL>LL_I2S_POLARITY_HIGH</LL></LITERAL>
+      <LITERAL><SPL>I2S_InitTypeDef</SPL><LL>LL_I2S_InitTypeDef</LL></LITERAL>
+	  
+	</LITERALS>
+
+    <STRUCTURES>
+	   <STRUCTURE NAME="I2S_InitTypeDef">
+         <FIELD><SPL>I2S_Mode</SPL><LL>Mode</LL></FIELD>
+         <FIELD><SPL>I2S_Standard</SPL><LL>Standard</LL></FIELD>
+         <FIELD><SPL>I2S_DataFormat</SPL><LL>DataFormat</LL></FIELD>
+         <FIELD><SPL>I2S_MCLKOutput</SPL><LL>MCLKOutput</LL></FIELD>
+         <FIELD><SPL>I2S_AudioFreq</SPL><LL>AudioFreq</LL></FIELD>
+         <FIELD><SPL>I2S_CPOL</SPL><LL>ClockPolarity</LL></FIELD>
+       </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ I2S Functions ################ -->
+      <FUNCTION>
+          <SPL NAME="I2S_Init" />
+          <LL  NAME="LL_I2S_Init"
+               CMD0="UPD@LL_PARAM_0={CPY@LL_PARAM_0}"
+               CMD1="UPD@LL_PARAM_1={CPY@LL_PARAM_1}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="I2S_StructInit" />
+          <LL  NAME="LL_I2S_StructInit"
+               CMD0="UPD@LL_PARAM_0={CPY@LL_PARAM_0}"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="I2S_Cmd" 
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_I2S_Enable"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="I2S_Cmd" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_I2S_Disable"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+          <SPL NAME="I2S_FullDuplexConfig"/>
+          <LL  NAME="LL_I2S_InitFullDuplex"
+               CMD0="UPD@LL_PARAM_0={CPY@LL_PARAM_0}"
+               CMD1="UPD@LL_PARAM_1={CPY@LL_PARAM_1}"/>
+          <AVAILABLE>STM32F30</AVAILABLE>
+          <AVAILABLE>STM32F4</AVAILABLE> 		  
+      </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+   <VERSION NAME="I2S_VER_1_2_0">
+    <LITERALS>
+	</LITERALS>
+
+    <STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+    </FUNCTIONS>
+    </VERSION>
+	
+   <VERSION NAME="I2S_VER_1_3_0">
+    <LITERALS>
+	</LITERALS>
+
+    <STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+    </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

@@ -54,8 +54,7 @@ void usbTransferControl() {
 //Optimized for High Speed
 int i;
 if (libusbdev_Connected()) {
-if (libusbdev_QueueReadDone() != -1) {//Enter here when
-receiving data.
+if (libusbdev_QueueReadDone() != -1) {//Enter here when receiving data.
 libusbdev_QueueReadReq(g_rxBuff, PACKET_BUFFER_SIZE);
 //Process the data request, save the received data at
 g_rxBuff.

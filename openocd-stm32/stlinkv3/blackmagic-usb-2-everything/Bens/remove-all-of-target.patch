@@ -1,0 +1,1403 @@
+From 2a8ca4337cda3ec94dede15979a63866b4e4fa23 Mon Sep 17 00:00:00 2001
+From: "Satoshi N. M" <snmatsutake@yahoo.co.jp>
+Date: Sat, 23 Dec 2017 17:24:13 -0800
+Subject: [PATCH] Remove all of target/
+
+---
+ src/Makefile                          |   3 +-
+ src/target/flashstub/Makefile         |  42 --
+ src/target/flashstub/README.md        |  13 -
+ src/target/flashstub/efm32.c          |  68 ---
+ src/target/flashstub/efm32.stub       |  41 --
+ src/target/flashstub/lmi.c            |  49 ---
+ src/target/flashstub/lmi.stub         |   1 -
+ src/target/flashstub/nrf51.c          |  37 --
+ src/target/flashstub/nrf51.stub       |   1 -
+ src/target/flashstub/stm32f1.c        |  40 --
+ src/target/flashstub/stm32f1.stub     |   1 -
+ src/target/flashstub/stm32f4_x32.c    |  41 --
+ src/target/flashstub/stm32f4_x32.stub |   1 -
+ src/target/flashstub/stm32f4_x8.c     |  44 --
+ src/target/flashstub/stm32f4_x8.stub  |   1 -
+ src/target/flashstub/stm32l4.c        |  53 ---
+ src/target/flashstub/stm32l4.stub     |   1 -
+ src/target/flashstub/stub.h           |  30 --
+ src/target/target.c                   | 567 --------------------------
+ src/target/target_internal.h          | 187 ---------
+ 20 files changed, 1 insertion(+), 1220 deletions(-)
+ delete mode 100644 src/target/flashstub/Makefile
+ delete mode 100644 src/target/flashstub/README.md
+ delete mode 100644 src/target/flashstub/efm32.c
+ delete mode 100644 src/target/flashstub/efm32.stub
+ delete mode 100644 src/target/flashstub/lmi.c
+ delete mode 100644 src/target/flashstub/lmi.stub
+ delete mode 100644 src/target/flashstub/nrf51.c
+ delete mode 100644 src/target/flashstub/nrf51.stub
+ delete mode 100644 src/target/flashstub/stm32f1.c
+ delete mode 100644 src/target/flashstub/stm32f1.stub
+ delete mode 100644 src/target/flashstub/stm32f4_x32.c
+ delete mode 100644 src/target/flashstub/stm32f4_x32.stub
+ delete mode 100644 src/target/flashstub/stm32f4_x8.c
+ delete mode 100644 src/target/flashstub/stm32f4_x8.stub
+ delete mode 100644 src/target/flashstub/stm32l4.c
+ delete mode 100644 src/target/flashstub/stm32l4.stub
+ delete mode 100644 src/target/flashstub/stub.h
+ delete mode 100644 src/target/target.c
+ delete mode 100644 src/target/target_internal.h
+
+diff --git a/src/Makefile b/src/Makefile
+index 45f9917..52f3ed6 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -1,6 +1,6 @@
+ PROBE_HOST ?= stlink
+ PLATFORM_DIR = platforms/$(PROBE_HOST)
+-VPATH += $(PLATFORM_DIR) platforms/common target
++VPATH += $(PLATFORM_DIR) platforms/common
+ ENABLE_DEBUG ?=
+ 
+ ifneq ($(V), 1)
+@@ -24,7 +24,6 @@ SRC =			\
+ 	hex_utils.c	\
+ 	main.c		\
+ 	platform.c	\
+-	target.c	\
+ 
+ include $(PLATFORM_DIR)/Makefile.inc
+ 
+diff --git a/src/target/flashstub/Makefile b/src/target/flashstub/Makefile
+deleted file mode 100644
+index c16b3d1..0000000
+--- a/src/target/flashstub/Makefile
++++ /dev/null
+@@ -1,42 +0,0 @@
+-CROSS_COMPILE ?= arm-none-eabi-
+-AS = $(CROSS_COMPILE)as
+-CC = $(CROSS_COMPILE)gcc
+-OBJCOPY = $(CROSS_COMPILE)objcopy
+-HEXDUMP = hexdump
+-
+-ifneq ($(V), 1)
+-Q = @
+-endif
+-
+-CFLAGS=-Os -std=gnu99 -mcpu=cortex-m0 -mthumb -I../../../libopencm3/include
+-ASFLAGS=-mcpu=cortex-m3 -mthumb
+-
+-all:	lmi.stub stm32f4_x8.stub stm32f4_x32.stub stm32l4.stub nrf51.stub \
+-	stm32f1.stub efm32.stub
+-
+-stm32f1.o: CFLAGS += -DSTM32F1
+-stm32f4_x8.o: CFLAGS += -DSTM32F4
+-stm32f4_x32.o: CFLAGS += -DSTM32F4
+-
+-%.o:    %.c
+-	$(Q)echo "  CC      $<"
+-	$(Q)$(CC) $(CFLAGS) -o $@ -c $<
+-
+-%.o:	%.s
+-	$(Q)echo "  AS      $<"
+-	$(Q)$(AS) $(ASFLAGS) -o $@ $<
+-
+-%.bin:	%.o
+-	$(Q)echo "  OBJCOPY $@"
+-	$(Q)$(OBJCOPY) -O binary $< $@
+-
+-%.stub:	%.bin
+-	$(Q)echo "  HEXDUMP $@"
+-	$(Q)$(HEXDUMP) -v -e '/2 "0x%04X, "' $< > $@
+-
+-.PHONY: clean
+-
+-clean:
+-	$(Q)echo "  CLEAN"
+-	-$(Q)rm -f *.o *.bin *.stub
+-
+diff --git a/src/target/flashstub/README.md b/src/target/flashstub/README.md
+deleted file mode 100644
+index df6bb71..0000000
+--- a/src/target/flashstub/README.md
++++ /dev/null
+@@ -1,13 +0,0 @@
+-Flash Stubs
+-===========
+-
+-These are simple routines for programming the flash on various Cortex-M
+-microcontrollers.  The routines should be provided with the naked attribute
+-as the stack may not be available, and must not make any function calls.
+-The stub must call `stub_exit(code)` provided by `stub.h` to return control
+-to the debugger.  Up to 4 word sized parameters may be taken.
+-
+-These stubs are compiled instructions comma separated hex values in the
+-resulting `*.stub` files here, which may be included in the drivers for the
+-specific device.  The drivers call these flash stubs on the target by calling
+-`cortexm_run_stub` defined in `cortexm.h`.
+diff --git a/src/target/flashstub/efm32.c b/src/target/flashstub/efm32.c
+deleted file mode 100644
+index 26f19a3..0000000
+--- a/src/target/flashstub/efm32.c
++++ /dev/null
+@@ -1,68 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Richard Meadows
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include <stdint.h>
+-#include "stub.h"
+-
+-#define EFM32_MSC                       ((volatile uint32_t *)0x400c0000)
+-#define EFM32_MSC_WRITECTRL             EFM32_MSC[2]
+-#define EFM32_MSC_WRITECMD              EFM32_MSC[3]
+-#define EFM32_MSC_ADDRB                 EFM32_MSC[4]
+-#define EFM32_MSC_WDATA                 EFM32_MSC[6]
+-#define EFM32_MSC_STATUS                EFM32_MSC[7]
+-#define EFM32_MSC_LOCK			EFM32_MSC[15]
+-
+-#define EFM32_MSC_LOCK_LOCKKEY          0x1b71
+-
+-#define EFM32_MSC_WRITECMD_LADDRIM      (1<<0)
+-#define EFM32_MSC_WRITECMD_ERASEPAGE    (1<<1)
+-#define EFM32_MSC_WRITECMD_WRITEEND     (1<<2)
+-#define EFM32_MSC_WRITECMD_WRITEONCE    (1<<3)
+-#define EFM32_MSC_WRITECMD_WRITETRIG    (1<<4)
+-#define EFM32_MSC_WRITECMD_ERASEABORT   (1<<5)
+-
+-#define EFM32_MSC_STATUS_BUSY           (1<<0)
+-#define EFM32_MSC_STATUS_LOCKED         (1<<1)
+-#define EFM32_MSC_STATUS_INVADDR        (1<<2)
+-#define EFM32_MSC_STATUS_WDATAREADY     (1<<3)
+-#define EFM32_MSC_STATUS_WORDTIMEOUT	(1<<4)
+-
+-void __attribute__((naked))
+-efm32_flash_write_stub(uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	uint32_t i;
+-
+-	EFM32_MSC_LOCK = EFM32_MSC_LOCK_LOCKKEY;
+-	EFM32_MSC_WRITECTRL = 1;
+-
+-	for (i = 0; i < size/4; i++) {
+-		EFM32_MSC_ADDRB = (uint32_t)&dest[i];;
+-		EFM32_MSC_WRITECMD = EFM32_MSC_WRITECMD_LADDRIM;
+-
+-		/* Wait for WDATAREADY */
+-		while ((EFM32_MSC_STATUS & EFM32_MSC_STATUS_WDATAREADY) == 0);
+-
+-		EFM32_MSC_WDATA = src[i];
+-		EFM32_MSC_WRITECMD = EFM32_MSC_WRITECMD_WRITEONCE;
+-
+-		/* Wait for BUSY */
+-		while ((EFM32_MSC_STATUS & EFM32_MSC_STATUS_BUSY));
+-	}
+-
+-	stub_exit(0);
+-}
+diff --git a/src/target/flashstub/efm32.stub b/src/target/flashstub/efm32.stub
+deleted file mode 100644
+index 01fe5db..0000000
+--- a/src/target/flashstub/efm32.stub
++++ /dev/null
+@@ -1,41 +0,0 @@
+-   [0x0/2] = 0x4c10,
+-   [0x2/2] = 0x4b11,
+-   [0x4/2] = 0x0892,
+-   [0x6/2] = 0x601c,
+-   [0x8/2] = 0x2401,
+-   [0xa/2] = 0x4b10,
+-   [0xc/2] = 0x0092,
+-   [0xe/2] = 0x601c,
+-  [0x10/2] = 0x2400,
+-  [0x12/2] = 0x4294,
+-  [0x14/2] = 0xd015,
+-  [0x16/2] = 0x4d0e,
+-  [0x18/2] = 0x1903,
+-  [0x1a/2] = 0x602b,
+-  [0x1c/2] = 0x2501,
+-  [0x1e/2] = 0x4b0d,
+-  [0x20/2] = 0x601d,
+-  [0x22/2] = 0x2608,
+-  [0x24/2] = 0x4d0c,
+-  [0x26/2] = 0x682f,
+-  [0x28/2] = 0x46ac,
+-  [0x2a/2] = 0x4237,
+-  [0x2c/2] = 0xd0f9,
+-  [0x2e/2] = 0x590d,
+-  [0x30/2] = 0x4f0a,
+-  [0x32/2] = 0x603d,
+-  [0x34/2] = 0x601e,
+-  [0x36/2] = 0x4663,
+-  [0x38/2] = 0x681b,
+-  [0x3a/2] = 0x07db,
+-  [0x3c/2] = 0xd4fb,
+-  [0x3e/2] = 0x3404,
+-  [0x40/2] = 0xe7e7,
+-  [0x42/2] = 0xbe00,
+-  [0x44/2] = 0x1b71, 0x0000,
+-  [0x48/2] = 0x003c, 0x400c,
+-  [0x4c/2] = 0x0008, 0x400c,
+-  [0x50/2] = 0x0010, 0x400c,
+-  [0x54/2] = 0x000c, 0x400c,
+-  [0x58/2] = 0x001c, 0x400c,
+-  [0x5c/2] = 0x0018, 0x400c,
+diff --git a/src/target/flashstub/lmi.c b/src/target/flashstub/lmi.c
+deleted file mode 100644
+index 27f8875..0000000
+--- a/src/target/flashstub/lmi.c
++++ /dev/null
+@@ -1,49 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include <stdint.h>
+-#include "stub.h"
+-
+-#define LMI_FLASH_BASE       ((volatile uint32_t *)0x400FD000)
+-#define LMI_FLASH_FMA        LMI_FLASH_BASE[0]
+-#define LMI_FLASH_FMD        LMI_FLASH_BASE[1]
+-#define LMI_FLASH_FMC        LMI_FLASH_BASE[2]
+-
+-#define LMI_FLASH_FMC_WRITE  (1 << 0)
+-#define LMI_FLASH_FMC_ERASE  (1 << 1)
+-#define LMI_FLASH_FMC_MERASE (1 << 2)
+-#define LMI_FLASH_FMC_COMT   (1 << 3)
+-#define LMI_FLASH_FMC_WRKEY  0xA4420000
+-
+-void __attribute__((naked))
+-stm32f1_flash_write_stub(uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	size /= 4;
+-	for (int i; i < size; i++) {
+-		LMI_FLASH_FMA = (uint32_t)&dest[i];
+-		LMI_FLASH_FMD = src[i];
+-		LMI_FLASH_FMC = LMI_FLASH_FMC_WRKEY | LMI_FLASH_FMC_WRITE;
+-		while (LMI_FLASH_FMC & LMI_FLASH_FMC_WRITE)
+-			;
+-	}
+-
+-	stub_exit(0);
+-}
+-
+-
+diff --git a/src/target/flashstub/lmi.stub b/src/target/flashstub/lmi.stub
+deleted file mode 100644
+index 4a6a490..0000000
+--- a/src/target/flashstub/lmi.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x2300, 0x009C, 0x1909, 0x1C1C, 0x0892, 0x4293, 0xD20E, 0x4E08, 0x1905, 0x6035, 0x590E, 0x4D07, 0x602E, 0x4D07, 0x4E07, 0x602E, 0x682E, 0x07F6, 0xD4FC, 0x3301, 0x3404, 0xE7EE, 0xBE00, 0x46C0, 0xD000, 0x400F, 0xD004, 0x400F, 0xD008, 0x400F, 0x0001, 0xA442,
+\ No newline at end of file
+diff --git a/src/target/flashstub/nrf51.c b/src/target/flashstub/nrf51.c
+deleted file mode 100644
+index d291592..0000000
+--- a/src/target/flashstub/nrf51.c
++++ /dev/null
+@@ -1,37 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2017  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include <stdint.h>
+-#include "stub.h"
+-
+-/* Non-Volatile Memory Controller (NVMC) Registers */
+-#define NVMC           ((volatile uint32_t *)0x4001E000)
+-#define NVMC_READY     NVMC[0x100]
+-
+-void __attribute__((naked))
+-nrf51_flash_write_stub(volatile uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	for (int i; i < size; i += 4) {
+-		*dest++ = *src++;
+-		while (!(NVMC_READY & 1))
+-			;
+-	}
+-
+-	stub_exit(0);
+-}
+diff --git a/src/target/flashstub/nrf51.stub b/src/target/flashstub/nrf51.stub
+deleted file mode 100644
+index 3378abb..0000000
+--- a/src/target/flashstub/nrf51.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x2300, 0x2601, 0x4D06, 0x1AC9, 0x18C4, 0x429A, 0xD800, 0xBE00, 0x58CF, 0x6027, 0x682C, 0x4234, 0xD0FC, 0x3304, 0xE7F4, 0x46C0, 0xE400, 0x4001, 
+\ No newline at end of file
+diff --git a/src/target/flashstub/stm32f1.c b/src/target/flashstub/stm32f1.c
+deleted file mode 100644
+index f9ba0a1..0000000
+--- a/src/target/flashstub/stm32f1.c
++++ /dev/null
+@@ -1,40 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include "libopencm3/stm32/flash.h"
+-#include "stub.h"
+-
+-#define SR_ERROR_MASK 0x14
+-
+-void __attribute__((naked))
+-stm32f1_flash_write_stub(uint16_t *dest, uint16_t *src, uint32_t size)
+-{
+-	for (int i; i < size; i += 2) {
+-		FLASH_CR = FLASH_CR_PG;
+-		*dest++ = *src++;
+-		while (FLASH_SR & FLASH_SR_BSY)
+-			;
+-	}
+-
+-	if (FLASH_SR & SR_ERROR_MASK)
+-		stub_exit(1);
+-
+-	stub_exit(0);
+-}
+-
+diff --git a/src/target/flashstub/stm32f1.stub b/src/target/flashstub/stm32f1.stub
+deleted file mode 100644
+index 3fe7cd0..0000000
+--- a/src/target/flashstub/stm32f1.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x2300, 0x4C09, 0x4293, 0xD209, 0x2601, 0x4D08, 0x602E, 0x5ACD, 0x52C5, 0x6825, 0x07ED, 0xD4FC, 0x3302, 0xE7F2, 0x2314, 0x6822, 0x421A, 0xD000, 0xBE01, 0xBE00, 0x200C, 0x4002, 0x2010, 0x4002,
+\ No newline at end of file
+diff --git a/src/target/flashstub/stm32f4_x32.c b/src/target/flashstub/stm32f4_x32.c
+deleted file mode 100644
+index 117c132..0000000
+--- a/src/target/flashstub/stm32f4_x32.c
++++ /dev/null
+@@ -1,41 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include "libopencm3/stm32/flash.h"
+-#include "stub.h"
+-
+-#define SR_ERROR_MASK 0xF2
+-
+-void __attribute__((naked))
+-stm32f4_flash_write_x32_stub(uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	for (int i = 0; i < size; i += 4) {
+-		FLASH_CR = FLASH_CR_PROGRAM_X32 | FLASH_CR_PG;
+-		*dest++ = *src++;
+-		__asm("dsb");
+-		while (FLASH_SR & FLASH_SR_BSY)
+-			;
+-	}
+-
+-	if (FLASH_SR & SR_ERROR_MASK)
+-		stub_exit(1);
+-
+-	stub_exit(0);
+-}
+-
+diff --git a/src/target/flashstub/stm32f4_x32.stub b/src/target/flashstub/stm32f4_x32.stub
+deleted file mode 100644
+index b504ce2..0000000
+--- a/src/target/flashstub/stm32f4_x32.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x2300, 0x4C0A, 0x4293, 0xD20B, 0x4E09, 0x4D0A, 0x602E, 0x58CD, 0x50C5, 0xF3BF, 0x8F4F, 0x6825, 0x03ED, 0xD4FC, 0x3304, 0xE7F0, 0x23F2, 0x6822, 0x421A, 0xD000, 0xBE01, 0xBE00, 0x3C0C, 0x4002, 0x0201, 0x0000, 0x3C10, 0x4002,
+diff --git a/src/target/flashstub/stm32f4_x8.c b/src/target/flashstub/stm32f4_x8.c
+deleted file mode 100644
+index 84f9117..0000000
+--- a/src/target/flashstub/stm32f4_x8.c
++++ /dev/null
+@@ -1,44 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2017  Black Sphere Technologies Ltd.
+- * Written by Gordon Smith <gordonhj.smith@gmail.com>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include "libopencm3/stm32/flash.h"
+-#include "stub.h"
+-
+-#define SR_ERROR_MASK 0xF2
+-
+-void __attribute__((naked))
+-stm32f4_flash_write_x8_stub(uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	uint8_t *b_dest, *b_src;
+-	b_dest = (void *)dest;
+-	b_src = (void *)src;
+-	for (int i = 0; i < size; i += 1) {
+-		FLASH_CR = FLASH_CR_PROGRAM_X8 | FLASH_CR_PG;
+-		*b_dest++ = *b_src++;
+-		__asm("dsb");
+-		while (FLASH_SR & FLASH_SR_BSY)
+-			;
+-	}
+-
+-	if (FLASH_SR & SR_ERROR_MASK)
+-		stub_exit(1);
+-
+-	stub_exit(0);
+-}
+-
+diff --git a/src/target/flashstub/stm32f4_x8.stub b/src/target/flashstub/stm32f4_x8.stub
+deleted file mode 100644
+index 08d17dc..0000000
+--- a/src/target/flashstub/stm32f4_x8.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x2300, 0x4C0A, 0x4293, 0xD00B, 0x2601, 0x4D09, 0x602E, 0x5CCD, 0x54C5, 0xF3BF, 0x8F4F, 0x6825, 0x03ED, 0xD4FC, 0x3301, 0xE7F0, 0x23F2, 0x6822, 0x421A, 0xD000, 0xBE01, 0xBE00, 0x3C0C, 0x4002, 0x3C10, 0x4002,
+diff --git a/src/target/flashstub/stm32l4.c b/src/target/flashstub/stm32l4.c
+deleted file mode 100644
+index 820bca4..0000000
+--- a/src/target/flashstub/stm32l4.c
++++ /dev/null
+@@ -1,53 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#include "stub.h"
+-#include <stdint.h>
+-
+-/* No STM32L4 definitions in libopencm3 yet */
+-#define FLASH_SR ((volatile uint32_t *) 0x40022010)
+-#define FLASH_SR_EOP		(1 << 0)
+-#define SR_ERROR_MASK		0xC3FA
+-#define FLASH_SR_BSY		(1 << 16)
+-
+-#define FLASH_CR ((volatile uint32_t *) 0x40022014)
+-#define FLASH_CR_PG			(1 << 0)
+-#define FLASH_CR_EOPIE		(1 << 24)
+-#define FLASH_CR_ERRIE		(1 << 25)
+-#define FLASH_SR_EOP		(1 << 0)
+-
+-void __attribute__((naked))
+-stm32l4_flash_write_stub(uint32_t *dest, uint32_t *src, uint32_t size)
+-{
+-	if ((size & 7) || ((uint32_t)dest & 7))
+-		stub_exit(1);
+-	for (int i = 0; i < size; i += 8) {
+-		*FLASH_CR =  FLASH_CR_EOPIE | FLASH_CR_ERRIE | FLASH_CR_PG;
+-		*dest++ = *src++;
+-		*dest++ = *src++;
+-		__asm("dsb");
+-		while (*FLASH_SR & FLASH_SR_BSY)
+-			;
+-		if ((*FLASH_SR & SR_ERROR_MASK) || !(*FLASH_SR & FLASH_SR_EOP))
+-			stub_exit(1);
+-		*FLASH_SR |= FLASH_SR_EOP;
+-	}
+-	*FLASH_CR = 0;
+-	stub_exit(0);
+-}
+diff --git a/src/target/flashstub/stm32l4.stub b/src/target/flashstub/stm32l4.stub
+deleted file mode 100644
+index 73cd969..0000000
+--- a/src/target/flashstub/stm32l4.stub
++++ /dev/null
+@@ -1 +0,0 @@
+-0x1C04, 0x4314, 0x2300, 0x0764, 0xD011, 0xBE01, 0xE00F, 0x4C11, 0x6825, 0x03ED, 0xD4FB, 0x6826, 0x4D0F, 0x422E, 0xD115, 0x6825, 0x07ED, 0xD512, 0x2601, 0x6825, 0x3308, 0x4335, 0x6025, 0x4C0B, 0x4293, 0xD20C, 0x4D0A, 0x6025, 0x58CC, 0x50C4, 0x18CC, 0x6865, 0x18C4, 0x6065, 0xF3BF, 0x8F4F, 0xE7E1, 0xBE01, 0xE7EA, 0x2300, 0x6023, 0xBE00, 0x2010, 0x4002, 0xC3FA, 0x0000, 0x2014, 0x4002, 0x0001, 0x0300,
+\ No newline at end of file
+diff --git a/src/target/flashstub/stub.h b/src/target/flashstub/stub.h
+deleted file mode 100644
+index b837bae..0000000
+--- a/src/target/flashstub/stub.h
++++ /dev/null
+@@ -1,30 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2015  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __STUB_H
+-#define __STUB_H
+-
+-static inline void __attribute__((always_inline))
+-stub_exit(const int code)
+-{
+-	asm("bkpt %0"::"i"(code));
+-}
+-
+-#endif
+-
+diff --git a/src/target/target.c b/src/target/target.c
+deleted file mode 100644
+index e433bdb..0000000
+--- a/src/target/target.c
++++ /dev/null
+@@ -1,567 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2016  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#include "general.h"
+-#include "target.h"
+-#include "target_internal.h"
+-
+-#include <stdarg.h>
+-
+-target *target_list = NULL;
+-
+-target *target_new(void)
+-{
+-	target *t = (void*)calloc(1, sizeof(*t));
+-	if (target_list) {
+-		target *c = target_list;
+-		while (c->next)
+-			c = c->next;
+-		c->next = t;
+-	} else {
+-		target_list = t;
+-	}
+-
+-	return t;
+-}
+-
+-bool target_foreach(void (*cb)(int, target *t, void *context), void *context)
+-{
+-	int i = 1;
+-	target *t = target_list;
+-	for (; t; t = t->next, i++)
+-		cb(i, t, context);
+-	return target_list != NULL;
+-}
+-
+-void target_list_free(void)
+-{
+-	struct target_command_s *tc;
+-
+-	while(target_list) {
+-		target *t = target_list->next;
+-		if (target_list->tc)
+-			target_list->tc->destroy_callback(target_list->tc, target_list);
+-		if (target_list->priv)
+-			target_list->priv_free(target_list->priv);
+-		while (target_list->commands) {
+-			tc = target_list->commands->next;
+-			free(target_list->commands);
+-			target_list->commands = tc;
+-		}
+-		if (target_list->dyn_mem_map)
+-			free(target_list->dyn_mem_map);
+-		while (target_list->ram) {
+-			void * next = target_list->ram->next;
+-			free(target_list->ram);
+-			target_list->ram = next;
+-		}
+-		while (target_list->flash) {
+-			void * next = target_list->flash->next;
+-			if (target_list->flash->buf)
+-				free(target_list->flash->buf);
+-			free(target_list->flash);
+-			target_list->flash = next;
+-		}
+-		while (target_list->bw_list) {
+-			void * next = target_list->bw_list->next;
+-			free(target_list->bw_list);
+-			target_list->bw_list = next;
+-		}
+-		free(target_list);
+-		target_list = t;
+-	}
+-}
+-
+-void target_add_commands(target *t, const struct command_s *cmds, const char *name)
+-{
+-	struct target_command_s *tc;
+-	if (t->commands) {
+-		for (tc = t->commands; tc->next; tc = tc->next);
+-		tc = tc->next = malloc(sizeof(*tc));
+-	} else {
+-		t->commands = tc = malloc(sizeof(*tc));
+-	}
+-	tc->specific_name = name;
+-	tc->cmds = cmds;
+-	tc->next = NULL;
+-}
+-
+-target *target_attach_n(int n, struct target_controller *tc)
+-{
+-	target *t;
+-	int i;
+-	for(t = target_list, i = 1; t; t = t->next, i++)
+-		if(i == n)
+-			return target_attach(t, tc);
+-	return NULL;
+-}
+-
+-target *target_attach(target *t, struct target_controller *tc)
+-{
+-	if (t->tc)
+-		t->tc->destroy_callback(t->tc, t);
+-
+-	t->tc = tc;
+-
+-	if (!t->attach(t))
+-		return NULL;
+-
+-	t->attached = true;
+-	return t;
+-}
+-
+-void target_add_ram(target *t, target_addr start, uint32_t len)
+-{
+-	struct target_ram *ram = malloc(sizeof(*ram));
+-	ram->start = start;
+-	ram->length = len;
+-	ram->next = t->ram;
+-	t->ram = ram;
+-}
+-
+-void target_add_flash(target *t, struct target_flash *f)
+-{
+-	f->t = t;
+-	f->next = t->flash;
+-	t->flash = f;
+-}
+-
+-static ssize_t map_ram(char *buf, size_t len, struct target_ram *ram)
+-{
+-	return snprintf(buf, len, "<memory type=\"ram\" start=\"0x%08"PRIx32
+-	                          "\" length=\"0x%"PRIx32"\"/>",
+-	                          ram->start, (uint32_t)ram->length);
+-}
+-
+-static ssize_t map_flash(char *buf, size_t len, struct target_flash *f)
+-{
+-	int i = 0;
+-	i += snprintf(&buf[i], len - i, "<memory type=\"flash\" start=\"0x%08"PRIx32
+-	                                "\" length=\"0x%"PRIx32"\">",
+-	                                f->start, (uint32_t)f->length);
+-	i += snprintf(&buf[i], len - i, "<property name=\"blocksize\">0x%"PRIx32
+-	                            "</property></memory>",
+-	                            (uint32_t)f->blocksize);
+-	return i;
+-}
+-
+-const char *target_mem_map(target *t)
+-{
+-	if (t->dyn_mem_map)
+-		return t->dyn_mem_map;
+-
+-	/* FIXME size buffer */
+-	size_t len = 1024;
+-	char *tmp = malloc(len);
+-	size_t i = 0;
+-	i = snprintf(&tmp[i], len - i, "<memory-map>");
+-	/* Map each defined RAM */
+-	for (struct target_ram *r = t->ram; r; r = r->next)
+-		i += map_ram(&tmp[i], len - i, r);
+-	/* Map each defined Flash */
+-	for (struct target_flash *f = t->flash; f; f = f->next)
+-		i += map_flash(&tmp[i], len - i, f);
+-	i += snprintf(&tmp[i], len - i, "</memory-map>");
+-
+-	t->dyn_mem_map = tmp;
+-
+-	return t->dyn_mem_map;
+-}
+-
+-static struct target_flash *flash_for_addr(target *t, uint32_t addr)
+-{
+-	for (struct target_flash *f = t->flash; f; f = f->next)
+-		if ((f->start <= addr) &&
+-		    (addr < (f->start + f->length)))
+-			return f;
+-	return NULL;
+-}
+-
+-int target_flash_erase(target *t, target_addr addr, size_t len)
+-{
+-	int ret = 0;
+-	while (len) {
+-		struct target_flash *f = flash_for_addr(t, addr);
+-		size_t tmptarget = MIN(addr + len, f->start + f->length);
+-		size_t tmplen = tmptarget - addr;
+-		ret |= f->erase(f, addr, tmplen);
+-		addr += tmplen;
+-		len -= tmplen;
+-	}
+-	return ret;
+-}
+-
+-int target_flash_write(target *t,
+-                       target_addr dest, const void *src, size_t len)
+-{
+-	int ret = 0;
+-	while (len) {
+-		struct target_flash *f = flash_for_addr(t, dest);
+-		size_t tmptarget = MIN(dest + len, f->start + f->length);
+-		size_t tmplen = tmptarget - dest;
+-		if (f->align > 1) {
+-			uint32_t offset = dest % f->align;
+-			uint8_t data[ALIGN(offset + tmplen, f->align)];
+-			memset(data, f->erased, sizeof(data));
+-			memcpy((uint8_t *)data + offset, src, tmplen);
+-			ret |= f->write(f, dest - offset, data, sizeof(data));
+-		} else {
+-			ret |= f->write(f, dest, src, tmplen);
+-		}
+-		dest += tmplen;
+-		src += tmplen;
+-		len -= tmplen;
+-	}
+-	return ret;
+-}
+-
+-int target_flash_done(target *t)
+-{
+-	for (struct target_flash *f = t->flash; f; f = f->next) {
+-		if (f->done) {
+-			int tmp = f->done(f);
+-			if (tmp)
+-				return tmp;
+-		}
+-	}
+-	return 0;
+-}
+-
+-int target_flash_write_buffered(struct target_flash *f,
+-                                target_addr dest, const void *src, size_t len)
+-{
+-	int ret = 0;
+-
+-	if (f->buf == NULL) {
+-		/* Allocate flash sector buffer */
+-		f->buf = malloc(f->buf_size);
+-		f->buf_addr = -1;
+-	}
+-	while (len) {
+-		uint32_t offset = dest % f->buf_size;
+-		uint32_t base = dest - offset;
+-		if (base != f->buf_addr) {
+-			if (f->buf_addr != (uint32_t)-1) {
+-				/* Write sector to flash if valid */
+-				ret |= f->write_buf(f, f->buf_addr,
+-				                    f->buf, f->buf_size);
+-			}
+-			/* Setup buffer for a new sector */
+-			f->buf_addr = base;
+-			memset(f->buf, f->erased, f->buf_size);
+-		}
+-		/* Copy chunk into sector buffer */
+-		size_t sectlen = MIN(f->buf_size - offset, len);
+-		memcpy(f->buf + offset, src, sectlen);
+-		dest += sectlen;
+-		src += sectlen;
+-		len -= sectlen;
+-	}
+-	return ret;
+-}
+-
+-int target_flash_done_buffered(struct target_flash *f)
+-{
+-	int ret = 0;
+-	if ((f->buf != NULL) &&(f->buf_addr != (uint32_t)-1)) {
+-		/* Write sector to flash if valid */
+-		ret = f->write_buf(f, f->buf_addr, f->buf, f->buf_size);
+-		f->buf_addr = -1;
+-		free(f->buf);
+-		f->buf = NULL;
+-	}
+-
+-	return ret;
+-}
+-
+-/* Wrapper functions */
+-void target_detach(target *t)
+-{
+-	t->detach(t);
+-	t->attached = false;
+-}
+-
+-bool target_check_error(target *t) { return t->check_error(t); }
+-bool target_attached(target *t) { return t->attached; }
+-
+-/* Memory access functions */
+-int target_mem_read(target *t, void *dest, target_addr src, size_t len)
+-{
+-	t->mem_read(t, dest, src, len);
+-	return target_check_error(t);
+-}
+-
+-int target_mem_write(target *t, target_addr dest, const void *src, size_t len)
+-{
+-	t->mem_write(t, dest, src, len);
+-	return target_check_error(t);
+-}
+-
+-/* Register access functions */
+-void target_regs_read(target *t, void *data) { t->regs_read(t, data); }
+-void target_regs_write(target *t, const void *data) { t->regs_write(t, data); }
+-
+-/* Halt/resume functions */
+-void target_reset(target *t) { t->reset(t); }
+-void target_halt_request(target *t) { t->halt_request(t); }
+-enum target_halt_reason target_halt_poll(target *t, target_addr *watch)
+-{
+-	return t->halt_poll(t, watch);
+-}
+-
+-void target_halt_resume(target *t, bool step) { t->halt_resume(t, step); }
+-
+-/* Break-/watchpoint functions */
+-int target_breakwatch_set(target *t,
+-                          enum target_breakwatch type, target_addr addr, size_t len)
+-{
+-	struct breakwatch bw = {
+-		.type = type,
+-		.addr = addr,
+-		.size = len,
+-	};
+-	int ret = 1;
+-
+-	if (t->breakwatch_set)
+-		ret = t->breakwatch_set(t, &bw);
+-
+-	if (ret == 0) {
+-		/* Success, make a heap copy and add to list */
+-		struct breakwatch *bwm = malloc(sizeof bw);
+-		memcpy(bwm, &bw, sizeof(bw));
+-		bwm->next = t->bw_list;
+-		t->bw_list = bwm;
+-	}
+-
+-	return ret;
+-}
+-
+-int target_breakwatch_clear(target *t,
+-                            enum target_breakwatch type, target_addr addr, size_t len)
+-{
+-	struct breakwatch *bwp = NULL, *bw;
+-	int ret = 1;
+-	for (bw = t->bw_list; bw; bwp = bw, bw = bw->next)
+-		if ((bw->type == type) &&
+-		    (bw->addr == addr) &&
+-		    (bw->size == len))
+-			break;
+-
+-	if (bw == NULL)
+-		return -1;
+-
+-	if (t->breakwatch_clear)
+-		ret = t->breakwatch_clear(t, bw);
+-
+-	if (ret == 0) {
+-		if (bwp == NULL) {
+-			t->bw_list = bw->next;
+-		} else {
+-			bwp->next = bw->next;
+-		}
+-		free(bw);
+-	}
+-	return ret;
+-}
+-
+-/* Accessor functions */
+-size_t target_regs_size(target *t)
+-{
+-	return t->regs_size;
+-}
+-
+-const char *target_tdesc(target *t)
+-{
+-	return t->tdesc ? t->tdesc : "";
+-}
+-
+-const char *target_driver_name(target *t)
+-{
+-	return t->driver;
+-}
+-
+-uint32_t target_mem_read32(target *t, uint32_t addr)
+-{
+-	uint32_t ret;
+-	t->mem_read(t, &ret, addr, sizeof(ret));
+-	return ret;
+-}
+-
+-void target_mem_write32(target *t, uint32_t addr, uint32_t value)
+-{
+-	t->mem_write(t, addr, &value, sizeof(value));
+-}
+-
+-uint16_t target_mem_read16(target *t, uint32_t addr)
+-{
+-	uint16_t ret;
+-	t->mem_read(t, &ret, addr, sizeof(ret));
+-	return ret;
+-}
+-
+-void target_mem_write16(target *t, uint32_t addr, uint16_t value)
+-{
+-	t->mem_write(t, addr, &value, sizeof(value));
+-}
+-
+-uint8_t target_mem_read8(target *t, uint32_t addr)
+-{
+-	uint8_t ret;
+-	t->mem_read(t, &ret, addr, sizeof(ret));
+-	return ret;
+-}
+-
+-void target_mem_write8(target *t, uint32_t addr, uint8_t value)
+-{
+-	t->mem_write(t, addr, &value, sizeof(value));
+-}
+-
+-void target_command_help(target *t)
+-{
+-	for (struct target_command_s *tc = t->commands; tc; tc = tc->next) {
+-		tc_printf(t, "%s specific commands:\n", tc->specific_name);
+-		for(const struct command_s *c = tc->cmds; c->cmd; c++)
+-			tc_printf(t, "\t%s -- %s\n", c->cmd, c->help);
+-	}
+-}
+-
+-int target_command(target *t, int argc, const char *argv[])
+-{
+-	for (struct target_command_s *tc = t->commands; tc; tc = tc->next)
+-		for(const struct command_s *c = tc->cmds; c->cmd; c++)
+-			if(!strncmp(argv[0], c->cmd, strlen(argv[0])))
+-				return !c->handler(t, argc, argv);
+-	return -1;
+-}
+-
+-void tc_printf(target *t, const char *fmt, ...)
+-{
+-	(void)t;
+-	va_list ap;
+-
+-	if (t->tc == NULL)
+-		return;
+-
+-	va_start(ap, fmt);
+-	t->tc->printf(t->tc, fmt, ap);
+-	va_end(ap);
+-}
+-
+-/* Interface to host system calls */
+-int tc_open(target *t, target_addr path, size_t plen,
+-            enum target_open_flags flags, mode_t mode)
+-{
+-	if (t->tc->open == NULL) {
+-		t->tc->errno_ = TARGET_ENFILE;
+-		return -1;
+-	}
+-	return t->tc->open(t->tc, path, plen, flags, mode);
+-}
+-
+-int tc_close(target *t, int fd)
+-{
+-	if (t->tc->close == NULL) {
+-		t->tc->errno_ = TARGET_EBADF;
+-		return -1;
+-	}
+-	return t->tc->close(t->tc, fd);
+-}
+-
+-int tc_read(target *t, int fd, target_addr buf, unsigned int count)
+-{
+-	if (t->tc->read == NULL)
+-		return 0;
+-	return t->tc->read(t->tc, fd, buf, count);
+-}
+-
+-int tc_write(target *t, int fd, target_addr buf, unsigned int count)
+-{
+-	if (t->tc->write == NULL)
+-		return 0;
+-	return t->tc->write(t->tc, fd, buf, count);
+-}
+-
+-long tc_lseek(target *t, int fd, long offset, enum target_seek_flag flag)
+-{
+-	if (t->tc->lseek == NULL)
+-		return 0;
+-	return t->tc->lseek(t->tc, fd, offset, flag);
+-}
+-
+-int tc_rename(target *t, target_addr oldpath, size_t oldlen,
+-                         target_addr newpath, size_t newlen)
+-{
+-	if (t->tc->rename == NULL) {
+-		t->tc->errno_ = TARGET_ENOENT;
+-		return -1;
+-	}
+-	return t->tc->rename(t->tc, oldpath, oldlen, newpath, newlen);
+-}
+-
+-int tc_unlink(target *t, target_addr path, size_t plen)
+-{
+-	if (t->tc->unlink == NULL) {
+-		t->tc->errno_ = TARGET_ENOENT;
+-		return -1;
+-	}
+-	return t->tc->unlink(t->tc, path, plen);
+-}
+-
+-int tc_stat(target *t, target_addr path, size_t plen, target_addr buf)
+-{
+-	if (t->tc->stat == NULL) {
+-		t->tc->errno_ = TARGET_ENOENT;
+-		return -1;
+-	}
+-	return t->tc->stat(t->tc, path, plen, buf);
+-}
+-
+-int tc_fstat(target *t, int fd, target_addr buf)
+-{
+-	if (t->tc->fstat == NULL) {
+-		return 0;
+-	}
+-	return t->tc->fstat(t->tc, fd, buf);
+-}
+-
+-int tc_gettimeofday(target *t, target_addr tv, target_addr tz)
+-{
+-	if (t->tc->gettimeofday == NULL) {
+-		return -1;
+-	}
+-	return t->tc->gettimeofday(t->tc, tv, tz);
+-}
+-
+-int tc_isatty(target *t, int fd)
+-{
+-	if (t->tc->isatty == NULL) {
+-		return 1;
+-	}
+-	return t->tc->isatty(t->tc, fd);
+-}
+-
+-int tc_system(target *t, target_addr cmd, size_t cmdlen)
+-{
+-	if (t->tc->system == NULL) {
+-		return -1;
+-	}
+-	return t->tc->system(t->tc, cmd, cmdlen);
+-}
+-
+diff --git a/src/target/target_internal.h b/src/target/target_internal.h
+deleted file mode 100644
+index 33f1663..0000000
+--- a/src/target/target_internal.h
++++ /dev/null
+@@ -1,187 +0,0 @@
+-/*
+- * This file is part of the Black Magic Debug project.
+- *
+- * Copyright (C) 2011  Black Sphere Technologies Ltd.
+- * Written by Gareth McMullin <gareth@blacksphere.co.nz>
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-
+-#ifndef __TARGET_INTERNAL_H
+-#define __TARGET_INTERNAL_H
+-
+-extern target *target_list;
+-target *target_new(void);
+-
+-struct target_ram {
+-	target_addr start;
+-	size_t length;
+-	struct target_ram *next;
+-};
+-
+-struct target_flash;
+-typedef int (*flash_erase_func)(struct target_flash *f, target_addr addr, size_t len);
+-typedef int (*flash_write_func)(struct target_flash *f, target_addr dest,
+-                                const void *src, size_t len);
+-typedef int (*flash_done_func)(struct target_flash *f);
+-struct target_flash {
+-	target_addr start;
+-	size_t length;
+-	size_t blocksize;
+-	flash_erase_func erase;
+-	flash_write_func write;
+-	flash_done_func done;
+-	target *t;
+-	struct target_flash *next;
+-	int align;
+-	uint8_t erased;
+-
+-	/* For buffered flash */
+-	size_t buf_size;
+-	flash_write_func write_buf;
+-	target_addr buf_addr;
+-	void *buf;
+-};
+-
+-typedef bool (*cmd_handler)(target *t, int argc, const char **argv);
+-
+-struct command_s {
+-	const char *cmd;
+-	cmd_handler handler;
+-	const char *help;
+-};
+-
+-struct target_command_s {
+-	const char *specific_name;
+-	const struct command_s *cmds;
+-	struct target_command_s *next;
+-};
+-
+-struct breakwatch {
+-	struct breakwatch *next;
+-	enum target_breakwatch type;
+-	target_addr addr;
+-	size_t size;
+-	uint32_t reserved[4]; /* for use by the implementing driver */
+-};
+-
+-struct target_s {
+-	bool attached;
+-	struct target_controller *tc;
+-
+-	/* Attach/Detach funcitons */
+-	bool (*attach)(target *t);
+-	void (*detach)(target *t);
+-	bool (*check_error)(target *t);
+-
+-	/* Memory access functions */
+-	void (*mem_read)(target *t, void *dest, target_addr src,
+-	                 size_t len);
+-	void (*mem_write)(target *t, target_addr dest,
+-	                  const void *src, size_t len);
+-
+-	/* Register access functions */
+-	size_t regs_size;
+-	const char *tdesc;
+-	void (*regs_read)(target *t, void *data);
+-	void (*regs_write)(target *t, const void *data);
+-
+-	/* Halt/resume functions */
+-	void (*reset)(target *t);
+-	void (*extended_reset)(target *t);
+-	void (*halt_request)(target *t);
+-	enum target_halt_reason (*halt_poll)(target *t, target_addr *watch);
+-	void (*halt_resume)(target *t, bool step);
+-
+-	/* Break-/watchpoint functions */
+-	int (*breakwatch_set)(target *t, struct breakwatch*);
+-	int (*breakwatch_clear)(target *t, struct breakwatch*);
+-	struct breakwatch *bw_list;
+-
+-	/* target-defined options */
+-	unsigned target_options;
+-	uint32_t idcode;
+-
+-	/* Target memory map */
+-	char *dyn_mem_map;
+-	struct target_ram *ram;
+-	struct target_flash *flash;
+-
+-	/* Other stuff */
+-	const char *driver;
+-	struct target_command_s *commands;
+-
+-	struct target_s *next;
+-
+-	void *priv;
+-	void (*priv_free)(void *);
+-};
+-
+-void target_add_commands(target *t, const struct command_s *cmds, const char *name);
+-void target_add_ram(target *t, target_addr start, uint32_t len);
+-void target_add_flash(target *t, struct target_flash *f);
+-int target_flash_write_buffered(struct target_flash *f,
+-                                target_addr dest, const void *src, size_t len);
+-int target_flash_done_buffered(struct target_flash *f);
+-
+-/* Convenience function for MMIO access */
+-uint32_t target_mem_read32(target *t, uint32_t addr);
+-uint16_t target_mem_read16(target *t, uint32_t addr);
+-uint8_t target_mem_read8(target *t, uint32_t addr);
+-void target_mem_write32(target *t, uint32_t addr, uint32_t value);
+-void target_mem_write16(target *t, uint32_t addr, uint16_t value);
+-void target_mem_write8(target *t, uint32_t addr, uint8_t value);
+-bool target_check_error(target *t);
+-
+-/* Access to host controller interface */
+-void tc_printf(target *t, const char *fmt, ...);
+-
+-/* Interface to host system calls */
+-int tc_open(target *, target_addr path, size_t plen,
+-            enum target_open_flags flags, mode_t mode);
+-int tc_close(target *t, int fd);
+-int tc_read(target *t, int fd, target_addr buf, unsigned int count);
+-int tc_write(target *t, int fd, target_addr buf, unsigned int count);
+-long tc_lseek(target *t, int fd, long offset,
+-              enum target_seek_flag flag);
+-int tc_rename(target *t, target_addr oldpath, size_t oldlen,
+-                         target_addr newpath, size_t newlen);
+-int tc_unlink(target *t, target_addr path, size_t plen);
+-int tc_stat(target *t, target_addr path, size_t plen, target_addr buf);
+-int tc_fstat(target *t, int fd, target_addr buf);
+-int tc_gettimeofday(target *t, target_addr tv, target_addr tz);
+-int tc_isatty(target *t, int fd);
+-int tc_system(target *t, target_addr cmd, size_t cmdlen);
+-
+-/* Probe for various targets.
+- * Actual functions implemented in their respective drivers.
+- */
+-bool stm32f1_probe(target *t);
+-bool stm32f4_probe(target *t);
+-bool stm32l0_probe(target *t);
+-bool stm32l1_probe(target *t);
+-bool stm32l4_probe(target *t);
+-bool lmi_probe(target *t);
+-bool lpc11xx_probe(target *t);
+-bool lpc15xx_probe(target *t);
+-bool lpc43xx_probe(target *t);
+-bool sam3x_probe(target *t);
+-bool sam4l_probe(target *t);
+-bool nrf51_probe(target *t);
+-bool samd_probe(target *t);
+-bool kinetis_probe(target *t);
+-bool efm32_probe(target *t);
+-
+-#endif
+-

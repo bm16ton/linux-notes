@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="PWR">
+  <COMMON>
+    <LITERALS>  
+      
+      <LITERAL><SPL>PWR_PVDLevel_0</SPL><LL>LL_PWR_PVDLEVEL_0</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_1</SPL><LL>LL_PWR_PVDLEVEL_1</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2</SPL><LL>LL_PWR_PVDLEVEL_2</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_3</SPL><LL>LL_PWR_PVDLEVEL_3</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_4</SPL><LL>LL_PWR_PVDLEVEL_4</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_5</SPL><LL>LL_PWR_PVDLEVEL_5</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_6</SPL><LL>LL_PWR_PVDLEVEL_6</LL></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_7</SPL><LL>LL_PWR_PVDLEVEL_7</LL></LITERAL>
+       
+      <LITERAL><SPL>PWR_PVDLevel_2V2</SPL> <LL>LL_PWR_PVDLEVEL_0</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V3</SPL><LL>LL_PWR_PVDLEVEL_1</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V4</SPL><LL>LL_PWR_PVDLEVEL_2</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V5</SPL><LL>LL_PWR_PVDLEVEL_3</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V6</SPL><LL>LL_PWR_PVDLEVEL_4</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V7</SPL><LL>LL_PWR_PVDLEVEL_5</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V8</SPL><LL>LL_PWR_PVDLEVEL_6</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_PVDLevel_2V9</SPL><LL>LL_PWR_PVDLEVEL_7</LL><AVAILABLE>STM32F10</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_Regulator_ON</SPL><LL>LL_PWR_MODE_STOP_MAINREGU</LL><EXCLUDE>STM32L1</EXCLUDE></LITERAL>
+      <LITERAL><SPL>PWR_Regulator_LowPower</SPL><LL>LL_PWR_MODE_STOP_LPREGU</LL><EXCLUDE>STM32L1</EXCLUDE></LITERAL>
+      
+      <LITERAL><SPL>PWR_MainRegulator_ON</SPL><LL>LL_PWR_MODE_STOP_MAINREGU</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_LowPowerRegulator_ON</SPL><LL>LL_PWR_MODE_STOP_LPREGU</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_Regulator_ON</SPL><LL>LL_PWR_REGU_LPMODES_MAIN</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_Regulator_LowPower</SPL><LL>LL_PWR_REGU_LPMODES_LOW_POWER</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_MainRegulator_UnderDrive_ON</SPL><LL>LL_PWR_MODE_STOP_MAINREGU_UNDERDRIVE</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_LowPowerRegulator_UnderDrive_ON</SPL><LL>LL_PWR_MODE_STOP_LPREGU_UNDERDRIVE</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_WakeUpPin_1</SPL><LL>LL_PWR_WAKEUP_PIN1</LL></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_2</SPL><LL>LL_PWR_WAKEUP_PIN2</LL></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_3</SPL><LL>LL_PWR_WAKEUP_PIN3</LL></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_4</SPL><LL>LL_PWR_WAKEUP_PIN4</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_5</SPL><LL>LL_PWR_WAKEUP_PIN5</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_6</SPL><LL>LL_PWR_WAKEUP_PIN6</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_7</SPL><LL>LL_PWR_WAKEUP_PIN7</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUpPin_8</SPL><LL>LL_PWR_WAKEUP_PIN8</LL><AVAILABLE>STM32F0</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_WakeUp_Pin1</SPL><LL>LL_PWR_WAKEUP_PIN1</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUp_Pin2</SPL><LL>LL_PWR_WAKEUP_PIN2</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_WakeUp_Pin3</SPL><LL>LL_PWR_WAKEUP_PIN3</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_Regulator_Voltage_Scale1</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE1</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_Regulator_Voltage_Scale2</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE2</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_Regulator_Voltage_Scale3</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE3</LL><AVAILABLE>STM32F4</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_VoltageScaling_Range1</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE1</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_VoltageScaling_Range2</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE2</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>PWR_VoltageScaling_Range3</SPL><LL>LL_PWR_REGU_VOLTAGE_SCALE3</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      
+      <LITERAL><SPL>PWR_SDADCAnalog_1</SPL><LL>LL_PWR_SDADC_ANALOG1</LL></LITERAL>
+      <LITERAL><SPL>PWR_SDADCAnalog_2</SPL><LL>LL_PWR_SDADC_ANALOG2</LL></LITERAL>
+      <LITERAL><SPL>PWR_SDADCAnalog_3</SPL><LL>LL_PWR_SDADC_ANALOG3</LL></LITERAL>
+      
+      <!-- <LITERAL><SPL>PWR_FLAG_WU</SPL><LL>LL_PWR_CSR_WUF</LL></LITERAL>
+      <LITERAL><SPL>PWR_FLAG_SB</SPL><LL>LL_PWR_CSR_SBF</LL></LITERAL>
+      <LITERAL><SPL>PWR_FLAG_PVDO</SPL><LL>LL_PWR_CSR_PVDO</LL></LITERAL>
+      <LITERAL><SPL>PWR_FLAG_VREFINTRDY</SPL><LL>LL_PWR_CSR_VREFINTRDYF</LL></LITERAL>
+      <LITERAL><SPL>PWR_FLAG_VOS</SPL><LL>LL_PWR_CSR_VOSF</LL></LITERAL>
+      <LITERAL><SPL>PWR_FLAG_REGLP</SPL><LL>LL_PWR_CSR_REGLPF</LL></LITERAL> -->
+      
+    </LITERALS>
+    
+    <STRUCTURE_FIELDS>
+    </STRUCTURE_FIELDS>
+    
+    <FUNCTIONS>
+      <!-- ############# void CRS_DeInit(void) ############# -->
+      <FUNCTION>
+        <SPL NAME="PWR_DeInit" />
+        <LL  NAME="LL_PWR_DeInit" />
+      </FUNCTION>
+      
+      <!-- ############# void PWR_BackupAccessCmd(ENABLE/DISABLE) ############# -->
+      <FUNCTION>
+        <SPL NAME="PWR_BackupAccessCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_PWR_EnableBkUpAccess" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_BackupAccessCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_PWR_DisableBkUpAccess" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ############### void PWR_PVDLevelConfig(uint32_t) ############### -->
+      <FUNCTION>
+        <SPL NAME="PWR_PVDLevelConfig"/>
+        <LL NAME="LL_PWR_SetPVDLevel" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+      </FUNCTION>
+      
+      <!-- ############### void PWR_PVDCmd(ENABLE/DISABLE) ############### -->
+      <FUNCTION>
+        <SPL NAME="PWR_PVDCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_PWR_EnablePVD" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_PVDCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_PWR_DisablePVD" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ############### void PWR_WakeUpPinCmd(ENABLE/DISABLE) ############### -->
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0=LL_PWR_WAKEUP_PIN1"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0=LL_PWR_WAKEUP_PIN1"/>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_WakeUpPinCmd(uint32_t, ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_1"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_1"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_2"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_2"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_3"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_3"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_4"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_4"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_5"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_5"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_6"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_6"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_7"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_7"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_8"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUpPin_8"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@LL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <!-- ########## Special definitions For STM32F4 ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin1"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin1"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin2"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin2"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin3"
+             CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_WakeUpPinCmd" 
+             CMD0="EQU@SPL_PARAM_0=PWR_WakeUp_Pin3"
+             CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableWakeUpPin" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_BackupRegulatorCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_BackupRegulatorCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableBkUpRegulator" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F2</AVAILABLE>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_BackupRegulatorCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableBkUpRegulator" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F2</AVAILABLE>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_MainRegulatorModeConfig(uint32_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_MainRegulatorModeConfig" />
+        <LL NAME="LL_PWR_SetRegulVoltageScaling" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ############# void PWR_OverDriveCmd(ENABLE/DISABLE) ############# -->
+      <FUNCTION>
+        <SPL NAME="PWR_OverDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableOverDriveMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_OverDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableOverDriveMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ############# void PWR_OverDriveSWCmd(ENABLE/DISABLE) ############# -->
+      <FUNCTION>
+        <SPL NAME="PWR_OverDriveSWCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableOverDriveSwitching" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_OverDriveSWCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableOverDriveSwitching" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ############# void PWR_UnderDriveCmd(ENABLE/DISABLE) ############# -->
+      <FUNCTION>
+        <SPL NAME="PWR_UnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableUnderDriveMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_UnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableUnderDriveMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_MainRegulatorUnderDriveCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_MainRegulatorUnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableMainRegulatorDeepSleepUDMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_MainRegulatorUnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableMainRegulatorDeepSleepUDMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_LowRegulatorUnderDriveCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_LowRegulatorUnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableLowPowerRegulatorDeepSleepUDMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_LowRegulatorUnderDriveCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableLowPowerRegulatorDeepSleepUDMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_MainRegulatorLowVoltageCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_MainRegulatorLowVoltageCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableMainRegulatorLowVoltageMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_MainRegulatorLowVoltageCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableMainRegulatorLowVoltageMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_LowRegulatorLowVoltageCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_LowRegulatorLowVoltageCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableLowPowerRegulatorLowVoltageMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_LowRegulatorLowVoltageCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableLowPowerRegulatorLowVoltageMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_FlashPowerDownCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_FlashPowerDownCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableFlashPowerDown" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F2</AVAILABLE>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_FlashPowerDownCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableFlashPowerDown" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F2</AVAILABLE>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_EnterSTOPMode(uint32_t , uint8_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_SLEEPONEXIT"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="LL_LPM_EnableSleepOnExit"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_LowPower"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_LowPower"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_LowPower"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_SLEEPONEXIT"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="LL_LPM_EnableSleepOnExit"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_MainRegulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_MainRegulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_LowPowerRegulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_LowPowerRegulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_EnterUnderDriveSTOPMode(uint32_t , uint8_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterUnderDriveSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_MainRegulator_UnderDrive_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterUnderDriveSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_MainRegulator_UnderDrive_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterUnderDriveSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_LowPowerRegulator_UnderDrive_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI();"/>
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterUnderDriveSTOPMode"
+             CMD0="EQU@SPL_PARAM_0=PWR_LowPowerRegulator_UnderDrive_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_STOPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFE();" />
+        <LL NAME="LL_LPM_EnableSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ############## void PWR_EnterSTANDBYMode(void) ############## -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSTANDBYMode"/>
+        <LL NAME="LL_PWR_ClearFlag_WU"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="ADD@LL_PARAM_0=LL_PWR_MODE_STANDBY"/>
+        <LL NAME="LL_LPM_EnableDeepSleep"
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI()"/>
+      </FUNCTION>
+      
+      <!-- ############## void PWR_SDADCAnalogCmd(uint32_t, ENABLE/DISABLE) ############## -->
+      <FUNCTION>
+        <SPL NAME="PWR_SDADCAnalogCmd" 
+             CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+        <LL NAME="LL_PWR_EnableSDADC" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F37</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_SDADCAnalogCmd" 
+             CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+        <LL NAME="LL_PWR_DisableSDADC" 
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32F37</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- #################### void PWR_EnterSleepMode(uint8_t) #################### -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_SLEEPEntry_WFI"/>
+        <LL NAME="LL_LPM_EnableSleep" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__WFI()"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+        <AVAILABLE>STM32F37</AVAILABLE>
+        <AVAILABLE>STM32F30</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_SLEEPEntry_WFE"/>
+        <LL NAME="LL_LPM_EnableSleep" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <LL NAME="N/A"
+            CMD0="__SEV(); \n __WFE(); \n __WFE()"/>
+        <AVAILABLE>STM32F0</AVAILABLE>
+        <AVAILABLE>STM32F37</AVAILABLE>
+        <AVAILABLE>STM32F30</AVAILABLE>
+      </FUNCTION>
+      <!-- #################### void PWR_EnterSleepMode(uint8_t, uint8_t) ######### -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_SLEEPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0=LL_PWR_MODE_STOP"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_PWR_SetRegulModeLP"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableSleep" />
+        <LL NAME="N/A"
+            CMD0="__WFI()"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_ON"
+             CMD1="EQU@SPL_PARAM_1=PWR_SLEEPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0=LL_PWR_MODE_STOP"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_PWR_SetRegulModeLP"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableSleep" />
+        <LL NAME="N/A"
+            CMD0="__SEV(); \n __WFE(); \n __WFE()"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_LowPower"
+             CMD1="EQU@SPL_PARAM_1=PWR_SLEEPEntry_WFI"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0=LL_PWR_MODE_STOP"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_PWR_SetRegulModeLP"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableSleep" />
+        <LL NAME="N/A"
+            CMD0="__WFI()"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="PWR_EnterSleepMode" 
+             CMD0="EQU@SPL_PARAM_0=PWR_Regulator_LowPower"
+             CMD1="EQU@SPL_PARAM_1=PWR_SLEEPEntry_WFE"/>
+        <LL NAME="LL_PWR_SetPowerMode"
+            CMD0="UPD@LL_PARAM_0=LL_PWR_MODE_STOP"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_PWR_SetRegulModeLP"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"
+            CMD1="DEL@LL_PARAM_1"/>
+        <LL NAME="LL_LPM_EnableSleep" />
+        <LL NAME="N/A"
+            CMD0="__SEV(); \n __WFE(); \n __WFE()"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_RTCAccessCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_RTCAccessCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableBkUpAccess" 
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_RTCAccessCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableBkUpAccess" 
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_FastWakeUpCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_FastWakeUpCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableFastWakeUp"
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_FastWakeUpCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableFastWakeUp"
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_UltraLowPowerCmd(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_UltraLowPowerCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnableUltraLowPower"
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_UltraLowPowerCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_DisableUltraLowPower"
+            CMD0="DEL@LL_PARAM_1"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_VoltageScalingConfig(uint32_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_VoltageScalingConfig"/>
+        <LL NAME="LL_PWR_SetRegulVoltageScaling"
+            CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## void PWR_EnterLowPowerRunMode(ENABLE/DISABLE) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_EnterLowPowerRunMode" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE"/>
+        <LL NAME="LL_PWR_EnterLowPowerRunMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_EnterLowPowerRunMode" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE"/>
+        <LL NAME="LL_PWR_ExitLowPowerRunMode" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ########## FlagStatus PWR_GetFlagStatus(uint32_t) ########## -->
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_WU"/>
+        <LL NAME="LL_PWR_IsActiveFlag_WU" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_SB"/>
+        <LL NAME="LL_PWR_IsActiveFlag_SB" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_PVDO"/>
+        <LL NAME="LL_PWR_IsActiveFlag_PVDO" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_BRR"/>
+        <LL NAME="LL_PWR_IsActiveFlag_BRR" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F2</AVAILABLE>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_VOSRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_VOS" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_REGRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_VOS" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_ODRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_OD" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_ODSWRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_ODSW" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_UDRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_UD" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_VREFINTRDY"/>
+        <LL NAME="LL_PWR_IsActiveFlag_VREFINTRDY" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+        <AVAILABLE>STM32F37</AVAILABLE>
+        <AVAILABLE>STM32F30</AVAILABLE>
+        <AVAILABLE>STM32F0</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_VOS"/>
+        <LL NAME="LL_PWR_IsActiveFlag_VOSF" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_REGLP"/>
+        <LL NAME="LL_PWR_IsActiveFlag_REGLPF" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32L1</AVAILABLE>
+      </FUNCTION>
+      
+      <!-- ############ void PWR_ClearFlag (uint32_t) ############ -->
+      <FUNCTION>
+        <SPL NAME="PWR_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_WU"/>
+        <LL NAME="LL_PWR_ClearFlag_WU" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_SB"/>
+        <LL NAME="LL_PWR_ClearFlag_SB" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="PWR_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=PWR_FLAG_UDRDY"/>
+        <LL NAME="LL_PWR_ClearFlag_UD" 
+            CMD0="DEL@LL_PARAM_0"/>
+        <AVAILABLE>STM32F4</AVAILABLE>
+      </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+  <SPECIFIC>
+  </SPECIFIC>
+</IP>

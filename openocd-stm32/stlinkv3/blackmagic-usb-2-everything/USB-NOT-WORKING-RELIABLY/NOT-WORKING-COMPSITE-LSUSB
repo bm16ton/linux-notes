@@ -1,0 +1,94 @@
+CDC-ACM Demo
+Manufacturer: Black Sphere Technologies
+Serial Number: DEMO
+Speed: 480Mb/s (high)
+Bus:   1
+Address:  72
+USB Version:  2.00
+Device Class: ef(misc )
+Device Subclass: 02
+Device Protocol: 01
+Maximum Default Endpoint Size: 64
+Number of Configurations: 1
+Vendor Id: 0483
+Product Id: 5740
+Revision Number:  2.00
+
+Config Number: 1
+	Number of Interfaces: 4
+	Attributes: 80
+	MaxPower Needed: 100mA
+
+	Interface Number: 0
+		Name: cdc_acm
+		Alternate Number: 0
+		Class: 02(comm.)
+		Sub Class: 02
+		Protocol: 01
+		Number of Endpoints: 1
+
+			Endpoint Address: 82
+			Direction: in
+			Attribute: 3
+			Type: Int.
+			Max Packet Size: 16
+			Interval: 128ms
+
+	Interface Number: 1
+		Name: cdc_acm
+		Alternate Number: 0
+		Class: 0a(data )
+		Sub Class: 00
+		Protocol: 00
+		Number of Endpoints: 2
+
+			Endpoint Address: 01
+			Direction: out
+			Attribute: 2
+			Type: Bulk
+			Max Packet Size: 512
+			Interval: 125us
+
+			Endpoint Address: 81
+			Direction: in
+			Attribute: 2
+			Type: Bulk
+			Max Packet Size: 512
+			Interval: 0ms
+
+	Interface Number: 2
+		Name: (none)
+		Alternate Number: 0
+		Class: 02(comm.)
+		Sub Class: 02
+		Protocol: 01
+		Number of Endpoints: 1
+
+			Endpoint Address: 84
+			Direction: in
+			Attribute: 3
+			Type: Int.
+			Max Packet Size: 16
+			Interval: 128ms
+
+	Interface Number: 3
+		Name: (none)
+		Alternate Number: 0
+		Class: 0a(data )
+		Sub Class: 00
+		Protocol: 00
+		Number of Endpoints: 2
+
+			Endpoint Address: 03
+			Direction: out
+			Attribute: 2
+			Type: Bulk
+			Max Packet Size: 512
+			Interval: 125us
+
+			Endpoint Address: 83
+			Direction: in
+			Attribute: 2
+			Type: Bulk
+			Max Packet Size: 512
+			Interval: 0ms

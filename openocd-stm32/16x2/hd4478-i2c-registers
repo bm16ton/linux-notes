@@ -1,0 +1,24 @@
+
+    Function set (8-bit interface, 2 lines, 5*7 Pixels): 0x38
+    Function set (8-bit interface, 1 line, 5*7 Pixels): 0x30
+    Function set (4-bit interface, 2 lines, 5*7 Pixels): 0x28
+    Function set (4-bit interface, 1 line, 5*7 Pixels): 0x20
+    Scroll display one character right (all lines): 0x1E
+    Scroll display one character left (all lines): 0x18
+    Home (move cursor to top/left character position):0x02
+    Move cursor one character left: 0x10
+    Move cursor one character right: 0x14
+    Turn on visible underline cursor: 0x0E
+    Turn on visible blinking-block cursor: 0x0F
+    Make cursor invisible: 0x0C
+    Blank the display (without clearing): 0x08
+    Restore the display (with cursor hidden): 0x0C
+    Clear Screen: 0x01
+    Set cursor position (DDRAM address): 0x80+ addr
+    Set pointer in character-generator RAM (CG RAM address): 0x40+ addr
+
+    Entry mode set: 0x04, 0x05, 0x06, 0x07
+    i.e. : %000001IS
+    where
+    I : 0 = Dec Cursor 1 = Inc Cursor
+    S : 0 = Cursor Move 1 = Display Shift

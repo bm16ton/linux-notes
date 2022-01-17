@@ -1,0 +1,836 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="comp_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_5185_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font55185
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font65185
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font75185
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font85185
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl655185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl665185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl675185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl685185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl695185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl705185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl715185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl725185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl735185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl745185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl755185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl765185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl775185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl785185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl795185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl805185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl815185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl825185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl835185
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl845185
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_5185" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=2173 class=xl655355185
+ style='border-collapse:collapse;table-layout:fixed;width:1630pt'>
+ <col class=xl655355185 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl655355185 width=713 style='mso-width-source:userset;mso-width-alt:
+ 22816;width:535pt'>
+ <col class=xl655355185 width=852 style='mso-width-source:userset;mso-width-alt:
+ 27264;width:639pt'>
+ <col class=xl655355185 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl655355185 width=72 span=8 style='width:54pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl795185 width=1597 style='height:47.1pt;
+  width:1198pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font85185">COMP </font><font class="font65185">driver</font></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+  <td class=xl655355185 width=72 style='width:54pt'></td>
+ </tr>
+ <tr class=xl655355185 height=21 style='height:15.75pt'>
+  <td colspan=2 height=21 class=xl845185 width=729 style='height:15.75pt;
+  width:547pt'>SPL</td>
+  <td class=xl765185>STM32Cube_LL</td>
+  <td class=xl765185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl665185 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_Init(COMP_TypeDef*
+  COMPx, COMP_InitTypeDef* COMP_InitStruct)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_Init(COMP_TypeDef
+  *COMPx, LL_COMP_InitTypeDef *COMP_InitStruct)</td>
+  <td class=xl665185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_DeInit(COMP_TypeDef*
+  COMPx)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_DeInit(COMP_TypeDef
+  *COMPx)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_StructInit(COMP_InitTypeDef*
+  COMP_InitStruct)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_StructInit(LL_COMP_InitTypeDef
+  *COMP_InitStruct)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl675185 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_Cmd(COMP_TypeDef*
+  COMPx, FunctionalState NewState)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_Enable(COMP_TypeDef
+  *COMPx)<br>
+    <br>
+    LL_COMP_Disable(COMP_TypeDef *COMPx)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_GetOutputLevel(COMP_TypeDef*
+  COMPx)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_ReadOutputLevel(COMP_TypeDef
+  *COMPx)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl775185 width=713 style='width:535pt'>COMP_WindowCmd(FunctionalState
+  NewState)</td>
+  <td class=xl715185 width=852 style='width:639pt'>LL_COMP_SetCommonWindowMode(COMP_Common_TypeDef
+  *COMPxy_COMMON, uint32_t WindowMode)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl705185 width=713 style='width:535pt'>COMP_LockConfig(COMP_TypeDef*
+  COMPx)</td>
+  <td class=xl725185 width=852 style='width:639pt'>LL_COMP_Lock(COMP_TypeDef
+  *COMPx)</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td colspan=4 height=25 class=xl785185 width=1597 style='height:18.75pt;
+  width:1198pt'>Correspondence between <font class="font75185">SPL</font><font
+  class="font55185"> and </font><font class="font75185">STM32Cube_LL</font><font
+  class="font55185"> initialization structures</font></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl675185 style='height:17.25pt'>&nbsp;</td>
+  <td class=xl685185 width=713 style='width:535pt'>Structure<br>
+    </td>
+  <td class=xl695185 width=852 style='width:639pt'>Parameter</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=9 class=xl805185 width=713 style='border-bottom:.5pt solid #39A9DC;
+  width:535pt'>COMP_TypeDef<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>LL_COMP_InitTypeDef</td>
+  <td class=xl735185 width=852 style='width:639pt'>COMP_InvertingInput
+  &#8596;<span style='mso-spacerun:yes'>  </span>InputMinus</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_NonInvertingInput
+  &#8596; InputPlus</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_OutputPol &#8596;<span
+  style='mso-spacerun:yes'>  </span>OutputPolarity</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_Speed &#8596; PowerMode</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_OutputSelect &#8596;
+  OutputSelection</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_Output &#8596;<span
+  style='mso-spacerun:yes'>  </span>OutputSelection</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_BlankingSrce
+  &#8596;<span style='mso-spacerun:yes'>  </span>OutputBlankingSource</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl745185 width=852 style='width:639pt'>COMP_Hysteresis &#8596;<span
+  style='mso-spacerun:yes'>  </span>InputHysteresis</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl675185 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl755185 width=852 style='width:639pt'>COMP_Mode &#8596; PowerMode</td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=26 style='mso-height-source:userset;height:19.5pt'>
+  <td colspan=4 height=26 class=xl785185 width=1597 style='height:19.5pt;
+  width:1198pt'>APIs not available on <font class="font75185">STM32Cube_LL</font><font
+  class="font55185"> (Migartion done using direct register access )<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=46 style='mso-height-source:userset;height:34.5pt'>
+  <td height=46 class=xl675185 style='height:34.5pt'>&nbsp;</td>
+  <td colspan=2 class=xl705185 width=1565 style='width:1174pt'>COMP_SW1SwitchConfig(FunctionalState
+  NewState)<br>
+    COMP_VrefintOutputCmd(FunctionalState NewState)<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </td>
+  <td class=xl675185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl655185 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl655185>&nbsp;</td>
+  <td class=xl655185>&nbsp;</td>
+  <td class=xl655185>&nbsp;</td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+  <td class=xl655355185></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=713 style='width:535pt'></td>
+  <td width=852 style='width:639pt'></td>
+  <td width=16 style='width:12pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

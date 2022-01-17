@@ -1,0 +1,1923 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="I2C">
+  <COMMON>
+    <LITERALS>
+      <LITERAL>
+        <SPL>I2C_Mode_I2C</SPL>
+        <LL>LL_I2C_MODE_I2C</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Mode_SMBusDevice</SPL>
+        <LL>LL_I2C_MODE_SMBUS_DEVICE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Mode_SMBusHost</SPL>
+        <LL>LL_I2C_MODE_SMBUS_HOST</LL>
+      </LITERAL>
+	  
+      <LITERAL>
+        <SPL>I2C_Ack_Enable</SPL>
+        <LL>LL_I2C_ACK</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Ack_Disable</SPL>
+        <LL>LL_I2C_NACK</LL>
+      </LITERAL>
+	  
+      <LITERAL>
+        <SPL>I2C_AcknowledgedAddress_7bit</SPL>
+        <LL>LL_I2C_OWNADDRESS1_7BIT</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_AcknowledgedAddress_10bit</SPL>
+        <LL>LL_I2C_OWNADDRESS1_10BIT</LL>
+      </LITERAL>
+
+      <LITERAL>
+        <SPL>I2C_InitTypeDef</SPL>
+        <LL>LL_I2C_InitTypeDef</LL>
+      </LITERAL>  
+    </LITERALS>
+
+	<STRUCTURES>
+	     <STRUCTURE NAME="I2C_InitTypeDef">
+           <FIELD>
+             <SPL>I2C_Mode</SPL>
+             <LL>PeripheralMode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_OwnAddress1</SPL>
+             <LL>OwnAddress1</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_Ack</SPL>
+             <LL>TypeAcknowledge</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_AcknowledgedAddress</SPL>
+             <LL>OwnAddrSize</LL>
+           </FIELD>
+         </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ Init/DeInit Functions ################ -->
+	  <FUNCTION>
+          <SPL NAME="I2C_DeInit" />
+          <LL  NAME="LL_I2C_DeInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="I2C_Init" />
+          <LL  NAME="LL_I2C_Init" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" /> 
+      </FUNCTION>
+	  <FUNCTION>
+          <SPL NAME="I2C_StructInit" />
+          <LL  NAME="LL_I2C_StructInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_Enable"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_Disable"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTART"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_GenerateStartCondition"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTOP"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_GenerateStopCondition"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_DualAddressCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableOwnAddress2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_DualAddressCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableOwnAddress2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_GeneralCallCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableGeneralCall"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GeneralCallCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableGeneralCall"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_StretchClockCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableClockStretching"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_StretchClockCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableClockStretching"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_SendData" />
+           <LL  NAME="LL_I2C_TransmitData8"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReceiveData" />
+           <LL  NAME="LL_I2C_ReceiveData8"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FUNCTION>
+	  
+       <FUNCTION>
+           <SPL NAME="I2C_CalculatePEC"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusPEC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CalculatePEC"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSMBusPEC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetPEC" />
+           <LL  NAME="LL_I2C_GetSMBusPEC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FUNCTION>
+	   
+      <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_CR1" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},CR1)"/>
+       </FUNCTION>
+      <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_CR2" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},CR2)"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_OAR1" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},OAR1)"/>
+       </FUNCTION>
+ 	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_OAR2" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},OAR2)"/>
+       </FUNCTION>
+  	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_DR" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},DR)"/>
+       </FUNCTION>
+   	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_SR1" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},SR1)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_SR2" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},SR2)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_CCR" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},CCR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_TRISE" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},TRISE)"/>
+       </FUNCTION>
+  	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_TIMINGR"/>
+           <LL  NAME="N/A"
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},TIMINGR)"/>
+       </FUNCTION>
+   	   <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_TIMEOUTR"/>
+           <LL  NAME="N/A"
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},TIMEOUTR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_ISR"/>
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},ISR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_ICR"/>
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},ICR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_PECR" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},PECR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_RXDR"/>
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},RXDR)"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReadRegister"
+                CMD0="EQU@SPL_PARAM_1=I2C_Register_TXDR"/>
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_ReadReg({CPY@SPL_PARAM_0},TXDR)"/>
+       </FUNCTION>
+	   
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+   <VERSION NAME="I2C_VER_1_0_0">
+      <LITERALS>
+      <LITERAL>
+        <SPL>I2C_DutyCycle_2</SPL>
+        <LL>LL_I2C_DUTYCYCLE_2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_DutyCycle_16_9</SPL>
+        <LL>LL_I2C_DUTYCYCLE_16_9</LL>
+      </LITERAL>
+      </LITERALS>
+	  
+	  
+      <STRUCTURES>
+	     <STRUCTURE NAME="I2C_InitTypeDef">
+           <FIELD>
+             <SPL>I2C_ClockSpeed</SPL>
+             <LL>ClockSpeed</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_DutyCycle</SPL>
+             <LL>DutyCycle</LL>
+           </FIELD>
+         </STRUCTURE>
+      </STRUCTURES>
+	  
+	  
+      <FUNCTIONS>
+       <FUNCTION>
+           <SPL NAME="I2C_AnalogFilterCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableAnalogFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_AnalogFilterCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableAnalogFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_DigitalFilterConfig" />
+           <LL  NAME="LL_I2C_SetDigitalFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTART"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR1 &amp;= (uint16_t)~((uint16_t)I2C_CR1_START)" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTOP"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR1 &amp;= (uint16_t)~((uint16_t)I2C_CR1_STOP)" />
+       </FUNCTION>
+ 
+        <FUNCTION>
+           <SPL NAME="I2C_Send7bitAddress"
+                CMD0="EQU@SPL_PARAM_2=I2C_Direction_Receiver" />
+           <LL  NAME="N/A"
+                CMD0="LL_I2C_TransmitData8({CPY@SPL_PARAM_0},({CPY@SPL_PARAM_1} | I2C_OAR1_ADD0))"/>
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_Send7bitAddress"
+                CMD0="EQU@SPL_PARAM_2=I2C_Direction_Transmitter" />
+           <LL  NAME="N/A" 
+                CMD0="LL_I2C_TransmitData8({CPY@SPL_PARAM_0}, ({CPY@SPL_PARAM_1} &amp; ((uint8_t)~((uint8_t)I2C_OAR1_ADD0))))"/>
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_AcknowledgeConfig"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_AcknowledgeNextData"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_ACK" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_AcknowledgeConfig"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_AcknowledgeNextData"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_NACK" />
+       </FUNCTION>
+ 
+        <FUNCTION>
+           <SPL NAME="I2C_OwnAddress2Config" />
+           <LL  NAME="LL_I2C_SetOwnAddress2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_SoftwareResetCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableReset"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_SoftwareResetCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableReset"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_FastModeDutyCycleConfig" />
+           <LL  NAME="LL_I2C_SetDutyCycle"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+       </FUNCTION>
+ 
+      <FUNCTION>
+           <SPL NAME="I2C_NACKPositionConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_NACKPosition_Next" />
+           <LL  NAME="LL_I2C_EnableBitPOS" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_NACKPositionConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_NACKPosition_Current" />
+           <LL  NAME="LL_I2C_DisableBitPOS" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_SMBusAlertConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_SMBusAlert_Low" />
+           <LL  NAME="LL_I2C_EnableSMBusAlert"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_SMBusAlertConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_SMBusAlert_High" />
+           <LL  NAME="LL_I2C_DisableSMBusAlert"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_ARPCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_MODE_SMBUS_DEVICE_ARP" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ARPCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A" 
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR1 &amp;= (uint16_t)~((uint16_t)I2C_CR1_ENARP)" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_TransmitPEC"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusPECCompare"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_TransmitPEC"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSMBusPECCompare"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+      <FUNCTION>
+           <SPL NAME="I2C_PECPositionConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_PECPosition_Next" />
+           <LL  NAME="LL_I2C_EnableBitPOS" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_PECPositionConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_PECPosition_Current" />
+           <LL  NAME="LL_I2C_DisableBitPOS" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableDMAReq_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+           <LL  NAME="LL_I2C_EnableDMAReq_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableDMAReq_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+           <LL  NAME="LL_I2C_DisableDMAReq_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_DMALastTransferCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableLastDMA"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_DMALastTransferCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableLastDMA"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BUF" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_BUF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BUF" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_BUF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_EVT" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_EVT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_EVT" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_EVT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ERR" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ERR" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_TRANSMITTER_SECONDADDRESS_MATCHED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_DUAL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_RECEIVER_SECONDADDRESS_MATCHED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_DUAL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_GENCALL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_RECEIVED#I2C_FLAG_DUALF"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_DUAL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_RECEIVED#I2C_FLAG_GENCALL"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_GENCALL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_RECEIVED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_TRANSMITTED#I2C_FLAG_DUALF"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BTF({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_DUAL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_TRANSMITTED#I2C_FLAG_GENCALL"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BTF({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_GENCALL({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_BYTE_TRANSMITTED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BTF({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_STOP_DETECTED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_STOP({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_MODE_SELECT" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_SB({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_BYTE_RECEIVED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_BYTE_TRANSMITTING" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_BYTE_TRANSMITTED" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BTF({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_GetTransferDirection({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_SLAVE_ACK_FAILURE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_AF({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_CheckEvent"
+                CMD0="EQU@SPL_PARAM_1=I2C_EVENT_MASTER_MODE_ADDRESS10" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsActiveFlag_BUSY({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_MSL({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADD10({CPY@SPL_PARAM_0}))" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_GetLastEvent" />
+           <LL  NAME="N/A"
+                CMD0=" uint32_t tmp_i2c_lastevent_$id$  = 0;\n
+ 				       uint32_t tmp_i2c_flag1_$id$ = 0, tmp_i2c_flag2_$id$ = 0;\n
+					   tmp_i2c_flag1_$id$ = {CPY@SPL_PARAM_0}-&gt;SR1;\n
+					   tmp_i2c_flag2_$id$ = {CPY@SPL_PARAM_0}-&gt;SR2;\n
+					   tmp_i2c_flag2_$id$ = tmp_i2c_flag2_$id$ &lt;&lt; 16;\n
+					   tmp_i2c_lastevent_$id$ = (tmp_i2c_flag1_$id$ | tmp_i2c_flag2_$id$) &amp; 0x00FFFFFF;\n
+				       tmp_i2c_lastevent_$id$"
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_DUALF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_DUAL"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_SMBHOST" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_SMBHOST"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_SMBDEFAULT" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_SMBDEFAULT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_GENCALL" />
+           <LL  NAME="LL_I2C_IsActiveFlag_GENCALL"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TRA" />
+           <LL  NAME="LL_I2C_GetTransferDirection"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BUSY" />
+           <LL  NAME="LL_I2C_IsActiveFlag_BUSY"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_MSL" />
+           <LL  NAME="LL_I2C_IsActiveFlag_MSL"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_SMBALERT" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TIMEOUT" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_PECERR" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_OVR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_AF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_AF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ARLO" />
+           <LL  NAME="LL_I2C_IsActiveFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BERR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TXE" />
+           <LL  NAME="LL_I2C_IsActiveFlag_TXE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_RXNE" />
+           <LL  NAME="LL_I2C_IsActiveFlag_RXNE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_STOPF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ADD10" />
+           <LL  NAME="LL_I2C_IsActiveFlag_ADD10"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BTF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_BTF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ADDR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_SB" />
+           <LL  NAME="LL_I2C_IsActiveFlag_SB"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	   
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_SMBALERT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TIMEOUT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_PECERR" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_OVR" />
+           <LL  NAME="LL_I2C_ClearFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_AF" />
+           <LL  NAME="LL_I2C_ClearFlag_AF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ARLO" />
+           <LL  NAME="LL_I2C_ClearFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BERR" />
+           <LL  NAME="LL_I2C_ClearFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	  
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TXE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_TX({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_RXNE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_RX({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_SB" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_EVT({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_SB({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADDR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_EVT({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BTF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_EVT({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BTF({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADD10" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_EVT({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADD10({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_STOPF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_EVT({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_STOP({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ARLO" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ARLO({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_AF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_AF({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BERR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BERR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_OVR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_OVR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_PECERR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_PECERR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TIMEOUT" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_TIMEOUT({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_SMBALERT" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_ALERT({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+ 
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_SMBALERT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TIMEOUT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_PECERR" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_OVR" />
+           <LL  NAME="LL_I2C_ClearFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_AF" />
+           <LL  NAME="LL_I2C_ClearFlag_AF"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ARLO" />
+           <LL  NAME="LL_I2C_ClearFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	 
+	   <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BERR" />
+           <LL  NAME="LL_I2C_ClearFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>	
+ 
+      </FUNCTIONS>
+    </VERSION>
+	
+   <VERSION NAME="I2C_VER_2_0_0">
+      <LITERALS>
+         <LITERAL>
+           <SPL>I2C_OA2_NoMask</SPL>
+           <LL>LL_I2C_OWNADDRESS2_NOMASK</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask01</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK01</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask02</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK02</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask03</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK03</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask04</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK04</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask05</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK05</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask06</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK06</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>I2C_OA2_Mask07</SPL>
+           <LL>LL_I2C_OWNADDRESS2_MASK07</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>I2C_AnalogFilter_Enable</SPL>
+           <LL>LL_I2C_ANALOGFILTER_ENABLE</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>I2C_AnalogFilter_Disable</SPL>
+           <LL>LL_I2C_ANALOGFILTER_DISABLE</LL>
+         </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Direction_Transmitter</SPL>
+        <LL>LL_I2C_REQUEST_WRITE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Direction_Receiver</SPL>
+        <LL>LL_I2C_REQUEST_READ</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Reload_Mode</SPL>
+        <LL>LL_I2C_MODE_RELOAD</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_AutoEnd_Mode</SPL>
+        <LL>LL_I2C_MODE_AUTOEND</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_SoftEnd_Mode</SPL>
+        <LL>LL_I2C_MODE_SOFTEND</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_No_StartStop</SPL>
+        <LL>LL_I2C_GENERATE_NOSTARTSTOP</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Generate_Stop</SPL>
+        <LL>LL_I2C_GENERATE_STOP</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Generate_Start_Read</SPL>
+        <LL>LL_I2C_GENERATE_START_READ</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>I2C_Generate_Start_Write</SPL>
+        <LL>LL_I2C_GENERATE_START_WRITE</LL>
+      </LITERAL>
+      </LITERALS>
+	  
+      <STRUCTURES>
+	     <STRUCTURE NAME="I2C_InitTypeDef">
+           <FIELD>
+             <SPL>I2C_Timing</SPL>
+             <LL>Timing</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_AnalogFilter</SPL>
+             <LL>AnalogFilter</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>I2C_DigitalFilter</SPL>
+             <LL>DigitalFilter</LL>
+           </FIELD>
+         </STRUCTURE>
+      </STRUCTURES>
+	  
+      <FUNCTIONS>
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTART"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR2 &amp;= (uint32_t)~((uint32_t)I2C_CR2_START)" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GenerateSTOP"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR2 &amp;= (uint32_t)~((uint32_t)I2C_CR2_STOP)" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_OwnAddress2Config" />
+           <LL  NAME="LL_I2C_SetOwnAddress2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+				CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"	/>
+       </FUNCTION>
+	   
+        <FUNCTION>
+           <SPL NAME="I2C_SoftwareResetCmd" />
+           <LL  NAME="N/A"
+                CMD0="LL_I2C_Disable({CPY@SPL_PARAM_0});\n
+					  *(__IO uint32_t *)(uint32_t){CPY@SPL_PARAM_0};\n
+					  LL_I2C_Enable({CPY@SPL_PARAM_0})"
+				LOG="No LL API exist, migration is ensured by using direct access register"/>					  />
+       </FUNCTION>
+	   
+	   <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=I2C_DMAReq_Tx"
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableDMAReq_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=I2C_DMAReq_Tx"
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableDMAReq_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=I2C_DMAReq_Rx"
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableDMAReq_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=I2C_DMAReq_Rx"
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableDMAReq_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TXI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TXI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_TX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_RXI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_RXI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_RX"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADDRI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADDRI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_NACKI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_NACK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_NACKI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_NACK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_STOPI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_STOPI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TCI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_TC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TCI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_TC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ERRI" 
+                CMD1="EQU@SPL_PARAM_2=ENABLE" />
+           <LL  NAME="LL_I2C_EnableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ERRI" 
+                CMD1="EQU@SPL_PARAM_2=DISABLE" />
+           <LL  NAME="LL_I2C_DisableIT_ERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TXE" />
+           <LL  NAME="LL_I2C_IsActiveFlag_TXE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TXIS" />
+           <LL  NAME="LL_I2C_IsActiveFlag_TXIS"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_RXNE" />
+           <LL  NAME="LL_I2C_IsActiveFlag_RXNE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ADDR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_NACKF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_NACK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_STOPF" />
+           <LL  NAME="LL_I2C_IsActiveFlag_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TC" />
+           <LL  NAME="LL_I2C_IsActiveFlag_TC"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TCR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_TCR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BERR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ARLO" />
+           <LL  NAME="LL_I2C_IsActiveFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_OVR" />
+           <LL  NAME="LL_I2C_IsActiveFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_PECERR" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TIMEOUT" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ALERT" />
+           <LL  NAME="LL_I2C_IsActiveSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BUSY" />
+           <LL  NAME="LL_I2C_IsActiveFlag_BUSY"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ADDR" />
+           <LL  NAME="LL_I2C_ClearFlag_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_NACKF" />
+           <LL  NAME="LL_I2C_ClearFlag_NACK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_STOPF" />
+           <LL  NAME="LL_I2C_ClearFlag_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_BERR" />
+           <LL  NAME="LL_I2C_ClearFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ARLO" />
+           <LL  NAME="LL_I2C_ClearFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_OVR" />
+           <LL  NAME="LL_I2C_ClearFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_PECERR" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_TIMEOUT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=I2C_FLAG_ALERT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TXIS" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_TX({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TXIS({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_RXNE" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_RX({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_RXNE({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADDR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ADDR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ADDR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_NACKF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_NACK({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_NACK({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_STOPF" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_STOP({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_STOP({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TC" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_TC({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TC({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TCR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_TC({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_TCR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BERR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_BERR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ARLO" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_ARLO({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_OVR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveFlag_OVR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_PECERR" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_PECERR({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TIMEOUT" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_TIMEOUT({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+	   <FUNCTION>
+           <SPL NAME="I2C_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ALERT" />
+           <LL  NAME="N/A"
+                CMD0="(LL_I2C_IsEnabledIT_ERR({CPY@SPL_PARAM_0}) &amp;&amp; LL_I2C_IsActiveSMBusFlag_ALERT({CPY@SPL_PARAM_0}))"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ADDR" />
+           <LL  NAME="LL_I2C_ClearFlag_ADDR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_NACKF" />
+           <LL  NAME="LL_I2C_ClearFlag_NACK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_STOPF" />
+           <LL  NAME="LL_I2C_ClearFlag_STOP"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_BERR" />
+           <LL  NAME="LL_I2C_ClearFlag_BERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ARLO" />
+           <LL  NAME="LL_I2C_ClearFlag_ARLO"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_OVR" />
+           <LL  NAME="LL_I2C_ClearFlag_OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_PECERR" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_PECERR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_TIMEOUT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_TIMEOUT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=I2C_IT_ALERT" />
+           <LL  NAME="LL_I2C_ClearSMBusFlag_ALERT"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_StopModeCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableWakeUpFromStop"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_StopModeCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableWakeUpFromStop"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_SlaveByteControlCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSlaveByteControl"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_SlaveByteControlCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSlaveByteControl"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_SlaveAddressConfig"/>
+           <LL  NAME="LL_I2C_SetSlaveAddr"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_10BitAddressingModeCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_SetMasterAddressingMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_I2C_ADDRESSING_MODE_10BIT"/>
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_10BitAddressingModeCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_SetMasterAddressingMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_I2C_ADDRESSING_MODE_7BIT"/>
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_AutoEndCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableAutoEndMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_AutoEndCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableAutoEndMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_ReloadCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableReloadMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ReloadCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableReloadMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_NumberOfBytesConfig"/>
+           <LL  NAME="LL_I2C_SetTransferSize"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_MasterRequestConfig"/>
+           <LL  NAME="LL_I2C_SetTransferRequest"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_10BitAddressHeaderCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableAuto10BitRead"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_10BitAddressHeaderCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableAuto10BitRead"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_AcknowledgeConfig"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_AcknowledgeNextData"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_ACK" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_AcknowledgeConfig"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_AcknowledgeNextData"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_NACK" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_GetAddressMatched"/>
+           <LL  NAME="LL_I2C_GetAddressMatchCode" 
+		        CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_GetTransferDirection"/>
+           <LL  NAME="LL_I2C_GetTransferDirection" 
+		        CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_TransferHandling"
+                CMD0="EQU@SPL_PARAM_4=I2C_Generate_Start_Read" />
+           <LL  NAME="N/A" 
+		        CMD0="LL_I2C_HandleTransfer({CPY@SPL_PARAM_0}, {CPY@SPL_PARAM_1} , LL_I2C_GetMasterAddressingMode({CPY@SPL_PARAM_0}), {CPY@SPL_PARAM_2}, {UPD@SPL_PARAM_3} | LL_I2C_IsEnabledSMBusPECCompare({CPY@SPL_PARAM_0}), {UPD@SPL_PARAM_4} | LL_I2C_IsEnabledAuto10BitRead({CPY@SPL_PARAM_0}))" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_TransferHandling"
+                CMD0="EQU@SPL_PARAM_4=I2C_Generate_Start_Write" />
+           <LL  NAME="N/A" 
+		        CMD0="LL_I2C_HandleTransfer({CPY@SPL_PARAM_0}, {CPY@SPL_PARAM_1} , LL_I2C_GetMasterAddressingMode({CPY@SPL_PARAM_0}), {CPY@SPL_PARAM_2}, {UPD@SPL_PARAM_3} | LL_I2C_IsEnabledSMBusPECCompare({CPY@SPL_PARAM_0}), {UPD@SPL_PARAM_4})" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_TransferHandling"
+                CMD0="EQU@SPL_PARAM_4=I2C_No_StartStop" />
+           <LL  NAME="N/A" 
+		        CMD0="LL_I2C_HandleTransfer({CPY@SPL_PARAM_0}, {CPY@SPL_PARAM_1} , LL_I2C_GetMasterAddressingMode({CPY@SPL_PARAM_0}), {CPY@SPL_PARAM_2}, {UPD@SPL_PARAM_3} | LL_I2C_IsEnabledSMBusPECCompare({CPY@SPL_PARAM_0}), {UPD@SPL_PARAM_4})" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_TransferHandling"
+                CMD0="EQU@SPL_PARAM_4=I2C_Generate_Stop" />
+           <LL  NAME="N/A" 
+		        CMD0="LL_I2C_HandleTransfer({CPY@SPL_PARAM_0}, {CPY@SPL_PARAM_1} , LL_I2C_GetMasterAddressingMode({CPY@SPL_PARAM_0}), {CPY@SPL_PARAM_2}, {UPD@SPL_PARAM_3} | LL_I2C_IsEnabledSMBusPECCompare({CPY@SPL_PARAM_0}), {UPD@SPL_PARAM_4})" />
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_SMBusAlertCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusAlert"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_SMBusAlertCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSMBusAlert"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_ClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTA" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSMBusTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTA" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ExtendedClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTB" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_ExtendedClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_DisableSMBusTimeout"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTB" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_IdleClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_SetSMBusTimeoutAMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTA_MODE_SDA_SCL_HIGH" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_IdleClockTimeoutCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="LL_I2C_SetSMBusTimeoutAMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1=LL_I2C_SMBUS_TIMEOUTA_MODE_SCL_LOW" />
+       </FUNCTION>
+
+       <FUNCTION>
+           <SPL NAME="I2C_TimeoutAConfig"/>
+           <LL  NAME="LL_I2C_SetSMBusTimeoutA"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_TimeoutBConfig"/>
+           <LL  NAME="LL_I2C_SetSMBusTimeoutB"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FUNCTION>
+	   
+       <FUNCTION>
+           <SPL NAME="I2C_PECRequestCmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE" />
+           <LL  NAME="LL_I2C_EnableSMBusPECCompare"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+				CMD1="DEL@LL_PARAM_1" />
+       </FUNCTION>
+       <FUNCTION>
+           <SPL NAME="I2C_PECRequestCmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE" />
+           <LL  NAME="N/A"
+                CMD0="{CPY@SPL_PARAM_0}-&gt;CR1 &amp;= (uint32_t)~((uint32_t)I2C_CR2_PECBYTE)" 
+				LOG="No LL API exist, migration is ensured by using direct access register"/>
+       </FUNCTION>
+	   
+          <!-- #################################################### -->
+      </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

@@ -1,0 +1,9 @@
+#!/bin/bash
+gdb --silent -q \
+-ex "set confirm off" \
+-ex "tar ext /dev/ttyBmpGdb" \
+-ex "monitor version" \
+-ex "monitor tpwr" \
+-ex "monitor tpwr enable" \
+-ex "monitor tpwr" \
+-ex quit

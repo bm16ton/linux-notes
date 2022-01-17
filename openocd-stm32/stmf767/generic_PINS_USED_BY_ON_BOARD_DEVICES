@@ -1,0 +1,62 @@
+SDA 	PB7		EEPROM *can use as i2c, eeprom address 0x50
+SCL 	PB6 	EEPROM *can use as i2c, eeprom address 0x50
+CD/DAT3 PC10	SDCARD
+CMD 	PC11	SDCARD
+CLK		PD2		SDCARD
+DAT0 	PC8		SDCARD
+DAT1 	PC9		SDCARD
+/CS 	PA4		W25Q16JV
+DO 		PB4		W25Q16JV
+DI 		PB2		W25Q16JV
+CLK 	PB3		W25Q16JV
+SWDIO 	PA13 	SWD
+SWCLK 	PA14 	SWD
+led0 	PD6		LED
+LED1 	PD4		LED
+LED2 	PD5		LED
+button1 PA0 	KEY (wakeup)
+button2 PA1		KEY (key0)
+key1 	PA2		KEY (key1)
+RXD 	PA10 	CH340 TXD
+TXD 	PA9		CH340 RXD
+
+PA0
+PA1
+PA2
+PA4
+PA9
+PA10
+PA13
+PA14
+
+PB2
+PB3
+PB4
+PB6		*can use as i2c
+PB7		*can use as i2c
+
+PC8		*sdcard so maybe possible to use?
+PC9		*sdcard so maybe possible to use?
+PC10	*sdcard so maybe possible to use?
+PC11	*sdcard so maybe possible to use?
+
+PD2		*sdcard so maybe possible to use?
+PD4
+PD5
+PD6
+
+
+  {PA_3,  D0  AF10
+  PA_4    SOF AF12
+  {PA_5,  CK  AF10
+  {PB_0,  D1  AF10
+  {PB_1,  D2  AF10
+  {PB_5,  D7  AF10
+  {PB_10, D3  AF10
+  {PB_11, D4  AF10
+  {PB_12, D5  AF10  *AF12 ID
+  {PB_13, D6  AF10
+  {PC_0,  STP AF10
+  {PC_2,  DIR AF10
+  {PC_3,  NXT AF10
+

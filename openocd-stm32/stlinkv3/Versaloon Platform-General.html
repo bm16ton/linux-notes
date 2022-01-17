@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><script src="Versaloon%20Platform-General_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app29.us.archive.org';v.server_ms=402;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="Versaloon%20Platform-General_files/bundle-playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="Versaloon%20Platform-General_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.versaloon.com:80/doc/versaloon/doc_versaloon_programmer_platform.html","20151025183950","https://web.archive.org/","web","/_static/",
+	      "1445798390");
+</script>
+<link rel="stylesheet" type="text/css" href="Versaloon%20Platform-General_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="Versaloon%20Platform-General_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Versaloon Platform</title>
+<link rel="stylesheet" href="Versaloon%20Platform-General_files/styles.css" type="text/css">
+</head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" style="display: block; direction: ltr;" lang="en">
+</div><div id="wm-ipp-print">The Wayback Machine - 
+https://web.archive.org/web/20151025183950/http://www.versaloon.com:80/doc/versaloon/doc_versaloon_programmer_platform.html</div>
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="Versaloon%20Platform-General_files/donate.html" scrolling="no" style="width:100%; height:100%" frameborder="0">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(650,27,25,2,"web","http://www.versaloon.com/doc/versaloon/doc_versaloon_programmer_platform.html","20151025183950",1996,"/_static/",["/_static/css/banner-styles.css?v=omkqRugM","/_static/css/iconochive.css?v=qtvMKcIJ"], "False");
+  __wm.rw(1);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<div class="wrapper">
+	<div class="top">
+		<div class="header">
+			<!-- TITLE -->
+			<h1>
+			<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/index.html">
+			<img alt="" src="Versaloon%20Platform-General_files/Versaloon_Logo.png" class="noborder" width="250" height="52"><em>Platform</em></a></h1>
+			<h2>Full open-source(GPLv3) platform for multiple applications, 
+			including programmer, debugger, logic tester, logic analyzer, simple 
+			oscilloscope and so on.</h2>
+			<div class="clear"></div>
+			<!-- END TITLE -->
+		</div>
+		<div class="menu">
+			<ul>
+				<!-- MENU -->
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/index.html">Home</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/news.html">News</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/products.html">Products</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/document.html">Document</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/bbs">Forum</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/shop.html">Shop</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/contact.html">Contact</a></li>
+				<!-- END MENU -->
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="page-content">
+			<p><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/index.html">Home</a>&gt;<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/document.html">Document</a>&gt;<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/document.html#doc_Versaloon">Versaloon</a>&gt;<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_programmer_platform.html">Programmer 
+			Platform</a></p>
+			<!-- CONTENT -->
+			<h3><a name="doc_Versaloon_Programmer_Menu">Menu</a></h3>
+			<ul>
+				<li><h4><a href="#doc_versaloon_programmer_about">About Programmer Platform</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_compile">Compile vsprog and vsgui</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_connection_to_targets">Connect To Targets</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_target_area">Target Area Char and Target Area String</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_vsprog_options">vsprog options</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_stm32">STM32 support(ISP/JTAG/SWD)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_lpc1000">LPC1000 support(ISP/JTAG/SWD)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_lm3s">LM3S support(JTAG/SWD)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_at91sam3">AT91SAM3 support(JTAG/SWD)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_stm8">STM8 support(SWIM)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_at89s5x">AT89S5X support(ISP)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_psoc1">PSOC1 support(ISSP)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_msp430">MSP430(without TEST) support(JTAG)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_c8051f">C8051F support(C2/JTAG)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_avr8">AVR8 support(ISP/JTAG)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_lpc900">LPC900 support(ICP)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_hcs08">HCS08 support(BDM)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_hcs12">HCS12(X) support(BDM)</a></h4></li>
+				<li><h4><a href="#doc_versaloon_programmer_svf">SVF support(JTAG)</a></h4></li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_about">About Programmer Platform</a></h3>
+			<p>Versaloon Programmer Platform is a generic framework for MCU 
+			programming, which can support now more than 10 kinds of target 
+			MCUs. And it can be simply expanded to support more chips based on 
+			USB_TO_XXX protocol. There are xml configure files for each MCU 
+			series, so for newly released chip, it's very easy to add into this 
+			Programmer Platform. Vsprog is the command line of the platform 
+			compiled using GCC toolchain, it can also support
+			<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html">scripts</a>. 
+			Vsgui is the GUI compiled using Lazarus.</p>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_compile">Compile vsprog and vsgui</a></h3>
+			<p>Source code of vsprog is available at
+			<a href="https://web.archive.org/web/20151025183950/http://vsprog.googlecode.com/svn/trunk">
+			http://vsprog.googlecode.com/svn/trunk/</a>. You MUST install 
+			subversion, autotools, libusb-dev, libxml2-dev, texinfo to download/config/compile/install 
+			vsprog. Here is a configured MinGW environment under Windows:
+			<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/download/MinGW_configured.7z">Click to download</a>.<br>
+			Compile vsprog:<br>
+			<code>svn co http://vsprog.googlecode.com/svn/trunk/<br>
+			./bootstrap &amp;&amp; ./configure --enable-maintainer-mode &amp;&amp; make &amp;&amp; make install-strip</code>
+			If you are under Linux, use "sudo make install-trip".</p>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_connection_to_targets">Connect To Targets</a></h3>
+			<ul>
+				<li>
+					<h4>Versaloon Pinout</h4>
+					<ul>
+						<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/products.html#VersaloonNano_Pinout">VersaloonNano</a></li>
+						<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/products.html#VersaloonMini_Pinout">VersaloonMini</a></li>
+						<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/products.html#VersaloonHandy_Pinout">VersaloonHandy</a></li>
+					</ul>
+				</li>
+				<li>
+					<h4>JTAG</h4>
+					<ul>
+						<li>JTAG_TRST</li>
+						<li>JTAG_SRST</li>
+						<li>JTAG_TCK</li>
+						<li>JTAG_TDO</li>
+						<li>JTAG_TDI</li>
+						<li>JTAG_TMS</li>
+						<li>JTAG_RTCK</li>
+					</ul>
+				</li>
+				<li>
+					<h4>SWD</h4>
+					<ul>
+						<li>SWD_SWCLK</li>
+						<li>SWD_SWDIO</li>
+						<li>Reset: JTAG_SRST</li>
+					</ul>
+				</li>
+				<li>
+					<h4>STM8_SWIM</h4>
+					<ul>
+						<li>SWIM</li>
+						<li>Reset: JTAG_SRST</li>
+					</ul>
+				</li>
+				<li>
+					<h4>AVR8/S51_ISP</h4>
+					<ul>
+						<li>SPI_SCK</li>
+						<li>SPI_MOSI</li>
+						<li>SPI_MISO</li>
+						<li>Reset: JTAG_SRST</li>
+					</ul>
+				</li>
+				<li>
+					<h4>C8051F_C2</h4>
+					<ul>
+						<li>C2_C2CK</li>
+						<li>C2_C2D</li>
+					</ul>
+				</li>
+				<li>
+					<h4>LPC900_ICP</h4>
+					<ul>
+						<li>ICP_PCL</li>
+						<li>ICP_PDA</li>
+						<li>Reset: JTAG_TRST</li>
+					</ul>
+				</li>
+				<li>
+					<h4>PSoC1_ISSP</h4>
+					<ul>
+						<li>ISSP_SCLK</li>
+						<li>ISSP_SDATA</li>
+						<li>Reset: JTAG_TRST</li>
+					</ul>
+				</li>
+				<li>
+					<h4>HCS08/HCS12(X)_BDM</h4>
+					<ul>
+						<li>BDM</li>
+						<li>Reset: JTAG_SRST</li>
+					</ul>
+				</li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_target_area">Target Area Char and Target Area String</a></h3>
+			Every target area(fuse, lock, flash, eeprom, calibration byte...) can be defined as one single character.<br>
+			A string with these characters is Target Area String.<br>
+			Target Area Char:
+			<ul>
+				<li>u: Fuse</li>
+				<li>l: Lock</li>
+				<li>f: Flash</li>
+				<li>e: Eeprom or the 2nd flash bank</li>
+				<li>c: Calibration</li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_vsprog_options">vsprog options</a></h3>
+			All the options is processed by the <a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html">script</a> of the same name.
+			<ul>
+				<li>
+					<h4>-s option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">s 
+					script</a></h4>
+					<code>-s avr8</code>
+				</li>
+				<li>
+					<h4>-c option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">c 
+					script</a></h4>
+					<code>-c atmega128</code>
+				</li>
+				<li>
+					<h4>-t option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_t">t 
+					script</a></h4>
+					<code>-t u0xFF8090</code>
+				</li>
+				<li>
+					<h4>-F option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">F 
+					script</a></h4>
+					<code>-F 4500</code>
+				</li>
+				<li>
+					<h4>-m option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">m 
+					script</a></h4>
+					<code>-m i</code>
+				</li>
+				<li>
+					<h4>-x option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_x">x 
+					script</a></h4>
+					<code>-x 0x08002000</code>
+				</li>
+				<li>
+					<h4>-C option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UC">C 
+					script</a></h4>
+					<code>-C COM4_115200_8N1</code>
+				</li>
+				<li>
+					<h4>-J option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UJ">J 
+					script</a></h4>
+					<code>-J 1 0 4 0</code>
+				</li>
+				<li>
+					<h4>-K option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UK">K 
+					script</a></h4>
+					<code>-K 60</code>
+				</li>
+				<li>
+					<h4>-W option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UW">W 
+					script</a></h4>
+					<code>-W 2</code>
+				</li>
+				<li>
+					<h4>-A option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UA">A 
+					script</a></h4>
+					<code>-A</code>
+				</li>
+				<li>
+					<h4>-I option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UI">I 
+					script</a></h4>
+					<code>-I test.hex</code>
+				</li>
+				<li>
+					<h4>-O option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UO">O 
+					script</a></h4>
+					<code>-O readout.hex</code>
+				</li>
+				<li>
+					<h4>-o option, see
+					<a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_o">o 
+					script</a></h4>
+					<code>-o e -o wful -o vful</code>
+				</li>
+			</ul>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_stm32">STM32 support(ISP/JTAG/SWD)</a></h3>
+			<p>Vsprog can support STM32 in JTAG/SWD/COM ISP interfaces.<br>
+			Auto-detect feature is supported on STM32.<br>
+			Supported target area: flash('f').<br>
+			Available options for STM32:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> stm32f1, 
+				stm32f2, stm32f4, stm32l1</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a> &lt;stm32_ld | stm32_md | stm32_hd | stm32_conn | stm32_vl&gt;</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;i | j | s&gt;: i for ISP, j for JTAG(default), s for SWD.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UC">-C</a>: valid under ISP mode</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: valid under JTAG mode, defines the frequency of JTAG 
+				in kHz, default is 
+				8000 / 6 kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UW">-W</a>: valid under SWD mode, defines the delay of SWD signal, default is 0</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_x">-x</a></li>
+			</ul>
+			<code>vsprog -sstm32f2 -mj -F9000 -I flash.hex -oe -owf -ovf<br>
+			vsprog -cstm32f1_ld -ms -W0 -I flash.hex -oe -owf -ovf<br>
+			vsprog -sstm32f1 -mi -CCOM4 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_lpc1000">LPC1000 support(ISP/JTAG/SWD)</a></h3>
+			<p>Vsprog can support LPC1000 in JTAG/SWD interfaces, including 
+			LPC11xx CortexM0.<br>
+			Auto-detect feature is supported on LPC1000.<br>
+			Supported target area: flash('f').<br>
+			Available options for LPC1000:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				lpc1000</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;i | j | s&gt;: i for ISP, j for JTAG(default), s for SWD.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UK">-K</a>: defines the kernel frequency in kHz, 
+				default is 12000.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UC">-C</a>: valid under ISP mode</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: valid under JTAG mode, defines the frequency of JTAG 
+				in kHz, default is 
+				4000 / 6 kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UW">-W</a>: valid under SWD mode, defines the delay of SWD signal, default is 0</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UA">-A</a>: 
+				calculate the checksum for 7 vectors.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_x">-x</a></li>
+			</ul>
+			<code>vsprog -slpc1000 -A -K 60000 -mj -F9000 -I flash.hex -oe -owf -ovf<br>
+			vsprog -clpc1766 -A -ms -W0 -I flash.hex -oe -owf -ovf<br>
+			vsprog -clpc1114 -A -mi -CCOM4 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_lm3s">LM3S support(JTAG/SWD)</a></h3>
+			<p>Vsprog can support LM3S in JTAG/SWD interfaces. This support need 
+			further test.<br>
+			Auto-detect feature is supported on LM3S.<br>
+			Supported target area: flash('f').<br>
+			Available options for LM3S:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				lm3s</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;j | s&gt;: j for JTAG(default), s for SWD.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: valid under JTAG mode, defines the frequency of JTAG 
+				in kHz, default is 
+				12000 / 6 kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UW">-W</a>: valid under SWD mode, defines the delay of SWD signal, default is 0</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_x">-x</a></li>
+			</ul>
+			<code>vsprog -slm3s -mj -F9000 -I flash.hex -oe -owf -ovf<br>
+			vsprog -clm3s101 -ms -W0 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_at91sam3">AT91SAM3 support(JTAG/SWD)</a></h3>
+			<p>Vsprog can support AT91SAM3 in JTAG/SWD interfaces.<br>
+			Auto-detect feature is supported on AT91SAM3.<br>
+			Supported target area: flash plane 0('f') and 1('e').<br>
+			Available options for AT91SAM3:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				at91sam3</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;j | s&gt;: j for JTAG(default), s for SWD.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: valid under JTAG mode, defines the frequency of JTAG 
+				in kHz, default is 
+				12000 / 6 kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UW">-W</a>: valid under SWD mode, defines the delay of SWD signal, default is 0</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_x">-x</a></li>
+			</ul>
+			<code>vsprog -sat91sam3 -mj -F9000 -I flash.hex -oe -owfe -ovfe</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_stm8">STM8 support(SWIM)</a></h3>
+			<p>Vsprog can support STM8 in SWIM interface.<br>
+			Auto-detect feature is NOT supported on STM8<br>
+			Supported target area: flash('f'), fuse('u'). Note, for STM8, 
+			lock(ROP) is defined in fuse. MTU of STM8A is also supported.<br>
+			Available options for STM8:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;s&gt;: 
+				s for SWIM(default).</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_t">
+				-t</a> uFUSE: define fuse of STM8.</li>
+			</ul>
+			<code>vsprog -cstm8s103f2 -tu0x00000000080000AA -I flash.hex -oe -owfu -ovfu</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_at89s5x">AT89S5X support(ISP)</a></h3>
+			<p>Vsprog can support AT89S5X in ISP interface.<br>
+			Auto-detect feature is supported on AT89S5X.<br>
+			Supported target area: flash('f'), lock('l').<br>
+			Available options for AT89S5X:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				at89s5x</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;b 
+				| p&gt;: 
+				p for page mode(default), b for byte mode.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: defines the frequency of 
+				ISP in kHz, default is 
+				560 kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_t">
+				-t</a> lLOCK: defines lock(from 1 to 4).</li>
+			</ul>
+			<code>vsprog -sat89s5x -tl4 -I flash.hex -oe -owfl -ovfl</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_psoc1">PSOC1 support(ISSP)</a></h3>
+			<p>Vsprog can support PSoC1 in ISSP interface.<br>
+			Auto-detect feature is supported on PSoC1.<br>
+			Supported target area: flash('f'), secure('l').<br>
+			Available options for PSOC1:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				psoc1</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;r 
+				| p&gt;: 
+				r for reset mode(default), p for power-on mode.</li>
+			</ul>
+			<code>vsprog -spsoc1 -I flash.hex -oe -owfl -ovfl</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_msp430">MSP430(without TEST) support(JTAG)</a></h3>
+			<p>Vsprog can support MSP430(without TEST pin) in JTAG interface.<br>
+			Auto-detect feature is supported on MSP430.<br>
+			Supported target area: flash('f').<br>
+			Available options for MSP430:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				msp430</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;j&gt;: 
+				j for JTAG mode(default).</li>
+			</ul>
+			<code>vsprog -smsp430 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_c8051f">C8051F support(C2/JTAG)</a></h3>
+			<p>Vsprog can support C8051F in JTAG/C2 interfaces.<br>
+			Auto-detect feature is supported on C8051F.<br>
+			Supported target area: flash('f').<br>
+			Available options for C8051F:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				c8051f</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;c 
+				| j&gt;: 
+				c for C2 mode, j for JTAG mode(default).</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: 
+				valid under JTAG mode, defines the frequency of 
+				JTAG&nbsp; in kHz, default is 
+				4500</li>
+			</ul>
+			<code>vsprog -sc8051f -mc -I flash.hex -oe -owf -ovf<br>
+			vsprog -sc8051f -mj -F2000 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_avr8">AVR8 support(ISP/JTAG)</a></h3>
+			<p>Vsprog can support AVR8 in ISP/JTAG interfaces.<br>
+			Auto-detect feature is supported on AVR8.<br>
+			Supported target area: flash('f'), lock('l'), fuse('u'), 
+			calibration('c', read-only).<br>
+			Available options for AVR8:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				avr8</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">-m</a> &lt;i 
+				| j&gt;: 
+				i for ISP mode(default), j for JTAG mode.</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: 
+				valid under JTAG mode, defines the frequency of 
+				ISP/JTAG&nbsp; in kHz, default for ISP is 
+				560, default for JTAG is 4500</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_t">-t</a>: defines 
+				the lock or fuse</li>
+			</ul>
+			<code>vsprog -savr8 -mi -F 1000 -tl0xC0 -I flash.hex -oe -owfl -ovfl<br>
+			vsprog -catmega128 -mj -F2000 -tu0xFF80FF -I flash.hex -oe -owfu -ovfu</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_lpc900">LPC900 support(ICP)</a></h3>
+			<p>Vsprog can support LPC900 in ICP interfaces.<br>
+			Auto-detect feature is supported on LPC900.<br>
+			Supported target area: flash('f').<br>
+			Available options for LPC900:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				lpc900</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+			</ul>
+			<code>vsprog -slpc900 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_hcs08">HCS08 support(BDM)</a></h3>
+			<p>Vsprog can support HCS08 in BDM interface.<br>
+			Auto-detect feature is supported on HCS08.<br>
+			Supported target area: flash('f').<br>
+			Available options for HCS08:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				hcs08</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">
+				-m</a> &lt;b&gt;: b for BDM mode(default)</li>
+			</ul>
+			<code>vsprog -shcs08 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_hcs12">HCS12(X) support(BDM)</a></h3>
+			<p>Vsprog can support HCS12(X) in BDM interfaces.<br>
+			Auto-detect feature is NOT supported on HCS12(X).<br>
+			Supported target area: flash('f').<br>
+			Available options for HCS12(X):
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_c">-c</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_m">
+				-m</a> &lt;b&gt;: b for BDM mode(default)</li>
+			</ul>
+			<code>vsprog -cmc9s12xs128 -I flash.hex -oe -owf -ovf</code>
+			
+			<hr class="divider">
+			
+			<h3><a name="doc_versaloon_programmer_svf">SVF support(JTAG)</a></h3>
+			<p>Vsprog can support SVF player.<br>
+			Available options for SVF_PLAYER:
+			</p>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_s">-s</a> 
+				svf_player</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UF">-F</a>: 
+				defines the frequency of JTAG&nbsp; in kHz</li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_script.html#doc_Versaloon_Script_UI">
+				-I</a>: defines the svf file</li>
+			</ul>
+			<code>vsprog -ssvf_player -F18000 -I test.svf</code>
+			
+			<br>
+			
+			<!-- END CONTENT -->
+		</div>
+	</div>
+	<div class="sidebar">
+		
+		<!-- SIDEBAR -->
+		<ul>
+			<li>
+			<h4>Versaloon</h4>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_install_update.html">Install and Update</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_openocd_urjtag.html">OpenOCD and UrJTAG</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_programmer_platform.html">Programmer Platform -- vsprog/vsgui</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_debugger_platform.html">Debugger Platform</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/doc/versaloon/doc_versaloon_application_platform.html">Application Platform</a></li>
+			</ul>
+			</li>
+			
+			<li>
+			<h4>Latest News</h4>
+			<ul>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/news.html#news_BDM_support">BDM support for HCS08 and HCS12(X)</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/news.html#news_UrJTAG_support">UrJTAG support</a></li>
+				<li><a href="https://web.archive.org/web/20151025183950/http://www.versaloon.com/news.html#news_SWD_support_in_OpenOCD">SWD support in OpenOCD</a></li>
+			</ul>
+			</li>
+		</ul>
+		<!-- SIDEBAR -->
+		
+	</div>
+	
+	<div class="clear"></div>
+	
+	<p class="footer" style="text-align: center">
+		<a href="https://web.archive.org/web/20151025183950/http://validator.w3.org/check/referer" title="valid XHTML">XHTML</a> | <a href="https://web.archive.org/web/20151025183950/http://jigsaw.w3.org/css-validator/check/referer" title="valid CSS">CSS</a> &nbsp;&nbsp; © 
+		VersaloonPlatform. Design: <a href="https://web.archive.org/web/20151025183950/http://www.spyka.net/">Free CSS Templates</a> | <a href="https://web.archive.org/web/20151025183950/http://www.justfreetemplates.com/">Free Web Templates</a> 
+	</p>
+</div>
+
+
+
+</body></html>
+<!--
+     FILE ARCHIVED ON 18:39:50 Oct 25, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:02:14 Oct 25, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 274.171
+  exclusion.robots.policy: 0.504
+  CDXLines.iter: 53.142 (3)
+  RedisCDXSource: 7.727
+  PetaboxLoader3.datanode: 104.704 (4)
+  PetaboxLoader3.resolve: 89.007 (2)
+  LoadShardBlock: 206.189 (3)
+  load_resource: 88.265
+  esindex: 0.021
+  exclusion.robots: 0.525
+-->

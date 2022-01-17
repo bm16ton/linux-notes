@@ -1,0 +1,1 @@
+cmd_/home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.mod := { echo  /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.o;  echo; } > /home/maddocks/linux-notes/openocd-stm32/seesaw/seesaw.mod

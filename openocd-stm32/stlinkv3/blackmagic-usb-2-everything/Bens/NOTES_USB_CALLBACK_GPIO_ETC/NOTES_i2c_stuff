@@ -1,0 +1,49 @@
+at end of i2c_init in usbi2c.c try something like
+
+	nvic_set_priority(I2C_RX0_IRQ, IRQ_PRI_I2C_RX0);
+	nvic_enable_irq(I2C_RX0_IRQ);
+
+	nvic_set_priority(I2c_TX_IRQ, IRQ_PRI_I2c_TX);
+	nvic_enable_irq(I2C_TX_IRQ);
+
+
+probly need functions like these to correspond to the irq call;
+
+void I2C_RX0_ISR(void) {
+blah
+}
+
+void I2C_TX_ISR(void) {
+blah
+}
+
+and usb callback hooks;
+
+
+void i2c_usb_out_cb(usbd_device *dev, uint8_t ep)
+{
+	(void)ep;
+	usbd_ep_nak_set(dev, I2C_ENDPOINT, 1);
+	count_new = usbd_ep_read_packet(dev, I2C_ENDPOINT,
+									double_buffer_out, CDCACM_PACKET_SIZE);
+	nvic_set_pending_irq(I2c_TX_IRQ);
+}
+
+void i2c_usb_in_cb(usbd_device *dev, uint8_t ep)
+{
+	(void)ep;
+blah
+}
+
+
+and dont forget to add the callback to sumwhere cdcacm.c heres the example can call back
+
+extern void slcan_usb_out_cb(usbd_device *dev, uint8_t ep);
+extern void slcan_usb_in_cb(usbd_device *dev, uint8_t ep);
+
+ so
+
+extern void i2c_usb_out_cb(usbd_device *dev, uint8_t ep);
+extern void i2c_usb_in_cb(usbd_device *dev, uint8_t ep);
+
+add those callbacks just above cdcacm_set_config in cdcacm.c

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="MISC">
+  <COMMON>
+    <LITERALS>
+      <LITERAL>
+        <SPL>SysTick_CLKSource_HCLK</SPL>
+        <LL>LL_SYSTICK_CLKSOURCE_HCLK</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>SysTick_CLKSource_HCLK_Div8</SPL>
+        <LL>LL_SYSTICK_CLKSOURCE_HCLK_DIV8</LL>
+      </LITERAL>
+    </LITERALS>
+
+	<STRUCTURES>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+       <FEATURE>
+           <SPL NAME="SysTick_CLKSourceConfig" />
+           <LL  NAME="LL_SYSTICK_SetClkSource"
+                CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+       </FEATURE>
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+   <!-- ################ STM32F1/F2/F3/F4/L0/L4/F7/H7 ################ -->
+   <VERSION NAME="MISC_VER_1_1_0">
+      <LITERALS>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+         <!-- ################ NVIC_PriorityGroupConfig expressions ################ -->
+         <FEATURE>
+             <SPL NAME="NVIC_PriorityGroupConfig"
+                  CMD0="EQU@SPL_PARAM_0=NVIC_PriorityGroup_0" />
+             <LL  NAME="NVIC_SetPriorityGrouping"
+                  CMD0="UPD@LL_PARAM_0=7"
+                  LOG="CMSIS API is used to set group priority" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_PriorityGroupConfig"
+                  CMD0="EQU@SPL_PARAM_0=NVIC_PriorityGroup_1" />
+             <LL  NAME="NVIC_SetPriorityGrouping"
+                  CMD0="UPD@LL_PARAM_0=6"
+                  LOG="CMSIS API is used to set group priority" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_PriorityGroupConfig"
+                  CMD0="EQU@SPL_PARAM_0=NVIC_PriorityGroup_2" />
+             <LL  NAME="NVIC_SetPriorityGrouping"
+                  CMD0="UPD@LL_PARAM_0=5"
+                  LOG="CMSIS API is used to set group priority" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_PriorityGroupConfig"
+                  CMD0="EQU@SPL_PARAM_0=NVIC_PriorityGroup_3" />
+             <LL  NAME="NVIC_SetPriorityGrouping"
+                  CMD0="UPD@LL_PARAM_0=4"
+                  LOG="CMSIS API is used to set group priority" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_PriorityGroupConfig"
+                  CMD0="EQU@SPL_PARAM_0=NVIC_PriorityGroup_4" />
+             <LL  NAME="NVIC_SetPriorityGrouping"
+                  CMD0="UPD@LL_PARAM_0=3"
+                  LOG="CMSIS API is used to set group priority" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_Init" />
+             <LL  NAME="NVIC_Init"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  LOG="No LL API, StdPeriph legacy API is used instead (legacy library)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_SystemLPConfig" />
+             <LL  NAME="NVIC_SystemLPConfig"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                  LOG="No LL API, StdPeriph legacy API is used instead (legacy library)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_SetVectorTable" />
+             <LL  NAME="NVIC_SetVectorTable"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                  LOG="No LL API, StdPeriph legacy API is used instead (legacy library)" />
+         </FEATURE>
+         <!-- ######################################################### -->
+      </FUNCTIONS>
+    </VERSION>
+    <!-- ######################################################### -->
+   <!-- ################ STM32F0 ################ -->
+   <VERSION NAME="MISC_VER_1_0_0">
+      <LITERALS>
+      </LITERALS>
+      <STRUCTURES>
+      </STRUCTURES>
+      <FUNCTIONS>
+         <!-- ################ NVIC_PriorityGroupConfig expressions ################ -->
+         <FEATURE>
+             <SPL NAME="NVIC_Init" />
+             <LL  NAME="NVIC_Init"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  LOG="No LL API, StdPeriph legacy API is used instead (legacy library)" />
+         </FEATURE>
+         <FEATURE>
+             <SPL NAME="NVIC_SystemLPConfig" />
+             <LL  NAME="NVIC_SystemLPConfig"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+                  LOG="No LL API, StdPeriph legacy API is used instead (legacy library)" />
+         </FEATURE>
+         <!-- ######################################################### -->
+      </FUNCTIONS>
+    </VERSION>
+  </SPECIFIC>
+</IP>

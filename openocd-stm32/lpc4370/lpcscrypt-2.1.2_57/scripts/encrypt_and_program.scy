@@ -1,0 +1,8 @@
+echo Programming flash image...
+program [binary_hdr] 0x14000000
+
+echo Verifying flash image...
+verify [binary_hdr] 0x14000000
+
+# prefixing command with '?' prompts the user if they want it executed
+?aes_ProgramKey1 [aeskey] 

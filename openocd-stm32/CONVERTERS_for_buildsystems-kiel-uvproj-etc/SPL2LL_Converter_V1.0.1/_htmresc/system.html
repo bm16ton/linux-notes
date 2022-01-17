@@ -1,0 +1,942 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="system_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_22884_Styles"><!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font522884
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font622884
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6422884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6522884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6622884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl6722884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl6822884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl6922884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7022884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7122884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7222884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7322884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7422884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7522884
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7622884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7722884
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+--></style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_22884" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1354 class=xl6553522884
+ style='border-collapse:collapse;table-layout:fixed;width:1016pt'>
+ <col class=xl6553522884 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553522884 width=694 style='mso-width-source:userset;mso-width-alt:
+ 22208;width:521pt'>
+ <col class=xl6553522884 width=628 style='mso-width-source:userset;mso-width-alt:
+ 20096;width:471pt'>
+ <col class=xl6553522884 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl7322884 width=1354 style='height:47.1pt;
+  width:1016pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font622884">SYSTEM</font><font class="font522884"> driver</font></td>
+ </tr>
+ <tr class=xl6553522884 height=21 style='height:15.75pt'>
+  <td colspan=2 height=21 class=xl7022884 style='height:15.75pt'>SPL</td>
+  <td class=xl7022884>STM32Cube_LL</td>
+  <td class=xl7022884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_DeInit(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>No LL or HAL API available</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RIDeInit(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>No LL or HAL API available</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_GetBootMode(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_GetBootMode(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_USBPuCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableUSBPullUp(void)<br>
+    LL_SYSCFG_DisableUSBPullUp(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl6522884 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_DMAChannelRemapConfig(uint32_t
+  SYSCFG_DMARemap, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetRemapDMA_USART(uint32_t
+  Remap)<br>
+    LL_SYSCFG_SetRemapDMA_TIM(uint32_t Remap)<br>
+    LL_SYSCFG_SetRemapDMA_ADC(uint32_t Remap)<br>
+    LL_SYSCFG_SetRemapDMA_DAC(uint32_t Remap)<br>
+    LL_SYSCFG_SetRemapDMA_SPI(uint32_t Remap)<br>
+    LL_SYSCFG_SetRemapDMA_I2C(uint32_t Remap)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_I2CFastModePlusConfig(uint32_t
+  SYSCFG_I2CFastModePlus, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableFastModePlus(uint32_t
+  ConfigFastModePlus)<br>
+    LL_SYSCFG_DisableFastModePlus(uint32_t ConfigFastModePlus)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_MemoryRemapConfig(uint8_t
+  SYSCFG_MemoryRemap)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetRemapMemory(uint32_t
+  Memory)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_MemorySwappingBank(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetFlashBankMode(uint32_t
+  Bank)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_EXTILineConfig(uint8_t
+  EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetEXTISource(uint32_t
+  Port, uint32_t Line)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_ETH_MediaInterfaceConfig(uint32_t
+  SYSCFG_ETH_MediaInterface)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetPHYInterface(uint32_t
+  Interface)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_CompensationCellCmd(FunctionalState
+  NewState)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableCompensationCell(void)<br>
+    LL_SYSCFG_DisableCompensationCell(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_GetCompensationCellStatus(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_IsActiveFlag_CMPCR(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_BreakConfig(uint32_t
+  SYSCFG_Break)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetTIMBreakInputs(uint32_t
+  Break)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RITIMSelect(uint32_t
+  TIM_Select)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_RI_SetRemapInputCapture_TIM(uint32_t
+  TIM_Select, uint32_t InputCaptureChannel, uint32_t Input)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RITIMInputCaptureConfig(uint32_t
+  RI_InputCapture, uint32_t RI_InputCaptureRouting)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_RI_SetRemapInputCapture_TIM(uint32_t
+  TIM_Select, uint32_t InputCaptureChannel, uint32_t Input)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RIResistorConfig(uint32_t
+  RI_Resistor, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_COMP_SetInputPullingResistor(COMP_TypeDef
+  *COMPx, uint32_t InputPullingResistor)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RIChannelSpeedConfig(uint32_t
+  RI_Channel, uint32_t RI_ChannelSpeed)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_ADC_SetChannelRouting(ADC_TypeDef
+  *ADCx, uint32_t Channel, uint32_t Routing)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RISwitchControlModeCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_RI_EnableSwitchControlMode(void)<br>
+    LL_RI_DisableSwitchControlMode(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RIIOSwitchConfig(uint32_t
+  RI_IOSwitch, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_RI_CloseIOSwitchLinkedToADC(uint32_t
+  IOSwitch)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_RIHysteresisConfig(uint8_t
+  RI_Port, uint16_t RI_Pin, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_RI_EnableHysteresis(uint32_t
+  Port, uint32_t Pin)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_VBATMonitoringCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableVBATMonitoring(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=340 style='height:255.0pt'>
+  <td height=340 class=xl6522884 style='height:255.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_ITConfig(uint32_t
+  SYSCFG_IT, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableIT_FPU_IXC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_IXC(void)<br>
+    <br>
+    LL_SYSCFG_EnableIT_FPU_IDC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_IDC(void)<br>
+    <br>
+    LL_SYSCFG_EnableIT_FPU_OFC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_OFC(void)<br>
+    <br>
+    LL_SYSCFG_EnableIT_FPU_UFC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_UFC(void)<br>
+    <br>
+    LL_SYSCFG_EnableIT_FPU_DZC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_DZC(void)<br>
+    <br>
+    LL_SYSCFG_EnableIT_FPU_IOC(void)<br>
+    LL_SYSCFG_DisableIT_FPU_IOC(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_GetFlagStatus(uint32_t
+  SYSCFG_Flag)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_IsActiveFlag_SP(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_ClearFlag(uint32_t
+  SYSCFG_Flag)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_ClearFlag_SP(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_IRDAEnvSelection(uint32_t
+  SYSCFG_IRDAEnv)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetIRModEnvelopeSignal(uint32_t
+  Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=546 style='height:409.5pt'>
+  <td height=546 class=xl6522884 style='height:409.5pt'>&nbsp;</td>
+  <td rowspan=3 class=xl7122884 width=694 style='border-bottom:.5pt solid #39A9DC;
+  width:521pt'>SYSCFG_GetPendingIT(uint32_t ITSourceLine)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_IsActiveFlag_WWDG(void)<br>
+    LL_SYSCFG_IsActiveFlag_PVDOUT(void)<br>
+    LL_SYSCFG_IsActiveFlag_VDDIO2(void)<br>
+    LL_SYSCFG_IsActiveFlag_RTC_WAKEUP(void)<br>
+    LL_SYSCFG_IsActiveFlag_RTC_TSTAMP(void)<br>
+    LL_SYSCFG_IsActiveFlag_RTC_ALRA(void)<br>
+    LL_SYSCFG_IsActiveFlag_FLASH_ITF(void)<br>
+    LL_SYSCFG_IsActiveFlag_CRS(void)<br>
+    LL_SYSCFG_IsActiveFlag_CLK_CTRL(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI0(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI1(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI2(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI3(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI4(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI5(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI6(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI7(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI8(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI9(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI10(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI11(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI12(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI13(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI14(void)<br>
+    LL_SYSCFG_IsActiveFlag_EXTI15(void)<br>
+    LL_SYSCFG_IsActiveFlag_TSC_EOA(void)<br>
+    LL_SYSCFG_IsActiveFlag_TSC_MCE(void)<br>
+    </td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=540 style='mso-height-source:userset;height:405.0pt'>
+  <td height=540 class=xl6522884 style='height:405.0pt'>&nbsp;</td>
+  <td class=xl6922884 width=628 style='width:471pt'>LL_SYSCFG_IsActiveFlag_DMA1_CH1(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH2(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH3(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA2_CH1(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA2_CH2(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH4(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH5(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH6(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA1_CH7(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA2_CH3(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA2_CH4(void)<br>
+    LL_SYSCFG_IsActiveFlag_DMA2_CH5(void)<br>
+    LL_SYSCFG_IsActiveFlag_ADC(void)<br>
+    LL_SYSCFG_IsActiveFlag_COMP1(void)<br>
+    LL_SYSCFG_IsActiveFlag_COMP2(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM1_BRK(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM1_UPD(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM1_TRG(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM1_CCU(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM1_CC(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM2(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM3(void)<br>
+    LL_SYSCFG_IsActiveFlag_DAC(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM6(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM7(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM14(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM15(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=260 style='mso-height-source:userset;height:195.0pt'>
+  <td height=260 class=xl6522884 style='height:195.0pt'>&nbsp;</td>
+  <td class=xl6822884 width=628 style='width:471pt'>LL_SYSCFG_IsActiveFlag_TIM16(void)<br>
+    LL_SYSCFG_IsActiveFlag_TIM17(void)<br>
+    LL_SYSCFG_IsActiveFlag_I2C1(void)<br>
+    LL_SYSCFG_IsActiveFlag_I2C2(void)<br>
+    LL_SYSCFG_IsActiveFlag_SPI1(void)<br>
+    LL_SYSCFG_IsActiveFlag_SPI2(void)<br>
+    LL_SYSCFG_IsActiveFlag_USART1(void)<br>
+    LL_SYSCFG_IsActiveFlag_USART2(void)<br>
+    LL_SYSCFG_IsActiveFlag_USART3(void)<br>
+    LL_SYSCFG_IsActiveFlag_USART4(void)<br>
+    LL_SYSCFG_IsActiveFlag_USART5(void)<br>
+    LL_SYSCFG_IsActiveFlag_CAN(void)<br>
+    LL_SYSCFG_IsActiveFlag_CEC(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='border-top:none;width:521pt'>SYSCFG_TriggerRemapConfig(uint32_t
+  SYSCFG_TriggerRemap, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='border-top:none;width:471pt'>LL_SYSCFG_SetRemapTrigger_DAC(uint32_t
+  Remap)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_EncoderRemapConfig(uint32_t
+  SYSCFG_EncoderRemap)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetRemapInput_TIM(uint32_t
+  Remap)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_USBInterruptLineRemapCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableRemapIT_USB(void)<br>
+    LL_SYSCFG_DisableRemapIT_USB(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_BypassParityCheckDisable(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DisableSRAMParityCheck(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_ADCTriggerRemapConfig(uint32_t
+  SYSCFG_ADCTriggerRemap, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_SetRemapTrigger_ADC(uint32_t
+  Remap)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>SYSCFG_SRAMWRPEnable(uint32_t
+  SYSCFG_SRAMWRP)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_EnableCCM_SRAMPageWRP(uint32_t
+  PageWRP)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_BitstreamClock_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_SetBitstreamClockSourceSelection(uint32_t
+  ClockSource)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_DisableDelayClock(uint32_t
+  MCHDLY)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_DisableDelayClock(uint32_t
+  MCHDLY)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_EnableDelayClock(uint32_t
+  MCHDLY)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_EnableDelayClock(uint32_t
+  MCHDLY)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_ClockIn_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM1_SetClockInSourceSelection(uint32_t
+  ClockSource)<br>
+    LL_SYSCFG_DFSDM2_SetClockInSourceSelection(uint32_t ClockSource)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_ClockOut_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM1_SetClockOutSourceSelection(uint32_t
+  ClockSource)<br>
+    LL_SYSCFG_DFSDM2_SetClockOutSourceSelection(uint32_t ClockSource)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_DataIn0_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_SetDataIn0Source(uint32_t
+  Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_DataIn2_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_SetDataIn2Source(uint32_t
+  Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_DataIn4_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_SetDataIn4Source(uint32_t
+  Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM_DataIn6_SourceSelection(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM_SetDataIn6Source(uint32_t
+  Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DFSDM1_BitStreamClk_Config(uint32_t
+  source)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM1_SetTIM4OC2BitStreamDistribution(uint32_t
+  Source)<br>
+    LL_SYSCFG_DFSDM1_SetTIM4OC1BitStreamDistribution(uint32_t Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl6522884 style='height:60.0pt'>&nbsp;</td>
+  <td class=xl7222884 width=694 style='width:521pt'>DFSDM2_BitStreamClk_Config(uint32_t
+  source)</td>
+  <td class=xl6722884 width=628 style='width:471pt'>LL_SYSCFG_DFSDM2_SetTIM3OC4BitStreamDistribution(uint32_t
+  Source)<br>
+    LL_SYSCFG_DFSDM2_SetTIM3OC3BitStreamDistribution(uint32_t Source)<br>
+    LL_SYSCFG_DFSDM2_SetTIM3OC2BitStreamDistribution(uint32_t Source)<br>
+    LL_SYSCFG_DFSDM2_SetTIM3OC1BitStreamDistribution(uint32_t Source)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td colspan=2 rowspan=2 class=xl7622884 style='border-bottom:.5pt solid #39A9DC'>FLASH</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='border-top:none;width:521pt'>FLASH_SetLatency(uint32_t
+  FLASH_Latency)</td>
+  <td class=xl6622884 width=628 style='border-top:none;width:471pt'>LL_FLASH_SetLatency(uint32_t
+  Latency)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_PrefetchBufferCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnablePrefetch(void)<br>
+    LL_FLASH_DisablePrefetch(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_InstructionCacheCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableInstCache(void)<br>
+    LL_FLASH_DisableInstCache(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_DataCacheCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableDataCache(void)<br>
+    LL_FLASH_DisableDataCache(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_InstructionCacheReset(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableInstCacheReset(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_DataCacheReset(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableDataCacheReset(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_GetPrefetchBufferStatus(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_IsPrefetchEnabled(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_HalfCycleAccessCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableHalfCycleAccess(void)<br>
+    LL_FLASH_EnableHalfCycleAccess(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_ReadAccess64Cmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_Enable64bitAccess(void)<br>
+    LL_FLASH_Disable64bitAccess(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>FLASH_SLEEPPowerDownCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_FLASH_EnableSleepPowerDown(void)<br>
+    LL_FLASH_DisableSleepPowerDown(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6522884 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7222884 width=694 style='width:521pt'>FLASH_RUNPowerDownCmd(FunctionalState
+  NewState)</td>
+  <td class=xl6722884 width=628 style='width:471pt'>LL_FLASH_EnableRunPowerDown(void)<br>
+    LL_FLASH_DisableRunPowerDown(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td colspan=2 rowspan=2 class=xl7622884 style='border-bottom:.5pt solid #39A9DC'>DBGMCU</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='border-top:none;width:521pt'>DBGMCU_GetREVID(void)</td>
+  <td class=xl6622884 width=628 style='border-top:none;width:471pt'>LL_DBGMCU_GetRevisionID(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6522884 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DBGMCU_GetDEVID(void)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_DBGMCU_GetDeviceID(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6522884 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DBGMCU_Config(uint32_t
+  DBGMCU_Periph, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_DBGMCU_EnableDBGSleepMode(void)<br>
+    LL_DBGMCU_DisableDBGSleepMode(void)<br>
+    LL_DBGMCU_EnableDBGStopMode(void)<br>
+    LL_DBGMCU_EnableDBGStandbyMode(void)<br>
+    LL_DBGMCU_DisableDBGStandbyMode(void)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6522884 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7122884 width=694 style='width:521pt'>DBGMCU_APB1PeriphConfig(uint32_t
+  DBGMCU_Periph, FunctionalState NewState)</td>
+  <td class=xl6622884 width=628 style='width:471pt'>LL_DBGMCU_APB1_GRP1_FreezePeriph(LL_DBGMCU_APB1_GRP1_IWDG_STOP)<br>
+    LL_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_DBGMCU_APB1_GRP1_IWDG_STOP)<br>
+    <br>
+    LL_DBGMCU_APB1_GRP1_FreezePeriph(LL_DBGMCU_APB1_GRP1_WWDG_STOP)<br>
+    LL_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_DBGMCU_APB1_GRP1_WWDG_STOP)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl6522884 style='height:75.0pt'>&nbsp;</td>
+  <td class=xl7222884 width=694 style='width:521pt'>DBGMCU_APB2PeriphConfig(uint32_t
+  DBGMCU_Periph, FunctionalState NewState)</td>
+  <td class=xl6722884 width=628 style='width:471pt'>LL_DBGMCU_APB2_GRP1_FreezePeriph(LL_DBGMCU_APB2_GRP1_TIM10_STOP)<br>
+    LL_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_DBGMCU_APB2_GRP1_TIM10_STOP)<br>
+    <br>
+    LL_DBGMCU_APB2_GRP1_FreezePeriph(LL_DBGMCU_APB2_GRP1_TIM16_STOP)<br>
+    LL_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_DBGMCU_APB2_GRP1_TIM16_STOP)</td>
+  <td class=xl6522884>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6422884 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl6422884>&nbsp;</td>
+  <td class=xl6422884>&nbsp;</td>
+  <td class=xl6422884>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=694 style='width:521pt'></td>
+  <td width=628 style='width:471pt'></td>
+  <td width=16 style='width:12pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>
+

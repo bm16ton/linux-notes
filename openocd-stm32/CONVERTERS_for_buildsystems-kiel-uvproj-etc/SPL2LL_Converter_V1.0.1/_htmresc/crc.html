@@ -1,0 +1,825 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="crc_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_26522_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font526522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font626522
+	{color:#BA122C;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font726522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font826522
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font926522
+	{color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1026522
+	{color:#006A23;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1126522
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1226522
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1326522
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1426522
+	{color:#820D1F;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1526522
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6526522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6626522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6726522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6826522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl6926522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7026522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7126522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7226522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7326522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7426522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7526522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7626522
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7726522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7826522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7926522
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_26522" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1451 class=xl6553526522
+ style='border-collapse:collapse;table-layout:fixed;width:1089pt'>
+ <col class=xl6553526522 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6553526522 width=280 style='mso-width-source:userset;mso-width-alt:
+ 8960;width:210pt'>
+ <col class=xl6553526522 width=468 style='mso-width-source:userset;mso-width-alt:
+ 14976;width:351pt'>
+ <col class=xl6553526522 width=669 style='mso-width-source:userset;mso-width-alt:
+ 21408;width:502pt'>
+ <col class=xl6553526522 width=18 style='mso-width-source:userset;mso-width-alt:
+ 576;width:14pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=5 height=62 class=xl7626522 width=1451 style='height:47.1pt;
+  width:1089pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font1526522">CRC</font><font class="font1226522"> driver</font></td>
+ </tr>
+ <tr class=xl6553526522 height=21 style='height:15.75pt'>
+  <td colspan=2 height=21 class=xl7426522 style='height:15.75pt'>SPL</td>
+  <td class=xl7426522>STM32Cube_LL</td>
+  <td colspan=2 class=xl7426522>Notes / Parameters<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl6726522 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_DeInit(void)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_DeInit(CRC_TypeDef
+  *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6826522>&nbsp;</td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl6826522 style='height:15.75pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_ResetDR(void)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_ResetCRCCalculationUnit(CRC_TypeDef
+  *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6826522>&nbsp;</td>
+ </tr>
+ <tr height=499 style='height:374.25pt'>
+  <td height=499 class=xl6626522 style='height:374.25pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_PolynomialSizeSelect(uint32_t
+  CRC_PolSize)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_SetPolynomialSize(CRC_TypeDef
+  *CRCx, uint32_t PolySize)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font1026522">Ex.
+  :</font><font class="font526522"><br>
+    CRC_PolynomialSizeSelect(CRC_PolSize_7) -&gt;
+  LL_CRC_SetPolynomialSize(CRCx, LL_CRC_POLYLENGTH_7B);<br>
+    <br>
+    CRC_PolynomialSizeSelect(CRC_PolSize_8) -&gt;
+  LL_CRC_SetPolynomialSize(CRCx, LL_CRC_POLYLENGTH_8B);<br>
+    <br>
+    CRC_PolynomialSizeSelect(CRC_PolSize_16) -&gt;
+  LL_CRC_SetPolynomialSize(CRCx, LL_CRC_POLYLENGTH_16B);<br>
+    <br>
+    CRC_PolynomialSizeSelect(CRC_PolSize_32) -&gt;
+  LL_CRC_SetPolynomialSize(CRCx, LL_CRC_POLYLENGTH_32B);<br>
+    <br>
+    where CRCx refers to CRC instance<br>
+    <br>
+    </font><font class="font826522">SPL-<span style='mso-spacerun:yes'> 
+  </span>CRC_PolSize</font><font class="font1126522"> </font><font
+  class="font526522">parameter can be one of the following values:</font><font
+  class="font726522"><br>
+    </font><font class="font926522">CRC_PolSize_7<br>
+    CRC_PolSize_8<br>
+    CRC_PolSize_16<br>
+    CRC_PolSize_32</font><font class="font526522"><br>
+    <br>
+    </font><font class="font826522">LL-<span style='mso-spacerun:yes'> 
+  </span>PolySize</font><font class="font1126522"> </font><font
+  class="font526522">parameter can be one of the following values:<br>
+    </font><font class="font926522">LL_CRC_POLYLENGTH_7B<br>
+    LL_CRC_POLYLENGTH_8B<br>
+    LL_CRC_POLYLENGTH_16B<br>
+    LL_CRC_POLYLENGTH_32B</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=388 style='height:291.0pt'>
+  <td height=388 class=xl6626522 style='height:291.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_ReverseInputDataSelect(uint32_t
+  CRC_ReverseInputData)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_SetInputDataReverseMode(CRC_TypeDef
+  *CRCx, uint32_t ReverseMode)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font1026522">Ex.
+  : </font><font class="font526522"><br>
+    CRC_ReverseInputDataSelect(CRC_ReverseInputData_No) -&gt;
+  LL_CRC_SetInputDataReverseMode(CRCx, LL_CRC_INDATA_REVERSE_NONE);<br>
+    <br>
+    CRC_ReverseInputDataSelect(CRC_ReverseInputData_8bits) -&gt;
+  LL_CRC_SetInputDataReverseMode(CRCx, LL_CRC_INDATA_REVERSE_BYTE);<br>
+    <br>
+    CRC_ReverseInputDataSelect(CRC_ReverseInputData_16bits) -&gt;
+  LL_CRC_SetInputDataReverseMode(CRCx, LL_CRC_INDATA_REVERSE_HALFWORD);<br>
+    <br>
+    CRC_ReverseInputDataSelect(CRC_ReverseInputData_32bits) -&gt; LL_CRC_SetInputDataReverseMode(CRCx,
+  LL_CRC_INDATA_REVERSE_WORD);<br>
+    <br>
+    where CRCx refers to CRC instance<br>
+    <br>
+    </font><font class="font826522">SPL-<span style='mso-spacerun:yes'> 
+  </span>CRC_ReverseInputData</font><font class="font1326522"> </font><font
+  class="font526522">parameter can be one of the following values:<br>
+    </font><font class="font926522">CRC_ReverseInputData_No<br>
+    CRC_ReverseInputData_8bits<br>
+    CRC_ReverseInputData_16bits<br>
+    CRC_ReverseInputData_32bits</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=88 style='height:66.0pt'>
+  <td height=88 class=xl6626522 style='height:66.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>&nbsp;</td>
+  <td class=xl7726522 width=468 style='width:351pt'>&nbsp;</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font826522">LL-<span
+  style='mso-spacerun:yes'>  </span>ReverseMode</font><font class="font1326522">
+  </font><font class="font526522">parameter can be one of the following
+  values:<br>
+    </font><font class="font926522">LL_CRC_INDATA_REVERSE_NONE<br>
+    LL_CRC_INDATA_REVERSE_BYTE<br>
+    LL_CRC_INDATA_REVERSE_HALFWORD<br>
+    LL_CRC_INDATA_REVERSE_WORD</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=311 style='height:233.25pt'>
+  <td height=311 class=xl6626522 style='height:233.25pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_ReverseOutputDataCmd(FunctionalState
+  NewState)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_SetOutputDataReverseMode(CRC_TypeDef
+  *CRCx, uint32_t ReverseMode)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font1026522">Ex.
+  :</font><font class="font526522"><br>
+    CRC_ReverseOutputDataCmd(ENABLE) -&gt;
+  LL_CRC_SetOutputDataReverseMode(CRCx, LL_CRC_OUTDATA_REVERSE_BIT);<br>
+    <br>
+    CRC_ReverseOutputDataCmd(DISABLE) -&gt;
+  LL_CRC_SetOutputDataReverseMode(CRCx, LL_CRC_OUTDATA_REVERSE_NONE);<br>
+    <br>
+    where CRCx refers to CRC instance<br>
+    <br>
+    </font><font class="font826522">LL-<span style='mso-spacerun:yes'> 
+  </span>ReverseMode</font><font class="font1126522"> </font><font
+  class="font526522">parameter can be one of the following values:<br>
+    </font><font class="font926522">LL_CRC_OUTDATA_REVERSE_NONE<br>
+    LL_CRC_OUTDATA_REVERSE_BIT</font><font class="font526522"><br>
+    <br>
+    </font><font class="font826522">SPL- NewState</font><font
+  class="font1126522"> </font><font class="font526522">parameter can be one of
+  the following values:<br>
+    </font><font class="font926522">ENABLE<br>
+    DISABLE</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td height=22 class=xl6626522 style='height:16.5pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_SetInitRegister(uint32_t
+  CRC_InitValue)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_SetInitialData(CRC_TypeDef
+  *CRCx, uint32_t InitCrc)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl6626522 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_SetPolynomial(uint32_t
+  CRC_Pol)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_SetPolynomialCoef(CRC_TypeDef
+  *CRCx, uint32_t PolynomCoef)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl6626522 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_CalcCRC(uint32_t
+  CRC_Data)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_FeedData32(CRC_TypeDef
+  *CRCx, uint32_t InData)<br>
+    <br>
+    LL_CRC_ReadData32(CRC_TypeDef *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font626522">Note
+  :</font><font class="font1426522"> </font><font class="font526522">Write data
+  to the CRC calculator with LL_CRC_FeedData32.<br>
+    Get CRC calculation result using LL_CRC_ReadData32<br>
+    <br>
+    </font><font class="font1026522">Ex. :</font><font class="font526522"><br>
+    CRC_CalcCRC(0xFFFFFFFF) -&gt; LL_CRC_FeedData32(0xFFFFFFFF);<br>
+    LL_CRC_ReadData32();</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl6626522 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_CalcCRC16bits(uint16_t
+  CRC_Data)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_FeedData16(CRC_TypeDef
+  *CRCx, uint16_t InData)<br>
+    <br>
+    LL_CRC_ReadData16(CRC_TypeDef *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font626522">Note
+  : </font><font class="font526522">Write data to the CRC calculator with
+  LL_CRC_FeedData16.<br>
+    Get CRC calculation result using LL_CRC_ReadData16<br>
+    <br>
+    </font><font class="font1026522">Ex. : </font><font class="font526522"><br>
+    CRC_CalcCRC(0xFFFF) -&gt; LL_CRC_FeedData16(0xFFFF);<br>
+    LL_CRC_ReadData16();</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=59 style='mso-height-source:userset;height:44.25pt'>
+  <td height=59 class=xl6626522 style='height:44.25pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_CalcCRC8bits(uint8_t
+  CRC_Data)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_FeedData8(CRC_TypeDef
+  *CRCx, uint8_t InData)<br>
+    <br>
+    LL_CRC_ReadData8(CRC_TypeDef *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'><font class="font626522">Note
+  :</font><font class="font1426522"> </font><font class="font526522">Write data
+  to the CRC calculator with LL_CRC_FeedData8.<br>
+    Get CRC calculation result using LL_CRC_ReadData8<br>
+    <br>
+    </font><font class="font1026522">Ex. :</font><font class="font526522"><br>
+    CRC_CalcCRC(0xFFFF) -&gt; LL_CRC_FeedData8(0xFF);<br>
+    LL_CRC_ReadData8();</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6626522 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_GetCRC(void)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_ReadData32(CRC_TypeDef
+  *CRCx)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6626522 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7526522 width=280 style='width:210pt'>CRC_SetIDRegister(uint8_t
+  CRC_IDValue)</td>
+  <td class=xl7726522 width=468 style='width:351pt'>LL_CRC_Write_IDR(CRC_TypeDef
+  *CRCx, uint32_t InData)</td>
+  <td class=xl7126522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl6926522 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl7026522 width=280 style='border-left:none;width:210pt'>CRC_GetIDRegister(void)</td>
+  <td class=xl7826522 width=468 style='width:351pt'>LL_CRC_Read_IDR(CRC_TypeDef
+  *CRCx)</td>
+  <td class=xl7226522 width=669 style='width:502pt'>&nbsp;</td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr class=xl6553526522 height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td colspan=4 height=22 class=xl7326522 width=1433 style='height:16.5pt;
+  width:1075pt'>APIs not available on STM32Cube_LL</td>
+  <td class=xl7326522 width=18 style='width:14pt'>&nbsp;</td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl6626522 style='height:135.0pt'>&nbsp;</td>
+  <td colspan=2 class=xl7026522 width=748 style='width:561pt'>CRC_CalcBlockCRC(uint32_t
+  pBuffer[], uint32_t BufferLength)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl7926522 width=669 style='width:502pt'><font class="font626522">Note:</font><font
+  class="font526522"> updated by the follwoing sequence: <br>
+    <br>
+    <span style='mso-spacerun:yes'>  </span>uint32_t index = 0;<br>
+    <span style='mso-spacerun:yes'>  </span><br>
+    <span style='mso-spacerun:yes'>  </span>for(index = 0; index &lt;
+  BufferLength; index++)<br>
+    <span style='mso-spacerun:yes'>  </span>{<br>
+    <span style='mso-spacerun:yes'>    </span>LL_CRC_FeedData32(CRC,
+  pBuffer[index]);<br>
+    <span style='mso-spacerun:yes'>  </span>}<br>
+    <span style='mso-spacerun:yes'>  </span>LL_CRC_ReadData32(CRC);</font></td>
+  <td class=xl6626522>&nbsp;</td>
+ </tr>
+ <tr height=16 style='mso-height-source:userset;height:12.0pt'>
+  <td height=16 class=xl6526522 style='height:12.0pt'>&nbsp;</td>
+  <td class=xl6526522>&nbsp;</td>
+  <td class=xl6526522>&nbsp;</td>
+  <td class=xl6526522>&nbsp;</td>
+  <td class=xl6526522>&nbsp;</td>
+ </tr>
+ <tr height=57 style='mso-height-source:userset;height:42.75pt'>
+  <td height=57 class=xl6553526522 style='height:42.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=34 style='mso-height-source:userset;height:25.5pt'>
+  <td height=34 class=xl6553526522 style='height:25.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=70 style='mso-height-source:userset;height:52.5pt'>
+  <td height=70 class=xl6553526522 style='height:52.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=70 style='mso-height-source:userset;height:52.5pt'>
+  <td height=70 class=xl6553526522 style='height:52.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=70 style='mso-height-source:userset;height:52.5pt'>
+  <td height=70 class=xl6553526522 style='height:52.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=70 style='mso-height-source:userset;height:52.5pt'>
+  <td height=70 class=xl6553526522 style='height:52.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=57 style='mso-height-source:userset;height:42.75pt'>
+  <td height=57 class=xl6553526522 style='height:42.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=460 style='mso-height-source:userset;height:345.0pt'>
+  <td height=460 class=xl6553526522 style='height:345.0pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=273 style='mso-height-source:userset;height:204.75pt'>
+  <td height=273 class=xl6553526522 style='height:204.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=469 style='mso-height-source:userset;height:351.75pt'>
+  <td height=469 class=xl6553526522 style='height:351.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=105 style='mso-height-source:userset;height:78.75pt'>
+  <td height=105 class=xl6553526522 style='height:78.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=498 style='mso-height-source:userset;height:373.5pt'>
+  <td height=498 class=xl6553526522 style='height:373.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=511 style='mso-height-source:userset;height:383.25pt'>
+  <td height=511 class=xl6553526522 style='height:383.25pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=533 style='mso-height-source:userset;height:399.75pt'>
+  <td height=533 class=xl6553526522 style='height:399.75pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6553526522 style='height:14.25pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6553526522 style='height:14.25pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <tr height=362 style='mso-height-source:userset;height:271.5pt'>
+  <td height=362 class=xl6553526522 style='height:271.5pt'></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+  <td class=xl6553526522></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=280 style='width:210pt'></td>
+  <td width=468 style='width:351pt'></td>
+  <td width=669 style='width:502pt'></td>
+  <td width=18 style='width:14pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

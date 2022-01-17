@@ -1,0 +1,3053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="TIM">
+  <COMMON>
+    <LITERALS>
+
+      <!-- ################ Timer Common Structures ################ -->
+      <LITERAL>
+        <SPL>TIM_TimeBaseInitTypeDef</SPL>
+        <LL>LL_TIM_InitTypeDef</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCInitTypeDef</SPL>
+        <LL>LL_TIM_OC_InitTypeDef</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICInitTypeDef</SPL>
+        <LL>LL_TIM_IC_InitTypeDef</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCInitTypeDef</SPL>
+        <LL>LL_TIM_OC_InitTypeDef</LL>
+      </LITERAL>
+        <LITERAL>
+            <SPL>TIM_BDTRInitTypeDef</SPL>
+            <LL>LL_TIM_BDTR_InitTypeDef</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+
+      <!-- ################ Output Configuration Common Modes ################ -->
+      <LITERAL>
+        <SPL>TIM_OCMode_Timing</SPL>
+        <LL>LL_TIM_OCMODE_FROZEN</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCMode_Active</SPL>
+        <LL>LL_TIM_OCMODE_ACTIVE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCMode_Inactive</SPL>
+        <LL>LL_TIM_OCMODE_INACTIVE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCMode_Toggle</SPL>
+        <LL>LL_TIM_OCMODE_TOGGLE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCMode_PWM1</SPL>
+        <LL>LL_TIM_OCMODE_PWM1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCMode_PWM2</SPL>
+        <LL>LL_TIM_OCMODE_PWM2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ForcedAction_InActive</SPL>
+        <LL>LL_TIM_OCMODE_FORCED_INACTIVE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ForcedAction_Active</SPL>
+        <LL>LL_TIM_OCMODE_FORCED_ACTIVE</LL>
+      </LITERAL>
+      
+      <!-- ################ OnePulse Modes ################ -->
+      <LITERAL>
+        <SPL>TIM_OPMode_Single</SPL>
+        <LL>LL_TIM_ONEPULSEMODE_SINGLE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OPMode_Repetitive</SPL>
+        <LL>LL_TIM_ONEPULSEMODE_REPETITIVE</LL>
+      </LITERAL>
+
+      <!-- ################ Timers Common Channels ################ -->
+      <LITERAL>
+        <SPL>TIM_Channel_1</SPL>
+        <LL>LL_TIM_CHANNEL_CH1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_Channel_2</SPL>
+        <LL>LL_TIM_CHANNEL_CH2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_Channel_3</SPL>
+        <LL>LL_TIM_CHANNEL_CH3</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_Channel_4</SPL>
+        <LL>LL_TIM_CHANNEL_CH4</LL>
+      </LITERAL>
+
+      <!-- ################ Timer Clock Division ################ -->
+      <LITERAL>
+        <SPL>TIM_CKD_DIV1</SPL>
+        <LL>LL_TIM_CLOCKDIVISION_DIV1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CKD_DIV2</SPL>
+        <LL>LL_TIM_CLOCKDIVISION_DIV2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CKD_DIV4</SPL>
+        <LL>LL_TIM_CLOCKDIVISION_DIV4</LL>
+      </LITERAL>
+
+      <!-- ################ Counter Common Directions ################ -->
+      <LITERAL>
+        <SPL>TIM_CounterMode_Up</SPL>
+        <LL>LL_TIM_COUNTERMODE_UP</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CounterMode_Down</SPL>
+        <LL>LL_TIM_COUNTERMODE_DOWN</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CounterMode_CenterAligned1</SPL>
+        <LL>LL_TIM_COUNTERMODE_CENTER_UP</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CounterMode_CenterAligned2</SPL>
+        <LL>LL_TIM_COUNTERMODE_CENTER_DOWN</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_CounterMode_CenterAligned3</SPL>
+        <LL>LL_TIM_COUNTERMODE_CENTER_UP_DOWN</LL>
+      </LITERAL>
+
+      <!-- ################ Output Configuration Polarity ################ -->
+      <LITERAL>
+        <SPL>TIM_OCPolarity_High</SPL>
+        <LL>LL_TIM_OCPOLARITY_HIGH</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OCPolarity_Low</SPL>
+        <LL>LL_TIM_OCPOLARITY_LOW</LL>
+      </LITERAL>
+	  <LITERAL>
+        <SPL>TIM_OCNPolarity_High</SPL>
+        <LL LOG ="TIM_OCNPolarity_High has no explicit equivalent and has been replaced by LL_TIM_OCPOLARITY_HIGH.\nConfiguration must be done by the CHxN selection.">LL_TIM_OCPOLARITY_HIGH</LL>
+      </LITERAL>
+	  <LITERAL>
+        <SPL>TIM_OCNPolarity_Low</SPL>
+        <LL LOG ="TIM_OCNPolarity_Low has no explicit equivalent and has been replaced by LL_TIM_OCPOLARITY_LOW.\nConfiguration must be done by the CHxN selection.">LL_TIM_OCPOLARITY_LOW</LL>
+      </LITERAL>
+
+      <!-- ################ Output Configuration State ################ -->
+      <LITERAL>
+        <SPL>TIM_OutputState_Disable</SPL>
+        <LL>LL_TIM_OCSTATE_DISABLE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_OutputState_Enable</SPL>
+        <LL>LL_TIM_OCSTATE_ENABLE</LL>
+      </LITERAL>
+	  <LITERAL>
+        <SPL>TIM_OutputNState_Disable</SPL>
+        <LL LOG ="TIM_OutputNState_Disable has no explicit equivalent and has been replaced by LL_TIM_OCSTATE_DISABLE.\nConfiguration must be done by the CHxN selection.">LL_TIM_OCSTATE_DISABLE</LL>
+      </LITERAL>
+	  <LITERAL>
+        <SPL>TIM_OutputNState_Enable</SPL>
+        <LL LOG ="TIM_OutputNState_Enable has no explicit equivalent and has been replaced by LL_TIM_OCSTATE_ENABLE.\nConfiguration must be done by the CHxN selection.">LL_TIM_OCSTATE_ENABLE</LL>
+      </LITERAL>
+      
+      <!-- ################ Break Controls ################ -->
+        <LITERAL>
+            <SPL>TIM_Break_Enable</SPL>
+            <LL>LL_TIM_BREAK_ENABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Break_Disable</SPL>
+            <LL>LL_TIM_BREAK_DISABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+        <!-- ################ Break Polarities ################ -->
+        <LITERAL>
+            <SPL>TIM_BreakPolarity_Low</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_LOW</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_BreakPolarity_High</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_HIGH</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+        <!-- ################ Break Automatic Output Controls ################ -->
+        <LITERAL>
+            <SPL>TIM_AutomaticOutput_Disable</SPL>
+            <LL>LL_TIM_AUTOMATICOUTPUT_DISABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_AutomaticOutput_Enable</SPL>
+            <LL>LL_TIM_AUTOMATICOUTPUT_ENABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+        <!-- ################ BDTR Lock Levels ################ -->
+        <LITERAL>
+            <SPL>TIM_LOCKLevel_OFF</SPL>
+            <LL>LL_TIM_LOCKLEVEL_OFF</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_LOCKLevel_1</SPL>
+            <LL>LL_TIM_LOCKLEVEL_1</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_LOCKLevel_2</SPL>
+            <LL>LL_TIM_LOCKLEVEL_2</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_LOCKLevel_3</SPL>
+            <LL>LL_TIM_LOCKLEVEL_3</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+        <!-- ################ BDTR Off-State Selection ################ -->
+        <LITERAL>
+            <SPL>TIM_OSSIState_Disable</SPL>
+            <LL>LL_TIM_OSSI_DISABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OSSIState_Enable</SPL>
+            <LL>LL_TIM_OSSI_ENABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OSSRState_Disable</SPL>
+            <LL>LL_TIM_OSSR_DISABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OSSRState_Enable</SPL>
+            <LL>LL_TIM_OSSR_ENABLE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+        <!-- ################ Output Configuration Idle State ################ -->
+        <LITERAL>
+            <SPL>TIM_OCIdleState_Reset</SPL>
+            <LL>LL_TIM_OCIDLESTATE_LOW</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCIdleState_Set</SPL>
+            <LL>LL_TIM_OCIDLESTATE_HIGH</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCNIdleState_Reset</SPL>
+            <LL>LL_TIM_OCIDLESTATE_LOW</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCNIdleState_Set</SPL>
+            <LL>LL_TIM_OCIDLESTATE_HIGH</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+        
+      <!-- ################ Input Configuration Polarity ################ -->
+      <LITERAL>
+        <SPL>TIM_ICPolarity_Rising</SPL>
+        <LL>LL_TIM_IC_POLARITY_RISING</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICPolarity_Falling</SPL>
+        <LL>LL_TIM_IC_POLARITY_FALLING</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICPolarity_BothEdge</SPL>
+        <LL>LL_TIM_IC_POLARITY_BOTHEDGE</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Active Input Selection ################ -->
+      <LITERAL>
+        <SPL>TIM_ICSelection_DirectTI</SPL>
+        <LL>LL_TIM_ACTIVEINPUT_DIRECTTI</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICSelection_IndirectTI</SPL>
+        <LL>LL_TIM_ACTIVEINPUT_INDIRECTTI</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICSelection_TRC</SPL>
+        <LL>LL_TIM_ACTIVEINPUT_TRC</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Input Capture Prescaler ################ -->
+      <LITERAL>
+        <SPL>TIM_ICPSC_DIV1</SPL>
+        <LL>LL_TIM_ICPSC_DIV1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICPSC_DIV2</SPL>
+        <LL>LL_TIM_ICPSC_DIV2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICPSC_DIV4</SPL>
+        <LL>LL_TIM_ICPSC_DIV4</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ICPSC_DIV8</SPL>
+        <LL>LL_TIM_ICPSC_DIV8</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Common Interrupt Sources ################ -->
+      <LITERAL>
+        <SPL>TIM_IT_Update</SPL>
+        <LL>LL_TIM_DIER_UIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_CC1</SPL>
+        <LL>LL_TIM_DIER_CC1IE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_CC2</SPL>
+        <LL>LL_TIM_DIER_CC2IE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_CC3</SPL>
+        <LL>LL_TIM_DIER_CC3IE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_CC4</SPL>
+        <LL>LL_TIM_DIER_CC4IE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_COM</SPL>
+        <LL>LL_TIM_DIER_COMIE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_IT_Trigger</SPL>
+        <LL>LL_TIM_DIER_TIE</LL>
+      </LITERAL>
+      <LITERAL>
+            <SPL>TIM_IT_Break</SPL>
+            <LL>LL_TIM_DIER_BIE</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+      
+      <!-- ################ Timer Common DMA Base Addresses ################ -->
+      <LITERAL>
+        <SPL>TIM_DMABase_CR1</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CR1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABase_CR2</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CR2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABase_SMCR</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_SMCR</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_DIER</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_DIER</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_SR</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_SR</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_EGR</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_EGR</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCMR1</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCMR1</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCMR2</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCMR2</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCER</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCER</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CNT</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CNT</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_PSC</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_PSC</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_ARR</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_ARR</LL>
+      </LITERAL>  
+      <LITERAL>
+            <SPL>TIM_DMABase_RCR</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_RCR</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+        </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABase_CCR1</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCR1</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCR2</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCR2</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCR3</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCR3</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_DMABase_CCR4</SPL>
+        <LL>LL_TIM_DMABURST_BASEADDR_CCR4</LL>
+      </LITERAL>
+      <LITERAL>
+            <SPL>TIM_DMABase_BDTR</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_BDTR</LL>
+            <EXCLUDE>STM32L0</EXCLUDE>
+            <EXCLUDE>STM32L1</EXCLUDE>
+      </LITERAL>
+        
+      <!-- ################ Timer DMA Burst Length ################ -->   
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_1Transfer</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_1TRANSFER</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_2Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_2TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_3Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_3TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_4Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_4TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_5Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_5TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_6Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_6TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_7Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_7TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_8Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_8TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_9Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_9TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_10Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_10TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_11Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_11TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_12Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_12TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_13Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_13TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_14Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_14TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_15Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_15TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_16Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_16TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_17Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_17TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_18Transfers</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_18TRANSFERS</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer External Trigger Prescaler ################ -->     
+      <LITERAL>
+        <SPL>TIM_ExtTRGPSC_OFF</SPL>
+        <LL>LL_TIM_ETR_PRESCALER_DIV1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ExtTRGPSC_DIV2</SPL>
+        <LL>LL_TIM_ETR_PRESCALER_DIV2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ExtTRGPSC_DIV4</SPL>
+        <LL>LL_TIM_ETR_PRESCALER_DIV4</LL>
+      </LITERAL>  
+      <LITERAL>
+        <SPL>TIM_ExtTRGPSC_DIV8</SPL>
+        <LL>LL_TIM_ETR_PRESCALER_DIV8</LL>
+      </LITERAL>  
+      
+      <!-- ################ Timer Internal Trigger Selection ################ -->     
+      <LITERAL>
+        <SPL>TIM_TS_ITR0</SPL>
+        <LL>LL_TIM_TS_ITR0</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_ITR1</SPL>
+        <LL>LL_TIM_TS_ITR1</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_ITR2</SPL>
+        <LL>LL_TIM_TS_ITR2</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_ITR3</SPL>
+        <LL>LL_TIM_TS_ITR3</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_TI1F_ED</SPL>
+        <LL>LL_TIM_TS_TI1F_ED</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_TI1FP1</SPL>
+        <LL>LL_TIM_TS_TI1FP1</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_TI2FP2</SPL>
+        <LL>LL_TIM_TS_TI2FP2</LL>
+      </LITERAL>    
+      <LITERAL>
+        <SPL>TIM_TS_ETRF</SPL>
+        <LL>LL_TIM_TS_ETRF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TIxExternalCLK1Source_TI1</SPL>
+        <LL>LL_TIM_TS_TI1FP1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TIxExternalCLK1Source_TI2</SPL>
+        <LL>LL_TIM_TS_TI2FP2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TIxExternalCLK1Source_TI1ED</SPL>
+        <LL>LL_TIM_TS_TI1F_ED</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer External Trigger Polarity ################ -->          
+      <LITERAL>
+        <SPL>TIM_ExtTRGPolarity_NonInverted</SPL>
+        <LL>LL_TIM_ETR_POLARITY_NONINVERTED</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_ExtTRGPolarity_Inverted</SPL>
+        <LL>LL_TIM_ETR_POLARITY_INVERTED</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Encoder Modes ################ -->
+      
+      <LITERAL>
+        <SPL>TIM_EncoderMode_TI12</SPL>
+        <LL>LL_TIM_ENCODERMODE_X4_TI12</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_EncoderMode_TI1</SPL>
+        <LL>LL_TIM_ENCODERMODE_X2_TI1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_EncoderMode_TI2</SPL>
+        <LL>LL_TIM_ENCODERMODE_X2_TI2</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Encoder Modes ################ -->
+      <LITERAL>
+        <SPL>TIM_UpdateSource_Global</SPL>
+        <LL>LL_TIM_UPDATESOURCE_REGULAR</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_UpdateSource_Regular</SPL>
+        <LL>LL_TIM_UPDATESOURCE_COUNTER</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Common Output Trigger ################ -->
+      <LITERAL>
+        <SPL>TIM_TRGOSource_Reset</SPL>
+        <LL>LL_TIM_TRGO_RESET</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_Enable</SPL>
+        <LL>LL_TIM_TRGO_ENABLE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_Update</SPL>
+        <LL>LL_TIM_TRGO_UPDATE</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_OC1</SPL>
+        <LL>LL_TIM_TRGO_CC1IF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_OC1Ref</SPL>
+        <LL>LL_TIM_TRGO_OC1REF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_OC2Ref</SPL>
+        <LL>LL_TIM_TRGO_OC2REF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_OC3Ref</SPL>
+        <LL>LL_TIM_TRGO_OC3REF</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_TRGOSource_OC4Ref</SPL>
+        <LL>LL_TIM_TRGO_OC4REF</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Common Slave Modes ################ -->
+      <LITERAL>
+        <SPL>TIM_SlaveMode_Reset</SPL>
+        <LL>LL_TIM_SLAVEMODE_RESET</LL>
+      </LITERAL>
+          <LITERAL>
+        <SPL>TIM_SlaveMode_Gated</SPL>
+        <LL>LL_TIM_SLAVEMODE_GATED</LL>
+      </LITERAL>
+          <LITERAL>
+        <SPL>TIM_SlaveMode_Trigger</SPL>
+        <LL>LL_TIM_SLAVEMODE_TRIGGER</LL>
+      </LITERAL>
+      
+      <!-- ################ Timer Common Legacy Defines ################ -->
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_1Byte</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_1TRANSFER</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_2Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_2TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_3Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_3TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_4Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_4TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_5Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_5TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_6Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_6TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_7Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_7TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_8Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_8TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_9Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_9TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_10Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_10TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_11Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_11TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_12Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_12TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_13Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_13TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_14Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_14TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_15Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_15TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_16Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_16TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_17Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_17TRANSFERS</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>TIM_DMABurstLength_18Bytes</SPL>
+        <LL>LL_TIM_DMABURST_LENGTH_18TRANSFERS</LL>
+      </LITERAL>
+      
+      <!-- ######################## Specific Defines For SYSTEMCFG L1 DataBase ########################-->
+      <LITERAL><SPL>TIM_Select_None</SPL><LL>LL_RI_TIM_SELECT_NONE</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>TIM_Select_TIM2</SPL><LL>LL_RI_TIM_SELECT_TIM2</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>TIM_Select_TIM3</SPL><LL>LL_RI_TIM_SELECT_TIM3</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+      <LITERAL><SPL>TIM_Select_TIM4</SPL><LL>LL_RI_TIM_SELECT_TIM4</LL><AVAILABLE>STM32L1</AVAILABLE></LITERAL>
+
+    </LITERALS>
+
+    <STRUCTURES>
+
+       <STRUCTURE NAME= "TIM_TimeBaseInitTypeDef">
+         <FIELD>
+           <SPL>TIM_Prescaler</SPL>
+           <LL>Prescaler</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_CounterMode</SPL>
+           <LL>CounterMode</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_Period</SPL>
+           <LL>Autoreload</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_ClockDivision</SPL>
+           <LL>ClockDivision</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_RepetitionCounter</SPL>
+           <LL>RepetitionCounter</LL>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+         </FIELD>
+       </STRUCTURE>
+       
+       <STRUCTURE NAME= "TIM_OCInitTypeDef">
+         <FIELD>
+           <SPL>TIM_OCMode</SPL>
+           <LL>OCMode</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OutputState</SPL>
+           <LL>OCState</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_Pulse</SPL>
+           <LL>CompareValue</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OCPolarity</SPL>
+           <LL>OCPolarity</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OutputNState</SPL>
+           <LL>OCNState</LL>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OCNPolarity</SPL>
+           <LL>OCNPolarity</LL>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OCIdleState</SPL>
+           <LL>OCIdleState</LL>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_OCNIdleState</SPL>
+           <LL>OCNIdleState</LL>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+         </FIELD>
+       </STRUCTURE>
+       
+       <STRUCTURE NAME= "TIM_ICInitTypeDef">
+         <FIELD>
+           <SPL>TIM_Channel</SPL>
+           <LL LOG="No LL correspondance for TIM_Channel field.\n Field has been deleted and alignement should be done manually.">[DELETE]</LL>
+           
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_ICPolarity</SPL>
+           <LL>ICPolarity</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_ICSelection</SPL>
+           <LL>ICActiveInput</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_ICPrescaler</SPL>
+           <LL>ICPrescaler</LL>
+         </FIELD>
+         <FIELD>
+           <SPL>TIM_ICFilter</SPL>
+           <LL>ICFilter</LL>
+         </FIELD>
+       </STRUCTURE>
+       
+       <STRUCTURE NAME= "TIM_BDTRInitTypeDef">
+            <FIELD>
+              <SPL>TIM_OSSRState</SPL>
+              <LL>OSSRState</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_OSSIState</SPL>
+              <LL>OSSIState</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_LOCKLevel</SPL>
+              <LL>LockLevel</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_DeadTime</SPL>
+              <LL>DeadTime</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_Break</SPL>
+              <LL>BreakState</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_BreakPolarity</SPL>
+              <LL>BreakPolarity</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+            <FIELD>
+              <SPL>TIM_AutomaticOutput</SPL>
+              <LL>AutomaticOutput</LL>
+              <EXCLUDE>STM32L0</EXCLUDE>
+              <EXCLUDE>STM32L1</EXCLUDE>
+            </FIELD>
+      </STRUCTURE>
+
+    </STRUCTURES>
+
+    <FUNCTIONS>
+
+       <!-- ################ DeInit/Init Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_DeInit" />
+           <LL  NAME="LL_TIM_DeInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_TimeBaseStructInit" />
+           <LL  NAME="LL_TIM_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_TimeBaseInit" />
+           <LL  NAME="LL_TIM_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ICStructInit" />
+           <LL  NAME="LL_TIM_IC_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ICInit" />
+           <LL  NAME="N/A"
+                CMD0="LL_TIM_IC_Init({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1, &amp;{CPY@SPL_PARAM_1})"
+                LOG="No equivalent Channel field existing in LL_TIM_IC_InitTypeDef structure.\nLL_TIM_CHANNEL_CH1 has been set as default value."/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OCStructInit" />
+           <LL  NAME="LL_TIM_OC_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       
+       <!-- ################ Timer Time base Configuration Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_PrescalerConfig" 
+                CMD0="EQU@SPL_PARAM_2=TIM_PSCReloadMode_Immediate"/>
+           <LL  NAME="LL_TIM_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_GenerateEvent_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_PrescalerConfig" 
+                CMD0="EQU@SPL_PARAM_2=TIM_PSCReloadMode_Update"/>
+           <LL  NAME="LL_TIM_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+           <LL  NAME="N/A"
+                CMD0="CLEAR_BIT({CPY@SPL_PARAM_0}-&gt;EGR, TIM_EGR_UG)"
+                LOG="No equivalent in LL for TIM_PSCReloadMode_Update, TIM_EGR_UG has been cleared to match the SPL value." />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CounterModeConfig" />
+           <LL  NAME="LL_TIM_SetCounterMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetCounter" />
+           <LL  NAME="LL_TIM_SetCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetAutoreload" />
+           <LL  NAME="LL_TIM_SetAutoReload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetCounter" />
+           <LL  NAME="LL_TIM_GetCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetPrescaler" />
+           <LL  NAME="LL_TIM_GetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+
+       <!-- ################ Timer Output Configuration Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_UpdateDisableConfig"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableUpdateEvent"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_UpdateDisableConfig"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableUpdateEvent"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_UpdateRequestConfig"/>
+           <LL  NAME="LL_TIM_SetUpdateSource"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ARRPreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableARRPreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ARRPreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableARRPreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectOnePulseMode"/>
+           <LL  NAME="LL_TIM_SetOnePulseMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetClockDivision"/>
+           <LL  NAME="LL_TIM_SetClockDivision"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableCounter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectOCxM"/>
+           <LL  NAME="LL_TIM_OC_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetCompare1"/>
+           <LL  NAME="LL_TIM_OC_SetCompareCH1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetCompare2"/>
+           <LL  NAME="LL_TIM_OC_SetCompareCH2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetCompare3"/>
+           <LL  NAME="LL_TIM_OC_SetCompareCH3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetCompare4"/>
+           <LL  NAME="LL_TIM_OC_SetCompareCH4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ForcedOC1Config"/>
+           <LL  NAME="LL_TIM_OC_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ForcedOC2Config"/>
+           <LL  NAME="LL_TIM_OC_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ForcedOC3Config"/>
+           <LL  NAME="LL_TIM_OC_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ForcedOC4Config"/>
+           <LL  NAME="LL_TIM_OC_SetMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4FastConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCFast_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableFast"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC1Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC1Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC2Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC2Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC3Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC3Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC4Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearOC4Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1PolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC1NPolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1N"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2PolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC2NPolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2N"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3PolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC3NPolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3N"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_OC4PolarityConfig"/>
+           <LL  NAME="LL_TIM_OC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       
+       <!-- ################ Timer Input Capture Configuration Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_CCxCmd"
+                CMD0="EQU@SPL_PARAM_2=TIM_CCx_Enable" />
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxCmd"
+                CMD0="EQU@SPL_PARAM_2=TIM_CCx_Disable" />
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_1"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Enable"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1N"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_2"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Enable"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2N"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_3"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Enable"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3N"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_1"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Disable"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1N"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_2"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Disable"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2N"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCxNCmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_Channel_3"
+                CMD1="EQU@SPL_PARAM_2=TIM_CCxN_Disable"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3N"/>
+       </FEATURE>
+       
+       <!-- ################ Measuring external PWM Signals ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_PWMIConfig"/>
+           <LL  NAME="N/A"
+                CMD0="uint16_t tmp_tim_icoppositepolarity_$id$ = (uint16_t)LL_TIM_IC_POLARITY_RISING;\nuint16_t tmp_tim_icoppositeselection_$id$ = (uint16_t)LL_TIM_ACTIVEINPUT_DIRECTTI;\n"
+                CMD1="/* Select the Opposite Input Polarity */\n"
+                CMD2="if ({CPY@SPL_PARAM_1}.ICPolarity == LL_TIM_IC_POLARITY_RISING)\n{\n  tmp_tim_icoppositepolarity_$id$ = (uint16_t)LL_TIM_IC_POLARITY_FALLING;\n}\nelse\n{\n  tmp_tim_icoppositepolarity_$id$ = (uint16_t)LL_TIM_IC_POLARITY_RISING;\n}"
+                CMD3="/* Select the Opposite Input */\n"
+                CMD4="if ({CPY@SPL_PARAM_1}.ICActiveInput == LL_TIM_ACTIVEINPUT_DIRECTTI)\n{\n  tmp_tim_icoppositeselection_$id$ = (uint16_t)LL_TIM_ACTIVEINPUT_INDIRECTTI;\n}\nelse\n{\n  tmp_tim_icoppositeselection_$id$ = (uint16_t)LL_TIM_ACTIVEINPUT_INDIRECTTI;\n}"
+                CMD5="/* TI1 Configuration */\n"
+                CMD6="LL_TIM_CC_DisableChannel({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1);\n"
+                CMD7="LL_TIM_IC_SetActiveInput({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1, {CPY@SPL_PARAM_1}.ICActiveInput);\n"
+                CMD8="LL_TIM_IC_SetFilter({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1, {CPY@SPL_PARAM_1}.ICFilter);\n"
+                CMD9="LL_TIM_IC_SetPolarity({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1, {CPY@SPL_PARAM_1}.ICPolarity);\n"
+                CMD10="LL_TIM_CC_EnableChannel({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1);\n"
+                CMD11="/* Set the Input Capture Prescaler value */\n"
+                CMD12="LL_TIM_IC_SetPrescaler({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH1, {CPY@SPL_PARAM_1}.ICPrescaler);\n"
+                CMD13="/* TI2 Configuration */\n"
+                CMD14="LL_TIM_CC_DisableChannel({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2);\n"
+                CMD15="LL_TIM_IC_SetActiveInput({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2, tmp_tim_icoppositeselection_$id$);\n"
+                CMD16="LL_TIM_IC_SetFilter({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2, {CPY@SPL_PARAM_1}.ICFilter);\n"
+                CMD17="LL_TIM_IC_SetPolarity({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2, tmp_tim_icoppositepolarity_$id$);\n"
+                CMD18="LL_TIM_CC_EnableChannel({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2);\n"
+                CMD19="/* Set the Input Capture Prescaler value */\n"
+                CMD20="LL_TIM_IC_SetPrescaler({CPY@SPL_PARAM_0}, LL_TIM_CHANNEL_CH2, {CPY@SPL_PARAM_1}.ICPrescaler)\n"
+                LOG="No specific LL API equivalent for TIM_PWMIConfig. Migration done through unitary LL APIs.\nLL_TIM_CHANNEL_CH1 has been selected by default, apply changes if required."/>
+       </FEATURE>
+       
+       <FEATURE>
+           <SPL NAME="TIM_GetCapture1"/>
+           <LL  NAME="LL_TIM_IC_GetCaptureCH1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetCapture2"/>
+           <LL  NAME="LL_TIM_IC_GetCaptureCH2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetCapture3"/>
+           <LL  NAME="LL_TIM_IC_GetCaptureCH3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetCapture4"/>
+           <LL  NAME="LL_TIM_IC_GetCaptureCH4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetIC1Prescaler"/>
+           <LL  NAME="LL_TIM_IC_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetIC2Prescaler"/>
+           <LL  NAME="LL_TIM_IC_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetIC3Prescaler"/>
+           <LL  NAME="LL_TIM_IC_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH3"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SetIC4Prescaler"/>
+           <LL  NAME="LL_TIM_IC_SetPrescaler"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH4"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       
+       <!-- ################ Timer Break Config Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_BDTRConfig"/>
+           <LL  NAME="LL_TIM_BDTR_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_BDTRStructInit"/>
+           <LL  NAME="LL_TIM_BDTR_StructInit"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       
+       <!-- ################ Timer Main Outputs Control Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_CtrlPWMOutputs"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableAllOutputs"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CtrlPWMOutputs"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableAllOutputs"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       
+       <!-- ################ Timer Capture/Compare Control Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_SelectCOM"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_CC_SetUpdate"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CCUPDATESOURCE_COMG_ONLY"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectCOM"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_CC_SetUpdate"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CCUPDATESOURCE_COMG_AND_TRGI"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCPreloadControl"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_CC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_CCPreloadControl"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_CC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       
+       <!-- ################ Timer IT Management Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Update"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Update"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC1"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC1"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC2"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC2"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC3"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC3"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC4"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC4"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_COM"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_COM"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Trigger"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Trigger"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Break"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableIT_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_ITConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Break"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableIT_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       
+       <!-- ################ Timer Event Generation Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_Update"/>
+           <LL  NAME="LL_TIM_GenerateEvent_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_CC1"/>
+           <LL  NAME="LL_TIM_GenerateEvent_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_CC2"/>
+           <LL  NAME="LL_TIM_GenerateEvent_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_CC3"/>
+           <LL  NAME="LL_TIM_GenerateEvent_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_CC4"/>
+           <LL  NAME="LL_TIM_GenerateEvent_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_COM"/>
+           <LL  NAME="LL_TIM_GenerateEvent_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_Trigger"/>
+           <LL  NAME="LL_TIM_GenerateEvent_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_GenerateEvent"
+                CMD0="EQU@SPL_PARAM_1=TIM_EventSource_Break"/>
+           <LL  NAME="LL_TIM_GenerateEvent_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       
+       <!-- ################ Timer Flags Management Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Update"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC1"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC2"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC3"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC4"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_COM"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Trigger"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Break"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC1OF"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC1OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC2OF"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC2OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC3OF"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC3OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetFlagStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC4OF"/>
+           <LL  NAME="LL_TIM_IsActiveFlag_CC4OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Update"/>
+           <LL  NAME="LL_TIM_ClearFlag_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC1"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC2"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC3"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC4"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_COM"/>
+           <LL  NAME="LL_TIM_ClearFlag_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Trigger"/>
+           <LL  NAME="LL_TIM_ClearFlag_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_Break"/>
+           <LL  NAME="LL_TIM_ClearFlag_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC1OF"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC1OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC2OF"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC2OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC3OF"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC3OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearFlag"
+                CMD0="EQU@SPL_PARAM_1=TIM_FLAG_CC4OF"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC4OVR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Update"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_UPDATE({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_UPDATE({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC1"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_CC1({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_CC1({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC2"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_CC2({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_CC2({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC3"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_CC3({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_CC3({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC4"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_CC4({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_CC4({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_COM"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_COM({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_COM({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Trigger"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_TRIG({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_TRIG({CPY@SPL_PARAM_0}))"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_GetITStatus"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Break"/>
+           <LL  NAME="N/A"
+                CMD0="(LL_TIM_IsActiveFlag_BRK({CPY@SPL_PARAM_0}) &amp;&amp; LL_TIM_IsEnabledIT_BRK({CPY@SPL_PARAM_0}))"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Update"/>
+           <LL  NAME="LL_TIM_ClearFlag_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC1"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC2"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC3"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_CC4"/>
+           <LL  NAME="LL_TIM_ClearFlag_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_COM"/>
+           <LL  NAME="LL_TIM_ClearFlag_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Trigger"/>
+           <LL  NAME="LL_TIM_ClearFlag_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE><!-- ################ to use except for L1 ################ -->
+           <SPL NAME="TIM_ClearITPendingBit"
+                CMD0="EQU@SPL_PARAM_1=TIM_IT_Break"/>
+           <LL  NAME="LL_TIM_ClearFlag_BRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       
+       <!-- ################ Timer DMA Configuration Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_DMAConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMABase_DCR"/>
+           <LL  NAME="LL_TIM_ConfigDMABurst"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=(TIM_DCR_DBA_4 | TIM_DCR_DBA_1) "
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMAConfig"/>
+           <LL  NAME="LL_TIM_ConfigDMABurst"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_Update"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_Update"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_UPDATE"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC1"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC1"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_CC1"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC2"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC2"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_CC2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC3"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC3"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_CC3"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC4"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_CC4"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_CC4"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_COM"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_COM"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_COM"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+           <EXCLUDE>STM32L0</EXCLUDE>
+           <EXCLUDE>STM32L1</EXCLUDE>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_Trigger"
+                CMD1="EQU@SPL_PARAM_2=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableDMAReq_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_DMACmd"
+                CMD0="EQU@SPL_PARAM_1=TIM_DMA_Trigger"
+                CMD1="EQU@SPL_PARAM_2=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableDMAReq_TRIG"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectCCDMA"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_CC_SetDMAReqTrigger"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CCDMAREQUEST_CC"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectCCDMA"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_CC_SetDMAReqTrigger"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CCDMAREQUEST_UPDATE"/>
+       </FEATURE>
+       
+       <!-- ################ Timer Clock and Modes Management Functions ################ -->
+       <FEATURE>
+           <SPL NAME="TIM_InternalClockConfig"/>
+           <LL  NAME="LL_TIM_SetClockSource"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CLOCKSOURCE_INTERNAL"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ITRxExternalClockConfig"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_TIxExternalClockConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_TIxExternalCLK1Source_TI1ED"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+           <LL  NAME="LL_TIM_IC_SetActiveInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2=LL_TIM_ACTIVEINPUT_DIRECTTI"/>
+           <LL  NAME="LL_TIM_IC_SetFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_3}"/>
+           <LL  NAME="LL_TIM_IC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_TIxExternalClockConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_TIxExternalCLK1Source_TI1"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+           <LL  NAME="LL_TIM_IC_SetActiveInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2=LL_TIM_ACTIVEINPUT_DIRECTTI"/>
+           <LL  NAME="LL_TIM_IC_SetFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_3}"/>
+           <LL  NAME="LL_TIM_IC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_TIxExternalClockConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_TIxExternalCLK1Source_TI2"/>
+           <LL  NAME="LL_TIM_CC_DisableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+           <LL  NAME="LL_TIM_IC_SetActiveInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2=LL_TIM_ACTIVEINPUT_DIRECTTI"/>
+           <LL  NAME="LL_TIM_IC_SetFilter"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_3}"/>
+           <LL  NAME="LL_TIM_IC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+           <LL  NAME="LL_TIM_CC_EnableChannel"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ETRClockMode1Config"/>
+           <LL  NAME="LL_TIM_ConfigETR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_2}"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"
+                CMD3="UPD@LL_PARAM_3={CPY@SPL_PARAM_3}"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_TS_ETRF"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ETRClockMode2Config"/>
+           <LL  NAME="LL_TIM_ConfigETR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_2}"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"
+                CMD3="UPD@LL_PARAM_3={CPY@SPL_PARAM_3}"/>
+           <LL  NAME="LL_TIM_SetClockSource"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CLOCKSOURCE_EXT_MODE2"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectInputTrigger"/>
+           <LL  NAME="LL_TIM_SetTriggerInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectOutputTrigger"/>
+           <LL  NAME="LL_TIM_SetTriggerOutput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectSlaveMode"
+                CMD0="EQU@SPL_PARAM_1=TIM_SlaveMode_External1"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1=(TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0)"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectSlaveMode"/>
+           <LL  NAME="LL_TIM_SetSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectMasterSlaveMode" 
+                CMD0="EQU@SPL_PARAM_1=TIM_MasterSlaveMode_Enable" />
+           <LL  NAME="LL_TIM_EnableMasterSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_SelectMasterSlaveMode" 
+                CMD0="EQU@SPL_PARAM_1=TIM_MasterSlaveMode_Disable" />
+           <LL  NAME="LL_TIM_DisableMasterSlaveMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="DEL@LL_PARAM_1" />
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_ETRConfig"/>
+           <LL  NAME="LL_TIM_ConfigETR"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_2}"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"
+                CMD3="UPD@LL_PARAM_3={CPY@SPL_PARAM_3}"/>
+       </FEATURE>
+       <FEATURE>
+           <SPL NAME="TIM_EncoderInterfaceConfig"/>
+           <LL  NAME="LL_TIM_SetEncoderMode"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+           <LL  NAME="LL_TIM_IC_SetActiveInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2=LL_TIM_ACTIVEINPUT_DIRECTTI"/>
+           <LL  NAME="LL_TIM_IC_SetActiveInput"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2=LL_TIM_ACTIVEINPUT_DIRECTTI"/>
+           <LL  NAME="LL_TIM_IC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH1"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}"/>
+           <LL  NAME="LL_TIM_IC_SetPolarity"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH2"
+                CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_3}"/>
+       </FEATURE>
+       <FEATURE>
+          <SPL NAME="TIM_SelectHallSensor"
+               CMD0="EQU@SPL_PARAM_1=ENABLE" />
+          <LL  NAME="LL_TIM_IC_EnableXORCombination"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       <FEATURE>
+          <SPL NAME="TIM_SelectHallSensor" 
+               CMD0="EQU@SPL_PARAM_1=DISABLE" />
+          <LL  NAME="LL_TIM_IC_DisableXORCombination"
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+       </FEATURE>
+       
+
+    </FUNCTIONS>
+
+  </COMMON>
+
+  <SPECIFIC>
+
+    <!-- ################ Specific for TIM_V3.2 and Higher ################ -->
+   <VERSION NAME= "TIM_VER_3_2_0">
+   
+      <LITERALS>
+    
+        <!-- ################ Output Configuration Specific Modes ################ -->
+        <LITERAL>
+            <SPL>TIM_OCMode_Retrigerrable_OPM1</SPL>
+            <LL>LL_TIM_OCMODE_RETRIG_OPM1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCMode_Retrigerrable_OPM2</SPL>
+            <LL>LL_TIM_OCMODE_RETRIG_OPM2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCMode_Combined_PWM1</SPL>
+            <LL>LL_TIM_OCMODE_COMBINED_PWM1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCMode_Combined_PWM2</SPL>
+            <LL>LL_TIM_OCMODE_COMBINED_PWM2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCMode_Asymmetric_PWM1</SPL>
+            <LL>LL_TIM_OCMODE_ASSYMETRIC_PWM1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCMode_Asymmetric_PWM2</SPL>
+            <LL>LL_TIM_OCMODE_ASSYMETRIC_PWM2</LL>
+        </LITERAL>
+    
+        <!-- ################ Timers Specific Channels ################ -->
+        <LITERAL>
+            <SPL>TIM_Channel_5</SPL>
+            <LL>LL_TIM_CHANNEL_CH5</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Channel_6</SPL>
+            <LL>LL_TIM_CHANNEL_CH6</LL>
+        </LITERAL>
+        
+        <!-- ################ Break 1 & 2 Polarities ################ -->
+        <LITERAL>
+            <SPL>TIM_BreakPolarity_Low</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_LOW</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_BreakPolarity_High</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_HIGH</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Break1Polarity_Low</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_LOW</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Break1Polarity_High</SPL>
+            <LL>LL_TIM_BREAK_POLARITY_HIGH</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Break2Polarity_Low</SPL>
+            <LL>LL_TIM_BREAK2_POLARITY_LOW</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_Break2Polarity_High</SPL>
+            <LL>LL_TIM_BREAK2_POLARITY_HIGH</LL>
+        </LITERAL>
+        
+        <!-- ################ Timer Specific DMA Base Addresses ################ -->
+        <LITERAL>
+            <SPL>TIM_DMABase_OR</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_OR</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_DMABase_CCMR3</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_CCMR3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_DMABase_CCR5</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_CCR5</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_DMABase_CCR6</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_CCR6</LL>
+        </LITERAL>
+        
+        <!-- ################ Timer Specific Output Trigger ################ -->
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_Reset</SPL>
+            <LL>LL_TIM_TRGO2_RESET</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_Enable</SPL>
+            <LL>LL_TIM_TRGO2_ENABLE</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_Update</SPL>
+            <LL>LL_TIM_TRGO2_UPDATE</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC1</SPL>
+            <LL>LL_TIM_TRGO2_CC1F</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC1Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC2Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC3Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC4Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC4</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC5Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC5</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC6Ref</SPL>
+            <LL>LL_TIM_TRGO2_OC6</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC4Ref_RisingFalling</SPL>
+            <LL>LL_TIM_TRGO2_OC4_RISINGFALLING</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC6Ref_RisingFalling</SPL>
+            <LL>LL_TIM_TRGO2_OC6_RISINGFALLING</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC4RefRising_OC6RefRising</SPL>
+            <LL>LL_TIM_TRGO2_OC4_RISING_OC6_RISING</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC4RefRising_OC6RefFalling</SPL>
+            <LL>LL_TIM_TRGO2_OC4_RISING_OC6_FALLING</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC5RefRising_OC6RefRising</SPL>
+            <LL>LL_TIM_TRGO2_OC5_RISING_OC6_RISING</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_TRGO2Source_OC5RefRising_OC6RefFalling</SPL>
+            <LL>LL_TIM_TRGO2_OC5_RISING_OC6_FALLING</LL>
+        </LITERAL>
+        
+        <!-- ################ Timer Specific Slave Modes ################ -->
+        <LITERAL>
+            <SPL>TIM_SlaveMode_Combined_ResetTrigger</SPL>
+            <LL>LL_TIM_SLAVEMODE_COMBINED_RESETTRIGGER</LL>
+        </LITERAL>
+        
+        <!-- ################ Timer Specific External trigger Remap ################ -->
+        <LITERAL>
+            <SPL>TIM16_GPIO</SPL>
+            <LL>LL_TIM_TIM16_TI1_RMP_GPIO</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM16_RTC_CLK</SPL>
+            <LL>LL_TIM_TIM16_TI1_RMP_RTC</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM16_HSEDiv32</SPL>
+            <LL>LL_TIM_TIM16_TI1_RMP_HSE_32</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM16_MCO</SPL>
+            <LL>LL_TIM_TIM16_TI1_RMP_MCO</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC1_AWDG1</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC1_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC1_AWDG2</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC1_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC1_AWDG3</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC1_RMP_AWD3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC4_AWDG1</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC4_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC4_AWDG2</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC4_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM1_ADC4_AWDG3</SPL>
+            <LL>LL_TIM_TIM1_ETR_ADC4_RMP_AWD3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC2_AWDG1</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC2_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC2_AWDG2</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC2_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC2_AWDG3</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC2_RMP_AWD3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC3_AWDG1</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC3_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC3_AWDG2</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC3_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM8_ADC3_AWDG3</SPL>
+            <LL>LL_TIM_TIM8_ETR_ADC3_RMP_AWD3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC3_AWDG1</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC3_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC3_AWDG2</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC3_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC3_AWDG3</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC3_RMP_AWD3</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC4_AWDG1</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC4_RMP_AWD1</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC4_AWDG2</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC4_RMP_AWD2</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM20_ADC4_AWDG3</SPL>
+            <LL>LL_TIM_TIM20_ETR_ADC4_RMP_AWD3</LL>
+        </LITERAL>
+      
+        <!-- ################ Timer OCREF Input Selection ################ -->
+        <LITERAL>
+            <SPL>TIM_OCReferenceClear_OCREFCLR</SPL>
+            <LL>LL_TIM_OCREF_CLR_INT_OCREF_CLR</LL>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCReferenceClear_ETRF</SPL>
+            <LL>LL_TIM_OCREF_CLR_INT_ETR</LL>
+        </LITERAL>
+
+      </LITERALS>
+      
+      <STRUCTURES>
+      </STRUCTURES>
+      
+      <FUNCTIONS>
+
+          <FEATURE>
+              <SPL NAME="TIM_UIFRemap" 
+                   CMD0="EQU@SPL_PARAM_1=DISABLE" />
+              <LL  NAME="LL_TIM_DisableUIFRemap"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_UIFRemap" 
+                   CMD0="EQU@SPL_PARAM_1=ENABLE" />
+              <LL  NAME="LL_TIM_EnableUIFRemap"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC5Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC6Init" />
+           <LL  NAME="LL_TIM_OC_Init"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" 
+                CMD1="ADD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C1" 
+                   CMD0="EQU@SPL_PARAM_1=DISABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_NONE" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C2" 
+                   CMD0="EQU@SPL_PARAM_1=DISABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_NONE" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C3" 
+                   CMD0="EQU@SPL_PARAM_1=DISABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_NONE" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C1" 
+                   CMD0="EQU@SPL_PARAM_1=ENABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_OC1REFC" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C2" 
+                   CMD0="EQU@SPL_PARAM_1=ENABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_OC2REFC" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectGC5C3" 
+                   CMD0="EQU@SPL_PARAM_1=ENABLE" />
+              <LL  NAME="LL_TIM_SetCH5CombinedChannels"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_GROUPCH5_OC3REFC" />
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SetCompare5"/>
+              <LL  NAME="LL_TIM_OC_SetCompareCH5"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SetCompare6"/>
+              <LL  NAME="LL_TIM_OC_SetCompareCH6"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_ForcedOC5Config"/>
+              <LL  NAME="LL_TIM_OC_SetMode"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"
+                   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_ForcedOC6Config"/>
+              <LL  NAME="LL_TIM_OC_SetMode"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"
+                   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC5PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC5PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC6PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_OC6PreloadConfig"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCPreload_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisablePreload"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_ClearOC5Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_ClearOC5Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_ClearOC6Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Enable"/>
+           <LL  NAME="LL_TIM_OC_EnableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_ClearOC6Ref"
+                CMD0="EQU@SPL_PARAM_1=TIM_OCClear_Disable"/>
+           <LL  NAME="LL_TIM_OC_DisableClear"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_SelectOCREFClear"/>
+           <LL  NAME="LL_TIM_SetOCRefClearInputSource"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_OC5PolarityConfig"/>
+              <LL  NAME="LL_TIM_OC_SetPolarity"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH5"
+                   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_OC6PolarityConfig"/>
+              <LL  NAME="LL_TIM_OC_SetPolarity"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="UPD@LL_PARAM_1=LL_TIM_CHANNEL_CH6"
+                   CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break1Config"/>
+           <LL  NAME="LL_TIM_ConfigBRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break2Config"/>
+           <LL  NAME="LL_TIM_ConfigBRK2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+                CMD2="UPD@LL_PARAM_2={CPY@SPL_PARAM_2}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break1Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableBRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break1Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableBRK"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break2Cmd"
+                CMD0="EQU@SPL_PARAM_1=ENABLE"/>
+           <LL  NAME="LL_TIM_EnableBRK2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+          </FEATURE>
+          <FEATURE>
+           <SPL NAME="TIM_Break2Cmd"
+                CMD0="EQU@SPL_PARAM_1=DISABLE"/>
+           <LL  NAME="LL_TIM_DisableBRK2"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_SelectOutputTrigger2"/>
+              <LL  NAME="LL_TIM_SetTriggerOutput2"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_RemapConfig"/>
+              <LL  NAME="LL_TIM_SetRemap"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+          
+      </FUNCTIONS>
+      
+    </VERSION>
+
+    <!-- ################ Specific for TIM_V2.1 ################ -->
+    <VERSION NAME= "TIM_VER_2_1_0">
+    
+      <LITERALS>
+        
+        <!-- ################ Timer Specific DMA Base Addresses ################ -->
+        <LITERAL>
+            <SPL>TIM_DMABase_OR</SPL>
+            <LL>LL_TIM_DMABURST_BASEADDR_OR</LL>
+        </LITERAL>
+        
+        <!-- ################ Timer Specific External trigger Remap ################ -->
+        <!-- ################ F4/F2 Specific ################ -->
+        <LITERAL>
+            <SPL>TIM2_TIM8_TRGO</SPL>
+            <LL>LL_TIM_TIM2_ITR1_RMP_TIM8_TRGO</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM2_ETH_PTP</SPL>
+            <LL>LL_TIM_TIM2_ITR1_RMP_ETH_PTP</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM2_USBFS_SOF</SPL>
+            <LL>LL_TIM_TIM2_ITR1_RMP_OTG_FS_SOF</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM2_USBHS_SOF</SPL>
+            <LL>LL_TIM_TIM2_ITR1_RMP_OTG_HS_SOF</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM5_GPIO</SPL>
+            <LL>LL_TIM_TIM5_TI4_RMP_GPIO</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM5_LSI</SPL>
+            <LL>LL_TIM_TIM5_TI4_RMP_LSI</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM5_LSE</SPL>
+            <LL>LL_TIM_TIM5_TI4_RMP_LSE</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM5_RTC</SPL>
+            <LL>LL_TIM_TIM5_TI4_RMP_RTC</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_GPIO</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_GPIO</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_HSE</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_HSE_RTC</LL>
+            <AVAILABLE>STM32F2</AVAILABLE>
+            <AVAILABLE>STM32F4</AVAILABLE>
+        </LITERAL>
+        <!-- ################ F0/F37x Specific ################ -->
+        <LITERAL>
+            <SPL>TIM14_GPIO</SPL>
+            <LL>LL_TIM_TIM14_TI1_RMP_GPIO</LL>
+            <AVAILABLE>STM32F0</AVAILABLE>
+            <AVAILABLE>STM32F37</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM14_RTC_CLK</SPL>
+            <LL>LL_TIM_TIM14_TI1_RMP_RTC_CLK</LL>
+            <AVAILABLE>STM32F0</AVAILABLE>
+            <AVAILABLE>STM32F37</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM14_HSEDiv32</SPL>
+            <LL>LL_TIM_TIM14_TI1_RMP_HSE</LL>
+            <AVAILABLE>STM32F0</AVAILABLE>
+            <AVAILABLE>STM32F37</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM14_MCO</SPL>
+            <LL>LL_TIM_TIM14_TI1_RMP_MCO</LL>
+            <AVAILABLE>STM32F0</AVAILABLE>
+            <AVAILABLE>STM32F37</AVAILABLE>
+        </LITERAL>
+        <!-- ################ L1 Specific ################ -->
+        <LITERAL>
+            <SPL>TIM2_TIM10_OC</SPL>
+            <LL>LL_TIM_TIM2_TIR1_RMP_TIM10_OC</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM2_TIM5_TRGO</SPL>
+            <LL>LL_TIM_TIM2_TIR1_RMP_TIM5_TGO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM3_TIM11_OC</SPL>
+            <LL>LL_TIM_TIM3_TIR2_RMP_TIM11_OC</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM3_TIM5_TRGO</SPL>
+            <LL>LL_TIM_TIM3_TIR2_RMP_TIM5_TGO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM9_GPIO</SPL>
+            <LL>LL_TIM_TIM9_TI1_RMP_GPIO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM9_LSE</SPL>
+            <LL>LL_TIM_TIM9_TI1_RMP_LSE</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM9_TIM3_TRGO</SPL>
+            <LL>LL_TIM_TIM9_ITR1_RMP_TIM3_TGO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM9_TS_IO</SPL>
+            <LL>LL_TIM_TIM9_ITR1_RMP_TOUCH_IO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_GPIO</SPL>
+            <LL>LL_TIM_TIM10_TI1_RMP_GPIO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_LSI</SPL>
+            <LL>LL_TIM_TIM10_TI1_RMP_LSI</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_LSE</SPL>
+            <LL>LL_TIM_TIM10_TI1_RMP_LSE</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_RTC</SPL>
+            <LL>LL_TIM_TIM10_TI1_RMP_RTC</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_RI</SPL>
+            <LL>LL_TIM_TIM10_TI1_RMP_RI</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_ETR_LSE</SPL>
+            <LL>LL_TIM_TIM10_ETR_RMP_LSE</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM10_ETR_TIM9_TRGO</SPL>
+            <LL>LL_TIM_TIM10_ETR_RMP_TIM9_TGO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_GPIO</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_GPIO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_MSI</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_MSI</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_HSE_RTC</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_HSE_RTC</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_RI</SPL>
+            <LL>LL_TIM_TIM11_TI1_RMP_RI</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_ETR_LSE</SPL>
+            <LL>LL_TIM_TIM11_ETR_RMP_LSE</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM11_ETR_TIM9_TRGO</SPL>
+            <LL>LL_TIM_TIM11_ETR_RMP_TIM9_TGO</LL>
+            <AVAILABLE>STM32L1</AVAILABLE>
+        </LITERAL>
+        
+        <!-- ################ Timer OCREF Input Selection ################ -->
+        <LITERAL>
+            <SPL>TIM_OCReferenceClear_OCREFCLR</SPL>
+            <LL>LL_TIM_OCREF_CLR_INT_OCREF_CLR</LL>
+            <EXCLUDE>STM32F2</EXCLUDE>
+            <EXCLUDE>STM32F4</EXCLUDE>
+        </LITERAL>
+        <LITERAL>
+            <SPL>TIM_OCReferenceClear_ETRF</SPL>
+            <LL>LL_TIM_OCREF_CLR_INT_ETR</LL>
+            <EXCLUDE>STM32F2</EXCLUDE>
+            <EXCLUDE>STM32F4</EXCLUDE>
+        </LITERAL>
+        
+      </LITERALS>
+      
+      <STRUCTURES>
+      </STRUCTURES>
+      
+      <FUNCTIONS>
+      
+          <FEATURE>
+             <SPL NAME="TIM_SelectOCREFClear"/>
+             <LL  NAME="LL_TIM_SetOCRefClearInputSource"
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                  CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+            <EXCLUDE>STM32F2</EXCLUDE>
+            <EXCLUDE>STM32F4</EXCLUDE>
+          </FEATURE>
+          <FEATURE>
+              <SPL NAME="TIM_RemapConfig"/>
+              <LL  NAME="LL_TIM_SetRemap"
+                   CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                   CMD1="ADD@LL_PARAM_1={UPD@SPL_PARAM_1}"/>
+          </FEATURE>
+      
+      </FUNCTIONS>
+      
+    </VERSION>
+
+    <!-- ################ Specific for TIM_V1.1 ################ -->
+   <VERSION NAME= "TIM_VER_1_1_0">
+   
+      <LITERALS>
+      </LITERALS>
+      
+      <STRUCTURES>
+      </STRUCTURES>
+      
+      <FUNCTIONS>
+      </FUNCTIONS>
+      
+    </VERSION>
+    
+  </SPECIFIC>
+</IP>

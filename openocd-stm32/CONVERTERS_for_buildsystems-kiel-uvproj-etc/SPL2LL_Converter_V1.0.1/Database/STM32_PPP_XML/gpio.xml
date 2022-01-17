@@ -1,0 +1,3332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="GPIO">
+  <COMMON>
+    <LITERALS>
+       <!-- ################ GPIO Pins ################ -->
+      <LITERAL>
+        <SPL>GPIO_Pin_0</SPL>
+        <LL>LL_GPIO_PIN_0</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_1</SPL>
+        <LL>LL_GPIO_PIN_1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_2</SPL>
+        <LL>LL_GPIO_PIN_2</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_3</SPL>
+        <LL>LL_GPIO_PIN_3</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_4</SPL>
+        <LL>LL_GPIO_PIN_4</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_5</SPL>
+        <LL>LL_GPIO_PIN_5</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_6</SPL>
+        <LL>LL_GPIO_PIN_6</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_7</SPL>
+        <LL>LL_GPIO_PIN_7</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_8</SPL>
+        <LL>LL_GPIO_PIN_8</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_9</SPL>
+        <LL>LL_GPIO_PIN_9</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_10</SPL>
+        <LL>LL_GPIO_PIN_10</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_11</SPL>
+        <LL>LL_GPIO_PIN_11</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_12</SPL>
+        <LL>LL_GPIO_PIN_12</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_13</SPL>
+        <LL>LL_GPIO_PIN_13</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_14</SPL>
+        <LL>LL_GPIO_PIN_14</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_15</SPL>
+        <LL>LL_GPIO_PIN_15</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>GPIO_Pin_All</SPL>
+        <LL>LL_GPIO_PIN_ALL</LL>
+      </LITERAL>	  
+	  
+       <!-- ################ GPIO Bit Action/Status ################ -->
+	  <LITERAL>
+        <SPL>Bit_SET</SPL>
+        <LL>1</LL>
+      </LITERAL>
+      <LITERAL>
+        <SPL>Bit_RESET</SPL>
+        <LL>0</LL>
+      </LITERAL>
+	   <!-- ################ GPIO Structures Typedef ################ -->
+	  <LITERAL>
+        <SPL>GPIO_InitTypeDef</SPL>
+        <LL>LL_GPIO_InitTypeDef</LL>
+      </LITERAL>
+    </LITERALS>
+
+	<STRUCTURES>
+         <STRUCTURE NAME="GPIO_InitTypeDef">
+           <FIELD>
+             <SPL>GPIO_Pin</SPL>
+             <LL>Pin</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>GPIO_Mode</SPL>
+             <LL>Mode</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>GPIO_Speed</SPL>
+             <LL>Speed</LL>
+           </FIELD>
+         </STRUCTURE>
+    </STRUCTURES>
+
+    <FUNCTIONS>
+      <!-- ################ Init/DeInit Functions ################ -->
+	  <FUNCTION>
+          <SPL NAME="GPIO_DeInit" />
+          <LL  NAME="LL_GPIO_DeInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="GPIO_Init" />
+          <LL  NAME="N/A"
+		       CMD0="{CPY@SPL_PARAM_1}.Alternate = LL_GPIO_AF_0;"/> 
+		  <LL  NAME="LL_GPIO_Init" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+			   CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" 
+			   LOG="Default constant LL_GPIO_AF_0 is set for Alternate field,\nTo be manualy updated by user depending on the pin's configuration"/>
+		  <EXCLUDE>STM32F10</EXCLUDE>
+      </FUNCTION>
+
+	  <FUNCTION>
+          <SPL NAME="GPIO_StructInit" />
+          <LL  NAME="LL_GPIO_StructInit" 
+               CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+	  
+      <!-- ################ Exported Functions ################ -->
+	  <FUNCTION>
+           <SPL NAME="GPIO_PinLockConfig" />
+           <LL  NAME="LL_GPIO_LockPin" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" /> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+           <SPL NAME="GPIO_ReadInputDataBit" />
+           <LL  NAME="LL_GPIO_IsInputPinSet" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" /> 
+      </FUNCTION>
+
+	  <FUNCTION>
+           <SPL NAME="GPIO_ReadInputData" />
+           <LL  NAME="LL_GPIO_ReadInputPort" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+           <SPL NAME="GPIO_ReadOutputDataBit" />
+           <LL  NAME="LL_GPIO_IsOutputPinSet" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" /> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+           <SPL NAME="GPIO_ReadOutputData" />
+           <LL  NAME="LL_GPIO_ReadOutputPort" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" /> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+           <SPL NAME="GPIO_SetBits" />
+           <LL  NAME="LL_GPIO_SetOutputPin" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" /> 
+      </FUNCTION>
+	  
+	  <FUNCTION>
+           <SPL NAME="GPIO_ResetBits" />
+           <LL  NAME="LL_GPIO_ResetOutputPin" 
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" /> 
+      </FUNCTION>
+	  
+       <FUNCTIONa>
+           <SPL NAME="GPIO_WriteBit"
+                CMD0="EQU@SPL_PARAM_2=Bit_RESET" />
+           <LL  NAME="LL_GPIO_ResetOutputPin"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTIONa>
+       <FUNCTIONb>
+           <SPL NAME="GPIO_WriteBit"
+                CMD0="EQU@SPL_PARAM_2=Bit_SET" />
+           <LL  NAME="LL_GPIO_SetOutputPin"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTIONb>
+       <FUNCTION>
+           <SPL NAME="GPIO_Write" />
+           <LL  NAME="LL_GPIO_WriteOutputPort"
+                CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}"
+				CMD2="DEL@LL_PARAM_2" />
+       </FUNCTION>
+    </FUNCTIONS>
+  </COMMON>
+  
+  <SPECIFIC>
+    <!-- ################ STM32F7/F4/F2/L1/F3/F0 ################ -->
+   <VERSION NAME="IOPORT_VER_2_3_0">
+      <LITERALS>
+	  
+	     <!--       Pins     --> 
+         <LITERAL>
+         <SPL>GPIO_PIN_MASK</SPL>
+         <LL>0x0000FFFF</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_PinSource0</SPL>
+           <LL>LL_GPIO_PIN_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource1</SPL>
+           <LL>LL_GPIO_PIN_1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource2</SPL>
+           <LL>LL_GPIO_PIN_2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource3</SPL>
+           <LL>LL_GPIO_PIN_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource4</SPL>
+           <LL>LL_GPIO_PIN_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource5</SPL>
+           <LL>LL_GPIO_PIN_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource6</SPL>
+           <LL>LL_GPIO_PIN_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource7</SPL>
+           <LL>LL_GPIO_PIN_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource8</SPL>
+           <LL>LL_GPIO_PIN_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource9</SPL>
+           <LL>LL_GPIO_PIN_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource10</SPL>
+           <LL>LL_GPIO_PIN_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource11</SPL>
+           <LL>LL_GPIO_PIN_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource12</SPL>
+           <LL>LL_GPIO_PIN_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource13</SPL>
+           <LL>LL_GPIO_PIN_13</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource14</SPL>
+           <LL>LL_GPIO_PIN_14</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PinSource15</SPL>
+           <LL>LL_GPIO_PIN_15</LL>
+         </LITERAL>
+		 
+	     <!--       MODE     --> 
+         <LITERAL>
+           <SPL>GPIO_Mode_IN</SPL>
+           <LL>LL_GPIO_MODE_INPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_OUT</SPL>
+           <LL>LL_GPIO_MODE_OUTPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_AF</SPL>
+           <LL>LL_GPIO_MODE_ALTERNATE</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_AN</SPL>
+           <LL>LL_GPIO_MODE_ANALOG</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_AIN</SPL>
+           <LL>LL_GPIO_MODE_ANALOG</LL>
+         </LITERAL>
+		 
+	     <!--       OTYPE     --> 
+         <LITERAL>
+           <SPL>GPIO_OType_PP</SPL>
+           <LL>LL_GPIO_OUTPUT_PUSHPULL</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_OType_OD</SPL>
+           <LL>LL_GPIO_OUTPUT_OPENDRAIN</LL>
+         </LITERAL>
+		 
+	     <!--       PuPd     --> 
+         <LITERAL>
+           <SPL>GPIO_PuPd_NOPULL</SPL>
+           <LL>LL_GPIO_PULL_NO</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PuPd_UP</SPL>
+           <LL>LL_GPIO_PULL_UP</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_PuPd_DOWN</SPL>
+           <LL>LL_GPIO_PULL_DOWN</LL>
+         </LITERAL>
+
+		 <!--       Speed     --> 
+         <LITERAL>
+           <SPL>GPIO_Low_Speed</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_LOW</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Medium_Speed</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_MEDIUM</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Fast_Speed</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_HIGH</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_High_Speed</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_VERY_HIGH</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_2MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_MEDIUM</LL>
+		   <AVAILABLE>STM32L1</AVAILABLE>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_2MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_LOW</LL>
+		   <EXCLUDE>STM32L1</EXCLUDE>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_25MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_MEDIUM</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_50MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_HIGH</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_100MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_VERY_HIGH</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Speed_Level_1</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_LOW</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_Level_2</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_MEDIUM</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_Level_3</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_HIGH</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_Speed_400KHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_LOW</LL>
+         </LITERAL>
+
+		 <LITERAL>
+           <SPL>GPIO_Speed_10MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_HIGH</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_40MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_VERY_HIGH</LL>
+         </LITERAL>
+		 
+	     <!--       AF     --> 
+         <LITERAL>
+           <SPL>GPIO_AF_RTC_50Hz</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_MCO</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TAMPER</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SWJ</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TRACE</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF0_TIM2</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_TIM1</SPL>
+           <LL>LL_GPIO_AF_1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM2</SPL>
+           <LL>LL_GPIO_AF_1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_LPTIM</SPL>
+           <LL>LL_GPIO_AF_1</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_TIM3</SPL>
+           <LL>LL_GPIO_AF_2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM4</SPL>
+           <LL>LL_GPIO_AF_2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM5</SPL>
+           <LL>LL_GPIO_AF_2</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_TIM8</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM9</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM10</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM11</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF3_CEC</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF3_DFSDM2</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_I2C1</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_I2C2</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_I2C3</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF4_CEC</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_FMPI2C</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_SPI1</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SPI2</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF5_SPI3</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SPI4</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SPI5</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SPI6</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_SPI3</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_SPI1</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_SPI2</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_SPI4</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_SPI5</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SAI1</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_I2S2ext</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_DFSDM1</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF6_DFSDM2</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_USART1</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_USART2</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_USART3</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF7_SPI3</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF7_DFSDM2</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF7_SAI1</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_I2S3ext</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_UART4</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_UART5</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_USART6</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_UART7</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_UART8</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF8_USART3</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF8_DFSDM1</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF8_CAN1</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SPDIF</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF8_SAI2</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_CAN1</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_CAN2</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM12</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM13</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_TIM14</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_I2C2</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_I2C3</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_SAI2</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_LTDC</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_QUADSPI</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF9_FMPI2C</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_OTG_FS</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_OTG_HS</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_USB</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_SAI2</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_QUADSPI</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_FMC</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_DFSDM1</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_DFSDM2</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_SAI1</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF10_SAI1</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_OTG1_FS</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_OTG2_HS</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_ETH</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_LCD</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF11_UART4</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF11_UART5</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF11_UART9</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF11_UART10</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF11_CAN3</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_FSMC</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_FMC</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_OTG_HS_FS</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_OTG2_FS</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_SDIO</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_DCMI</SPL>
+           <LL>LL_GPIO_AF_13</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_DSI</SPL>
+           <LL>LL_GPIO_AF_13</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_LTDC</SPL>
+           <LL>LL_GPIO_AF_14</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF14_RNG</SPL>
+           <LL>LL_GPIO_AF_14</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_RI</SPL>
+           <LL>LL_GPIO_AF_14</LL>
+         </LITERAL>
+
+         <LITERAL>
+           <SPL>GPIO_AF_EVENTOUT</SPL>
+           <LL>LL_GPIO_AF_15</LL>
+         </LITERAL>
+		 
+         <LITERAL>
+           <SPL>GPIO_AF_0</SPL>
+           <LL>LL_GPIO_AF_0</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_1</SPL>
+           <LL>LL_GPIO_AF_1</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_2</SPL>
+           <LL>LL_GPIO_AF_2</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_3</SPL>
+           <LL>LL_GPIO_AF_3</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_4</SPL>
+           <LL>LL_GPIO_AF_4</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_5</SPL>
+           <LL>LL_GPIO_AF_5</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_6</SPL>
+           <LL>LL_GPIO_AF_6</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_7</SPL>
+           <LL>LL_GPIO_AF_7</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_8</SPL>
+           <LL>LL_GPIO_AF_8</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_9</SPL>
+           <LL>LL_GPIO_AF_9</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_10</SPL>
+           <LL>LL_GPIO_AF_10</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_11</SPL>
+           <LL>LL_GPIO_AF_11</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_12</SPL>
+           <LL>LL_GPIO_AF_12</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_13</SPL>
+           <LL>LL_GPIO_AF_13</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_AF_14</SPL>
+           <LL>LL_GPIO_AF_14</LL>
+         </LITERAL> 
+         <LITERAL>
+           <SPL>GPIO_AF_15</SPL>
+           <LL>LL_GPIO_AF_15</LL>
+         </LITERAL> 
+		 
+      </LITERALS>
+
+      <STRUCTURES>
+	     <STRUCTURE NAME="GPIO_InitTypeDef">
+           <FIELD>
+             <SPL>GPIO_OType</SPL>
+             <LL>OutputType</LL>
+           </FIELD>
+           <FIELD>
+             <SPL>GPIO_PuPd</SPL>
+             <LL>Pull</LL>
+           </FIELD>
+         </STRUCTURE>
+      </STRUCTURES>
+
+      <FUNCTIONS>
+         <FUNCTION>
+               <SPL NAME="GPIO_ToggleBits" />
+               <LL  NAME="LL_GPIO_TogglePin"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+         </FUNCTION>
+
+         <!-- ################ AF Configuration functions ################ -->
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource0" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource1" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource2" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource3" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource4" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource5" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource6" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource7" />
+               <LL  NAME="LL_GPIO_SetAFPin_0_7"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource8" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource9" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource10" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource11" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource12" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource13" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource14" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinAFConfig"
+                    CMD0="EQU@SPL_PARAM_1=GPIO_PinSource15" />
+               <LL  NAME="LL_GPIO_SetAFPin_8_15"
+                    CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+                    CMD1="UPD@LL_PARAM_1={UPD@SPL_PARAM_1}" 
+					CMD2="UPD@LL_PARAM_2={UPD@SPL_PARAM_2}" /> 
+         </FUNCTION>
+      </FUNCTIONS>
+    </VERSION>
+	
+   <VERSION NAME="IOPORT_VER_1_0_0">
+      <LITERALS>
+	     <!--       MODE     --> 
+         <LITERAL>
+           <SPL>GPIO_Mode_AIN</SPL>
+           <LL>LL_GPIO_MODE_ANALOG</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_IN_FLOATING</SPL>
+           <LL>LL_GPIO_MODE_FLOATING</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_IPD</SPL>
+           <LL>LL_GPIO_MODE_INPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_IPU</SPL>
+           <LL>LL_GPIO_MODE_INPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_Out_OD</SPL>
+           <LL>LL_GPIO_MODE_OUTPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_Out_PP</SPL>
+           <LL>LL_GPIO_MODE_OUTPUT</LL>
+         </LITERAL>
+         <LITERAL>
+           <SPL>GPIO_Mode_AF_OD</SPL>
+           <LL>LL_GPIO_MODE_ALTERNATE</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Mode_AF_PP</SPL>
+           <LL>LL_GPIO_MODE_ALTERNATE</LL>
+         </LITERAL>
+		 
+		 <!--       Speed     --> 
+         <LITERAL>
+           <SPL>GPIO_Speed_2MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_LOW</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_10MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_MEDIUM</LL>
+         </LITERAL>
+		 <LITERAL>
+           <SPL>GPIO_Speed_50MHz</SPL>
+           <LL>LL_GPIO_SPEED_FREQ_HIGH</LL>
+         </LITERAL>
+      </LITERALS>
+
+	  <STRUCTURES>
+      </STRUCTURES>
+
+      <FUNCTIONS>
+	     <FUNCTION>
+              <SPL NAME="GPIO_AFIODeInit" />
+              <LL  NAME="N/A" 
+                   CMD0="LL_APB2_GRP1_ForceReset(LL_APB2_GRP1_PERIPH_AFIO);\n
+                         LL_APB2_GRP1_ReleaseReset(LL_APB2_GRP1_PERIPH_AFIO)"
+                   LOG="No LL API exist, migration is ensured by using direct access register"/>
+         </FUNCTION>
+	     <FUNCTION>
+             <SPL NAME="GPIO_Init" />
+		     <LL  NAME="LL_GPIO_Init" 
+                  CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}"
+		   	      CMD1="UPD@LL_PARAM_1={CPY@SPL_PARAM_1}" />
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputCmd"
+                    CMD0="EQU@SPL_PARAM_0=ENABLE" />
+               <LL  NAME="LL_GPIO_AF_EnableEventout"
+                    CMD0="DEL@LL_PARAM_0"/> 
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputCmd"
+                    CMD0="EQU@SPL_PARAM_0=DISABLE" />
+               <LL  NAME="LL_GPIO_AF_DisableEventout"
+                    CMD0="DEL@LL_PARAM_0"/> 
+         </FUNCTION>
+	     <!--       GPIO_EventOutputConfig function     --> 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_A"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_15" />  
+         </FUNCTION>
+		 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_B"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_C"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_D"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EventOutputConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_ConfigEventout"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EVENTOUT_PORT_E"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EVENTOUT_PIN_15" />  
+         </FUNCTION>
+		 
+	     <!--       GPIO_EXTILineConfig function     --> 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOA"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTA"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOB"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTB"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOC"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTC"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOD"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTD"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOE"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTE"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOF"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTF"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource0"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE0" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource1"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource2"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE2" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource3"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE3" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource4"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE4" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource5"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE5" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource6"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE6" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource7"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE7" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource8"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE8" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource9"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE9" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource10"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE10" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource11"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE11" />  
+         </FUNCTION>
+		          <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource12"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE12" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource13"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE13" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource14"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE14" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_EXTILineConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PortSourceGPIOG"
+                    CMD1="EQU@SPL_PARAM_1=GPIO_PinSource15"/>
+               <LL  NAME="LL_GPIO_AF_SetEXTISource"
+                    CMD0="UPD@LL_PARAM_0=LL_GPIO_AF_EXTI_PORTG"
+                    CMD1="UPD@LL_PARAM_1=LL_GPIO_AF_EXTI_LINE15" />  
+         </FUNCTION>
+		 
+	     <!--       GPIO_PinRemapConfig function     --> 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SPI1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_SPI1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SPI1"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_SPI1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_I2C1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_I2C1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_I2C1"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_I2C1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_USART1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_USART1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_USART1"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_USART1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_USART2"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_USART2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_USART2"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_USART2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_USART3"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_USART3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PartialRemap_USART3"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial_USART3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_USART3"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_USART3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PartialRemap_TIM1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial_TIM1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM1"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM2"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PartialRemap1_TIM2"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial1_TIM2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PartialRemap2_TIM2"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial2_TIM2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM2"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM3"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_PartialRemap_TIM3"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial_TIM3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_FullRemap_TIM3"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM4"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM4"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM4"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM4"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap1_CAN1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial1_CAN1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap2_CAN1"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_RemapPartial2_CAN1"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_PD01"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_PD01"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_PD01"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_PD01"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM5CH4_LSI"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM5CH4"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM5CH4_LSI"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM5CH4"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC1_ETRGINJ"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ADC1_ETRGINJ"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC1_ETRGINJ"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ADC1_ETRGINJ"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC1_ETRGREG"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ADC1_ETRGREG"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC1_ETRGREG"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ADC1_ETRGREG"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC2_ETRGINJ"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ADC2_ETRGINJ"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC2_ETRGINJ"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ADC2_ETRGINJ"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC2_ETRGREG"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ADC2_ETRGREG"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ADC2_ETRGREG"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ADC2_ETRGREG"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ETH"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ETH"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_ETH"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ETH"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_CAN2"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_CAN2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_CAN2"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_CAN2"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SWJ_NoJTRST"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_Remap_SWJ_NONJTRST"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SWJ_JTAGDisable"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_Remap_SWJ_NOJTAG"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SWJ_Disable"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_SWJ"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SPI3"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_SPI3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_SPI3"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_SPI3"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM2ITR1_PTP_SOF"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_Remap_TIM2ITR1_TO_ETH"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM2ITR1_PTP_SOF"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_Remap_TIM2ITR1_TO_USB"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_PTP_PPS"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_ETH_PTP_PPS"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_PTP_PPS"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_ETH_PTP_PPS"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM15"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM15"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM15"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM15"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM16"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM16"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM16"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM16"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM17"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM17"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM17"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM17"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_CEC"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_CEC"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_CEC"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_CEC"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM1_DMA"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM1DMA"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM1_DMA"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM1DMA"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM9"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM9"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM9"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM9"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM10"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM10"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM10"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM10"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM11"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM11"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM11"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM11"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM13"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM13"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM13"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM13"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM14"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM14"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM14"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM14"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_FSMC_NADV"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_Disconnect_FSMCNADV"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_FSMC_NADV"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_Connect_FSMCNADV"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM67_DAC_DMA"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM67DACDMA"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM67_DAC_DMA"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM67DACDMA"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM12"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_TIM12"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_TIM12"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_TIM12"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_MISC"
+                    CMD1="EQU@SPL_PARAM_1=ENABLE"/>
+               <LL  NAME="LL_GPIO_AF_EnableRemap_MISC"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_PinRemapConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_Remap_MISC"
+                    CMD1="EQU@SPL_PARAM_1=DISABLE"/>
+               <LL  NAME="LL_GPIO_AF_DisableRemap_MISC"
+                    CMD0="DEL@LL_PARAM_0"
+                    CMD1="DEL@LL_PARAM_1" />  
+         </FUNCTION>
+		 
+         <FUNCTION>
+               <SPL NAME="GPIO_ETH_MediaInterfaceConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_ETH_MediaInterface_MII"/>
+               <LL  NAME="LL_GPIO_AF_Select_ETH_MII"
+                    CMD0="DEL@LL_PARAM_0"/>  
+         </FUNCTION>
+         <FUNCTION>
+               <SPL NAME="GPIO_ETH_MediaInterfaceConfig"
+                    CMD0="EQU@SPL_PARAM_0=GPIO_ETH_MediaInterface_RMII"/>
+               <LL  NAME="LL_GPIO_AF_Select_ETH_RMII"
+                    CMD0="DEL@LL_PARAM_0"/>  
+         </FUNCTION> 
+		 
+      </FUNCTIONS>
+    </VERSION>
+	  
+  </SPECIFIC>
+</IP>

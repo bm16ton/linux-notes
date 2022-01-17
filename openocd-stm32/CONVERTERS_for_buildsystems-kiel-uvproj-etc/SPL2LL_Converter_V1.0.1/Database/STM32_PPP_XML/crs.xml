@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IP NAME="CRS">
+  <COMMON>
+    <LITERALS>
+
+      <LITERAL><SPL>CRS_SYNC_Div1</SPL><LL>LL_CRS_SYNC_DIV_1</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div2</SPL><LL>LL_CRS_SYNC_DIV_2</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div4</SPL><LL>LL_CRS_SYNC_DIV_4</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div8</SPL><LL>LL_CRS_SYNC_DIV_8</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div16</SPL><LL>LL_CRS_SYNC_DIV_16</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div32</SPL><LL>LL_CRS_SYNC_DIV_32</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div64</SPL><LL>LL_CRS_SYNC_DIV_64</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNC_Div128</SPL><LL>LL_CRS_SYNC_DIV_128</LL></LITERAL>
+
+      <LITERAL><SPL>CRS_SYNCSource_GPIO</SPL><LL>LL_CRS_SYNC_SOURCE_GPIO</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNCSource_LSE</SPL><LL>LL_CRS_SYNC_SOURCE_LSE</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNCSource_USB</SPL><LL>LL_CRS_SYNC_SOURCE_USB</LL></LITERAL>
+
+      <LITERAL><SPL>CRS_SYNCPolarity_Rising</SPL><LL>LL_CRS_SYNC_POLARITY_RISING</LL></LITERAL>
+      <LITERAL><SPL>CRS_SYNCPolarity_Falling</SPL><LL>LL_CRS_SYNC_POLARITY_FALLING</LL></LITERAL>
+
+    </LITERALS>
+
+	<STRUCTURE_FIELDS>
+      <!-- ############# No STRUCTURE_FIELDS ################ -->
+    </STRUCTURE_FIELDS>
+
+    <FUNCTIONS>
+      <!-- ############# void CRS_DeInit(void) ############# -->
+      <FUNCTION>
+        <SPL NAME="CRS_DeInit" />
+        <LL  NAME="LL_CRS_DeInit" />
+      </FUNCTION>
+
+      <!-- ##### void CRS_AdjustHSI48CalibrationValue(uint8_t) ##### -->
+      <FUNCTION>
+        <SPL NAME="CRS_AdjustHSI48CalibrationValue" />
+        <LL  NAME="LL_CRS_SetHSI48SmoothTrimming" 
+             CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ##### void CRS_FrequencyErrorCounterCmd(ENABLE/DISABLE) ##### -->
+      <FUNCTION>
+        <SPL NAME="CRS_FrequencyErrorCounterCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_CRS_EnableFreqErrorCounter" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_FrequencyErrorCounterCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_CRS_DisableFreqErrorCounter" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ##### void CRS_AutomaticCalibrationCmd(ENABLE/DISABLE) ##### -->
+      <FUNCTION>
+        <SPL NAME="CRS_AutomaticCalibrationCmd" 
+             CMD0="EQU@SPL_PARAM_0=ENABLE" />
+        <LL NAME="LL_CRS_EnableAutoTrimming" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_AutomaticCalibrationCmd" 
+             CMD0="EQU@SPL_PARAM_0=DISABLE" />
+        <LL NAME="LL_CRS_DisableAutoTrimming" 
+            CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ######## void CRS_SoftwareSynchronizationGenerate(void) ######## -->
+      <FUNCTION>
+        <SPL NAME="CRS_SoftwareSynchronizationGenerate" />
+        <LL  NAME="LL_CRS_GenerateEvent_SWSYNC" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_FrequencyErrorCounterReload(uint32_t) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_FrequencyErrorCounterReload" />
+        <LL  NAME="LL_CRS_SetReloadCounter" 
+             CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_FrequencyErrorLimitConfig(uint8_t) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_FrequencyErrorLimitConfig" />
+        <LL  NAME="LL_CRS_SetFreqErrorLimit" 
+             CMD0="UPD@LL_PARAM_0={CPY@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_SynchronizationPrescalerConfig(uint32_t) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_SynchronizationPrescalerConfig" />
+        <LL  NAME="LL_CRS_SetSyncDivider" 
+             CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_SynchronizationSourceConfig(uint32_t) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_SynchronizationSourceConfig" />
+        <LL  NAME="LL_CRS_SetSyncSignalSource" 
+             CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_SynchronizationPolarityConfig(uint32_t) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_SynchronizationPolarityConfig" />
+        <LL  NAME="LL_CRS_SetSyncPolarity" 
+             CMD0="UPD@LL_PARAM_0={UPD@SPL_PARAM_0}" />
+      </FUNCTION>
+      
+      <!-- ############# uint32_t CRS_GetReloadValue(void) ############# -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetReloadValue" />
+        <LL  NAME="LL_CRS_GetReloadCounter" />
+      </FUNCTION>
+      
+      <!-- ####### uint32_t CRS_GetHSI48CalibrationValue(void) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetHSI48CalibrationValue" />
+        <LL  NAME="LL_CRS_GetHSI48SmoothTrimming" />
+      </FUNCTION>
+      
+      <!-- ####### uint32_t CRS_GetFrequencyErrorValue(void) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetFrequencyErrorValue" />
+        <LL  NAME="LL_CRS_GetFreqErrorCapture" />
+      </FUNCTION>
+      
+      <!-- ####### uint32_t CRS_GetFrequencyErrorDirection(void) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetFrequencyErrorDirection" />
+        <LL  NAME="LL_CRS_GetFreqErrorDirection" />
+      </FUNCTION>
+      
+      <!-- ####### void CRS_ITConfig(uint32_t , ENABLE/DISABLE) ####### -->
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCOK" 
+             CMD1="EQU@SPL_PARAM_1=ENABLE" />
+        <LL  NAME="LL_CRS_EnableIT_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCOK" 
+             CMD1="EQU@SPL_PARAM_1=DISABLE" />
+        <LL  NAME="LL_CRS_DisableIT_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCWARN" 
+             CMD1="EQU@SPL_PARAM_1=ENABLE" />
+        <LL  NAME="LL_CRS_EnableIT_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCWARN" 
+             CMD1="EQU@SPL_PARAM_1=DISABLE" />
+        <LL  NAME="LL_CRS_DisableIT_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ERR" 
+             CMD1="EQU@SPL_PARAM_1=ENABLE" />
+        <LL  NAME="LL_CRS_EnableIT_ERR"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ERR" 
+             CMD1="EQU@SPL_PARAM_1=DISABLE" />
+        <LL  NAME="LL_CRS_DisableIT_ERR"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ESYNC" 
+             CMD1="EQU@SPL_PARAM_1=ENABLE" />
+        <LL  NAME="LL_CRS_EnableIT_ESYNC"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      <FUNCTION>
+        <SPL NAME="CRS_ITConfig" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ESYNC" 
+             CMD1="EQU@SPL_PARAM_1=DISABLE" />
+        <LL  NAME="LL_CRS_DisableIT_ESYNC"
+             CMD0="DEL@LL_PARAM_0"
+             CMD1="DEL@LL_PARAM_1" />
+      </FUNCTION>
+      
+      <!-- ###### ENABLE/DISABLE CRS_GetFlagStatus(uint32_t) ###### -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCOK" />
+        <LL  NAME="LL_CRS_IsActiveFlag_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCWARN" />
+        <LL  NAME="LL_CRS_IsActiveFlag_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_ERR" />
+        <LL  NAME="LL_CRS_IsActiveFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_ESYNC" />
+        <LL  NAME="LL_CRS_IsActiveFlag_ESYNC"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_TRIMOVF" />
+        <LL  NAME="LL_CRS_IsActiveFlag_TRIMOVF"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCERR" />
+        <LL  NAME="LL_CRS_IsActiveFlag_SYNCERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetFlagStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCMISS" />
+        <LL  NAME="LL_CRS_IsActiveFlag_SYNCMISS"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ######## void CRS_ClearFlag(uint32_t) ######## -->
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCOK" />
+        <LL  NAME="LL_CRS_ClearFlag_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCWARN" />
+        <LL  NAME="LL_CRS_ClearFlag_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_ERR" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_ESYNC" />
+        <LL  NAME="LL_CRS_ClearFlag_ESYNC"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_TRIMOVF" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCERR" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearFlag" 
+             CMD0="EQU@SPL_PARAM_0=CRS_FLAG_SYNCMISS" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ###### ENABLE/DISABLE CRS_GetITStatus(uint32_t) ###### -->
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCOK" />
+        <LL  NAME="LL_CRS_IsEnabledIT_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCWARN" />
+        <LL  NAME="LL_CRS_IsEnabledIT_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ERR" />
+        <LL  NAME="LL_CRS_IsEnabledIT_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ESYNC" />
+        <LL  NAME="LL_CRS_IsEnabledIT_ESYNC"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_TRIMOVF" />
+        <LL  NAME="LL_CRS_IsEnabledIT_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCERR" />
+        <LL  NAME="LL_CRS_IsEnabledIT_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_GetITStatus" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCMISS" />
+        <LL  NAME="LL_CRS_IsEnabledIT_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <!-- ######## void CRS_ClearITPendingBit(uint32_t) ######## -->
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCOK" />
+        <LL  NAME="LL_CRS_ClearFlag_SYNCOK"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCWARN" />
+        <LL  NAME="LL_CRS_ClearFlag_SYNCWARN"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ERR" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_ESYNC" />
+        <LL  NAME="LL_CRS_ClearFlag_ESYNC"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_TRIMOVF" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCERR" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+      <FUNCTION>
+        <SPL NAME="CRS_ClearITPendingBit" 
+             CMD0="EQU@SPL_PARAM_0=CRS_IT_SYNCMISS" />
+        <LL  NAME="LL_CRS_ClearFlag_ERR"
+             CMD0="DEL@LL_PARAM_0"/>
+      </FUNCTION>
+      
+    </FUNCTIONS>
+  </COMMON>
+
+  <SPECIFIC>
+     <!-- ############# No_SPECIFIC_FEATURE ################ -->
+  </SPECIFIC>
+</IP>

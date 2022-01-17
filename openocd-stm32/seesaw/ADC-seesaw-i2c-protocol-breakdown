@@ -1,0 +1,61 @@
+##### BASE ADDR 0x09 ############
+
+10-bit resolution. The seesaw has 4 ADC inputs.
+The module base register address for the ADC is 0x09
+Conversions can be read by reading the corresponding CHANNEL register.
+When reading ADC data, there should be at least a 500 microsecond delay between writing the register number you would like to read from and attempting to read the data.
+Allow a delay of at least 1ms in between sequential ADC reads on different channels.
+
+ADC channels are:
+Channel 0 PA02
+Channel 1 PA03
+Channel 2 PA04
+Channel 3 PA05
+
+FUNCTION REGISTERS
+Register Address 	Register Name 	Register Size 		Notes
+0x00 				STATUS 			8 bits 				Read Only
+0x02 				INTENSET 		8 bits 				Write Only
+0x03 				INTENCLR 		8 bits 				Write Only
+0x04 				WINMODE 							Write Only
+0x05 				WINTHRESH 		32 bits 			Write Only
+0x07 				CHANNEL_0 		16 bits 			Read Only
+0x08 				CHANNEL_1 		16 bits 			Read Only
+0x09 				CHANNEL_2 		16 bits 			Read Only
+0x0A 				CHANNEL_3 		16 bits 			Read Only
+
+STATUS (0x00, 8bits, Read Only)
+This register contains status information on the ADC
+Bit 7 	 Bit 6 	  Bit 5    Bit 4    Bit 3    Bit 2    Bit 1      Bit 0
+Reserved Reserved Reserved Reserved Reserved Reserved WINMON_INT ERROR
+
+INTENSET (0x02, 8bits, Write Only)
+Writing a 1 to any bit in this register enables the corresponding interrupt.
+Writing zeros to this register has no effect.
+Bit 7    Bit 6    Bit 5    Bit 4    Bit 3    Bit 2    Bit 1    Bit 0
+Reserved Reserved Reserved Reserved Reserved Reserved Reserved WINMON
+
+INTENCLR (0x03, 8bits, Write Only)
+Writing a 1 to any bit in this register enables the corresponding interrupt.
+Writing zeros to this register has no effect.
+
+WINMODE (0x04, 8bits, Write Only)
+Writing 1 to this register sets window control.
+
+WINTHRESH (0x05, 32bits, Write Only)
+This register sets the threshold values for window mode.
+Bits 31 - 16 		Bits 15 - 0
+Hig threshhold		Low threshold
+
+CHANNEL_0 (0x07, 16bits, Read Only)
+ADC value for channel 0 (PA02).
+
+CHANNEL_1 (0x08, 16bits, Read Only)
+ADC value for channel 1 (PA03).
+
+CHANNEL_2 (0x09, 16bits, Read Only)
+ADC value for channel 2 (PA04).
+
+CHANNEL_3 (0x0A, 16bits, Read Only)
+ADC value for channel 3 (PA05).
+

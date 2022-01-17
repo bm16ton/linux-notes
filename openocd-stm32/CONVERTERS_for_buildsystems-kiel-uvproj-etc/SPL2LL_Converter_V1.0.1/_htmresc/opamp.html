@@ -1,0 +1,608 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="opamp_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_6564_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font56564
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font66564
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font76564
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl156564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl646564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl656564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl666564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl676564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:general;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl686564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl696564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl706564
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl716564
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl726564
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl736564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl746564
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl756564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl766564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl776564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl786564
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_6564" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1276 style='border-collapse:
+ collapse;table-layout:fixed;width:957pt'>
+ <col class=xl156564 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col width=604 style='mso-width-source:userset;mso-width-alt:19328;width:453pt'>
+ <col width=640 style='mso-width-source:userset;mso-width-alt:20480;width:480pt'>
+ <col width=16 style='mso-width-source:userset;mso-width-alt:512;width:12pt'>
+ <tr class=xl656564 height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=4 height=62 class=xl756564 width=1276 style='height:47.1pt;
+  width:957pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font66564">OPAMP driver</font></td>
+ </tr>
+ <tr class=xl656564 height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td colspan=2 height=24 class=xl696564 style='height:18.0pt'>SPL</td>
+  <td class=xl696564>STM32Cube_LL</td>
+  <td class=xl696564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_DeInit(OPAMP_TypeDef*
+  OPAMPx)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_DeInit(OPAMP_TypeDef*
+  OPAMPx)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_Init(OPAMP_TypeDef*
+  OPAMPx, OPAMP_InitTypeDef* OPAMP_InitStruct)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_Init(OPAMP_TypeDef
+  *OPAMPx, LL_OPAMP_InitTypeDef *OPAMP_InitStruct)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_StructInit(OPAMP_InitTypeDef*
+  OPAMP_InitStruct)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_StructInit(LL_OPAMP_InitTypeDef
+  *OPAMP_InitStruct)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=40 style='height:30.0pt'>
+  <td height=40 class=xl646564 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_PowerRangeSelect(uint32_t
+  OPAMP_Range)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetCommonPowerRange(OPAMP_Common_TypeDef
+  *OPAMPxy_COMMON, uint32_t PowerRange)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_GetFlagStatus(OPAMP_TypeDef*
+  OPAMPx)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_IsCalibrationOutputSet(OPAMP_TypeDef
+  *OPAMPx)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_SwitchCmd(uint32_t
+  OPAMP_OPAMPxSwitchy, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetFunctionalMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t FunctionalMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=40 style='height:30.0pt'>
+  <td height=40 class=xl646564 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_OffsetTrimmingModeSelect(OPAMP_TypeDef*
+  OPAMPx, uint32_t OPAMP_Trimming)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetTrimmingMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t TrimmingMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=40 style='height:30.0pt'>
+  <td height=40 class=xl646564 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_VrefConnectADCCmd(uint32_t
+  OPAMP_Selection, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetCalibrationVrefOutput(OPAMP_TypeDef
+  *OPAMPx, uint32_t CalibrationVrefOutput)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_VrefConfig(OPAMP_TypeDef*
+  OPAMPx, uint32_t OPAMP_Vref)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetCalibrationSelection(OPAMP_TypeDef
+  *OPAMPx, uint32_t TransistorsDiffPair)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_StartCalibration(OPAMP_TypeDef*
+  OPAMPx, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t Mode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_PGAMode(OPAMP_TypeDef*
+  OPAMPx, uint32_t OPAMP_PGAMode)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetFunctionalMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t FunctionalMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_PGAConfig(OPAMP_TypeDef*
+  OPAMPx, uint32_t OPAMP_PGAGain)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetPGAGain(OPAMP_TypeDef
+  *OPAMPx, uint32_t PGAGain)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_LowPowerCmd(OPAMP_TypeDef*
+  OPAMPx, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetPowerMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t PowerMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=40 style='height:30.0pt'>
+  <td height=40 class=xl646564 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_Cmd(OPAMP_TypeDef*
+  OPAMPx, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_Enable(OPAMP_TypeDef
+  *OPAMPx)<br>
+    LL_OPAMP_Disable(OPAMP_TypeDef *OPAMPx)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_LockConfig(uint32_t
+  OPAMP_Selection)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_Lock(OPAMP_TypeDef
+  *OPAMPx)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=40 style='height:30.0pt'>
+  <td height=40 class=xl646564 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_OffsetTrimModeSelect(uint32_t
+  OPAMP_Selection, uint32_t OPAMP_Trimming)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetTrimmingMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t TrimmingMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=60 style='height:45.0pt'>
+  <td height=60 class=xl646564 style='height:45.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_TimerControlledMuxConfig(uint32_t
+  OPAMP_Selection, OPAMP_InitTypeDef* OPAMP_InitStruct)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetInputInverting(OPAMP_TypeDef
+  *OPAMPx, uint32_t InputInverting)<br>
+    LL_OPAMP_SetInputNonInvertingSecondary(OPAMP_TypeDef *OPAMPx, uint32_t
+  InputNonInverting)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl746564 width=604 style='width:453pt'>OPAMP_TimerControlledMuxCmd(uint32_t
+  OPAMP_Selection, FunctionalState NewState)</td>
+  <td class=xl716564 width=640 style='width:480pt'>LL_OPAMP_SetInputsMuxMode(OPAMP_TypeDef
+  *OPAMPx, uint32_t InputsMuxMode)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=120 style='height:90.0pt'>
+  <td height=120 class=xl646564 style='height:90.0pt'>&nbsp;</td>
+  <td class=xl706564 width=604 style='width:453pt'>OPAMP_OffsetTrimLowPowerConfig(OPAMP_TypeDef*
+  OPAMPx, uint32_t OPAMP_Input, uint32_t OPAMP_TrimValue)<br>
+    <br>
+    OPAMP_OffsetTrimConfig(OPAMP_TypeDef* OPAMPx, uint32_t OPAMP_Input,
+  uint32_t OPAMP_TrimValue)<br>
+    </td>
+  <td class=xl726564 width=640 style='width:480pt'>LL_OPAMP_SetInputInverting(OPAMP_TypeDef
+  *OPAMPx, uint32_t InputInverting)<br>
+    <br>
+    LL_OPAMP_SetInputNonInverting(OPAMP_TypeDef *OPAMPx, uint32_t
+  InputNonInverting)<br>
+    <br>
+    LL_OPAMP_SetTrimmingValue(OPAMP_TypeDef* OPAMPx, uint32_t PowerMode,
+  uint32_t TransistorsDiffPair, uint32_t TrimmingValue)</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=27 style='mso-height-source:userset;height:20.25pt'>
+  <td colspan=4 height=27 class=xl786564 width=1276 style='height:20.25pt;
+  width:957pt'>Correspondence between <font class="font76564">SPL</font><font
+  class="font56564"> and </font><font class="font76564">STM32Cube_LL</font><font
+  class="font56564"> initialization structures</font></td>
+ </tr>
+ <tr class=xl656564 height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td height=22 class=xl646564 style='height:16.5pt'>&nbsp;</td>
+  <td class=xl666564 width=604 style='width:453pt'>Structure<br>
+    </td>
+  <td class=xl736564 width=640 style='width:480pt'>Parameter</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td rowspan=2 class=xl766564 width=604 style='border-bottom:.5pt solid #39A9DC;
+  width:453pt'>OPAMP_TypeDef<span style='mso-spacerun:yes'> 
+  </span>&#8596;<span style='mso-spacerun:yes'>  </span>LL_OPAMP_InitTypeDef</td>
+  <td class=xl676564 width=640 style='border-top:none;width:480pt'>OPAMP_InvertingInput
+  &#8596;<span style='mso-spacerun:yes'>  </span>InputInverting</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl686564 width=640 style='width:480pt'>OPAMP_NonInvertingInput
+  &#8596; InputNonInverting</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <tr class=xl656564 height=20 style='height:15.0pt'>
+  <td height=20 class=xl646564 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl646564>&nbsp;</td>
+  <td class=xl646564>&nbsp;</td>
+  <td class=xl646564>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=604 style='width:453pt'></td>
+  <td width=640 style='width:480pt'></td>
+  <td width=16 style='width:12pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

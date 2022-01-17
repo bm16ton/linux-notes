@@ -1,0 +1,13 @@
+## From inside the qmk/via/vial u can usee make to flash, and even specify left or right
+
+make keebio/quefrency/rev2:via::dfu-split-right
+make keebio/quefrency/rev2:via::dfu-split-left
+
+## or dont specify right left (doesnt add extra settings in eeprom)
+make keebio/quefrency/rev2:via:flash
+
+
+### dfu-programmer if not installed get it on github and this can be run anywhere just point it to the hex
+sudo dfu-programmer atmega32u4 erase
+sudo dfu-programmer atmega32u4 flash your.hex
+sudo dfu-programmer atmega32u4 reset

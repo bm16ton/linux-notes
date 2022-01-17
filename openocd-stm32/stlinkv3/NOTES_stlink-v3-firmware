@@ -1,0 +1,23 @@
+
+1.    Build your firmware with 0x08020000 base address.
+2.    Convert it to binary and encrypt with st-decrypt
+3.    Replace f3_{1,2}.bin files inside the official updater with the encrypted binary.
+4.    Update as usual (you can use java -jar STLinkUpgrade.jar -force_prog to skip gui part).
+
+encrypt/decrypt key is    ' .ST-Link.ver.3.'
+
+st-decrypt -i STLINKv3DAPv1_HID+VCP_stbl.bin -o STLINKv3DAPv1_HID+VCP_stbl.bin.enc -k ' .ST-Link.ver.3.' -e
+
+java -jar st_decrypt.jar --key ' .ST-Link.ver.3.' -i firmware.bin -o f3_2.bin --encrypt
+
+sign the firmware and  replace the f3_1 and f3_2 (same) in STLinkUpgrade.jar.
+
+UPD Warning: you should have v3mini2-config.bin (1024-byte image dumped from 0x08010000) prior to running this script!
+
+1 disable all INTs at start of "main"
+2 change SCB-VTOR to 0x08020000
+3 generate a bin code based 0x08020000
+4 st_decrypt it using "What are you doing".
+5 "force" to write to device.
+
+DO NOT USE STSW-LINK007 v2.36.26 or later!!! LOCKS SWD

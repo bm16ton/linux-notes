@@ -1,0 +1,19 @@
+### HOST
+usbip list -l
+#### example output
+ - busid 1-1.1 (320f:5044)
+   unknown vendor : unknown product (320f:5044)
+
+ - busid 1-1.3 (045e:0745)
+   Microsoft Corp. : Nano Transceiver v1.0 for Bluetooth (045e:0745)
+
+ - busid 2-2 (1058:25fa)
+   Western Digital Technologies, Inc. : unknown product (1058:25fa)
+#### end example output
+sudo usbip bind --busid=2-2
+sudo usbipd
+
+
+###  CLIENT
+sudo modprobe vhci-hcd
+sudo usbip attach --remote=192.168.1.212 --device=2-2

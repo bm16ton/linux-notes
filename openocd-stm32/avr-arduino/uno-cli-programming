@@ -1,0 +1,2 @@
+#!/bin/bash
+avrdude -C/etc/avrdude.conf -v -patmega328p -carduino -P/dev/ttyCAM0 -b115200 -D -Uflash:w:$1:i

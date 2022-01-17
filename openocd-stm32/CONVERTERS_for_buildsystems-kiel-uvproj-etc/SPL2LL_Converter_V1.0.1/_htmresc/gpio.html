@@ -1,0 +1,1873 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="gpio_files/filelist.xml">
+<style id="STM32_StdLib_vs_LL_15728_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font515728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font615728
+	{color:#BA122C;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font715728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font815728
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font915728
+	{color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1015728
+	{color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1115728
+	{color:#006A23;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1215728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1315728
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1415728
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1515728
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1615728
+	{color:#145676;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1715728
+	{color:#0D0D0D;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1815728
+	{color:#1F81AF;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font1915728
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;}
+.font2015728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2115728
+	{color:#BA122C;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2215728
+	{color:#820D1F;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2315728
+	{color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2415728
+	{color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2515728
+	{color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.font2615728
+	{color:white;
+	font-size:14.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;}
+.font2715728
+	{color:#5C0915;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.xl6515728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6615728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6715728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6815728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6915728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7015728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7115728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7215728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7315728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7415728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7515728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#AFDCF1;
+	mso-pattern:#39A9DC none;
+	white-space:nowrap;}
+.xl7615728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7715728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl7815728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#1F81AF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7915728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8015728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8115728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	background:#AFDCF1;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8215728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8315728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8415728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8515728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8615728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8715728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #39A9DC;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8815728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl8915728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:none;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9015728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl9115728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl9215728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9315728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:.5pt solid #39A9DC;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl9415728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl9515728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:.5pt solid #39A9DC;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9615728
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #39A9DC;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	background:#FAF286;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9715728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+.xl9815728
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #39A9DC;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;
+	padding-left:12px;
+	mso-char-indent-count:1;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="STM32_StdLib_vs_LL_15728" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1750 class=xl6515728
+ style='border-collapse:collapse;table-layout:fixed;width:1313pt'>
+ <col class=xl6515728 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <col class=xl6515728 width=458 style='mso-width-source:userset;mso-width-alt:
+ 14656;width:344pt'>
+ <col class=xl6515728 width=628 style='mso-width-source:userset;mso-width-alt:
+ 20096;width:471pt'>
+ <col class=xl6515728 width=632 style='mso-width-source:userset;mso-width-alt:
+ 20224;width:474pt'>
+ <col class=xl6515728 width=16 style='mso-width-source:userset;mso-width-alt:
+ 512;width:12pt'>
+ <tr height=62 style='mso-height-source:userset;height:47.1pt'>
+  <td colspan=5 height=62 class=xl7815728 width=1750 style='height:47.1pt;
+  width:1313pt'>SPL vs STM32Cube_LL APIs<br>
+    <font class="font2615728">GPIO</font><font class="font1915728"> driver</font></td>
+ </tr>
+ <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td colspan=2 height=22 class=xl7515728 style='height:16.5pt'>SPL</td>
+  <td class=xl7515728>STM32Cube_LL</td>
+  <td colspan=2 class=xl7515728>Notes / Parameters<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl7015728 style='height:15.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_DeInit(GPIO_TypeDef*
+  GPIOx)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_DeInit(GPIO_TypeDef
+  *GPIOx)</td>
+  <td class=xl8615728 width=632 style='width:474pt'>&nbsp;</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=453 style='mso-height-source:userset;height:339.75pt'>
+  <td height=453 class=xl7015728 style='height:339.75pt'>&nbsp;</td>
+  <td rowspan=3 class=xl8415728 width=458 style='border-bottom:.5pt solid #39A9DC;
+  width:344pt'>GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef*
+  GPIO_InitStruct)</td>
+  <td rowspan=3 class=xl8515728 width=628 style='border-bottom:.5pt solid #39A9DC;
+  width:471pt'>LL_GPIO_Init(GPIO_TypeDef *GPIOx, LL_GPIO_InitTypeDef
+  *GPIO_InitStruct)</td>
+  <td rowspan=3 class=xl8615728 width=632 style='border-bottom:.5pt solid #39A9DC;
+  width:474pt'><font class="font815728">SPL- GPIO_InitStruct</font><font
+  class="font715728"> </font><font class="font515728">parameter contains the
+  following fields value</font><font class="font715728"><br>
+    </font><font class="font2015728">GPIOx</font><font class="font715728">
+  parameter can be one of the following values :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font715728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Pin</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values</font><font
+  class="font715728"><br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15 <br>
+    GPIO_Pin_All</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Mode</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Mode_IN<br>
+    GPIO_Mode_OUT<br>
+    GPIO_Mode_AF<br>
+    GPIO_Mode_AN<br>
+    </font><font class="font515728"><br>
+    </font><font class="font2015728">GPIO_Speed</font><font class="font515728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Speed_2MHz<br>
+    GPIO_Speed_25MHz<br>
+    GPIO_Speed_50MHz<br>
+    GPIO_Speed_100MHz</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2315728">GPIO_OType</font><font class="font1015728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_OType_PP<br>
+    GPIO_OType_OD</font><font class="font1015728"><br>
+    <br>
+    </font><font class="font2315728">GPIO_PuPd</font><font class="font1015728">
+  parameter can be one of the following values<br>
+    GPIO_PuPd_NOPULL<br>
+    GPIO_PuPd_UP<br>
+    GPIO_PuPd_DOWN<br>
+    <br>
+    </font><font class="font815728">LL- GPIO_InitStruct</font><font
+  class="font515728"> parameter contains the following fields value</font><font
+  class="font1015728"><br>
+    GPIOx parameter can be one of the following values : <br>
+    GPIOA ... GPIOH<br>
+    <br>
+    </font><font class="font2315728">Pin</font><font class="font1015728">
+  parameter can be one of the following values : <br>
+    LL_GPIO_PIN_0 ... LL_GPIO_PIN_15<br>
+    LL_GPIO_PIN_ALL<br>
+    <br>
+    </font><font class="font2315728">Mode</font><font class="font1015728">
+  parameter can be one of the following values :<br>
+    LL_GPIO_MODE_INPUT<br>
+    LL_GPIO_MODE_OUTPUT<br>
+    LL_GPIO_MODE_ALTERNATE<br>
+    LL_GPIO_MODE_ANALOG<br>
+    <br>
+    </font><font class="font2315728">Output </font><font class="font1015728">Type
+  parameter can be one of the following values :<br>
+    LL_GPIO_OUTPUT_PUSHPULL<br>
+    LL_GPIO_OUTPUT_OPENDRAIN<br>
+    <br>
+    </font><font class="font2315728">Speed </font><font class="font1015728">parameter
+  can be one of the following values :<br>
+    LL_GPIO_SPEED_FREQ_LOW<br>
+    LL_GPIO_SPEED_FREQ_MEDIUM<br>
+    LL_GPIO_SPEED_FREQ_HIGH<br>
+    LL_GPIO_SPEED_FREQ_VERY_HIGH<br>
+    <br>
+    </font><font class="font2315728">Pull </font><font class="font1015728">parameter
+  can be one of the following values :<br>
+    LL_GPIO_PULL_NO<br>
+    LL_GPIO_PULL_UP<br>
+    LL_GPIO_PULL_DOWN</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=524 style='mso-height-source:userset;height:393.0pt'>
+  <td height=524 class=xl7015728 style='height:393.0pt'>&nbsp;</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=17 style='height:12.75pt'>
+  <td height=17 class=xl7015728 style='height:12.75pt'>&nbsp;</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=430 style='height:322.5pt'>
+  <td height=430 class=xl7015728 style='height:322.5pt'>&nbsp;</td>
+  <td rowspan=3 class=xl8415728 width=458 style='border-bottom:.5pt solid #39A9DC;
+  border-top:none;width:344pt'>GPIO_StructInit(GPIO_InitTypeDef*
+  GPIO_InitStruct)</td>
+  <td rowspan=3 class=xl8515728 width=628 style='border-bottom:.5pt solid #39A9DC;
+  border-top:none;width:471pt'>LL_GPIO_StructInit(LL_GPIO_InitTypeDef
+  *GPIO_InitStruct)</td>
+  <td class=xl8615728 width=632 style='border-top:none;width:474pt'><font
+  class="font815728">SPL- GPIO_InitStruct</font><font class="font715728"> </font><font
+  class="font515728">parameter contains the following fields value</font><font
+  class="font715728"><br>
+    </font><font class="font2015728">GPIOx</font><font class="font715728">
+  parameter can be one of the following values :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font715728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Pin</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values</font><font
+  class="font715728"><br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15 <br>
+    GPIO_Pin_All</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Mode</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Mode_IN<br>
+    GPIO_Mode_OUT<br>
+    GPIO_Mode_AF<br>
+    GPIO_Mode_AN<br>
+    </font><font class="font515728"><br>
+    </font><font class="font2015728">GPIO_Speed</font><font class="font515728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Speed_2MHz<br>
+    GPIO_Speed_25MHz<br>
+    GPIO_Speed_50MHz<br>
+    GPIO_Speed_100MHz</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_OType</font><font class="font515728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_OType_PP<br>
+    GPIO_OType_OD</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=450 style='height:337.5pt'>
+  <td height=450 class=xl7015728 style='height:337.5pt'>&nbsp;</td>
+  <td class=xl8915728 width=632 style='width:474pt'><font class="font715728"><br>
+    </font><font class="font815728">SPL- GPIO_InitStruct</font><font
+  class="font715728"> </font><font class="font515728">parameter contains the
+  following fields value</font><font class="font715728"><br>
+    </font><font class="font2015728">GPIOx</font><font class="font715728">
+  parameter can be one of the following values :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font715728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Pin</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values</font><font
+  class="font715728"><br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15 <br>
+    GPIO_Pin_All</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_Mode</font><font class="font815728"> </font><font
+  class="font515728">parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Mode_IN<br>
+    GPIO_Mode_OUT<br>
+    GPIO_Mode_AF<br>
+    GPIO_Mode_AN<br>
+    </font><font class="font515728"><br>
+    </font><font class="font2015728">GPIO_Speed</font><font class="font515728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_Speed_2MHz<br>
+    GPIO_Speed_25MHz<br>
+    GPIO_Speed_50MHz<br>
+    GPIO_Speed_100MHz</font><font class="font515728"><br>
+    <br>
+    </font><font class="font2015728">GPIO_OType</font><font class="font515728">
+  parameter can be one of the following values<br>
+    </font><font class="font915728">GPIO_OType_PP<br>
+    GPIO_OType_OD</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=71 style='height:53.25pt'>
+  <td height=71 class=xl7015728 style='height:53.25pt'>&nbsp;</td>
+  <td class=xl8915728 width=632 style='width:474pt'><font class="font2015728">Pull</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    </font><font class="font915728">LL_GPIO_PULL_NO<br>
+    LL_GPIO_PULL_UP<br>
+    LL_GPIO_PULL_DOWN</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=317 style='height:237.75pt'>
+  <td height=317 class=xl7015728 style='height:237.75pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='border-top:none;width:344pt'>GPIO_PinLockConfig(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl8515728 width=628 style='border-top:none;width:471pt'>LL_GPIO_LockPin(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1615728">Ex.
+  : </font><font class="font1515728"><br>
+    </font><font class="font1715728">GPIO_PinLockConfig(GPIOx, GPIO_Pin_0 )
+  -&gt; LL_GPIO_LockPin(GPIOx, LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values</font><font class="font1815728"><br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font1415728"> </font><font
+  class="font515728">parameter can be one of the following values : <br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    </font><font class="font1815728"><br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  : <br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=200 style='mso-height-source:userset;height:150.0pt'>
+  <td height=200 class=xl7015728 style='height:150.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_ReadInputData(GPIO_TypeDef*
+  GPIOx)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_ReadInputPort(GPIO_TypeDef*
+  GPIOx)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font1515728"><br>
+    </font><font class="font515728">GPIO_ReadInputData(GPIOx) -&gt;
+  LL_GPIO_ReadInputPort(GPIOx);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font1415728"> </font><font
+  class="font515728">parameter can be one of the following values : <br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    </font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=320 style='mso-height-source:userset;height:240.0pt'>
+  <td height=320 class=xl7015728 style='height:240.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_ReadInputDataBit(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_IsInputPinSet(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font1515728"><br>
+    </font><font class="font515728">GPIO_ReadInputDataBit(GPIOx, GPIO_Pin_0 )
+  -&gt; LL_GPIO_IsInputPinSet(GPIOx, LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values<br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font1415728"> </font><font
+  class="font515728">parameter can be one of the following values : <br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  : <br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=245 style='mso-height-source:userset;height:183.75pt'>
+  <td height=245 class=xl7015728 style='height:183.75pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_Write(GPIO_TypeDef*
+  GPIOx, uint16_t PortVal)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_WriteOutputPort(GPIO_TypeDef*
+  GPIOx, uint32_t PortValue)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font1515728"><br>
+    </font><font class="font515728">GPIO_Write(GPIOx, 0xFFFF) -&gt;
+  LL_GPIO_WriteOutputPort(GPIOx, 0xFFFF);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font1415728"> </font><font
+  class="font515728">parameter can be one of the following values : <br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- PortVal</font><font class="font515728">
+  and </font><font class="font815728">LL- PortValue</font><font
+  class="font515728"> are the output value which should not bypass 0xFFFF.</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=205 style='mso-height-source:userset;height:153.75pt'>
+  <td height=205 class=xl7015728 style='height:153.75pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_ReadOutputData(GPIO_TypeDef*
+  GPIOx)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_ReadOutputPort(GPIO_TypeDef*
+  GPIOx)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font1515728"><br>
+    </font><font class="font515728">GPIO_ReadOutputData(GPIOx) -&gt;
+  LL_GPIO_ReadOutputPort(GPIOx);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1815728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font1815728"> </font><font
+  class="font515728">parameter can be one of the following values</font><font
+  class="font1815728"> :</font><font class="font515728"> <br>
+    </font><font class="font915728">GPIOA ... GPIOH</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=319 style='mso-height-source:userset;height:239.25pt'>
+  <td height=319 class=xl7015728 style='height:239.25pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_ReadOutputDataBit(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_IsOutputPinSet(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  :</font><font class="font515728"> <br>
+    GPIO_ReadOutputDataBit(GPIOx, GPIO_Pin_0 ) -&gt;
+  LL_GPIO_IsOutputPinSet(GPIOx, LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH<br>
+    </font><font class="font515728"><br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values<br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx </font><font class="font515728">parameter
+  can be one of the following values :</font><font class="font1215728"> </font><font
+  class="font515728"><br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  : <br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=318 style='mso-height-source:userset;height:238.5pt'>
+  <td height=318 class=xl7015728 style='height:238.5pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_SetBits(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_SetOutputPin(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font515728"><br>
+    GPIO_SetBits(GPIOx, GPIO_Pin_0 ) -&gt; LL_GPIO_SetOutputPin(GPIOx,
+  LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values<br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx </font><font class="font515728">parameter
+  can be one of the following values :</font><font class="font1515728"> </font><font
+  class="font515728"><br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :</font><font class="font715728"> </font><font class="font515728"><br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=316 style='mso-height-source:userset;height:237.0pt'>
+  <td height=316 class=xl7015728 style='height:237.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_ResetBits(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_ResetOutputPin(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : </font><font class="font515728"><br>
+    GPIO_ResetBits(GPIOx, GPIO_Pin_0 ) -&gt; LL_GPIO_ResetOutputPin(GPIOx,
+  LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values<br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx </font><font class="font515728">parameter
+  can be one of the following values :</font><font class="font1215728"> </font><font
+  class="font515728"><br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  : <br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=360 style='height:270.0pt'>
+  <td height=360 class=xl7015728 style='height:270.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_WriteBit(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin, BitAction BitVal)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_SetOutputPin(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)<br>
+    LL_GPIO_ResetOutputPin(GPIO_TypeDef* GPIOx, uint32_t PinMask)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font815728">Ex:<br>
+    </font><font class="font2415728">GPIO_WriteBit(GPIOx, GPIO_Pin_0, BitAction
+  Bit_SET -&gt; LL_GPIO_SetOutputPin(GPIOx, LL_GPIO_PIN_0);<br>
+    GPIO_WriteBit(GPIOx, GPIO_Pin_0, BitAction Bit_RESET -&gt;
+  LL_GPIO_ResetOutputPin(GPIOx, LL_GPIO_PIN_0);<br>
+    where GPIOx refers to GPIO instance.</font><font class="font815728"><br>
+    <br>
+    SPL- GPIOx </font><font class="font2415728">parameter can be one of the
+  following values :<br>
+    GPIOA ... GPIOH</font><font class="font815728"><br>
+    <br>
+    SPL- GPIO_Pin </font><font class="font2415728">parameter can be one of the
+  following values<br>
+    GPIO_Pin_0 … GPIO_Pin_15</font><font class="font815728"><br>
+    <br>
+    LL- GPIOx</font><font class="font515728"> parameter can be one of the
+  following values : <br>
+    GPIOA ... GPIOH<br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font515728">
+  parameter can be one of the following values : <br>
+    LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=317 style='height:237.75pt'>
+  <td height=317 class=xl7015728 style='height:237.75pt'>&nbsp;</td>
+  <td class=xl9315728 width=458 style='width:344pt'>GPIO_ToggleBits(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_Pin)</td>
+  <td class=xl9415728 width=628 style='width:471pt'>LL_GPIO_TogglePin(GPIO_TypeDef*
+  GPIOx, uint32_t PinMask)</td>
+  <td class=xl9515728 width=632 style='width:474pt'><font class="font1115728">Ex.
+  : <br>
+    </font><font class="font515728">GPIO_ToggleBits(GPIOx, GPIO_Pin_0 ) -&gt;
+  LL_GPIO_TogglePin(GPIOx, LL_GPIO_PIN_0);<br>
+    <br>
+    where GPIOx refers to GPIO instance.</font><font class="font1515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  :<br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Pin</font><font
+  class="font1415728"> </font><font class="font515728">parameter can be one of
+  the following values<br>
+    </font><font class="font915728">GPIO_Pin_0 … GPIO_Pin_15</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- GPIOx </font><font class="font515728">parameter
+  can be one of the following values :</font><font class="font815728"> </font><font
+  class="font515728"><br>
+    </font><font class="font915728">GPIOA ... GPIOH</font><font
+  class="font515728"><br>
+    <br>
+    </font><font class="font815728">LL- PinMask</font><font class="font1415728">
+  </font><font class="font515728">parameter can be one of the following values
+  : <br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15 and
+  LL_GPIO_PIN_ALL</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=545 style='height:408.75pt'>
+  <td height=545 class=xl7015728 style='height:408.75pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='border-top:none;width:344pt'>GPIO_PinAFConfig(GPIO_TypeDef*
+  GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO_AF)</td>
+  <td class=xl8515728 width=628 style='border-top:none;width:471pt'>LL_GPIO_SetAFPin_0_7(GPIO_TypeDef*
+  GPIOx, uint32_t Pin, uint32_t Alternate)<br>
+    <br>
+    LL_GPIO_SetAFPin_8_15(GPIO_TypeDef* GPIOx, uint32_t Pin, uint32_t
+  Alternate)</td>
+  <td class=xl8615728 width=632 style='border-top:none;width:474pt'><font
+  class="font615728">Note : </font><font class="font715728">GPIO_PinAFConfig
+  covers gpio alternate function for a dedicated pin from 0 to 15<br>
+    (Not applicable with STM32F1 Family)</font><font class="font515728"><br>
+    <br>
+    Ex. : GPIO_PinAFConfig(GPIOx, GPIO_PinSource1, GPIO_AF_UART5) -&gt;
+  LL_GPIO_SetAFPin_0_7(GPIOx,LL_GPIO_PIN_1, LL_GPIO_AF_8);<br>
+    <br>
+    GPIO_PinAFConfig(GPIOx, GPIO_PinSource8, GPIO_AF_LPUART) -&gt;
+  LL_GPIO_SetAFPin_8_15(GPIOx,LL_GPIO_PIN_8, LL_GPIO_AF_8);<br>
+    <br>
+    where GPIOx refers to GPIO instance.<br>
+    </font><font class="font815728">SPL- GPIOx</font><font class="font515728">
+  parameter can be one of the following values :<br>
+    </font><font class="font915728">GPIOA ... GPIOH<br>
+    </font><font class="font515728"><br>
+    </font><font class="font815728">SPL- GPIO_PinSource</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    </font><font class="font915728">GPIO_PinSource0 ... GPIO_PinSource15<br>
+    </font><font class="font515728"><br>
+    </font><font class="font815728">SPL- GPIO_AF</font><font class="font515728">
+  parameter can be one of the following values :<br>
+    GPIO_AF_PPP<br>
+    where PPP refers to peripheral name ex. TIM1<br>
+    <br>
+    </font><font class="font815728">LL- GPIOx</font><font class="font515728">
+  parameter can be one of the following values : <br>
+    </font><font class="font915728">GPIOA ... GPIOH<br>
+    <br>
+    </font><font class="font815728">LL- Pin</font><font class="font1415728"> </font><font
+  class="font515728">parameter can be one of the following values : </font><font
+  class="font715728"><br>
+    </font><font class="font915728">LL_GPIO_PIN_0 ... LL_GPIO_PIN_15</font><font
+  class="font715728"><br>
+    <br>
+    </font><font class="font815728">LL- Alternate</font><font
+  class="font2015728"> </font><font class="font515728">parameter can be one of
+  the following values : </font><font class="font715728"><br>
+    </font><font class="font915728">LL_GPIO_AF_0 .. LL_GPIO_AF_15</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl7015728 style='height:30.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_AFIODeInit(void)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_APB2_GRP1_ForceReset(LL_APB2_GRP1_PERIPH_AFIO)<br>
+    LL_APB2_GRP1_ReleaseReset(LL_APB2_GRP1_PERIPH_AFIO)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font2215728">Note
+  : </font><font class="font2715728"><span style='mso-spacerun:yes'> </span></font><font
+  class="font515728">Available only for STM32F1 <br>
+    Need to add LL RCC driver in the output project<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=320 style='height:240.0pt'>
+  <td height=320 class=xl7015728 style='height:240.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_EventOutputConfig(uint8_t
+  GPIO_PortSource, uint8_t GPIO_PinSource)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_AF_ConfigEventout(uint32_t
+  LL_GPIO_PortSource, uint32_t LL_GPIO_PinSource)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font2215728">Note</font><font
+  class="font515728">:<span style='mso-spacerun:yes'>  </span>Available only
+  for STM32F1 <br>
+    Ex. : GPIO_EventOutputConfig(GPIOx,GPIO_PortSourceGPIOA<span
+  style='mso-spacerun:yes'>  </span>,GPIO_PinSource1) -&gt;
+  LL_GPIO_AF_ConfigEventout(LL_GPIO_AF_EVENTOUT_PORT_A,LL_GPIO_PIN_1,
+  LL_GPIO_AF_EVENTOUT_PIN_1)<br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_PortSource</font><font
+  class="font515728"><span style='mso-spacerun:yes'>  </span>parameter can be
+  one of the following values :<br>
+    GPIO_PortSourceGPIOx where x can be (A..E)<br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_PinSource</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    GPIO_PinSourcex where x can be (0..15)<br>
+    <br>
+    </font><font class="font815728">LL- LL_GPIO_PortSource</font><font
+  class="font515728"> parameter can be one of the following values : <br>
+    LL_GPIO_AF_EVENTOUT_PORT_A ... LL_GPIO_AF_EVENTOUT_PORT_E<br>
+    <br>
+    </font><font class="font815728">LL- LL_GPIO_PinSource</font><font
+  class="font515728"> parameter can be one of the following values : <br>
+    LL_GPIO_AF_EVENTOUT_PIN_0 ...LL_GPIO_AF_EVENTOUT_PIN_15</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl7015728 style='height:60.0pt'>&nbsp;</td>
+  <td class=xl8415728 width=458 style='width:344pt'>GPIO_EventOutputCmd(FunctionalState
+  NewState)</td>
+  <td class=xl8515728 width=628 style='width:471pt'>LL_GPIO_AF_EnableEventout(void)<br>
+    LL_GPIO_AF_DisableEventout(void)</td>
+  <td class=xl8615728 width=632 style='width:474pt'><font class="font2215728">Note:
+  </font><font class="font515728"><span
+  style='mso-spacerun:yes'> </span>Available only for STM32F1 <br>
+    GPIO_EventOutputCmd(ENABLE) -&gt; LL_GPIO_AF_EnableEventout()<br>
+    GPIO_EventOutputCmd(DISABLE) -&gt; LL_GPIO_AF_DisableEventout()<br>
+    </font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=546 style='mso-height-source:userset;height:409.5pt'>
+  <td height=546 class=xl7015728 style='height:409.5pt'>&nbsp;</td>
+  <td rowspan=4 class=xl8415728 width=458 style='border-bottom:.5pt solid #39A9DC;
+  width:344pt'>GPIO_PinRemapConfig(uint32_t GPIO_Remap, FunctionalState
+  NewState)</td>
+  <td rowspan=2 class=xl8515728 width=628 style='width:471pt'>LL_GPIO_AF_EnableRemap_SPI1(void)<br>
+    LL_GPIO_AF_DisableRemap_SPI1(void)<br>
+    LL_GPIO_AF_EnableRemap_I2C1(void)<br>
+    LL_GPIO_AF_DisableRemap_I2C1(void)<br>
+    LL_GPIO_AF_EnableRemap_USART1(void)<br>
+    LL_GPIO_AF_DisableRemap_USART1(void)<br>
+    LL_GPIO_AF_EnableRemap_USART2(void)<br>
+    LL_GPIO_AF_DisableRemap_USART2(void)<br>
+    LL_GPIO_AF_EnableRemap_USART3(void)<br>
+    LL_GPIO_AF_RemapPartial_USART3(void)<br>
+    LL_GPIO_AF_DisableRemap_USART3(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM1(void)<br>
+    LL_GPIO_AF_RemapPartial_TIM1(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM1(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM2(void)<br>
+    LL_GPIO_AF_RemapPartial2_TIM2(void)<br>
+    LL_GPIO_AF_RemapPartial1_TIM2(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM2(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM2(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM3(void)<br>
+    LL_GPIO_AF_RemapPartial_TIM3(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM3(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM4(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM4(void)<br>
+    LL_GPIO_AF_RemapPartial1_CAN1(void)<br>
+    LL_GPIO_AF_RemapPartial2_CAN1(void)<br>
+    LL_GPIO_AF_RemapPartial3_CAN1(void)<br>
+    LL_GPIO_AF_EnableRemap_PD01(void)<br>
+    LL_GPIO_AF_DisableRemap_PD01(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM5CH4(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM5CH4(void)<br>
+    LL_GPIO_AF_EnableRemap_ETH(void)<br>
+    LL_GPIO_AF_DisableRemap_ETH(void)<br>
+    LL_GPIO_AF_EnableRemap_CAN2(void)<br>
+    LL_GPIO_AF_DisableRemap_CAN2(void)<br>
+    LL_GPIO_AF_Select_ETH_RMII(void)<br>
+    LL_GPIO_AF_Select_ETH_MII(void)<br>
+    LL_GPIO_AF_EnableRemap_ADC1_ETRGINJ(void)<br>
+    LL_GPIO_AF_DisableRemap_ADC1_ETRGINJ(void)<br>
+    LL_GPIO_AF_EnableRemap_ADC1_ETRGREG(void)<br>
+    LL_GPIO_AF_DisableRemap_ADC1_ETRGREG(void)<br>
+    LL_GPIO_AF_EnableRemap_ADC2_ETRGINJ(void)<br>
+    LL_GPIO_AF_DisableRemap_ADC2_ETRGINJ(void)<br>
+    LL_GPIO_AF_EnableRemap_ADC2_ETRGREG(void)<br>
+    LL_GPIO_AF_DisableRemap_ADC2_ETRGREG(void)<br>
+    LL_GPIO_AF_IsEnabledRemap_ADC2_ETRGREG(void)<br>
+    LL_GPIO_AF_EnableRemap_SWJ(void)<br>
+    LL_GPIO_AF_Remap_SWJ_NONJTRST(void)<br>
+    LL_GPIO_AF_Remap_SWJ_NOJTAG(void)<br>
+    LL_GPIO_AF_DisableRemap_SWJ(void)<br>
+    LL_GPIO_AF_EnableRemap_SPI3(void)<br>
+    LL_GPIO_AF_DisableRemap_SPI3(void)</td>
+  <td rowspan=4 class=xl8615728 width=632 style='border-bottom:.5pt solid #39A9DC;
+  width:474pt'><font class="font2215728">Note:<span style='mso-spacerun:yes'> 
+  </span></font><font class="font515728">Available only for STM32F1 <br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_Remap</font><font
+  class="font515728"><span style='mso-spacerun:yes'>  </span>parameter can be
+  one of the following values :<br>
+    GPIO_Remap_SPI1<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap_I2C1<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap_USART1<span style='mso-spacerun:yes'>           </span><br>
+    GPIO_Remap_USART2<span style='mso-spacerun:yes'>           </span><br>
+    GPIO_PartialRemap_USART3<span style='mso-spacerun:yes'>    </span><br>
+    GPIO_FullRemap_USART3<span style='mso-spacerun:yes'>       </span><br>
+    GPIO_PartialRemap_TIM1<span style='mso-spacerun:yes'>      </span><br>
+    GPIO_FullRemap_TIM1<span style='mso-spacerun:yes'>         </span><br>
+    GPIO_PartialRemap1_TIM2<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_PartialRemap2_TIM2<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_FullRemap_TIM2<span style='mso-spacerun:yes'>         </span><br>
+    GPIO_PartialRemap_TIM3<span style='mso-spacerun:yes'>      </span><br>
+    GPIO_FullRemap_TIM3<span style='mso-spacerun:yes'>         </span><br>
+    GPIO_Remap_TIM4<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap1_CAN1<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap2_CAN1<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_PD01<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap_TIM5CH4_LSI<span style='mso-spacerun:yes'>      </span><br>
+    GPIO_Remap_ADC1_ETRGINJ<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_Remap_ADC1_ETRGREG<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_Remap_ADC2_ETRGINJ<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_Remap_ADC2_ETRGREG<span style='mso-spacerun:yes'>     </span><br>
+    GPIO_Remap_ETH<span style='mso-spacerun:yes'>              </span><br>
+    GPIO_Remap_CAN2<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap_SWJ_NoJTRST<span style='mso-spacerun:yes'>      </span><br>
+    GPIO_Remap_SWJ_JTAGDisable<span style='mso-spacerun:yes'>  </span><br>
+    GPIO_Remap_SWJ_Disable<span style='mso-spacerun:yes'>      </span><br>
+    GPIO_Remap_SPI3<span
+  style='mso-spacerun:yes'>                                      </span><br>
+    GPIO_Remap_TIM2ITR1_PTP_SOF <br>
+    GPIO_Remap_PTP_PPS<span style='mso-spacerun:yes'>          </span><br>
+    GPIO_Remap_TIM15<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_TIM16<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_TIM17<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_CEC<span style='mso-spacerun:yes'>              </span><br>
+    GPIO_Remap_TIM1_DMA<span style='mso-spacerun:yes'>         </span><br>
+    GPIO_Remap_TIM9<span style='mso-spacerun:yes'>             </span><br>
+    GPIO_Remap_TIM10<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_TIM11<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_TIM13<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_TIM14<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_FSMC_NADV<span style='mso-spacerun:yes'>        </span><br>
+    GPIO_Remap_TIM67_DAC_DMA<span style='mso-spacerun:yes'>    </span><br>
+    GPIO_Remap_TIM12<span style='mso-spacerun:yes'>            </span><br>
+    GPIO_Remap_MISC<span style='mso-spacerun:yes'>             </span><br>
+    <br>
+    <br>
+    </font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=381 style='mso-height-source:userset;height:285.75pt'>
+  <td height=381 class=xl7015728 style='height:285.75pt'>&nbsp;</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=320 style='height:240.0pt'>
+  <td height=320 class=xl7015728 style='height:240.0pt'>&nbsp;</td>
+  <td class=xl8815728 width=628 style='width:471pt'>LL_GPIO_AF_Remap_TIM2ITR1_TO_USB(void)<br>
+    LL_GPIO_AF_Remap_TIM2ITR1_TO_ETH(void)<br>
+    LL_GPIO_AF_EnableRemap_ETH_PTP_PPS(void)<br>
+    LL_GPIO_AF_DisableRemap_ETH_PTP_PPS(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM9(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM9(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM10(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM10(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM11(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM11(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM13(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM13(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM14(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM14(void)<br>
+    LL_GPIO_AF_Disconnect_FSMCNADV(void)<br>
+    LL_GPIO_AF_Connect_FSMCNADV(void)</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=320 style='height:240.0pt'>
+  <td height=320 class=xl7015728 style='height:240.0pt'>&nbsp;</td>
+  <td class=xl8815728 width=628 style='width:471pt'>LL_GPIO_AF_EnableRemap_TIM15(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM15(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM16(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM16(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM17(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM17(void)<br>
+    LL_GPIO_AF_EnableRemap_CEC(void)<br>
+    LL_GPIO_AF_DisableRemap_CEC(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM1DMA(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM1DMA(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM67DACDMA(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM67DACDMA(void)<br>
+    LL_GPIO_AF_EnableRemap_TIM12(void)<br>
+    LL_GPIO_AF_DisableRemap_TIM12(void)<br>
+    LL_GPIO_AF_EnableRemap_MISC(void)<br>
+    LL_GPIO_AF_DisableRemap_MISC(void)</td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=300 style='height:225.0pt'>
+  <td height=300 class=xl7015728 style='height:225.0pt'>&nbsp;</td>
+  <td class=xl7715728 width=458 style='border-top:none;width:344pt'>GPIO_EXTILineConfig(uint8_t
+  GPIO_PortSource, uint8_t GPIO_PinSource)</td>
+  <td class=xl8215728 width=628 style='width:471pt'>LL_GPIO_AF_SetEXTISource(uint32_t
+  Port, uint32_t Line)</td>
+  <td class=xl7615728 width=632 style='border-top:none;width:474pt'><font
+  class="font615728">Note</font><font class="font2115728">:</font><font
+  class="font515728"><span style='mso-spacerun:yes'>  </span>Available only for
+  STM32F1 <br>
+    </font><font class="font1115728">Ex.</font><font class="font515728"> :
+  GPIO_EXTILineConfig(GPIOx,GPIO_PortSourceGPIOA<span
+  style='mso-spacerun:yes'>  </span>,GPIO_PinSource1) -&gt;
+  LL_GPIO_AF_SetEXTISource(LL_GPIO_AF_EXTI_PORTA, LL_GPIO_AF_EXTI_LINE0)<br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_PortSource</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    GPIO_PortSourceGPIOx where x can be (A..E)<br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_PinSource</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    GPIO_PinSourcex where x can be (0..15)<br>
+    <br>
+    </font><font class="font815728">LL- Port </font><font class="font515728">parameter
+  can be one of the following values : <br>
+    LL_GPIO_AF_EXTI_PORTA ... LL_GPIO_AF_EXTI_PORTG<br>
+    <br>
+    </font><font class="font815728">LL-<span style='mso-spacerun:yes'> 
+  </span>Line</font><font class="font1815728"> </font><font class="font515728">parameter
+  can be one of the following values : <br>
+    LL_GPIO_AF_EXTI_LINE0 ... LL_GPIO_AF_EXTI_LINE15</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl7015728 style='height:135.0pt'>&nbsp;</td>
+  <td class=xl7115728 width=458 style='width:344pt'>GPIO_ETH_MediaInterfaceConfig(uint32_t
+  GPIO_ETH_MediaInterface)</td>
+  <td class=xl8315728 width=628 style='width:471pt'>LL_GPIO_AF_Select_ETH_MII(void);<br>
+    LL_GPIO_AF_Select_ETH_RMII(void)</td>
+  <td class=xl7415728 width=632 style='width:474pt'><font class="font615728">Note:</font><font
+  class="font515728"><span style='mso-spacerun:yes'>  </span>Available only for
+  STM32F1 <br>
+    </font><font class="font1115728">Ex.</font><font class="font515728"> :
+  GPIO_EXTILineConfig(GPIOx,GPIO_PortSourceGPIOA<span
+  style='mso-spacerun:yes'>  </span>,GPIO_PinSource1) -&gt;
+  LL_GPIO_AF_SetEXTISource(LL_GPIO_AF_EXTI_PORTA, LL_GPIO_AF_EXTI_LINE0)<br>
+    <br>
+    </font><font class="font815728">SPL- GPIO_PortSource</font><font
+  class="font2015728"> </font><font class="font515728"><span
+  style='mso-spacerun:yes'> </span>parameter can be one of the following values
+  :<br>
+    GPIO_PortSourceGPIOx where x can be (A..E)<br>
+    <br>
+    </font><font class="font815728">StdLib- GPIO_PinSource</font><font
+  class="font515728"> parameter can be one of the following values :<br>
+    GPIO_PinSourcex where x can be (0..15)</font></td>
+  <td class=xl7015728>&nbsp;</td>
+ </tr>
+ <tr height=29 style='mso-height-source:userset;height:21.75pt'>
+  <td colspan=5 height=29 class=xl8115728 width=1750 style='height:21.75pt;
+  width:1313pt'>Correspondence between<font class="font2515728"> SPL</font><font
+  class="font1315728"> and </font><font class="font2515728">STM32Cube_LL</font><font
+  class="font1315728"> initialization structures</font></td>
+ </tr>
+ <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class=xl6715728 style='height:18.0pt'>&nbsp;</td>
+  <td class=xl7315728 width=458 style='width:344pt'>Structure<br>
+    </td>
+  <td class=xl9615728 width=628 style='width:471pt'>Parameter</td>
+  <td class=xl7215728 width=632 style='width:474pt'>Arguments value</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=62 style='mso-height-source:userset;height:46.5pt'>
+  <td height=62 class=xl6715728 style='height:46.5pt'>&nbsp;</td>
+  <td rowspan=5 class=xl7915728 width=458 style='border-bottom:.5pt solid #39A9DC;
+  width:344pt'>GPIO_InitTypeDef<span style='mso-spacerun:yes'>  </span>&#8596;
+  LL_GPIO_InitTypeDef</td>
+  <td class=xl9715728 width=628 style='width:471pt'>GPIO_Pin &#8596;<span
+  style='mso-spacerun:yes'>  </span>Pin</td>
+  <td class=xl6815728 width=632 style='width:474pt'>GPIO_Pin_0 …
+  GPIO_Pin_15<span style='mso-spacerun:yes'>  </span>&#8596;<span
+  style='mso-spacerun:yes'>  </span>LL_GPIO_PIN_0 ... LL_GPIO_PIN_15<br>
+    GPIO_Pin_All<span style='mso-spacerun:yes'>                         
+  </span>&#8596;<span style='mso-spacerun:yes'>   </span>LL_GPIO_PIN_ALL</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=92 style='mso-height-source:userset;height:69.0pt'>
+  <td height=92 class=xl6715728 style='height:69.0pt'>&nbsp;</td>
+  <td class=xl9715728 width=628 style='width:471pt'>GPIO_Mode &#8596; Mode</td>
+  <td class=xl6815728 width=632 style='width:474pt'>GPIO_Mode_IN<span
+  style='mso-spacerun:yes'>      </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_MODE_INPUT<br>
+    GPIO_Mode_OUT<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_MODE_OUTPUT<br>
+    GPIO_Mode_AF<span style='mso-spacerun:yes'>      </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_MODE_ALTERNATE<br>
+    GPIO_Mode_AN<span style='mso-spacerun:yes'>     </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_MODE_ANALOG</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=89 style='mso-height-source:userset;height:66.75pt'>
+  <td height=89 class=xl6715728 style='height:66.75pt'>&nbsp;</td>
+  <td class=xl9715728 width=628 style='width:471pt'>GPIO_Speed &#8596; Speed</td>
+  <td class=xl6815728 width=632 style='width:474pt'>GPIO_Speed_2MHz<span
+  style='mso-spacerun:yes'>       </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_SPEED_FREQ_LOW<br>
+    GPIO_Speed_25MHz<span style='mso-spacerun:yes'>     </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_SPEED_FREQ_MEDIUM<br>
+    GPIO_Speed_50MHz<span style='mso-spacerun:yes'>     </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_SPEED_FREQ_HIGH<br>
+    GPIO_Speed_100MHz<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>    </span>LL_GPIO_SPEED_FREQ_VERY_HIGH</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=64 style='mso-height-source:userset;height:48.0pt'>
+  <td height=64 class=xl6715728 style='height:48.0pt'>&nbsp;</td>
+  <td class=xl9715728 width=628 style='width:471pt'>GPIO_OType &#8596;
+  OutputType</td>
+  <td class=xl6815728 width=632 style='width:474pt'>GPIO_OType_PP<span
+  style='mso-spacerun:yes'>    </span>&#8596;<span style='mso-spacerun:yes'>  
+  </span>LL_GPIO_OUTPUT_PUSHPULL<br>
+    GPIO_OType_OD<span style='mso-spacerun:yes'>   </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>LL_GPIO_OUTPUT_OPENDRAIN</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=69 style='mso-height-source:userset;height:51.75pt'>
+  <td height=69 class=xl6715728 style='height:51.75pt'>&nbsp;</td>
+  <td class=xl9815728 width=628 style='width:471pt'>GPIO_PuPd &#8596; Pull</td>
+  <td class=xl6915728 width=632 style='width:474pt'>GPIO_PuPd_NOPULL<span
+  style='mso-spacerun:yes'>   </span>&#8596;<span style='mso-spacerun:yes'>  
+  </span>LL_GPIO_PULL_NO<br>
+    GPIO_PuPd_UP<span style='mso-spacerun:yes'>            </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>LL_GPIO_PULL_UP<br>
+    GPIO_PuPd_DOWN<span style='mso-spacerun:yes'>     </span>&#8596;<span
+  style='mso-spacerun:yes'>   </span>LL_GPIO_PULL_DOWN</td>
+  <td class=xl6715728>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 class=xl6615728 style='height:14.25pt'>&nbsp;</td>
+  <td class=xl6615728>&nbsp;</td>
+  <td class=xl6615728>&nbsp;</td>
+  <td class=xl6615728>&nbsp;</td>
+  <td class=xl6615728>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=16 style='width:12pt'></td>
+  <td width=458 style='width:344pt'></td>
+  <td width=628 style='width:471pt'></td>
+  <td width=632 style='width:474pt'></td>
+  <td width=16 style='width:12pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+        gpio_config_special(PORTA, GPIO24, SOC_GPIO_PERIPH_G);
+        gpio_config_special(PORTA, GPIO25, SOC_GPIO_PERIPH_G);
+
+		#define LED_PORT	PORTA
+#define LED_IDLE_RUN	GPIO11
+#define LED_ERROR	GPIO10
+
+#define TMS_PORT	PORTA
+#define TMS_PIN		GPIO1
+#define TMS_DIR_PIN	GPIO5
+
+#define TCK_PORT	PORTA
+#define TCK_PIN		GPIO2
+
+#define TDI_PORT	PORTA
+#define TDI_PIN		GPIO16
+
+#define TDO_PORT	PORTA
+#define TDO_PIN		GPIO19
+
+#define SWO_PORT	PORTA
+#define SWO_PIN		GPIO6
+
+#define SWDIO_PORT	PORTA
+#define SWDIO_PIN	TMS_PIN
+#define SWDIO_PIN_NUM	1
+
+#define SWCLK_PORT	PORTA
+#define SWCLK_PIN	TCK_PIN
+
+#define SRST_PORT	PORTA
+#define SRST_PIN	GPIO7
+
+#define LED_PORT_UART	PORTA
+#define LED_UART	GPIO12
+
+#define ADC_PORT	PORTA
+#define ADC_REF_PIN	GPIO3
+#define ADC_POS_PIN	GPIO4
+#define ADC_MUXPOS	4
+
+#define BUTTON_PORT	PORTA
+#define BUTTON_PIN	GPIO27
+
+#else
+
+/* Hardware definitions... */
+#define JTAG_PORT 	PORTA
+#define TDI_PORT	JTAG_PORT
+#define TMS_DIR_PORT	JTAG_PORT
+#define TMS_PORT	JTAG_PORT
+#define TCK_PORT	JTAG_PORT
+#define TDO_PORT	JTAG_PORT
+#define TMS_DIR_PIN	GPIO15
+#define TMS_PIN		GPIO0
+#define TCK_PIN		GPIO6
+#define TDI_PIN		GPIO16
+#define TDO_PIN		GPIO19
+
+#define SWDIO_DIR_PORT	JTAG_PORT
+#define SWDIO_PORT 	JTAG_PORT
+#define SWCLK_PORT 	JTAG_PORT
+#define SWDIO_DIR_PIN	TMS_DIR_PIN
+#define SWDIO_PIN	TMS_PIN
+#define SWDIO_PIN_NUM	0
+#define SWCLK_PIN	TCK_PIN
+
+#define TRST_PORT	PORTA
+#define TRST_PIN	GPIO27
+#define PWR_BR_PORT	PORTA
+#define PWR_BR_PIN	GPIO28
+#define SRST_PORT	PORTA
+#define SRST_PIN	GPIO8
+#define SRST_SENSE_PORT	GPIOA
+#define SRST_SENSE_PIN	GPIO9
+#define TRGT_SENSE	GPIO2
+
+#define LED_PORT	PORTA
+#define LED_PORT_UART	PORTA
+#define LED_0		GPIO10
+#define LED_1		GPIO11
+#define LED_2		GPIO14
+//#define LED_2		GPIO13
+#define LED_UART	LED_1	/* Orange */
+#define LED_IDLE_RUN	LED_0	/* Yellow */
+#define LED_ERROR	LED_2	/* Red */
+
+
+#define UART_TX_PIN	GPIO8
+#define UART_RX_PIN	GPIO9
+#define UART_PERIPH	SOC_GPIO_PERIPH_C
+#define UART_PERIPH_2	SOC_GPIO_PERIPH_C
+
+#define UART_TX_PIN	GPIO4
+#define UART_RX_PIN	GPIO7
+#define UART_PERIPH	SOC_GPIO_PERIPH_D
+#define UART_PERIPH_2	SOC_GPIO_PERIPH_C
+
+#define SWO_PORT	JTAG_PORT
+#define SWO_PIN		SWD_PIN
+
+#define ADC_PORT	PORTA
+#define ADC_REF_PIN	GPIO3
+#define ADC_POS_PIN	GPIO2
+#define ADC_MUXPOS	0
+
+#define BUTTON_PORT	PORTA
+#define BUTTON_PIN	GPIO27
+
+
